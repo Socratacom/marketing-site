@@ -1,5 +1,5 @@
 # marketing-site
-Main Marketing Site
+This is the main marketing site for Socrata. Only the Theme and custom Socrata plugins are in this repository.
 
 Additional Plugins Used
 ---
