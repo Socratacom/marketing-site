@@ -13,3 +13,8 @@ Additional Plugins Used
 - WordPress SEO
 - WP-PageNavi
 - WP Google Tag Manager
+
+Change History
+---
+
+- v1.0.0 - This is the initial repository upload of the current live site.
