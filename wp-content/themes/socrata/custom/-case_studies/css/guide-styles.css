@@ -1,0 +1,162 @@
+
+.guide .btn {
+  position: absolute;
+	top: 0;
+	right: 0;
+  z-index: 100;
+  padding: 10px 20px;
+  color: #fff;
+  font-size:12px;
+  border-radius: 3px;
+  background-color: #3b86c1;
+
+  background-image: -webkit-linear-gradient(top, #4093d1, #3b86c1);
+  background-image:    -moz-linear-gradient(top, #4093d1, #3b86c1);
+  background-image:     -ms-linear-gradient(top, #4093d1, #3b86c1);
+  background-image:      -o-linear-gradient(top, #4093d1, #3b86c1);
+  background-image:         linear-gradient(top, #4093d1, #3b86c1);
+}
+.guide .icon {background-image: url(../images/ico-list.png); width:13px; height: 13px;}
+
+.guide .btn:hover {
+  background-color: #4193d2;
+  background-image: -webkit-linear-gradient(top, #46a2e0, #4193d2);
+  background-image:    -moz-linear-gradient(top, #46a2e0, #4193d2);
+  background-image:     -ms-linear-gradient(top, #46a2e0, #4193d2);
+  background-image:      -o-linear-gradient(top, #46a2e0, #4193d2);
+  background-image:         linear-gradient(top, #46a2e0, #4193d2);
+}
+
+.guide nav ul {list-style-type: none; margin:0 !important; padding:0 !important;}
+.guide nav li {margin:0 !important; padding:0;}
+
+
+
+.guide #toggle {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+.guide #nav {
+  position: absolute;
+  z-index: 10;
+  top: 40px;
+  right: 0;
+  width: 260px;
+  margin: 0;
+  list-style: none;
+  text-align: left;
+}
+
+
+#nav a {
+  height: 0;
+  line-height: 0;
+  display: none;
+  border-bottom-width: 0;
+  background: #f1f1f1;
+  padding: 10px 20px;
+  text-indent:-999em;
+  color:#222;
+  font-size:13px;
+  text-decoration: none;
+}
+#toggle:checked ~ nav #nav {
+  z-index: 101;
+ -webkit-box-shadow: 0px 3px 10px 3px #777;
+     -moz-box-shadow: 0px 3px 10px 3px #777;
+      -ms-box-shadow: 0px 3px 10px 3px #777;
+       -o-box-shadow: 0px 3px 10px 3px #777;
+          box-shadow: 0px 3px 10px 3px #777;
+  border:#d1d1d1 solid 4px;
+  padding:10px 0;
+}
+
+#toggle:checked ~ nav #nav a {
+  line-height: normal;
+  height: auto;
+  position: relative;
+  z-index: 1;
+  text-indent:0;
+  display: block;
+}
+	
+#toggle:checked ~ nav #nav a:hover {
+  background: #ddd;
+}
+
+#toggle:checked ~ nav #nav #close {
+  position: relative;
+  z-index: 0;
+}
+
+#toggle:checked ~ nav #nav #close label {
+  background: transparent;
+  border-bottom: 0;
+  position: absolute;
+  top: -101em;
+  bottom: -101em;
+  left: 0;
+  right: 0;
+  z-index: 0;
+}
+
+
+
+
+
+
+.guide section {clear: both;}
+
+.guide .headline {max-width: 500px; margin:0 auto 1em auto;}
+.guide .headline span {font-size:50px; letter-spacing: -1px; display: block; padding:10px 0 0 0;}
+.guide article {width:33%; height:360px; float:left; text-align: center; overflow: hidden;}
+
+
+.guide .wrapper {padding:20px;}
+.guide .wrapper p {margin: 0;}
+.guide .wrapper a img {margin-bottom:1em;}
+.guide .wrapper .chapter-name {font-family: "adobe-caslon-pro",serif; text-transform: uppercase; margin-bottom:.5em; font-size:11px; letter-spacing: 3px;}
+.guide .wrapper h3 a {font-family: "adobe-caslon-pro",serif; text-decoration: none; color:#222;}
+.guide .wrapper h3 a:hover {color:#2361A1;}
+.guide .wrapper h3 {line-height:.9em; font-size:2em;}
+
+.guide .begin {text-align: center; padding:30px 0;}
+
+.guide .button, .guide .next-previous a {
+  padding: 20px 40px;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #3b86c1;
+  background-image: -webkit-linear-gradient(top, #4093d1, #3b86c1);
+  background-image:    -moz-linear-gradient(top, #4093d1, #3b86c1);
+  background-image:     -ms-linear-gradient(top, #4093d1, #3b86c1);
+  background-image:      -o-linear-gradient(top, #4093d1, #3b86c1);
+  background-image:         linear-gradient(top, #4093d1, #3b86c1);
+  border:none;
+  font-size:14px;
+  text-decoration: none;
+}
+
+.guide .button:hover, .guide .next-previous a:hover  {
+  background-color: #4193d2;
+  background-image: -webkit-linear-gradient(top, #46a2e0, #4193d2);
+  background-image:    -moz-linear-gradient(top, #46a2e0, #4193d2);
+  background-image:     -ms-linear-gradient(top, #46a2e0, #4193d2);
+  background-image:      -o-linear-gradient(top, #46a2e0, #4193d2);
+  background-image:         linear-gradient(top, #46a2e0, #4193d2);
+}
+
+.guide .chapter-name {font-family: "adobe-caslon-pro",serif; text-transform: uppercase; margin-bottom:.5em; font-size:13px; letter-spacing: 3px;}
+
+.guide .next-previous {text-align: center; padding: 20px 0;}
+.guide .next-previous ul {list-style-type: none; display:inline-block; margin:0 auto !important;}
+.guide .next-previous li {padding: 0; float:left; margin:0 20px;}
+.guide .next-previous a {margin:0 20px;}
+
+
+
+
+
+

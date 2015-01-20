@@ -1,0 +1,17 @@
+.gpmp #nav {width: 900px;}
+
+.gpmp .ctas {border:#d1d1d1 solid 1px; padding:4px; margin:3em 0 4em 0;}
+.gpmp .ctas ul {list-style-type: none; margin:0 !important; padding:0 !important;}
+.gpmp .ctas li {margin:0; padding:0; float:left;}
+.gpmp .cta-button {background-image:url(../images/ctas.png); width:317px; height:60px;}
+.gpmp .cta-middle {margin:0 4px;}
+.gpmp .cta-briefing {background-position: 0 -60px;}
+.gpmp .cta-feedback {background-position: 0 -120px;}
+.gpmp .cta-download:hover {background-position: -317px 0px;}
+.gpmp .cta-briefing:hover {background-position: -317px -60px;}
+.gpmp .cta-feedback:hover {background-position: -317px -120px;}
+
+.gpmp .cover {background:url(../images/cover-1.jpg) no-repeat bottom; height:280px; margin-bottom:2em;}
+.gpmp .cover .abstract {font-size:18px;}
+.gpmp .cover p {text-align: center; margin:1em auto; width:500px;}
+.gpmp .cover .association {font-family: georgia, serif; font-style: italic; margin-bottom:50px;}

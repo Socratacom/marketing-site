@@ -1,0 +1,1 @@
+var responsive=function(){$(".full-width").css({width:$(window).width()+"px",left:($("#page").innerWidth()-$(window).width())/2+"px"})};$(document).ready(responsive);$(window).resize(responsive)

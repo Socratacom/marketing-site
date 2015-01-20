@@ -1,0 +1,1 @@
+var sfjq$ = jQuery.noConflict(true);
