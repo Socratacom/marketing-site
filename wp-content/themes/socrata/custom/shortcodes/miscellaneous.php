@@ -16,12 +16,34 @@ function guide_quote($atts) {
 }
 add_shortcode('quote', 'guide_quote');
 
+// MODAL WINDOW
 function modal_window() {
   wp_enqueue_script( 'modal' );
   return '<div class="md-overlay"></div>';
 }
 add_shortcode("modal", "modal_window");
 
+// ACCORDION
+function accordion_panel() {
+  wp_enqueue_script( 'accordion-script' );
+  wp_enqueue_style( 'accordion-styles' );  
+}
+add_shortcode("accordion-scripts", "accordion_panel");
+
+// TABS
+function tabs_panel() {
+  wp_enqueue_script( 'tab-script' );
+  wp_enqueue_style( 'tab-styles' );  
+}
+add_shortcode("tab-scripts", "tabs_panel");
+
+// TABS
+function jumplink_script() {
+  wp_enqueue_script( 'jumplinks' );
+}
+add_shortcode("jumplinks", "jumplink_script");
+
+// CTA BOX
 function cta_box($atts) {
   extract(shortcode_atts(array(
     "height"      => '',

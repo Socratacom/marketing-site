@@ -7,7 +7,8 @@ function countdown_timer($atts) {
     "year"  => '',
     "time"  => '',
   ), $atts));
-  return '<ul class="countdown">
+  return '<p class="center"><strong>The hangout will start in:</strong></p>
+  <ul class="countdown">
     <li><span class="days">00</span>
       <p class="timeRefDays">days</p>
     </li>
@@ -21,6 +22,7 @@ function countdown_timer($atts) {
       <p class="timeRefSeconds">seconds</p>
     </li>
   </ul>
+  <div class="center" style="background:#fffcdf; border:#e0d886 solid 1px; padding:10px;"><small><span class="ss-icon">alert</span> Please refresh your browser once the timer has expired.</small></div>
   <script type="text/javascript" src="/wp-content/themes/socrata/custom/scripts/jquery.jCounter-0.1.4.js"></script>
   <script type="text/javascript">
     $(document).ready(function() {

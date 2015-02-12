@@ -27,8 +27,8 @@ $wp_google_tag_manager->output_manual();
                             <p>Socrata Open Performance&trade; not only helps you set goals, but measure their impact against data, perform broad analysis, and share your results automatically.</p> 
                         </div>
                         <div class="sub-nav-group one_third last">
-                            <h4><a href="/products/custom-web-and-mobile-apps-government-data/">Open Data Apps</a></h4>
-                            <p>Data hosted on Socrata enters an ecosystem where the brightest minds in the world can analyze it, create products, and share it back again.</p> 
+                            <h4><a href="/products/financial-transparency/">Financial Transparency</a></h4>
+                            <p>Socrata’s Financial Transparency Suite™ provides a detailed view of public finance decisions by transforming complex data sets into straightforward visuals that anyone can access.</p>
                         </div>
                         <div class="clearboth"></div>
                         <div class="sub-nav-group one_third">
