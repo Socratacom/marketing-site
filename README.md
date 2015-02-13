@@ -17,5 +17,6 @@ Additional Plugins Used
 Change History
 ---
 
+- V1.0.2 - Added custom template php for the Rethink page back into pages.php
 - V1.0.1 - "Products" section of mega-menu updated, swapping out "Open Data Apps" entry for new "Financial Transparency Suite" page.
 - v1.0.0 - This is the initial repository upload of the current live site.
