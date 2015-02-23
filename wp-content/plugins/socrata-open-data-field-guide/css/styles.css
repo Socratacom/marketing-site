@@ -220,3 +220,6 @@
   font-size:2em;
   margin-right:.75em;
 }
+.guide #socrata-connect li:hover a {
+  color:#666666;
+}
