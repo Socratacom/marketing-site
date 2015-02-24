@@ -152,7 +152,6 @@
 .guide .jump-top {
   font-size: 16px;
   border-bottom:#BDC3C7 dotted 1px;
-  margin:30px 0;
   clear:both;
 }
 .guide #content img {
@@ -208,7 +207,6 @@
 .guide .chapter-nav li {
   padding:5px 0;
 }
-
 .open-data-field-guide #container {
   padding:0;
 }
@@ -270,5 +268,19 @@
   font-size: 13px;
   text-transform: uppercase;
 }
-
-
+.guide #connect-share ul {
+  margin-left:0;
+  list-style-type:none;
+}
+.guide #socrata-connect ul {
+  list-style-type:none;
+  text-align:center;
+}
+.guide #socrata-connect li {
+  display:inline-block;
+  font-size:2em;
+  margin-right:.75em;
+}
+.guide #socrata-connect li:hover a {
+  color:#666666;
+}
