@@ -69,17 +69,15 @@ function register_odfg_menu() {
 }
 
 // ENQEUE SCRIPTS
-add_action( 'init', 'register_guide_scripts', 0 ); 
-function register_guide_scripts() {
-    wp_register_style( 'odfg_styles', plugins_url( 'css/styles.css' , __FILE__ ), false, null );
-    wp_register_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
-}
-
 function guide_script_loading() {
-    if ( 'guide' == get_post_type() && is_single() || 'guide' == get_post_type() && is_archive() || is_page('open-data-field-guide') ) {
-        wp_enqueue_style( 'odfg_styles' );
-        wp_enqueue_style( 'fontawesome' );
-    } 
+  if ( 'guide' == get_post_type() && is_single() || 'guide' == get_post_type() && is_archive() || is_page('open-data-field-guide') ) {
+    wp_register_style( 'odfg_styles', plugins_url( 'css/styles.css' , __FILE__ ), false, null );
+    wp_enqueue_style( 'odfg_styles' );
+    wp_register_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
+    wp_enqueue_style( 'fontawesome' );
+    wp_register_script('jumplinks', plugins_url( 'js/jumplinks.js' , __FILE__ ), false, null, true);
+    wp_enqueue_script('jumplinks');
+  } 
 }
 add_action('wp_enqueue_scripts', 'guide_script_loading');
 
@@ -93,76 +91,48 @@ function guide_styling($classes) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
 // Display Post Type Query on main page
 add_action('thesis_hook_custom_template', 'open_data_guide_page');
 function open_data_guide_page(){
 if (is_page('open-data-field-guide')) { ?>
-<?php thesis_content_column(); ?>
-<div class="format_text">
-<section class="clearfix">
-  <?php
-  $guide_query = new WP_Query('post_type=guide&orderby=desc&showposts=40');
-  while ($guide_query->have_posts()) : $guide_query->the_post(); ?>
-  <article>
-    <div class="wrapper">
-    <?php $guide_meta = get_guide_meta();
-      echo "<p class='chapter-name'>$guide_meta[0]</p>";
-    ?>
-    <h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
-    <?php $guide_meta = get_guide_meta();
-      echo "<p>$guide_meta[1]</p>";
-    ?>
-    <p><a href="<?php the_permalink() ?>" class="more">Read More <span>&#x25B6;</span></a></p>
-    </div>
-  </article>
-  <?php endwhile; ?>
-  <?php wp_reset_query(); ?>
+
+<section id="hero">
+  <div class="wrapper format_text jumplinks">
+    <h1 class="headline">Open Data Field Guide</h1>
+    <h2 class="subhead">A comprehensive guide to ensuring your open data program serves you and your citizens.</h2>
+    <p class="association"><strong>With Insight From:</strong> City of Chicago, City of New York, City of Edmonton, State of Maryland, State of Colorado, Code for America, The World Bank, City of Baltimore, State of Oregon, <a href="/open-data-field-guide-chapter/acknowledgements-glossary/" style="color:#3498DB">and more</a>.</p>
+    <p class="center"><a href="#chapters" class="button">Explore Now</a></p>
+  </div>
 </section>
-<section style="text-align: center; margin-top:2em;">
-  <!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style " style="display:inline-block; margin:2em auto;">
-<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-<a class="addthis_button_tweet"></a> 
-<a class="addthis_button_google_plusone" g:plusone:size="medium"></a> 
-<a class="addthis_counter addthis_pill_style"></a>
+<section id="chapters">
+  <div class="wrapper format_text">
+
+<?php $query = new WP_Query('post_type=guide&orderby=desc&showposts=40'); ?>
+  <?php 
+    $count = 0;
+    while ($query->have_posts()) : $query->the_post();
+    $count++;
+    $fourth_div = ($count%4 == 0) ? 'last' : '';
+    $fourth_div_clear = ($count%4 == 0) ? '<div class="clearboth"></div>' : '';
+  ?>
+
+<article class="one_fourth <?php echo $fourth_div; ?>">
+  <div class="chapter-marker">
+    <?php $guide_meta = get_guide_meta(); echo "<i class='fa fa-bookmark'></i> $guide_meta[0]"; ?>
+  </div>
+<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
+<?php $guide_meta = get_guide_meta(); echo "<p>$guide_meta[1]</p>"; ?>
+</article>
+
+<?php echo $fourth_div_clear; ?>  
+<?php endwhile;  wp_reset_postdata(); ?>
+
 </div>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e590fc12e22e79e"></script>
-<!-- AddThis Button END -->
 </section>
-</div>
+
+
+
 <?php }
 }
-
-
-
-// Short Codes
-function downloadtoolkit($atts) {
-  extract(shortcode_atts(array(
-    "text"    => '',
-  ), $atts));
-  return '<div class="toolkit-cta"><p><a href="/open-data-field-guide/field-kit-landing-page/">Download Open Data Field Kit</a><br/>'.$text.'</p></div>';
-}
-add_shortcode('toolkit', 'downloadtoolkit');
-
-function ctas() {
-    return '<section class="ctas clearfix">
-      <ul>
-        <li><a href="/open-data-field-guide/field-kit-landing-page/" class="ir cta-button cta-download">Download Field Kit</a></li>
-        <li><a href="/open-data-field-guide/schedule-a-briefing/" class="ir cta-button cta-briefing cta-middle">Schedule a Briefing</a></li>
-        <li><a href="/open-data-field-guide/open-data-guide-feedback/" class="ir cta-button cta-feedback">Give us Feedback</a></li>
-      </ul>
-    </section>';
-}
-add_shortcode('guide-cta-buttons', 'ctas');
 
 
