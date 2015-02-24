@@ -16,7 +16,7 @@ function page_templates() {
   if(get_post_type() == '' && is_single()) require_once STYLESHEETPATH . '';
   elseif (get_post_type() == 'news' && is_single()) require_once STYLESHEETPATH . '/custom/news-single.php';
   elseif (get_post_type() == 'tribe_events' && is_single()) require_once STYLESHEETPATH . '/tribe-events/single-event.php';
-  elseif (get_post_type() == 'guide' && is_single()) require_once STYLESHEETPATH . '/custom/opendata_guide/guide_template.php'; 
+  elseif (get_post_type() == 'guide' && is_single()) require_once STYLESHEETPATH . '/custom/single-odfg.php'; 
   elseif (get_post_type() == 'gpmp' && is_single()) require_once STYLESHEETPATH . '/custom/government_performance/gpmp_template.php'; 
   elseif (get_post_type() == 'book' && is_single()) require_once STYLESHEETPATH . '/custom/book/book_template.php';
   elseif (get_post_type() == 'case_study' && is_single()) require_once STYLESHEETPATH . '/custom/single-case-study.php';
