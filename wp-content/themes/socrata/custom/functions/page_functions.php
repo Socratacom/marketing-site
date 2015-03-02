@@ -23,6 +23,13 @@ function custom_about_image() {
     <?php }
 }
 
+add_action('thesis_hook_before_html', 'ask_a_dataset');
+function ask_a_dataset() {
+  if (is_page('ask-a-dataset')) { ?>
+  <div style="margin-top:60px; background-image:url(/wp-content/uploads/ask-a-dataset-hero-banner.jpg); background-repeat: no-repeat; background-size:cover; background-position:center; padding:14% 0;" class="format_text"></div>
+    <?php }
+}
+
 add_action('thesis_hook_before_html', 'custom_top_datasets');
 function custom_top_datasets() {
   if (is_page(array('top-open-data-datasets', 'us-cities', 'us-counties', 'us-states'))) { ?>
