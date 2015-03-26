@@ -6,7 +6,12 @@ function custom_footer() { ?>
 	<div class="wrapper format_text">
 		<div class="one_fourth">
 			<h4>Contact</h4>
-			<p><span>Phone:</span> <a href="206-340-8008" target="_blank" rel="nofollow">206.340.8008</a><br><span>Fax:</span> <a href="206-452-2010" target="_blank" rel="nofollow">206.452.2010</a><br>Email: <a href="mailto:info@socrata.com">info@socrata.com</a><br><a href="/contact-us/">More Options</a></p>
+			<ul style="list-style-type:none; margin:0; padding:0;">
+				<li><span>Phone:</span> <a href="tel://1-888-997-6762">+1 (888) 997-6762</a></li>
+				<li><span>Fax:</span> <a href="tel://1-206-452-2010">+1 (206) 452-2010</a></li>
+				<li><span>Email:</span> <a href="mailto:info@socrata.com">info@socrata.com</a></li>
+				<li><a href="/contact-us/">More Options</a></li>
+			</ul>
 		</div>
 		<div class="one_fourth">
 			<h4>Seattle</h4>
