@@ -28,3 +28,11 @@ h1, h2, h3, h4, h5 {
 a:hover {
   text-decoration:none;
 }
+
+.transition(@attr, @time) {
+   -webkit-transition: @attr @time;
+   -moz-transition: @attr @time;
+   -ms-transition: @attr @time;
+   -o-transition: @attr @time;
+   transition: @attr @time;
+}

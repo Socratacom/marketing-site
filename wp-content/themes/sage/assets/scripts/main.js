@@ -32,6 +32,20 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
+        $('.jumbotron').slick({
+          arrows: false,
+          autoplay: true,
+          autoplaySpeed: 5000,
+          speed: 800
+        });
+         $('.vid-slider').slick({
+          arrows: false,
+          autoplay: true,
+          autoplaySpeed: 6000,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          speed: 500
+        });
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
