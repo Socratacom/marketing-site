@@ -36,3 +36,20 @@ a:hover {
    -o-transition: @attr @time;
    transition: @attr @time;
 }
+
+.transition2(@attr1, @attr2, @time) {
+   -webkit-transition: @attr1 @time, @attr2 @time;
+   -moz-transition: @attr1 @time, @attr2 @time;
+   -ms-transition: @attr1 @time, @attr2 @time;
+   -o-transition: @attr1 @time, @attr2 @time;
+   transition: @attr1 @time, @attr2 @time;
+}
+.red {
+  color: #f80236;
+}
+.yellow {
+  color: #fb9b05;
+}
+.green {
+  color: #29d25d;
+}

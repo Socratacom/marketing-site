@@ -38,13 +38,49 @@
           autoplaySpeed: 5000,
           speed: 800
         });
-         $('.vid-slider').slick({
+        $('.vid-slider').slick({
+          arrows: false,
+          autoplay: true,
+          autoplaySpeed: 6500,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          speed: 500,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+        $('.cta-slider').slick({
           arrows: false,
           autoplay: true,
           autoplaySpeed: 6000,
           slidesToShow: 3,
           slidesToScroll: 1,
-          speed: 500
+          speed: 500,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
         });
       },
       finalize: function() {
