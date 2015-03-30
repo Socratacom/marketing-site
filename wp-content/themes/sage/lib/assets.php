@@ -97,6 +97,7 @@ function bower_map_to_cdn($dependency, $fallback) {
 function assets() {
   wp_enqueue_style('sage_css', asset_path('styles/main.css'), false, null);
   wp_enqueue_style('open-sans', 'http://fonts.googleapis.com/css?family=Open+Sans:300,600,400', false, null);
+  wp_enqueue_style('icomoon', 'http://i.icomoon.io/public/02555ea424/socrata-com/style.css', false, null);
   wp_enqueue_style('slick-css', '//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css', false, null);
 
   /**

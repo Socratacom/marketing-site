@@ -14,7 +14,6 @@
 				$small_text = get_sub_field('header_small_text');
 				$large_text = get_sub_field('header_large_text');
 				$italic_text = get_sub_field('header_italic_text');
-
 				if( have_rows('cta') ):
 					while ( have_rows('cta') ) : the_row();
 						$link = '';
@@ -146,23 +145,36 @@
 					</div>
 					<a href="#" class="button col-xs-offset-3">Read Now</a>
 				</div>
-				<div class="slide col-sm-4">
-					<div class="row">
-						<div class="col-xs-3">
-							<i class="fa fa-unlock red"></i>
-						</div>
-						<div class="col-xs-9">
-							<h3>How Redmond Freed Its Finances from PDFs</h3>
-							<p>Redmond found a better way to tell their finance narrative with Socrata Open Budget. Read the case study.</p>
-						</div>
-					</div>
-					<a href="#" class="button col-xs-offset-3">Read Now</a>
-				</div>
 			</div>
 		</div>
 	</section>
 	<section class="cloud-overview">
-
+		<div class="container">
+			<div class="col-sm-12">
+				<h2>Cloud Product Suites</h2>
+				<p>Accelerating the shift to an open, connected, and data-driven government.</p>
+			</div>
+			<div class="col-sm-2 col-sm-offset-1">
+				<span class="icon-city_cloud"></span>
+				<h3><strong>City</strong><br> Data Cloud</h3>
+			</div>
+			<div class="col-sm-2">
+				<span class="icon-county_cloud"></span>
+				<h3><strong>County</strong><br> Data Cloud</h3>
+			</div>
+			<div class="col-sm-2">
+				<span class="icon-federal_cloud"></span>
+				<h3><strong>State</strong><br> Data Cloud</h3>
+			</div>
+			<div class="col-sm-2">
+				<span class="icon-federal_cloud"></span>
+				<h3><strong>Federal</strong><br> Data Cloud</h3>
+			</div>
+			<div class="col-sm-2">
+				<span class="icon-federal_cloud"></span>
+				<h3><strong>NGO</strong> & <strong>Non-Profit</strong><br> Data Cloud</h3>
+			</div>
+		</div>
 	</section>
 	<?php get_template_part('templates/content', 'page'); ?>
 <?php endwhile; ?>
