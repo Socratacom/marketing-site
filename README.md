@@ -4,6 +4,8 @@ This is the main marketing site for Socrata. Only the Theme and custom Socrata p
 Additional Plugins Used
 ---
 
+- Migrate DB Pro
+- Advanced Custom Fields Pro
 - The Events Calendar
 - Disqus Comment System
 - FacetWP
