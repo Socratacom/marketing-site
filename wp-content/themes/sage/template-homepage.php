@@ -150,29 +150,50 @@
 	</section>
 	<section class="cloud-overview">
 		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2>Cloud Product Suites</h2>
+					<p>Accelerating the shift to an open, connected, and data-driven government.</p>
+				</div>
+				<div class="col-sm-2 col-sm-offset-1">
+					<a href="#"><span class="icon-city_cloud"></span></a>
+					<h3><span>City</span><br> Data Cloud</h3>
+				</div>
+				<div class="col-sm-2">
+					<a href="#"><span class="icon-county_cloud"></span></a>
+					<h3><span>County</span><br> Data Cloud</h3>
+				</div>
+				<div class="col-sm-2">
+					<a href="#"><span class="icon-state_cloud"></span></a>
+					<h3><span>State</span><br> Data Cloud</h3>
+				</div>
+				<div class="col-sm-2">
+					<a href="#"><span class="icon-federal_cloud"></span></a>
+					<h3><span>Federal</span><br> Data Cloud</h3>
+				</div>
+				<div class="col-sm-2">
+					<a href="#"><span class="icon-ngo_cloud"></span></a>
+					<h3><strong>NGO</strong> & <strong>Non-Profit</strong><br> Data Cloud</h3>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="clounds">
+		<div class="container">
 			<div class="col-sm-12">
-				<h2>Cloud Product Suites</h2>
-				<p>Accelerating the shift to an open, connected, and data-driven government.</p>
+				
 			</div>
-			<div class="col-sm-2 col-sm-offset-1">
-				<span class="icon-city_cloud"></span>
-				<h3><strong>City</strong><br> Data Cloud</h3>
+			<div class="col-sm-12">
+				
 			</div>
-			<div class="col-sm-2">
-				<span class="icon-county_cloud"></span>
-				<h3><strong>County</strong><br> Data Cloud</h3>
+			<div class="col-sm-12">
+				
 			</div>
-			<div class="col-sm-2">
-				<span class="icon-federal_cloud"></span>
-				<h3><strong>State</strong><br> Data Cloud</h3>
+			<div class="col-sm-12">
+				
 			</div>
-			<div class="col-sm-2">
-				<span class="icon-federal_cloud"></span>
-				<h3><strong>Federal</strong><br> Data Cloud</h3>
-			</div>
-			<div class="col-sm-2">
-				<span class="icon-federal_cloud"></span>
-				<h3><strong>NGO</strong> & <strong>Non-Profit</strong><br> Data Cloud</h3>
+			<div class="col-sm-12">
+				
 			</div>
 		</div>
 	</section>
