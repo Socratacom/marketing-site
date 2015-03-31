@@ -178,22 +178,207 @@
 			</div>
 		</div>
 	</section>
-	<section class="clounds">
+	<section class="clouds">
 		<div class="container">
-			<div class="col-sm-12">
-				
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="col-sm-12 cloud city-cloud">
+						<div class="col-sm-4">
+							<span class="cloud-icon icon-city_cloud"></span>
+							<h2><span>City</span><br> Data Cloud</h2>
+						</div>
+						<div class="col-sm-7 col-sm-offset-1">
+							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<a href="#" class="button">Learn More</a>
+						</div>
+						<div class="col-sm-12 logos">
+
+						</div>
+					</div>
+					<div class="col-sm-12 cloud county-cloud">
+						<div class="col-sm-4 col-sm-push-8">
+							<span class="cloud-icon icon-county_cloud"></span>
+							<h2><span>County</span><br> Data Cloud</h2>
+						</div>
+						<div class="col-sm-7 col-sm-pull-4">
+							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<a href="#" class="button">Learn More</a>
+						</div>
+						<div class="col-sm-12 logos">
+
+						</div>
+					</div>
+					<div class="col-sm-12 cloud state-cloud">
+						<div class="col-sm-4">
+							<span class="cloud-icon icon-state_cloud"></span>
+							<h2><span>State</span><br> Data Cloud</h2>
+						</div>
+						<div class="col-sm-7 col-sm-offset-1">
+							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<a href="#" class="button">Learn More</a>
+						</div>
+						<div class="col-sm-12 logos">
+
+						</div>
+					</div>
+					<div class="col-sm-12 cloud federal-cloud">
+						<div class="col-sm-4 col-sm-push-8">
+							<span class="cloud-icon icon-federal_cloud"></span>
+							<h2><span>Federal</span><br> Data Cloud</h2>
+						</div>
+						<div class="col-sm-7 col-sm-pull-4">
+							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<a href="#" class="button">Learn More</a>
+						</div>
+						<div class="col-sm-12 logos">
+
+						</div>
+					</div>
+					<div class="col-sm-12 cloud ngo-cloud">
+						<div class="col-sm-4">
+							<span class="cloud-icon icon-ngo_cloud"></span>
+							<h2><span class="small"><span>NGO</span> & <span>Non-Profit</span></span><br> Data Cloud</h2>
+						</div>
+						<div class="col-sm-7 col-sm-offset-1">
+							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<a href="#" class="button">Learn More</a>
+						</div>
+						<div class="col-sm-12 logos">
+
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-12">
-				
+		</div>
+	</section>
+	<section class="case-studies">
+		<div class="container">
+			<div class="row">
+				<?php
+					$args = array(
+						'post_type' => 'case_study',
+						'post_status' => 'publish',
+	    				'order' => 'DESC',
+	    				'posts_per_page' => 9
+					);
+					$case_loop = new WP_Query( $args );
+					if ( $case_loop->have_posts() ) :
+						echo '<div class="col-sm-10 col-sm-offset-1 post-list">';
+	    				while ( $case_loop->have_posts() ) : $case_loop->the_post();
+	    					// get vars
+	    					$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+        					$featured_image = $featured_image[0];
+		    				$name = get_the_title();
+        					$link = get_the_permalink();
+        					$excerpt = get_the_excerpt();
+	    					echo '<div class="slide"><div class="col-sm-7">';
+	    					echo '<span class="sup-header">Case Studies</span><h2>'.$name.'</h2><p>'.$excerpt.'</p>';
+	    					echo '</div>';
+	    					echo '<div class="col-sm-5">';
+	    					echo '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
+	    					echo '</div></div>';
+	    				endwhile;
+		    			echo '</div>';
+		    			wp_reset_postdata();
+		    		endif;
+				?>
 			</div>
-			<div class="col-sm-12">
-				
+		</div>
+	</section>
+	<section class="news">
+		<div class="container">
+			<div class="row">
+				<h2>Latest News</h2>
+				<?php
+					$args = array(
+						'post_type' => array( 'tech_blog', 'post' ),
+						'post_status' => 'publish',
+	    				'order' => 'DESC',
+	    				'posts_per_page' => 4
+					);
+					$news_loop = new WP_Query( $args );
+					if ( $news_loop->have_posts() ) :
+						echo '<div class="row news-list">';
+	    				while ( $news_loop->have_posts() ) : $news_loop->the_post();
+	    					// get vars
+	    					$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+        					$featured_image = $featured_image[0];
+		    				$name = get_the_title();
+        					$link = get_the_permalink();
+        					$date = get_the_date();
+	    					echo '<div class="col-sm-3"><div class="post">';
+	    					echo '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
+	    					echo '<span class="sup-header">Published on '.$date.'</span><h3><a href="'.$link.'">'.$name.'</a></h3>';
+	    					echo '</div></div>';
+	    				endwhile;
+		    			echo '</div>';
+		    			wp_reset_postdata();
+		    		endif;
+
+		    		$args = array(
+						'post_type' => array( 'post' ),
+						'post_status' => 'publish',
+	    				'order' => 'DESC',
+	    				'posts_per_page' => 1
+					);
+					$case_loop = new WP_Query( $args );
+					if ( $case_loop->have_posts() ) :
+						echo '<div class="row featured">';
+	    				while ( $case_loop->have_posts() ) : $case_loop->the_post();
+	    					// get vars
+	    					$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+        					$featured_image = $featured_image[0];
+		    				$name = get_the_title();
+        					$link = get_the_permalink();
+        					$date = get_the_date();
+        					echo '<div class="col-sm-6">';
+	    					echo '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
+	    					echo '</div>';
+	    					echo '<div class="col-sm-6">';
+	    					echo '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
+	    					echo '</div>';
+	    				endwhile;
+		    			echo '</div>';
+		    			wp_reset_postdata();
+		    		endif;
+				?>
 			</div>
-			<div class="col-sm-12">
-				
+		</div>
+	</section>
+	<section class="newsletter">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-5 col-sm-offset-1">
+					<img src="wp-content/themes/sage/assets/images/transform.jpg" alt="Transform">
+					<h2>Stay in Touch</h2>
+					<h3>Subscribe to the Scorata newsletter</h3>
+					<p><strong>Transfor</strong>M, Socrata’s Newsletter, brings you regular updates on everything new and important in the world of open data, transparent government, and more.</p>
+				</div>
+				<div class="col-sm-5">
+					
+				</div>
 			</div>
-			<div class="col-sm-12">
-				
+		</div>
+	</section>
+	<section class="awards">
+		<div class="container">
+			<div class="row awards-slide">
+				<div class="col-sm-2 col-sm-offset-4">
+					<img src="wp-content/themes/sage/assets/images/fedramp.gif" alt="FedRAMP" class="img-responsive">
+				</div>
+				<div class="col-sm-2">
+					<img src="wp-content/themes/sage/assets/images/addy.gif" alt="Addy Award Winner" class="img-responsive">
+				</div>
 			</div>
 		</div>
 	</section>

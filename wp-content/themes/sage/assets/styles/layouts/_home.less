@@ -135,7 +135,7 @@
 		-webkit-box-shadow:inset 0 5px 25px 0 fadeOut(@gray-dark, 20%);
 		box-shadow:inset 0 5px 25px 0 fadeOut(@gray-dark, 20%);
 		color: @white;
-		padding: 40px 0;
+		padding: 40px 0 50px;
 		text-align: center;
 		font-weight: 300;
 		.row > div {
@@ -189,5 +189,154 @@
 				}
 			}
 		}
+	}
+
+	.clouds {
+		padding: 40px 0;
+		.cloud {
+			padding: 60px 15px;
+			.cloud-icon {
+				font-size: 23em;
+			}
+			h2 {
+				text-transform: uppercase;
+				text-align: center;
+				font-weight: 300;
+				font-size: 3em;
+				span {
+					font-size: 1em;
+					line-height: 1.3;
+					font-weight: 700;
+					&:after {
+						display: none;
+					}
+				}
+				.small {
+					font-size: .6em;
+					color: @black;
+				}
+				strong {
+					line-height: 1.5;
+				}
+			}
+			h3 {
+				font-size: 2.5em;
+				font-weight: 300;
+			}
+			.logos {
+				border-top: #bdc3c7 1px solid;
+				padding-top: 15px;
+				margin-top: 25px;
+			}
+		}
+	}
+
+	.case-studies {
+		background: @gray-dark-alt;
+		padding: 70px 0;
+		color: @white;
+		font-weight: 300;
+		.sup-header {
+			font-size: 1.2em;
+		}
+		h2 {
+			margin: 10px 0 20px;
+			font-size: 1.7em;
+			font-weight: 300;
+		}
+		a {
+			color: saturate(lighten(@socrata-blue, 20%), 11%);
+			font-weight: 700;
+			text-decoration: underline;
+			.transition(color, .5s);
+			&:hover {
+				color: @white;
+			}
+		}
+		.img-container {
+			overflow: hidden;
+			max-height: 220px;
+		}
+	}
+
+	.news {
+		padding: 60px 0 40px;
+		.post {
+			border: lighten(@gray-light, 10%) 1px solid;
+			box-shadow: 0 0 15px 0 lighten(@gray-light, 10%);
+			height: 290px;
+			overflow: hidden;
+			.sup-header {
+				padding: 15px;
+				margin-top: 15px;
+				font-size: .7em;
+			}
+			h3 {
+				font-weight: 300;
+				font-size: 1.3em;
+				font-weight: 400;
+				padding: 0 15px;
+				margin: 10px 0 0;
+				line-height: 1.4;
+				a {
+					color: @black;
+				}
+			}
+			.img-container {
+				max-height: 150px;
+			}
+		}
+		.img-container {
+			overflow: hidden;
+			margin-bottom: 10px;
+		}
+		h2 {
+			font-weight: 400;
+			font-size: 2.5em;
+			margin: 0 0 40px;
+			text-align: center;
+		}
+
+		.featured {
+			padding: 120px 0 40px;
+			h3 {
+				margin-top: 0;
+				text-align: left;
+			}
+			.img-container {
+				max-height: 200px;
+			}
+		}
+	}
+
+	.newsletter {
+		background-image: url(../images/newsletter-bg.jpg);
+		background-repeat: no-repeat;
+		background-size: cover;
+		padding: 80px 0;
+		color: @white;
+		font-weight: 300;
+		line-height: 1.5;
+		h2 {
+			font-size: 2.5em;
+			font-weight: 300;
+			margin-bottom: 8px;
+		}
+		h3 {
+			font-weight: 300;
+			font-size: 1.6em;
+			margin: 0 0 25px;
+		}
+		p {
+			strong {
+				text-transform: uppercase;
+				font-weight: 300;
+				letter-spacing: 6px;
+			}
+		}
+	}
+
+	.awards {
+		padding: 40px 0;
 	}
 }

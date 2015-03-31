@@ -33,13 +33,17 @@
       init: function() {
         // JavaScript to be fired on the home page
         $('.jumbotron').slick({
-          arrows: false,
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
           autoplay: true,
           autoplaySpeed: 5000,
           speed: 800
         });
         $('.vid-slider').slick({
-          arrows: false,
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
           autoplay: true,
           autoplaySpeed: 6500,
           slidesToShow: 3,
@@ -60,28 +64,17 @@
             }
           ]
         });
-        // $('.cta-slider').slick({
-        //   arrows: false,
-        //   autoplay: true,
-        //   autoplaySpeed: 6000,
-        //   slidesToShow: 3,
-        //   slidesToScroll: 1,
-        //   speed: 500,
-        //   responsive: [
-        //     {
-        //       breakpoint: 992,
-        //       settings: {
-        //         slidesToShow: 2
-        //       }
-        //     },
-        //     {
-        //       breakpoint: 768,
-        //       settings: {
-        //         slidesToShow: 1
-        //       }
-        //     }
-        //   ]
-        // });
+        $('.post-list').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          dots: true,
+          autoplay: true,
+          autoplaySpeed: 6000,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          speed: 500
+        });
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
