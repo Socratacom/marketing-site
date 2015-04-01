@@ -152,29 +152,30 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<h2>Cloud Product Suites</h2>
-					<p>Accelerating the shift to an open, connected, and data-driven government.</p>
+					<?php echo the_field('content'); ?>
 				</div>
-				<div class="col-sm-2 col-sm-offset-1">
-					<a href="#"><span class="icon-city_cloud"></span></a>
-					<h3><span>City</span><br> Data Cloud</h3>
-				</div>
-				<div class="col-sm-2">
-					<a href="#"><span class="icon-county_cloud"></span></a>
-					<h3><span>County</span><br> Data Cloud</h3>
-				</div>
-				<div class="col-sm-2">
-					<a href="#"><span class="icon-state_cloud"></span></a>
-					<h3><span>State</span><br> Data Cloud</h3>
-				</div>
-				<div class="col-sm-2">
-					<a href="#"><span class="icon-federal_cloud"></span></a>
-					<h3><span>Federal</span><br> Data Cloud</h3>
-				</div>
-				<div class="col-sm-2">
-					<a href="#"><span class="icon-ngo_cloud"></span></a>
-					<h3><strong>NGO</strong> & <strong>Non-Profit</strong><br> Data Cloud</h3>
-				</div>
+				<?php
+					if( have_rows('cloud', 'option') ):
+						$count = 0;
+						while ( have_rows('cloud', 'option') ) : the_row();
+							// Get vars
+							$title = get_sub_field('title');
+							$icon = get_sub_field('cloud_icon');
+							$offset = '';
+							if ($count == 0 ) {
+								$offset = 'col-sm-offset-1';
+							}
+
+							echo '<div class="col-sm-2 '.$offset.'">';
+								echo '<a href="#'.$icon.'"><span class="'.$icon.'"></span></a>';
+								echo '<h3>'.$title.'</h3>';
+							echo '</div>';
+							$count++;
+						endwhile;
+					else :
+						// no rows found
+					endif;
+				?>
 			</div>
 		</div>
 	</section>
@@ -182,81 +183,77 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
-					<div class="col-sm-12 cloud city-cloud">
-						<div class="col-sm-4">
-							<span class="cloud-icon icon-city_cloud"></span>
-							<h2><span>City</span><br> Data Cloud</h2>
-						</div>
-						<div class="col-sm-7 col-sm-offset-1">
-							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<a href="#" class="button">Learn More</a>
-						</div>
-						<div class="col-sm-12 logos">
+					<?php
+					if( have_rows('cloud', 'option') ):
+						$c = true;
+						while ( have_rows('cloud', 'option') ) : the_row();
+							// Get vars
+							$oddeven = $c = !$c;
+							$title = get_sub_field('title');
+							$icon = get_sub_field('cloud_icon');
+							$headline = get_sub_field('headline');
+							$content = get_sub_field('content');
+							$link_text = get_sub_field('link_text');
+							$link = get_sub_field('link');
 
-						</div>
-					</div>
-					<div class="col-sm-12 cloud county-cloud">
-						<div class="col-sm-4 col-sm-push-8">
-							<span class="cloud-icon icon-county_cloud"></span>
-							<h2><span>County</span><br> Data Cloud</h2>
-						</div>
-						<div class="col-sm-7 col-sm-pull-4">
-							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<a href="#" class="button">Learn More</a>
-						</div>
-						<div class="col-sm-12 logos">
-
-						</div>
-					</div>
-					<div class="col-sm-12 cloud state-cloud">
-						<div class="col-sm-4">
-							<span class="cloud-icon icon-state_cloud"></span>
-							<h2><span>State</span><br> Data Cloud</h2>
-						</div>
-						<div class="col-sm-7 col-sm-offset-1">
-							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<a href="#" class="button">Learn More</a>
-						</div>
-						<div class="col-sm-12 logos">
-
-						</div>
-					</div>
-					<div class="col-sm-12 cloud federal-cloud">
-						<div class="col-sm-4 col-sm-push-8">
-							<span class="cloud-icon icon-federal_cloud"></span>
-							<h2><span>Federal</span><br> Data Cloud</h2>
-						</div>
-						<div class="col-sm-7 col-sm-pull-4">
-							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<a href="#" class="button">Learn More</a>
-						</div>
-						<div class="col-sm-12 logos">
-
-						</div>
-					</div>
-					<div class="col-sm-12 cloud ngo-cloud">
-						<div class="col-sm-4">
-							<span class="cloud-icon icon-ngo_cloud"></span>
-							<h2><span class="small"><span>NGO</span> & <span>Non-Profit</span></span><br> Data Cloud</h2>
-						</div>
-						<div class="col-sm-7 col-sm-offset-1">
-							<h3>Benefit oriented headline<br>lorem ispum dolar sit consecuetur</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<a href="#" class="button">Learn More</a>
-						</div>
-						<div class="col-sm-12 logos">
-
-						</div>
-					</div>
+							if ( false == $oddeven ) {
+								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4">';
+									if ($icon) {
+										echo '<span class="cloud-icon '.$icon.'"></span>';
+									}
+									if ($title) {
+										echo '<h2>'.$title.'</h2>';
+									}
+								echo '</div>';
+								echo '<div class="col-sm-7 col-sm-offset-1">';
+									if ($headline) {
+										echo '<h3>'.$headline.'</h3>';
+									}
+									if ($content) {
+										echo $content;
+									}
+									if ($link) {
+										echo '<a href="'.$link.'" class="button">';
+										if ($link_text) {
+											echo $link_text;
+										} else {
+											echo 'Learn More';
+										}
+										echo '</a>';
+									}
+								echo '</div></div>';
+							} else if ( true == $oddeven ) {
+								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4 col-sm-push-8">';
+									if ($icon) {
+										echo '<span class="cloud-icon '.$icon.'"></span>';
+									}
+									if ($title) {
+										echo '<h2>'.$title.'</h2>';
+									}
+								echo '</div>';
+								echo '<div class="col-sm-7 col-sm-pull-4">';
+									if ($headline) {
+										echo '<h3>'.$headline.'</h3>';
+									}
+									if ($content) {
+										echo $content;
+									}
+									if ($link) {
+										echo '<a href="'.$link.'" class="button">';
+										if ($link_text) {
+											echo $link_text;
+										} else {
+											echo 'Learn More';
+										}
+										echo '</a>';
+									}
+								echo '</div></div>';
+							}
+						endwhile;
+					else :
+						// no rows found
+					endif;
+					?>
 				</div>
 			</div>
 		</div>
@@ -359,10 +356,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-5 col-sm-offset-1">
-					<img src="wp-content/themes/sage/assets/images/transform.jpg" alt="Transform">
-					<h2>Stay in Touch</h2>
-					<h3>Subscribe to the Scorata newsletter</h3>
-					<p><strong>Transfor</strong>M, Socrata’s Newsletter, brings you regular updates on everything new and important in the world of open data, transparent government, and more.</p>
+					<?php the_field('newsletter_content'); ?>
 				</div>
 				<div class="col-sm-5">
 					

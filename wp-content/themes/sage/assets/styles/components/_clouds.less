@@ -1,0 +1,67 @@
+.clouds {
+  padding: 40px 0;
+  .cloud {
+    padding: 60px 15px;
+    .cloud-icon {
+      font-size: 23em;
+    }
+    h2 {
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 300;
+      font-size: 3em;
+      span {
+        font-size: 1em;
+        line-height: 1.3;
+        font-weight: 700;
+        &:after {
+          display: none;
+        }
+      }
+      .small {
+        font-size: .6em;
+        color: @black;
+      }
+      strong {
+        line-height: 1.5;
+      }
+    }
+    h3 {
+      font-size: 2.5em;
+      font-weight: 300;
+    }
+    .logos {
+      border-top: #bdc3c7 1px solid;
+      padding-top: 15px;
+      margin-top: 25px;
+    }
+  }
+}
+
+@media (min-width: @screen-sm-min) {
+  .clouds {
+    .cloud {
+      .cloud-icon {
+        font-size: 14em;
+      }
+    }
+  }
+}
+@media (min-width: @screen-md-min) {
+  .clouds {
+    .cloud {
+      .cloud-icon {
+        font-size: 19em;
+      }
+    }
+  }
+}
+@media (min-width: @screen-lg-min) {
+  .clouds {
+    .cloud {
+      .cloud-icon {
+        font-size: 23em;
+      }
+    }
+  }
+}
