@@ -1,0 +1,166 @@
+.page-template-template-product {
+
+  //typography
+  h1 {
+    font-size: 3.75em; //52px
+    margin: 0;
+  }
+
+  h2 {
+    font-size: 1.75em; //24px
+    margin: 0;
+  }
+
+  h3 {
+    font-size: 1.75em; //24px
+    font-weight: @font-light;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.071em; //15px
+    font-weight: @font-light;
+    margin: 0;
+  }
+
+  section {
+    margin: 120px 0 45px 0;
+
+    &:first-of-type {
+      margin: 45px 0 45px 0;
+    }
+  }
+
+  //section
+  .product-intro {
+    .intro-background {
+      background-image: url('http://socrata.dev/wp-content/uploads/oepnBudget-hero.jpg');
+      height: 500px;
+      background-position: top right;
+    }
+
+    .intro-headline {
+      margin: 0 0 10px 0;
+    }
+
+    .intro-subhead {
+      margin: 0 0 20px 0;
+
+      p {
+        font-size: 1.75em;
+        font-weight: @font-light;
+        color: @gray-med;
+      }
+    }
+
+    .intro-body {
+      margin: 0 0 30px 0;
+
+      p {
+        line-height: 1.6;
+      }
+    }
+
+    .intro-features {
+      ul {
+        li {
+          margin: 0 0 15px 0;
+          font-size: 1.286em; //18px
+          font-weight: @font-light;
+        }
+      }
+    }
+
+    .intro-playButton {
+      width: 100%;
+      margin-top: 45%;
+
+      i {
+        display: block;
+        width: 60px;
+        margin: 0 auto;
+        font-size: 5em;
+      }
+    }
+  }
+
+  .product-features {
+    .features-hero {
+      margin: 0 0 45px 0;
+
+      .hero-headline {
+        margin: 0 0 20px 0;
+      }
+
+      .hero-body {
+        margin: 0 0 30px 0;
+      }
+
+      .hero-features {
+        ul {
+          li {
+            margin: 0 0 15px 0;
+            font-size: 1.286em; //18px
+            font-weight: @font-light;
+          }
+        }
+      }
+
+      .hero-thumbnail {
+        position: relative;
+        .thumbnail-playButton {
+          position: absolute;
+          top: 35%;
+          left: 45%;
+
+          i {
+            display: block;
+            width: 60px;
+            margin: 0 auto;
+            font-size: 5em;
+          }
+        }
+      }
+    }
+
+    .features-tiles {
+
+    }
+  }
+
+  .cta-links {
+    .features-tile {
+      position: relative;
+      .tile-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        i {
+          font-size: 40px;
+          color: @cta-icons;
+        }
+      }
+
+      .tile-content {
+        padding: 0 0 0 60px;
+
+        .content-text {
+
+          .text-headline {
+            margin: 0 0 10px 0;
+          }
+
+          .text-body {
+            margin: 0 0 30px 0;
+          }
+
+        }
+
+        .content-button {
+
+        }
+      }
+    }
+  }
+}
