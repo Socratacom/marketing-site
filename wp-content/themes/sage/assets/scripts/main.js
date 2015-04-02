@@ -14,6 +14,32 @@
  * remove or comment out: add_theme_support('jquery-cdn');
  * ======================================================================== */
 
+ // convert images to black and white
+function gray(imgObj) {
+    var canvas = document.createElement('canvas');
+    var canvasContext = canvas.getContext('2d');
+
+    var imgW = imgObj.width;
+    var imgH = imgObj.height;
+    canvas.width = imgW;
+    canvas.height = imgH;
+
+    canvasContext.drawImage(imgObj, 0, 0);
+    var imgPixels = canvasContext.getImageData(0, 0, imgW, imgH);
+
+    for(var y = 0; y < imgPixels.height; y++){
+        for(var x = 0; x < imgPixels.width; x++){
+            var i = (y * 4) * imgPixels.width + x * 4;
+            var avg = (imgPixels.data[i] + imgPixels.data[i + 1] + imgPixels.data[i + 2]) / 3;
+            imgPixels.data[i] = avg; 
+            imgPixels.data[i + 1] = avg; 
+            imgPixels.data[i + 2] = avg;
+        }
+    }
+    canvasContext.putImageData(imgPixels, 0, 0, 0, 0, imgPixels.width, imgPixels.height);
+    return canvas.toDataURL();
+}
+
 (function($) {
 
   // Use this variable to set up the common and page specific functions. If you
@@ -75,6 +101,22 @@
           slidesToScroll: 1,
           speed: 500
         });
+
+        $('.logos img').each(function() {
+          var obj = $(this)[0];
+          obj.src = gray(obj);
+          $(this).css({ 'height': '85px', 'visibility': 'visible' });
+        });
+        setTimeout(function(){
+          $('.logos').slick({
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 4000,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            speed: 500
+          });
+        }, 1000);
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS

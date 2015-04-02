@@ -229,6 +229,14 @@
 									}
 								echo '</div>';
 								echo '<div class="col-sm-12 logos">';
+									if( have_rows('logos') ):
+										while( have_rows('logos') ): the_row();
+                    $logo = get_sub_field('logo_image');
+                    if ($logo) {
+											echo '<div class="slide col-sm-2"><img src="'.$logo['url'].'" alt="'.$logo['title'].'"></div>';
+										}
+										endwhile;
+									endif;
 								echo '</div></div>';
 							} else if ( true == $oddeven ) {
 								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4 col-sm-push-8">';
@@ -257,6 +265,12 @@
 									}
 								echo '</div>';
 								echo '<div class="col-sm-12 logos">';
+                  if( have_rows('logos') ):
+                    while( have_rows('logos') ): the_row();
+                    $logo = get_sub_field('logo_image');
+                      echo '<div class="slide col-sm-2"><img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="img-responsive" id="js-image"></div>';
+                    endwhile;
+                  endif;
 								echo '</div></div>';
 							}
 						endwhile;
