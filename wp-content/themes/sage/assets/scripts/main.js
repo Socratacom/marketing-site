@@ -31,8 +31,8 @@ function gray(imgObj) {
         for(var x = 0; x < imgPixels.width; x++){
             var i = (y * 4) * imgPixels.width + x * 4;
             var avg = (imgPixels.data[i] + imgPixels.data[i + 1] + imgPixels.data[i + 2]) / 3;
-            imgPixels.data[i] = avg; 
-            imgPixels.data[i + 1] = avg; 
+            imgPixels.data[i] = avg;
+            imgPixels.data[i + 1] = avg;
             imgPixels.data[i + 2] = avg;
         }
     }
@@ -101,12 +101,13 @@ function gray(imgObj) {
           slidesToScroll: 1,
           speed: 500
         });
-
-        $('.logos img').each(function() {
-          var obj = $(this)[0];
-          obj.src = gray(obj);
-          $(this).css({ 'height': '85px', 'visibility': 'visible' });
-        });
+        setTimeout(function(){
+          $('.logos img').each(function() {
+            var obj = $(this)[0];
+            obj.src = gray(obj);
+            $(this).css({ 'height': '85px', 'display': 'block' });
+          });
+        }, 2000);
         setTimeout(function(){
           $('.logos').slick({
             arrows: false,
@@ -116,7 +117,7 @@ function gray(imgObj) {
             slidesToScroll: 1,
             speed: 500
           });
-        }, 1000);
+        }, 3000);
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
