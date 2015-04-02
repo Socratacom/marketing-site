@@ -256,8 +256,8 @@
                     "layouts": [
                         {
                             "key": "551d87247aa4b",
-                            "name": "",
-                            "label": "",
+                            "name": "external_link",
+                            "label": "External Link",
                             "display": "block",
                             "sub_fields": [
                                 {
@@ -276,9 +276,19 @@
                                     },
                                     "default_value": "",
                                     "placeholder": ""
-                                },
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        {
+                            "key": "551d913e0805a",
+                            "name": "internal_link",
+                            "label": "Internal Link",
+                            "display": "row",
+                            "sub_fields": [
                                 {
-                                    "key": "field_551d873b850d3",
+                                    "key": "field_551d91450805b",
                                     "label": "Internal Link",
                                     "name": "internal_link",
                                     "prefix": "",
@@ -550,5 +560,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1428000763
+    "modified": 1428001112
 }
