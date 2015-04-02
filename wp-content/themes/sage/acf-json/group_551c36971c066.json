@@ -194,6 +194,25 @@
                             "mime_types": ""
                         }
                     ]
+                },
+                {
+                    "key": "field_551db1be961c3",
+                    "label": "Related Page",
+                    "name": "related_page",
+                    "prefix": "",
+                    "type": "page_link",
+                    "instructions": "Display On Page:",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": "",
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0
                 }
             ]
         }
@@ -213,6 +232,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1427998071,
-    "local": "json"
+    "modified": 1428009445
 }

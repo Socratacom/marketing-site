@@ -215,31 +215,9 @@
                     "media_upload": 1
                 },
                 {
-                    "key": "field_551d8755850d4",
-                    "label": "Button Text",
-                    "name": "button_text",
-                    "prefix": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                },
-                {
                     "key": "field_551d8717850d1",
-                    "label": "Button Link",
-                    "name": "button_link",
+                    "label": "CTA",
+                    "name": "cta",
                     "prefix": "",
                     "type": "flexible_content",
                     "instructions": "",
@@ -276,6 +254,28 @@
                                     },
                                     "default_value": "",
                                     "placeholder": ""
+                                },
+                                {
+                                    "key": "field_551db8542eb9a",
+                                    "label": "External Link Text",
+                                    "name": "external_link_text",
+                                    "prefix": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": "",
+                                    "readonly": 0,
+                                    "disabled": 0
                                 }
                             ],
                             "min": "",
@@ -305,6 +305,28 @@
                                     "taxonomy": "",
                                     "allow_null": 0,
                                     "multiple": 0
+                                },
+                                {
+                                    "key": "field_551db8612eb9b",
+                                    "label": "Internal Link Text",
+                                    "name": "internal_link_text",
+                                    "prefix": "",
+                                    "type": "text",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": "",
+                                    "readonly": 0,
+                                    "disabled": 0
                                 }
                             ],
                             "min": "",
@@ -560,5 +582,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1428001112
+    "modified": 1428011123
 }

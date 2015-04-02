@@ -107,6 +107,21 @@
           autoplaySpeed: 5000,
           speed: 800
         });
+        $('.logos img').each(function() {
+          var obj = $(this)[0];
+          obj.src = gray(obj);
+          $(this).css({ 'height': '85px', 'visibility': 'visible' });
+        });
+        setTimeout(function(){
+          $('.logos').slick({
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 4000,
+            slidesToShow: 6,
+            slidesToScroll: 1,
+            speed: 500
+          });
+        }, 1000);
       }
     }
   };
