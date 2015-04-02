@@ -99,6 +99,7 @@ function assets() {
   wp_enqueue_style('open-sans', 'http://fonts.googleapis.com/css?family=Open+Sans:300,600,400', false, null);
   wp_enqueue_style('icomoon', 'http://i.icomoon.io/public/02555ea424/socrata-com/style.css', false, null);
   wp_enqueue_style('slick-css', '//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css', false, null);
+  wp_enqueue_style('gray-css', get_template_directory_uri() . '/assets/styles/css/gray.min.css', false, null);
 
   /**
    * Grab Google CDN's latest jQuery with a protocol relative URL; fallback to local if offline
@@ -126,6 +127,7 @@ function assets() {
   wp_enqueue_script('jquery');
   wp_enqueue_script('sage_js', asset_path('scripts/main.js'), [], null, true);
   wp_enqueue_script('slick', '//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js', [], null, true);
+  wp_enqueue_script('gray-js', get_template_directory_uri() . '/assets/scripts/jquery.gray.min.js', [], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
 

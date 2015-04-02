@@ -12,7 +12,8 @@
     "bootstrap": "3.3.2",
     "fontawesome": "~4.3.0",
     "webfont-opensans": "*",
-    "classie": "~1.0.1"
+    "classie": "~1.0.1",
+    "gray": "~1.4.2"
   },
   "overrides": {
     "modernizr": {
