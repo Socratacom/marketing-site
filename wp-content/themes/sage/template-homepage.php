@@ -110,8 +110,8 @@
 		<div class="container">
 			<div class="cta-slider">
               <?php
-                if( have_rows('ctas', 'option') ):
-                  while ( have_rows('ctas', 'option') ) : the_row();
+                if( have_rows('ctas') ):
+                  while ( have_rows('ctas') ) : the_row();
                     // get vars
               		$icon = get_sub_field('icon');
               		$icon_color = get_sub_field('icon_color');
