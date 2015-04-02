@@ -30,7 +30,7 @@
 					// no layouts found
 				endif;
 
-				echo '<div id="'.$rtp_id.'" class="slide" style="background-image: url('.$background.');"><div class="container"><div class="col-sm-10 col-sm-offset-1">';
+				echo '<div id="'.$rtp_id.'"><div class="slide" style="background-image: url('.$background.');"><div class="container"><div class="col-sm-10 col-sm-offset-1">';
 					echo '<h1>';
 					if ($small_text) {
 						echo '<span class="smaller-text">'.$small_text.'</span>';
@@ -45,7 +45,7 @@
 					if ($link) {
 						echo '<a href="'.$link.'" class="button">'.$link_text.'</a>';
 					}
-				echo '</div></div></div>';
+				echo '</div></div></div></div>';
 			endwhile;
 		else :
 			// no hero found
@@ -109,42 +109,48 @@
 	<section class="featured-ctas">
 		<div class="container">
 			<div class="cta-slider">
-				<div class="slide col-sm-4">
-					<div class="row">
-						<div class="col-xs-3">
-							<i class="fa fa-unlock red"></i>
-						</div>
-						<div class="col-xs-9">
-							<h3>How Redmond Freed Its Finances from PDFs</h3>
-							<p>Redmond found a better way to tell their finance narrative with Socrata Open Budget. Read the case study.</p>
-						</div>
-					</div>
-					<a href="#" class="button col-xs-offset-3">Read Now</a>
-				</div>
-				<div class="slide col-sm-4">
-					<div class="row">
-						<div class="col-xs-3">
-							<i class="fa fa-info-circle yellow"></i>
-						</div>
-						<div class="col-xs-9">
-							<h3>5 Things to Know About Financial Transparency</h3>
-							<p>Explore financial transparency and why it needs to be the public sector's next open data priority.</p>
-						</div>
-					</div>
-					<a href="#" class="button col-xs-offset-3">Read Now</a>
-				</div>
-				<div class="slide col-sm-4">
-					<div class="row">
-						<div class="col-xs-3">
-							<i class="fa fa-paper-plane green"></i>
-						</div>
-						<div class="col-xs-9">
-							<h3>Sneak Peek: Socrata Rethinks Open Data</h3>
-							<p>Socrata is rethinking open data and data-driven government. Get a glimpse of what we're planning.</p>
-						</div>
-					</div>
-					<a href="#" class="button col-xs-offset-3">Read Now</a>
-				</div>
+              <?php
+                if( have_rows('ctas', 'option') ):
+                  while ( have_rows('ctas', 'option') ) : the_row();
+                    // get vars
+              		$icon = get_sub_field('icon');
+              		$icon_color = get_sub_field('icon_color');
+              		$title = get_sub_field('title');
+              		$content = get_sub_field('content');
+              		if( have_rows('link') ):
+                      while ( have_rows('link') ) : the_row();
+                        $link = '';
+                        $link_text = '';
+                        if( get_row_layout() == 'internal_link' ):
+                          $link = get_sub_field('link_url');
+                          $link_text = get_sub_field('link_text');
+                        elseif( get_row_layout() == 'external_link' ):
+                          $link = get_sub_field('link_url');
+                          $link_text = get_sub_field('link_text');
+                        endif;
+                      endwhile;
+                    else :
+                      // no layouts found
+                    endif;
+                	$rtp_id = get_sub_field('rtp_id');
+
+                    echo '<div class="slide col-sm-4" id="'.$rtp_id.'">';
+                    if ($icon) {
+                    	echo '<i class="fa fa-'.$icon.' '.$icon_color.'"></i>';
+                    }
+                    if ($title) {
+                    	echo '<h3>'.$title.'</h3>';
+                    }
+                    if ($content) {
+                    	echo $content;
+                    }
+                    if ($link) {
+                    	echo '<a href="'.$link.'" class="button">'.$link_text.'</a>';
+                    }
+                    echo '</div>';
+                  endwhile;
+                endif;
+                ?>
 			</div>
 		</div>
 	</section>
@@ -221,6 +227,8 @@
 										}
 										echo '</a>';
 									}
+								echo '</div>';
+								echo '<div class="col-sm-12 logos">';
 								echo '</div></div>';
 							} else if ( true == $oddeven ) {
 								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4 col-sm-push-8">';
@@ -247,6 +255,8 @@
 										}
 										echo '</a>';
 									}
+								echo '</div>';
+								echo '<div class="col-sm-12 logos">';
 								echo '</div></div>';
 							}
 						endwhile;
