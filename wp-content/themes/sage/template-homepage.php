@@ -55,54 +55,43 @@
 	<section class="featured-videos">
 		<div class="container">
 			<div class="vid-slider">
-				<div class="slide col-sm-4">
-					<a href="#">
-						<div class="play-btn"></div>
-						<div class="video-content"><h3>What is Socrata?</h3>
-						<p>Socrata is the cloud technology company focused on accelerating the shift to a more open, connected and data-driven government. Socrata’s turnkey solutions for organizing and publishing government data helps customers succeed in this new digital economy.</p></div>
-						<img src="wp-content/themes/sage/assets/images/video1.jpg" alt="" class="img-responsive">
-					</a>
-				</div>
-				<div class="slide col-sm-4">
-					<a href="#">
-						<div class="play-btn"></div>
-						<div class="video-content"><h3>What is Socrata?</h3>
-						<p>Socrata is the cloud technology company focused on accelerating the shift to a more open, connected and data-driven government. Socrata’s turnkey solutions for organizing and publishing government data helps customers succeed in this new digital economy.</p></div>
-						<img src="wp-content/themes/sage/assets/images/video2.jpg" alt="" class="img-responsive">
-					</a>
-				</div>
-				<div class="slide col-sm-4">
-					<a href="#">
-						<div class="play-btn"></div>
-						<div class="video-content"><h3>What is Socrata?</h3>
-						<p>Socrata is the cloud technology company focused on accelerating the shift to a more open, connected and data-driven government. Socrata’s turnkey solutions for organizing and publishing government data helps customers succeed in this new digital economy.</p></div>
-						<img src="wp-content/themes/sage/assets/images/video3.jpg" alt="" class="img-responsive">
-					</a>
-				</div>
-				<div class="slide col-sm-4">
-					<a href="#">
-						<div class="play-btn"></div>
-						<div class="video-content"><h3>What is Socrata?</h3>
-						<p>Socrata is the cloud technology company focused on accelerating the shift to a more open, connected and data-driven government. Socrata’s turnkey solutions for organizing and publishing government data helps customers succeed in this new digital economy.</p></div>
-						<img src="wp-content/themes/sage/assets/images/video1.jpg" alt="" class="img-responsive">
-					</a>
-				</div>
-				<div class="slide col-sm-4">
-					<a href="#">
-						<div class="play-btn"></div>
-						<div class="video-content"><h3>What is Socrata?</h3>
-						<p>Socrata is the cloud technology company focused on accelerating the shift to a more open, connected and data-driven government. Socrata’s turnkey solutions for organizing and publishing government data helps customers succeed in this new digital economy.</p></div>
-						<img src="wp-content/themes/sage/assets/images/video2.jpg" alt="" class="img-responsive">
-					</a>
-				</div>
-				<div class="slide col-sm-4">
-					<a href="#">
-						<div class="play-btn"></div>
-						<div class="video-content"><h3>What is Socrata?</h3>
-						<p>Socrata is the cloud technology company focused on accelerating the shift to a more open, connected and data-driven government. Socrata’s turnkey solutions for organizing and publishing government data helps customers succeed in this new digital economy.</p></div>
-						<img src="wp-content/themes/sage/assets/images/video3.jpg" alt="" class="img-responsive">
-					</a>
-				</div>
+				<?php
+				if( have_rows('videos') ):
+					while ( have_rows('videos') ) : the_row();
+						// get vars
+						$header = get_sub_field('header');
+						$summary = get_sub_field('summary');
+						$image = get_sub_field('image');
+						$rtp_id = get_sub_field('rtp_id');
+						if( have_rows('link') ):
+							while ( have_rows('link') ) : the_row();
+								$link = '';
+								if( get_row_layout() == 'internal_link' ):
+									$link = get_sub_field('link_url');
+								elseif( get_row_layout() == 'external_link' ):
+									$link = get_sub_field('link_url');
+								endif;
+							endwhile;
+						else :
+							// no layouts found
+						endif;
+						$a_tag_start = '';
+						$a_tag_end = '';
+						if ($link) {
+							$a_tag_start = '<a href="'.$link.'">';
+							$a_tag_end = '</a>';
+						}
+
+						echo '<div class="slide col-sm-4" id="'.$rtp_id.'">';
+						echo $a_tag_start;
+						echo '<div class="play-btn"></div>';
+						echo '<div class="video-content"><h3>'.$headline.'</h3><p>'.$summary.'</p></div>';
+						echo '<img src="'.$image['url'].'" alt="'.$image['title'].'">';
+						echo $a_tag_end;
+						echo '</div>';
+					endwhile;
+				endif;
+				?>
 			</div>
 		</div>
 	</section>
