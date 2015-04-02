@@ -1,6 +1,6 @@
 {
     "key": "group_551ca64a29f99",
-    "title": "Global Options",
+    "title": "CTAs",
     "fields": [
         {
             "key": "field_551ca64a3c5ee",
@@ -26,8 +26,8 @@
                     "label": "Tile Icon",
                     "name": "tile_icon",
                     "prefix": "",
-                    "type": "select",
-                    "instructions": "",
+                    "type": "text",
+                    "instructions": "Font Awesome fa- code.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -35,21 +35,13 @@
                         "class": "",
                         "id": ""
                     },
-                    "choices": {
-                        "fa-comments-o": "comments",
-                        "fa-newspaper-o": "newspaper",
-                        "fa-line-chart": "line chart"
-                    },
-                    "default_value": {
-                        "": ""
-                    },
-                    "allow_null": 0,
-                    "multiple": 0,
-                    "ui": 0,
-                    "ajax": 0,
+                    "default_value": "",
                     "placeholder": "",
-                    "disabled": 0,
-                    "readonly": 0
+                    "prepend": "fa-",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
                 },
                 {
                     "key": "field_551ca64b03cae",
@@ -144,7 +136,7 @@
             {
                 "param": "options_page",
                 "operator": "==",
-                "value": "acf-options"
+                "value": "acf-options-ctas"
             }
         ]
     ],
@@ -154,5 +146,6 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1427992259
+    "modified": 1427998071,
+    "local": "json"
 }

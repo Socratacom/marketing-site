@@ -85,6 +85,18 @@
       init: function() {
         // JavaScript to be fired on the about us page
       }
+    },
+    'cloud': {
+      init: function() {
+        $('.jumbotron').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          autoplay: true,
+          autoplaySpeed: 5000,
+          speed: 800
+        });
+      }
     }
   };
 
