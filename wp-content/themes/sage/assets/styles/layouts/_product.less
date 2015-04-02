@@ -11,18 +11,6 @@
     margin: 0;
   }
 
-  h3 {
-    font-size: 1.75em; //24px
-    font-weight: @font-light;
-    margin: 0;
-  }
-
-  p {
-    font-size: 1.071em; //15px
-    font-weight: @font-light;
-    margin: 0;
-  }
-
   section {
     margin: 120px 0 45px 0;
 
@@ -80,13 +68,14 @@
         width: 60px;
         margin: 0 auto;
         font-size: 5em;
+        color: #000000;
       }
     }
   }
 
   .product-features {
     .features-hero {
-      margin: 0 0 45px 0;
+      margin: 0 0 70px 0;
 
       .hero-headline {
         margin: 0 0 20px 0;
@@ -108,6 +97,7 @@
 
       .hero-thumbnail {
         position: relative;
+
         .thumbnail-playButton {
           position: absolute;
           top: 35%;
@@ -118,48 +108,35 @@
             width: 60px;
             margin: 0 auto;
             font-size: 5em;
+            color: #000000;
           }
+        }
+
+        @media (min-width: @screen-xs-min) {
+          margin: 0 0 30px 0;
+        }
+
+        @media (min-width: @screen-md-min) {
+          margin: 0;
         }
       }
     }
 
-    .features-tiles {
+    .features-grid {
+      .grid-tile {
+        margin: 0 0 30px 0;
 
-    }
-  }
+        .tile-image {
+          margin: 0 0 10px 0;
+        }
 
-  .cta-links {
-    .features-tile {
-      position: relative;
-      .tile-icon {
-        position: absolute;
-        top: 0;
-        left: 0;
+        .tile-text {
 
-        i {
-          font-size: 40px;
-          color: @cta-icons;
         }
       }
 
-      .tile-content {
-        padding: 0 0 0 60px;
-
-        .content-text {
-
-          .text-headline {
-            margin: 0 0 10px 0;
-          }
-
-          .text-body {
-            margin: 0 0 30px 0;
-          }
-
-        }
-
-        .content-button {
-
-        }
+      @media (min-width: @screen-sm-min) {
+        margin: 0;
       }
     }
   }

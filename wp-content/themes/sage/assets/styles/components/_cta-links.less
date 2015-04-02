@@ -1,0 +1,154 @@
+#cta-links {
+
+    // typography
+
+    // Text Variables
+    @h3-xs:                       1.6em;
+    @h3-sm:                       1.75em;
+    @h3-md:                       1.3em;
+    @h3-lg:                       1.75em;
+
+    @p-xs:                        1.071em;
+    @p-sm:                        1.071em;
+    @p-md:                        1em;
+    @p-lg:                        1.071em;
+
+    //typography
+    h1 {
+      font-size: 3.75em; //52px
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.75em; //24px
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 1.75em; //24px
+      font-weight: @font-light;
+      margin: 0;
+    }
+
+    p {
+      font-weight: @font-light;
+      margin: 0;
+
+      @media (min-width: @screen-xs-min) {
+        font-size: @p-xs;
+      }
+      @media (min-width: @screen-sm-min) {
+        font-size: @p-sm;
+      }
+      @media (min-width: @screen-md-min) {
+        font-size: @p-md;
+      }
+      @media (min-width: @screen-lg-min) {
+        font-size: @p-lg;
+      }
+    }
+
+    //base
+    .features-tile {
+      position: relative;
+
+      .tile-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        i {
+          font-size: 40px;
+          color: @cta-icons;
+        }
+      }
+
+      .tile-content {
+        padding: 0 0 0 60px;
+
+        .content-text {
+          .text-headline {
+            margin: 0 0 10px 0;
+          }
+
+          .text-body {
+            margin: 0 0 10px 0;
+          }
+        }
+
+        .content-button {
+          margin: 0 0 30px 0;
+          a {
+            padding: 14px 32px;
+          }
+        }
+      }
+    }
+
+    @media (min-width: @screen-xs-min) {
+      h3 {
+        font-size: @h3-xs;
+      }
+    }
+
+    //sm layout
+    @media (min-width: @screen-sm-min) {
+
+      // typography
+      h3 {
+        font-size: @h3-sm;
+      }
+
+      .features-tile {
+        position: relative;
+        .tile-icon {
+          i {
+            font-size: 40px;
+          }
+        }
+
+        .tile-content {
+          padding: 0 0 0 60px;
+
+          .content-button {
+            margin: 0 0 20px 0;
+          }
+        }
+      }
+    }
+
+    //md layout
+    @media (min-width: @screen-md-min) {
+
+      // typography
+      h3 {
+        font-size: @h3-md;
+      }
+
+      .features-tile {
+        position: relative;
+        .tile-icon {
+          i {
+            font-size: 40px;
+          }
+        }
+
+        .tile-content {
+          .content-text {
+            .text-body {
+              margin: 0 0 30px 0;
+            }
+          }
+        }
+      }
+    }
+
+    //lg layout
+    @media (min-width: @screen-lg-min) {
+
+      // typography
+      h3 {
+        font-size: @h3-lg;
+      }
+    }
+  }

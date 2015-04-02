@@ -1,0 +1,158 @@
+{
+    "key": "group_551ca64a29f99",
+    "title": "Global Options",
+    "fields": [
+        {
+            "key": "field_551ca64a3c5ee",
+            "label": "CTA Tiles",
+            "name": "cta_tiles",
+            "prefix": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "layout": "row",
+            "button_label": "Add Row",
+            "sub_fields": [
+                {
+                    "key": "field_551ca64b03c8f",
+                    "label": "Tile Icon",
+                    "name": "tile_icon",
+                    "prefix": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "fa-comments-o": "comments",
+                        "fa-newspaper-o": "newspaper",
+                        "fa-line-chart": "line chart"
+                    },
+                    "default_value": {
+                        "": ""
+                    },
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
+                    "key": "field_551ca64b03cae",
+                    "label": "Tile Headline",
+                    "name": "tile_headline",
+                    "prefix": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_551ca64b03ccf",
+                    "label": "Tile Body",
+                    "name": "tile_body",
+                    "prefix": "",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_551ca64b03ce6",
+                    "label": "Tile Button Text",
+                    "name": "tile_button_text",
+                    "prefix": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_551ca64b03cfc",
+                    "label": "Tile Button Link",
+                    "name": "tile_button_link",
+                    "prefix": "",
+                    "type": "page_link",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": "",
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "modified": 1427992259
+}

@@ -104,7 +104,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
       </div>
     </div>
 
-    <div class="features-tiles">
+    <div class="features-grid">
       <div class="row">
 
       <?php
@@ -113,10 +113,10 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
             $tile_image = get_sub_field('tile_image');
             $tile_body = get_sub_field('tile_body');
-            echo '<div class="col-md-3">
-                    <div class="features-tile">
+            echo '<div class="col-sm-6 col-md-3">
+                    <div class="grid-tile">
                       <div class="tile-image">
-                        <img src="' . $tile_image . '" alt="feature tile">
+                        <img src="' . $tile_image . '" alt="feature tile" class="img-responsive">
                       </div>
                       <div class="tile-text">
                         <p>' . $tile_body . '</p>
@@ -132,19 +132,19 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   </div>
 </section>
 
-<section class="cta-links">
+<section id="cta-links">
   <div class="container">
     <div class="row">
 
     <?php
-      if( have_rows('cta_tiles') ):
-        while ( have_rows('cta_tiles') ) : the_row();
+      if( have_rows('cta_tiles', 'option') ):
+        while ( have_rows('cta_tiles', 'option') ) : the_row();
 
-          $tile_icon = get_sub_field('tile_icon');
-          $tile_headline = get_sub_field('tile_headline');
-          $tile_body = get_sub_field('tile_body');
-          $tile_button_text = get_sub_field('tile_button_text');
-          $tile_button_link = get_sub_field('tile_button_link');
+          $tile_icon = get_sub_field('tile_icon', 'option');
+          $tile_headline = get_sub_field('tile_headline', 'option');
+          $tile_body = get_sub_field('tile_body', 'option');
+          $tile_button_text = get_sub_field('tile_button_text', 'option');
+          $tile_button_link = get_sub_field('tile_button_link', 'option');
           echo '<div class="col-md-4">
                   <div class="features-tile">
                     <div class="tile-icon">
