@@ -120,7 +120,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "button_label": "Add Row",
+                    "button_label": "Add Link",
                     "min": 0,
                     "max": 1,
                     "layouts": [
@@ -211,76 +211,6 @@
                     "disabled": 0
                 }
             ]
-        },
-        {
-            "key": "field_551c5bb8f1687",
-            "label": "Cloud Overview",
-            "name": "",
-            "prefix": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top"
-        },
-        {
-            "key": "field_551c5bc9f1688",
-            "label": "Content",
-            "name": "content",
-            "prefix": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "basic",
-            "media_upload": 0
-        },
-        {
-            "key": "field_551c5ba8f1686",
-            "label": "Newsletter",
-            "name": "",
-            "prefix": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top"
-        },
-        {
-            "key": "field_551c24d6e6b83",
-            "label": "Newsletter Content",
-            "name": "newsletter_content",
-            "prefix": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1
         },
         {
             "key": "field_551d6df1181c7",
@@ -559,6 +489,242 @@
                     "disabled": 0
                 }
             ]
+        },
+        {
+            "key": "field_551c5bb8f1687",
+            "label": "Cloud Overview",
+            "name": "",
+            "prefix": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top"
+        },
+        {
+            "key": "field_551c5bc9f1688",
+            "label": "Content",
+            "name": "content",
+            "prefix": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
+            "key": "field_551c5ba8f1686",
+            "label": "Newsletter",
+            "name": "",
+            "prefix": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top"
+        },
+        {
+            "key": "field_551c24d6e6b83",
+            "label": "Newsletter Content",
+            "name": "newsletter_content",
+            "prefix": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1
+        },
+        {
+            "key": "field_551dc673d8a7c",
+            "label": "Awards",
+            "name": "",
+            "prefix": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top"
+        },
+        {
+            "key": "field_551dc69bd8a7d",
+            "label": "Awards",
+            "name": "awards",
+            "prefix": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "min": "",
+            "max": "",
+            "layout": "row",
+            "button_label": "Add Award",
+            "sub_fields": [
+                {
+                    "key": "field_551dc6dc3e3c8",
+                    "label": "Image",
+                    "name": "image",
+                    "prefix": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_551dc6e73e3c9",
+                    "label": "Title",
+                    "name": "title",
+                    "prefix": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
+                    "key": "field_551dc6ef3e3ca",
+                    "label": "Link",
+                    "name": "link",
+                    "prefix": "",
+                    "type": "flexible_content",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "button_label": "Add Row",
+                    "min": "",
+                    "max": "",
+                    "layouts": [
+                        {
+                            "key": "551dc6f8a2f14",
+                            "name": "internal_link",
+                            "label": "Internal Link",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_551dc6ff3e3cb",
+                                    "label": "Link URL",
+                                    "name": "link_url",
+                                    "prefix": "",
+                                    "type": "page_link",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "post_type": [
+                                        "post",
+                                        "page",
+                                        "case_study",
+                                        "stories",
+                                        "tech_blog"
+                                    ],
+                                    "taxonomy": "",
+                                    "allow_null": 0,
+                                    "multiple": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        {
+                            "key": "551dc7253e3cc",
+                            "name": "external_link",
+                            "label": "External Link",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_551dc7253e3cd",
+                                    "label": "Link URL",
+                                    "name": "link_url",
+                                    "prefix": "",
+                                    "type": "url",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": ""
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        }
+                    ]
+                }
+            ]
         }
     ],
     "location": [
@@ -578,5 +744,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1428011841
+    "modified": 1428014911
 }
