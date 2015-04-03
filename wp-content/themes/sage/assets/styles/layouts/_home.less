@@ -121,9 +121,6 @@
         }
       }
     }
-    .slick-prev, .slick-next {
-    	top: 80px;
-    }
     .slick-prev {
       left: -30px;
     }
@@ -226,6 +223,12 @@
 			overflow: hidden;
 			max-height: 220px;
 		}
+    .slick-prev {
+      left: -80px;
+    }
+    .slick-next {
+      right: -80px;
+    }
 	}
 
 	.news {
@@ -307,6 +310,20 @@
 
   .awards {
     padding: 40px 0;
+    .slick-track {
+      margin: 0 auto;
+    }
+    .slick-slide {
+      p {
+        text-align: center;
+      }
+    }
+    .slick-prev {
+      top: 39%;
+    }
+    .slick-next {
+      top: 39%;
+    }
   }
 }
 

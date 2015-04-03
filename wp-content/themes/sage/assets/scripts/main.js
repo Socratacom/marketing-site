@@ -86,6 +86,17 @@
           slidesToScroll: 1,
           speed: 500
         });
+
+        $('.awards-slide').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          autoplay: true,
+          autoplaySpeed: 4000,
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          speed: 500
+        });
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS

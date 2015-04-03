@@ -380,12 +380,49 @@
 	<section class="awards">
 		<div class="container">
 			<div class="row awards-slide">
-				<div class="col-sm-2 col-sm-offset-4">
+        <?php
+        if( have_rows('awards') ):
+        	while ( have_rows('awards') ) : the_row();
+            // get vars
+            $image = get_sub_field('image');
+            $title = get_sub_field('title');
+            if( have_rows('link') ):
+              while ( have_rows('link') ) : the_row();
+                $link = '';
+                if( get_row_layout() == 'internal_link' ):
+                  $link = get_sub_field('link_url');
+                elseif( get_row_layout() == 'external_link' ):
+                  $link = get_sub_field('link_url');
+                endif;
+              endwhile;
+            else :
+              // no layouts found
+            endif;
+            $href_start = '';
+            $href_end = '';
+            if ($link) {
+              $href_start = '<a href="'.$link.'">';
+              $href_end = '</a>';
+              }
+
+            echo '<div class="col-sm-2">';
+
+              if ($image) {
+                echo $href_start.'<img src="'.$image['url'].'" alt="'.$image['title'].'" class="img-responsive">';
+              }
+              if ($title) {
+                echo '<p>'.$title.'</p>';
+              }
+            echo $href_end.'</div>';
+          endwhile;
+        endif;
+        ?>
+				<!-- <div class="col-sm-2 col-sm-offset-4">
 					<img src="wp-content/themes/sage/assets/images/fedramp.gif" alt="FedRAMP" class="img-responsive">
 				</div>
 				<div class="col-sm-2">
 					<img src="wp-content/themes/sage/assets/images/addy.gif" alt="Addy Award Winner" class="img-responsive">
-				</div>
+				</div> -->
 			</div>
 		</div>
 	</section>

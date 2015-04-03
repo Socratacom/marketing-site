@@ -656,7 +656,7 @@
                         "class": "",
                         "id": ""
                     },
-                    "button_label": "Add Row",
+                    "button_label": "Add Link",
                     "min": "",
                     "max": "",
                     "layouts": [
@@ -744,5 +744,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1428014911
+    "modified": 1428015190
 }
