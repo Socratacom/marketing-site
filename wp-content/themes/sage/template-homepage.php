@@ -18,12 +18,14 @@
 					while ( have_rows('cta') ) : the_row();
 						$link = '';
 						$link_text = '';
+            $target = '';
 						if( get_row_layout() == 'internal_link' ):
 							$link = get_sub_field('internal_link');
 							$link_text = get_sub_field('internal_link_text');
 						elseif( get_row_layout() == 'external_link' ):
 							$link = get_sub_field('external_link');
 							$link_text = get_sub_field('external_link_text');
+              $target = 'target="_blank"';
 						endif;
 					endwhile;
 				else :
@@ -43,7 +45,7 @@
 						echo '<h2>'.$italic_text.'</h2>';
 					}
 					if ($link) {
-						echo '<a href="'.$link.'" class="button">'.$link_text.'</a>';
+						echo '<a href="'.$link.'" class="button" '.$target.'>'.$link_text.'</a>';
 					}
 				echo '</div></div></div></div>';
 			endwhile;
@@ -66,10 +68,12 @@
 						if( have_rows('link') ):
 							while ( have_rows('link') ) : the_row();
 								$link = '';
+                $target = '';
 								if( get_row_layout() == 'internal_link' ):
 									$link = get_sub_field('link_url');
 								elseif( get_row_layout() == 'external_link' ):
 									$link = get_sub_field('link_url');
+                  $target = 'target="_blank"';
 								endif;
 							endwhile;
 						else :
@@ -78,7 +82,7 @@
 						$a_tag_start = '';
 						$a_tag_end = '';
 						if ($link) {
-							$a_tag_start = '<a href="'.$link.'">';
+							$a_tag_start = '<a href="'.$link.'" '.$target.'>';
 							$a_tag_end = '</a>';
 						}
 
@@ -110,12 +114,14 @@
                       while ( have_rows('link') ) : the_row();
                         $link = '';
                         $link_text = '';
+                        $target = '';
                         if( get_row_layout() == 'internal_link' ):
                           $link = get_sub_field('link_url');
                           $link_text = get_sub_field('link_text');
                         elseif( get_row_layout() == 'external_link' ):
                           $link = get_sub_field('link_url');
                           $link_text = get_sub_field('link_text');
+                          $target = 'target="_blank"';
                         endif;
                       endwhile;
                     else :
@@ -134,7 +140,7 @@
                     	echo $content;
                     }
                     if ($link) {
-                    	echo '<a href="'.$link.'" class="button">'.$link_text.'</a>';
+                    	echo '<a href="'.$link.'" class="button" '.$target.'>'.$link_text.'</a>';
                     }
                     echo '</div>';
                   endwhile;
@@ -389,10 +395,12 @@
             if( have_rows('link') ):
               while ( have_rows('link') ) : the_row();
                 $link = '';
+                $target = '';
                 if( get_row_layout() == 'internal_link' ):
                   $link = get_sub_field('link_url');
                 elseif( get_row_layout() == 'external_link' ):
                   $link = get_sub_field('link_url');
+                  $target = 'target="_blank"';
                 endif;
               endwhile;
             else :
@@ -401,7 +409,7 @@
             $href_start = '';
             $href_end = '';
             if ($link) {
-              $href_start = '<a href="'.$link.'">';
+              $href_start = '<a href="'.$link.'" '.$target.'>';
               $href_end = '</a>';
               }
 

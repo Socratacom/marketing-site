@@ -30,6 +30,7 @@
         wp_nav_menu(['theme_location' => 'mobile', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-sm hidden-md hidden-lg']);
       endif;
       ?>
+      <a href="/contact-us/" class="button">Contact Us</a>
     </nav>
   </div>
 </header>

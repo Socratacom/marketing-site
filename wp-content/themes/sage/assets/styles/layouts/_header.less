@@ -40,6 +40,81 @@ ul#menu-primary-navigation {
 .navbar-default .navbar-toggle {
   border-color: transparent;
 }
+.navbar-default {
+ .navbar-nav {
+    margin-left: 120px;
+    li {
+      a, a:focus {
+        color: lighten(@gray-med, 25%);
+        padding: 21px 20px 19px;
+        &:hover {
+          background-color: lighten(@gray-med, 30%);
+          color: @gray-dark;
+        }
+      }
+      .dropdown-menu {
+        display: none;
+        background-color: lighten(@gray-med, 30%);
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        padding: 0;
+        li {
+          a {
+            color: @gray-dark;
+            padding: 10px 20px;
+            &:hover {
+              background-color: lighten(@gray-med, 45%);
+            }
+          }
+        }
+        li.active {
+          background-color: lighten(@gray-med, 40%);
+        }
+      }
+    }
+    li.open {
+      > a, a:focus {
+        background-color: transparent;
+        color: lighten(@gray-med, 25%);
+      }
+    }
+    li.dropdown:hover {
+      background-color: lighten(@gray-med, 30%);
+      a {
+        color: @gray-dark;
+      }
+      .dropdown-menu {
+        display: block;
+      }
+    }
+    li.dropdown.active {
+      background-color: darken(@gray-med, 15%);
+      a, a:focus {
+        background-color: transparent;
+        color: lighten(@gray-med, 25%);
+      }
+      &:hover {
+        background-color: lighten(@gray-med, 30%);
+        color: @gray-dark;
+        > a {
+          color:  @gray-dark;
+           &:hover {
+            background-color: transparent;
+            color:  @gray-dark;
+          }
+        }
+      }
+      .dropdown-menu {
+        li {
+          a {
+            color: @gray-dark;
+          }
+        }
+      }
+    }
+  }
+}
 .navbar-toggle {
   position:absolute;
   top:12px;
@@ -100,7 +175,7 @@ ul.social-icons {
 
 }
 .social-icons a {
-  color:#95A5A6;
+  color: lighten(@gray-med, 25%);
   display:block;
   height:32px;
   width:32px;
@@ -120,3 +195,12 @@ ul.social-icons {
   line-height:normal;
 }
 
+header {
+  .button {
+    padding: 10px 30px;
+    margin: 10px 0 0 25px;
+    &:hover {
+      background-color: @gray-med;
+    }
+  }
+}
