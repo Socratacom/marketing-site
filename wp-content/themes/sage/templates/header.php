@@ -22,12 +22,12 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <?php
       if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-xs']);
+        wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-xs', 'depth' => 3]);
       endif;
       ?>
       <?php
       if (has_nav_menu('mobile')) :
-        wp_nav_menu(['theme_location' => 'mobile', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-sm hidden-md hidden-lg']);
+        wp_nav_menu(['theme_location' => 'mobile', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-sm hidden-md hidden-lg', 'depth' => 3]);
       endif;
       ?>
       <a href="/contact-us/" class="button">Contact Us</a>

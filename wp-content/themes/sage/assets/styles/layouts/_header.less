@@ -67,6 +67,25 @@ ul#menu-primary-navigation {
               background-color: lighten(@gray-med, 45%);
             }
           }
+          .dropdown-menu {
+            position: relative;
+            width: 100%;
+            li {
+              > a {
+                padding-left: 30px;
+              }
+            }
+          }
+        }
+        li.nav-header {
+          > a {
+            padding: 10px 20px 0;
+            font-weight: 600;
+            font-size: 1.1em;
+            &:hover {
+              background-color: transparent;
+            }
+          }
         }
         li.active {
           background-color: lighten(@gray-med, 40%);
