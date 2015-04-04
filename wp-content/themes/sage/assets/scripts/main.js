@@ -26,6 +26,8 @@
       init: function() {
         // JavaScript to be fired on all pages
         $('.navbar-nav > li > a').removeAttr('data-toggle');
+        $('li.nav-header > a').removeAttr('href');
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -86,7 +88,21 @@
           autoplaySpeed: 4000,
           slidesToShow: 6,
           slidesToScroll: 1,
-          speed: 500
+          speed: 500,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 5
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3
+              }
+            }
+          ]
         });
 
         $('.awards-slide').slick({
@@ -97,7 +113,21 @@
           autoplaySpeed: 4000,
           slidesToShow: 6,
           slidesToScroll: 1,
-          speed: 500
+          speed: 500,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 5
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3
+              }
+            }
+          ]
         });
       },
       finalize: function() {

@@ -1,15 +1,25 @@
 .clouds {
   padding: 40px 0;
+  > .container {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .col-sm-12 {
+    padding-right: 0;
+    padding-left: 0;
+  }
   .cloud {
-    padding: 60px 15px;
+    padding: 30px 0;
     .cloud-icon {
-      font-size: 23em;
+      font-size: 7em;
     }
     h2 {
       text-transform: uppercase;
-      text-align: center;
+      text-align: left;
       font-weight: 300;
-      font-size: 3em;
+      font-size: 2em;
+      width: 60%;
+      float: right;
       span {
         font-size: 1em;
         line-height: 1.3;
@@ -27,7 +37,7 @@
       }
     }
     h3 {
-      font-size: 2.5em;
+      font-size: 1.8em;
       font-weight: 300;
     }
     .logos {
@@ -39,7 +49,7 @@
         margin-top: 20px;
       }
       img {
-        height: 85px;
+        height: 50px;
         margin: 0 auto;
       }
     }
@@ -48,9 +58,32 @@
 
 @media (min-width: @screen-sm-min) {
   .clouds {
+    > .container {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+    .col-sm-12 {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
     .cloud {
+      padding: 60px 15px;
+      h2 {
+        font-size: 2em;
+        width: 100%;
+        float: none;
+        text-align: center;
+      }
+      h3 {
+        font-size: 2.5em;
+      }
       .cloud-icon {
         font-size: 14em;
+      }
+      .logos {
+        img {
+          height: 70px;
+        }
       }
     }
   }
@@ -58,8 +91,16 @@
 @media (min-width: @screen-md-min) {
   .clouds {
     .cloud {
+      h2 {
+        font-size: 2.5em;
+      }
       .cloud-icon {
         font-size: 19em;
+      }
+      .logos {
+        img {
+          height: 85px;
+        }
       }
     }
   }
@@ -67,6 +108,9 @@
 @media (min-width: @screen-lg-min) {
   .clouds {
     .cloud {
+      h2 {
+        font-size: 3em;
+      }
       .cloud-icon {
         font-size: 23em;
       }

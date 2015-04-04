@@ -4,7 +4,7 @@
   <div class="container">
     <div class="navbar-header">
       <a class="white-logo header-logo" href="<?php echo home_url('/'); ?>"></a>
-      <ul class="social-icons hidden-xs">
+      <ul class="social-icons hidden-sm hidden-xs">
         <li><a href="https://www.facebook.com/socrata" target="_blank"><i class="fa fa-facebook"></i></a></li>
         <li><a href="https://twitter.com/socrata" target="_blank"><i class="fa fa-twitter"></i></a></li>
         <li><a href="https://www.linkedin.com/company/socrata" target="_blank"><i class="fa fa-linkedin"></i></a></li>
@@ -22,7 +22,7 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <?php
       if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-xs', 'depth' => 3]);
+        wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav', 'depth' => 3]);
       endif;
       ?>
       <?php
@@ -30,7 +30,7 @@
         wp_nav_menu(['theme_location' => 'mobile', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-sm hidden-md hidden-lg', 'depth' => 3]);
       endif;
       ?>
-      <a href="/contact-us/" class="button">Contact Us</a>
+      <a href="/contact-us/" class="button hidden-md hidden-sm hidden-xs">Contact Us</a>
     </nav>
   </div>
 </header>

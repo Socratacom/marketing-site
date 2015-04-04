@@ -1,31 +1,30 @@
 .featured-ctas {
-    .container {
-      border-top: @gray-light 1px solid;
-      .cta-slider {
-      	padding-top: 20px;
-      	.slide {
-      		padding-left: 85px;
-      		height: 200px;
-      		margin-bottom: 40px;
-      	}
-      }
+  .container {
+    border-top: @gray-light 1px solid;
+    .cta-slider {
+    	padding: 20px 15px 0;
+    	.slide {
+    		padding-left: 85px;
+    		height: auto;
+    		margin-bottom: 40px;
+    	}
     }
-    .button {
-      font-size: .9em;
-    }
-    i {
-      font-size: 5em;
-      margin-top: 20px;
-      position: absolute;
-      left: 0;
-    }
-    h3 {
-      font-size: 1.6em;
-    }
-    a {
-    	position: absolute;
-    	bottom: 0;
-    }
+  }
+  .button {
+    font-size: .9em;
+  }
+  i {
+    font-size: 5em;
+    margin-top: 20px;
+    position: absolute;
+    left: 0;
+  }
+  h3 {
+    font-size: 1.6em;
+  }
+  a {
+  	position: relative;
+  }
 }
 
 @media (min-width: @screen-sm-min) {
@@ -37,6 +36,10 @@
         	margin-bottom: 20px;
         }
       }
+    }
+    a {
+      position: absolute;
+      bottom: 0;
     }
   }
 }

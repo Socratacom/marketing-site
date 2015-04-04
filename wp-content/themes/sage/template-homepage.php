@@ -101,7 +101,7 @@
 	</section>
 	<section class="featured-ctas">
 		<div class="container">
-			<div class="cta-slider">
+			<div class="row cta-slider">
               <?php
                 if( have_rows('ctas') ):
                   while ( have_rows('ctas') ) : the_row();
@@ -167,7 +167,7 @@
 								$offset = 'col-sm-offset-1';
 							}
 
-							echo '<div class="col-sm-2 '.$offset.'">';
+							echo '<div class="col-sm-2 col-xs-6 '.$offset.'">';
 								echo '<a href="#'.$icon.'"><span class="'.$icon.'"></span></a>';
 								echo '<h3>'.$title.'</h3>';
 							echo '</div>';
@@ -183,7 +183,7 @@
 	<section class="clouds">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-12">
+				<div class="col-sm-12"><div class="row">
 					<?php
 					if( have_rows('cloud', 'option') ):
 						$c = true;
@@ -206,7 +206,7 @@
 										echo '<h2>'.$title.'</h2>';
 									}
 								echo '</div>';
-								echo '<div class="col-sm-7 col-sm-offset-1">';
+								echo '<div class="col-md-7 col-sm-8 col-md-offset-1">';
 									if ($headline) {
 										echo '<h3>'.$headline.'</h3>';
 									}
@@ -242,7 +242,7 @@
 										echo '<h2>'.$title.'</h2>';
 									}
 								echo '</div>';
-								echo '<div class="col-sm-7 col-sm-pull-4">';
+								echo '<div class="col-md-7 col-sm-8 col-sm-pull-4">';
 									if ($headline) {
 										echo '<h3>'.$headline.'</h3>';
 									}
@@ -273,7 +273,7 @@
 						// no rows found
 					endif;
 					?>
-				</div>
+				</div></div>
 			</div>
 		</div>
 	</section>
