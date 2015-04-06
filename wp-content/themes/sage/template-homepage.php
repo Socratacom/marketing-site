@@ -149,7 +149,7 @@
 			</div>
 		</div>
 	</section>
-	<section class="cloud-overview">
+	<section class="cloud-overview hidden-xs">
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -223,7 +223,7 @@
 										echo '</a>';
 									}
 								echo '</div>';
-								echo '<div class="col-sm-12 logos">';
+								echo '<div class="col-sm-12 logos hidden-xs">';
 									if( have_rows('logos') ):
 										while( have_rows('logos') ): the_row();
                     $logo = get_sub_field('logo_image');
@@ -259,7 +259,7 @@
 										echo '</a>';
 									}
 								echo '</div>';
-								echo '<div class="col-sm-12 logos">';
+								echo '<div class="col-sm-12 logos hidden-xs">';
                   if( have_rows('logos') ):
                     while( have_rows('logos') ): the_row();
                     $logo = get_sub_field('logo_image');

@@ -1,5 +1,5 @@
 .clouds {
-  padding: 40px 0;
+  padding: 0;
   > .container {
     padding-right: 0;
     padding-left: 0;
@@ -9,36 +9,59 @@
     padding-left: 0;
   }
   .cloud {
-    padding: 30px 0;
+    padding: 0 0 25px;
     .cloud-icon {
-      font-size: 7em;
+      font-size: 5em;
+      position: absolute;
+      left: -2px;
+      width: 63px;
+      height: 63px;
+      overflow: hidden;
+      &:before {
+        top: -4px;
+        left: -3px;
+        position: absolute;
+      }
+      background-color: @white;
     }
     h2 {
       text-transform: uppercase;
       text-align: left;
       font-weight: 300;
-      font-size: 2em;
-      width: 60%;
+      font-size: 1.5em;
+      width: 100%;
+      height: 63px;
       float: right;
+      padding: 10px 0 0 50px;
+      color: @white;
+      margin: 0 -15px;
       span {
         font-size: 1em;
-        line-height: 1.3;
+        line-height: 1.1;
         font-weight: 700;
+        padding-right: 6px;
         &:after {
           display: none;
         }
       }
       .small {
-        font-size: .6em;
-        color: @black;
+        font-size: 1em;
+        color: @white;
+        span {
+          padding-right: 0;
+        }
       }
       strong {
         line-height: 1.5;
       }
+      br {
+        display: none;
+      }
     }
     h3 {
-      font-size: 1.8em;
+      font-size: 1.6em;
       font-weight: 300;
+      margin-top: 80px;
     }
     .logos {
       border-top: #bdc3c7 1px solid;
@@ -54,10 +77,57 @@
       }
     }
   }
+  #icon-city_cloud {
+    h2 {
+      background-color: darken(@city-blue, 15%);
+
+    }
+  }
+  #icon-county_cloud {
+    h2 {
+      background-color: darken(@county-yellow, 15%);
+
+    }
+  }
+  #icon-state_cloud {
+    h2 {
+      background-color: darken(@state-red, 15%);
+
+    }
+  }
+  #icon-federal_cloud {
+    h2 {
+      background-color: darken(@federal-blue, 15%);
+
+    }
+  }
+  #icon-ngo_cloud {
+    h2 {
+      background-color: darken(@ngo-green, 15%);
+
+    }
+  }
 }
+.icon-city_cloud {
+  color: @city-blue;
+}
+.icon-county_cloud {
+  color: @county-yellow;
+}
+.icon-state_cloud {
+  color: @state-red;
+}
+.icon-federal_cloud {
+  color: @federal-blue;
+}
+.icon-ngo_cloud {
+  color: @ngo-green;
+}
+
 
 @media (min-width: @screen-sm-min) {
   .clouds {
+    padding: 40px 0;
     > .container {
       padding-right: 15px;
       padding-left: 15px;
@@ -69,21 +139,47 @@
     .cloud {
       padding: 60px 15px;
       h2 {
+        background-color: transparent;
         font-size: 2em;
         width: 100%;
+        height: inherit;
         float: none;
         text-align: center;
+        padding: 0;
+        margin: 20px 0 10px;
+        color: @black;
+        position: relative;
+        br {
+          display: block;
+        }
+        .small {
+          font-size: .6em;
+          color: @black;
+        }
       }
       h3 {
         font-size: 2.5em;
+        margin-top: 0;
       }
       .cloud-icon {
         font-size: 14em;
+        position: relative;
+        left: 0;
+        &:before {
+          position: relative;
+          left: 0;
+          top: 0;
+        }
       }
       .logos {
         img {
           height: 70px;
         }
+      }
+    }
+    #icon-city_cloud, #icon-county_cloud, #icon-state_cloud, #icon-federal_cloud, #icon-ngo_cloud {
+      h2 {
+        background-color: transparent;
       }
     }
   }

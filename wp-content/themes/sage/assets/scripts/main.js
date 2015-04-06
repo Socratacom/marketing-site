@@ -27,7 +27,6 @@
         // JavaScript to be fired on all pages
         $('.navbar-nav > li > a').removeAttr('data-toggle');
         $('li.nav-header > a').removeAttr('href');
-
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
