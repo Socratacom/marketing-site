@@ -47,8 +47,34 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
       </div>
       <div class="col-md-4">
+
+        <?php
+
+        $video = get_field('intro_video');
+        preg_match('/src="(.+?)"/', $video, $matches);
+        $src = $matches[1];
+        $params = array(
+            'enablejsapi'   => 1,
+            'rel'   => 0,
+            'controls'  => 0,
+            'html5'     => 1,
+            'showinfo'  =>0,
+            'playsinline' => 1
+        );
+        $new_src = add_query_arg($params, $src);
+        $video = str_replace($src, $new_src, $video);
+        $attributes = 'id="player"';
+        $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
+        $video_id = get_field('video_id');
+
+        ?>
+
+        <div class="embed-container" data-video="<?php echo $video_id; ?>">
+          <?php echo $video; ?>
+        </div>
+
         <div class="intro-playButton">
-          <a href="#">
+          <a href="#" id="play-button">
             <i class="fa fa-play-circle"></i>
           </a>
         </div>

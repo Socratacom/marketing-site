@@ -57,3 +57,23 @@ p {
 .green {
   color: @socrata-green;
 }
+
+
+//slick carousel
+.slick-slider {
+  //hide until loaded
+  visibility: hidden;
+
+  .slick-slide {
+    visibility: hidden;
+  }
+
+  //show when initialized
+  &.slick-initialized {
+    visibility: visible;
+
+    .slick-slide {
+      visibility: visible;
+    }
+  }
+}

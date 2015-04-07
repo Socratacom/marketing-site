@@ -150,6 +150,23 @@
             ]
         },
         {
+            "key": "field_5524304f83b94",
+            "label": "Intro Video",
+            "name": "intro_video",
+            "prefix": "",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
+        },
+        {
             "key": "field_5519c098a803c",
             "label": "Features",
             "name": "",
@@ -230,6 +247,23 @@
             "max_height": "",
             "max_size": "",
             "mime_types": ""
+        },
+        {
+            "key": "field_552436ca2e24e",
+            "label": "Features Video",
+            "name": "features_video",
+            "prefix": "",
+            "type": "oembed",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "width": "",
+            "height": ""
         },
         {
             "key": "field_5519d390eecb2",
@@ -358,10 +392,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-<<<<<<< Updated upstream
-    "modified": 1427905886,
-    "local": "json"
-=======
-    "modified": 1427992283
->>>>>>> Stashed changes
+    "modified": 1428436713
 }

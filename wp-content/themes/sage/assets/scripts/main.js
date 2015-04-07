@@ -149,21 +149,29 @@
           autoplaySpeed: 5000,
           speed: 800
         });
-        $('.logos img').each(function() {
-          var obj = $(this)[0];
-          obj.src = gray(obj);
-          $(this).css({ 'height': '85px', 'visibility': 'visible' });
+        $('.logos').slick({
+          arrows: false,
+          draggable: false,
+          autoplay: true,
+          autoplaySpeed: 4000,
+          slidesToShow: 6,
+          slidesToScroll: 1,
+          speed: 500,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 5
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3
+              }
+            }
+          ]
         });
-        setTimeout(function(){
-          $('.logos').slick({
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 4000,
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            speed: 500
-          });
-        }, 1000);
       }
     }
   };
@@ -202,3 +210,27 @@
   $(document).ready(UTIL.loadEvents);
 
 })(jQuery); // Fully reference jQuery after this point.
+
+
+// Youtube Control
+var tag = document.createElement('script');
+tag.src = "//www.youtube.com/player_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+function onPlayerReady(event) {
+  var playButton = document.getElementById('play-button');
+  playButton.addEventListener("click", function() {
+    player.playVideo();
+  });
+}
+
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('player', {
+    events: {
+      'onReady': onPlayerReady
+    }
+  });
+}
