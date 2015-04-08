@@ -6,29 +6,47 @@
   .clouds {
     .cloud {
     }
+    h2 {
+      .transition(background-color, .5s);
+    }
     #icon-city_cloud {
       h2 {
         background-color: darken(@city-blue, 15%);
+        &:hover {
+          background-color: @city-blue;
+        }
       }
     }
     #icon-county_cloud {
       h2 {
         background-color: darken(@county-yellow, 15%);
+        &:hover {
+          background-color: @county-yellow;
+        }
       }
     }
     #icon-state_cloud {
       h2 {
         background-color: darken(@state-red, 15%);
+        &:hover {
+          background-color: @state-red;
+        }
       }
     }
     #icon-federal_cloud {
       h2 {
         background-color: darken(@federal-blue, 15%);
+        &:hover {
+          background-color: @federal-blue;
+        }
       }
     }
     #icon-ngo_cloud {
       h2 {
         background-color: darken(@ngo-green, 15%);
+        &:hover {
+          background-color: @ngo-green;
+        }
       }
     }
   }

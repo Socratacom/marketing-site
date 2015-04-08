@@ -42,32 +42,28 @@
 							$icon = get_sub_field('cloud_icon');
 							$headline = get_sub_field('headline');
 							$content = get_sub_field('content');
-							$link_text = get_sub_field('link_text');
 							$link = get_sub_field('link');
+							$astart = '';
+							$aend = '';
+							if ($link) {
+								$atag = '<a href="'.$link.'">';
+								$aend = '</a>';
+							}
 
-							echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-5">';
+							echo '<div class="col-sm-12 cloud" id="'.$icon.'">'.$atag.'<div class="col-sm-5">';
 								if ($icon) {
 									echo '<span class="cloud-icon '.$icon.'"></span>';
 								}
 								if ($title) {
 									echo '<h2>'.$title.'</h2>';
 								}
-							echo '</div>';
+							echo $aend.'</div>';
 							echo '<div class="col-sm-7 cloud-detail">';
 								if ($headline) {
 									echo '<h3>'.$headline.'</h3>';
 								}
 								if ($content) {
 									echo $content;
-								}
-								if ($link) {
-									echo '<a href="'.$link.'" class="button">';
-									if ($link_text) {
-										echo $link_text;
-									} else {
-										echo 'Learn More';
-									}
-									echo '</a>';
 								}
 							echo '</div></div>';
 						endwhile;
