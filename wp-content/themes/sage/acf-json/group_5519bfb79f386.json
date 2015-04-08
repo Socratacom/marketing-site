@@ -274,8 +274,8 @@
                     "sub_fields": [
                         {
                             "key": "field_55247b10c67cc",
-                            "label": "video",
-                            "name": "video",
+                            "label": "Embedded Video Link",
+                            "name": "embedded_video_link",
                             "prefix": "",
                             "type": "oembed",
                             "instructions": "",
@@ -301,8 +301,8 @@
                     "sub_fields": [
                         {
                             "key": "field_55247b25c67ce",
-                            "label": "link",
-                            "name": "link",
+                            "label": "Video Link Url",
+                            "name": "video_link_url",
                             "prefix": "",
                             "type": "url",
                             "instructions": "",

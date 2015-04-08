@@ -61,7 +61,7 @@
           var button = $(event.relatedTarget); // Button that triggered the modal
           var content = button.data('content'); // Extract info from data-* attributes
           var modal = $(this);
-          modal.find('.modal-title').html('New message to');
+          modal.find('.modal-title').html('&nbsp;');
           modal.find('.modal-body .embed-container iframe').attr('src', content);
           setTimeout(function(){player.playVideo();}, 500);
         });
@@ -82,6 +82,7 @@
           autoplaySpeed: 5000,
           speed: 800
         });
+
         $('.vid-slider').slick({
           arrows: true,
           prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
@@ -106,6 +107,7 @@
             }
           ]
         });
+
         $('.post-list').slick({
           arrows: true,
           prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
@@ -187,6 +189,7 @@
           autoplaySpeed: 5000,
           speed: 800
         });
+
         $('.logos').slick({
           arrows: false,
           draggable: false,

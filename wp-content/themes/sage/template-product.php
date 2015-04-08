@@ -48,7 +48,23 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
       </div>
       <div class="col-md-4">
         <div class="intro-playButton">
-          <a href="#" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="http://www.youtube.com/embed/SjWX2VL_kkA?feature=oembed&amp;enablejsapi=1&amp;rel=0&amp;controls=0&amp;html5=1&amp;showinfo=0&amp;playsinline=1">
+          <?php
+
+          $video = get_field('intro_video');
+          preg_match('/src="(.+?)"/', $video, $matches);
+          $src = $matches[1];
+          $params = array(
+              'enablejsapi'   => 1,
+              'rel'   => 0,
+              'controls'  => 0,
+              'html5'     => 1,
+              'showinfo'  =>0,
+              'playsinline' => 1
+          );
+          $new_src = add_query_arg($params, $src);
+
+          ?>
+          <a href="#" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $new_src; ?>">
             <i class="fa fa-play-circle"></i>
           </a>
         </div>
@@ -71,16 +87,33 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
               if( have_rows('features_video') ):
                 while ( have_rows('features_video') ) : the_row();
-                  $embed = '';
 
                   if( get_row_layout() == 'embedded_video' ):
-                    $embed = true;
 
-                    echo '<a href="#" data-toggle="modal" data-target="#videoModal" data-content="http://www.youtube.com/embed/10KD6y1boN4?feature=oembed&amp;enablejsapi=1&amp;rel=0&amp;controls=0&amp;html5=1&amp;showinfo=0&amp;playsinline=1">
+                    $video = get_sub_field('embedded_video_link');
+                    preg_match('/src="(.+?)"/', $video, $matches);
+                    $src = $matches[1];
+                    $params = array(
+                        'enablejsapi'   => 1,
+                        'rel'   => 0,
+                        'controls'  => 0,
+                        'html5'     => 1,
+                        'showinfo'  =>0,
+                        'playsinline' => 1
+                    );
+                    $new_src = add_query_arg($params, $src);
+
+
+                    echo '<a href="#" data-toggle="modal" data-target="#videoModal" data-content="' . $new_src . '">
                             <i class="fa fa-play-circle"></i>
                           </a>';
                   elseif( get_row_layout() == 'video_link' ):
-                    $embed = false;
+
+                    $link = get_sub_field('video_link_url');
+
+                    echo '<a href="'. $link .'">
+                            <i class="fa fa-play-circle"></i>
+                          </a>';
                   endif;
                 endwhile;
               else :
@@ -200,31 +233,10 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
         <button id="close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModal3Label">Modal title</h4>
       </div>
-
       <div class="modal-body">
-        <?php
-
-        $video = get_field('intro_video');
-        preg_match('/src="(.+?)"/', $video, $matches);
-        $src = $matches[1];
-        $params = array(
-            'enablejsapi'   => 1,
-            'rel'   => 0,
-            'controls'  => 0,
-            'html5'     => 1,
-            'showinfo'  =>0,
-            'playsinline' => 1
-        );
-        $new_src = add_query_arg($params, $src);
-        $video = str_replace($src, $new_src, $video);
-        $attributes = 'id="player"';
-        $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
-        $video_id = get_field('video_id');
-
-        ?>
 
         <div class="embed-container" data-video="<?php echo $video_id; ?>">
-          <iframe width="200" height="113" src="http://www.youtube.com/embed/C0DPdy98e4c?feature=oembed&amp;enablejsapi=1&amp;rel=0&amp;controls=0&amp;html5=1&amp;showinfo=0&amp;playsinline=1" frameborder="0" allowfullscreen="" id="player"></iframe>
+          <iframe width="200" height="113" frameborder="0" allowfullscreen="" id="player"></iframe>
         </div>
 
       </div>
