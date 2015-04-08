@@ -10,6 +10,7 @@
   .jumbotron {
     font-family: 'Open Sans', sans-serif;
     padding: 0;
+    margin: 0 0 60px 0;
 
     .jumbotron-textContainer {
       margin: 0 0 0 60px;
@@ -62,69 +63,83 @@
 
 
   /*******************************/
-  /* Template Feature Blocks     */
+  /* Template Applications       */
   /* ----------------------------*/
   /* feature sections with image */
   /* headline, body and CTA      */
   /*******************************/
 
-  .template-featureBlocks {
+  .template-applications {
     padding: 60px 0 0 0;
-    background-color: @gray-ligter;
 
-    .featureBlocks-headline {
-      margin: 0 auto;
-      text-align: center;
+    .applications-headline {
+      margin: 0 auto 30px auto;
 
       h2 {
-        display: inline-block;
-        padding: 0 0 10px 0;
-        border-bottom: 1px solid @gray-med;
-        font-size: 3.5em; //50px
-        font-weight: @font-light;
+        padding: 0 0 5px 0;
+        color: #999999;
+        border-bottom: 1px solid #999999;
+        font-size: 24px;
       }
     }
 
-    .featureBlocks-feature {
-      .feature-container {
-        min-height: 600px;
-        padding: 80px 0;
-        background-repeat: no-repeat;
+    .applications-group {
+      background-color: @gray-ligter;
 
-        &.contain {
-          background-size: contain;
-          background-position: center center;
-        }
+      .group-headline {
+        margin: 30px auto 0 auto;
+        text-align: center;
 
-        &.cover {
-          background-size: cover;
-          background-position: bottom center;
-        }
-
-        .container-headline {
-          margin: 0 0 25px 0;
-
-          h3 {
-            font-size: 3.75em; //52px
-          }
-        }
-
-        .container-body {
-          margin: 0 0 50px 0;
-          color: @gray-med;
+        h2 {
+          display: inline-block;
+          padding: 0 0 10px 0;
+          border-bottom: 1px solid @gray-med;
+          font-size: 3.5em; //50px
           font-weight: @font-light;
-
-          p {
-            font-size: 1.714em; //24px
-            line-height: 1.7;
-          }
         }
+      }
 
-        .container-link{
-          margin: 0 0 10px 0;
+      .group-feature {
+        .feature-container {
+          min-height: 600px;
+          padding: 80px 0;
+          background-repeat: no-repeat;
 
-          a {
-            padding: 10px 40px;
+          &.contain {
+            background-size: contain;
+            background-position: center center;
+          }
+
+          &.cover {
+            background-size: cover;
+            background-position: bottom center;
+          }
+
+          .container-headline {
+            margin: 0 0 25px 0;
+
+            h3 {
+              font-size: 3.75em; //52px
+            }
+          }
+
+          .container-body {
+            margin: 0 0 50px 0;
+            color: @gray-med;
+            font-weight: @font-light;
+
+            p {
+              font-size: 1.714em; //24px
+              line-height: 1.7;
+            }
+          }
+
+          .container-link{
+            margin: 0 0 10px 0;
+
+            a {
+              padding: 10px 40px;
+            }
           }
         }
       }
@@ -211,20 +226,25 @@
     }
 
     /********************/
-    /* Success Services */
+    /* Light            */
     /********************/
 
-    &.successServices {
+    &.light {
       .listTiles-headline {
-        color: #000000;
-        border-bottom-color: #000000;
+        border-bottom-color: #999999;
+
+        h3 {
+          color: #999999;
+        }
       }
+
       .listTiles-tile {
         .tile-icon {
           i {
             color: @city-blue;
           }
         }
+
         .tile-content {
           .content-text {
             .text-headline {
@@ -250,10 +270,10 @@
     }
 
     /********************/
-    /* Add Ons          */
+    /* Dark             */
     /********************/
 
-    &.addons {
+    &.dark {
       background-color: #4a4f50;
 
       .listTiles-headline {
@@ -330,9 +350,6 @@
             p {
               font-weight: @font-light;
             }
-
-          }
-          .content-image {
 
           }
         }

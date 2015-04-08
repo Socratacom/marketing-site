@@ -253,7 +253,7 @@
             "label": "Features Video",
             "name": "features_video",
             "prefix": "",
-            "type": "oembed",
+            "type": "flexible_content",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -262,8 +262,65 @@
                 "class": "",
                 "id": ""
             },
-            "width": "",
-            "height": ""
+            "button_label": "Add Row",
+            "min": "",
+            "max": "",
+            "layouts": [
+                {
+                    "key": "55247afb7fce1",
+                    "name": "embedded_video",
+                    "label": "Embedded Video",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_55247b10c67cc",
+                            "label": "video",
+                            "name": "video",
+                            "prefix": "",
+                            "type": "oembed",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "width": "",
+                            "height": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "55247b1bc67cd",
+                    "name": "video_link",
+                    "label": "Video Link",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_55247b25c67ce",
+                            "label": "link",
+                            "name": "link",
+                            "prefix": "",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            ]
         },
         {
             "key": "field_5519d390eecb2",
@@ -392,5 +449,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1428436713
+    "modified": 1428454215
 }

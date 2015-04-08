@@ -47,34 +47,8 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
       </div>
       <div class="col-md-4">
-
-        <?php
-
-        $video = get_field('intro_video');
-        preg_match('/src="(.+?)"/', $video, $matches);
-        $src = $matches[1];
-        $params = array(
-            'enablejsapi'   => 1,
-            'rel'   => 0,
-            'controls'  => 0,
-            'html5'     => 1,
-            'showinfo'  =>0,
-            'playsinline' => 1
-        );
-        $new_src = add_query_arg($params, $src);
-        $video = str_replace($src, $new_src, $video);
-        $attributes = 'id="player"';
-        $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
-        $video_id = get_field('video_id');
-
-        ?>
-
-        <div class="embed-container" data-video="<?php echo $video_id; ?>">
-          <?php echo $video; ?>
-        </div>
-
         <div class="intro-playButton">
-          <a href="#" id="play-button">
+          <a href="#" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="http://www.youtube.com/embed/SjWX2VL_kkA?feature=oembed&amp;enablejsapi=1&amp;rel=0&amp;controls=0&amp;html5=1&amp;showinfo=0&amp;playsinline=1">
             <i class="fa fa-play-circle"></i>
           </a>
         </div>
@@ -93,9 +67,28 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
           <div class="hero-thumbnail">
             <img src="<?php echo $features_video_thumbnail; ?>" alt="" class="img-responsive">
             <div class="thumbnail-playButton">
-              <a href="#">
-                <i class="fa fa-play-circle"></i>
-              </a>
+              <?php
+
+              if( have_rows('features_video') ):
+                while ( have_rows('features_video') ) : the_row();
+                  $embed = '';
+
+                  if( get_row_layout() == 'embedded_video' ):
+                    $embed = true;
+
+                    echo '<a href="#" data-toggle="modal" data-target="#videoModal" data-content="http://www.youtube.com/embed/10KD6y1boN4?feature=oembed&amp;enablejsapi=1&amp;rel=0&amp;controls=0&amp;html5=1&amp;showinfo=0&amp;playsinline=1">
+                            <i class="fa fa-play-circle"></i>
+                          </a>';
+                  elseif( get_row_layout() == 'video_link' ):
+                    $embed = false;
+                  endif;
+                endwhile;
+              else :
+                // no layouts found
+              endif;
+
+              ?>
+
             </div>
           </div>
 
@@ -198,3 +191,43 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
     </div>
   </div>
 </section>
+
+<div class="modal fade videoModal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button id="close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModal3Label">Modal title</h4>
+      </div>
+
+      <div class="modal-body">
+        <?php
+
+        $video = get_field('intro_video');
+        preg_match('/src="(.+?)"/', $video, $matches);
+        $src = $matches[1];
+        $params = array(
+            'enablejsapi'   => 1,
+            'rel'   => 0,
+            'controls'  => 0,
+            'html5'     => 1,
+            'showinfo'  =>0,
+            'playsinline' => 1
+        );
+        $new_src = add_query_arg($params, $src);
+        $video = str_replace($src, $new_src, $video);
+        $attributes = 'id="player"';
+        $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
+        $video_id = get_field('video_id');
+
+        ?>
+
+        <div class="embed-container" data-video="<?php echo $video_id; ?>">
+          <iframe width="200" height="113" src="http://www.youtube.com/embed/C0DPdy98e4c?feature=oembed&amp;enablejsapi=1&amp;rel=0&amp;controls=0&amp;html5=1&amp;showinfo=0&amp;playsinline=1" frameborder="0" allowfullscreen="" id="player"></iframe>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

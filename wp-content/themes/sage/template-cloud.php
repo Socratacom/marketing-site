@@ -118,7 +118,6 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
 
         if( have_rows('cloud', 'option') ):
-          $c = true;
           while ( have_rows('cloud', 'option') ) : the_row();
 
             $related_page = get_sub_field('related_page', 'option');
@@ -127,7 +126,6 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
             if ($current_page === $related_page) {
 
               // Get vars
-              $oddeven = $c = !$c;
               $title = get_sub_field('title', 'option');
               $icon = get_sub_field('cloud_icon', 'option');
               $headline = get_sub_field('headline', 'option');
@@ -193,148 +191,159 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   </div>
 </section>
 
-<section class="template-featureBlocks">
+<section class="template-applications">
 
   <header>
     <div class="container">
       <div class="row">
-        <div class="featureBlocks-headline">
-          <h2>Financial Transparency Suite</h2>
+        <div class="applications-headline">
+          <h2>Applications</h2>
         </div>
       </div>
     </div>
   </header>
-  <?php
+  <div class="applications-group">
 
-      if( have_rows('suite_features') ):
-        $c = true;
-        while ( have_rows('suite_features') ) : the_row();
+    <div class="group-headline">
+      <h2>Financial Transparency Suite</h2>
+    </div>
 
-          //vars
-          $oddeven = $c = !$c;
-          $headline = get_sub_field('headline');
-          $body = get_sub_field('body');
-          $image = get_sub_field('image');
+    <?php
 
-          if( have_rows('cta') ):
-            while ( have_rows('cta') ) : the_row();
-              $link = '';
-              $link_text = '';
-              if( get_row_layout() == 'internal_link' ):
-                $link = get_sub_field('internal_link');
-                $link_text = get_sub_field('internal_link_text');
-              elseif( get_row_layout() == 'external_link' ):
-                $link = get_sub_field('external_link');
-                $link_text = get_sub_field('external_link_text');
-              endif;
-            endwhile;
-          else :
-            // no layouts found
-          endif;
+        if( have_rows('suite_features') ):
+          $c = true;
+          while ( have_rows('suite_features') ) : the_row();
 
-          if ( false == $oddeven ) {
-          echo '<div class="featureBlocks-feature text-left">';
-                if( have_rows('background') ):
-                  while ( have_rows('background') ) : the_row();
-                    $background = '';
-                    if( get_row_layout() == 'background_contained' ):
-                      $background = get_sub_field('background_image');
+            //vars
+            $oddeven = $c = !$c;
+            $headline = get_sub_field('headline');
+            $body = get_sub_field('body');
+            $image = get_sub_field('image');
 
-                      echo '<div class="feature-container contain" style="background-image: url(' . $background . ')">';
-
-                    elseif( get_row_layout() == 'background_full_width' ):
-                      $background = get_sub_field('background_image');
-
-                      echo '<div class="feature-container cover" style="background-image: url(' . $background . ')">';
-                    endif;
-                  endwhile;
-                else :
-                  // no layouts found
+            if( have_rows('cta') ):
+              while ( have_rows('cta') ) : the_row();
+                $link = '';
+                $link_text = '';
+                if( get_row_layout() == 'internal_link' ):
+                  $link = get_sub_field('internal_link');
+                  $link_text = get_sub_field('internal_link_text');
+                elseif( get_row_layout() == 'external_link' ):
+                  $link = get_sub_field('external_link');
+                  $link_text = get_sub_field('external_link_text');
                 endif;
-            echo '  <div class="container">
-                      <div class="row">
-                        <div class="col-sm-8 col-md-6 col-md-offset-1">
-                          <div class="container-headline">
-                            <h3>' . $headline . '</h3>
+              endwhile;
+            else :
+              // no layouts found
+            endif;
+
+            if ( false == $oddeven ) {
+            echo '<div class="group-feature text-left">';
+                  if( have_rows('background') ):
+                    while ( have_rows('background') ) : the_row();
+                      $background = '';
+                      if( get_row_layout() == 'background_contained' ):
+
+                        $background = get_sub_field('background_image');
+                        echo '<div class="feature-container contain" style="background-image: url(' . $background . ')">';
+
+                      elseif( get_row_layout() == 'background_full_width' ):
+
+                        $background = get_sub_field('background_image');
+                        echo '<div class="feature-container cover" style="background-image: url(' . $background . ')">';
+                      endif;
+                    endwhile;
+                  else :
+
+                    echo '<div class="feature-container">';
+
+                  endif;
+              echo '  <div class="container">
+                        <div class="row">
+                          <div class="col-sm-8 col-md-6 col-md-offset-1">
+                            <div class="container-headline">
+                              <h3>' . $headline . '</h3>
+                            </div>
+                            <div class="container-body">
+                              <p>' . $body . '</p>
+                            </div>
+                            <div class="container-link">
+                              <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
+                            </div>
                           </div>
-                          <div class="container-body">
-                            <p>' . $body . '</p>
-                          </div>
-                          <div class="container-link">
-                            <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
-                          </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4 hidden-xs">';
+                          <div class="col-sm-4 col-md-4 hidden-xs">';
 
-                  if($image) {
-                    echo '<img src="' . $image . '" class="img-responsive">';
-                    }
-
-              echo '    </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>';
-          }else if ( true == $oddeven ) {
-          echo '<div class="featureBlocks-feature text-right">';
-                if( have_rows('background') ):
-                  while ( have_rows('background') ) : the_row();
-                    $background = '';
-                    if( get_row_layout() == 'background_contained' ):
-                      $background = get_sub_field('background_image');
-
-                      echo '<div class="feature-container contain" style="background-image: url(' . $background . ')">';
-
-                    elseif( get_row_layout() == 'background_full_width' ):
-                      $background = get_sub_field('background_image');
-
-                      echo '<div class="feature-container cover" style="background-image: url(' . $background . ')">';
-
-                    endif;
-                  endwhile;
-                else :
-                  echo '<div class="feature-container cover">';
-                endif;
-            echo '  <div class="container">
-                      <div class="row">
-                        <div class="col-sm-4 col-md-4 col-md-offset-1 hidden-xs">
-                          ';
-                      if($image) {
-                        echo ' <img src="' . $image . '" class="img-responsive">';
+                    if($image) {
+                      echo '<img src="' . $image . '" class="img-responsive">';
                       }
-                  echo '</div>
-                        <div class="col-sm-8 col-md-6">
-                          <div class="container-headline">
-                            <h3>' . $headline . '</h3>
-                          </div>
-                          <div class="container-body">
-                            <p>' . $body . '</p>
-                          </div>
-                          <div class="container-link">
-                            <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
+
+                echo '    </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>';
+            }else if ( true == $oddeven ) {
+            echo '<div class="group-feature text-right">';
+                  if( have_rows('background') ):
+                    while ( have_rows('background') ) : the_row();
+                      $background = '';
+                      if( get_row_layout() == 'background_contained' ):
+
+                        $background = get_sub_field('background_image');
+                        echo '<div class="feature-container contain" style="background-image: url(' . $background . ')">';
+
+                      elseif( get_row_layout() == 'background_full_width' ):
+
+                        $background = get_sub_field('background_image');
+                        echo '<div class="feature-container cover" style="background-image: url(' . $background . ')">';
+
+                      endif;
+                    endwhile;
+                  else :
+
+                    echo '<div class="feature-container">';
+
+                  endif;
+              echo '  <div class="container">
+                        <div class="row">
+                          <div class="col-sm-4 col-md-4 col-md-offset-1 hidden-xs">
+                            ';
+                        if($image) {
+                          echo ' <img src="' . $image . '" class="img-responsive">';
+                        }
+                    echo '</div>
+                          <div class="col-sm-8 col-md-6">
+                            <div class="container-headline">
+                              <h3>' . $headline . '</h3>
+                            </div>
+                            <div class="container-body">
+                              <p>' . $body . '</p>
+                            </div>
+                            <div class="container-link">
+                              <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>';
-          }
+                  </div>';
+            }
 
-        endwhile;
-      endif;
-  ?>
+          endwhile;
+        endif;
+    ?>
+  </div>
 
 </section>
 
-<section class="template-listTiles successServices">
+<section class="template-listTiles light">
   <div class="container">
     <div class="row">
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-10">
-        <div class="listTiles-headline">
-          <h3>Success Services</h3>
-        </div>
+      <div class="col-md-10 col-md-offset-1">
+        <header>
+          <div class="listTiles-headline">
+            <h3>Success Services</h3>
+          </div>
+        </header>
       <?php
 
         if( have_rows('successful_services') ):
@@ -372,15 +381,15 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   </div>
 </section>
 
-<section class="template-listTiles addons">
+<section class="template-listTiles dark">
   <div class="container">
     <div class="row">
-      <div class="col-md-1">
-      </div>
-      <div class="col-md-10">
-        <div class="listTiles-headline">
-          <h3>Add-Ons</h3>
-        </div>
+      <div class="col-md-10 col-md-offset-1">
+        <header>
+          <div class="listTiles-headline">
+            <h3>Add-Ons</h3>
+          </div>
+        </header>
       <?php
 
         if( have_rows('add-ons') ):
@@ -442,10 +451,14 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                   <div class="row">';
 
             if( have_rows('item') ):
+              $c = true;
               while ( have_rows('item') ) : the_row();
+
+                $oddeven = $c = !$c;
                 $image = '';
                 $item_headline = '';
                 $item_body = '';
+
                 if( get_row_layout() == 'text_block' ):
                   $item_headline = get_sub_field('headline');
                   $item_body = get_sub_field('body');
@@ -464,7 +477,6 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                           </div>
                         </div>';
 
-
                 elseif( get_row_layout() == 'image' ):
                   $image = get_sub_field('image_url');
                   echo '
@@ -479,6 +491,11 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                         </div>';
 
                 endif;
+
+                if ( true == $oddeven ) {
+                  echo '</div><div class="row">';
+                }
+
               endwhile;
             else :
               // no layouts found

@@ -16,6 +16,29 @@
 
  // convert images to black and white
 
+ // Youtube Control
+ var tag = document.createElement('script');
+ tag.src = "//www.youtube.com/player_api";
+ var firstScriptTag = document.getElementsByTagName('script')[0];
+ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+ var player;
+
+ function onPlayerReady(event) {
+   var closeButton = document.getElementById('close-button');
+   closeButton.addEventListener("click", function() {
+     player.stopVideo();
+   });
+ }
+
+ function onYouTubeIframeAPIReady() {
+   player = new YT.Player('player', {
+     events: {
+       'onReady': onPlayerReady
+     }
+   });
+ }
+
 (function($) {
 
   // Use this variable to set up the common and page specific functions. If you
@@ -27,6 +50,21 @@
         // JavaScript to be fired on all pages
         $('.navbar-nav > li > a').removeAttr('data-toggle');
         $('li.nav-header > a').removeAttr('href');
+
+
+        $('#videoModal').on('hidden.bs.modal', function (e) {
+          player.stopVideo();
+        });
+
+        $('#videoModal').on('show.bs.modal', function (event) {
+
+          var button = $(event.relatedTarget); // Button that triggered the modal
+          var content = button.data('content'); // Extract info from data-* attributes
+          var modal = $(this);
+          modal.find('.modal-title').html('New message to');
+          modal.find('.modal-body .embed-container iframe').attr('src', content);
+          setTimeout(function(){player.playVideo();}, 500);
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
@@ -210,27 +248,3 @@
   $(document).ready(UTIL.loadEvents);
 
 })(jQuery); // Fully reference jQuery after this point.
-
-
-// Youtube Control
-var tag = document.createElement('script');
-tag.src = "//www.youtube.com/player_api";
-var firstScriptTag = document.getElementsByTagName('script')[0];
-firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-var player;
-
-function onPlayerReady(event) {
-  var playButton = document.getElementById('play-button');
-  playButton.addEventListener("click", function() {
-    player.playVideo();
-  });
-}
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    events: {
-      'onReady': onPlayerReady
-    }
-  });
-}
