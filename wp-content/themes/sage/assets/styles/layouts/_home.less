@@ -311,6 +311,52 @@
 				letter-spacing: 6px;
 			}
 		}
+    // used !important to get around Marketo in-line styles
+    form {
+      width: 100% !important;
+      .mktoFormRow {
+        .mktoFormCol, .mktoFieldWrap {
+          width: 100%;
+          margin-bottom: 0 !important;
+        }
+        .mktoOffset, label {
+          display: none;
+        }
+        .mktoGutter {
+          width: 0px !important;
+        }
+        input {
+          width: 100% !important;
+          border: none;
+          padding: 10px;
+          margin-top: 15px;
+        }
+        input#Title {
+          width: 50% !important;
+        }
+      }
+      .mktoButtonRow {
+        position: absolute;
+        right: 15px;
+        width: 42%;
+        bottom: 38px;
+        .mktoButtonWrap {
+          margin-left: 0 !important;
+          button {
+            border: none;
+            background-image: none;
+            box-shadow: none;
+            width: 100%;
+            padding: 10px;
+            background-color: #e19c46;
+            &:hover {
+              border: none;
+              background-color: darken(#e19c46, 10%);
+            }
+          }
+        }
+      }
+    }
 	}
 
   .awards {

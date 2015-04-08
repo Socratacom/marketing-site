@@ -56,12 +56,20 @@ footer {
           font-size: 1.1em;
         }
         .nav-header {
+          position: relative;
           margin-top: 0;
           > a {
             font-size: 1.1em;
+            position: absolute;
+            top: -53px;
             &:hover {
               text-decoration: none;
             }
+          }
+        }
+        .nav-header:first-child {
+          > a {
+            left: 65px;
           }
         }
         ul {
@@ -95,7 +103,7 @@ footer {
             display: block;
             float: left;
             ul {
-              margin-top: 5px;
+              margin-top: -12px;
             }
           }
         }
