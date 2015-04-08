@@ -65,33 +65,26 @@
 						$summary = get_sub_field('summary');
 						$image = get_sub_field('image');
 						$rtp_id = get_sub_field('rtp_id');
-						if( have_rows('link') ):
-							while ( have_rows('link') ) : the_row();
-								$link = '';
-                $target = '';
-								if( get_row_layout() == 'internal_link' ):
-									$link = get_sub_field('link_url');
-								elseif( get_row_layout() == 'external_link' ):
-									$link = get_sub_field('link_url');
-                  $target = 'target="_blank"';
-								endif;
-							endwhile;
-						else :
-							// no layouts found
-						endif;
-						$a_tag_start = '';
-						$a_tag_end = '';
-						if ($link) {
-							$a_tag_start = '<a href="'.$link.'" '.$target.'>';
-							$a_tag_end = '</a>';
-						}
+
+				        $video = get_sub_field('link');
+				        preg_match('/src="(.+?)"/', $video, $matches);
+				        $src = $matches[1];
+				        $params = array(
+				            'enablejsapi'   => 1,
+				            'rel'   => 0,
+				            'controls'  => 0,
+				            'html5'     => 1,
+				            'showinfo'  =>0,
+				            'playsinline' => 1
+				        );
+				        $new_src = add_query_arg($params, $src);
 
 						echo '<div class="slide col-sm-4" id="'.$rtp_id.'">';
-						echo $a_tag_start;
+						echo '<a href="#" data-toggle="modal" data-target="#videoModal" data-content="'.$new_src.'">';
 						echo '<div class="play-btn"></div>';
 						echo '<div class="video-content"><h3>'.$headline.'</h3><p>'.$summary.'</p></div>';
 						echo '<img src="'.$image['url'].'" alt="'.$image['title'].'">';
-						echo $a_tag_end;
+						echo '</a>';
 						echo '</div>';
 					endwhile;
 				endif;
@@ -474,3 +467,18 @@
 	</section>
 	<?php get_template_part('templates/content', 'page'); ?>
 <?php endwhile; ?>
+
+<div class="modal fade videoModal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button id="close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="embed-container">
+          <iframe width="200" height="113" frameborder="0" allowfullscreen="" id="player"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

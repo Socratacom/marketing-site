@@ -111,7 +111,7 @@
                     "label": "Link",
                     "name": "link",
                     "prefix": "",
-                    "type": "flexible_content",
+                    "type": "oembed",
                     "instructions": "",
                     "required": 0,
                     "conditional_logic": 0,
@@ -120,73 +120,8 @@
                         "class": "",
                         "id": ""
                     },
-                    "button_label": "Add Link",
-                    "min": 0,
-                    "max": 1,
-                    "layouts": [
-                        {
-                            "key": "551dbaccb143d",
-                            "name": "internal_link",
-                            "label": "Internal Link",
-                            "display": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_551dbad322f74",
-                                    "label": "Link URL",
-                                    "name": "link_url",
-                                    "prefix": "",
-                                    "type": "page_link",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "post_type": [
-                                        "post",
-                                        "page",
-                                        "case_study",
-                                        "stories",
-                                        "tech_blog"
-                                    ],
-                                    "taxonomy": "",
-                                    "allow_null": 0,
-                                    "multiple": 0
-                                }
-                            ],
-                            "min": "",
-                            "max": ""
-                        },
-                        {
-                            "key": "551dbaf522f75",
-                            "name": "external_link",
-                            "label": "External Link",
-                            "display": "block",
-                            "sub_fields": [
-                                {
-                                    "key": "field_551dbaf522f76",
-                                    "label": "Link URL",
-                                    "name": "link_url",
-                                    "prefix": "",
-                                    "type": "url",
-                                    "instructions": "",
-                                    "required": 0,
-                                    "conditional_logic": 0,
-                                    "wrapper": {
-                                        "width": "",
-                                        "class": "",
-                                        "id": ""
-                                    },
-                                    "default_value": "",
-                                    "placeholder": ""
-                                }
-                            ],
-                            "min": "",
-                            "max": ""
-                        }
-                    ]
+                    "width": "",
+                    "height": ""
                 },
                 {
                     "key": "field_551dbb260bac3",
@@ -744,6 +679,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1428514307,
-    "local": "json"
+    "modified": 1428518794
 }
