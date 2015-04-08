@@ -231,7 +231,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
       <div class="modal-header">
         <button id="close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModal3Label">Modal title</h4>
+        <h4 class="modal-title"></h4>
       </div>
       <div class="modal-body">
 

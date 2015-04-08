@@ -179,7 +179,7 @@
         // JavaScript to be fired on the about us page
       }
     },
-    'cloud': {
+    'page_template_template_cloud': {
       init: function() {
         $('.jumbotron').slick({
           arrows: true,
