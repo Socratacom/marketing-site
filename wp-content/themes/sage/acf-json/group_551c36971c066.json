@@ -217,6 +217,88 @@
                             "max_height": "",
                             "max_size": "",
                             "mime_types": ""
+                        },
+                        {
+                            "key": "field_5525662e1ca19",
+                            "label": "Logo Link",
+                            "name": "logo_link",
+                            "prefix": "",
+                            "type": "flexible_content",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "button_label": "Add Link",
+                            "min": "",
+                            "max": "",
+                            "layouts": [
+                                {
+                                    "key": "5525664aed16a",
+                                    "name": "internal_link",
+                                    "label": "Internal Link",
+                                    "display": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_552566541ca1a",
+                                            "label": "Link Url",
+                                            "name": "link_url",
+                                            "prefix": "",
+                                            "type": "page_link",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "post_type": [
+                                                "page",
+                                                "post",
+                                                "case_study",
+                                                "tech_blog",
+                                                "stories"
+                                            ],
+                                            "taxonomy": "",
+                                            "allow_null": 0,
+                                            "multiple": 0
+                                        }
+                                    ],
+                                    "min": "",
+                                    "max": ""
+                                },
+                                {
+                                    "key": "552566841ca1b",
+                                    "name": "external_link",
+                                    "label": "External Link",
+                                    "display": "block",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_552566841ca1c",
+                                            "label": "Link Url",
+                                            "name": "link_url",
+                                            "prefix": "",
+                                            "type": "url",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "placeholder": ""
+                                        }
+                                    ],
+                                    "min": "",
+                                    "max": ""
+                                }
+                            ]
                         }
                     ]
                 },
@@ -257,6 +339,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1428510792,
-    "local": "json"
+    "modified": 1428514672
 }

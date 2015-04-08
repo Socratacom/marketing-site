@@ -158,13 +158,30 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                         if( have_rows('logos') ):
                           while( have_rows('logos') ): the_row();
                           $logo = get_sub_field('logo_image');
-                            echo '<div class="slide col-sm-2"><img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale"></div>';
+                          $logolink = '';
+                          $linkstart = '';
+                          $linkend = '';
+                          if( have_rows('logo_link') ):
+                            while( have_rows('logo_link') ): the_row();
+                              if( get_row_layout() == 'internal_link' ):
+                                $logolink = get_sub_field('link_url');
+                                $linkstart = '<a href="'.$logolink.'">';
+                                $linkend = '</a>';
+                              elseif( get_row_layout() == 'external_link' ):
+                                $logolink = get_sub_field('link_url');
+                                $linkstart = '<a href="'.$logolink.'" target="_blank">';
+                                $linkend = '</a>';
+                              endif;
+                            endwhile;
+                          endif;
+
+                          if ($logo) {
+                            echo '<div class="slide col-sm-2">'.$linkstart.'<img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale">'.$linkend.'</div>';
+                          }
                           endwhile;
                         endif;
-
                   echo '</div>
-                      </div>
-                    ';
+                      </div>';
               }
           endwhile;
         else :

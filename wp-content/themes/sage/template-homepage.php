@@ -18,14 +18,14 @@
 					while ( have_rows('cta') ) : the_row();
 						$link = '';
 						$link_text = '';
-            $target = '';
+            			$target = '';
 						if( get_row_layout() == 'internal_link' ):
 							$link = get_sub_field('internal_link');
 							$link_text = get_sub_field('internal_link_text');
 						elseif( get_row_layout() == 'external_link' ):
 							$link = get_sub_field('external_link');
 							$link_text = get_sub_field('external_link_text');
-              $target = 'target="_blank"';
+              				$target = 'target="_blank"';
 						endif;
 					endwhile;
 				else :
@@ -226,9 +226,26 @@
 								echo '<div class="col-sm-12 logos hidden-xs">';
 									if( have_rows('logos') ):
 										while( have_rows('logos') ): the_row();
-                    $logo = get_sub_field('logo_image');
-                    if ($logo) {
-											echo '<div class="slide col-sm-2"><img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale"></div>';
+                    						$logo = get_sub_field('logo_image');
+                    						$logolink = '';
+                							$linkstart = '';
+                							$linkend = '';
+                							if( have_rows('logo_link') ):
+												while( have_rows('logo_link') ): the_row();
+													if( get_row_layout() == 'internal_link' ):
+														$logolink = get_sub_field('link_url');
+														$linkstart = '<a href="'.$logolink.'">';
+														$linkend = '</a>';
+													elseif( get_row_layout() == 'external_link' ):
+														$logolink = get_sub_field('link_url');
+														$linkstart = '<a href="'.$logolink.'" target="_blank">';
+														$linkend = '</a>';
+													endif;
+												endwhile;
+											endif;
+
+                    						if ($logo) {
+											echo '<div class="slide col-sm-2">'.$linkstart.'<img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale">'.$linkend.'</div>';
 										}
 										endwhile;
 									endif;
@@ -260,12 +277,31 @@
 									}
 								echo '</div>';
 								echo '<div class="col-sm-12 logos hidden-xs">';
-                  if( have_rows('logos') ):
-                    while( have_rows('logos') ): the_row();
-                    $logo = get_sub_field('logo_image');
-                      echo '<div class="slide col-sm-2"><img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale"></div>';
-                    endwhile;
-                  endif;
+				                  	if( have_rows('logos') ):
+				                    	while( have_rows('logos') ): the_row();
+				                    		$logo = get_sub_field('logo_image');
+				                      		$logolink = '';
+                							$linkstart = '';
+                							$linkend = '';
+                							if( have_rows('logo_link') ):
+												while( have_rows('logo_link') ): the_row();
+													if( get_row_layout() == 'internal_link' ):
+														$logolink = get_sub_field('link_url');
+														$linkstart = '<a href="'.$logolink.'">';
+														$linkend = '</a>';
+													elseif( get_row_layout() == 'external_link' ):
+														$logolink = get_sub_field('link_url');
+														$linkstart = '<a href="'.$logolink.'" target="_blank">';
+														$linkend = '</a>';
+													endif;
+												endwhile;
+											endif;
+
+                    						if ($logo) {
+											echo '<div class="slide col-sm-2">'.$linkstart.'<img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale">'.$linkend.'</div>';
+											}
+				                    	endwhile;
+				                  	endif;
 								echo '</div></div>';
 							}
 						endwhile;
