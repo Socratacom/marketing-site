@@ -84,18 +84,37 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
               'controls'  => 0,
               'html5'     => 1,
               'showinfo'  =>0,
+              'playsinline' => 1,
+              'autoplay' => 1
+          );
+          $new_src = add_query_arg($params, $src);
+
+          ?>
+          <a href="#" class="hidden-xs hidden-sm" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $new_src; ?>">
+            <i class="fa fa-play-circle"></i>
+          </a>
+          <?php
+
+          $video = get_field('intro_video');
+          preg_match('/src="(.+?)"/', $video, $matches);
+          $src = $matches[1];
+          $params = array(
+              'enablejsapi'   => 1,
+              'rel'   => 0,
+              'controls'  => 0,
+              'html5'     => 1,
+              'showinfo'  =>0,
               'playsinline' => 1
           );
           $new_src = add_query_arg($params, $src);
           $video = str_replace($src, $new_src, $video);
-          $attributes = 'id="player"';
+          $attributes = 'id="player2"';
           $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
-          $video_id = get_field('video_id');
 
           ?>
-          <a href="#" class="hidden-sm" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $new_src; ?>">
-            <i class="fa fa-play-circle"></i>
-          </a>
+          <div class="embed-container visible-xs visible-sm">
+            <?php echo $video; ?>
+          </div>
         </div>
       </div>
     </div>

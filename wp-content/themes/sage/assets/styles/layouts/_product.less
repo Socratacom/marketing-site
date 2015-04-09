@@ -38,7 +38,11 @@
 
       &.contain {
         background-size: contain;
-        background-position: center center;
+        background-position: top center;
+        @media (min-width: @screen-md-min) {
+
+          background-position: center center;
+        }
       }
 
       &.cover {
@@ -48,8 +52,11 @@
     }
 
     .intro-background {
-      height: 500px;
-      background-position: top right;
+
+      @media (min-width: @screen-md-min) {
+        height: 500px;
+        background-position: top right;
+      }
     }
 
     .intro-headline {
@@ -86,7 +93,10 @@
 
     .intro-playButton {
       width: 100%;
-      margin-top: 45%;
+
+      @media (min-width: @screen-md-min) {
+        margin-top: 45%;
+      }
 
       i {
         display: block;

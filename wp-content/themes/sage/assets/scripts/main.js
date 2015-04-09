@@ -22,7 +22,9 @@
  var firstScriptTag = document.getElementsByTagName('script')[0];
  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+
  var player;
+ var Player2;
 
  function onPlayerReady(event) {
    var closeButton = document.getElementById('close-button');
@@ -33,6 +35,11 @@
 
  function onYouTubeIframeAPIReady() {
    player = new YT.Player('player', {
+     events: {
+       'onReady': onPlayerReady
+     }
+   });
+   player2 = new YT.Player('player2', {
      events: {
        'onReady': onPlayerReady
      }
@@ -63,7 +70,6 @@
           var modal = $(this);
           modal.find('.modal-title').html('&nbsp;');
           modal.find('.modal-body .embed-container iframe').attr('src', content);
-          setTimeout(function(){player.playVideo();}, 1000);
         });
       },
       finalize: function() {
