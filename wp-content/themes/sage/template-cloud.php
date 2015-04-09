@@ -67,14 +67,25 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
     <div class="row">
 
     <?php
-      if( have_rows('cta_tiles', 'option') ):
-        while ( have_rows('cta_tiles', 'option') ) : the_row();
+      if( have_rows('cta_tiles') ):
+        while ( have_rows('cta_tiles') ) : the_row();
 
-          $tile_icon = get_sub_field('tile_icon', 'option');
-          $tile_headline = get_sub_field('tile_headline', 'option');
-          $tile_body = get_sub_field('tile_body', 'option');
-          $tile_button_text = get_sub_field('tile_button_text', 'option');
-          $tile_button_link = get_sub_field('tile_button_link', 'option');
+          $tile_icon = get_sub_field('tile_icon');
+          $tile_headline = get_sub_field('tile_headline');
+          $tile_body = get_sub_field('tile_body');
+          if( have_rows('tile_button_link') ):
+            while ( have_rows('tile_button_link') ) : the_row();
+              $link = '';
+              $link_text = '';
+              if( get_row_layout() == 'internal_link' ):
+                $link = get_sub_field('link_url');
+                $link_text = get_sub_field('link_text');
+              elseif( get_row_layout() == 'external_link' ):
+                $link = get_sub_field('link_url');
+                $link_text = get_sub_field('link_text');
+              endif;
+            endwhile;
+          endif;
 
           echo '<div class="col-md-4">
                   <div class="features-tile">
@@ -91,7 +102,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                         </div>
                       </div>
                       <div class="content-button">
-                        <a href="' . $tile_button_link . '" class="btn btn-primary">' . $tile_button_text . '</a>
+                        <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
                       </div>
                     </div>
                   </div>
