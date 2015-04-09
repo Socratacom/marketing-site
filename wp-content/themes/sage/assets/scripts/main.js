@@ -18,7 +18,7 @@
 
  // Youtube Control
  var tag = document.createElement('script');
- tag.src = "//www.youtube.com/player_api";
+ tag.src = '//www.youtube.com/player_api';
  var firstScriptTag = document.getElementsByTagName('script')[0];
  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
@@ -28,7 +28,7 @@
 
  function onPlayerReady(event) {
    var closeButton = document.getElementById('close-button');
-   closeButton.addEventListener("click", function() {
+   closeButton.addEventListener('click', function() {
      player.stopVideo();
    });
  }
@@ -64,7 +64,6 @@
         });
 
         $('#videoModal').on('show.bs.modal', function (event) {
-
           var button = $(event.relatedTarget); // Button that triggered the modal
           var content = button.data('content'); // Extract info from data-* attributes
           var modal = $(this);
@@ -113,6 +112,7 @@
             }
           ]
         });
+        $('.vid-slider').show();
 
         $('.post-list').slick({
           arrows: true,

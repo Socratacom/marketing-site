@@ -75,7 +75,8 @@
 				            'controls'  => 0,
 				            'html5'     => 1,
 				            'showinfo'  =>0,
-				            'playsinline' => 1
+				            'playsinline' => 1,
+				            'autoplay' => 1
 				        );
 				        $new_src = add_query_arg($params, $src);
 
@@ -471,9 +472,7 @@
 <div class="modal fade videoModal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <div class="modal-header">
-        <button id="close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-      </div>
+      <button id="close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       <div class="modal-body">
         <div class="embed-container">
           <iframe width="200" height="113" frameborder="0" allowfullscreen="" id="player"></iframe>
