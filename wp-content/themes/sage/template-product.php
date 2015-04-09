@@ -141,7 +141,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
                   if( get_row_layout() == 'embedded_video' ):
 
-                    $video = get_sub_field('embedded_video_link');
+                    $video = get_sub_field('video');
                     preg_match('/src="(.+?)"/', $video, $matches);
                     $src = $matches[1];
                     $params = array(
@@ -150,7 +150,8 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                         'controls'  => 0,
                         'html5'     => 1,
                         'showinfo'  =>0,
-                        'playsinline' => 1
+                        'playsinline' => 1,
+                        'autoplay' => 1
                     );
                     $new_src = add_query_arg($params, $src);
                     $video = str_replace($src, $new_src, $video);
