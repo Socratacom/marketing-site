@@ -7,6 +7,8 @@
 $intro_headline = get_field('intro_headline');
 $intro_subhead = get_field('intro_subhead');
 $intro_body = get_field('intro_body');
+$intro_image = get_field('intro_image');
+$intro_background = get_field('intro_background');
 
 $features_headline = get_field('features_headline');
 $features_body = get_field('features_body');
@@ -15,6 +17,29 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 ?>
 
 <section class="product-intro">
+  <?php
+
+    if( have_rows('intro_background') ):
+      while ( have_rows('intro_background') ) : the_row();
+        $background = '';
+        if( get_row_layout() == 'background_contained' ):
+
+          $background = get_sub_field('background_image');
+          echo '<div class="feature-container contain" style="background-image: url(' . $background . ')">';
+
+        elseif( get_row_layout() == 'background_full_width' ):
+
+          $background = get_sub_field('background_image');
+          echo '<div class="feature-container cover" style="background-image: url(' . $background . ')">';
+        endif;
+      endwhile;
+    else :
+
+      echo '<div class="feature-container">';
+
+    endif;
+
+  ?>
   <div class="container intro-background">
     <div class="row">
       <div class="col-md-6 col-md-offset-1">
@@ -29,20 +54,20 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
           <p><?php echo $intro_body; ?></p>
         </div>
         <div class="intro-features">
-          <ul>
 
           <?php
             if( have_rows('intro_features') ):
+              echo '<ul>';
               while ( have_rows('intro_features') ) : the_row();
 
                 $item = get_sub_field('item');
                 echo '<li>' . $item . '</li>';
 
               endwhile;
+              echo '</ul>';
             endif;
           ?>
 
-          </ul>
         </div>
 
       </div>
@@ -62,9 +87,13 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
               'playsinline' => 1
           );
           $new_src = add_query_arg($params, $src);
+          $video = str_replace($src, $new_src, $video);
+          $attributes = 'id="player"';
+          $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
+          $video_id = get_field('video_id');
 
           ?>
-          <a href="#" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $new_src; ?>">
+          <a href="#" class="hidden-sm" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $new_src; ?>">
             <i class="fa fa-play-circle"></i>
           </a>
         </div>
@@ -79,6 +108,9 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
     <div class="features-hero">
 
       <div class="row">
+        <?php
+          if( have_rows('features_video') ):
+        ?>
         <div class="col-md-6">
           <div class="hero-thumbnail">
             <img src="<?php echo $features_video_thumbnail; ?>" alt="" class="img-responsive">
@@ -102,6 +134,10 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                         'playsinline' => 1
                     );
                     $new_src = add_query_arg($params, $src);
+                    $video = str_replace($src, $new_src, $video);
+                    $attributes = 'id="player"';
+                    $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
+                    $video_id = get_field('video_id');
 
 
                     echo '<a href="#" data-toggle="modal" data-target="#videoModal" data-content="' . $new_src . '">
@@ -124,8 +160,10 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
             </div>
           </div>
-
         </div>
+        <?php
+          endif;
+        ?>
         <div class="col-md-6">
           <div class="hero-headline">
             <h2><?php echo $features_headline; ?></h2>
@@ -136,20 +174,19 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
           <div class="hero-features">
 
-            <ul>
-
             <?php
               if( have_rows('features_list') ):
+                echo '<ul>';
                 while ( have_rows('features_list') ) : the_row();
 
                   $item = get_sub_field('item');
                   echo '<li>' . $item . '</li>';
 
                 endwhile;
+                echo '</ul>';
               endif;
             ?>
 
-            </ul>
           </div>
 
         </div>
@@ -160,11 +197,42 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
       <div class="row">
 
       <?php
+        $tileNum = count(get_field('feature_tiles'));
+
         if( have_rows('feature_tiles') ):
+
+          // count number of tiles
+          $tileNum = count(get_field('feature_tiles'));
+
           while ( have_rows('feature_tiles') ) : the_row();
 
             $tile_image = get_sub_field('tile_image');
             $tile_body = get_sub_field('tile_body');
+
+
+            if ($tileNum <= 2) {
+              echo '<div class="col-sm-6">
+                      <div class="grid-tile">
+                        <div class="tile-image">
+                          <img src="' . $tile_image . '" alt="feature tile" class="img-responsive">
+                        </div>
+                        <div class="tile-text">
+                          <p>' . $tile_body . '</p>
+                        </div>
+                      </div>
+                    </div>';
+            }else if ($tileNum === 3) {
+              echo '<div class="col-sm-4">
+                      <div class="grid-tile">
+                        <div class="tile-image">
+                          <img src="' . $tile_image . '" alt="feature tile" class="img-responsive">
+                        </div>
+                        <div class="tile-text">
+                          <p>' . $tile_body . '</p>
+                        </div>
+                      </div>
+                    </div>';
+            }else if ($tileNum === 4) {
             echo '<div class="col-sm-6 col-md-3">
                     <div class="grid-tile">
                       <div class="tile-image">
@@ -175,6 +243,9 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                       </div>
                     </div>
                   </div>';
+            }
+
+
           endwhile;
         endif;
       ?>

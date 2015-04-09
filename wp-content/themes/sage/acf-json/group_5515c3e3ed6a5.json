@@ -263,6 +263,11 @@
                 "param": "post_type",
                 "operator": "==",
                 "value": "page"
+            },
+            {
+                "param": "page_template",
+                "operator": "!=",
+                "value": "template-product.php"
             }
         ]
     ],
@@ -272,5 +277,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1428516258
+    "modified": 1428540714
 }

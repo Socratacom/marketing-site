@@ -38,8 +38,6 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
               $link_text = get_sub_field('external_link_text');
             endif;
           endwhile;
-        else :
-          // no layouts found
         endif;
 
         echo '<div id="' . $rtp_id . '">

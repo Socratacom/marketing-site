@@ -44,6 +44,96 @@
             "mime_types": ""
         },
         {
+            "key": "field_5525c6f0d85dd",
+            "label": "Intro Background",
+            "name": "intro_background",
+            "prefix": "",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "button_label": "Add Row",
+            "min": "",
+            "max": "",
+            "layouts": [
+                {
+                    "key": "5525c6fd02593",
+                    "name": "background_contained",
+                    "label": "Background Contained",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_5525c715d85de",
+                            "label": "Background Image",
+                            "name": "background_image",
+                            "prefix": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": "5525c807d85df",
+                    "name": "background_full_width",
+                    "label": "Background Full Width",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5525c815d85e0",
+                            "label": "Background Image",
+                            "name": "background_image",
+                            "prefix": "",
+                            "type": "image",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "url",
+                            "preview_size": "thumbnail",
+                            "library": "all",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            ]
+        },
+        {
             "key": "field_5519bfba48c72",
             "label": "Intro Headline",
             "name": "intro_headline",
@@ -274,8 +364,8 @@
                     "sub_fields": [
                         {
                             "key": "field_55247b10c67cc",
-                            "label": "Embedded Video Link",
-                            "name": "embedded_video_link",
+                            "label": "video",
+                            "name": "video",
                             "prefix": "",
                             "type": "oembed",
                             "instructions": "",
@@ -301,8 +391,8 @@
                     "sub_fields": [
                         {
                             "key": "field_55247b25c67ce",
-                            "label": "Video Link Url",
-                            "name": "video_link_url",
+                            "label": "link",
+                            "name": "link",
                             "prefix": "",
                             "type": "url",
                             "instructions": "",
@@ -449,6 +539,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1428517664,
-    "local": "json"
+    "modified": 1428600633
 }

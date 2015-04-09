@@ -63,7 +63,7 @@
           var modal = $(this);
           modal.find('.modal-title').html('&nbsp;');
           modal.find('.modal-body .embed-container iframe').attr('src', content);
-          setTimeout(function(){player.playVideo();}, 500);
+          setTimeout(function(){player.playVideo();}, 1000);
         });
       },
       finalize: function() {
