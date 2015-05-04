@@ -1,0 +1,125 @@
+.rethink #container {
+	padding:0;
+	margin:0;
+}
+.rethink #page {
+	width:100%;
+	max-width:100%;
+	padding:0;
+}
+.rethink .hero {
+	background-color:#ecf0f1;
+	background-image:url(../images/rethink-socrata-background.jpg);
+	background-position:center center;
+	background-size:cover;
+	height:100vh;
+	width:100%;
+	position:relative;
+}
+.rethink section > .container {
+	max-width:1280px;
+	margin:auto;
+	padding:80px 0;
+}
+.rethink .hero .container {
+	max-width:1280px;	
+	margin:auto;
+}
+.rethink .demo-videos .container {
+	max-width:960px;
+}
+.rethink .row {
+	padding:0 30px;
+}
+.rethink .vertical-align {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.rethink .text-center {
+	text-align: center;
+}
+.rethink .bulb {
+	background-image:url(../images/socrata-rethink-lightbulb.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	height:100px;
+	width:100px;
+	display: block;
+	margin:0 auto 20px auto;
+
+}
+.rethink .down-arrow {
+	position:absolute;
+	bottom:30px;
+	width:100%;	
+}
+.rethink .down-arrow i {
+	font-size: 24px;
+}
+.rethink a {
+	text-decoration: none;
+}
+.rethink .btn {
+	font-weight: 400;
+}
+.rethink .clouds {
+	background-color:#ecf0f1;
+}
+.rethink .wet-asphalt {
+	background-color:#34495e;
+}
+.rethink .wet-asphalt * {
+	color:#fff;
+}
+.rethink .img-responsive {
+	max-width: 100%;
+}
+.rethink .videos p {
+	margin-bottom:0;
+}
+.rethink .videos h3 {
+	font-weight:300;
+	line-height: normal;
+	font-size: 22px;
+	margin:1em 0;
+}
+.rethink h2 {
+	margin-bottom:1.63em;
+}
+.rethink .videos p + p {
+	line-height: normal;
+}
+.rethink .bullets h3 {
+	border-bottom:#bdc3c7 solid 1px;
+	padding-bottom:15px;
+	text-align: center;
+}
+.rethink .bullets .icon {
+	height:80px;
+	width:80px;
+	background:#c0392b;
+	display: block;
+	margin:0 auto 1em auto;
+	border-radius: 50%;
+}
+.rethink .bullets .icon i {
+	font-size: 32px;
+	color:#fff;
+}
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+	.rethink .hero {
+		height:100%;
+		padding:100px 0 50px 0;
+	}
+	.rethink .vertical-align {
+	position: relative;
+	top: 0;
+	transform: translateY(0);
+}
+.rethink .down-arrow {
+	display:none;
+}
+
+}

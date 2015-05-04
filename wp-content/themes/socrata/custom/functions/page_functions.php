@@ -92,82 +92,21 @@ twttr.conversion.trackPid('l54c9');</script>
     <?php }
 }
 
-add_action('thesis_hook_before_html', 'custom_rethink_hero');
-function custom_rethink_hero() {
-  if (is_page('rethink')) { ?>
-  <div id="full_hero" class="container intro-effect-push">
-    <div class="full-hero-image">
-      <div class="bg-img" style="background-color:#b1cee9; background: url('/wp-content/uploads/rethink-socrata-background.jpg'); background-size: cover;"></div>
-      <div class="title" style="top: 25%;">
-        <div class="title-inner format_text">
-       <h1 class="center" style="color:#fff; max-width: none !important; font-size: 4em; font-weight: 600; line-height: 1em; text-shadow: 0px 0px 10px #000; letter-spacing: -2px; padding-top: 2%; margin-bottom: 1em; text-transform: uppercase; ">We're Rethinking Open Data</h1>
-<div class="one_third">
-<p class="mobile-hide" style="text-align:right;font-variant:small-caps;color:#666666;font-weight:bold;line-height:2em;">
-Point Maps <span style="color:#ffffff;">◄</span><br>
-Discovery Experience <span style="color:#ffffff;">◄</span><br>
-Event Timeline <span style="color:#ffffff;">◄</span><br>
-Federated Auth <span style="color:#ffffff;">◄</span><br>
-Publisher Experience <span style="color:#ffffff;">◄</span>
-</p>
-</div>
-<div class="one_third">
-<p class="center"><img src="/wp-content/uploads/socrata-rethink-lightbulb.png" width="400" height="396" style="width:100%; height:auto; max-width:160px;"></p>
-</div>
-<div class="one_third last">
-<p class="mobile-hide" style="font-variant:small-caps;color:#666666;font-weight:bold;line-height:2em;">
-<span style="color:#ffffff;">►</span> Composite Visualizations<br>
-<span style="color:#ffffff;">►</span> Search</br>
-<span style="color:#ffffff;">►</span> Developer Experience</br>
-<span style="color:#ffffff;">►</span> Responsive Design</br>
-<span style="color:#ffffff;">►</span> Site Analytics
-</p>
-</div>
-<div class="clearboth"></div>
-<div class="desktop-hidden" style="max-width: 300px; margin: 0 auto;">
-<p style="font-variant:small-caps;color:#666666;font-weight:bold;line-height:2em; width:49%;display:inline-block;">
-<span style="color:#ffffff;">►</span> Composite Visualizations<br>
-<span style="color:#ffffff;">►</span> Search</br>
-<span style="color:#ffffff;">►</span> Developer Experience</br>
-<span style="color:#ffffff;">►</span> Responsive Design</br>
-<span style="color:#ffffff;">►</span> Site Analytics
-</p>
-<p style="text-align:right;font-variant:small-caps;color:#666666;font-weight:bold;line-height:2em; width:49%;display:inline-block;">
-Point Maps <span style="color:#ffffff;">◄</span><br>
-Discovery Experience <span style="color:#ffffff;">◄</span><br>
-Event Timeline <span style="color:#ffffff;">◄</span><br>
-Federated Auth <span style="color:#ffffff;">◄</span><br>
-Publisher Experience <span style="color:#ffffff;">◄</span>
-</p>
-<style type="text/css">
-.desktop-hidden {visibility: hidden;}
-@media screen and (max-width: 568px) { .desktop-hidden {visibility: visible;} }
-
-</style>
-</div>
-        </div>
-      </div>
-    </div>
-    <button class="trigger" data-info="CLICK OR SCROLL"><span>&nbsp;</span></button>
-    <?php }
-}
-
-add_action('thesis_hook_custom_template', 'custom_rethink');
-function custom_rethink() {
-  if (is_page('rethink')) { ?>
-  <div class="content">
-    <?php thesis_content_column(); ?>
-  </div>
-</div>
-    <?php }
-}
 
 // Enqueue Scripts
 add_action('wp_enqueue_scripts', 'rethink_scripts');
 function rethink_scripts() {
   if (is_page('rethink')) {
-    wp_register_style( 'component', get_stylesheet_directory_uri() . '/custom/ndoch/css/component.css' );
-    wp_register_script( 'fullhero', get_stylesheet_directory_uri() . '/custom/ndoch/scripts/full-hero.js','','1.1', true); 
-    wp_enqueue_style( 'component' );
-    wp_enqueue_script( 'fullhero' );
+    wp_register_style( 'rethink-styles', get_stylesheet_directory_uri() . '/custom/rethink/css/styles.css' );
+    wp_enqueue_style( 'rethink-styles' );
+    wp_register_style( 'fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
+    wp_enqueue_style('fontawesome');
+    wp_register_script( 'wistia-popover', '//fast.wistia.com/assets/external/popover-v1.js', false, null, true);
+    wp_enqueue_script('wistia-popover');
+
+
+   // wp_register_script( 'fullhero', get_stylesheet_directory_uri() . '/custom/ndoch/scripts/full-hero.js','','1.1', true); 
+
+   // wp_enqueue_script( 'fullhero' );
   }
 }
