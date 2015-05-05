@@ -106,16 +106,43 @@
 	text-align: center;
 }
 .rethink .bullets .icon {
+	
+	
+}
+.rethink .bullets .icon {
+	padding-left: 32px;
+	position: relative;
 	height:80px;
 	width:80px;
 	background:#c0392b;
 	display: block;
 	margin:0 auto 1em auto;
 	border-radius: 50%;
-}
-.rethink .bullets .icon i {
-	font-size: 32px;
 	color:#fff;
+}
+.rethink .bullets .chart:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 25px;
+	left: 25px;
+	content: "\f201";
+	font-size: 32px;
+}
+.rethink .bullets .book:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 25px;
+	left: 25px;
+	content: "\f02d";
+	font-size: 32px;
+}
+.rethink .bullets .wrench:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 25px;
+	left: 25px;
+	content: "\f0ad";
+	font-size: 32px;
 }
 
 @media only screen and (max-width : 768px) {
