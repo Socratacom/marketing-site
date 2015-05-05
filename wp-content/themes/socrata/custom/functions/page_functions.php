@@ -97,16 +97,13 @@ twttr.conversion.trackPid('l54c9');</script>
 add_action('wp_enqueue_scripts', 'rethink_scripts');
 function rethink_scripts() {
   if (is_page('rethink')) {
-    wp_register_style( 'rethink-styles', get_stylesheet_directory_uri() . '/custom/rethink/css/styles.css' );
+    wp_register_style( 'rethink-styles', get_stylesheet_directory_uri() . '/custom/rethink/css/styles.css', false, null );
     wp_enqueue_style( 'rethink-styles' );
     wp_register_style( 'fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
     wp_enqueue_style('fontawesome');
     wp_register_script( 'wistia-popover', '//fast.wistia.com/assets/external/popover-v1.js', false, null, true);
     wp_enqueue_script('wistia-popover');
-
-
-   // wp_register_script( 'fullhero', get_stylesheet_directory_uri() . '/custom/ndoch/scripts/full-hero.js','','1.1', true); 
-
-   // wp_enqueue_script( 'fullhero' );
+    wp_register_script( 'jumplinks', get_stylesheet_directory_uri() . '/custom/rethink/js/jumplinks.js', false, null, true );
+    wp_enqueue_script( 'jumplinks' );
   }
 }

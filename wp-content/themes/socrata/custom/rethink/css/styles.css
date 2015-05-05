@@ -16,17 +16,27 @@
 	width:100%;
 	position:relative;
 }
+.rethink .hero h1 {
+	margin:0 0 20px 0;
+}
+.rethink .hero h3 {
+	font-weight: 300;
+	font-size:20px;
+	margin:0 0 30px 0;
+}
+.rethink .hero a i {
+	color:#fff;
+	text-shadow:0 0 10px #34495e;
+
+}
 .rethink section > .container {
 	max-width:1280px;
 	margin:auto;
 	padding:80px 0;
 }
-.rethink .hero .container {
-	max-width:1280px;	
-	margin:auto;
-}
-.rethink .demo-videos .container {
+.rethink .demo-videos .container, .rethink .hero .container {
 	max-width:960px;
+	margin:auto;
 }
 .rethink .row {
 	padding:0 30px;
@@ -107,19 +117,18 @@
 	font-size: 32px;
 	color:#fff;
 }
-/* Small Devices, Tablets */
+
 @media only screen and (max-width : 768px) {
 	.rethink .hero {
 		height:100%;
 		padding:100px 0 50px 0;
 	}
 	.rethink .vertical-align {
-	position: relative;
-	top: 0;
-	transform: translateY(0);
-}
-.rethink .down-arrow {
-	display:none;
-}
-
+		position: relative;
+		top: 0;
+		transform: translateY(0);
+	}
+	.rethink .down-arrow {
+		display:none;
+	}
 }
