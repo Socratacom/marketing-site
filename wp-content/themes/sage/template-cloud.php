@@ -200,6 +200,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   </div>
 </section>
 
+<?php if( have_rows('features-content') ): ?>
 <section class="template-listTiles light">
   <div class="container">
     <div class="row">
@@ -209,10 +210,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
             <h3>Features</h3>
           </div>
         </header>
-      <?php
-
-        if( have_rows('features-content') ):
-          while ( have_rows('features-content') ) : the_row();
+          <?php while ( have_rows('features-content') ) : the_row();
 
             // get vars
             $tile_icon = get_sub_field('icon');
@@ -237,14 +235,12 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                     </div>
                   </div>';
 
-          endwhile;
-        endif;
-
-      ?>
-      </div>
+          endwhile; ?>
+          </div>
     </div>
   </div>
 </section>
+<?php endif; ?>
 
 <section class="template-applications">
 
@@ -417,7 +413,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                       <div class="tile-content">
                         <div class="content-text">
                           <div class="text-headline">
-                            <h4>' . $tile_headline . ' *</h4>
+                            <h4>' . $tile_headline . '</h4>
                           </div>
                           <div class="text-body">
                             <p>' . $tile_body . '</p>
