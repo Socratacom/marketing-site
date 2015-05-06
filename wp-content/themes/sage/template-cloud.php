@@ -200,6 +200,52 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   </div>
 </section>
 
+<section class="template-listTiles light">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <header>
+          <div class="listTiles-headline">
+            <h3>Features</h3>
+          </div>
+        </header>
+      <?php
+
+        if( have_rows('features-content') ):
+          while ( have_rows('features-content') ) : the_row();
+
+            // get vars
+            $tile_icon = get_sub_field('icon');
+            $tile_headline = get_sub_field('headline');
+            $tile_body = get_sub_field('body');
+
+            echo '<div class="col-md-6">
+                    <div class="listTiles-tile">
+                      <div class="tile-icon">
+                        <i class="fa fa-' . $tile_icon . ' blue"></i>
+                      </div>
+                      <div class="tile-content">
+                        <div class="content-text">
+                          <div class="text-headline">
+                            <h4>' . $tile_headline . ' </h4>
+                          </div>
+                          <div class="text-body">
+                            <p>' . $tile_body . '</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>';
+
+          endwhile;
+        endif;
+
+      ?>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="template-applications">
 
   <header>
@@ -350,7 +396,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
       <div class="col-md-10 col-md-offset-1">
         <header>
           <div class="listTiles-headline">
-            <h3>Success Services</h3>
+            <h3>Socrata Blueprint</h3>
           </div>
         </header>
       <?php
@@ -371,7 +417,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                       <div class="tile-content">
                         <div class="content-text">
                           <div class="text-headline">
-                            <h4>' . $tile_headline . '</h4>
+                            <h4>' . $tile_headline . ' *</h4>
                           </div>
                           <div class="text-body">
                             <p>' . $tile_body . '</p>
@@ -385,6 +431,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
         endif;
 
       ?>
+      <p class="footer"><strong>* Included in your product subscription.</strong></p>
       </div>
     </div>
   </div>
