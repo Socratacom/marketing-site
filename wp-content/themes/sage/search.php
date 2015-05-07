@@ -30,7 +30,9 @@
                 <a href="javascript:void(0)" id="searchsubmit" class="search-button button ss-icon">search</a>
             </form>
         </div>
-        <?php echo do_shortcode( '[facetwp counts="true"]' ); ?>
+        <div class="clearfix">
+            <?php echo do_shortcode( '[facetwp counts="true"]' ) . ' RESULTS'; ?>
+        </div>
         <?php echo do_shortcode( '[facetwp template="site_search"]' ); ?>
         <?php echo do_shortcode('[facetwp pager="true"]'); ?>
 
