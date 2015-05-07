@@ -89,11 +89,11 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
           );
           $new_src = add_query_arg($params, $src);
 
-          ?>
+          if ($video) { ?>
           <a href="#" class="hidden-xs hidden-sm" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $new_src; ?>">
             <i class="fa fa-play-circle"></i>
           </a>
-          <?php
+          <?php }
 
           $video = get_field('intro_video');
           preg_match('/src="(.+?)"/', $video, $matches);
