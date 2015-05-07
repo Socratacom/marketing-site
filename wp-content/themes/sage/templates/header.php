@@ -10,7 +10,15 @@
         <li><a href="https://www.linkedin.com/company/socrata" target="_blank"><i class="fa fa-linkedin"></i></a></li>
         <li><a href="https://plus.google.com/+Socrata/about" target="_blank"><i class="fa fa-google-plus"></i></a></li>
         <li><a href="https://www.youtube.com/user/socratavideos" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
-        <li><a href="#"><i class="fa fa-search"></i></a></li>
+        <li>
+          <a href="#" class="header-search-btn">
+            <i class="fa fa-search"></i>
+          </a>
+          <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+              <input type="search" class="search-field sb-search-input" placeholder="Enter your search term..." value="" name="s" title="Search for:" id="search" />
+              <input type="submit" class="search-submit sb-search-submit sr-only" value="Search" />
+          </form>
+        </li>
       </ul>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only"><?= __('Toggle navigation', 'sage'); ?></span>

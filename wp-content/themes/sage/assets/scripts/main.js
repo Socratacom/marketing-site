@@ -70,6 +70,13 @@
           modal.find('.modal-title').html('&nbsp;');
           modal.find('.modal-body .embed-container iframe').attr('src', content);
         });
+
+        $('.header-search-btn').click(function(e) {
+          $('.navbar-header .search-form').slideToggle(250);
+          e.preventDefault();
+          //return false;
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
