@@ -227,6 +227,32 @@
           ]
         });
       }
+    },
+    'search' : {
+      init : function() {
+        $(document).on('facetwp-loaded', function() {
+            // Scroll to the top of the page after the page is refreshed
+            $('html, body').animate({ scrollTop: 0 }, 500);
+
+            //Hide empty facet filter sections
+            if ('site_search' === FWP.template) {
+              $('.facetwp-facet').each(function() {
+                $(this).closest('.facet-wrapper').show();
+                if ('' === $(this).html()) {
+                  $(this).closest('.facet-wrapper').hide();
+                }
+              });
+            }
+
+
+         });
+
+        //JS form trigger, was on original template, not sure if needed
+        jQuery("#searchsubmit").on("click", function(e){
+          var form = jQuery(this).closest("form");
+          form.submit();
+        });
+      }
     }
   };
 

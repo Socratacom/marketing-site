@@ -29,13 +29,6 @@
                 <input type="search" class="search-field" placeholder="Search …" value="<?php printf( __( '%s'), get_search_query() ); ?>" name="s" title="Search for:" style="font-size:1em; border:#d1d1d1 solid 1px; width:60%; padding:.6em; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px;" />
                 <a href="javascript:void(0)" id="searchsubmit" class="search-button button ss-icon">search</a>
             </form>
-            <script>
-                $(document).on("click",".search-button",function(){
-                    var form = $(this).closest("form");
-                    console.log(form);
-                    form.submit();
-                });
-            </script>
         </div>
         <?php echo do_shortcode( '[facetwp counts="true"]' ); ?>
         <?php echo do_shortcode( '[facetwp template="site_search"]' ); ?>
@@ -43,28 +36,3 @@
 
     </div>
 </div>
-
-<script>
-(function($) {
-    $(document).on('facetwp-loaded', function() {
-        // Scroll to the top of the page after the page is refreshed
-        $('html, body').animate({ scrollTop: 0 }, 500);
-     });
-})(jQuery);
-</script>
-<script>
-(function($) {
-    $(function() {
-        $(document).on('facetwp-loaded', function() {
-            if ('site_search' == FWP.template) {
-                $('.facetwp-facet').each(function() {
-                    $(this).closest('.facet-wrapper').show();
-                    if ('' == $(this).html()) {
-                        $(this).closest('.facet-wrapper').hide();
-                    }
-                });
-            }
-        });
-    });
-})(jQuery);
-</script>
