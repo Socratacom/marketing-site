@@ -81,7 +81,7 @@ function hero_shortcode( $atts ) {
   if ( $query->have_posts() ) { ?>
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
   
-  <div class="hero-image format_text" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 500); ?>);">
+  <div id="hero-image" class="hero-image format_text" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 500); ?>);">
     <div class="hero-wrapper">
       <div class="fade hero-text <?php $meta = get_hero_meta(); if ($meta[6]) echo "$meta[6]"; ?> <?php $meta = get_hero_meta(); if ($meta[2]) echo "$meta[2]"; ?>">
         <?php $meta = get_hero_meta(); if ($meta[0]) echo "<h1>$meta[0]</h1>"; ?>
