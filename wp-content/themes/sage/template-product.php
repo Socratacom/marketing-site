@@ -119,7 +119,40 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
       </div>
     </div>
   </div>
+</section>
 
+<section class="product-pillars">
+  <div class="container">
+      <?php
+        $pillar_1_image = get_field('pillar_1_image');
+        $pillar_1_headline = get_field('pillar_1_headline');
+        $pillar_1_features = get_field('pillar_1_features');
+
+        $pillar_2_image = get_field('pillar_2_image');
+        $pillar_2_headline = get_field('pillar_2_headline');
+        $pillar_2_features = get_field('pillar_2_features');
+
+        if ($pillar_1_features) {
+          echo '<div class="row pillar"><div class="col-md-6 col-sm-12">';
+            echo '<img src="'.$pillar_1_image['url'].'" alt="'.$pillar_1_image['title'].'" class="img-responsive">';
+          echo '</div>';
+          echo '<div class="col-md-6 col-sm-12">';
+            echo '<h2>'.$pillar_1_headline.'</h2>';
+            echo $pillar_1_features;
+          echo '</div></div>';
+        }
+        if ($pillar_2_features) {
+          echo '<div class="row pillar"><div class="col-md-6 col-md-push-6 col-sm-12">';
+            echo '<img src="'.$pillar_2_image['url'].'" alt="'.$pillar_2_image['title'].'" class="img-responsive">';
+          echo '</div>';
+          echo '<div class="col-md-6 col-md-pull-6 col-sm-12">';
+            echo '<h2>'.$pillar_2_headline.'</h2>';
+            echo $pillar_2_features;
+          echo '</div></div>';
+        }
+      ?>
+    </div>
+  </div>
 </section>
 
 <section class="product-features">
