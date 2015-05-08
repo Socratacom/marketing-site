@@ -51,7 +51,27 @@ endif;
 if( have_rows('sections') ):
   while ( have_rows('sections') ) : the_row();
 
-    if( get_row_layout() == 'carousel' ):
+    if( get_row_layout() == 'text_and_image' ):
+      $color = get_sub_field('color');
+      $alignment = get_sub_field('alignment');
+      $image = get_sub_field('image');
+      $content = get_sub_field('text');
+      echo '<section style="background-color:'.$color.'">';
+      echo '<div class="container"><div class="row">';
+      $push = '';
+      $pull = '';
+      if ('right' == $alignment) {
+        $push = 'col-sm-push-8';
+        $pull = 'col-sm-pull-4';
+      }
+      echo '<div class="col-sm-4 '.$push.'">';
+        echo '<img src="'.$image['url'].'" alt="'.$image['title'].'" class="img-responsive">';
+      echo '</div><div class="col-sm-8 '.$pull.'">';
+        echo $content;
+      echo '</div></div></div>';
+      echo '</section>';
+
+    elseif( get_row_layout() == 'carousel' ):
       $headline = get_sub_field('headline');
       $color = get_sub_field('color');
       echo '<section style="background-color:'.$color.'">';

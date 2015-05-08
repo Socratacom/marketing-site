@@ -85,8 +85,8 @@
                                 "id": ""
                             },
                             "choices": {
-                                "Left Image": "Left Image",
-                                "Right Image": "Right Image"
+                                "left": "Left Image",
+                                "right": "Right Image"
                             },
                             "default_value": {
                                 "": ""
@@ -253,5 +253,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1431107017
+    "modified": 1431112642
 }
