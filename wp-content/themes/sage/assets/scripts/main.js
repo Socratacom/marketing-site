@@ -77,6 +77,16 @@
           //return false;
         });
 
+        // JavaScript to be fired on the home page
+        $('.jumbotron').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          autoplay: true,
+          autoplaySpeed: 5000,
+          speed: 800
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
