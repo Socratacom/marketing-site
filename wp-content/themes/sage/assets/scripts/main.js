@@ -87,6 +87,31 @@
           speed: 800
         });
 
+        $('.column-slider').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          autoplay: true,
+          autoplaySpeed: 5000,
+          speed: 800,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          responsive: [
+            {
+              breakpoint: 992,
+              settings: {
+                slidesToShow: 2
+              }
+            },
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired

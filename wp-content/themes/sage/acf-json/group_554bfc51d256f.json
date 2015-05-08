@@ -131,6 +131,107 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                {
+                    "key": "554ce036f9a9f",
+                    "name": "carousel",
+                    "label": "Carousel",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_554ce1baf9aa2",
+                            "label": "Headline",
+                            "name": "headline",
+                            "prefix": "",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_554ce03ff9aa0",
+                            "label": "Column",
+                            "name": "column",
+                            "prefix": "",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "min": "",
+                            "max": "",
+                            "layout": "table",
+                            "button_label": "Add Column",
+                            "sub_fields": [
+                                {
+                                    "key": "field_554ce05ef9aa1",
+                                    "label": "Column Content",
+                                    "name": "column_content",
+                                    "prefix": "",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "full",
+                                    "media_upload": 1
+                                }
+                            ]
+                        },
+                        {
+                            "key": "field_554ce86e45ddd",
+                            "label": "Color",
+                            "name": "color",
+                            "prefix": "",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "#ffffff": "White",
+                                "#f4f4f4": "Gray"
+                            },
+                            "default_value": {
+                                "": ""
+                            },
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "disabled": 0,
+                            "readonly": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             ]
         }
@@ -152,5 +253,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1431043732
+    "modified": 1431107017
 }
