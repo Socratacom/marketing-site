@@ -427,7 +427,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
         endif;
 
       ?>
-      <p class="footer"><strong>* Included in your product subscription.</strong></p>
+      <p class="footer"><strong>* Included in your product subscription</strong></p>
       </div>
     </div>
   </div>
