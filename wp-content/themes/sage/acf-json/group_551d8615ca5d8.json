@@ -138,6 +138,28 @@
             "button_label": "Add Row",
             "sub_fields": [
                 {
+                    "key": "field_554d554b55500",
+                    "label": "Suite Heading",
+                    "name": "suite_heading",
+                    "prefix": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": "",
+                    "readonly": 0,
+                    "disabled": 0
+                },
+                {
                     "key": "field_551d86fe850cf",
                     "label": "Headline",
                     "name": "headline",

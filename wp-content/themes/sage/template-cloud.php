@@ -247,17 +247,15 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   <header>
     <div class="container">
       <div class="row">
-        <div class="applications-headline">
-          <h2>Applications</h2>
+        <div class="col-md-10 col-md-offset-1">
+          <div class="applications-headline">
+            <h2>Applications</h2>
+          </div>
         </div>
       </div>
     </div>
   </header>
   <div class="applications-group">
-
-    <div class="group-headline">
-      <h2>Financial Transparency Suite</h2>
-    </div>
 
     <?php
 
@@ -268,6 +266,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
             //vars
             $oddeven = $c = !$c;
             $headline = get_sub_field('headline');
+            $categoryHeadline = get_sub_field('suite_heading');
             $body = get_sub_field('body');
             $image = get_sub_field('image');
 
@@ -307,32 +306,36 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
                     echo '<div class="feature-container">';
 
-                  endif;
-              echo '  <div class="container">
+                  endif; ?>
+                    <?php /* Sorry for changing this from echo style templating but I need syntax highlighting -Chris */ ?>
+                    <div class="container">
                         <div class="row">
                           <div class="col-sm-8 col-md-6 col-md-offset-1">
+                            <?php if($categoryHeadline) : ?>
+                            <div class="container-category-headline-wrapper">
+                              <h4 class="container-category-headline"><?=$categoryHeadline?></h4>
+                            </div>
+                            <?php endif; ?>
                             <div class="container-headline">
-                              <h3>' . $headline . '</h3>
+                              <h3 class="container-headline-h"><?=$headline?></h3>
                             </div>
                             <div class="container-body">
-                              <p>' . $body . '</p>
+                              <p><?=$body?></p>
                             </div>
                             <div class="container-link">
-                              <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
+                              <a href="<?=$link?>" class="btn btn-primary"><?=$link_text?></a>
                             </div>
                           </div>
-                          <div class="col-sm-4 col-md-4 hidden-xs">';
-
-                    if($image) {
-                      echo '<img src="' . $image . '" class="img-responsive">';
-                      }
-
-                echo '    </div>
+                          <div class="col-sm-4 col-md-4 hidden-xs">
+                          <?php if($image) : ?>
+                            <img src="<?=$image?>" class="img-responsive">
+                          <?php endif; ?>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>';
-            }else if ( true == $oddeven ) {
+                  </div>
+            <?php }else if ( true == $oddeven ) {
             echo '<div class="group-feature text-right">';
                   if( have_rows('background') ):
                     while ( have_rows('background') ) : the_row();
@@ -353,31 +356,35 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
                     echo '<div class="feature-container">';
 
-                  endif;
-              echo '  <div class="container">
+                  endif; ?>
+                      <div class="container">
                         <div class="row">
                           <div class="col-sm-4 col-md-4 col-md-offset-1 hidden-xs">
-                            ';
-                        if($image) {
-                          echo ' <img src="' . $image . '" class="img-responsive">';
-                        }
-                    echo '</div>
+                            <?php if($image) : ?>
+                              <img src="<?=$image?>" class="img-responsive">';
+                            <?php endif; ?>
+                          </div>
                           <div class="col-sm-8 col-md-6">
+                            <?php if($categoryHeadline) : ?>
+                              <div class="container-category-headline-wrapper">
+                                <h4 class="container-category-headline"><?=$categoryHeadline?></h4>
+                              </div>
+                            <?php endif; ?>
                             <div class="container-headline">
-                              <h3>' . $headline . '</h3>
+                              <h3 class="container-headline-h"><?=$headline?></h3>
                             </div>
                             <div class="container-body">
-                              <p>' . $body . '</p>
+                              <p><?=$body?></p>
                             </div>
                             <div class="container-link">
-                              <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
+                              <a href="<?=$link?>" class="btn btn-primary"><?=$link_text?></a>
                             </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </div>';
-            }
+                  </div>
+            <?php }
 
           endwhile;
         endif;
