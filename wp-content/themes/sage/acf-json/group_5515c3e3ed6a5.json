@@ -117,6 +117,35 @@
                     "disabled": 0
                 },
                 {
+                    "key": "field_5550f2430431f",
+                    "label": "Text Color",
+                    "name": "text_color",
+                    "prefix": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "dark": "Dark",
+                        "light": "Light"
+                    },
+                    "default_value": {
+                        "": ""
+                    },
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
                     "key": "field_554d27a5fbf6d",
                     "label": "Header Text Alignment",
                     "name": "header_text_alignment",
@@ -380,6 +409,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1431360269,
-    "local": "json"
+    "modified": 1431373161
 }

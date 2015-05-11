@@ -11,6 +11,7 @@ if ( have_rows('hero') ):
     $small_text = get_sub_field('header_small_text');
     $large_text = get_sub_field('header_large_text');
     $italic_text = get_sub_field('header_italic_text');
+    $text_color = get_sub_field('text_color');
     $header_text_alignment = get_sub_field('header_text_alignment');
     $hero_content_vertical_alignment = get_sub_field('hero_content_vertical_alignment');
 
@@ -33,7 +34,7 @@ if ( have_rows('hero') ):
               <div class="container vertical-alignment">
               <div class="vertical-alignment-inner">
                 <div class="col-xs-12">';
-            echo '<div class="jumbotron-textContainer" style="text-align:'. $header_text_alignment.'">
+            echo '<div class="jumbotron-textContainer '.$text_color.'" style="text-align:'. $header_text_alignment.'">
                       <h1 class="headline">' . $large_text . '</h1>
                       <h2 class="headline">' . $small_text . '</h2>';
                       if ($link) {
