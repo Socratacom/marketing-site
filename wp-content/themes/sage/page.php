@@ -213,7 +213,6 @@ if( have_rows('sections') ): $i = 0;
     elseif( get_row_layout() == 'case_studies' ):
       $number_of_case_studies = get_sub_field('number_of_case_studies');
       $categories = get_sub_field('categories');
-      //var_dump($categories);
 
       echo '<section id="section-'. $i .'" class="section-case-studies" style="background-color:'.$color.'; padding: 50px 0;">';
       echo '<div class="container"><div class="row ' . $headline_text_alignment .'">';
