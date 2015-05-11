@@ -94,7 +94,7 @@ if( have_rows('sections') ):
     //
     /* ------------------------------------ */
     elseif( get_row_layout() == 'carousel' ):
-      
+
       $headline = get_sub_field('headline');
       $headline_text_alignment = get_sub_field('headline_text_alignment');
       $color = get_sub_field('color');
@@ -154,11 +154,13 @@ if( have_rows('sections') ):
     // SECTION: Blog
     //
     /* ------------------------------------ */
-    elseif( get_row_layout() == 'blog' ):
+
+    elseif( get_row_layout() == 'case_studies' ):
 
       $headline = get_sub_field('headline');
       $headline_text_alignment = get_sub_field('headline_text_alignment');
       $color = get_sub_field('color');
+
       $items_per_slide = (get_sub_field('items_per_slide') ? get_sub_field('items_per_slide') : 1);
 
       $args = array(
@@ -204,6 +206,71 @@ if( have_rows('sections') ):
 
       echo '</section>';
 
+    /* ------------------------------------ */
+    //
+    // SECTION: Case Studies
+    //
+    /* ------------------------------------ */
+    elseif( get_row_layout() == 'blog' ):
+      $number_of_case_studies = get_sub_field('number_of_case_studies');
+      $categories = get_sub_field('categories');
+      //var_dump($categories);
+
+      echo '<section class="section-case-studies" style="background-color:'.$color.'; padding: 50px 0;">';
+      echo '<div class="container"><div class="row ' . $headline_text_alignment .'">';
+        if ($headline) {
+          echo '<div class="col-xs-12"><h2>'.$headline.'</h2></div>';
+        }
+        echo '<div class="case-study-slider">';
+
+        $args = array(
+            'post_type' => 'case_study',
+            'post_status' => 'publish',
+            'order' => 'DESC',
+            'cat' => '',
+            'posts_per_page' => $number_of_case_studies
+        );
+        $case_loop = new WP_Query( $args );
+        if ( $case_loop->have_posts() ) :
+          echo '<div class="col-sm-10 col-sm-offset-1 post-list">';
+          while ( $case_loop->have_posts() ) : $case_loop->the_post();
+            // get vars
+            $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+              $featured_image = $featured_image[0];
+            $name = get_the_title();
+              $link = get_the_permalink();
+              $excerpt = get_the_excerpt();
+            echo '<div class="slide"><div class="col-sm-7">';
+            echo '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
+            echo '</div>';
+            echo '<div class="col-sm-5">';
+            echo '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
+            echo '</div></div>';
+          endwhile;
+          echo '</div>';
+          wp_reset_postdata();
+        endif;
+
+      echo '</div></div></div>';
+      echo '</section>';
+      ?>
+
+      <script>
+      (function() {
+        $('.post-list').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          autoplay: true,
+          autoplaySpeed: 5000,
+          speed: 800,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        });
+      })();
+      </script>
+
+    <?php
     endif;
 
   endwhile;
