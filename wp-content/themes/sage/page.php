@@ -266,7 +266,7 @@ if( have_rows('sections') ): $i = 0;
           slidesToShow: 1,
           slidesToScroll: 1
         });
-      })();
+      });
       </script>
 
     <?php
