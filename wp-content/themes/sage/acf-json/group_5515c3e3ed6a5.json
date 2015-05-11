@@ -6,7 +6,6 @@
             "key": "field_5515c3fecd423",
             "label": "Hero",
             "name": "hero",
-            "prefix": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -22,10 +21,37 @@
             "button_label": "Add Slide",
             "sub_fields": [
                 {
+                    "key": "field_554d2af927138",
+                    "label": "Hero Content Vertical Alignment",
+                    "name": "hero_content_vertical_alignment",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "top": "Top",
+                        "middle": "Middle"
+                    },
+                    "default_value": {
+                        "middle": "middle"
+                    },
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
                     "key": "field_5515c434cd424",
                     "label": "Header Small Text",
                     "name": "header_small_text",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -47,7 +73,6 @@
                     "key": "field_5515c44fcd425",
                     "label": "Header Large Text",
                     "name": "header_large_text",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -69,7 +94,6 @@
                     "key": "field_5515c47ccd426",
                     "label": "Header Italic Text",
                     "name": "header_italic_text",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -88,10 +112,38 @@
                     "disabled": 0
                 },
                 {
+                    "key": "field_554d27a5fbf6d",
+                    "label": "Header Text Alignment",
+                    "name": "header_text_alignment",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "left": "Left",
+                        "center": "Center",
+                        "right": "Right"
+                    },
+                    "default_value": {
+                        "center": "center"
+                    },
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "disabled": 0,
+                    "readonly": 0
+                },
+                {
                     "key": "field_5515c486cd427",
                     "label": "CTA",
                     "name": "cta",
-                    "prefix": "",
                     "type": "flexible_content",
                     "instructions": "",
                     "required": 0,
@@ -115,7 +167,6 @@
                                     "key": "field_5515c4b2cd428",
                                     "label": "Internal Link",
                                     "name": "internal_link",
-                                    "prefix": "",
                                     "type": "page_link",
                                     "instructions": "",
                                     "required": 0,
@@ -125,8 +176,8 @@
                                         "class": "",
                                         "id": ""
                                     },
-                                    "post_type": "",
-                                    "taxonomy": "",
+                                    "post_type": [],
+                                    "taxonomy": [],
                                     "allow_null": 0,
                                     "multiple": 0
                                 },
@@ -134,7 +185,6 @@
                                     "key": "field_5515d46f04315",
                                     "label": "Link Text",
                                     "name": "internal_link_text",
-                                    "prefix": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -166,7 +216,6 @@
                                     "key": "field_5515d359a6e7b",
                                     "label": "External Link",
                                     "name": "external_link",
-                                    "prefix": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -183,7 +232,6 @@
                                     "key": "field_5515d47904316",
                                     "label": "Link Text",
                                     "name": "external_link_text",
-                                    "prefix": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -211,7 +259,30 @@
                     "key": "field_5515c520cd42a",
                     "label": "Slider Image",
                     "name": "slider_image",
-                    "prefix": "",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_554d254a21fec",
+                    "label": "Slider Background Image",
+                    "name": "slider_bg_image",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -236,7 +307,6 @@
                     "key": "field_5515c534cd42b",
                     "label": "RTP ID",
                     "name": "rtp_id",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "Custom ID for Marketo RTP targeting.",
                     "required": 0,
@@ -255,6 +325,29 @@
                     "disabled": 0
                 }
             ]
+        },
+        {
+            "key": "field_5550cb39cfba7",
+            "label": "Hero Height",
+            "name": "hero_height",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 200,
+            "max": 700,
+            "step": 50,
+            "readonly": 0,
+            "disabled": 0
         }
     ],
     "location": [
@@ -272,6 +365,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1431101416,
-    "local": "json"
+    "modified": 1431358319
 }

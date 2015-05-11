@@ -10,15 +10,44 @@
   .jumbotron {
     font-family: 'Open Sans', sans-serif;
     padding: 0;
-    margin: 0 0 60px 0;
+    margin-bottom: 0;
+
+    .middle .vertical-alignment {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .top .vertical-alignment {
+      position: relative;
+      top: 0;
+    }
+
+    .slide {
+      background-size: cover;
+      padding: 50px 0;
+      height: 600px;
+    }
 
     .jumbotron-textContainer {
-      margin: 0 0 0 60px;
+
+      h1.headline {
+        font-size: 4em;
+        font-weight: 400;
+        letter-spacing: -0.025em;
+        margin-top: 0;
+      }
+
+      h2.headline {
+        color: #999;
+        font-size: 2.5em;
+        font-weight: 300;
+        letter-spacing: 0;
+      }
 
       h1 {
         font-size: 24px;
         font-weight: @font-light;
-        color: #ffffff;
 
         @media (min-width: @screen-sm-min) {
           font-size: 35px;
@@ -26,7 +55,6 @@
       }
 
       h2 {
-        color: #ffffff;
         font-weight: @font-light;
         margin-bottom: 30px;
         font-size: 14px;
@@ -42,12 +70,18 @@
         font-size: 1.1em;
         border: 1px solid #ffffff;
       }
-    }
 
-    .slide {
-      background-size: cover;
-      min-height: 400px;
-      padding: 50px 0;
+      .slide-image {
+        max-width: 100%;
+
+        @media (max-width: @screen-md-min) {
+          max-width: 100%;
+          min-width: 800px;
+          position: relative;
+          left: 50%;
+          transform: translateX(-50%);
+        }
+      }
     }
 
     .slick-prev {
@@ -63,7 +97,7 @@
 
   .main {
     section {
-      padding: 40px 0;
+      //padding: 40px 0;
       h2 {
         font-weight: 300;
         font-size: 2em;
@@ -82,7 +116,7 @@
     }
     @media (min-width: @screen-sm-min) {
       section {
-        padding: 50px 0;
+        //padding: 50px 0;
         h2 {
           font-size: 2.2em;
           padding-bottom: 20px;
@@ -100,7 +134,7 @@
     }
     @media (min-width: @screen-md-min) {
       section {
-        padding: 80px 0;
+        //padding: 80px 0;
         h2 {
           font-size: 2.5em;
           padding-bottom: 30px;
@@ -115,6 +149,25 @@
       section:first-of-type {
         padding: 0;
       }
+    }
+  }
+
+  .section-carousel {
+    h1 {
+      font-weight: 300;
+      line-height: 1.2;
+      margin-bottom: 24px;
+      margin-top: 0;
+    }
+
+    p {
+      line-height: 1.7;
+      font-size: 16px;
+      color: #6a6a6a;
+      font-weight: 300;
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 }
