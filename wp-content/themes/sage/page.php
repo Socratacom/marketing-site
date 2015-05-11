@@ -154,7 +154,7 @@ if( have_rows('sections') ): $i = 0;
     //
     /* ------------------------------------ */
 
-    elseif( get_row_layout() == 'case_studies' ):
+    elseif( get_row_layout() == 'blog' ):
 
       $headline = get_sub_field('headline');
       $headline_text_alignment = get_sub_field('headline_text_alignment');
@@ -210,7 +210,7 @@ if( have_rows('sections') ): $i = 0;
     // SECTION: Case Studies
     //
     /* ------------------------------------ */
-    elseif( get_row_layout() == 'case-studies' ):
+    elseif( get_row_layout() == 'case_studies' ):
       $number_of_case_studies = get_sub_field('number_of_case_studies');
       $categories = get_sub_field('categories');
       //var_dump($categories);
@@ -255,8 +255,8 @@ if( have_rows('sections') ): $i = 0;
       ?>
 
       <script>
-      (function() {
-        $('.post-list').slick({
+      $(function() {
+        $('#section-<?php echo $i;?> .post-list').slick({
           arrows: true,
           prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
           nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
@@ -270,61 +270,6 @@ if( have_rows('sections') ): $i = 0;
       </script>
 
     <?php
-
-    /* ------------------------------------ */
-    //
-    // SECTION: Blog
-    //
-    /* ------------------------------------ */
-    elseif( get_row_layout() == 'blog' ):
-
-      $headline = get_sub_field('headline');
-      $headline_text_alignment = get_sub_field('headline_text_alignment');
-      $color = get_sub_field('color');
-      $items_per_slide = (get_sub_field('items_per_slide') ? get_sub_field('items_per_slide') : 1);
-
-      $args = array(
-        'post_type' => array( 'tech_blog', 'post' ),
-        'post_status' => 'publish',
-          'order' => 'DESC',
-          'posts_per_page' => $items_per_slide
-      );
-      $news_loop = new WP_Query( $args );
-
-      echo '<section id="section-'. $i .'" id="section-'. $i .'" class="section-blog" style="background-color:'.$color.'; padding: 100px 0 100px;">';
-      echo '<div class="container"><div class="row">';
-      if ($headline) {
-        echo '<div class="col-xs-12" style="text-align:' . $headline_text_alignment .'"><h2>'.$headline.'</h2></div>';
-      }
-
-      if ( $news_loop->have_posts() ) :
-
-        echo '<div class="row news-list" style="margin-bottom:">';
-          while ( $news_loop->have_posts() ) : $news_loop->the_post();
-            
-            // get vars
-            $post_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-            $post_image = $post_image[0];
-            $name = get_the_title();
-            $link = get_the_permalink();
-            $date = get_the_date();
-
-            echo '<div class="col-xs-12 col-sm-'. (12 / $items_per_slide) .'"><div class="post">';
-            if ($link) { echo '<a style="display:block;" href="'.$link.'">'; }
-            echo '<span class="img-container" style="background-image:url('.$post_image.')"></span>';
-            echo '<span style="display:block; padding: 16px 20px; background:#fff; ">';
-            echo '<span class="sup-header" style="font-size:12px; color:#ccc;">Published on '.$date.'</span><h3 style="margin:0; font-size: 18px;">'.$name.'</h3>';
-            if ($link) { echo '</a>'; }
-            echo '</span>';
-            echo '</div></div>';
-          endwhile;
-        echo '</div>';
-
-        wp_reset_postdata();
-
-      endif;
-
-      echo '</section>';
 
     endif;
 
