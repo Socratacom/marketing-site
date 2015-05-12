@@ -236,12 +236,12 @@
   /*******************************/
 
   .template-listTiles {
-    padding: 40px 0 0;
+    padding: 40px 0 10px;
     @media (min-width: @screen-sm-min) {
-      padding: 50px 0 10px;
+      padding: 50px 0 25px;
     }
     @media (min-width: @screen-md-min) {
-      padding: 80px 0 20px;
+      padding: 80px 0 40px;
     }
 
     .listTiles-headline {
@@ -282,6 +282,21 @@
             margin: 0 0 10px 0;
             h4 {
               font-size: 18px;
+            }
+            span {
+              display: none;
+            }
+            a {
+              color: @black;
+              span {
+                display: inline;
+                font-size: .9em;
+                padding-left: 5px;
+              }
+              &:hover {
+                color: @cta-icons;
+                text-decoration: underline;
+              }
             }
           }
 

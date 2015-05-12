@@ -227,15 +227,23 @@ if ($ecosystem) { ?>
             $tile_icon = get_sub_field('icon');
             $tile_headline = get_sub_field('headline');
             $tile_body = get_sub_field('body');
+            $link = get_sub_field('link');
+
+            $link_option = '';
+            $link_end = '';
+            if ($link) {
+              $link_option = '<a href="'.$link.'">';
+              $link_end = '</a>';
+            }
 
             echo '<div class="col-md-6 listTiles-tile">
                       <div class="tile-icon">
-                        <i class="fa fa-' . $tile_icon . ' blue"></i>
+                         '.$link_option.'<i class="fa fa-' . $tile_icon . ' blue"></i>'.$link_end.'
                       </div>
                       <div class="tile-content">
                         <div class="content-text">
                           <div class="text-headline">
-                            <h4>' . $tile_headline . ' </h4>
+                            <h4>'.$link_option.'' . $tile_headline . '<span> <i class="fa fa-chevron-right"></i></span>'.$link_end.'</h4>
                           </div>
                           <div class="text-body">
                             ' . $tile_body . '
