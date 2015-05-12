@@ -22,7 +22,8 @@
         </div>
     </div>
     <div class="col-sm-9">
-        <?php //get_template_part('templates/page', 'header'); ?>
+        <?php //not sure if this is wanted or not
+        //get_template_part('templates/page', 'header'); ?>
         <div style="padding-bottom:1em; margin-bottom:1em;">
 
             <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>" class="mobile-hide">

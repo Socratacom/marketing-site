@@ -214,6 +214,13 @@ if( have_rows('sections') ): $i = 0;
     elseif( get_row_layout() == 'case_studies' ):
       $number_of_case_studies = get_sub_field('number_of_case_studies');
       $categories = get_sub_field('categories');
+      $taxonomies = '';
+      if ($categories) {
+        $taxonomies = array(
+          'taxonomy' => 'case_study_category',
+          'terms'    => $categories,
+          );
+      }
 
       echo '<section id="section-'. $i .'" class="section-case-studies" style="background-color:'.$color.'; padding: 50px 0;">';
       echo '<div class="container"><div class="row ' . $headline_text_alignment .'">';
@@ -226,12 +233,13 @@ if( have_rows('sections') ): $i = 0;
             'post_type' => 'case_study',
             'post_status' => 'publish',
             'order' => 'DESC',
-            'cat' => '',
+            'tax_query' => array($taxonomies),
             'posts_per_page' => $number_of_case_studies
         );
         $case_loop = new WP_Query( $args );
+        //var_dump($case_loop);
         if ( $case_loop->have_posts() ) :
-          echo '<div class="col-sm-10 col-sm-offset-1 post-list">';
+          echo '<div class="col-sm-12 post-list">';
           while ( $case_loop->have_posts() ) : $case_loop->the_post();
             // get vars
             $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
