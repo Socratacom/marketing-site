@@ -192,7 +192,7 @@
 							$link = get_sub_field('link');
 
 							if ( false == $oddeven ) {
-								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4">';
+								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4 cloud-icon-wrapper">';
 									if ($icon) {
 										echo '<span class="cloud-icon '.$icon.'"></span>';
 									}
@@ -245,7 +245,7 @@
 									endif;
 								echo '</div></div>';
 							} else if ( true == $oddeven ) {
-								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4 col-sm-push-8">';
+								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4 col-sm-push-8 cloud-icon-wrapper">'; 
 									if ($icon) {
 										echo '<span class="cloud-icon '.$icon.'"></span>';
 									}
