@@ -6,7 +6,6 @@
             "key": "field_551dba3c22f6e",
             "label": "Featured Videos",
             "name": "",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -22,7 +21,6 @@
             "key": "field_551dba5e22f6f",
             "label": "Videos",
             "name": "videos",
-            "prefix": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -41,7 +39,6 @@
                     "key": "field_551dba7322f70",
                     "label": "Header",
                     "name": "header",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -63,7 +60,6 @@
                     "key": "field_551dba9322f71",
                     "label": "Summary",
                     "name": "summary",
-                    "prefix": "",
                     "type": "textarea",
                     "instructions": "",
                     "required": 0,
@@ -85,7 +81,6 @@
                     "key": "field_551dbab122f72",
                     "label": "Image",
                     "name": "image",
-                    "prefix": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -110,7 +105,6 @@
                     "key": "field_551dbabf22f73",
                     "label": "Link",
                     "name": "link",
-                    "prefix": "",
                     "type": "oembed",
                     "instructions": "",
                     "required": 0,
@@ -127,7 +121,6 @@
                     "key": "field_551dbb260bac3",
                     "label": "RTP ID",
                     "name": "rtp_id",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -151,7 +144,6 @@
             "key": "field_551d6df1181c7",
             "label": "CTAs",
             "name": "",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -167,7 +159,6 @@
             "key": "field_551d6bcee1252",
             "label": "CTAs",
             "name": "ctas",
-            "prefix": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -186,7 +177,6 @@
                     "key": "field_551d6cbbe1253",
                     "label": "Icon",
                     "name": "icon",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "Font Awesome fa- code.",
                     "required": 0,
@@ -208,7 +198,6 @@
                     "key": "field_551d6cd9e1254",
                     "label": "Icon Color",
                     "name": "icon_color",
-                    "prefix": "",
                     "type": "select",
                     "instructions": "",
                     "required": 0,
@@ -238,7 +227,6 @@
                     "key": "field_551d6d02e1255",
                     "label": "Title",
                     "name": "title",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -260,7 +248,6 @@
                     "key": "field_551d6d08e1256",
                     "label": "Content",
                     "name": "content",
-                    "prefix": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -279,7 +266,6 @@
                     "key": "field_551d6d24e1257",
                     "label": "Link",
                     "name": "link",
-                    "prefix": "",
                     "type": "flexible_content",
                     "instructions": "",
                     "required": 0,
@@ -303,7 +289,6 @@
                                     "key": "field_551d6d3ce1258",
                                     "label": "Link Text",
                                     "name": "link_text",
-                                    "prefix": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -325,7 +310,6 @@
                                     "key": "field_551d6d5ce1259",
                                     "label": "Link Url",
                                     "name": "link_url",
-                                    "prefix": "",
                                     "type": "page_link",
                                     "instructions": "",
                                     "required": 0,
@@ -342,7 +326,9 @@
                                         "stories",
                                         "tech_blog"
                                     ],
-                                    "taxonomy": "",
+                                    "taxonomy": [
+
+                                    ],
                                     "allow_null": 0,
                                     "multiple": 0
                                 }
@@ -360,7 +346,6 @@
                                     "key": "field_551d6d85e125b",
                                     "label": "Link Text",
                                     "name": "link_text",
-                                    "prefix": "",
                                     "type": "text",
                                     "instructions": "",
                                     "required": 0,
@@ -382,7 +367,6 @@
                                     "key": "field_551d6d85e125c",
                                     "label": "Link Url",
                                     "name": "link_url",
-                                    "prefix": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -405,7 +389,6 @@
                     "key": "field_551d6dc7e125d",
                     "label": "RTP ID",
                     "name": "rtp_id",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -429,7 +412,6 @@
             "key": "field_551c5bb8f1687",
             "label": "Cloud Overview",
             "name": "",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -445,7 +427,6 @@
             "key": "field_551c5bc9f1688",
             "label": "Content",
             "name": "content",
-            "prefix": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -464,7 +445,6 @@
             "key": "field_551c5ba8f1686",
             "label": "Newsletter",
             "name": "",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -480,7 +460,6 @@
             "key": "field_551c24d6e6b83",
             "label": "Newsletter Content",
             "name": "newsletter_content",
-            "prefix": "",
             "type": "wysiwyg",
             "instructions": "",
             "required": 0,
@@ -499,7 +478,6 @@
             "key": "field_551dc673d8a7c",
             "label": "Awards",
             "name": "",
-            "prefix": "",
             "type": "tab",
             "instructions": "",
             "required": 0,
@@ -515,7 +493,6 @@
             "key": "field_551dc69bd8a7d",
             "label": "Awards",
             "name": "awards",
-            "prefix": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -534,7 +511,6 @@
                     "key": "field_551dc6dc3e3c8",
                     "label": "Image",
                     "name": "image",
-                    "prefix": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -559,7 +535,6 @@
                     "key": "field_551dc6e73e3c9",
                     "label": "Title",
                     "name": "title",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -581,7 +556,6 @@
                     "key": "field_551dc6ef3e3ca",
                     "label": "Link",
                     "name": "link",
-                    "prefix": "",
                     "type": "flexible_content",
                     "instructions": "",
                     "required": 0,
@@ -605,7 +579,6 @@
                                     "key": "field_551dc6ff3e3cb",
                                     "label": "Link URL",
                                     "name": "link_url",
-                                    "prefix": "",
                                     "type": "page_link",
                                     "instructions": "",
                                     "required": 0,
@@ -622,7 +595,9 @@
                                         "stories",
                                         "tech_blog"
                                     ],
-                                    "taxonomy": "",
+                                    "taxonomy": [
+
+                                    ],
                                     "allow_null": 0,
                                     "multiple": 0
                                 }
@@ -640,7 +615,6 @@
                                     "key": "field_551dc7253e3cd",
                                     "label": "Link URL",
                                     "name": "link_url",
-                                    "prefix": "",
                                     "type": "url",
                                     "instructions": "",
                                     "required": 0,
@@ -660,6 +634,42 @@
                     ]
                 }
             ]
+        },
+        {
+            "key": "field_5553986f8127d",
+            "label": "Case Studies",
+            "name": "",
+            "type": "tab",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "placement": "top"
+        },
+        {
+            "key": "field_555299b10680d",
+            "label": "Case Studies Category",
+            "name": "case_studies_category",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "case_study_category",
+            "field_type": "checkbox",
+            "allow_null": 0,
+            "add_term": 0,
+            "load_save_terms": 0,
+            "return_format": "id",
+            "multiple": 0
         }
     ],
     "location": [
@@ -679,6 +689,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1431360268,
-    "local": "json"
+    "modified": 1431542594
 }

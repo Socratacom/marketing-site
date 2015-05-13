@@ -311,12 +311,25 @@
 		<div class="container">
 			<div class="row">
 				<?php
+
 					$args = array(
 						'post_type' => 'case_study',
 						'post_status' => 'publish',
 	    				'order' => 'DESC',
 	    				'posts_per_page' => 9
 					);
+
+                    $case_studies_categories = get_field('case_studies_category');
+
+                    if($case_studies_categories && count($case_studies_categories) !== 0) {
+                        $args['tax_query'] = array();
+
+                        $args['tax_query'][] = array(
+                            'taxonomy' => 'case_study_category',
+                            'terms' => $case_studies_categories
+                        );
+                    }
+
 					$case_loop = new WP_Query( $args );
 					if ( $case_loop->have_posts() ) :
 						echo '<div class="col-sm-10 col-sm-offset-1 post-list">';
