@@ -200,6 +200,17 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   </div>
 </section>
 
+<?php $ecosystem = get_field('ecosystem');
+if ($ecosystem) { ?>
+  <section class="ecosystem">
+    <div class="container">
+      <div class="row">
+        <?php echo '<img src="'.$ecosystem['url'].'" alt="'.$ecosystem['title'].'" class="img-responsive">'; ?>
+      </div>
+    </div>
+  </section>
+<?php } ?>
+
 <?php if( have_rows('features-content') ): ?>
 <section class="template-listTiles light">
   <div class="container">
@@ -216,23 +227,29 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
             $tile_icon = get_sub_field('icon');
             $tile_headline = get_sub_field('headline');
             $tile_body = get_sub_field('body');
+            $link = get_sub_field('link');
 
-            echo '<div class="col-md-6">
-                    <div class="listTiles-tile">
+            $link_option = '';
+            $link_end = '';
+            if ($link) {
+              $link_option = '<a href="'.$link.'">';
+              $link_end = '</a>';
+            }
+
+            echo '<div class="col-md-6 listTiles-tile">
                       <div class="tile-icon">
-                        <i class="fa fa-' . $tile_icon . ' blue"></i>
+                         '.$link_option.'<i class="fa fa-' . $tile_icon . ' blue"></i>'.$link_end.'
                       </div>
                       <div class="tile-content">
                         <div class="content-text">
                           <div class="text-headline">
-                            <h4>' . $tile_headline . ' </h4>
+                            <h4>'.$link_option.'' . $tile_headline . '<span> <i class="fa fa-chevron-right"></i></span>'.$link_end.'</h4>
                           </div>
                           <div class="text-body">
-                            <p>' . $tile_body . '</p>
+                            ' . $tile_body . '
                           </div>
                         </div>
                       </div>
-                    </div>
                   </div>';
 
           endwhile; ?>
@@ -310,7 +327,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                     <?php /* Sorry for changing this from echo style templating but I need syntax highlighting -Chris */ ?>
                     <div class="container">
                         <div class="row">
-                          <div class="col-sm-8 col-md-6 col-md-offset-1">
+                          <div class="col-sm-7 col-md-6 col-md-offset-1">
                             <?php if($categoryHeadline) : ?>
                             <div class="container-category-headline-wrapper">
                               <h4 class="container-category-headline"><?=$categoryHeadline?></h4>
@@ -320,13 +337,13 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                               <h3 class="container-headline-h"><?=$headline?></h3>
                             </div>
                             <div class="container-body">
-                              <p><?=$body?></p>
+                              <?=$body?>
                             </div>
                             <div class="container-link">
                               <a href="<?=$link?>" class="btn btn-primary"><?=$link_text?></a>
                             </div>
                           </div>
-                          <div class="col-sm-4 col-md-4 hidden-xs">
+                          <div class="col-sm-5 col-md-4 hidden-xs">
                           <?php if($image) : ?>
                             <img src="<?=$image?>" class="img-responsive">
                           <?php endif; ?>
@@ -359,12 +376,12 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                   endif; ?>
                       <div class="container">
                         <div class="row">
-                          <div class="col-sm-4 col-md-4 col-md-offset-1 hidden-xs">
+                          <div class="col-sm-5 col-md-4 col-md-offset-1 hidden-xs">
                             <?php if($image) : ?>
                               <img src="<?=$image?>" class="img-responsive">';
                             <?php endif; ?>
                           </div>
-                          <div class="col-sm-8 col-md-6">
+                          <div class="col-sm-7 col-md-6">
                             <?php if($categoryHeadline) : ?>
                               <div class="container-category-headline-wrapper">
                                 <h4 class="container-category-headline"><?=$categoryHeadline?></h4>
@@ -374,7 +391,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                               <h3 class="container-headline-h"><?=$headline?></h3>
                             </div>
                             <div class="container-body">
-                              <p><?=$body?></p>
+                              <?=$body?>
                             </div>
                             <div class="container-link">
                               <a href="<?=$link?>" class="btn btn-primary"><?=$link_text?></a>
@@ -412,8 +429,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
             $tile_headline = get_sub_field('headline');
             $tile_body = get_sub_field('body');
 
-            echo '<div class="col-md-6">
-                    <div class="listTiles-tile">
+            echo '<div class="col-md-6 listTiles-tile">
                       <div class="tile-icon">
                         <i class="fa fa-' . $tile_icon . ' blue"></i>
                       </div>
@@ -423,11 +439,10 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                             <h4>' . $tile_headline . '</h4>
                           </div>
                           <div class="text-body">
-                            <p>' . $tile_body . '</p>
+                            ' . $tile_body . '
                           </div>
                         </div>
                       </div>
-                    </div>
                   </div>';
 
           endwhile;
@@ -459,8 +474,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
             $tile_headline = get_sub_field('headline');
             $tile_body = get_sub_field('body');
 
-            echo '<div class="col-md-6">
-                    <div class="listTiles-tile">
+            echo '<div class="col-md-6 listTiles-tile">
                       <div class="tile-icon">
                         <i class="fa fa-' . $tile_icon . ' blue"></i>
                       </div>
@@ -470,11 +484,10 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                             <h4>' . $tile_headline . '</h4>
                           </div>
                           <div class="text-body">
-                            <p>' . $tile_body . '</p>
+                            ' . $tile_body . '
                           </div>
                         </div>
                       </div>
-                    </div>
                   </div>';
 
           endwhile;

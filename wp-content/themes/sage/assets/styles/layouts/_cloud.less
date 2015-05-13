@@ -13,13 +13,15 @@
     margin: 0 0 60px 0;
 
     .jumbotron-textContainer {
-      margin: 0 0 0 60px;
+      margin: 0 20px;
+      @media (min-width: @screen-sm-min) {
+        margin: 0 0 0 60px;
+      }
 
       h1 {
         font-size: 24px;
         font-weight: @font-light;
         color: #ffffff;
-
         @media (min-width: @screen-sm-min) {
           font-size: 35px;
         }
@@ -31,7 +33,6 @@
         margin-bottom: 30px;
         font-size: 14px;
         line-height: 1.3;
-
         @media (min-width: @screen-sm-min) {
           font-size: 18px;
           line-height: 1.6;
@@ -51,13 +52,31 @@
     }
 
     .slick-prev {
-      left: 60px;
+      left: 10px;
       color: #ffffff;
     }
 
     .slick-next {
-      right: 60px;
+      right: 10px;
       color: #ffffff;
+    }
+    @media (min-width: @screen-sm-min) {
+      .slick-prev {
+        left: 40px;
+      }
+
+      .slick-next {
+        right: 40px;
+      }
+    }
+    @media (min-width: @screen-md-min) {
+      .slick-prev {
+        left: 60px;
+      }
+
+      .slick-next {
+        right: 60px;
+      }
     }
   }
 
@@ -70,7 +89,13 @@
   /*******************************/
 
   .template-applications {
-    padding: 60px 0 0 0;
+    padding: 30px 0 0 0;
+    @media (min-width: @screen-sm-min) {
+      padding: 50px 0 0 0;
+    }
+    @media (min-width: @screen-md-min) {
+      padding: 60px 0 0 0;
+    }
 
     .applications-headline {
       margin: 0 auto 30px auto;
@@ -101,18 +126,35 @@
 
       .group-feature {
         .feature-container {
-          min-height: 600px;
-          padding: 80px 0;
+          min-height: 300px;
+          padding: 30px 0 20px;
           background-repeat: no-repeat;
-
+          background-size: 1px 1px;
           &.contain {
-            background-size: contain;
+            background-size: 0;
             background-position: center center;
           }
 
           &.cover {
-            background-size: cover;
+            background-size: 0;
             background-position: bottom center;
+          }
+          @media (min-width: @screen-sm-min) {
+            min-height: 400px;
+            padding: 80px 0 40px;
+            &.contain {
+              background-size: contain;
+            }
+
+            &.cover {
+              background-size: cover;
+            }
+          }
+          @media (min-width: @screen-md-min) {
+            padding: 80px 0;
+          }
+          @media (min-width: @screen-lg-min) {
+            min-height: 600px;
           }
 
           .container-category-headline {
@@ -125,8 +167,23 @@
             margin: 0 0 25px 0;
 
             .container-headline-h {
-              font-size: 3.75em; //52px
+              font-size: 2.1em; //52px
               margin-top: 0.5rem;
+            }
+            @media (min-width: @screen-sm-min) {
+              .container-headline-h {
+                font-size: 2.5em;
+              }
+            }
+            @media (min-width: @screen-md-min) {
+              .container-headline-h {
+                font-size: 3em;
+              }
+            }
+            @media (min-width: @screen-lg-min) {
+              .container-headline-h {
+                font-size: 3.75em; //52px
+              }
             }
           }
 
@@ -136,8 +193,26 @@
             font-weight: @font-light;
 
             p {
-              font-size: 1.714em; //24px
-              line-height: 1.7;
+              font-size: 1.1em; //24px
+              line-height: 1.3;
+            }
+            @media (min-width: @screen-sm-min) {
+              p {
+                font-size: 1.3em;
+                line-height: 1.5;
+              }
+            }
+            @media (min-width: @screen-md-min) {
+              p {
+                font-size: 1.5em;
+                line-height: 1.6;
+              }
+            }
+            @media (min-width: @screen-lg-min) {
+              p {
+                font-size: 1.714em; //24px
+                line-height: 1.7;
+              }
             }
           }
 
@@ -161,7 +236,13 @@
   /*******************************/
 
   .template-listTiles {
-    padding: 80px 0;
+    padding: 40px 0 10px;
+    @media (min-width: @screen-sm-min) {
+      padding: 50px 0 25px;
+    }
+    @media (min-width: @screen-md-min) {
+      padding: 80px 0 40px;
+    }
 
     .listTiles-headline {
       margin: 0 0 45px 0;
@@ -187,15 +268,35 @@
           color: @cta-icons;
         }
       }
+      @media (min-width: @screen-sm-min) {
+        .tile-icon {
+          left: 15px;
+        }
+      }
 
       .tile-content {
-        padding: 0 0 0 60px;
+        padding: 0 0 0 40px;
 
         .content-text {
           .text-headline {
             margin: 0 0 10px 0;
             h4 {
               font-size: 18px;
+            }
+            span {
+              display: none;
+            }
+            a {
+              color: @black;
+              span {
+                display: inline;
+                font-size: .9em;
+                padding-left: 5px;
+              }
+              &:hover {
+                color: @cta-icons;
+                text-decoration: underline;
+              }
             }
           }
 
@@ -221,6 +322,9 @@
           a {
             padding: 14px 32px;
           }
+        }
+        @media (min-width: @screen-sm-min) {
+          padding: 0 0 0 60px;
         }
       }
 
