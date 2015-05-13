@@ -5,8 +5,18 @@
   /*******************************/
 
   h1 {
-    font-size: 3.75em; //52px
+    font-size: 2.5em;
     margin: 0;
+  }
+  @media (min-width: @screen-sm-min) {
+    h1 {
+      font-size: 3em;
+    }
+  }
+  @media (min-width: @screen-md-min) {
+    h1 {
+      font-size: 3.75em; //52px
+    }
   }
 
   h2 {
@@ -34,15 +44,14 @@
     background-color: #f4f4f4;
     margin-top: 0;
     .feature-container {
-      min-height: 600px;
-      padding: 80px 0;
+      padding: 40px 0;
       background-repeat: no-repeat;
 
       &.contain {
-        background-size: contain;
+        background-size: 0;
         background-position: top center;
         @media (min-width: @screen-md-min) {
-
+          background-size: contain;
           background-position: center center;
         }
       }
@@ -50,6 +59,9 @@
       &.cover {
         background-size: cover;
         background-position: bottom center;
+      }
+      @media (min-width: @screen-sm-min) {
+        padding: 80px 0;
       }
     }
 

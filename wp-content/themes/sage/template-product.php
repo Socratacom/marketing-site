@@ -2,23 +2,20 @@
 /**
  * Template Name: Product
  */
-
-
-$intro_headline = get_field('intro_headline');
-$intro_subhead = get_field('intro_subhead');
-$intro_body = get_field('intro_body');
-$intro_image = get_field('intro_image');
-$intro_background = get_field('intro_background');
-
-$features_headline = get_field('features_headline');
-$features_body = get_field('features_body');
-$features_video_thumbnail = get_field('features_video_thumbnail');
+if(function_exists('get_field')) {
+  $intro_headline = get_field('intro_headline');
+  $intro_subhead = get_field('intro_subhead');
+  $intro_body = get_field('intro_body');
+  $intro_image = get_field('intro_image');
+  $intro_background = get_field('intro_background');
+  $external_video = get_field('external_video_link');
+}
 
 ?>
 
 <section class="product-intro">
   <?php
-
+  if(function_exists('have_rows')) {
     if( have_rows('intro_background') ):
       while ( have_rows('intro_background') ) : the_row();
         $background = '';
@@ -38,84 +35,64 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
       echo '<div class="feature-container">';
 
     endif;
-
+  }
   ?>
   <div class="container intro-background">
     <div class="row">
       <div class="col-md-6 col-md-offset-1">
 
         <div class="intro-headline">
-          <h1><?php echo $intro_headline; ?></h1>
+          <h1><?php if(isset($intro_headline)){ echo $intro_headline; } ?></h1>
         </div>
         <div class="intro-subhead">
-          <p><?php echo $intro_subhead; ?></p>
+          <p><?php if(isset($intro_subhead)){ echo $intro_subhead; } ?></p>
         </div>
         <div class="intro-body">
-          <p><?php echo $intro_body; ?></p>
-        </div>
-        <div class="intro-features">
+          <p><?php if(isset($intro_body)){ echo $intro_body; } ?></p>
+
+          <?php if (isset($external_video)) {
+            echo '<a href="'.$external_video.'" target="_blank" class="button">See a Quick Demo</a>&nbsp;';
+          } ?>
 
           <?php
-            if( have_rows('intro_features') ):
-              echo '<ul>';
-              while ( have_rows('intro_features') ) : the_row();
+          if(function_exists('get_field')) {
+            $video = get_field('intro_video');
+            preg_match('/src="(.+?)"/', $video, $matches);
+            $src = $matches[1];
+            $params_mobile = array(
+                'enablejsapi'   => 1,
+                'rel'   => 0,
+                'controls'  => 0,
+                'html5'     => 1,
+                'showinfo'  =>0,
+                'playsinline' => 1
+            );
+            $params_desktop = $params_mobile;
+            $params_desktop['autoplay'] = 1;
 
-                $item = get_sub_field('item');
-                echo '<li>' . $item . '</li>';
+            $desktop_src = add_query_arg($params_desktop, $src);
+            $mobile_src = add_query_arg($params_mobile, $src);
+          }
 
-              endwhile;
-              echo '</ul>';
-            endif;
-          ?>
+          if (isset($video)) { ?>
 
+            <a href="#" class="hidden-xs hidden-sm button" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $desktop_src; ?>">
+              Learn About Financial Transparency
+            </a>
+
+            <?php
+              $video = str_replace($src, $mobile_src, $video);
+              $attributes = 'id="player2"';
+              $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
+            ?>
+
+            <div class="embed-container visible-xs visible-sm">
+              <?php echo $video; ?>
+            </div>
+
+          <?php } ?>
         </div>
 
-      </div>
-      <div class="col-md-4">
-        <div class="intro-playButton">
-          <?php
-
-          $video = get_field('intro_video');
-          preg_match('/src="(.+?)"/', $video, $matches);
-          $src = $matches[1];
-          $params = array(
-              'enablejsapi'   => 1,
-              'rel'   => 0,
-              'controls'  => 0,
-              'html5'     => 1,
-              'showinfo'  =>0,
-              'playsinline' => 1,
-              'autoplay' => 1
-          );
-          $new_src = add_query_arg($params, $src);
-
-          if ($video) { ?>
-          <a href="#" class="hidden-xs hidden-sm" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $new_src; ?>">
-            <i class="fa fa-play-circle"></i>
-          </a>
-          <?php }
-
-          $video = get_field('intro_video');
-          preg_match('/src="(.+?)"/', $video, $matches);
-          $src = $matches[1];
-          $params = array(
-              'enablejsapi'   => 1,
-              'rel'   => 0,
-              'controls'  => 0,
-              'html5'     => 1,
-              'showinfo'  =>0,
-              'playsinline' => 1
-          );
-          $new_src = add_query_arg($params, $src);
-          $video = str_replace($src, $new_src, $video);
-          $attributes = 'id="player2"';
-          $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
-
-          ?>
-          <div class="embed-container visible-xs visible-sm">
-            <?php echo $video; ?>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -123,7 +100,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
 <section class="product-pillars">
   <div class="container">
-      <?php
+      <?php if(function_exists('get_field')) {
         $pillar_1_image = get_field('pillar_1_image');
         $pillar_1_headline = get_field('pillar_1_headline');
         $pillar_1_features = get_field('pillar_1_features');
@@ -150,106 +127,17 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
             echo $pillar_2_features;
           echo '</div></div>';
         }
-      ?>
+      } ?>
     </div>
   </div>
 </section>
 
 <section class="product-features">
   <div class="container">
-    <div class="features-hero">
-
-      <div class="row">
-        <?php
-          if( have_rows('features_video') ):
-        ?>
-        <div class="col-md-6">
-          <div class="hero-thumbnail">
-            <img src="<?php echo $features_video_thumbnail; ?>" alt="" class="img-responsive">
-            <div class="thumbnail-playButton">
-              <?php
-
-              if( have_rows('features_video') ):
-                while ( have_rows('features_video') ) : the_row();
-
-                  if( get_row_layout() == 'embedded_video' ):
-
-                    $video = get_sub_field('video');
-                    preg_match('/src="(.+?)"/', $video, $matches);
-                    $src = $matches[1];
-                    $params = array(
-                        'enablejsapi'   => 1,
-                        'rel'   => 0,
-                        'controls'  => 0,
-                        'html5'     => 1,
-                        'showinfo'  =>0,
-                        'playsinline' => 1,
-                        'autoplay' => 1
-                    );
-                    $new_src = add_query_arg($params, $src);
-                    $video = str_replace($src, $new_src, $video);
-                    $attributes = 'id="player"';
-                    $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
-                    $video_id = get_field('video_id');
-
-
-                    echo '<a href="#" data-toggle="modal" data-target="#videoModal" data-content="' . $new_src . '">
-                            <i class="fa fa-play-circle"></i>
-                          </a>';
-                  elseif( get_row_layout() == 'video_link' ):
-
-                    $link = get_sub_field('video_link_url');
-
-                    echo '<a href="'. $link .'">
-                            <i class="fa fa-play-circle"></i>
-                          </a>';
-                  endif;
-                endwhile;
-              else :
-                // no layouts found
-              endif;
-
-              ?>
-
-            </div>
-          </div>
-        </div>
-        <?php
-          endif;
-        ?>
-        <div class="col-md-6">
-          <div class="hero-headline">
-            <h2><?php echo $features_headline; ?></h2>
-          </div>
-          <div class="hero-body">
-            <p><?php echo $features_body; ?></p>
-          </div>
-
-          <div class="hero-features">
-
-            <?php
-              if( have_rows('features_list') ):
-                echo '<ul>';
-                while ( have_rows('features_list') ) : the_row();
-
-                  $item = get_sub_field('item');
-                  echo '<li>' . $item . '</li>';
-
-                endwhile;
-                echo '</ul>';
-              endif;
-            ?>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-
     <div class="features-grid">
       <div class="row">
 
-      <?php
+      <?php if(function_exists('get_field')) {
         $tileNum = count(get_field('feature_tiles'));
 
         if( have_rows('feature_tiles') ):
@@ -301,9 +189,9 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 
           endwhile;
         endif;
-      ?>
-      </div>
+      } ?>
 
+      </div>
     </div>
   </div>
 </section>
@@ -312,7 +200,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   <div class="container">
     <div class="row">
 
-    <?php
+    <?php if(function_exists('get_field')) {
       if( have_rows('cta_tiles') ):
         while ( have_rows('cta_tiles') ) : the_row();
 
@@ -356,7 +244,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
                 </div>';
         endwhile;
       endif;
-    ?>
+    } ?>
 
     </div>
   </div>
