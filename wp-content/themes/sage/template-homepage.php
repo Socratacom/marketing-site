@@ -83,7 +83,7 @@
 						echo '<div class="slide col-sm-4" id="'.$rtp_id.'">';
 						echo '<a href="#" data-toggle="modal" data-target="#videoModal" data-content="'.$new_src.'">';
 						echo '<div class="play-btn"></div>';
-						echo '<div class="video-content"><h3>'.$headline.'</h3><p>'.$summary.'</p></div>';
+						echo '<div class="video-content"><h3>'.$header.'</h3><p>'.$summary.'</p></div>';
 						echo '<img src="'.$image['url'].'" alt="'.$image['title'].'">';
 						echo '</a>';
 						echo '</div>';
