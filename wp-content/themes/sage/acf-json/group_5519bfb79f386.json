@@ -197,11 +197,11 @@
             "media_upload": 1
         },
         {
-            "key": "field_5519c068a803a",
-            "label": "Intro features",
-            "name": "intro_features",
+            "key": "field_5552964cf1fff",
+            "label": "External Video Link",
+            "name": "external_video_link",
             "prefix": "",
-            "type": "repeater",
+            "type": "url",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -210,34 +210,8 @@
                 "class": "",
                 "id": ""
             },
-            "min": "",
-            "max": "",
-            "layout": "table",
-            "button_label": "Add Row",
-            "sub_fields": [
-                {
-                    "key": "field_5519c07da803b",
-                    "label": "item",
-                    "name": "item",
-                    "prefix": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                }
-            ]
+            "default_value": "",
+            "placeholder": ""
         },
         {
             "key": "field_5524304f83b94",
@@ -437,189 +411,6 @@
             "placement": "top"
         },
         {
-            "key": "field_5519cd97fad95",
-            "label": "Features Headline",
-            "name": "features_headline",
-            "prefix": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": "",
-            "readonly": 0,
-            "disabled": 0
-        },
-        {
-            "key": "field_5519cda0fad96",
-            "label": "Features Body",
-            "name": "features_body",
-            "prefix": "",
-            "type": "wysiwyg",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1
-        },
-        {
-            "key": "field_551b2308ff5a0",
-            "label": "Features Video Thumbnail",
-            "name": "features_video_thumbnail",
-            "prefix": "",
-            "type": "image",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "return_format": "url",
-            "preview_size": "thumbnail",
-            "library": "all",
-            "min_width": "",
-            "min_height": "",
-            "min_size": "",
-            "max_width": "",
-            "max_height": "",
-            "max_size": "",
-            "mime_types": ""
-        },
-        {
-            "key": "field_552436ca2e24e",
-            "label": "Features Video",
-            "name": "features_video",
-            "prefix": "",
-            "type": "flexible_content",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "button_label": "Add Row",
-            "min": "",
-            "max": "",
-            "layouts": [
-                {
-                    "key": "55247afb7fce1",
-                    "name": "embedded_video",
-                    "label": "Embedded Video",
-                    "display": "block",
-                    "sub_fields": [
-                        {
-                            "key": "field_55247b10c67cc",
-                            "label": "video",
-                            "name": "video",
-                            "prefix": "",
-                            "type": "oembed",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "width": "",
-                            "height": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                },
-                {
-                    "key": "55247b1bc67cd",
-                    "name": "video_link",
-                    "label": "Video Link",
-                    "display": "row",
-                    "sub_fields": [
-                        {
-                            "key": "field_55247b25c67ce",
-                            "label": "link",
-                            "name": "link",
-                            "prefix": "",
-                            "type": "url",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "default_value": "",
-                            "placeholder": ""
-                        }
-                    ],
-                    "min": "",
-                    "max": ""
-                }
-            ]
-        },
-        {
-            "key": "field_5519d390eecb2",
-            "label": "Features List",
-            "name": "features_list",
-            "prefix": "",
-            "type": "repeater",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "min": "",
-            "max": "",
-            "layout": "table",
-            "button_label": "Add Row",
-            "sub_fields": [
-                {
-                    "key": "field_5519d3e1eecb3",
-                    "label": "item",
-                    "name": "item",
-                    "prefix": "",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": "",
-                    "readonly": 0,
-                    "disabled": 0
-                }
-            ]
-        },
-        {
             "key": "field_5519c0bca803d",
             "label": "Feature Tiles",
             "name": "feature_tiles",
@@ -697,7 +488,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 1,
     "position": "acf_after_title",
     "style": "default",
     "label_placement": "top",
@@ -705,6 +496,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1431360268,
-    "local": "json"
+    "modified": 1431475988
 }
