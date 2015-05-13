@@ -31,3 +31,25 @@ foreach ($sage_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+
+
+//Bootstrapping ACF functions if ACF isn't activated
+if(!function_exists('get_field')) {
+  function get_field($field_name, $post_id = 0, $format_value = true) {
+    return false;
+  }
+}
+
+if(!function_exists('have_rows')) {
+  function have_rows($field_name, $post_id = 0) {
+    return false;
+  }
+}
+
+if(!function_exists('the_field')) {
+  function the_field($field_name, $post_id = 0) {
+    echo '';
+    return false;
+  }
+}
