@@ -73,6 +73,7 @@
 
         $('.header-search-btn').click(function(e) {
           $('.navbar-header .search-form').slideToggle(250);
+          $('#search').focus();
           e.preventDefault();
           //return false;
         });
