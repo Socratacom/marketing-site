@@ -193,12 +193,14 @@
 
 							if ( false == $oddeven ) {
 								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4 cloud-icon-wrapper">';
+                                    echo '<a class="cloud-link" href="'.$link.'">';
 									if ($icon) {
 										echo '<span class="cloud-icon '.$icon.'"></span>';
 									}
 									if ($title) {
 										echo '<h2>'.$title.'</h2>';
 									}
+                                    echo '</a>';
 								echo '</div>';
 								echo '<div class="col-md-7 col-sm-8 col-md-offset-1">';
 									if ($headline) {
@@ -246,12 +248,14 @@
 								echo '</div></div>';
 							} else if ( true == $oddeven ) {
 								echo '<div class="col-sm-12 cloud" id="'.$icon.'"><div class="col-sm-4 col-sm-push-8 cloud-icon-wrapper">'; 
+                                    echo '<a class="cloud-link" href="'.$link.'">';
 									if ($icon) {
 										echo '<span class="cloud-icon '.$icon.'"></span>';
 									}
 									if ($title) {
 										echo '<h2>'.$title.'</h2>';
 									}
+                                    echo '</a>';
 								echo '</div>';
 								echo '<div class="col-md-7 col-sm-8 col-sm-pull-4">';
 									if ($headline) {
