@@ -2,95 +2,87 @@
 /**
  * Template Name: Product
  */
-if(function_exists('get_field')) {
-  $intro_headline = get_field('intro_headline');
-  $intro_subhead = get_field('intro_subhead');
-  $intro_body = get_field('intro_body');
-  $intro_image = get_field('intro_image');
-  $intro_background = get_field('intro_background');
-  $external_video = get_field('external_video_link');
-}
+$intro_headline = get_field('intro_headline');
+$intro_subhead = get_field('intro_subhead');
+$intro_body = get_field('intro_body');
+$intro_image = get_field('intro_image');
+$intro_background = get_field('intro_background');
+$external_video = get_field('external_video_link');
 
 ?>
 
 <section class="product-intro">
   <?php
-  if(function_exists('have_rows')) {
-    if( have_rows('intro_background') ):
-      while ( have_rows('intro_background') ) : the_row();
-        $background = '';
-        if( get_row_layout() == 'background_contained' ):
+  if( have_rows('intro_background') ):
+    while ( have_rows('intro_background') ) : the_row();
+      $background = '';
+      if( get_row_layout() == 'background_contained' ):
 
-          $background = get_sub_field('background_image');
-          echo '<div class="feature-container contain" style="background-image: url(' . $background . ')">';
+        $background = get_sub_field('background_image');
+        echo '<div class="feature-container contain" style="background-image: url(' . $background . ')">';
 
-        elseif( get_row_layout() == 'background_full_width' ):
+      elseif( get_row_layout() == 'background_full_width' ):
 
-          $background = get_sub_field('background_image');
-          echo '<div class="feature-container cover" style="background-image: url(' . $background . ')">';
-        endif;
-      endwhile;
-    else :
+        $background = get_sub_field('background_image');
+        echo '<div class="feature-container cover" style="background-image: url(' . $background . ')">';
+      endif;
+    endwhile;
+  else :
 
-      echo '<div class="feature-container">';
+    echo '<div class="feature-container">';
 
-    endif;
-  }
+  endif;
   ?>
   <div class="container intro-background">
     <div class="row">
       <div class="col-md-6 col-md-offset-1">
 
         <div class="intro-headline">
-          <h1><?php if(isset($intro_headline)){ echo $intro_headline; } ?></h1>
+          <h1><?php echo $intro_headline; ?></h1>
         </div>
         <div class="intro-subhead">
-          <p><?php if(isset($intro_subhead)){ echo $intro_subhead; } ?></p>
+          <p><?php echo $intro_subhead; ?></p>
         </div>
         <div class="intro-body">
-          <p><?php if(isset($intro_body)){ echo $intro_body; } ?></p>
+          <p><?php echo $intro_body; ?></p>
 
-          <?php if (isset($external_video)) {
+          <?php if ($external_video) {
             echo '<a href="'.$external_video.'" target="_blank" class="button">See a Quick Demo</a>&nbsp;';
           } ?>
 
           <?php
-          if(function_exists('get_field')) {
             $video = get_field('intro_video');
-            preg_match('/src="(.+?)"/', $video, $matches);
-            $src = $matches[1];
-            $params_mobile = array(
-                'enablejsapi'   => 1,
-                'rel'   => 0,
-                'controls'  => 0,
-                'html5'     => 1,
-                'showinfo'  =>0,
-                'playsinline' => 1
-            );
-            $params_desktop = $params_mobile;
-            $params_desktop['autoplay'] = 1;
+            if($video) {
+              preg_match('/src="(.+?)"/', $video, $matches);
+              $src = $matches[1];
+              $params_mobile = array(
+                  'enablejsapi'   => 1,
+                  'rel'   => 0,
+                  'controls'  => 0,
+                  'html5'     => 1,
+                  'showinfo'  =>0,
+                  'playsinline' => 1
+              );
+              $params_desktop = $params_mobile;
+              $params_desktop['autoplay'] = 1;
 
-            $desktop_src = add_query_arg($params_desktop, $src);
-            $mobile_src = add_query_arg($params_mobile, $src);
-          }
+              $desktop_src = add_query_arg($params_desktop, $src);
+              $mobile_src = add_query_arg($params_mobile, $src);
+              ?>
+              <a href="#" class="hidden-xs hidden-sm button" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $desktop_src; ?>">
+                Learn About Financial Transparency
+              </a>
 
-          if (isset($video)) { ?>
+              <?php
+                $video = str_replace($src, $mobile_src, $video);
+                $attributes = 'id="player2"';
+                $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
+              ?>
 
-            <a href="#" class="hidden-xs hidden-sm button" id="play-button" data-toggle="modal" data-target="#videoModal" data-content="<?php echo $desktop_src; ?>">
-              Learn About Financial Transparency
-            </a>
-
-            <?php
-              $video = str_replace($src, $mobile_src, $video);
-              $attributes = 'id="player2"';
-              $video = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $video);
-            ?>
-
-            <div class="embed-container visible-xs visible-sm">
-              <?php echo $video; ?>
-            </div>
-
-          <?php } ?>
+              <div class="embed-container visible-xs visible-sm">
+                <?php echo $video; ?>
+              </div>
+          <?php } // end if $video ?>
         </div>
 
       </div>
@@ -100,7 +92,7 @@ if(function_exists('get_field')) {
 
 <section class="product-pillars">
   <div class="container">
-      <?php if(function_exists('get_field')) {
+      <?php
         $pillar_1_image = get_field('pillar_1_image');
         $pillar_1_headline = get_field('pillar_1_headline');
         $pillar_1_features = get_field('pillar_1_features');
@@ -127,7 +119,7 @@ if(function_exists('get_field')) {
             echo $pillar_2_features;
           echo '</div></div>';
         }
-      } ?>
+      ?>
     </div>
   </div>
 </section>
@@ -137,7 +129,7 @@ if(function_exists('get_field')) {
     <div class="features-grid">
       <div class="row">
 
-      <?php if(function_exists('get_field')) {
+      <?php
         $tileNum = count(get_field('feature_tiles'));
 
         if( have_rows('feature_tiles') ):
@@ -189,7 +181,7 @@ if(function_exists('get_field')) {
 
           endwhile;
         endif;
-      } ?>
+      ?>
 
       </div>
     </div>
@@ -200,7 +192,7 @@ if(function_exists('get_field')) {
   <div class="container">
     <div class="row">
 
-    <?php if(function_exists('get_field')) {
+    <?php
       if( have_rows('cta_tiles') ):
         while ( have_rows('cta_tiles') ) : the_row();
 
@@ -244,7 +236,7 @@ if(function_exists('get_field')) {
                 </div>';
         endwhile;
       endif;
-    } ?>
+    ?>
 
     </div>
   </div>
