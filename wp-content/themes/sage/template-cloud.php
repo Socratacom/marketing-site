@@ -200,12 +200,24 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   </div>
 </section>
 
-<?php $ecosystem = get_field('ecosystem');
+<?php
+$ecosystem_headline = get_field('ecosystem_headline');
+$ecosystem_content = get_field('ecosystem_content');
+$ecosystem = get_field('ecosystem');
+
 if ($ecosystem) { ?>
-  <section class="ecosystem">
+  <section class="template-ecosystem">
     <div class="container">
       <div class="row">
-        <?php echo '<img src="'.$ecosystem['url'].'" alt="'.$ecosystem['title'].'" class="img-responsive">'; ?>
+        <div class="col-sm-4">
+          <h2><?php if($ecosystem_headline) { echo $ecosystem_headline; } ?></h2>
+        </div>
+        <div class="col-sm-8">
+          <?php if($ecosystem_content) { echo $ecosystem_content; } ?>
+        </div>
+      </div>
+      <div class="row">
+        <?php if($ecosystem) { echo '<img src="'.$ecosystem['url'].'" alt="'.$ecosystem['title'].'" class="img-responsive">'; } ?>
       </div>
     </div>
   </section>
