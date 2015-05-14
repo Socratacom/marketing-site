@@ -14,11 +14,10 @@ if ( have_rows('hero') ):
     $text_color = get_sub_field('text_color');
     $header_text_alignment = get_sub_field('header_text_alignment');
     $hero_content_vertical_alignment = get_sub_field('hero_content_vertical_alignment');
-
+    $link = '';
+    $link_text = '';
     if( have_rows('cta') ):
       while ( have_rows('cta') ) : the_row();
-        $link = '';
-        $link_text = '';
         if( get_row_layout() == 'internal_link' ):
           $link = get_sub_field('internal_link');
           $link_text = get_sub_field('internal_link_text');
@@ -105,7 +104,7 @@ if( have_rows('sections') ): $i = 0;
         if ($headline) {
           echo '<div class="col-xs-12"><h2>'.$headline.'</h2></div>';
         }
-        echo '<div class="column-slider">';
+        echo '<div class="col-xs-12 column-slider">';
         if( have_rows('column') ):
           while ( have_rows('column') ) : the_row();
           $content = get_sub_field('column_content');
@@ -119,7 +118,7 @@ if( have_rows('sections') ): $i = 0;
       ?>
 
       <script>
-      $(function(){
+      document.addEventListener('DOMContentLoaded', function() {
         $('#section-<?php echo $i; ?> .column-slider').slick({
           arrows: true,
           prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
@@ -144,7 +143,7 @@ if( have_rows('sections') ): $i = 0;
             }
           ]
         });
-      });
+      }, false);
       </script>
 
       <?php
@@ -181,7 +180,7 @@ if( have_rows('sections') ): $i = 0;
 
         echo '<div class="row news-list">';
           while ( $news_loop->have_posts() ) : $news_loop->the_post();
-            
+
             // get vars
             $post_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
             $post_image = $post_image[0];
@@ -227,7 +226,6 @@ if( have_rows('sections') ): $i = 0;
         if ($headline) {
           echo '<div class="col-xs-12"><h2>'.$headline.'</h2></div>';
         }
-        echo '<div class="case-study-slider">';
 
         $args = array(
             'post_type' => 'case_study',
@@ -239,7 +237,7 @@ if( have_rows('sections') ): $i = 0;
         $case_loop = new WP_Query( $args );
         //var_dump($case_loop);
         if ( $case_loop->have_posts() ) :
-          echo '<div class="col-sm-12 post-list">';
+          echo '<div class="case-study-slider col-xs-12 post-list">';
           while ( $case_loop->have_posts() ) : $case_loop->the_post();
             // get vars
             $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
@@ -258,12 +256,12 @@ if( have_rows('sections') ): $i = 0;
           wp_reset_postdata();
         endif;
 
-      echo '</div></div></div>';
+      echo '</div></div>';
       echo '</section>';
       ?>
 
       <script>
-      $(function() {
+      document.addEventListener('DOMContentLoaded', function() {
         $('#section-<?php echo $i;?> .post-list').slick({
           arrows: true,
           prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
@@ -274,7 +272,7 @@ if( have_rows('sections') ): $i = 0;
           slidesToShow: 1,
           slidesToScroll: 1
         });
-      });
+      }, false);
       </script>
 
     <?php
