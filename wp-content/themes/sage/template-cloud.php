@@ -69,7 +69,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
     <?php
       if( have_rows('cta_tiles') ):
         while ( have_rows('cta_tiles') ) : the_row();
-
+          $rtp_id = get_sub_field('rtp_id');
           $tile_icon = get_sub_field('tile_icon');
           $tile_headline = get_sub_field('tile_headline');
           $tile_body = get_sub_field('tile_body');
@@ -88,7 +88,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
           endif;
 
           echo '<div class="col-md-4">
-                  <div class="features-tile">
+                  <div class="features-tile" id="'.$rtp_id.'">
                     <div class="tile-icon">
                       <i class="fa ' . $tile_icon . ' blue"></i>
                     </div>
