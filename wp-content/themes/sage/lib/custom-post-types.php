@@ -99,7 +99,6 @@ if (!function_exists('case_study_post_type')) {
 /*---------------------------------------*/
 // USER STORIES
 /*---------------------------------------*/
-
 if (!function_exists('create_stories')) {
 	// REGISTER POST TYPE
 	add_action( 'init', 'create_stories' );
@@ -198,6 +197,68 @@ if (!function_exists('create_stories')) {
 	      'args' => array( 'orderby' => 'term_order' ),
 	      'show_admin_column' => true,
 	      'rewrite' => array('with_front' => false, 'slug' => 'stories-product')
+	    )
+	  );
+	}
+
+}
+
+
+/*---------------------------------------*/
+// WEBINARS
+/*---------------------------------------*/
+if (!function_exists('webinars_post_type')) {
+	// REGISTER POST TYPE
+	add_action( 'init', 'webinars_post_type' );
+	function webinars_post_type() {
+	  register_post_type( 'webinars',
+	    array(
+	      'labels' => array(
+	        'name' => 'Webinars',
+	        'singular_name' => 'Webinars',
+	        'add_new' => 'Add New Webinar',
+	        'add_new_item' => 'Add New Webinar',
+	        'edit' => 'Edit Webinars',
+	        'edit_item' => 'Edit Webinars',
+	        'new_item' => 'New Webinar',
+	        'view' => 'View',
+	        'view_item' => 'View Webinar',
+	        'search_items' => 'Search Webinars',
+	        'not_found' => 'Not found',
+	        'not_found_in_trash' => 'Not found in Trash',
+	        'parent' => 'Socrata'
+	      ),
+	      'public' => true,
+	      'menu_position' => 5,
+	      'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+	      'taxonomies' => array( '' ),
+	      'menu_icon' => plugins_url( 'images/image.png', __FILE__ ),
+	      'has_archive' => true,
+	      'rewrite' => array('with_front' => false, 'slug' => 'webinars')
+	    )
+	  );
+	}
+
+	// REGISTER TAXONOMIES
+	add_action( 'init', 'webinars_categories', 0 );
+	function webinars_categories() {
+	  register_taxonomy(
+	    'webinars_categories',
+	    'webinars',
+	    array(
+	      'labels' => array(
+	        'name' => 'Webinars Categories',
+	        'menu_name' => 'Categories',
+	        'add_new_item' => 'Add New Category',
+	        'new_item_name' => "New Category"
+	      ),
+	      'show_ui' => true,
+	      'show_tagcloud' => false,
+	      'hierarchical' => true,
+	      'sort' => true,      
+	      'args' => array( 'orderby' => 'term_order' ),
+	      'show_admin_column' => true,
+	      'rewrite' => array('with_front' => false, 'slug' => 'webinars-categories')
 	    )
 	  );
 	}
