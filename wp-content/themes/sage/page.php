@@ -133,16 +133,15 @@ if( have_rows('sections') ): $i = 0;
                 echo '</div>';
 
               endwhile;
+            
+            elseif( have_rows('column') ):
+              while ( have_rows('column') ) : the_row();
+              $content = get_sub_field('column_content');
+                echo '<div class="slide col-sm-'. (12 / $items_per_slide) .'">';
+                  echo $content;
+                echo '</div>';
+              endwhile;
             endif;
-
-            // if( have_rows('column') ):
-            //   while ( have_rows('column') ) : the_row();
-            //   $content = get_sub_field('column_content');
-            //     echo '<div class="slide col-sm-'. (12 / $items_per_slide) .'">';
-            //       echo $content;
-            //     echo '</div>';
-            //   endwhile;
-            // endif;
 
           echo '</div>';
         echo '</div>';
