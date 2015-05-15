@@ -1,7 +1,7 @@
 <?php while (have_posts()) : the_post();
 
 if ( have_rows('hero') ):
-  echo '<section>
+  echo '<section class="hero">
   <div class="jumbotron">';
   while ( have_rows('hero') ) : the_row();
     // get vars
