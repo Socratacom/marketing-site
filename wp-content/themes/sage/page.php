@@ -335,7 +335,7 @@ if( have_rows('sections') ): $i = 0;
 
     /* ------------------------------------ */
     //
-    // SECTION: Case Studies
+    // SECTION: Webinars
     //
     /* ------------------------------------ */
     elseif( get_row_layout() == 'webinars' ):
@@ -366,11 +366,11 @@ if( have_rows('sections') ): $i = 0;
         echo '<div class="row">';
           
           $args = array(
-              'post_type' => 'case_study',
+              'post_type' => 'webinars',
               'post_status' => 'publish',
               'order' => 'DESC',
               'tax_query' => array($taxonomies),
-              'posts_per_page' => $number_of_case_studies
+              'posts_per_page' => $number_of_items
           );
           $case_loop = new WP_Query( $args );
 
@@ -388,12 +388,20 @@ if( have_rows('sections') ): $i = 0;
                 $excerpt = get_the_excerpt();
 
                 echo '<div class="row">';
-                echo '<div class="slide"><div class="col-sm-7">';
+                echo '<div class="slide">';
+
+                if ($featured_image) {
+                  echo '<div class="col-sm-5">';
+                  echo '<div class="img-container"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></div>';
+                  echo '</div>';
+                }
+
+                echo '<div class="col-sm-7">';
                 echo '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
+                echo '<a href="'.$link.'">Watch now</a>';
                 echo '</div>';
-                echo '<div class="col-sm-5">';
-                echo '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
-                echo '</div></div>';
+                
+                echo '</div>';
                 echo '</div>';
 
               endwhile;
