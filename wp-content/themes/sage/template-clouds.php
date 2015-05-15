@@ -37,7 +37,6 @@
 					if( have_rows('cloud', 'option') ):
 						while ( have_rows('cloud', 'option') ) : the_row();
 							// Get vars
-							$oddeven = $c = !$c;
 							$title = get_sub_field('title');
 							$icon = get_sub_field('cloud_icon');
 							$headline = get_sub_field('headline');
