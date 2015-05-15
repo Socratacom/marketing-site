@@ -98,22 +98,56 @@ if( have_rows('sections') ): $i = 0;
       $headline_text_alignment = get_sub_field('headline_text_alignment');
       $color = get_sub_field('color');
       $items_per_slide = (get_sub_field('items_per_slide') ? get_sub_field('items_per_slide') : 1);
+      $rows = get_sub_field('row');
+      
 
-      echo '<section id="section-'. $i .'" class="section-carousel" style="background-color:'.$color.'; padding: 50px 0;">';
-      echo '<div class="container"><div class="row ' . $headline_text_alignment .'">';
-        if ($headline) {
-          echo '<div class="col-xs-12"><h2>'.$headline.'</h2></div>';
-        }
-        echo '<div class="col-xs-12 column-slider">';
-        if( have_rows('column') ):
-          while ( have_rows('column') ) : the_row();
-          $content = get_sub_field('column_content');
-            echo '<div class="slide col-sm-'. (12 / $items_per_slide) .'">';
-              echo $content;
-            echo '</div>';
-          endwhile;
-        endif;
-      echo '</div></div></div>';
+      echo '<section id="section-'. $i .'" class="section-carousel" style="background-color:'.$color.';">';
+      echo '<div class="container">';
+
+        echo '<div class="row ' . $headline_text_alignment .'">';
+          if ($headline) {
+            echo '<div class="col-xs-12"><h2>'.$headline.'</h2></div>';
+          }
+        echo '</div>';
+        
+        echo '<div class="row ' . $headline_text_alignment .'">';
+          echo '<div class="content-rows col-xs-12">';
+
+            if( have_rows('row') ):
+              while ( have_rows('row') ) : the_row();
+
+                echo '<div class="row">';
+
+                if( have_rows('column') ):
+                  while ( have_rows('column') ) : the_row();
+
+                    $content = get_sub_field('column_content');
+                    // var_dump( $content );
+                    echo '<div class="slide col-sm-'. (12 / $items_per_slide) .'">';
+                    echo $content;
+                    echo '</div>';
+
+                  endwhile;
+                endif;
+
+                echo '</div>';
+
+              endwhile;
+            endif;
+
+            // if( have_rows('column') ):
+            //   while ( have_rows('column') ) : the_row();
+            //   $content = get_sub_field('column_content');
+            //     echo '<div class="slide col-sm-'. (12 / $items_per_slide) .'">';
+            //       echo $content;
+            //     echo '</div>';
+            //   endwhile;
+            // endif;
+
+          echo '</div>';
+        echo '</div>';
+
+      echo '</div>';
       echo '</section>';
       ?>
 
