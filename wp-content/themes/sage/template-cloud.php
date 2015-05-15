@@ -115,6 +115,49 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
   </div>
 </section>
 
+<section class="uber-personas">
+  <div class="container">
+    <?php
+    if( have_rows('uber_persona_slider', 'option') ): ?>
+      <div class="row uber-personas-slider">
+        <?php while ( have_rows('uber_persona_slider', 'option') ) : the_row();
+          $subhead = get_sub_field('subhead');
+          $header = get_sub_field('header');
+          $content = get_sub_field('content');
+          $background_image = get_sub_field('background_image');
+
+          if($background_image) {
+          ?>
+          <div class="col-sm-12 slide" style="background-image: url(<?php echo $background_image['url']; ?>);">
+            <div class="row">
+              <div class="col-lg-offset-6 col-md-5 col-md-offset-7 slide-content">
+                <h4><?php if($subhead) { echo $subhead; }?></h4>
+                <h3><?php if($header) { echo $header; }?></h3>
+                <?php if($content) { echo $content; }?>
+              </div>
+            </div>
+          </div>
+
+        <?php }
+        endwhile; ?>
+      </div>
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        $('.uber-personas-slider').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          autoplay: true,
+          autoplaySpeed: 8000,
+          speed: 800,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        });
+      }, false);
+      </script>
+    <?php endif; ?>
+  </div>
+</section>
 
 <section class="clouds">
   <div class="container">

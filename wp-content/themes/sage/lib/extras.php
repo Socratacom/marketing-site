@@ -38,4 +38,12 @@ if( function_exists('acf_add_options_page') ) {
     'page_title'  => 'Cloud Product Suites',
     'menu_title'  => 'Cloud Product Suites'
     ));
+  acf_add_options_page(array(
+    'page_title'  => 'Pain Points Slider',
+    'menu_title'  => 'Pain Points Slider'
+    ));
+  acf_add_options_page(array(
+    'page_title'  => 'Uber Persona Slider',
+    'menu_title'  => 'Uber Persona Slider'
+    ));
 }

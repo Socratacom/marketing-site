@@ -188,6 +188,50 @@ $external_video = get_field('external_video_link');
   </div>
 </section>
 
+<section class="pain-points">
+  <div class="container">
+    <?php
+    if( have_rows('pain_points_slider', 'option') ): ?>
+      <div class="row pain-points-slider">
+        <?php while ( have_rows('pain_points_slider', 'option') ) : the_row();
+          $subhead = get_sub_field('subhead');
+          $header = get_sub_field('header');
+          $content = get_sub_field('content');
+          $background_image = get_sub_field('background_image');
+
+          if($background_image) {
+          ?>
+          <div class="col-sm-12 slide" style="background-image: url(<?php echo $background_image['url']; ?>);">
+            <div class="row">
+              <div class="col-lg-offset-1 col-md-5 slide-content">
+                <h4><?php if($subhead) { echo $subhead; }?></h4>
+                <h3><?php if($header) { echo $header; }?></h3>
+                <?php if($content) { echo $content; }?>
+              </div>
+            </div>
+          </div>
+
+        <?php }
+        endwhile; ?>
+      </div>
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        $('.pain-points-slider').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          autoplay: true,
+          autoplaySpeed: 8000,
+          speed: 800,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        });
+      }, false);
+      </script>
+    <?php endif; ?>
+  </div>
+</section>
+
 <section id="cta-links">
   <div class="container">
     <div class="row">
@@ -195,7 +239,7 @@ $external_video = get_field('external_video_link');
     <?php
       if( have_rows('cta_tiles') ):
         while ( have_rows('cta_tiles') ) : the_row();
-
+          $rtp_id = get_sub_field('rtp_id');
           $tile_icon = get_sub_field('tile_icon');
           $tile_headline = get_sub_field('tile_headline');
           $tile_body = get_sub_field('tile_body');
@@ -215,7 +259,7 @@ $external_video = get_field('external_video_link');
           endif;
 
           echo '<div class="col-md-4">
-                  <div class="features-tile">
+                  <div class="features-tile" id="'.$rtp_id.'">
                     <div class="tile-icon">
                       <i class="fa ' . $tile_icon . ' blue"></i>
                     </div>
@@ -252,7 +296,7 @@ $external_video = get_field('external_video_link');
       </div>
       <div class="modal-body">
 
-        <div class="embed-container" data-video="<?php echo $video_id; ?>">
+        <div class="embed-container">
           <iframe width="200" height="113" frameborder="0" allowfullscreen="" id="player"></iframe>
         </div>
 

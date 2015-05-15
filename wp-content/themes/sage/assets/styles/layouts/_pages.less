@@ -126,7 +126,132 @@
     }
   }
 }
-@media (min-width: @screen-md-min) {
+
+
+  /*******************************/
+  /* Pain Points & Uber Personas */
+  /* ----------------------------*/
+  /*                             */
+  /*                             */
+  /*******************************/
+
+.pain-points, .uber-personas {
+  .pain-points-slider.slick-slider, .uber-personas-slider.slick-slider {
+    .slide {
+      background-size: cover;
+      background-repeat: no-repeat;
+      padding: 0;
+    }
+    .slide-content {
+      background-color: fadeOut(@gray-dark, 15%);
+      color: @white;
+      padding: 30px 40px;
+
+      h4 {
+        color: @gray-light;
+        font-weight: 300;
+      }
+      h3 {
+        border-bottom: @white 1px solid;
+        padding-bottom: 15px;
+        margin: 0 0 25px;
+        font-weight: 300;
+        font-size: 2.3em;
+      }
+      p {
+        color: @gray-light;
+      }
+    }
+    @media (min-width: @screen-md-min) {
+      .slide {
+        padding: 0 15px;
+      }
+      .slide-content {
+        margin-bottom: 40px;
+        padding: 30px 60px;
+      }
+    }
+  }
 }
-@media (min-width: @screen-lg-min) {
+.pain-points {
+  .pain-points-slider.slick-slider {
+    .slick-prev, .slick-next {
+      color: @white;
+      opacity: 1;
+    }
+    .slick-prev {
+      left: 0;
+      margin-left: 1%;
+    }
+    .slick-next {
+      left: initial;
+      right: 0;
+      margin-right: 1%;
+    }
+    @media (min-width: @screen-md-min) {
+      .slick-prev {
+        left: 0;
+        margin-left: 3.5%;
+      }
+      .slick-next {
+        left: 0;
+        right: initial;
+        margin-left: 37.5%;
+        margin-right: initial;
+      }
+    }
+    @media (min-width: @screen-lg-min) {
+      .slick-prev {
+        left: 0;
+        margin-left: 11%;
+      }
+      .slick-next {
+        left: 0;
+        right: initial;
+        margin-left: 46.5%;
+        margin-right: initial;
+      }
+    }
+  }
+}
+.uber-personas {
+  .uber-personas-slider.slick-slider {
+    .slick-prev, .slick-next {
+      color: @white;
+      opacity: 1;
+    }
+    .slick-next {
+      right: 0;
+      margin-right: 1%;
+    }
+    .slick-prev {
+      right: initial;
+      left: 0;
+      margin-left: 1%;
+    }
+    @media (min-width: @screen-md-min) {
+      .slick-next {
+        right: 0;
+        margin-right: 3.5%;
+      }
+      .slick-prev {
+        right: 0;
+        left: initial;
+        margin-right: 37.5%;
+        margin-left: initial;
+      }
+    }
+    @media (min-width: @screen-lg-min) {
+      .slick-next {
+        right: 0;
+        margin-right: 11%;
+      }
+      .slick-prev {
+        right: 0;
+        left: initial;
+        margin-right: 46.5%;
+        margin-left: initial;
+      }
+    }
+  }
 }
