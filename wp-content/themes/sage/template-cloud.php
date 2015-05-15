@@ -164,7 +164,6 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 <section class="clouds">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
         <?php
 
         // get current URL to check against related page URL
@@ -240,7 +239,6 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
           // no rows found
         endif;
         ?>
-      </div>
     </div>
   </div>
 </section>
@@ -249,20 +247,24 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 $ecosystem_headline = get_field('ecosystem_headline');
 $ecosystem_content = get_field('ecosystem_content');
 $ecosystem = get_field('ecosystem');
+$ecosystem_sm = get_field('ecosystem_image_mobile_version');
 
 if ($ecosystem) { ?>
   <section class="template-ecosystem">
     <div class="container">
       <div class="row">
-        <div class="col-sm-4">
+        <div class="col-md-3 col-md-offset-1 col-sm-4">
           <h2><?php if($ecosystem_headline) { echo $ecosystem_headline; } ?></h2>
         </div>
-        <div class="col-sm-8">
+        <div class="col-md-7 col-sm-8">
           <?php if($ecosystem_content) { echo $ecosystem_content; } ?>
         </div>
       </div>
       <div class="row">
-        <?php if($ecosystem) { echo '<img src="'.$ecosystem['url'].'" alt="'.$ecosystem['title'].'" class="img-responsive">'; } ?>
+        <div class="col-md-10 col-md-offset-1 col-sm-12">
+          <?php if($ecosystem) { echo '<img src="'.$ecosystem['url'].'" alt="'.$ecosystem['title'].'" class="img-responsive hidden-xs">'; } ?>
+          <?php if($ecosystem_sm) { echo '<img src="'.$ecosystem_sm['url'].'" alt="'.$ecosystem_sm['title'].'" class="img-responsive visible-xs">'; } ?>
+        </div>
       </div>
     </div>
   </section>
@@ -317,24 +319,23 @@ if ($ecosystem) { ?>
 <?php endif; ?>
 
 <section class="template-applications">
-
-  <header>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="applications-headline">
-            <h2>Applications</h2>
+  <div class="applications-group">
+    <header>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="applications-headline">
+              <h2>Applications</h2>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
-  <div class="applications-group">
-
+    </header>
     <?php
 
         if( have_rows('suite_features') ):
           $c = true;
+          $i = 0;
           while ( have_rows('suite_features') ) : the_row();
 
             //vars
@@ -343,6 +344,7 @@ if ($ecosystem) { ?>
             $categoryHeadline = get_sub_field('suite_heading');
             $body = get_sub_field('body');
             $image = get_sub_field('image');
+            $shadow = '';
 
             if( have_rows('cta') ):
               while ( have_rows('cta') ) : the_row();
@@ -360,8 +362,9 @@ if ($ecosystem) { ?>
               // no layouts found
             endif;
 
+            if(0 == $i) { $shadow = 'noshadow'; }
             if ( false == $oddeven ) {
-            echo '<div class="group-feature text-left">';
+            echo '<div class="group-feature text-left '.$shadow.'">';
                   if( have_rows('background') ):
                     while ( have_rows('background') ) : the_row();
                       $background = '';
@@ -459,7 +462,7 @@ if ($ecosystem) { ?>
                     </div>
                   </div>
             <?php }
-
+            $i++;
           endwhile;
         endif;
     ?>

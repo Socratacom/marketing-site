@@ -85,6 +85,31 @@
             "mime_types": ""
         },
         {
+            "key": "field_555672145fd5f",
+            "label": "Ecosystem Image Mobile version",
+            "name": "ecosystem_image_mobile_version",
+            "prefix": "",
+            "type": "image",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
             "key": "field_554a613c73302",
             "label": "Features",
             "name": "",
@@ -931,5 +956,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1431620420
+    "modified": 1431728679
 }

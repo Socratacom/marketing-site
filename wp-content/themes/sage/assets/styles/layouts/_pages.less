@@ -1,154 +1,6 @@
-  /*******************************/
-  /* Cloud Overview Page         */
-  /* ----------------------------*/
-  /*                             */
-  /*                             */
-  /*******************************/
-
 .jumbotron {
   padding: 0;
 }
-
-.cloud-solutions {
-  .clouds {
-    .cloud {
-    }
-    h2 {
-      .transition(background-color, .5s);
-    }
-    #icon-city_cloud {
-      h2 {
-        background-color: darken(@city-blue, 15%);
-        &:hover {
-          background-color: @city-blue;
-        }
-      }
-    }
-    #icon-county_cloud {
-      h2 {
-        background-color: darken(@county-yellow, 15%);
-        &:hover {
-          background-color: @county-yellow;
-        }
-      }
-    }
-    #icon-state_cloud {
-      h2 {
-        background-color: darken(@state-red, 15%);
-        &:hover {
-          background-color: @state-red;
-        }
-      }
-    }
-    #icon-federal_cloud {
-      h2 {
-        background-color: darken(@federal-blue, 15%);
-        &:hover {
-          background-color: @federal-blue;
-        }
-      }
-    }
-    #icon-ngo_cloud {
-      h2 {
-        background-color: darken(@ngo-green, 15%);
-        &:hover {
-          background-color: @ngo-green;
-        }
-      }
-    }
-  }
-}
-
-@media (min-width: @screen-sm-min) {
-  .jumbotron {
-    .slide {
-      padding: 50px 0;
-      background-size: cover;
-      background-position: top center;
-    }
-  }
-
-  .cloud-solutions {
-    .jumbotron {
-      text-align: center;
-      .slide {
-        padding-top: 260px;
-      }
-      h1 {
-        font-weight: 300;
-        font-size: 3.5em;
-      }
-      h2 {
-        font-size: 1.8em;
-        font-weight: 300;
-      }
-    }
-
-    .clouds {
-      .cloud {
-        .cloud-icon {
-          font-size: 9.6em;
-          position: absolute;
-          left: -2px;
-          width: 121px;
-          height: 123px;
-          overflow: hidden;
-          border-top-left-radius: 8px;
-          border-bottom-left-radius: 8px;
-          z-index: 200;
-          &:before {
-            top: -5px;
-            left: -5px;
-            position: absolute;
-          }
-          background-color: @white;
-        }
-        h2 {
-          text-transform: uppercase;
-          text-align: left;
-          font-weight: 300;
-          font-size: 2.3em;
-          width: 95%;
-          height: 123px;
-          float: right;
-          padding: 25px 0 0 95px;
-          color: @white;
-          margin: 0 -15px;
-          border-top-right-radius: 8px;
-          border-bottom-right-radius: 8px;
-          .small {
-            font-size: .85em;
-            color: @white;
-          }
-          @media (min-width: @screen-sm-min) {
-            font-size: 1.6em;
-            padding: 35px 0 0 88px;
-            .small {
-              font-size: .6em;
-            }
-          }
-          @media (min-width: @screen-md-min) {
-            font-size: 2.3em;
-            padding: 25px 0 0 95px;
-            .small {
-              font-size: .7em;
-            }
-          }
-        }
-        h3 {
-          font-size: 2em;
-        }
-        .cloud-detail {
-          height: 177px;
-          overflow: hidden;
-          margin-top: -10px;
-          padding-left: 30px;
-        }
-      }
-    }
-  }
-}
-
 
   /*******************************/
   /* Pain Points & Uber Personas */
@@ -174,6 +26,7 @@
       background-color: fadeOut(@gray-dark, 15%);
       color: @white;
       padding: 30px 40px;
+      height: 560px;
 
       h4 {
         color: @gray-light;
@@ -200,6 +53,12 @@
       .slide-content {
         margin-bottom: 40px;
         padding: 30px 60px 50px;
+        height: 550px;
+      }
+    }
+    @media (min-width: @screen-lg-min) {
+      .slide-content {
+        height: 480px;
       }
     }
   }
