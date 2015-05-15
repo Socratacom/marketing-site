@@ -210,6 +210,10 @@
 
       }
 
+      p {
+        .pStyle();
+      }
+
       @media (min-width: @screen-sm-min) {
         .cloud-icon {
           &:before {
@@ -290,6 +294,10 @@
 			font-size: 1.7em;
 			font-weight: 300;
 		}
+    p {
+      .pStyle();
+      color: @white;
+    }
 		a {
 			color: saturate(lighten(@socrata-blue, 20%), 11%);
 			font-weight: 700;
@@ -366,6 +374,12 @@
 			.img-container {
 				max-height: 200px;
 			}
+      p {
+        line-height: 1.7;
+        font-size: 16px;
+        color: #6a6a6a;
+        font-weight: 300;
+      }
 		}
 	}
 

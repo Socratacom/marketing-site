@@ -63,6 +63,9 @@
       @media (min-width: @screen-sm-min) {
         padding: 80px 0;
       }
+      p {
+        .pStyle();
+      }
     }
 
     .intro-background {
@@ -142,6 +145,7 @@
     h2 {
       font-size: 2em;
       margin: 15px 0 20px;
+      font-weight: 300;
     }
     @media (min-width: @screen-sm-min) {
       h2 {
@@ -153,6 +157,9 @@
       h2 {
         margin: 0 0 20px;
       }
+    }
+    p, li {
+      .pStyle();
     }
   }
 
