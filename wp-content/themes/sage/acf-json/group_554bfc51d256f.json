@@ -6,7 +6,6 @@
             "key": "field_554bfc7739f60",
             "label": "Sections",
             "name": "sections",
-            "prefix": "",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -30,7 +29,6 @@
                             "key": "field_554bfcf839f62",
                             "label": "Image",
                             "name": "image",
-                            "prefix": "",
                             "type": "image",
                             "instructions": "",
                             "required": 0,
@@ -55,7 +53,6 @@
                             "key": "field_554bfd1339f63",
                             "label": "Text",
                             "name": "text",
-                            "prefix": "",
                             "type": "wysiwyg",
                             "instructions": "",
                             "required": 0,
@@ -74,7 +71,6 @@
                             "key": "field_554bfcaa39f61",
                             "label": "Alignment",
                             "name": "alignment",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -103,7 +99,6 @@
                             "key": "field_554bfd2b39f64",
                             "label": "Color",
                             "name": "color",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -142,7 +137,6 @@
                             "key": "field_554ce1baf9aa2",
                             "label": "Headline",
                             "name": "headline",
-                            "prefix": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -164,7 +158,6 @@
                             "key": "field_554d412ee634a",
                             "label": "Headline Text Alignment",
                             "name": "headline_text_alignment",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -194,7 +187,6 @@
                             "key": "field_554ce03ff9aa0",
                             "label": "Column",
                             "name": "column",
-                            "prefix": "",
                             "type": "repeater",
                             "instructions": "",
                             "required": 0,
@@ -213,7 +205,6 @@
                                     "key": "field_554ce05ef9aa1",
                                     "label": "Column Content",
                                     "name": "column_content",
-                                    "prefix": "",
                                     "type": "wysiwyg",
                                     "instructions": "",
                                     "required": 0,
@@ -234,7 +225,6 @@
                             "key": "field_554ce86e45ddd",
                             "label": "Color",
                             "name": "color",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -263,7 +253,6 @@
                             "key": "field_554d3e745d673",
                             "label": "Items per slide",
                             "name": "items_per_slide",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -289,6 +278,64 @@
                             "placeholder": "",
                             "disabled": 0,
                             "readonly": 0
+                        },
+                        {
+                            "key": "field_55563b27e9659",
+                            "label": "Row",
+                            "name": "row",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "min": "",
+                            "max": "",
+                            "layout": "table",
+                            "button_label": "Add Row",
+                            "sub_fields": [
+                                {
+                                    "key": "field_55563b48e965a",
+                                    "label": "Column",
+                                    "name": "column",
+                                    "type": "repeater",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "min": "",
+                                    "max": "",
+                                    "layout": "table",
+                                    "button_label": "Add Row",
+                                    "sub_fields": [
+                                        {
+                                            "key": "field_55563b64e965b",
+                                            "label": "Column Content",
+                                            "name": "column_content",
+                                            "type": "wysiwyg",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "default_value": "",
+                                            "tabs": "all",
+                                            "toolbar": "full",
+                                            "media_upload": 1
+                                        }
+                                    ]
+                                }
+                            ]
                         }
                     ],
                     "min": "",
@@ -304,7 +351,6 @@
                             "key": "field_5550d4e562ce5",
                             "label": "Headline",
                             "name": "headline",
-                            "prefix": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -323,31 +369,9 @@
                             "disabled": 0
                         },
                         {
-                            "key": "field_5550d4e562ce8",
-                            "label": "Categories",
-                            "name": "categories",
-                            "prefix": "",
-                            "type": "taxonomy",
-                            "instructions": "",
-                            "required": 0,
-                            "conditional_logic": 0,
-                            "wrapper": {
-                                "width": "",
-                                "class": "",
-                                "id": ""
-                            },
-                            "taxonomy": "case_study_category",
-                            "field_type": "checkbox",
-                            "allow_null": 0,
-                            "load_save_terms": 0,
-                            "return_format": "id",
-                            "multiple": 0
-                        },
-                        {
                             "key": "field_5550d4e562ce9",
                             "label": "Color",
                             "name": "color",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -376,7 +400,88 @@
                             "key": "field_5550d55362ceb",
                             "label": "Number of Case Studies",
                             "name": "number_of_case_studies",
-                            "prefix": "",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": 5,
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": "",
+                            "max": "",
+                            "step": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
+                    "key": 5556598205907,
+                    "name": "webinars",
+                    "label": "Webinars",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5556598205908",
+                            "label": "Headline",
+                            "name": "headline",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": "",
+                            "readonly": 0,
+                            "disabled": 0
+                        },
+                        {
+                            "key": "field_5556598205909",
+                            "label": "Color",
+                            "name": "color",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "#ffffff": "White",
+                                "#f4f4f4": "Gray"
+                            },
+                            "default_value": {
+                                "": ""
+                            },
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "disabled": 0,
+                            "readonly": 0
+                        },
+                        {
+                            "key": "field_555659820590a",
+                            "label": "Number of Webinars",
+                            "name": "number_of_items",
                             "type": "number",
                             "instructions": "",
                             "required": 0,
@@ -410,7 +515,6 @@
                             "key": "field_5550eff585015",
                             "label": "Headline",
                             "name": "headline",
-                            "prefix": "",
                             "type": "text",
                             "instructions": "",
                             "required": 0,
@@ -432,7 +536,6 @@
                             "key": "field_5550eff585016",
                             "label": "Headline Text Alignment",
                             "name": "headline_text_alignment",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -462,7 +565,6 @@
                             "key": "field_5550eff585017",
                             "label": "Color",
                             "name": "color",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -491,7 +593,6 @@
                             "key": "field_5550eff585018",
                             "label": "Items per slide",
                             "name": "items_per_slide",
-                            "prefix": "",
                             "type": "select",
                             "instructions": "",
                             "required": 0,
@@ -542,5 +643,5 @@
     "hide_on_screen": [
         "the_content"
     ],
-    "modified": 1431474032
+    "modified": 1431722395
 }

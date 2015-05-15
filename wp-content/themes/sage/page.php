@@ -98,22 +98,55 @@ if( have_rows('sections') ): $i = 0;
       $headline_text_alignment = get_sub_field('headline_text_alignment');
       $color = get_sub_field('color');
       $items_per_slide = (get_sub_field('items_per_slide') ? get_sub_field('items_per_slide') : 1);
+      $rows = get_sub_field('row');
+      
 
-      echo '<section id="section-'. $i .'" class="section-carousel" style="background-color:'.$color.'; padding: 50px 0;">';
-      echo '<div class="container"><div class="row ' . $headline_text_alignment .'">';
-        if ($headline) {
-          echo '<div class="col-xs-12"><h2>'.$headline.'</h2></div>';
-        }
-        echo '<div class="col-xs-12 column-slider">';
-        if( have_rows('column') ):
-          while ( have_rows('column') ) : the_row();
-          $content = get_sub_field('column_content');
-            echo '<div class="slide col-sm-'. (12 / $items_per_slide) .'">';
-              echo $content;
-            echo '</div>';
-          endwhile;
-        endif;
-      echo '</div></div></div>';
+      echo '<section id="section-'. $i .'" class="section-carousel" style="background-color:'.$color.';">';
+      echo '<div class="container">';
+
+        echo '<div class="row ' . $headline_text_alignment .'">';
+          if ($headline) {
+            echo '<div class="col-xs-12"><h2>'.$headline.'</h2></div>';
+          }
+        echo '</div>';
+        
+        echo '<div class="row ' . $headline_text_alignment .'">';
+          echo '<div class="content-rows col-xs-12">';
+
+            if( have_rows('row') ):
+              while ( have_rows('row') ) : the_row();
+
+                echo '<div class="row">';
+
+                if( have_rows('column') ):
+                  while ( have_rows('column') ) : the_row();
+
+                    $content = get_sub_field('column_content');
+                    // var_dump( $content );
+                    echo '<div class="slide col-sm-'. (12 / $items_per_slide) .'">';
+                    echo $content;
+                    echo '</div>';
+
+                  endwhile;
+                endif;
+
+                echo '</div>';
+
+              endwhile;
+            
+            elseif( have_rows('column') ):
+              while ( have_rows('column') ) : the_row();
+              $content = get_sub_field('column_content');
+                echo '<div class="slide col-sm-'. (12 / $items_per_slide) .'">';
+                  echo $content;
+                echo '</div>';
+              endwhile;
+            endif;
+
+          echo '</div>';
+        echo '</div>';
+
+      echo '</div>';
       echo '</section>';
       ?>
 
@@ -153,7 +186,6 @@ if( have_rows('sections') ): $i = 0;
     // SECTION: Blog
     //
     /* ------------------------------------ */
-
     elseif( get_row_layout() == 'blog' ):
 
       $headline = get_sub_field('headline');
@@ -170,10 +202,10 @@ if( have_rows('sections') ): $i = 0;
       );
       $news_loop = new WP_Query( $args );
 
-      echo '<section id="section-'. $i .'" class="section-blog" style="background-color:'.$color.'; padding: 50px 0;">';
+      echo '<section id="section-'. $i .'" class="section-blog" style="background-color:'.$color.';">';
       echo '<div class="container"><div class="row">';
       if ($headline) {
-        echo '<div class="col-xs-12" style="text-align:' . $headline_text_alignment .'"><h2>'.$headline.'</h2></div>';
+        echo '<div class="col-xs-12" style="text-align:' . $headline_text_alignment .'"><h1>'.$headline.'</h1></div>';
       }
 
       if ( $news_loop->have_posts() ) :
@@ -211,9 +243,13 @@ if( have_rows('sections') ): $i = 0;
     //
     /* ------------------------------------ */
     elseif( get_row_layout() == 'case_studies' ):
+
+      $headline = get_sub_field('headline');
       $number_of_case_studies = get_sub_field('number_of_case_studies');
       $categories = get_sub_field('categories');
+      $color = get_sub_field('color');
       $taxonomies = '';
+      
       if ($categories) {
         $taxonomies = array(
           'taxonomy' => 'case_study_category',
@@ -221,42 +257,164 @@ if( have_rows('sections') ): $i = 0;
           );
       }
 
-      echo '<section id="section-'. $i .'" class="section-case-studies" style="background-color:'.$color.'; padding: 50px 0;">';
-      echo '<div class="container"><div class="row ' . $headline_text_alignment .'">';
-        if ($headline) {
-          echo '<div class="col-xs-12"><h2>'.$headline.'</h2></div>';
-        }
+      echo '<section id="section-'. $i .'" class="section-case-studies" style="background-color:'.$color.';">';
+      echo '<div class="container">';
 
-        $args = array(
-            'post_type' => 'case_study',
-            'post_status' => 'publish',
-            'order' => 'DESC',
-            'tax_query' => array($taxonomies),
-            'posts_per_page' => $number_of_case_studies
-        );
-        $case_loop = new WP_Query( $args );
-        //var_dump($case_loop);
-        if ( $case_loop->have_posts() ) :
-          echo '<div class="case-study-slider col-xs-12 post-list">';
-          while ( $case_loop->have_posts() ) : $case_loop->the_post();
-            // get vars
-            $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-              $featured_image = $featured_image[0];
-            $name = get_the_title();
-              $link = get_the_permalink();
-              $excerpt = get_the_excerpt();
-            echo '<div class="slide"><div class="col-sm-7">';
-            echo '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
+        echo '<div class="row">';
+          if ($headline) {
+            echo '<div class="col-xs-12"><h1>'.$headline.'</h1></div>';
+          }
+        echo '</div>';
+
+
+        echo '<div class="row">';
+          
+          $args = array(
+              'post_type' => 'case_study',
+              'post_status' => 'publish',
+              'order' => 'DESC',
+              'tax_query' => array($taxonomies),
+              'posts_per_page' => $number_of_case_studies
+          );
+          $case_loop = new WP_Query( $args );
+
+          if ( $case_loop->have_posts() ) :
+
+            echo '<div class="col-xs-12">';
+            echo '<div class="case-study-slider post-list">';
+            
+              while ( $case_loop->have_posts() ) : $case_loop->the_post();
+                // get vars
+                $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+                $featured_image = $featured_image[0];
+                $name = get_the_title();
+                $link = get_the_permalink();
+                $excerpt = get_the_excerpt();
+
+                echo '<div class="row">';
+                echo '<div class="slide"><div class="col-sm-7">';
+                echo '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
+                echo '</div>';
+                echo '<div class="col-sm-5">';
+                echo '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
+                echo '</div></div>';
+                echo '</div>';
+
+              endwhile;
+
             echo '</div>';
-            echo '<div class="col-sm-5">';
-            echo '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
-            echo '</div></div>';
-          endwhile;
-          echo '</div>';
-          wp_reset_postdata();
-        endif;
+            echo '</div>';
 
-      echo '</div></div>';
+            wp_reset_postdata();
+
+          endif;
+
+        echo '</div>';
+
+      echo '</div>';
+      echo '</section>';
+      ?>
+
+      <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        $('#section-<?php echo $i;?> .post-list').slick({
+          arrows: true,
+          prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+          nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+          autoplay: true,
+          autoplaySpeed: 5000,
+          speed: 800,
+          slidesToShow: 1,
+          slidesToScroll: 1
+        });
+      }, false);
+      </script>
+
+    <?php
+
+    /* ------------------------------------ */
+    //
+    // SECTION: Webinars
+    //
+    /* ------------------------------------ */
+    elseif( get_row_layout() == 'webinars' ):
+
+      $headline = get_sub_field('headline');
+      $number_of_case_studies = get_sub_field('number_of_case_studies');
+      $categories = get_sub_field('categories');
+      $color = get_sub_field('color');
+      $taxonomies = '';
+      
+      if ($categories) {
+        $taxonomies = array(
+          'taxonomy' => 'case_study_category',
+          'terms'    => $categories,
+          );
+      }
+
+      echo '<section id="section-'. $i .'" class="section-case-studies" style="background-color:'.$color.';">';
+      echo '<div class="container">';
+
+        echo '<div class="row">';
+          if ($headline) {
+            echo '<div class="col-xs-12"><h1>'.$headline.'</h1></div>';
+          }
+        echo '</div>';
+
+
+        echo '<div class="row">';
+          
+          $args = array(
+              'post_type' => 'webinars',
+              'post_status' => 'publish',
+              'order' => 'DESC',
+              'tax_query' => array($taxonomies),
+              'posts_per_page' => $number_of_items
+          );
+          $case_loop = new WP_Query( $args );
+
+          if ( $case_loop->have_posts() ) :
+
+            echo '<div class="col-xs-12">';
+            echo '<div class="case-study-slider post-list">';
+            
+              while ( $case_loop->have_posts() ) : $case_loop->the_post();
+                // get vars
+                $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+                $featured_image = $featured_image[0];
+                $name = get_the_title();
+                $link = get_the_permalink();
+                $excerpt = get_the_excerpt();
+
+                echo '<div class="row">';
+                echo '<div class="slide">';
+
+                if ($featured_image) {
+                  echo '<div class="col-sm-5">';
+                  echo '<div class="img-container"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></div>';
+                  echo '</div>';
+                }
+
+                echo '<div class="col-sm-7">';
+                echo '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
+                echo '<a href="'.$link.'">Watch now</a>';
+                echo '</div>';
+                
+                echo '</div>';
+                echo '</div>';
+
+              endwhile;
+
+            echo '</div>';
+            echo '</div>';
+
+            wp_reset_postdata();
+
+          endif;
+
+        echo '</div>';
+
+      echo '</div>';
       echo '</section>';
       ?>
 

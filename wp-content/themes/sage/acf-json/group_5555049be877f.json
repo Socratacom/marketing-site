@@ -6,7 +6,6 @@
             "key": "field_5555049beba3a",
             "label": "Slide",
             "name": "uber_persona_slider",
-            "prefix": "",
             "type": "repeater",
             "instructions": "",
             "required": 0,
@@ -25,7 +24,6 @@
                     "key": "field_5555049bed641",
                     "label": "Subhead",
                     "name": "subhead",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -47,7 +45,6 @@
                     "key": "field_5555049bed658",
                     "label": "Header",
                     "name": "header",
-                    "prefix": "",
                     "type": "text",
                     "instructions": "",
                     "required": 0,
@@ -69,7 +66,6 @@
                     "key": "field_5555049bed66a",
                     "label": "Content",
                     "name": "content",
-                    "prefix": "",
                     "type": "wysiwyg",
                     "instructions": "",
                     "required": 0,
@@ -88,7 +84,6 @@
                     "key": "field_5555049bed67d",
                     "label": "Background Image",
                     "name": "background_image",
-                    "prefix": "",
                     "type": "image",
                     "instructions": "",
                     "required": 0,
@@ -127,5 +122,6 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1431638388
+    "modified": 1431717543,
+    "local": "json"
 }
