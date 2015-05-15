@@ -189,9 +189,9 @@ $external_video = get_field('external_video_link');
 </section>
 
 <section class="pain-points">
-  <div class="container">
     <?php
     if( have_rows('pain_points_slider', 'option') ): ?>
+      <div class="container arrowsContainer"></div>
       <div class="row pain-points-slider">
         <?php while ( have_rows('pain_points_slider', 'option') ) : the_row();
           $subhead = get_sub_field('subhead');
@@ -202,11 +202,13 @@ $external_video = get_field('external_video_link');
           if($background_image) {
           ?>
           <div class="col-sm-12 slide" style="background-image: url(<?php echo $background_image['url']; ?>);">
-            <div class="row">
-              <div class="col-lg-offset-1 col-md-5 slide-content">
-                <h4><?php if($subhead) { echo $subhead; }?></h4>
-                <h3><?php if($header) { echo $header; }?></h3>
-                <?php if($content) { echo $content; }?>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-offset-1 col-md-5 slide-content">
+                  <h4><?php if($subhead) { echo $subhead; }?></h4>
+                  <h3><?php if($header) { echo $header; }?></h3>
+                  <?php if($content) { echo $content; }?>
+                </div>
               </div>
             </div>
           </div>
@@ -218,6 +220,7 @@ $external_video = get_field('external_video_link');
       document.addEventListener('DOMContentLoaded', function() {
         $('.pain-points-slider').slick({
           arrows: true,
+          appendArrows: $('.arrowsContainer'),
           prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
           nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
           autoplay: true,
@@ -229,62 +232,58 @@ $external_video = get_field('external_video_link');
       }, false);
       </script>
     <?php endif; ?>
-  </div>
 </section>
 
-<section id="cta-links">
-  <div class="container">
-    <div class="row">
+<?php
+if( have_rows('cta_tiles') ): ?>
+  <section id="cta-links">
+    <div class="container">
+      <div class="row">
+  <?php while ( have_rows('cta_tiles') ) : the_row();
+    $rtp_id = get_sub_field('rtp_id');
+    $tile_icon = get_sub_field('tile_icon');
+    $tile_headline = get_sub_field('tile_headline');
+    $tile_body = get_sub_field('tile_body');
 
-    <?php
-      if( have_rows('cta_tiles') ):
-        while ( have_rows('cta_tiles') ) : the_row();
-          $rtp_id = get_sub_field('rtp_id');
-          $tile_icon = get_sub_field('tile_icon');
-          $tile_headline = get_sub_field('tile_headline');
-          $tile_body = get_sub_field('tile_body');
+    if( have_rows('tile_button_link') ):
+      while ( have_rows('tile_button_link') ) : the_row();
+        $link = '';
+        $link_text = '';
+        if( get_row_layout() == 'internal_link' ):
+          $link = get_sub_field('link_url');
+          $link_text = get_sub_field('link_text');
+        elseif( get_row_layout() == 'external_link' ):
+          $link = get_sub_field('link_url');
+          $link_text = get_sub_field('link_text');
+        endif;
+      endwhile;
+    endif;
 
-          if( have_rows('tile_button_link') ):
-            while ( have_rows('tile_button_link') ) : the_row();
-              $link = '';
-              $link_text = '';
-              if( get_row_layout() == 'internal_link' ):
-                $link = get_sub_field('link_url');
-                $link_text = get_sub_field('link_text');
-              elseif( get_row_layout() == 'external_link' ):
-                $link = get_sub_field('link_url');
-                $link_text = get_sub_field('link_text');
-              endif;
-            endwhile;
-          endif;
-
-          echo '<div class="col-md-4">
-                  <div class="features-tile" id="'.$rtp_id.'">
-                    <div class="tile-icon">
-                      <i class="fa ' . $tile_icon . ' blue"></i>
-                    </div>
-                    <div class="tile-content">
-                      <div class="content-text">
-                        <div class="text-headline">
-                          <h3>' . $tile_headline . '</h3>
-                        </div>
-                        <div class="text-body">
-                          <p>' . $tile_body . '</p>
-                        </div>
-                      </div>
-                      <div class="content-button">
-                        <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
-                      </div>
-                    </div>
+    echo '<div class="col-md-4">
+            <div class="features-tile" id="'.$rtp_id.'">
+              <div class="tile-icon">
+                <i class="fa ' . $tile_icon . ' blue"></i>
+              </div>
+              <div class="tile-content">
+                <div class="content-text">
+                  <div class="text-headline">
+                    <h3>' . $tile_headline . '</h3>
                   </div>
-                </div>';
-        endwhile;
-      endif;
-    ?>
-
+                  <div class="text-body">
+                    <p>' . $tile_body . '</p>
+                  </div>
+                </div>
+                <div class="content-button">
+                  <a href="' . $link . '" class="btn btn-primary">' . $link_text . '</a>
+                </div>
+              </div>
+            </div>
+          </div>';
+  endwhile; ?>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+<?php endif; ?>
 
 <div class="modal fade videoModal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
   <div class="modal-dialog">

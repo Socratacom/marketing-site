@@ -116,9 +116,9 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
 </section>
 
 <section class="uber-personas">
-  <div class="container">
     <?php
     if( have_rows('uber_persona_slider', 'option') ): ?>
+      <div class="container arrowsContainer"></div>
       <div class="row uber-personas-slider">
         <?php while ( have_rows('uber_persona_slider', 'option') ) : the_row();
           $subhead = get_sub_field('subhead');
@@ -129,11 +129,13 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
           if($background_image) {
           ?>
           <div class="col-sm-12 slide" style="background-image: url(<?php echo $background_image['url']; ?>);">
-            <div class="row">
-              <div class="col-lg-offset-6 col-md-5 col-md-offset-7 slide-content">
-                <h4><?php if($subhead) { echo $subhead; }?></h4>
-                <h3><?php if($header) { echo $header; }?></h3>
-                <?php if($content) { echo $content; }?>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-offset-6 col-md-5 col-md-offset-7 slide-content">
+                  <h4><?php if($subhead) { echo $subhead; }?></h4>
+                  <h3><?php if($header) { echo $header; }?></h3>
+                  <?php if($content) { echo $content; }?>
+                </div>
               </div>
             </div>
           </div>
@@ -145,6 +147,7 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
       document.addEventListener('DOMContentLoaded', function() {
         $('.uber-personas-slider').slick({
           arrows: true,
+          appendArrows: $('.arrowsContainer'),
           prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
           nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
           autoplay: true,
@@ -156,7 +159,6 @@ $features_video_thumbnail = get_field('features_video_thumbnail');
       }, false);
       </script>
     <?php endif; ?>
-  </div>
 </section>
 
 <section class="clouds">
