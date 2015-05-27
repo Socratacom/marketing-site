@@ -4,13 +4,19 @@
   <div class="container">
     <div class="navbar-header">
       <a class="white-logo header-logo" href="<?php echo home_url('/'); ?>"></a>
-      <ul class="social-icons hidden-xs">
+      <ul class="social-icons hidden-sm hidden-xs">
         <li><a href="https://www.facebook.com/socrata" target="_blank"><i class="fa fa-facebook"></i></a></li>
         <li><a href="https://twitter.com/socrata" target="_blank"><i class="fa fa-twitter"></i></a></li>
         <li><a href="https://www.linkedin.com/company/socrata" target="_blank"><i class="fa fa-linkedin"></i></a></li>
         <li><a href="https://plus.google.com/+Socrata/about" target="_blank"><i class="fa fa-google-plus"></i></a></li>
         <li><a href="https://www.youtube.com/user/socratavideos" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
-        <li><a href="#"><i class="fa fa-search"></i></a></li>
+        <li>
+          <a href="#" class="header-search-btn"><i class="fa fa-search"></i></a>
+          <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+              <input type="search" class="search-field sb-search-input" placeholder="Enter your search term..." value="" name="s" title="Search for:" id="search" />
+              <input type="submit" class="search-submit sb-search-submit sr-only" value="Search" />
+          </form>
+        </li>
       </ul>
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only"><?= __('Toggle navigation', 'sage'); ?></span>
@@ -22,14 +28,15 @@
     <nav class="collapse navbar-collapse" role="navigation">
       <?php
       if (has_nav_menu('primary_navigation')) :
-        wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-xs']);
+        wp_nav_menu(['theme_location' => 'primary_navigation', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav', 'depth' => 3]);
       endif;
       ?>
       <?php
       if (has_nav_menu('mobile')) :
-        wp_nav_menu(['theme_location' => 'mobile', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-sm hidden-md hidden-lg']);
+        wp_nav_menu(['theme_location' => 'mobile', 'walker' => new Nav\SageNavWalker(), 'menu_class' => 'nav navbar-nav hidden-sm hidden-md hidden-lg', 'depth' => 3]);
       endif;
       ?>
+      <a href="/contact-us/" class="button hidden-md hidden-sm hidden-xs">Contact Us</a>
     </nav>
   </div>
 </header>

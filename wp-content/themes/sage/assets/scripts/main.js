@@ -23,6 +23,15 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
+        $('.navbar-nav > li > a').removeAttr('data-toggle');
+        $('li.nav-header > a').removeAttr('href');
+
+        $('.header-search-btn').click(function(e) {
+          $('.navbar-header .search-form').slideToggle(250);
+          $('#search').focus();
+          e.preventDefault();
+          //return false;
+        });
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
