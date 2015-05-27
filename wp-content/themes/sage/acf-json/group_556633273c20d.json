@@ -4,8 +4,8 @@
     "fields": [
         {
             "key": "field_556633471a195",
-            "label": "Component",
-            "name": "component",
+            "label": "Components",
+            "name": "components",
             "type": "flexible_content",
             "instructions": "",
             "required": 0,
@@ -190,5 +190,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1432761868
+    "modified": 1432764114
 }
