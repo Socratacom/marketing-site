@@ -8,7 +8,7 @@ include_once "news.php";
 include_once "functions/page_functions.php";
 include_once "functions/template_functions.php";
 include_once "functions/case_study_block.php";
-include_once "opendata_guide/guide_functions.php";
+//include_once "opendata_guide/guide_functions.php";
 include_once "govstat_event/govstat-event.php";
 include_once "events/events_functions.php";
 include_once "ndoch/ndoch.php";
