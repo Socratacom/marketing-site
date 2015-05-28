@@ -5,8 +5,7 @@ html {
   height: 100%;
 }
 .main {
-  padding-top:50px;
-  padding-bottom:50px;
+  padding: 0 !important;
 }
 .page-template-template-full-width .main {
   padding-top:0;
@@ -39,6 +38,12 @@ html {
   height: 100%;
 }
 
+@media (min-width: @screen-sm-min) {
+  .main {
+    padding: initial !important;
+  }
+}
+
 /*-----------------------------------*/
 /* Socrata Requested Styles
 /*-----------------------------------*/
@@ -58,14 +63,34 @@ html {
 /* Text
 /*-----------------------------------*/
 
-h1, h2, h3, h4, h5 {
+h1 {
   font-weight: @font-medium;
+}
+h2, h3, h4, h5 {
+  font-weight: @font-light;
+}
+h2 {
+  font-size: 1.9em;
+  padding-bottom: 10px;
 }
 a:hover {
   text-decoration:none;
 }
-.main p {
+.main p, .main ul, .main ol {
   .pStyle();
+}
+
+@media (min-width: @screen-sm-min) {
+  h2 {
+    font-size: 2.1em;
+    padding-bottom: 15px;
+  }
+}
+@media (min-width: @screen-md-min) {
+  h2 {
+    font-size: 2.5em;
+    padding-bottom: 20px;
+  }
 }
 
 /*-----------------------------------*/
