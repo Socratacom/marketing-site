@@ -151,11 +151,11 @@ function custom_image_sizes_choose( $sizes ) {
 }
 
 // Adding New On-the-fly Image resizing
-function tuts_custom_img( $thumb_size, $image_width, $image_height, $grayscale ) {
+function tuts_custom_img( $thumb_size, $image_width, $image_height ) {
  
   global $post;
  
-  $params = array( 'width' => $image_width, 'height' => $image_height, 'grayscale' => $grayscale);
+  $params = array( 'width' => $image_width, 'height' => $image_height );
    
   $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID, '' ), $thumb_size );
   $custom_img_src = bfi_thumb( $imgsrc[0], $params );
