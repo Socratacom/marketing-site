@@ -93,23 +93,3 @@ function sw_gf_js_error() { ?>
     alert( "Oops, you must have forgotten something...fields marked in RED are required! Please check your form." );
   </script>
 <?php }
-
-/* Custom 404 Page */
-remove_action('thesis_hook_404_title', 'thesis_404_title');
-add_action('thesis_hook_404_title', 'custom_thesis_404_title');
-function custom_thesis_404_title() {?>
-  Ouch! Something went wrong.
-<?
-}
-
-remove_action('thesis_hook_404_content', 'thesis_404_content');
-add_action('thesis_hook_404_content', 'custom_thesis_404_content');
-function custom_thesis_404_content() {?>
-<style type="text/css">
-#sidebars, .wp-pagenavi, #page .menu {display:none;}
-#content {width:100%; text-align:center;}
-</style>
-<p>The page you are looking for is no longer available or has moved.</p>
-<p>You may want to try again or start from our <a href="http://www.socrata.com">home page</a>.</p>
-<?
-}
