@@ -185,15 +185,17 @@ function cta_group_shortcode( $atts ) {
       $third_div_clear = ($count%3 == 0) ? '<div class="clearboth"></div>' : ''; 
     ?>
       <div class="one_third <?php echo $third_div; ?>">
-        <div class="one_fourth">
-          <div class="cta-icon ss-icon <?php $meta = get_cta_meta(); if ($meta[6]) echo "ss-social-regular"; ?>" style="color:<?php $meta = get_cta_meta(); if ($meta[1]) echo "$meta[1]"; ?>; "><?php $meta = get_cta_meta(); if ($meta[0]) echo "$meta[0]"; ?><?php $meta = get_cta_meta(); if ($meta[6]) echo "$meta[6]"; ?></div>
-        </div>
-        <div class="three_fourth last">
-          <h3><?php the_title(); ?></h3>      
-          <p><?php $meta = get_cta_meta(); if ($meta[5]) echo "$meta[5]"; ?></p>
-          <p><a href="<?php $meta = get_cta_meta(); if ($meta[3]) echo "$meta[3]"; ?>" target="<?php $meta = get_cta_meta(); if ($meta[4]) echo "$meta[4]"; ?>" class="button"><?php $meta = get_cta_meta(); if ($meta[2]) echo "$meta[2]"; ?></a></p>
-        </div>
-        <div class="clearboth"></div>
+        <article id="<?php echo get_the_ID(); ?>">
+          <div class="one_fourth">
+            <div class="cta-icon ss-icon <?php $meta = get_cta_meta(); if ($meta[6]) echo "ss-social-regular"; ?>" style="color:<?php $meta = get_cta_meta(); if ($meta[1]) echo "$meta[1]"; ?>; "><?php $meta = get_cta_meta(); if ($meta[0]) echo "$meta[0]"; ?><?php $meta = get_cta_meta(); if ($meta[6]) echo "$meta[6]"; ?></div>
+          </div>
+          <div class="three_fourth last">
+            <h3><?php the_title(); ?></h3>      
+            <p><?php $meta = get_cta_meta(); if ($meta[5]) echo "$meta[5]"; ?></p>
+            <p><a href="<?php $meta = get_cta_meta(); if ($meta[3]) echo "$meta[3]"; ?>" target="<?php $meta = get_cta_meta(); if ($meta[4]) echo "$meta[4]"; ?>" class="button"><?php $meta = get_cta_meta(); if ($meta[2]) echo "$meta[2]"; ?></a></p>
+          </div>
+          <div class="clearboth"></div>
+        </article>
       </div>
       <?php echo $third_div_clear; ?>
       <?php endwhile;
@@ -227,7 +229,7 @@ function cta_shortcode( $atts ) {
   );
   $query = new WP_Query( $options );
   if ( $query->have_posts() ) { ?>
-  <div class="cta-single clearfix">
+  <div id="<?php echo get_the_ID(); ?>" class="cta-single clearfix">
     <?php while ( $query->have_posts() ) : $query->the_post(); ?>      
         <div class="one_fourth">
           <div class="cta-icon ss-icon <?php $meta = get_cta_meta(); if ($meta[6]) echo "ss-social-regular"; ?>" style="color:<?php $meta = get_cta_meta(); if ($meta[1]) echo "$meta[1]"; ?>; "><?php $meta = get_cta_meta(); if ($meta[0]) echo "$meta[0]"; ?><?php $meta = get_cta_meta(); if ($meta[6]) echo "$meta[6]"; ?></div>
