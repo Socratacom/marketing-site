@@ -93,3 +93,44 @@ function sw_gf_js_error() { ?>
     alert( "Oops, you must have forgotten something...fields marked in RED are required! Please check your form." );
   </script>
 <?php }
+
+/* Custom 404 Page */
+remove_action('thesis_hook_404_title', 'thesis_404_title');
+add_action('thesis_hook_404_title', 'custom_thesis_404_title');
+function custom_thesis_404_title() {?>
+  Ouch! Something went wrong.
+<?
+}
+
+remove_action('thesis_hook_404_content', 'thesis_404_content');
+add_action('thesis_hook_404_content', 'custom_thesis_404_content');
+function custom_thesis_404_content() {?>
+<style type="text/css">
+#sidebars, .wp-pagenavi, #page .menu {display:none;}
+#content {width:100%; text-align:center;}
+</style>
+<p>The page you are looking for is no longer available or has moved.</p>
+<p>You may want to try again or start from our <a href="http://www.socrata.com">home page</a>.</p>
+<?
+}
+
+//Find the caption for feature image
+function the_post_thumbnail_caption_from_id($post_id) {
+  $thumbnail_id    = get_post_thumbnail_id($post_id);
+  $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
+  if ($thumbnail_image && isset($thumbnail_image[0])) {
+    echo ($thumbnail_image[0]->post_excerpt);
+  }
+}
+
+// Remove all Thesis metaboxes
+add_action('admin_init', 'remove_thesis_post_boxes');
+
+function remove_thesis_post_boxes() {
+    $post_options = new thesis_post_options;
+    $post_options->meta_boxes();
+    foreach ($post_options->meta_boxes as $meta_name => $meta_box) {
+        remove_meta_box($meta_box['id'], 'post', 'normal');
+        remove_meta_box($meta_box['id'], 'page', 'normal');
+    }
+}
