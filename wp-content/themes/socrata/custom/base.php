@@ -53,3 +53,43 @@ add_action( 'wp_print_scripts', 'disableAutoSave' );
 function disableAutoSave(){
   wp_deregister_script('autosave');
 }
+
+// PAGINATION USING "WP PAGENAVI" PLUGIN
+remove_action('thesis_hook_after_content', 'thesis_post_navigation');
+add_action('thesis_hook_after_content', 'page_numbers');
+function page_numbers() {
+    if(function_exists('wp_pagenavi')) { 
+        wp_pagenavi();
+        } 
+}
+
+// REMOVE HEADLINE AREA ON PAGES
+add_filter('thesis_show_headline_area', 'no_headline');
+function no_headline() { 
+	if (is_page() || is_home() ) 
+	return false; 
+	else 
+	return true; 
+}
+
+// Add support for HTML5 
+function html5_doctype($content) {
+  return '<!DOCTYPE html>';
+}
+add_filter('thesis_doctype', 'html5_doctype');
+
+function html5_profile_removal($content) {
+  return '';
+}
+add_filter('thesis_head_profile', 'html5_profile_removal');
+
+// Gravity Forms Alert
+add_filter( 'gform_validation_message', 'sw_gf_validation_message', 10, 2 );
+function sw_gf_validation_message( $validation_message ) {
+  add_action( 'wp_footer', 'sw_gf_js_error' );
+}
+function sw_gf_js_error() { ?>
+  <script type="text/javascript">
+    alert( "Oops, you must have forgotten something...fields marked in RED are required! Please check your form." );
+  </script>
+<?php }
