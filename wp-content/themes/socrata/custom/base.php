@@ -192,3 +192,28 @@ function my_scripts_method() {
   wp_register_style( 'tab-styles', get_stylesheet_directory_uri() . '/custom/css/tabs.css', false, null );
   wp_register_script( 'jumplinks', get_stylesheet_directory_uri() . '/custom/scripts/jumplinks.js', false, null, true);
 }
+
+add_filter( 'avatar_defaults', 'new_custom_default_gravatar' );
+function new_custom_default_gravatar ($avatar_defaults) {
+$myavatar = get_stylesheet_directory_uri() . '/custom/images/socrata-gravatar.png';
+$avatar_defaults[$myavatar] = "Custom Default Gravatar";
+return $avatar_defaults;
+}
+
+// Search Results Filter 
+
+add_theme_support( 'html5', array( 'search-form' ) );
+
+function my_facetwp_result_count( $output, $params ) {
+    $output = $params['lower'] . '-' . $params['upper'] . ' of ' . $params['total'] . ' results';
+    return $output;
+}
+
+add_filter( 'facetwp_result_count', 'my_facetwp_result_count', 10, 2 );
+
+register_sidebar(array(
+  'name' => 'Shared Sidebar',
+  'id' => 'shared',
+  'before_title'=>'<h3>',
+  'after_title'=>'</h3>'
+  ));
