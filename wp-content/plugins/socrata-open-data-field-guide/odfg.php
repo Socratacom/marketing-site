@@ -10,41 +10,46 @@ License: GPLv2
 */
 include_once("guide_meta-boxes.php");
 
-// Post Type
-add_action( 'init', 'guide_post_type' );
-function guide_post_type() {
-  $labels = array(
-    'name' => _x('Open Data Guide'),
-    'singular_name' => _x('Guide'),
-    'add_new' => _x('Add New Chapter'),
-    'add_new_item' => __('Add New Chapter'),
-    'edit_item' => __('Edit Chapter'),
-    'new_item' => __('New Chapter'),
-    'all_items' => __('All Chapters'),
-    'view_item' => __('View Chapter'),
-    'search_items' => __('Search Chapters'),
-    'not_found' =>  __('No chapters found'),
-    'not_found_in_trash' => __('No chapters found in Trash'), 
-    'parent_item_colon' => '',
-    'menu_name' => 'Open Data Guide'
-
+add_action( 'init', 'create_guide' );
+function create_guide() {
+  register_post_type( 'guide',
+    array(
+      'labels' => array(
+        'name' => 'ODFG',
+        'singular_name' => 'ODFG',
+        'add_new' => 'Add New Chapter',
+        'add_new_item' => 'Add New Chapter',
+        'edit' => 'Edit Chapter',
+        'edit_item' => 'Edit Chapter',
+        'new_item' => 'New Chapter',
+        'view' => 'View',
+        'view_item' => 'View Chapter',
+        'search_items' => 'Search Chapters',
+        'not_found' => 'Not found',
+        'not_found_in_trash' => 'Not found in Trash'
+      ),
+      'public' => true,
+      'menu_position' => 5,
+      'supports' => array( 'title', 'editor', 'revisions' ),
+      'taxonomies' => array( '' ),
+      'menu_icon' => '',
+      'has_archive' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'open-data-guide-chapter')
+    )
   );
-  $args = array(
-    'labels' => $labels,
-    'public' => true,
-    'publicly_queryable' => true,
-    'show_ui' => true, 
-    'show_in_menu' => true, 
-    'query_var' => true,
-    'rewrite' => array('with_front' => false, 'slug' => 'open-data-field-guide-chapter'),
-    'capability_type' => 'post',
-    'has_archive' => true, 
-    'hierarchical' => false,
-    'menu_icon' => get_stylesheet_directory_uri() .'/custom/images/icons/menu-socrata.png', // 16px16
-    'menu_position' => 10,
-    'supports' => array( 'title', 'editor', 'revisions' ),
-  ); 
-  register_post_type('guide', $args);
+}
+
+// MENU ICON
+//Using Dashicon Font http://melchoyce.github.io/dashicons/
+add_action( 'admin_head', 'add_guide_icon' );
+function add_guide_icon(){
+?>
+<style>
+#adminmenu .menu-icon-guide div.wp-menu-image:before {
+  content: '\f331';
+}
+</style>
+<?php
 }
 
 // Custom Columns for admin management page
