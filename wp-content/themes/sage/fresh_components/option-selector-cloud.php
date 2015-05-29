@@ -36,7 +36,7 @@ function get_cloud_option($i, $selected_option) {
                         }
                         echo '</a>';
                     echo '</div>';
-                    echo '<div class="col-md-8 col-sm-9 '.$pull.'">';
+                    echo '<div class="col-md-8 col-sm-9 '.$pull.' cloud-detail">';
                         if ($headline) {
                             echo '<h3>'.$headline.'</h3>';
                         }
