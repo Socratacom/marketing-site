@@ -1,25 +1,128 @@
+/* ----------------------------*/
+/* Standard Output             */
+/* ----------------------------*/
+
 .clouds {
-    padding: 50px 0;
+    .cloud#icon-city_cloud {
+        .cloud-icon {
+            color: @city-blue;
+        }
+        h2 {
+            background-color: darken(@city-blue, 15%);
+            &:hover {
+                background-color: @city-blue;
+            }
+        }
+    }
+    .cloud#icon-county_cloud {
+        .cloud-icon {
+            color: @county-yellow;
+        }
+        h2 {
+            background-color: darken(@county-yellow, 15%);
+            &:hover {
+                background-color: @county-yellow;
+            }
+        }
+    }
+    .cloud#icon-state_cloud {
+        .cloud-icon {
+            color: @state-red;
+        }
+        h2 {
+            background-color: darken(@state-red, 15%);
+            &:hover {
+                background-color: @state-red;
+            }
+        }
+    }
+    .cloud#icon-federal_cloud {
+        .cloud-icon {
+            color: @federal-blue;
+        }
+        h2 {
+            background-color: darken(@federal-blue, 15%);
+            &:hover {
+                background-color: @federal-blue;
+            }
+        }
+    }
+    .cloud#icon-ngo_cloud {
+        .cloud-icon {
+            color: @ngo-green;
+        }
+        h2 {
+            background-color: darken(@ngo-green, 15%);
+            &:hover {
+                background-color: @ngo-green;
+            }
+        }
+    }
     .cloud {
+        margin-bottom: 30px;
+        padding: 0;
         .cloud-link:hover {
             .cloud-icon {
                 .transition(color, .3s);
             }
         }
-        .icon-city_cloud {
-            color: @city-blue;
+        .cloud-icon {
+            font-size: 5.2em;
+            position: absolute;
+            left: -18px;
+            width: 61px;
+            height: 63px;
+            overflow: hidden;
+            border-top-left-radius: 8px;
+            border-bottom-left-radius: 8px;
+            z-index: 200;
+            background-color: @white;
+            &:before {
+                top: -5px;
+                left: -5px;
+                position: absolute;
+            }
         }
-        .icon-county_cloud {
-            color: @county-yellow;
+        h2 {
+            .transition(background-color, .5s);
+            text-transform: uppercase;
+            text-align: left;
+            font-weight: 300;
+            font-size: 1.5em;
+            width: 108%;
+            height: 63px;
+            left: 0;
+            padding: 10px 0 0 70px;
+            color: @white;
+            margin: 0 -15px;
+            position: absolute;
+            span {
+                font-size: 1em;
+                line-height: 1.1;
+                font-weight: 700;
+                padding-right: 6px;
+                &:after {
+                    display: none;
+                }
+            }
+            .small {
+                font-size: 1em;
+                color: @white;
+                span {
+                    padding-right: 0;
+                }
+            }
+            strong {
+                line-height: 1.5;
+            }
+            br {
+                display: none;
+            }
         }
-        .icon-state_cloud {
-            color: @state-red;
-        }
-        .icon-federal_cloud {
-            color: @federal-blue;
-        }
-        .icon-ngo_cloud {
-            color: @ngo-green;
+        h3 {
+            font-size: 1.6em;
+            font-weight: 300;
+            margin-top: 80px;
         }
     }
 }
@@ -30,24 +133,45 @@
 
 @media (min-width: @screen-sm-min) {
     .clouds {
+        padding: 50px 0;
+        .cloud#icon-city_cloud, .cloud#icon-county_cloud, .cloud#icon-state_cloud, .cloud#icon-federal_cloud, .cloud#icon-ngo_cloud {
+            h2, h2:hover {
+                background-color: transparent;
+            }
+        }
         .cloud {
+            padding: 0 15px;
+            margin-bottom: 50px;
+            .cloud-icon-wrapper {
+                text-align: center;
+                padding: 0;
+            }
             .cloud-link:hover {
                 .cloud-icon:after {
                     box-shadow: 0 0 15px 5px @gray-dark;
                 }
             }
             .cloud-icon {
+                font-size: 11em;
+                width: initial;
+                height: initial;
+                overflow: visible;
+                left: initial;
+                position: relative;
+                background-color: transparent;
                 &:before {
                     z-index: 200;
+                    top: 0;
+                    left: 0;
                     position: relative;
                 }
                 &:after {
                     content: '';
                     position: relative;
                     display: block;
-                    margin: -19rem auto 0;
-                    width: 18rem;
-                    height: 18rem;
+                    margin: -14.7rem auto 0;
+                    width: 14rem;
+                    height: 14rem;
                     background-color: @white;
                     z-index: 100;
                     box-shadow: 0 0 0 0 @black;
@@ -55,18 +179,44 @@
                     border-radius: 2rem;
                 }
             }
+            h2 {
+                font-size: 1.9em;
+                width: 100%;
+                height: inherit;
+                float: none;
+                text-align: center;
+                padding: 0;
+                margin: 20px 0 10px;
+                color: @black;
+                position: relative;
+                br {
+                    display: block;
+                }
+                .small {
+                    font-size: .6em;
+                    color: @black;
+                }
+            }
+            h3 {
+                font-size: 2.5em;
+                margin-top: 0;
+            }
         }
     }
 }
 @media (min-width: @screen-md-min) {
     .clouds {
         .cloud {
+            margin-bottom: 70px;
+            .cloud-icon-wrapper {
+                padding: 0 15px;
+            }
             .cloud-icon {
-                font-size: 19em;
+                font-size: 16.5em;
                 &:after {
-                    margin: -26rem auto 0;
-                    width: 25rem;
-                    height: 25rem;
+                    margin: -22.55rem auto 0;
+                    width: 22rem;
+                    height: 22rem;
                     border-radius: 3rem;
                 }
             }
@@ -85,8 +235,14 @@
     .clouds {
         .cloud {
             h2 {
-                font-size: 3em;
+                font-size: 2.9em;
             }
         }
     }
 }
+
+/* ----------------------------*/
+/* Cloud Overview Page         */
+/* ----------------------------*/
+
+
