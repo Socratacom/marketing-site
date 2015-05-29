@@ -7,7 +7,8 @@ function custom_footer() { ?>
 		<div class="one_fourth">
 			<h4>Contact</h4>
 			<ul style="list-style-type:none; margin:0; padding:0;">
-				<li><span>Phone:</span> <a href="tel://1-888-997-6762">+1 (888) 997-6762</a></li>
+				<li><span>Phone:</span> <a href="tel://1-206-340-8008">+1 (206) 340-8008</a></li>
+				<li><span>Support:</span> <a href="tel://1-888-997-6762">+1 (888) 997-6762</a></li>
 				<li><span>Fax:</span> <a href="tel://1-206-452-2010">+1 (206) 452-2010</a></li>
 				<li><span>Email:</span> <a href="mailto:info@socrata.com">info@socrata.com</a></li>
 				<li><a href="/contact-us/">More Options</a></li>
@@ -19,7 +20,7 @@ function custom_footer() { ?>
 		</div>
 		<div class="one_fourth">
 			<h4>Washington DC</h4>
-			<p>1150 17th Street<br>Suite 200<br>Washington, D.C. 20036</p>
+			<p>1150 17th Street, NW<br>Suite 200<br>Washington, D.C. 20036</p>
 		</div>
 		<div class="one_fourth last">
 			<h4>United Kingdom</h3>
