@@ -113,24 +113,3 @@ function custom_thesis_404_content() {?>
 <p>You may want to try again or start from our <a href="http://www.socrata.com">home page</a>.</p>
 <?
 }
-
-//Find the caption for feature image
-function the_post_thumbnail_caption_from_id($post_id) {
-  $thumbnail_id    = get_post_thumbnail_id($post_id);
-  $thumbnail_image = get_posts(array('p' => $thumbnail_id, 'post_type' => 'attachment'));
-  if ($thumbnail_image && isset($thumbnail_image[0])) {
-    echo ($thumbnail_image[0]->post_excerpt);
-  }
-}
-
-// Remove all Thesis metaboxes
-add_action('admin_init', 'remove_thesis_post_boxes');
-
-function remove_thesis_post_boxes() {
-    $post_options = new thesis_post_options;
-    $post_options->meta_boxes();
-    foreach ($post_options->meta_boxes as $meta_name => $meta_box) {
-        remove_meta_box($meta_box['id'], 'post', 'normal');
-        remove_meta_box($meta_box['id'], 'page', 'normal');
-    }
-}
