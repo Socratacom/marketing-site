@@ -171,6 +171,45 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                {
+                    "key": 5567967030994,
+                    "name": "option_selector",
+                    "label": "Option Selector",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_556796ab30995",
+                            "label": "Option",
+                            "name": "option",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "cloud": "Cloud Product Suites",
+                                "pain_points_slider": "Pain Points Slider",
+                                "uber_persona_slider": "Uber Persona Slider"
+                            },
+                            "default_value": {
+                                "": ""
+                            },
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "disabled": 0,
+                            "readonly": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
                 }
             ]
         }
@@ -190,6 +229,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1432849489,
-    "local": "json"
+    "modified": 1432852292
 }

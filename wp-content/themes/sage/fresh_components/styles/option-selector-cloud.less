@@ -1,0 +1,92 @@
+.clouds {
+    padding: 50px 0;
+    .cloud {
+        .cloud-link:hover {
+            .cloud-icon {
+                .transition(color, .3s);
+            }
+        }
+        .icon-city_cloud {
+            color: @city-blue;
+        }
+        .icon-county_cloud {
+            color: @county-yellow;
+        }
+        .icon-state_cloud {
+            color: @state-red;
+        }
+        .icon-federal_cloud {
+            color: @federal-blue;
+        }
+        .icon-ngo_cloud {
+            color: @ngo-green;
+        }
+    }
+}
+
+/*-----------------------------------*/
+/* Media Queries
+/*-----------------------------------*/
+
+@media (min-width: @screen-sm-min) {
+    .clouds {
+        .cloud {
+            .cloud-link:hover {
+                .cloud-icon:after {
+                    box-shadow: 0 0 15px 5px @gray-dark;
+                }
+            }
+            .cloud-icon {
+                &:before {
+                    z-index: 200;
+                    position: relative;
+                }
+                &:after {
+                    content: '';
+                    position: relative;
+                    display: block;
+                    margin: -19rem auto 0;
+                    width: 18rem;
+                    height: 18rem;
+                    background-color: @white;
+                    z-index: 100;
+                    box-shadow: 0 0 0 0 @black;
+                    .transition(box-shadow, .3s);
+                    border-radius: 2rem;
+                }
+            }
+        }
+    }
+}
+@media (min-width: @screen-md-min) {
+    .clouds {
+        .cloud {
+            .cloud-icon {
+                font-size: 19em;
+                &:after {
+                    margin: -26rem auto 0;
+                    width: 25rem;
+                    height: 25rem;
+                    border-radius: 3rem;
+                }
+            }
+            h2 {
+                font-size: 2.5em;
+            }
+            .logos {
+                img {
+                    height: 85px;
+                }
+            }
+        }
+    }
+}
+@media (min-width: @screen-lg-min) {
+    .clouds {
+        .cloud {
+            h2 {
+                font-size: 3em;
+            }
+        }
+    }
+}

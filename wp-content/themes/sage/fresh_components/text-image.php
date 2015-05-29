@@ -20,6 +20,7 @@ function get_text_image($i) {
         $pull = 'col-sm-pull-4';
     }
 
+    // Output
     echo '<div id="section-'. $i .'" class="section-textimage bg-'.$bg_color.'" style="'.$background.'">';
     echo '<div class="container"><div class="row">';
     if ($header) {
