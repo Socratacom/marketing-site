@@ -12,6 +12,7 @@ function get_cloud_option($i, $selected_option) {
                     // display only the cloud tile with related page link that matches current URL
                     $related_page = get_sub_field('related_page', 'option');
                     if ($current_page === $related_page) {
+                        $oddeven = false;
                         echo output_cloud($oddeven, 'single-cloud');
                     } else if ($current_page === get_site_url().'/' || $current_page === get_site_url().'/cloud-solutions/') {
                         $oddeven = $c = !$c;
