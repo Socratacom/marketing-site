@@ -15,6 +15,7 @@ function get_cloud_option($i, $selected_option) {
                         $oddeven = false;
                         echo output_cloud($oddeven, 'single-cloud');
                     } else if ($current_page === get_site_url().'/' || $current_page === get_site_url().'/cloud-solutions/') {
+                        // display all clouds
                         $oddeven = $c = !$c;
                         echo output_cloud($oddeven);
                     }
@@ -77,29 +78,35 @@ function output_cloud($oddeven, $single = '') {
     echo '</div>';
     echo '<div class="col-sm-12 logos hidden-xs">';
         if( have_rows('logos', 'option') && '' !== $single ):
-        while( have_rows('logos', 'option') ): the_row();
-                $logo = get_sub_field('logo_image');
-                $logolink = '';
-                $linkstart = '';
-                $linkend = '';
-                if( have_rows('logo_link') ):
-                    while( have_rows('logo_link') ): the_row();
-                        if( get_row_layout() == 'internal_link' ):
-                            $logolink = get_sub_field('link_url');
-                            $linkstart = '<a href="'.$logolink.'">';
-                            $linkend = '</a>';
-                        elseif( get_row_layout() == 'external_link' ):
-                            $logolink = get_sub_field('link_url');
-                            $linkstart = '<a href="'.$logolink.'" target="_blank">';
-                            $linkend = '</a>';
-                        endif;
-                    endwhile;
-                endif;
+            while( have_rows('logos', 'option') ): the_row();
+                    $logo = get_sub_field('logo_image');
+                    $logolink = '';
+                    $linkstart = '';
+                    $linkend = '';
+                    if( have_rows('logo_link') ):
+                        while( have_rows('logo_link') ): the_row();
+                            if( get_row_layout() == 'internal_link' ):
+                                $logolink = get_sub_field('link_url');
+                                $linkstart = '<a href="'.$logolink.'">';
+                                $linkend = '</a>';
+                            elseif( get_row_layout() == 'external_link' ):
+                                $logolink = get_sub_field('link_url');
+                                $linkstart = '<a href="'.$logolink.'" target="_blank">';
+                                $linkend = '</a>';
+                            endif;
+                        endwhile;
+                    endif;
 
-                if ($logo) {
-                    echo '<div class="slide col-sm-2">'.$linkstart.'<img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale">'.$linkend.'</div>';
-                }
-        endwhile;
+                    if ($logo) {
+                        echo '<div class="slide col-sm-2">'.$linkstart.'<img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale">'.$linkend.'</div>';
+                    }
+            endwhile;
         endif;
-    echo '</div></div>';
+        echo '</div>';
+        if( have_rows('logos', 'option') && '' !== $single ):
+            echo '<script type="text/javascript"> document.addEventListener("DOMContentLoaded", function() {
+                slider(".logos", false, 4000, 6, 5, 3);
+            }, false);</script>';
+        endif;
+    echo '</div>';
 }

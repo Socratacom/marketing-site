@@ -88,3 +88,53 @@
   $(document).ready(UTIL.loadEvents);
 
 })(jQuery); // Fully reference jQuery after this point.
+
+// Slick Slider
+function slider(container, arrows, speed, slides1, slides2, slides3, scrollNum1, scrollNum2) {
+  if (speed === '') {
+    speed = 4000;
+  }
+  if (slides1 === '') {
+    slides1 = 1;
+  }
+  if (slides2 === '') {
+    slides2 = slides1;
+  }
+  if (slides3 === '') {
+    slides3 = slides1;
+  }
+  if (scrollNum1 === '') {
+    scrollNum1 = 1;
+  }
+  if (scrollNum2 === '') {
+    scrollNum2 = scrollNum1;
+  }
+
+  $(container).slick({
+    arrows: arrows,
+    prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
+    nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
+    draggable: false,
+    autoplay: true,
+    autoplaySpeed: speed,
+    slidesToShow: slides1,
+    slidesToScroll: scrollNum1,
+    speed: 500,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: slides2,
+          slidesToScroll: scrollNum2
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: slides3,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+}

@@ -5,7 +5,8 @@ _This is the main marketing site for Socrata. Only the Theme and custom Socrata 
 1. Clone repo
 2. Import database
 3. Run npm install and install Gulp
-4. run gulp watch
+4. Add to your gulp watch task on line 227 `gulp.watch(['fresh_components/styles/*'], ['styles']);`
+5. run gulp watch
 
 ## Additional Plugins Used
 - Migrate DB Pro
@@ -37,4 +38,3 @@ When in doubt, use [PSR-2](https://github.com/php-fig/fig-standards/blob/master/
   - fresh_components/styles/COMPONENT-NAME.less
 - Inclide .less file in assets/styles/main.less
 - No site aesthetics should go in component less and no component aesthetics should go in site less.
-- Add this line to you gulp watch task `gulp.watch(['fresh_components/styles/*'], ['styles']);`

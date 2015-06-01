@@ -3,27 +3,63 @@
 // Bootstrapping ACF functions if ACF isn't activated
 /*------------------------------------------------------*/
 
-add_action('plugins_loaded', 'bootstrap_acf');
+//Usage:
+//    -include the class in your functions.php or in a plugin
+//    -call its static mathods using colon syntax (ie: acfHelper::acf_is_active() )
 
-function bootstrap_acf() {
-  if(!function_exists('get_field')) {
-    function get_field($field_name, $post_id = 0, $format_value = true) {
-      return false;
-    }
-  }
+class acfHelper {
 
-  if(!function_exists('have_rows')) {
-    function have_rows($field_name, $post_id = 0) {
-      return false;
-    }
-  }
+    //functions use underscores to keep in style with acf base functions
 
-  if(!function_exists('the_field')) {
-    function the_field($field_name, $post_id = 0) {
-      echo '';
-      return false;
+    public static function acf_is_active() {
+        //If any of these functions don't exist, acf is probably broken or disabled.
+        if(!function_exists('get_field') || !function_exists('have_rows') || !function_exists('the_field')) {
+            return false;
+        }
+        //if it gets this far then the functions are defined and acf is activated
+        return true;
     }
-  }
+
+    //format_value unimplemented so far
+    public static function get_field($field_name, $post_id = -1, $format_value = true) {
+        if(!function_exists('get_field')) {
+            return false;
+        } else {
+            if($post_id === -1) {
+                return get_field($field_name);
+            } else {
+                return get_field($field_name, $post_id);
+            }
+        }
+    }
+
+    public static function have_rows($field_name, $post_id = -1) {
+        if(!function_exists('have_rows')) {
+            return false;
+        } else {
+            if($post_id === -1) {
+                return have_rows($field_name);
+            } else {
+                return have_rows($field_name, $post_id);
+            }
+        }
+    }
+
+    public static function the_field($field_name, $post_id = -1) {
+        if(!function_exists('the_field')) {
+            echo '';
+            return false;
+        } else {
+            if($post_id === -1) {
+                echo the_field($field_name);
+                return;
+            } else {
+                echo the_field($field_name, $post_id);
+                return;
+            }
+        }
+    }
+
 }
 
 /*-----------------------------------*/

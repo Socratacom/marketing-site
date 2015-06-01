@@ -7,7 +7,7 @@ require_once 'option-selector.php';
 // check for components
 function get_fresh_components() {
     // check if the flexible content field has rows of data
-    if( have_rows('components') ):
+    if( acfHelper::have_rows('components') ):
         $i = 0;
         echo '<div class="components">';
         // loop through the rows of data
