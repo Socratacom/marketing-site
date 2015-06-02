@@ -1,161 +1,125 @@
-.rethink #container {
-	padding:0;
-	margin:0;
+body.data-as-utility {	
+	font-family: 'Open Sans', sans-serif;
 }
-.rethink #page {
+.data-as-utility #container {
+	padding:0;
+	margin-top:0;
+}
+.data-as-utility #page {
 	width:100%;
 	max-width:100%;
-	padding:0;
+	padding-top:0;
 }
-.rethink .hero {
-	background-color:#ecf0f1;
-	background-image:url(../images/rethink-socrata-background.jpg);
-	background-position:center center;
-	background-size:cover;
+.data-as-utility header, .data-as-utility footer {
+	font-size:100%;
+}
+.data-as-utility .nav-item > a {
+	font-weight: 400;
+	font-size:14px;
+}
+.data-as-utility .nav-item .ss-icon {
+	font-size:10px !important;
+}
+.data-as-utility #content li, .data-as-utility #content p {
+	line-height: normal;
+	margin-bottom:1em;
+	font-size: 14px;
+	letter-spacing: normal;
+}
+
+/**** hero ****/
+.data-as-utility .hero * {
+	color:#fff;
+}
+.data-as-utility .hero {
+	background-color:#2980b9;
+	background-image:url(../images/hero.jpg);
+	background-position: center center;
 	height:100vh;
 	width:100%;
 	position:relative;
 }
-.rethink .hero h1 {
-	margin:0 0 20px 0;
+.data-as-utility .hero blockquote {
+	margin:0;
+	padding:0;
+	border:none;	
 }
-.rethink .hero h3 {
-	font-weight: 300;
-	font-size:20px;
-	margin:0 0 30px 0;
+.data-as-utility .hero blockquote p {
+	font-family: Georgia, Times, 'Times New Roman', serif;
+	font-size: 18px !important;
+	font-style:italic;
 }
-.rethink .hero a i {
-	color:#fff;
-	text-shadow:0 0 10px #34495e;
+.data-as-utility .hero .author {
+	list-style-type: none;
+	margin:0;
+	padding: 0;
+	display:table;
+}
+.data-as-utility .hero .author li {
+	vertical-align: middle;
+	display:table-cell;
+}
+.data-as-utility .hero .author li:first-child {
+	height:50px;
+	width:50px;
+	background-image:url(../images/robert.jpg);
+	border-radius: 50%;
+	background-size: contain;
+}
+.data-as-utility .hero .author li:last-child {
+	padding:0 15px;
+}
 
-}
-.rethink section > .container {
-	max-width:1280px;
-	margin:auto;
-	padding:80px 0;
-}
-.rethink .demo-videos .container, .rethink .hero .container {
-	max-width:960px;
-	margin:auto;
-}
-.rethink .row {
-	padding:0 30px;
-}
-.rethink .vertical-align {
+
+
+.data-as-utility .vertical-align {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
 }
-.rethink .text-center {
-	text-align: center;
-}
-.rethink .bulb {
-	background-image:url(../images/socrata-rethink-lightbulb.png);
-	background-repeat: no-repeat;
-	background-size: contain;
-	height:100px;
-	width:100px;
-	display: block;
-	margin:0 auto 20px auto;
 
+
+
+
+
+/**** sections ****/
+.data-as-utility .what-can-do, .data-as-utility .why-socrata, .data-as-utility .explore {
+	padding:60px 0;
 }
-.rethink .down-arrow {
-	position:absolute;
-	bottom:30px;
-	width:100%;	
+/* What Can Do */
+.data-as-utility .what-can-do h3 {
+	font-size:16px;
+	margin:2em 0 1em 0;
 }
-.rethink .down-arrow i {
-	font-size: 24px;
+.data-as-utility .what-can-do ul {
+	list-style-type: none;
+	margin:0;
+	padding:0;
 }
-.rethink a {
-	text-decoration: none;
-}
-.rethink .btn {
-	font-weight: 400;
-}
-.rethink .clouds {
-	background-color:#ecf0f1;
-}
-.rethink .wet-asphalt {
-	background-color:#34495e;
-}
-.rethink .wet-asphalt * {
-	color:#fff;
-}
-.rethink .img-responsive {
-	max-width: 100%;
-}
-.rethink .videos p {
-	margin-bottom:0;
-}
-.rethink .videos h3 {
-	font-weight:300;
-	line-height: normal;
-	font-size: 22px;
-	margin:1em 0;
-}
-.rethink h2 {
-	margin-bottom:1.63em;
-}
-.rethink .videos p + p {
-	line-height: normal;
-}
-.rethink .bullets h3 {
-	border-bottom:#bdc3c7 solid 1px;
-	padding-bottom:15px;
-	text-align: center;
-}
-.rethink .bullets .icon {
-	
-	
-}
-.rethink .bullets .icon {
-	padding-left: 32px;
-	position: relative;
-	height:80px;
-	width:80px;
-	background:#c0392b;
-	display: block;
-	margin:0 auto 1em auto;
-	border-radius: 50%;
-	color:#fff;
-}
-.rethink .bullets .chart:before {
-	position: absolute;
-	font-family: 'FontAwesome';
-	top: 25px;
-	left: 25px;
-	content: "\f201";
-	font-size: 32px;
-}
-.rethink .bullets .book:before {
-	position: absolute;
-	font-family: 'FontAwesome';
-	top: 25px;
-	left: 25px;
-	content: "\f02d";
-	font-size: 32px;
-}
-.rethink .bullets .wrench:before {
-	position: absolute;
-	font-family: 'FontAwesome';
-	top: 25px;
-	left: 25px;
-	content: "\f0ad";
-	font-size: 32px;
+.data-as-utility .what-can-do li {
+	color:#666;
 }
 
-@media only screen and (max-width : 768px) {
-	.rethink .hero {
-		height:100%;
-		padding:100px 0 50px 0;
-	}
-	.rethink .vertical-align {
-		position: relative;
-		top: 0;
-		transform: translateY(0);
-	}
-	.rethink .down-arrow {
-		display:none;
-	}
+/* Why Socrata */
+.data-as-utility .why-socrata {
+	background-color:#333;
+}
+.data-as-utility .why-socrata * {
+	color:#ecf0f1;
+}
+.data-as-utility .why-socrata .features {
+	margin:2em 0;
+}
+.data-as-utility .why-socrata .features p {
+	font-size: 16px !important;
+	padding-left:32px;
+}
+.data-as-utility .why-socrata .features p::before {
+  content: "\f05d";
+  font-family:FontAwesome;  
+  position: absolute;
+  left:15px;
+  top:2px;
+  color:#2ECC71;
+  font-size: 24px;
 }

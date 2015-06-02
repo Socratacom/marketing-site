@@ -108,13 +108,14 @@ function rethink_scripts() {
   }
 }
 
-add_action('wp_enqueue_scripts', 'dataasutility_scripts');
-function dataasutility_scripts() {
+add_action('wp_enqueue_scripts', 'dau_scripts');
+function dau_scripts() {
   if (is_page('data-as-utility')) {
-    wp_register_style( 'dataasutility-styles', get_stylesheet_directory_uri() . '/custom/rethink/css/styles.css', false, null );
-    wp_enqueue_style( 'dataasutility-styles' );
+    wp_register_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', false, null);
+    wp_enqueue_style('bootstrap');
+    wp_register_style( 'dau-styles', get_stylesheet_directory_uri() . '/custom/data-as-utility/css/styles.css', false, null );
+    wp_enqueue_style( 'dau-styles' );
     wp_register_style( 'fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
     wp_enqueue_style('fontawesome');
-    wp_register_script( 'wistia-popover', '//fast.wistia.com/assets/external/popover-v1.js', false, null, true);
   }
 }
