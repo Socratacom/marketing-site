@@ -1,6 +1,7 @@
 <?php
 
 function get_text_image($i) {
+    
     // Get vars
     $header = get_sub_field('component_header');
     $content = get_sub_field('text_content');

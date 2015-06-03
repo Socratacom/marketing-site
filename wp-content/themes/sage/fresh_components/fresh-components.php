@@ -10,6 +10,9 @@
  * * Text-Image: Show image on one side, text on the other, can flip
  * * Options Selector: Shows content from the option pages
  *
+ * The components are injected automatically in pages and posts
+ * that use them through the loop start hook.
+ *
  * @author Fresh Consulting <freshconsulting.com>
  * @since  1.0
  *
@@ -17,30 +20,31 @@
 
 require_once 'init.php';
 
-// include fresh components here
+// Each component is defined in its own file.
 require_once 'text-image.php';
 require_once 'option-selector.php';
 
-// check for components
-function get_fresh_components() {
-    // check if the flexible content field has rows of data
-    if( acfHelper::have_rows('components') ) {
-        $i = 0;
-        echo '<div class="components">';
-        // loop through the rows of data
-        while ( have_rows('components') ) { the_row();
+// Check if loop has components, if so, display them
+function inject_fresh_components( $post_object ) {
+    if ( get_post_type() === 'page' || get_post_type() === 'post') {
+        
+        // check if the flexible content field has rows of data
+        if( acfHelper::have_rows('components') ) {
+            $i = 0;
+            // loop through the rows of data
+            while ( have_rows('components') ) { the_row();
 
-            if( get_row_layout() == 'text_image' ) {
-                get_text_image($i);
+                if( get_row_layout() == 'text_image' ) {
+                    get_text_image($i);
 
-            } elseif( get_row_layout() == 'option_selector' ) {
-                get_custom_option($i);
+                } elseif( get_row_layout() == 'option_selector' ) {
+                    get_custom_option($i);
 
+                }
+                $i++;
             }
-            $i++;
         }
-        echo '</div>'; // close .components
-    } else {
-        // no layouts found
+
     }
 }
+add_action( 'loop_start', 'inject_fresh_components' );

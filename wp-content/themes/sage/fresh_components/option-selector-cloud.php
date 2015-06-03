@@ -1,6 +1,7 @@
 <?php
 
 function get_cloud_option($i, $selected_option) {
+    
     echo '<div id="section-'. $i .'" class="clouds">';
         echo '<div class="container"><div class="row">';
             // get current URL to check against related page URL
