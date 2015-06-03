@@ -116,6 +116,18 @@ body.data-as-a-utility {
 	height:520px;
 	background:#ecf0f1;
 }
+.data-as-a-utility .pain-points {
+	background-image:url(../images/pain_point_2.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
+.data-as-a-utility .personas {
+	background-image:url(../images/uber_officials.jpg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+}
 /* Data Is Critical */
 .data-as-a-utility .data-is-critical {
 	background-image: url(../images/faucet.jpg);
