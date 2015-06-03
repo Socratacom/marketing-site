@@ -5,8 +5,7 @@ _This is the main marketing site for Socrata. Only the Theme and custom Socrata 
 1. Clone repo
 2. Import database
 3. Run npm install and install Gulp
-4. Add to your gulp watch task on line 227 `gulp.watch(['fresh_components/styles/*'], ['styles']);`
-5. run gulp watch
+4. run gulp watch
 
 ## Additional Plugins Used
 - Migrate DB Pro
