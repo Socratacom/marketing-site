@@ -117,5 +117,7 @@ function dau_scripts() {
     wp_enqueue_style( 'dau-styles' );
     wp_register_style( 'fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
     wp_enqueue_style('fontawesome');
+    wp_register_script( 'wistia-popover', '//fast.wistia.com/assets/external/popover-v1.js', false, null, true);
+    wp_enqueue_script('wistia-popover');
   }
 }

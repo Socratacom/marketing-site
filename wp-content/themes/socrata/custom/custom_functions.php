@@ -24,3 +24,4 @@ include_once "shortcodes/column-layout.php";
 include_once "shortcodes/social-sharing.php";
 include_once "shortcodes/miscellaneous.php";
 include_once "shortcodes/smartforms.php";
+include_once "shortcodes/data-as-a-utility.php";
