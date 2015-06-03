@@ -117,7 +117,22 @@ function dau_scripts() {
     wp_enqueue_style( 'dau-styles' );
     wp_register_style( 'fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
     wp_enqueue_style('fontawesome');
-    wp_register_script( 'wistia-popover', '//fast.wistia.com/assets/external/popover-v1.js', false, null, true);
-    wp_enqueue_script('wistia-popover');
+
+
+
+
+
+
+
+    wp_register_script( 'smooth-scroll', get_stylesheet_directory_uri() . '/custom/data-as-utility/js/smooth-scroll.js', false, null, true);
+    wp_enqueue_script('smooth-scroll');
+
+
+    wp_register_script('wistiaExternal', 'https://fast.wistia.com/assets/external/E-v1.js', false, null, false);
+    wp_enqueue_script('wistiaExternal');
+    wp_register_script('wistiaCropFill', 'https://fast.wistia.com/labs/crop-fill/plugin.js', false, null, false);
+    wp_enqueue_script('wistiaCropFill');
+    wp_register_script( 'dau-video', get_stylesheet_directory_uri() . '/custom/data-as-utility/js/video.js', false, null, true);
+    wp_enqueue_script('dau-video');
   }
 }

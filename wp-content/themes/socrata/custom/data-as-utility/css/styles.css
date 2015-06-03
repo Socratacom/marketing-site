@@ -75,6 +75,20 @@ body.data-as-a-utility {
 	transform: translateY(-50%);
 }
 
+.data-as-a-utility .down-arrow {
+	position: absolute;
+	bottom:30px;
+	left:0;
+	width:100%;
+}
+.data-as-a-utility .down-arrow a {
+	display: inline-block;
+}
+.data-as-a-utility .down-arrow a small {
+	font-size: 11px;	
+	text-transform: uppercase;
+}
+
 /**** sections ****/
 .data-as-a-utility .what-can-do, .data-as-a-utility .why-socrata, .data-as-a-utility .explore, .data-as-a-utility .data-is-critical {
 	padding:60px 0;
@@ -91,12 +105,25 @@ body.data-as-a-utility {
 	background:#222;
 	position: relative;
 }
+
+
+
+
+
+
 /* sliders */
 .data-as-a-utility .pain-points, .data-as-a-utility .personas {
 	height:520px;
 	background:#ecf0f1;
 }
 /* Data Is Critical */
+.data-as-a-utility .data-is-critical {
+	background-image: url(../images/faucet.jpg);
+	background-repeat: no-repeat;
+	background-attachment: absolute;
+	background-position:-200px center
+
+}
 .data-as-a-utility .data-is-critical h4 {
 	font-weight: 600;
 }
@@ -136,4 +163,145 @@ body.data-as-a-utility {
   top:2px;
   color:#2ECC71;
   font-size: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.backgroundVideo {
+  z-index: 2;
+  visibility: hidden;
+  top:0 !important;
+}
+#video_container {
+  width: 100%;
+  height: 500px !important;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  opacity: 1;
+  background:#3498db;
+}
+#text {
+  position: absolute;
+  top:0;
+  left:0;
+  z-index:4;
+  width:100%;
+  height: 100%;
+  text-align: center;
+  background-color:rgba(0, 0, 0, 0.5);
+}
+#playbutton {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+#playbutton h1 {
+  font-weight: 600;
+  color:#fff;
+  max-width: 600px;
+  font-size: 50px;
+  margin:0 auto 30px auto;
+  text-shadow: 0px 0px 5px #999;
+}
+#cover_all {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+}
+
+#main-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-image: url(../images/main.jpg);
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: 100%;
+}
+
+
+span.glyphicon-play-circle{
+  font-size: 50px;
+  color:#fff;
+  cursor: pointer;
+  opacity: .75;
+  text-shadow: 0px 0px 5px #999;
+  background:transparent;
+  display: inline-block;
+  line-height: normal !important;
+  -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  transition: opacity 0.35s, transform 0.35s;
+  -webkit-transform: scale(1.12);
+  transform: scale(1.12);
+}
+span.glyphicon-play-circle:hover {
+  opacity: 1;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+.overlayVideo {
+  position: fixed;
+  left: -3000px;
+  top: 0px;
+  z-index: 2000;
+  visibility: hidden;
+}
+
+#ex {
+  position: fixed;
+  right: -3000px;
+  top: 32px;
+  z-index: 3000;
+  cursor: pointer;
+  opacity: 0.8;
+}
+#ex span {
+  font-size: 32px;
+  text-shadow: 0px 0px 5px #999;
+}
+#ex:hover {
+  opacity: 1;
+}
+#videoContainer {
+	overflow: hidden;
+	top:0;
+	left:0;
+	z-index: 1000;
+	left: -3000px;
+}
+
+
+
+
+/*==========  Non-Mobile First Method  ==========*/
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1024px) {
+  .home #main-image {
+    background-size: cover;
+  }
 }
