@@ -201,7 +201,6 @@ body.data-as-a-utility {
 }
 #video_container {
   width: 100%;
-  height: 500px !important;
   overflow: hidden;
   position: relative;
   z-index: 1;
