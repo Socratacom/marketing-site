@@ -21,7 +21,6 @@ $sage_includes = [
   'lib/gallery.php',                          // Custom [gallery] modifications
   'lib/extras.php',                           // Custom functions
   'lib/custom-post-types.php',                // Custom Post Types
-  'lib/fresh-config.php',                     // Configurations by Fresh
   'fresh_components/fresh-components.php',    // Fresh Components
 ];
 
