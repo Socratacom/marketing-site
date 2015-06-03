@@ -1,26 +1,26 @@
-body.data-as-utility {	
+body.data-as-a-utility {	
 	font-family: 'Open Sans', sans-serif;
 }
-.data-as-utility #container {
+.data-as-a-utility #container {
 	padding:0;
 	margin-top:0;
 }
-.data-as-utility #page {
+.data-as-a-utility #page {
 	width:100%;
 	max-width:100%;
 	padding-top:0;
 }
-.data-as-utility header, .data-as-utility footer {
+.data-as-a-utility header, .data-as-a-utility footer {
 	font-size:100%;
 }
-.data-as-utility .nav-item > a {
+.data-as-a-utility .nav-item > a {
 	font-weight: 400;
 	font-size:14px;
 }
-.data-as-utility .nav-item .ss-icon {
+.data-as-a-utility .nav-item .ss-icon {
 	font-size:10px !important;
 }
-.data-as-utility #content li, .data-as-utility #content p {
+.data-as-a-utility #content li, .data-as-a-utility #content p {
 	line-height: normal;
 	margin-bottom:1em;
 	font-size: 14px;
@@ -28,10 +28,10 @@ body.data-as-utility {
 }
 
 /**** hero ****/
-.data-as-utility .hero * {
+.data-as-a-utility .hero * {
 	color:#fff;
 }
-.data-as-utility .hero {
+.data-as-a-utility .hero {
 	background-color:#2980b9;
 	background-image:url(../images/hero.jpg);
 	background-position: center center;
@@ -39,82 +39,96 @@ body.data-as-utility {
 	width:100%;
 	position:relative;
 }
-.data-as-utility .hero blockquote {
+.data-as-a-utility .hero blockquote {
 	margin:0;
 	padding:0;
 	border:none;	
 }
-.data-as-utility .hero blockquote p {
+.data-as-a-utility .hero blockquote p {
 	font-family: Georgia, Times, 'Times New Roman', serif;
 	font-size: 18px !important;
 	font-style:italic;
 }
-.data-as-utility .hero .author {
+.data-as-a-utility .hero .author {
 	list-style-type: none;
 	margin:0;
 	padding: 0;
 	display:table;
 }
-.data-as-utility .hero .author li {
+.data-as-a-utility .hero .author li {
 	vertical-align: middle;
 	display:table-cell;
 }
-.data-as-utility .hero .author li:first-child {
+.data-as-a-utility .hero .author li:first-child {
 	height:50px;
 	width:50px;
 	background-image:url(../images/robert.jpg);
 	border-radius: 50%;
 	background-size: contain;
 }
-.data-as-utility .hero .author li:last-child {
+.data-as-a-utility .hero .author li:last-child {
 	padding:0 15px;
 }
-
-
-
-.data-as-utility .vertical-align {
+.data-as-a-utility .vertical-align {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
 }
 
-
-
-
-
 /**** sections ****/
-.data-as-utility .what-can-do, .data-as-utility .why-socrata, .data-as-utility .explore {
+.data-as-a-utility .what-can-do, .data-as-a-utility .why-socrata, .data-as-a-utility .explore, .data-as-a-utility .data-is-critical {
 	padding:60px 0;
 }
+
+
+
+/* video */
+.data-as-a-utility .video * {
+	color:#fff;
+}
+.data-as-a-utility .video {
+	height:600px;
+	background:#222;
+	position: relative;
+}
+/* sliders */
+.data-as-a-utility .pain-points, .data-as-a-utility .personas {
+	height:520px;
+	background:#ecf0f1;
+}
+/* Data Is Critical */
+.data-as-a-utility .data-is-critical h4 {
+	font-weight: 600;
+}
 /* What Can Do */
-.data-as-utility .what-can-do h3 {
+.data-as-a-utility .what-can-do h3 {
 	font-size:16px;
 	margin:2em 0 1em 0;
 }
-.data-as-utility .what-can-do ul {
+.data-as-a-utility .what-can-do ul {
 	list-style-type: none;
 	margin:0;
 	padding:0;
 }
-.data-as-utility .what-can-do li {
+.data-as-a-utility .what-can-do li {
 	color:#666;
 }
 
 /* Why Socrata */
-.data-as-utility .why-socrata {
+.data-as-a-utility .why-socrata {
 	background-color:#333;
 }
-.data-as-utility .why-socrata * {
+.data-as-a-utility .why-socrata * {
 	color:#ecf0f1;
 }
-.data-as-utility .why-socrata .features {
+.data-as-a-utility .why-socrata .features {
 	margin:2em 0;
 }
-.data-as-utility .why-socrata .features p {
+.data-as-a-utility .why-socrata .features p {
 	font-size: 16px !important;
 	padding-left:32px;
 }
-.data-as-utility .why-socrata .features p::before {
+.data-as-a-utility .why-socrata .features p::before {
   content: "\f05d";
   font-family:FontAwesome;  
   position: absolute;

@@ -110,7 +110,7 @@ function rethink_scripts() {
 
 add_action('wp_enqueue_scripts', 'dau_scripts');
 function dau_scripts() {
-  if (is_page('data-as-utility')) {
+  if (is_page('data-as-a-utility')) {
     wp_register_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', false, null);
     wp_enqueue_style('bootstrap');
     wp_register_style( 'dau-styles', get_stylesheet_directory_uri() . '/custom/data-as-utility/css/styles.css', false, null );
