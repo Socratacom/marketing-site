@@ -39,10 +39,14 @@ body.data-as-a-utility {
 	width:100%;
 	position:relative;
 }
-.data-as-a-utility .hero blockquote {
+.data-as-a-utility .hero h1 {
 	margin:0;
-	padding:0;
-	border:none;	
+}
+.data-as-a-utility .hero blockquote {
+	margin:0 0 15px 0;
+	padding:30px;
+	border-bottom:#fff solid 1px;
+	border-left:none;
 }
 .data-as-a-utility .hero blockquote p {
 	font-family: Georgia, Times, 'Times New Roman', serif;
@@ -75,19 +79,16 @@ body.data-as-a-utility {
 	transform: translateY(-50%);
 }
 
-.data-as-a-utility .down-arrow {
-	position: absolute;
-	bottom:30px;
-	left:0;
-	width:100%;
+ul.jump-links {
+	list-style-type: none;
+	margin:0 auto;
+	padding: 0;
 }
-.data-as-a-utility .down-arrow a {
-	display: inline-block;
+.jump-links li {
+	display:inline-block;
+	padding:15px;
 }
-.data-as-a-utility .down-arrow a small {
-	font-size: 11px;	
-	text-transform: uppercase;
-}
+
 
 /**** sections ****/
 .data-as-a-utility .what-can-do, .data-as-a-utility .why-socrata, .data-as-a-utility .explore, .data-as-a-utility .data-is-critical {
@@ -112,22 +113,11 @@ body.data-as-a-utility {
 
 
 /* sliders */
-.data-as-a-utility .pain-points, .data-as-a-utility .personas {
-	height:520px;
-	background:#ecf0f1;
-}
-.data-as-a-utility .pain-points {
-	background-image:url(../images/pain_point_2.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-}
-.data-as-a-utility .personas {
-	background-image:url(../images/uber_officials.jpg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: cover;
-}
+
+
+
+
+
 /* Data Is Critical */
 .data-as-a-utility .data-is-critical {
 	background-image: url(../images/faucet.jpg);
@@ -140,6 +130,9 @@ body.data-as-a-utility {
 	font-weight: 600;
 }
 /* What Can Do */
+.data-as-a-utility .what-can-do {
+	background-color: #ecf0f1;
+}
 .data-as-a-utility .what-can-do h3 {
 	font-size:16px;
 	margin:2em 0 1em 0;
@@ -199,7 +192,7 @@ body.data-as-a-utility {
 	display:none;
 }
 .slide-content {
-	background-color: rgba(0, 0, 0, .5);
+	background-color: rgba(0, 0, 0, .75);
 	color: #fff;
     padding: 30px 40px;
 }
@@ -218,10 +211,10 @@ body.data-as-a-utility {
 	color: #bdc3c7;
 }
 
-.arrowsContainer {
+.arrowsContainer, .pain-points-arrows {
 	position: relative;
 }
-.arrowsContainer .toggle-left, .arrowsContainer .toggle-right {
+.arrowsContainer .toggle-left, .arrowsContainer .toggle-right, .pain-points-arrows .toggle-left, .pain-points-arrows .toggle-right {
 	position: absolute;
 	z-index: 100;
 	font-size: 25px;
@@ -229,7 +222,7 @@ body.data-as-a-utility {
 	width:100px;
 	background:#000;
 	color: #fff;
-	opacity: .5;
+	opacity: .75;
 	margin-top:200px;
 	border-radius: 50%;
 }
@@ -238,6 +231,10 @@ body.data-as-a-utility {
 }
 .toggle-right {
 	right:-50px;
+}
+.toggle-left:hover, .toggle-right:hover {
+	opacity:1;
+	cursor: pointer;
 }
 .slick-prev {
 	position: absolute;
@@ -250,6 +247,21 @@ body.data-as-a-utility {
 	top:40px;
 	right:60px;
 	z-index: 20;
+}
+
+/* Slides */
+
+.program-leaders {
+	background-image:url(../images/uber_program_leaders.jpg);
+}
+.citizens {
+	background-image:url(../images/uber_citizens.jpg);
+}
+.business {
+	background-image:url(../images/uber_business.jpg);
+}
+.officials {
+	background-image:url(../images/uber_officials.jpg);
 }
 
 
