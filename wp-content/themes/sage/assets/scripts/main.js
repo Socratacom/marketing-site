@@ -90,7 +90,7 @@
 })(jQuery); // Fully reference jQuery after this point.
 
 // Slick Slider
-function slider(container, arrows, speed, slides1, slides2, slides3, scrollNum1, scrollNum2) {
+function slider(container, arrows, speed, slides1, slides2, slides3, scrollNum1, scrollNum2, arrowContainer) {
   if (speed === '') {
     speed = 4000;
   }
@@ -109,9 +109,15 @@ function slider(container, arrows, speed, slides1, slides2, slides3, scrollNum1,
   if (scrollNum2 === '') {
     scrollNum2 = scrollNum1;
   }
+  if (arrowContainer === '') {
+    arrowContainer = container;
+  } else {
+    //arrowContainer = arrowContainer;
+  }
 
   $(container).slick({
     arrows: arrows,
+    appendArrows: arrowContainer,
     prevArrow: '<i class="fa slick-prev fa-chevron-left"></i>',
     nextArrow: '<i class="fa slick-next fa-chevron-right"></i>',
     draggable: false,
