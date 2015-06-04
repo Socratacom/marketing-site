@@ -194,7 +194,7 @@
                             "choices": {
                                 "cloud": "Cloud Product Suites",
                                 "pain_points_slider": "Pain Points Slider",
-                                "uber_persona_slider": "Uber Persona Slider"
+                                "uber_personas_slider": "Uber Personas Slider"
                             },
                             "default_value": {
                                 "": ""
@@ -229,6 +229,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1433451667,
-    "local": "json"
+    "modified": 1433459235
 }
