@@ -40,22 +40,69 @@ body.data-as-a-utility {
 	position:relative;
 }
 .data-as-a-utility .hero h1 {
-	margin:0;
+	margin:0 0 50px 0;
 }
-.data-as-a-utility .hero blockquote {
-	margin:0 0 15px 0;
-	padding:30px;
-	border-bottom:#fff solid 1px;
-	border-left:none;
+
+
+
+
+
+
+
+.hero blockquote {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 0px;
+  background: #FFFFFF;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border: #fff solid 3px;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 300;
+  line-height: normal;
+  padding: 30px;
 }
+
+.hero blockquote:after {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 10px 10px 0;
+  border-color: #FFFFFF transparent !important;
+  display: block;
+  width: 0;
+  z-index: 10;
+  bottom: -10px;
+  left: 30px;
+}
+
+.hero blockquote:before {
+  content: '';
+  position: absolute;
+  border-style: solid;
+  border-width: 12px 12px 0;
+  border-color: #fff transparent;
+  display: block;
+  width: 0;
+  z-index: 0;
+  bottom: -14px;
+  left: 28px;
+}
+
+
+
+
 .data-as-a-utility .hero blockquote p {
-	font-family: Georgia, Times, 'Times New Roman', serif;
 	font-size: 18px !important;
-	font-style:italic;
+	color:#222;
+	margin:0 !important;
 }
 .data-as-a-utility .hero .author {
 	list-style-type: none;
-	margin:0;
+	margin:0 0 0 30px;
 	padding: 0;
 	display:table;
 }
@@ -135,7 +182,10 @@ ul.jump-links {
 }
 .data-as-a-utility .what-can-do h3 {
 	font-size:16px;
-	margin:2em 0 1em 0;
+	margin:0 0 2em 0;
+	padding-bottom:15px;
+	text-transform: uppercase;
+	border-bottom:#bdc3c7 solid 1px;
 }
 .data-as-a-utility .what-can-do ul {
 	list-style-type: none;
@@ -144,28 +194,51 @@ ul.jump-links {
 }
 .data-as-a-utility .what-can-do li {
 	color:#666;
+	padding-left:30px;
+	position: relative;
+}
+.data-as-a-utility .what-can-do li::before {
+  content: "\f006";
+  font-family:FontAwesome;  
+  position: absolute;
+  left:0;
+  top:2px;
+  color:#e74c3c;
+  font-size: 24px;
 }
 
 /* Why Socrata */
 .data-as-a-utility .why-socrata {
 	background-color:#333;
 }
-.data-as-a-utility .why-socrata * {
+.data-as-a-utility .why-socrata {
 	color:#ecf0f1;
 }
+.why-socrata a {
+	color:#3498db;
+}
+.why-socrata a.btn {
+	color:#fff;
+	margin-top:15px;
+}
 .data-as-a-utility .why-socrata .features {
-	margin:2em 0;
+	margin-bottom:40px;
 }
 .data-as-a-utility .why-socrata .features p {
-	font-size: 16px !important;
 	padding-left:32px;
+	position: relative;
+}
+.data-as-a-utility .why-socrata .features p strong {
+	font-size: 18px;
+	display: block;
+	margin-bottom:10px;
 }
 .data-as-a-utility .why-socrata .features p::before {
   content: "\f05d";
   font-family:FontAwesome;  
   position: absolute;
-  left:15px;
-  top:2px;
+  left:0;
+  top:3px;
   color:#2ECC71;
   font-size: 24px;
 }
@@ -263,6 +336,16 @@ ul.jump-links {
 .officials {
 	background-image:url(../images/uber_officials.jpg);
 }
+.why {
+	background-image:url(../images/pain_point_3.jpg);
+}
+.building {
+	background-image:url(../images/pain_point_1.jpg);
+}
+.neighborhood {
+	background-image:url(../images/pain_point_2.jpg);
+}
+
 
 
 

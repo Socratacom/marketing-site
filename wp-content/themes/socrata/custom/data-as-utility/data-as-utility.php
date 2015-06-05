@@ -115,26 +115,38 @@ function slider_two_shortcode($atts, $content = null) { ob_start(); ?>
 <section class="slider-container">
 	<div class="pain-points-arrows"></div>
 	<div class="row pain-points">
-		<div class="col-sm-12 slide" style="background-color:#ccc;">
+		<div class="col-sm-12 slide why">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-offset-6 col-md-5 col-md-offset-7 slide-content">
-						<h4>Improve Quality of Life</h4>
-						<h3>Citizens</h3>
-						<p>Socrata helps you deliver great government-to-citizen digital experiences that your citizens expect. With Socrata, you can transform scattered, inaccessible assets into a powerful cloud-based digital services platform with ready-to-deploy interfaces that automatically connect you with the people you serve.</p>
-						<p>Socrata’s government-to-citizen solutions aren’t just easy and cost-effective; we provide superior outcomes that delight users, drive engagement and expand your reach. Ubiquitous access to relevant data will make your community a great place to live.</p>
+					<div class="col-lg-offset-1 col-md-5 slide-content">
+						<h4>Challenges</h4>
+						<h3>Why can’t they take care of this?</h3>
+						<p>In this era of instant access and feedback, citizens expect immediate responses to community issues. Conversely, governments spend thousands each year on service calls and requests, many of which are duplicate inquiries from concerned citizens. Opening data has the power to facilitate government-to-citizen communication and streamline program delivery.</p>
+						<p>Socrata can help you unlock, combine, and deliver datasets for citizen and government access to solving community and societal problems.</p>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-12 slide" style="background-color:#eee;">
+		<div class="col-sm-12 slide building">
 			<div class="container">
 				<div class="row">
-					<div class="col-lg-offset-6 col-md-5 col-md-offset-7 slide-content">
-						<h4>Improve Quality of Life</h4>
-						<h3>Citizens</h3>
-						<p>Socrata helps you deliver great government-to-citizen digital experiences that your citizens expect. With Socrata, you can transform scattered, inaccessible assets into a powerful cloud-based digital services platform with ready-to-deploy interfaces that automatically connect you with the people you serve.</p>
-						<p>Socrata’s government-to-citizen solutions aren’t just easy and cost-effective; we provide superior outcomes that delight users, drive engagement and expand your reach. Ubiquitous access to relevant data will make your community a great place to live.</p>
+					<div class="col-lg-offset-1 col-md-5 slide-content">
+						<h4>Challenges</h4>
+						<h3>Is my building permit approved?</h3>
+						<p>The 21<sup>st</sup> Century digital economy expects information on demand. Cloud based, shared-services models maximize innovation and reduce risk to virtually zero. Easy access to business data dramatically reduces costs, connects communities and entrepreneurs, and strengthens local economies. There’s no reason your government shouldn’t be involved.</p>
+						<p>In partnership with Socrata, you can directly connect citizens and developers to real-time updates for department and program-level activity.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-12 slide neighborhood">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-offset-1 col-md-5 slide-content">
+						<h4>Challenges</h4>
+						<h3>Is this neighborhood safe?</h3>
+						<p>Community perception, budget management, and resource allocation, are equally critical concerns for area leaders. Quick and easy access to the latest data empowers governments to make actionable, fact-based decisions about the issues that affect their constituents the most. Data consolidation and workflow automation expedite this process and save money in turn.</p>
+						<p>Use Socrata’s suite of tools to present fact-driven evidence about community details that really matter to citizens and public officials.</p>
 					</div>
 				</div>
 			</div>
