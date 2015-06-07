@@ -206,6 +206,47 @@
                             "placeholder": "",
                             "disabled": 0,
                             "readonly": 0
+                        },
+                        {
+                            "key": "field_557468f63dd83",
+                            "label": "Layout",
+                            "name": "layout",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": [
+                                [
+                                    {
+                                        "field": "field_556796ab30995",
+                                        "operator": "==",
+                                        "value": "cloud"
+                                    }
+                                ]
+                            ],
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "full": "Full",
+                                "overview": "Overview",
+                                "city_cloud": "City Cloud",
+                                "county_cloud": "County Cloud",
+                                "state_cloud": "State Cloud",
+                                "federal_cloud": "Federal Cloud",
+                                "ngo_cloud": "NGO Non-Profit Cloud"
+                            },
+                            "default_value": {
+                                "": ""
+                            },
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "disabled": 0,
+                            "readonly": 0
                         }
                     ],
                     "min": "",
@@ -229,5 +270,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1433459235
+    "modified": 1433693454
 }

@@ -1,24 +1,24 @@
 <?php
 
 function get_cloud_option($i, $selected_option) {
-    
-    echo '<div id="section-'. $i .'" class="clouds">';
+    // get layout choice
+    $layout = get_sub_field('layout');
+    echo '<div id="section-'. $i .'" class="clouds '.$layout.'">';
         echo '<div class="container"><div class="row">';
-            // get current URL to check against related page URL
-            $current_page = get_the_permalink();
-
             if( have_rows('cloud', 'option') ):
                 $c = true;
                 while ( have_rows('cloud', 'option') ) : the_row();
-                    // display only the cloud tile with related page link that matches current URL
-                    $related_page = get_sub_field('related_page', 'option');
-                    if ($current_page === $related_page) {
-                        $oddeven = false;
-                        echo output_cloud($oddeven, 'single-cloud');
-                    } else if ($current_page === get_site_url().'/' || $current_page === get_site_url().'/cloud-solutions/') {
+                    if ($layout === 'full' || $layout === 'overview') {
                         // display all clouds
                         $oddeven = $c = !$c;
                         echo output_cloud($oddeven);
+                    } else {
+                        $oddeven = false;
+                        // display only the cloud that matches layout selection
+                        $cloud = str_replace('icon-', '', get_sub_field('cloud_icon', 'option'));
+                        if ( $cloud === $layout ) {
+                            echo output_cloud($oddeven, 'single-cloud');
+                        }
                     }
                 endwhile;
             endif;
