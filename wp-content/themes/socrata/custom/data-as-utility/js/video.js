@@ -9,10 +9,10 @@ fullScreenVideo = {
      * backgroundvideo: The video in the backgorund
      * backgroundideoDiv: The jQuery selector of the div containing the background video
      */
-    overlayVideo: 'of3560a3ee',
-    overlayVideoDiv: '#wistia_of3560a3ee',
-    backgroundvideo: 'g92qhkv74k',
-    backgroundideoDiv: '#wistia_g92qhkv74k',
+    overlayVideo: 'qgy7fpq9gl',
+    overlayVideoDiv: '#wistia_qgy7fpq9gl',
+    backgroundvideo: 'fudivnw8is',
+    backgroundideoDiv: '#wistia_fudivnw8is',
     
     /**
      * This will call Wistia and embed the two videos
@@ -57,6 +57,7 @@ fullScreenVideo = {
     {
       $(fullScreenVideo.overlayVideoDiv).css("left", 0).css("visibility", "visible");
       overlayEmbed.plugin.cropFill.resize();
+      $("#video_container").css({"position": "fixed", "z-index": "1500"});
       $("#ex").css("right", 32);
       overlayEmbed.play();
     },
@@ -68,6 +69,7 @@ fullScreenVideo = {
     exitVideo: function()
     {
       $(fullScreenVideo.overlayVideoDiv).css("left", -3000).css("visibility", "hidden");
+      $("#video_container").css({"position": "relative", "z-index": "1"});
       $("#ex").css("right", -3000);
       overlayEmbed.pause();
       overlayEmbed._keyBindingsActive = false;
