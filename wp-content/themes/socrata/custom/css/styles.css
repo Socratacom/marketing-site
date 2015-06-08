@@ -1563,7 +1563,7 @@ table.contact-table {
 	width: 60px;
 	height: 60px;
 	font-size: 13px;
-	z-index: 2000;
+	z-index: 1000;
 }
 .gn-menu-main a {
 	display: block;

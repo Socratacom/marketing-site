@@ -63,14 +63,14 @@ ul.jump-links {
 	color:#fff;
 }
 #text {
-  position: absolute;
-  top:0;
-  left:0;
-  z-index:4;
-  width:100%;
-  height: 100%;
-  text-align: center;
-  background-color:rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top:0;
+	left:0;
+	z-index:4;
+	width:100%;
+	height: 100% !important;
+	text-align: center;
+	background-color:rgba(0, 0, 0, 0.5);
 }
 #text h1 {
 	font-size:50px;
@@ -86,13 +86,6 @@ ul.jump-links {
 	display: inline-block;
 	padding:0 15px;
 }
-
-
-
-
-
-
-
 #cover_all {
   position: absolute;
   top: 0;
@@ -101,7 +94,6 @@ ul.jump-links {
   height: 100%;
   width: 100%;
 }
-
 #main-image {
   position: absolute;
   top: 0;
@@ -140,11 +132,6 @@ ul.jump-links {
 #ex:hover {
   opacity: 1;
 }
-
-
-
-
-
 
 /**** sections ****/
 .data-as-a-utility .what-can-do, .data-as-a-utility .explore {
@@ -345,24 +332,29 @@ ul.jump-links {
 	background-image:url(../images/pain_point_2.jpg);
 }
 
-
-
-
-
-
-	
-
-
-
-
-
-
-
-/*==========  Non-Mobile First Method  ==========*/
-
-/* Large Devices, Wide Screens */
-@media only screen and (max-width : 1024px) {
-  .home #main-image {
-    background-size: cover;
-  }
+/* Mobile */
+@media only screen and (max-width : 992px) {
+	.backgroundVideo {
+		display: none !important;
+	}
+	#text li {
+		display: block;
+		padding:5px 15px;
+	}
+	.slider-container {
+		height:300px;
+	}
+	.arrowsContainer {
+		display: none;
+	}
+	.slide-content {
+		height:300px;
+	}
 }
+
+@media only screen and (max-width : 320px) {
+	#data {
+		height: 600px;
+	}
+}
+
