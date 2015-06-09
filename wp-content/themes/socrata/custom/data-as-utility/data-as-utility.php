@@ -15,7 +15,7 @@ function dau_video_shortcode($atts, $content = null) { ob_start(); ?>
 					<h1 class="text-center">Introducing Data as a Utility</h1>
 					<ul>
 						<li class="hidden-xs hidden-sm"><a href="#video-container" class="playbutton" >Watch the Video <i class="fa fa-chevron-circle-right"></i></a></li>
-						<li class="hidden-md hidden-lg"><a href="//fast.wistia.net/embed/iframe/qgy7fpq9gl?popover=true" class="wistia-popover[height=480,playerColor=7b796a,width=853]">Watch the Video <i class="fa fa-chevron-circle-right"></i></a></li>
+						<li class="hidden-md hidden-lg"><a href="//fast.wistia.net/embed/iframe/p3tr8wbatm?popover=true" class="wistia-popover[height=480,playerColor=7b796a,width=853]">Watch the Video <i class="fa fa-chevron-circle-right"></i></a></li>
 						<li><a href="#data">Data is a Critical New Utility <i class="fa fa-chevron-circle-right"></i></a></li>
 						<li><a href="#gov">What Can Data-Driven Government Do for You? <i class="fa fa-chevron-circle-right"></i></a></li>
 					</ul>
@@ -30,7 +30,7 @@ function dau_video_shortcode($atts, $content = null) { ob_start(); ?>
 <div id="wistia_fudivnw8is" class="wistia_embed backgroundVideo" ></div>
 
 <div id="ex"><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:#fff;"></span></div>
-<div id="wistia_qgy7fpq9gl" class="wistia_embed overlayVideo" ></div>
+<div id="wistia_p3tr8wbatm" class="wistia_embed overlayVideo" ></div>
 <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script>
 </section>
 

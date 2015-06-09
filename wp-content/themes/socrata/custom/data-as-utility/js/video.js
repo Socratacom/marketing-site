@@ -9,8 +9,8 @@ fullScreenVideo = {
      * backgroundvideo: The video in the backgorund
      * backgroundideoDiv: The jQuery selector of the div containing the background video
      */
-    overlayVideo: 'qgy7fpq9gl',
-    overlayVideoDiv: '#wistia_qgy7fpq9gl',
+    overlayVideo: 'p3tr8wbatm',
+    overlayVideoDiv: '#wistia_p3tr8wbatm',
     backgroundvideo: 'fudivnw8is',
     backgroundideoDiv: '#wistia_fudivnw8is',
     
