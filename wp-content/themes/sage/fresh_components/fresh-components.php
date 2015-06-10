@@ -21,6 +21,7 @@
 require_once 'init.php';
 
 // Each component is defined in its own file.
+require_once 'slider.php';
 require_once 'text-image.php';
 require_once 'option-selector.php';
 
@@ -36,6 +37,9 @@ function inject_fresh_components( $post_object ) {
 
                 if( get_row_layout() == 'text_image' ) {
                     get_text_image($i);
+
+                } elseif( get_row_layout() == 'slider' ) {
+                    get_slider($i);
 
                 } elseif( get_row_layout() == 'option_selector' ) {
                     get_custom_option($i);

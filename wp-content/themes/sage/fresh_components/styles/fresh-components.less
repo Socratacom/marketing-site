@@ -1,3 +1,42 @@
 .bg-gray {
 	background-color: @gray-light;
 }
+
+/* CSS fixes */
+
+/* Slick Slider */
+/* Improve slider arrows positioning */
+.slick-slider .slick-prev,
+.slick-slider .slick-next {
+    height: 100%;
+    width: 15%;
+    top: 0;
+    text-align: center;
+}
+.slick-slider .slick-prev {
+	left: 0;
+}
+.slick-slider .slick-next {
+	right: 0;
+}
+.slick-slider .slick-prev:before,
+.slick-slider .slick-next:before {
+	display: block;
+	top: 50%;
+	position: relative;
+	transform: translateY(-50%);
+	-webkit-transform: translateY(-50%);
+}
+
+
+/* Fix vertical alignment issues */
+.slick-list, .slick-track,
+.slider .slide, .slider .container {
+	height: 100%;
+}
+
+/* Prevents uploaded images to bleed out of the grid limits */
+.section img {
+	max-width: 100%;
+	height: auto;
+}
