@@ -3,27 +3,29 @@
 function get_cloud_option($i, $selected_option) {
     // get layout choice
     $layout = get_sub_field('layout');
-    echo '<div id="section-'. $i .'" class="clouds '.$layout.'">';
-        echo '<div class="container"><div class="row">';
+    $output = '';
+    $output .= '<div id="section-'. $i .'" class="clouds '.$layout.'">';
+        $output .= '<div class="container"><div class="row">';
             if( have_rows('cloud', 'option') ):
                 $c = true;
                 while ( have_rows('cloud', 'option') ) : the_row();
                     if ($layout === 'full' || $layout === 'overview') {
                         // display all clouds
                         $oddeven = $c = !$c;
-                        echo output_cloud($oddeven);
+                        $output .= output_cloud($oddeven);
                     } else {
                         $oddeven = false;
                         // display only the cloud that matches layout selection
                         $cloud = str_replace('icon-', '', get_sub_field('cloud_icon', 'option'));
                         if ( $cloud === $layout ) {
-                            echo output_cloud($oddeven, 'single-cloud');
+                            $output .= output_cloud($oddeven, 'single-cloud');
                         }
                     }
                 endwhile;
             endif;
-        echo '</div></div>';
-    echo '</div>';
+        $output .= '</div></div>';
+    $output .= '</div>';
+    echo $output;
 }
 
 function output_cloud($oddeven, $single = '') {
@@ -45,39 +47,39 @@ function output_cloud($oddeven, $single = '') {
         $push = 'col-md-push-8 col-sm-push-9';
         $pull = 'col-md-pull-4 col-sm-pull-3';
     }
+    $cloud_row = '';
 
-    // Output
-    echo '<div class="col-sm-12 cloud '.$single.'" id="'.$icon.'"><div class="col-md-4 col-sm-3 '.$push.' cloud-icon-wrapper">';
-        echo '<a class="cloud-link" href="'.$link.'">';
+    $cloud_row .= '<div class="col-sm-12 cloud '.$single.'" id="'.$icon.'"><div class="col-md-4 col-sm-3 '.$push.' cloud-icon-wrapper">';
+        $cloud_row .= '<a class="cloud-link" href="'.$link.'">';
         if ($icon) {
-            echo '<span class="cloud-icon '.$icon.'"></span>';
+            $cloud_row .= '<span class="cloud-icon '.$icon.'"></span>';
         }
         if ($title) {
-            echo '<h2>'.$title.'</h2>';
+            $cloud_row .= '<h3>'.$title.'</h3>';
         }
-        echo '</a>';
-    echo '</div>';
-    echo '<div class="col-md-8 col-sm-9 '.$pull.' cloud-detail">';
+        $cloud_row .= '</a>';
+    $cloud_row .= '</div>';
+    $cloud_row .= '<div class="col-md-8 col-sm-9 '.$pull.' cloud-detail">';
         if ($headline) {
-            echo '<h3>'.$headline.'</h3>';
+            $cloud_row .= '<h4>'.$headline.'</h4>';
         }
         if ($content) {
-            echo $content;
+            $cloud_row .= $content;
         }
         if ($infographic && '' !== $single ) {
-            echo '<img src="'.$infographic.'" class="img-responsive">';
+            $cloud_row .= '<img src="'.$infographic.'" class="img-responsive">';
         }
         if ($link) {
-            echo '<a href="'.$link.'" class="button">';
+            $cloud_row .= '<a href="'.$link.'" class="button">';
             if ($link_text) {
-                echo $link_text;
+                $cloud_row .= $link_text;
             } else {
-                echo 'Learn More';
+                $cloud_row .= 'Learn More';
             }
-            echo '</a>';
+            $cloud_row .= '</a>';
         }
-    echo '</div>';
-    echo '<div class="col-sm-12 logos hidden-xs">';
+    $cloud_row .= '</div>';
+    $cloud_row .= '<div class="col-sm-12 logos hidden-xs">';
         if( have_rows('logos', 'option') && '' !== $single ):
             while( have_rows('logos', 'option') ): the_row();
                     $logo = get_sub_field('logo_image');
@@ -99,15 +101,16 @@ function output_cloud($oddeven, $single = '') {
                     endif;
 
                     if ($logo) {
-                        echo '<div class="slide col-sm-2">'.$linkstart.'<img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale">'.$linkend.'</div>';
+                        $cloud_row .= '<div class="slide col-sm-2">'.$linkstart.'<img src="'.$logo['url'].'" alt="'.$logo['title'].'" class="grayscale">'.$linkend.'</div>';
                     }
             endwhile;
         endif;
-        echo '</div>';
+        $cloud_row .= '</div>';
         if( have_rows('logos', 'option') && '' !== $single ):
-            echo '<script type="text/javascript"> document.addEventListener("DOMContentLoaded", function() {
+            $cloud_row .= '<script type="text/javascript"> document.addEventListener("DOMContentLoaded", function() {
                 slider(".logos", false, 4000, 6, 5, 3);
             }, false);</script>';
         endif;
-    echo '</div>';
+    $cloud_row .= '</div>';
+    return $cloud_row;
 }

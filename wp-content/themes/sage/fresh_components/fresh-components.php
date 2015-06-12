@@ -3,7 +3,7 @@
  * Fresh Components
  *
  * The components work with ACF fields and
- * are the building blocks used for building 
+ * are the building blocks used for building
  * the pages of this site.
  *
  * Current components available:
@@ -28,7 +28,7 @@ require_once 'option-selector.php';
 // Check if loop has components, if so, display them
 function inject_fresh_components( $post_object ) {
     if ( get_post_type() === 'page' || get_post_type() === 'post') {
-        
+
         // check if the flexible content field has rows of data
         if( acfHelper::have_rows('components') ) {
             $i = 0;
