@@ -627,6 +627,15 @@
                     ],
                     "min": "",
                     "max": ""
+                },
+                {
+                    "key": "558856e8e03ee",
+                    "name": "news",
+                    "label": "News",
+                    "display": "row",
+                    "sub_fields": [],
+                    "min": "",
+                    "max": ""
                 }
             ]
         }
@@ -646,5 +655,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1434997533
+    "modified": 1434998523
 }

@@ -62,14 +62,16 @@ function get_case_studies($i) {
     }, false);
 	</script>";
 
-	echo '<div class="section case-studies case-studies-'.$i.'">';
-	echo '<div class="container">';
-	echo '<div class="row"><div class="col-xs-12 col-sm-10 col-sm-offset-1"><h4>Case Studies</h4></div></div>';
-	echo '<div class="row">';
-	echo $case_studies;
-	echo '</div>';
-	echo '</div>';
-	echo '</div>';
-	echo $script;
+	$result .= '<div class="section case-studies case-studies-'.$i.'">';
+	$result .= '<div class="container">';
+	$result .= '<div class="row"><div class="col-xs-12 col-sm-10 col-sm-offset-1"><h4>Case Studies</h4></div></div>';
+	$result .= '<div class="row">';
+	$result .= $case_studies;
+	$result .= '</div>';
+	$result .= '</div>';
+	$result .= '</div>';
+	$result .= $script;
+
+	return $result;
 
 }

@@ -25,6 +25,7 @@ require_once 'text-image.php';
 require_once 'ecosystem.php';
 require_once 'option-selector.php';
 require_once 'case-studies.php';
+require_once 'news.php';
 
 
 /**
@@ -55,7 +56,10 @@ function inject_fresh_components( $post_object ) {
                     get_custom_option($i);
 
                 } elseif( get_row_layout() === 'case_studies' ) {
-                    get_case_studies($i);
+                    echo get_case_studies($i);
+
+                } elseif( get_row_layout() === 'news' ) {
+                    echo get_news($i);
 
                 }
                 $i++;
