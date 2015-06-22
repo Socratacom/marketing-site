@@ -1,7 +1,77 @@
 <?php
-/*-----------------------------------*/
-// Adding ACF options
-/*-----------------------------------*/
+/**
+ * Fresh Components
+ *
+ * The components work with ACF fields and
+ * are the building blocks used for building
+ * the pages of this site.
+ *
+ * Current components available:
+ * * Text-Image: Show image on one side, text on the other, can flip
+ * * Options Selector: Shows content from the option pages
+ *
+ * The components are injected automatically in pages and posts
+ * that use them through the loop start hook.
+ *
+ * @author Fresh Consulting <freshconsulting.com>
+ * @since  1.0
+ *
+ */
+
+
+// Each component is defined in its own file.
+require_once 'slider.php';
+require_once 'text-image.php';
+require_once 'ecosystem.php';
+require_once 'option-selector.php';
+require_once 'case-studies.php';
+
+
+/**
+ * Checks if loop has components, if so, display them
+ *
+ * @param $post_object The post object from the page loop
+ * @return string Component markup, or FALSE otherwise.
+ */
+function inject_fresh_components( $post_object ) {
+    if ( get_post_type() === 'page' || get_post_type() === 'post') {
+
+        // check if the flexible content field has rows of data
+        if( acfHelper::have_rows('components') ) {
+            $i = 0;
+            // loop through the rows of data
+            while ( have_rows('components') ) { the_row();
+
+                if( get_row_layout() === 'text_image' ) {
+                    get_text_image($i);
+
+                } elseif( get_row_layout() === 'slider' ) {
+                    get_slider($i);
+
+                } elseif( get_row_layout() === 'ecosystem' ) {
+                    get_ecosystem($i);
+
+                } elseif( get_row_layout() === 'option_selector' ) {
+                    get_custom_option($i);
+
+                } elseif( get_row_layout() === 'case_studies' ) {
+                    get_case_studies($i);
+
+                }
+                $i++;
+            }
+        }
+
+        wp_reset_postdata();
+
+    }
+}
+add_action( 'loop_start', 'inject_fresh_components' );
+
+
+/**
+ * Adding ACF options
+ */
 if( function_exists('acf_add_options_page') ) {
   acf_add_options_page(array(
     'page_title'  => 'Cloud Product Suites',
@@ -17,14 +87,14 @@ if( function_exists('acf_add_options_page') ) {
     ));
 }
 
-/*------------------------------------------------------*/
-// Bootstrapping ACF functions if ACF isn't activated
-/*------------------------------------------------------*/
 
-//Usage:
-//    -include the class in your functions.php or in a plugin
-//    -call its static mathods using colon syntax (ie: acfHelper::acf_is_active() )
-
+/**
+ * Bootstrapping ACF functions if ACF isn't activated
+ * 
+ * Usage:
+ *    - include the class in your functions.php or in a plugin
+ *    - call its static mathods using colon syntax (ie: acfHelper::acf_is_active() )
+ */
 class acfHelper {
 
     //functions use underscores to keep in style with acf base functions
