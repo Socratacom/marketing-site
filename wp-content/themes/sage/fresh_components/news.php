@@ -12,7 +12,7 @@ function get_news($i) {
 	$news_loop = new WP_Query( $args );
 
 	if ( $news_loop->have_posts() ) :
-		$news .= '<div class="row news-list">';
+		$news  = '<div class="row news-list">';
 		while ( $news_loop->have_posts() ) : $news_loop->the_post();
 			// get vars
 			$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
@@ -57,7 +57,7 @@ function get_news($i) {
 
 	// endif;
 
-	$result .= '<div class="section news news-'.$i.'">';
+	$result  = '<div class="section news news-'.$i.'">';
 	$result .= '<div class="container">';
 	$result .= $news;
 	$result .= '</div>';

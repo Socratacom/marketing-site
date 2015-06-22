@@ -4,6 +4,7 @@ function get_slider($i) {
 
 	$slide_number = 0;
 	$slider_fixed_height = get_sub_field('slider_fixed_height') === '' ? 460 : get_sub_field('slider_fixed_height');
+	$slide = '';
 
 	if (have_rows('slide')) {
 		while (have_rows('slide')) { the_row();

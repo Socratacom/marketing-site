@@ -24,7 +24,7 @@ function get_case_studies($i) {
 	
 	if ( $case_loop->have_posts() ) :
 		
-		$case_studies .= '<div class="col-sm-10 col-sm-offset-1 post-list">';
+		$case_studies = '<div class="col-sm-10 col-sm-offset-1 post-list">';
 
 		while ( $case_loop->have_posts() ) : $case_loop->the_post();
 			
@@ -62,7 +62,7 @@ function get_case_studies($i) {
     }, false);
 	</script>";
 
-	$result .= '<div class="section case-studies case-studies-'.$i.'">';
+	$result  = '<div class="section case-studies case-studies-'.$i.'">';
 	$result .= '<div class="container">';
 	$result .= '<div class="row"><div class="col-xs-12 col-sm-10 col-sm-offset-1"><h4>Case Studies</h4></div></div>';
 	$result .= '<div class="row">';
