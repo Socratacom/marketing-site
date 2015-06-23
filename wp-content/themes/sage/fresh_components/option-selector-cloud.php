@@ -5,27 +5,60 @@ function get_cloud_option($i, $selected_option) {
     $layout = get_sub_field('layout');
     $output = '';
     $output .= '<div id="section-'. $i .'" class="clouds '.$layout.'">';
-        $output .= '<div class="container"><div class="row">';
-            if( have_rows('cloud', 'option') ):
-                $c = true;
-                while ( have_rows('cloud', 'option') ) : the_row();
-                    if ($layout === 'full' || $layout === 'overview') {
-                        // display all clouds
-                        $oddeven = $c = !$c;
-                        $output .= output_cloud($oddeven);
-                    } else {
-                        $oddeven = false;
-                        // display only the cloud that matches layout selection
-                        $cloud = str_replace('icon-', '', get_sub_field('cloud_icon', 'option'));
-                        if ( $cloud === $layout ) {
-                            $output .= output_cloud($oddeven, 'single-cloud');
-                        }
+        if( have_rows('cloud', 'option') ):
+            $c = true;
+            if ($layout === 'full') {
+                 $output .= cloud_intro();
+            }
+            $output .= '<div class="container"><div class="row">';
+            while ( have_rows('cloud', 'option') ) : the_row();
+                if ($layout === 'full' || $layout === 'overview') {
+                    // display all clouds
+                    $oddeven = $c = !$c;
+                    $output .= output_cloud($oddeven);
+                } else {
+                    $oddeven = false;
+                    // display only the cloud that matches layout selection
+                    $cloud = str_replace('icon-', '', get_sub_field('cloud_icon', 'option'));
+                    if ( $cloud === $layout ) {
+                        $output .= output_cloud($oddeven, 'single-cloud');
                     }
-                endwhile;
-            endif;
-        $output .= '</div></div>';
+                }
+            endwhile;
+            $output .= '</div></div>';
+        endif;
     $output .= '</div>';
-    echo $output;
+    return $output;
+}
+
+function cloud_intro() {
+    $content = get_field('intro_content', 'option');
+    $cloud_intro = '<section class="cloud-overview hidden-xs">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">'.
+                   $content
+                .'</div>';
+                if( have_rows('cloud', 'option') ):
+                    $count = 0;
+                    while ( have_rows('cloud', 'option') ) : the_row();
+                        $title = get_sub_field('title');
+                        $icon = get_sub_field('cloud_icon');
+                        $offset = '';
+                        if ($count == 0 ) {
+                            $offset = 'col-sm-offset-1';
+                        }
+                        $cloud_intro .= '<div class="col-sm-2 col-xs-6 '.$offset.'">';
+                            $cloud_intro .= '<a href="#'.$icon.'"><span class="'.$icon.'"></span></a>';
+                            $cloud_intro .= '<h3>'.$title.'</h3>';
+                        $cloud_intro .= '</div>';
+                        $count++;
+                    endwhile;
+                else :
+                    // no rows found
+                endif;
+    $cloud_intro .= '</div></div></section>';
+    return $cloud_intro;
 }
 
 function output_cloud($oddeven, $single = '') {

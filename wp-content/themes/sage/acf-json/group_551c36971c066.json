@@ -3,6 +3,24 @@
     "title": "Cloud Product Suites",
     "fields": [
         {
+            "key": "field_5589eef94b0dc",
+            "label": "Intro Content",
+            "name": "intro_content",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0
+        },
+        {
             "key": "field_551c375812eae",
             "label": "Cloud",
             "name": "cloud",
@@ -307,6 +325,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1435090987,
-    "local": "json"
+    "modified": 1435102994
 }

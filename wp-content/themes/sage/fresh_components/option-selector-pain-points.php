@@ -34,5 +34,5 @@ function get_pain_points_option($i, $selected_option) {
     $output .= '<script type="text/javascript"> document.addEventListener("DOMContentLoaded", function() {
                 slider(".pain-points-slider", true, 4800,"","","","","",".arrowsContainer");
             }, false);</script>';
-    echo $output;
+    return $output;
 }
