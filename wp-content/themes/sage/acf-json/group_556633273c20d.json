@@ -256,7 +256,7 @@
                     "key": "55761be2eebfd",
                     "name": "slider",
                     "label": "Slider",
-                    "display": "row",
+                    "display": "block",
                     "sub_fields": [
                         {
                             "key": "field_557765e1f1ae0",
@@ -655,5 +655,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1434998523
+    "modified": 1435091137
 }

@@ -22,7 +22,7 @@ function get_case_studies($i) {
 
 	$case_loop = get_posts( $args );
 	if ($case_loop) {
-		$case_studies  = '<div class="row post-list">';
+		$case_studies  = '<div class="col-sm-10 col-sm-offset-1 post-list">';
 		foreach( $case_loop as $loop ) { setup_postdata($loop);
 			$post_id = $loop->ID;
 			$featured_image = wp_get_attachment_image_src(  get_post_thumbnail_id($post_id), 'full' );
@@ -36,34 +36,9 @@ function get_case_studies($i) {
 			$case_studies .= '<div class="col-sm-5">';
 			$case_studies .= '<a class="img-container" style="background-image:url('.$featured_image[0].')" href="'.$link.'"></a>';
 			$case_studies .= '</div></div>';
-		// 
 		}
 		$case_studies .= '</div>';
 	}
-	// if ( $case_loop->have_posts() ) :
-		
-	// 	$case_studies = '<div class="col-sm-10 col-sm-offset-1 post-list">';
-
-	// 	while ( $case_loop->have_posts() ) : $case_loop->the_post();
-			
-	// 		$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-	// 		$featured_image = $featured_image[0];
-	// 		$name = get_the_title();
-	// 		$link = get_the_permalink();
-	// 		$excerpt = get_the_excerpt();
-			
-	// 		$case_studies .= '<div class="slide row"><div class="col-sm-7">';
-	// 		$case_studies .= '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
-	// 		$case_studies .= '</div>';
-	// 		$case_studies .= '<div class="col-sm-5">';
-	// 		$case_studies .= '<a class="img-container" style="background-image:url('.$featured_image.')" href="'.$link.'"></a>';
-	// 		$case_studies .= '</div></div>';
-
-	// 	endwhile;
-	
-	// 	$case_studies .= '</div>';
-	
-	// endif;
 
 	$script = "<script>
 	document.addEventListener('DOMContentLoaded', function() {

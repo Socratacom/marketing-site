@@ -1,0 +1,51 @@
+// used !important to get around Marketo in-line styles
+#mktoForm_2306 {
+  .pStyle;
+  width: 100% !important;
+  .mktoFormRow {
+    .mktoFormCol, .mktoFieldWrap {
+      width: 100%;
+      margin-bottom: 0 !important;
+    }
+    .mktoOffset, label {
+      display: none;
+    }
+    .mktoGutter {
+      width: 0px !important;
+    }
+    input {
+      width: 100% !important;
+      border: none;
+      padding: 10px;
+      margin-top: 15px;
+    }
+    input#Title {
+      width: 50% !important;
+    }
+  }
+  .mktoFormRow input:first-child {
+    margin-top: 0;
+  }
+  .mktoButtonRow {
+    position: absolute;
+    right: 15px;
+    width: 42%;
+    bottom: 36px;
+    .mktoButtonWrap {
+      margin-left: 0 !important;
+      line-height: 1.5;
+      button {
+        border: none;
+        background-image: none;
+        box-shadow: none;
+        width: 100%;
+        padding: 10px;
+        background-color: #e19c46;
+        &:hover {
+          border: none;
+          background-color: darken(#e19c46, 10%);
+        }
+      }
+    }
+  }
+}

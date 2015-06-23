@@ -10,15 +10,21 @@ function get_slider($i) {
 		while (have_rows('slide')) { the_row();
 
 			$rows = '';
-			$slide_background_color = get_sub_field('slide_background_color') !== '' ? get_sub_field('slide_background_color') : 'red';
+			$slide_background_color = get_sub_field('slide_background_color') !== '' ? get_sub_field('slide_background_color') : 'white';
 			$slide_background_array = get_sub_field('slide_background_image');
-			$slide_background_image_url = $slide_background_array['url'];
+			$slide_background_image_url = '';
+			if ($slide_background_array) {
+				$slide_background_image_url = $slide_background_array['url'];
+			}
 			$slide_background_image_size = get_sub_field('slide_background_image_size') !== '' ? get_sub_field('slide_background_image_size') : 'cover';
 			$slide_background_image_position = get_sub_field('slide_background_image_position') !== '' ? get_sub_field('slide_background_image_position') : 'center center';
 
-			$slide_background_style = 'background-image: url('. $slide_background_image_url .');
-									   background-color: '. $slide_background_color .';
-									   background-position: '. $slide_background_image_position .'; 
+			$slide_background_style = '';
+			if ($slide_background_array) {
+				$slide_background_style .= 'background-image: url('. $slide_background_image_url .');';
+			}
+			$slide_background_style .= 'background-color: '. $slide_background_color .';
+									   background-position: '. $slide_background_image_position .';
 									   background-size: '. $slide_background_image_size .';
 									   background-repeat: no-repeat;';
 
@@ -29,7 +35,7 @@ function get_slider($i) {
 				$rows .= '</div>';
 				$rows .= '</div>';
 			}
-			
+
 			if (have_rows('rows')) {
 				$rows .= '<div class="row">';
 				while (have_rows('rows')) { the_row();
@@ -42,7 +48,7 @@ function get_slider($i) {
 							$rows .= '</div>';
 						}
 					}
-					
+
 				}
 				$rows .= '</div>';
 			}
@@ -52,7 +58,7 @@ function get_slider($i) {
 				$rows .= '<div class="col-md-12">';
 				$rows .= get_sub_field('slide_bottom');
 				$rows .= '</div>';
-				$rows .= '</div>';	
+				$rows .= '</div>';
 			}
 
 			$slide .= '<div class="slide slide-'.$slide_number.'" style="'. $slide_background_style .'">';
