@@ -62,6 +62,7 @@ function inject_fresh_components( $post_object ) {
                     echo get_news($i);
 
                 }
+
                 $i++;
             }
         }
