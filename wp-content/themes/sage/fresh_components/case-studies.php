@@ -11,7 +11,8 @@ function get_case_studies($i) {
 
 	$case_studies_category = get_sub_field('case_studies_category');
 	$bg_color = get_sub_field('background_color');
-	$theme = get_sub_field('color_theme');
+	$theme = get_sub_field('color_theme') && !is_array(get_sub_field('color_theme')) ? get_sub_field('color_theme') : null;
+
 
 	if($case_studies_category && count($case_studies_category) !== 0) {
 	    $args['tax_query'] = array();
@@ -58,7 +59,7 @@ function get_case_studies($i) {
     }, false);
 	</script>";
 
-	$result  = '<div class="section '.$theme.' case-studies case-studies-'.$i.'" style="background-color: '.$bg_color.';">';
+	$result  = '<div class="section '. $theme .' case-studies case-studies-'. $i .'" style="background-color: '. $bg_color .';">';
 	$result .= '<div class="container">';
 	$result .= '<div class="row"><div class="col-xs-12 col-sm-10 col-sm-offset-1"><h4>Case Studies</h4></div></div>';
 	$result .= '<div class="row">';

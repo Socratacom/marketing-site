@@ -2,7 +2,7 @@
 
 function get_cloud_option($i, $selected_option) {
     // get layout choice
-    $layout = get_sub_field('layout');
+    $layout = get_sub_field('layout') && !is_array(get_sub_field('layout')) ? get_sub_field('layout') : null;
     $output = '';
     $output .= '<div id="section-'. $i .'" class="clouds '.$layout.'">';
         if( have_rows('cloud', 'option') ):

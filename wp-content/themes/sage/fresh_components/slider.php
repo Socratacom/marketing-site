@@ -17,17 +17,18 @@ function get_slider($i) {
 			if ($slide_background_array) {
 				$slide_background_image_url = $slide_background_array['url'];
 			}
-			$slide_background_image_size = get_sub_field('slide_background_image_size') !== '' ? get_sub_field('slide_background_image_size') : 'cover';
-			$slide_background_image_position = get_sub_field('slide_background_image_position') !== '' ? get_sub_field('slide_background_image_position') : 'center center';
+			$slide_background_image_size = get_sub_field('slide_background_image_size') !== '' && !is_array(get_sub_field('slide_background_image_size')) ? get_sub_field('slide_background_image_size') : 'cover';
+			$slide_background_image_position = get_sub_field('slide_background_image_position') !== ''  && !is_array(get_sub_field('slide_background_image_position')) ? get_sub_field('slide_background_image_position') : 'center center';
 
 			$slide_background_style = '';
 			if ($slide_background_array) {
 				$slide_background_style .= 'background-image: url('. $slide_background_image_url .');';
 			}
+
 			$slide_background_style .= 'background-color: '. $slide_background_color .';
-									   background-position: '. $slide_background_image_position .';
-									   background-size: '. $slide_background_image_size .';
-									   background-repeat: no-repeat;';
+									    background-position: '. $slide_background_image_position .';
+									    background-size: '. $slide_background_image_size .';
+									    background-repeat: no-repeat;';
 
 			if (get_sub_field('slide_top')) {
 				$rows .= '<div class="row">';
@@ -63,12 +64,10 @@ function get_slider($i) {
 				$rows .= '</div>';
 			}
 
-			$slide .= '<div id="'.$rtp_id.'">';
-			$slide .= '<div class="slide slide-'.$slide_number.'" style="'. $slide_background_style .'">';
+			$slide .= '<div id="'.$rtp_id.'" class="slide slide-'.$slide_number.'" style="'. $slide_background_style .'">';
 			$slide .= '<div class="container">';
 			$slide .= '<div style="'. ( $slider_fixed_height ? 'top:50%; -webkit-transform:translateY(-50%); transform:translateY(-50%); position:relative;' : null ) .'">';
 			$slide .= $rows;
-			$slide .= '</div>';
 			$slide .= '</div>';
 			$slide .= '</div>';
 			$slide .= '</div>';
@@ -76,13 +75,14 @@ function get_slider($i) {
 			$slide_number++;
 
 		}
+
 	} else {
 		return false;
 	}
 
 	$script = "<script>
 	document.addEventListener('DOMContentLoaded', function() {
-        $('.slider-$i').slick({
+        $('.slider-$i .slide-list').slick({
 			arrows: true,
 			prevArrow: '<i class=\"fa slick-prev fa-chevron-left\"></i>',
 			nextArrow: '<i class=\"fa slick-next fa-chevron-right\"></i>',
@@ -96,10 +96,12 @@ function get_slider($i) {
 	</script>";
 
 	echo '<div class="section slider slider-'.$i.'" style="margin:0 -15px; '.( $slider_fixed_height ? 'height:'.$slider_fixed_height.'px;' : null ).'">';
+	echo '<div class="slide-list">';
 	echo $slide;
 	echo '</div>';
+	echo '</div>';
 
-	if ($slide_number > 0) {
+	if ($slide_number > 1) {
 		echo $script;
 	}
 
