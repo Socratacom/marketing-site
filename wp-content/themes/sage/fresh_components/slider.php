@@ -10,6 +10,7 @@ function get_slider($i) {
 		while (have_rows('slide')) { the_row();
 
 			$rows = '';
+			$rtp_id = get_sub_field('rtp_id');
 			$slide_background_color = get_sub_field('slide_background_color') !== '' ? get_sub_field('slide_background_color') : 'white';
 			$slide_background_array = get_sub_field('slide_background_image');
 			$slide_background_image_url = '';
@@ -43,7 +44,8 @@ function get_slider($i) {
 					if (get_sub_field('columns')) {
 						$columns_count = count(get_sub_field('columns'));
 						while(have_rows('columns')) { the_row();
-							$rows .= '<div class="col-sm-'. ( 12 / $columns_count ) .'">';
+							$column_rtp_id = get_sub_field('rtp_id');
+							$rows .= '<div id="'.$column_rtp_id.'" class="col-sm-'. ( 12 / $columns_count ) .'">';
 							$rows .= get_sub_field('column');
 							$rows .= '</div>';
 						}
@@ -61,10 +63,12 @@ function get_slider($i) {
 				$rows .= '</div>';
 			}
 
+			$slide .= '<div id="'.$rtp_id.'">';
 			$slide .= '<div class="slide slide-'.$slide_number.'" style="'. $slide_background_style .'">';
 			$slide .= '<div class="container">';
 			$slide .= '<div style="'. ( $slider_fixed_height ? 'top:50%; -webkit-transform:translateY(-50%); transform:translateY(-50%); position:relative;' : null ) .'">';
 			$slide .= $rows;
+			$slide .= '</div>';
 			$slide .= '</div>';
 			$slide .= '</div>';
 			$slide .= '</div>';
