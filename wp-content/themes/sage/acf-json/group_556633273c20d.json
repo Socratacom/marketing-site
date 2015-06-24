@@ -309,7 +309,7 @@
                                     },
                                     "min": "",
                                     "max": "",
-                                    "layout": "table",
+                                    "layout": "row",
                                     "button_label": "Add Row",
                                     "sub_fields": [
                                         {
@@ -370,6 +370,67 @@
                                                     "disabled": 0
                                                 }
                                             ]
+                                        },
+                                        {
+                                            "key": "field_558b2f178e95b",
+                                            "label": "Activate Carousel Behavior",
+                                            "name": "activate_carousel",
+                                            "type": "checkbox",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": 0,
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "yes": "Yes",
+                                                "no": "No"
+                                            },
+                                            "default_value": {
+                                                "no": "No"
+                                            },
+                                            "layout": "vertical"
+                                        },
+                                        {
+                                            "key": "field_558b2f7e8e95c",
+                                            "label": "Columns per slide",
+                                            "name": "columns_per_slide",
+                                            "type": "select",
+                                            "instructions": "",
+                                            "required": 0,
+                                            "conditional_logic": [
+                                                [
+                                                    {
+                                                        "field": "field_558b2f178e95b",
+                                                        "operator": "==",
+                                                        "value": "yes"
+                                                    }
+                                                ]
+                                            ],
+                                            "wrapper": {
+                                                "width": "",
+                                                "class": "",
+                                                "id": ""
+                                            },
+                                            "choices": {
+                                                "1": 1,
+                                                "2": 2,
+                                                "3": 3,
+                                                "4": 4,
+                                                "5": 5
+                                            },
+                                            "default_value": [
+                                                3
+                                            ],
+                                            "allow_null": 0,
+                                            "multiple": 0,
+                                            "ui": 0,
+                                            "ajax": 0,
+                                            "placeholder": "",
+                                            "disabled": 0,
+                                            "readonly": 0
                                         }
                                     ]
                                 },
@@ -762,5 +823,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1435168023
+    "modified": 1435185136
 }
