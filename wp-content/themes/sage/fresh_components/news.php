@@ -1,6 +1,10 @@
 <?php
 
 function get_news($i) {
+	$label = '';
+	if ( '' != get_sub_field('label') ) {
+		$label = '<h2>'.get_sub_field('label').'</h2>';
+	}
 
 	$args = array(
 		'post_type' => array( 'tech_blog', 'post' ),
@@ -56,6 +60,7 @@ function get_news($i) {
 
 	$result  = '<div class="section news news-'.$i.'">';
 	$result .= '<div class="container">';
+	$result .= $label;
 	$result .= $news;
 	$result .= '</div>';
 	$result .= '</div>';
