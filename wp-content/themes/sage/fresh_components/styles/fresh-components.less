@@ -1,8 +1,21 @@
+/* Import other component's styleshees here */
+
+@import "../../fresh_components/styles/text-image";
+@import "../../fresh_components/styles/option-selector-cloud";
+@import "../../fresh_components/styles/option-selector-pain-points";
+@import "../../fresh_components/styles/ecosystem";
+
 .bg-gray {
 	background-color: @gray-light;
 }
 
 /* Custom */
+/* News */
+.section.news {
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
 /* Case Studies */
 .section.case-studies {
 	padding: 70px 0;
@@ -18,6 +31,12 @@
 	&.light {
 		color: @black;
 	}
+	a {
+		color: @white;
+		&:hover {
+			opacity: .8;
+		}
+	}
 }
 .section.case-studies .img-container {
 	height: 230px;
@@ -26,11 +45,27 @@
 	display: inline-block;
 	width: 100%;
 }
+.section.case-studies .slick-slider .slick-prev,
+.section.case-studies .slick-slider .slick-next {
+	top: 48.8%;
+}
 .section.case-studies .slick-prev {
-	left: -15%;
+	left: 2.5%;
 }
 .section.case-studies .slick-next {
-	right: -15%;
+	right: 2.5%;
+}
+@media (min-width: @screen-sm-min) {
+	.section.case-studies .slick-slider .slick-prev,
+	.section.case-studies .slick-slider .slick-next {
+		top: 0;
+	}
+	.section.case-studies .slick-prev {
+		left: -8.5%;
+	}
+	.section.case-studies .slick-next {
+		right: -8.5%;
+	}
 }
 
 /* CSS fixes */
@@ -40,7 +75,7 @@
 .slick-slider .slick-prev,
 .slick-slider .slick-next {
     height: 100%;
-    width: 15%;
+    width: 30px;
     top: 0;
     text-align: center;
 }

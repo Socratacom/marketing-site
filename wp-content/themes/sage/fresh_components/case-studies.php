@@ -33,7 +33,7 @@ function get_case_studies($i) {
 			$excerpt = wp_trim_words ( strip_shortcodes( $loop->post_content, 55 ) );
 
 			$case_studies .= '<div class="slide row"><div class="col-sm-7">';
-			$case_studies .= '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
+			$case_studies .= '<h3><a href="'.$link.'">'.$name.'</a></h3><p>'.$excerpt.'</p>';
 			$case_studies .= '</div>';
 			$case_studies .= '<div class="col-sm-5">';
 			$case_studies .= '<a class="img-container" style="background-image:url('.$featured_image[0].')" href="'.$link.'"></a>';
