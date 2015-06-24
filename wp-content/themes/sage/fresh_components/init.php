@@ -7,6 +7,8 @@
  * the pages of this site.
  *
  * Current components available:
+ * * Slider: Show a slider comprised of multiple slides, each can 
+ * have multiple rows containing multiple columns
  * * Text-Image: Show image on one side, text on the other, can flip
  * * Options Selector: Shows content from the option pages
  *
@@ -26,6 +28,19 @@ require_once 'ecosystem.php';
 require_once 'option-selector.php';
 require_once 'case-studies.php';
 require_once 'news.php';
+
+function components_euqeue_scripts() {
+    wp_register_script(
+        'fresh-components-main-js',
+        get_stylesheet_directory_uri() . '/fresh_components/scripts/main.js',
+        false,
+        '1.0',
+        false
+    );
+
+    wp_enqueue_script( 'fresh-components-main-js' );
+}
+add_action( 'wp_enqueue_scripts', 'components_euqeue_scripts' );
 
 
 /**

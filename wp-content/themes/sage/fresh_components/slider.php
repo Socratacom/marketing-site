@@ -64,9 +64,9 @@ function get_slider($i) {
 				$rows .= '</div>';
 			}
 
-			$slide .= '<div id="'.$rtp_id.'" class="slide slide-'.$slide_number.'" style="'. $slide_background_style .'">';
+			$slide .= '<div id="'.$rtp_id.'" class="slide slide-'. $slide_number .'" style="'. $slide_background_style .'">';
 			$slide .= '<div class="container">';
-			$slide .= '<div style="'. ( $slider_fixed_height ? 'top:50%; -webkit-transform:translateY(-50%); transform:translateY(-50%); position:relative;' : null ) .'">';
+			$slide .= '<div class="align-helper '. ( $slider_fixed_height ? 'vertical-center' : null ) .'">';
 			$slide .= $rows;
 			$slide .= '</div>';
 			$slide .= '</div>';
@@ -81,7 +81,7 @@ function get_slider($i) {
 	}
 
 	$script = "<script>
-	document.addEventListener('DOMContentLoaded', function() {
+	$(function(){
         $('.slider-$i .slide-list').slick({
 			arrows: true,
 			prevArrow: '<i class=\"fa slick-prev fa-chevron-left\"></i>',
@@ -92,14 +92,30 @@ function get_slider($i) {
 			slidesToShow: 1,
 			slidesToScroll: 1
         });
-    }, false);
+    });
 	</script>";
 
-	echo '<div class="section slider slider-'.$i.'" style="margin:0 -15px; '.( $slider_fixed_height ? 'height:'.$slider_fixed_height.'px;' : null ).'">';
+	echo '<div class="section slider slider-'. $i .'" style="margin:0 -15px; '. ( $slider_fixed_height ? 'height:'. $slider_fixed_height .'px;' : null ) .'">';
 	echo '<div class="slide-list">';
 	echo $slide;
 	echo '</div>';
 	echo '</div>';
+
+	echo "<script>
+	var adjustSectionHeight = debounce(function() {
+		$('.slider').each(function(){
+			if ( $('.align-helper', this).height() > $slider_fixed_height ) {
+				$('.align-helper', this).removeClass('vertical-center');
+				$(this).css({height : 'auto'});
+			} else {
+				$('.align-helper', this).addClass('vertical-center');
+				$(this).css({height : $slider_fixed_height + 'px'});
+			}
+		});
+	}, 250);
+	window.addEventListener('resize', adjustSectionHeight);
+	adjustSectionHeight();
+	</script>";
 
 	if ($slide_number > 1) {
 		echo $script;
