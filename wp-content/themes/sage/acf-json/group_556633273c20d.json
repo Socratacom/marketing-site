@@ -273,7 +273,7 @@
                             },
                             "min": "",
                             "max": "",
-                            "layout": "row",
+                            "layout": "block",
                             "button_label": "Add Slide",
                             "sub_fields": [
                                 {
@@ -309,7 +309,7 @@
                                     },
                                     "min": "",
                                     "max": "",
-                                    "layout": "row",
+                                    "layout": "block",
                                     "button_label": "Add Row",
                                     "sub_fields": [
                                         {
@@ -327,7 +327,7 @@
                                             },
                                             "min": "",
                                             "max": "",
-                                            "layout": "row",
+                                            "layout": "block",
                                             "button_label": "Add Column",
                                             "sub_fields": [
                                                 {
@@ -823,6 +823,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1435190464,
-    "local": "json"
+    "modified": 1435191693
 }
