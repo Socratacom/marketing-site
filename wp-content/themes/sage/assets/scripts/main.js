@@ -14,6 +14,29 @@
  * remove or comment out: add_theme_support('jquery-cdn');
  * ======================================================================== */
 
+// Youtube Control
+ var tag = document.createElement('script');
+ tag.src = '//www.youtube.com/player_api';
+ var firstScriptTag = document.getElementsByTagName('script')[0];
+ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+ var player;
+
+ function onPlayerReady(event) {
+   var closeButton = document.getElementById('close-button');
+   closeButton.addEventListener('click', function() {
+     player.stopVideo();
+   });
+ }
+
+ function onYouTubeIframeAPIReady() {
+   player = new YT.Player('player', {
+     events: {
+       'onReady': onPlayerReady
+     }
+   });
+ }
+
 (function($) {
 
   // Use this variable to set up the common and page specific functions. If you
@@ -31,6 +54,18 @@
           $('#search').focus();
           e.preventDefault();
           //return false;
+        });
+
+        $('#videoModal').on('hidden.bs.modal', function (e) {
+          player.stopVideo();
+        });
+
+        $('#videoModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget); // Button that triggered the modal
+          var content = button.data('content'); // Extract info from data-* attributes
+          var modal = $(this);
+          modal.find('.modal-title').html('&nbsp;');
+          modal.find('.modal-body .embed-container iframe').attr('src', content);
         });
       },
       finalize: function() {
@@ -88,6 +123,16 @@
   $(document).ready(UTIL.loadEvents);
 
 })(jQuery); // Fully reference jQuery after this point.
+
+// Video modal generated from shortcode
+function init_modal() {
+  // check to see if the modal has already been appended to .main
+  if ( $('#videoModal').length === 0 ) {
+    $('.main').append(
+      '<div class="modal fade videoModal" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true"><div class="modal-dialog"><div class="modal-content"><button id="close-button" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><div class="modal-body"><div class="embed-container"><iframe width="200" height="113" frameborder="0" allowfullscreen="" id="player"></iframe></div></div></div></div></div>'
+      );
+  }
+}
 
 // Slick Slider
 function slider(container, arrows, speed, slides1, slides2, slides3, scrollNum1, scrollNum2, arrowContainer) {

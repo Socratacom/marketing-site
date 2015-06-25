@@ -21,6 +21,7 @@ $sage_includes = [
   'lib/gallery.php',                          // Custom [gallery] modifications
   'lib/extras.php',                           // Custom functions
   'lib/custom-post-types.php',                // Custom Post Types
+  'lib/shortcodes.php',                       // Shortcodes
   'fresh_components/init.php',                // Fresh Components
 ];
 

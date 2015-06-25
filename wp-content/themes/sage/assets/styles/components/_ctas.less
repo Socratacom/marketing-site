@@ -1,0 +1,53 @@
+.green {
+  color: @socrata-green;
+}
+.yellow {
+  color: @socrata-yellow;
+}
+.red {
+  color: @socrata-red;
+}
+.blue {
+  color: @city-blue;
+}
+
+.cta {
+  padding-left: 85px;
+  height : auto;
+  position: relative;
+  i {
+    font-size: 5em;
+    margin-top: 20px;
+    position: absolute;
+    left: 0;
+  }
+  .button {
+    bottom: 0;
+  }
+}
+@media (min-width: @screen-sm-min) {
+  .cta {
+    height : 365px;
+    padding-left: 60px;
+    i {
+      font-size: 3.5em;
+    }
+    .button {
+      position: absolute;
+    }
+  }
+}
+@media (min-width: @screen-md-min) {
+  .cta {
+    height : 320px;
+    padding-left: 85px;
+    i {
+      font-size: 5em;
+    }
+  }
+}
+@media (min-width: @screen-lg-min) {
+  .cta {
+    height : 240px;
+  }
+}

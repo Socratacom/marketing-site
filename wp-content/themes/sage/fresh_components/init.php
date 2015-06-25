@@ -7,7 +7,7 @@
  * the pages of this site.
  *
  * Current components available:
- * * Slider: Show a slider comprised of multiple slides, each can 
+ * * Slider: Show a slider comprised of multiple slides, each can
  * have multiple rows containing multiple columns
  * * Text-Image: Show image on one side, text on the other, can flip
  * * Options Selector: Shows content from the option pages
@@ -110,7 +110,7 @@ if( function_exists('acf_add_options_page') ) {
 
 /**
  * Bootstrapping ACF functions if ACF isn't activated
- * 
+ *
  * Usage:
  *    - include the class in your functions.php or in a plugin
  *    - call its static mathods using colon syntax (ie: acfHelper::acf_is_active() )
