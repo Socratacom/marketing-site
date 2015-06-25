@@ -1,0 +1,35 @@
+/* Case Studies */
+.section.case-studies {
+    padding: 70px 0;
+    margin-left: -15px;
+    margin-right: -15px;
+    &.dark {
+        color: @white;
+        p {
+            color: fadeOut(@white, 20%);
+        }
+        .slick-dots li button {
+            background: @white;
+        }
+    }
+    &.light {
+        color: @black;
+        padding: 20px 0;
+        .slick-dots li button {
+            background: @black;
+        }
+    }
+    a {
+        color: @white;
+        &:hover {
+            opacity: .8;
+        }
+    }
+}
+.section.case-studies .img-container {
+    height: 230px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: inline-block;
+    width: 100%;
+}

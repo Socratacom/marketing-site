@@ -2,6 +2,7 @@
     display: block;
     overflow: hidden;
     position: relative;
+    background-color: @black;
     h3.visible {
         position: absolute;
         color: @white;
@@ -40,10 +41,13 @@
             .transition(all, .5s);
         }
     }
+    img {
+        margin: 0 auto;
+    }
     .video-content {
         position: absolute;
         color: @white;
-        padding: 30px 25px 0;
+        padding: 25px 25px 0 15px;
         right: 15px;
         left: 15px;
         height: 100%;
@@ -68,6 +72,7 @@
         p {
             font-size: 1em;
             color: @white;
+            line-height: 1.4;
         }
     }
     &:hover {
@@ -107,5 +112,53 @@
         font-weight: 300;
         opacity: 1;
         outline: none;
+    }
+}
+
+@media (min-width: @screen-sm-min) {
+    .section .video_slide {
+        height: 211px;
+        img {
+            height: 211px;
+            max-width: 170%;
+        }
+        .video-content {
+            padding: 15px 28px 0 10px;
+            h3 {
+                font-size: 1.1em;
+            }
+            p {
+                line-height: 1.3;
+                font-size: .95em;
+            }
+        }
+    }
+}
+@media (min-width: @screen-md-min) {
+    .section .video_slide {
+        .video-content {
+            padding: 20px 28px 0 15px;
+            h3 {
+                font-size: 1.3em;
+            }
+            p {
+                line-height: 1.4;
+                font-size: 1em;
+            }
+        }
+    }
+}
+@media (min-width: @screen-lg-min) {
+    .section .video_slide {
+        height: auto;
+        img {
+            max-width: auto;
+        }
+        .video-content {
+            padding: 30px 25px 0;
+            p {
+                line-height: 1.6;
+            }
+        }
     }
 }

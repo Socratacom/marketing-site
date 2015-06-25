@@ -77,7 +77,21 @@ function get_slider($i) {
 										autoplaySpeed: 5000,
 										speed: 800,
 										slidesToShow: $columns_per_slide,
-										slidesToScroll: 1
+										slidesToScroll: 1,
+										responsive: [
+									      {
+									        breakpoint: 992,
+									        settings: {
+									          slidesToShow: $columns_per_slide
+									        }
+									      },
+									      {
+									        breakpoint: 768,
+									        settings: {
+									          slidesToShow: 1
+									        }
+									      }
+									    ]
 							        });
 							    });
 							</script>";

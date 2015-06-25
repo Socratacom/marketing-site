@@ -4,7 +4,6 @@
 @import "../../fresh_components/styles/option-selector-cloud";
 @import "../../fresh_components/styles/option-selector-pain-points";
 @import "../../fresh_components/styles/ecosystem";
-@import "../../fresh_components/styles/news";
 @import "../../fresh_components/styles/slider";
 
 .bg-gray {
@@ -12,41 +11,6 @@
 }
 
 /* Custom */
-/* Case Studies */
-.section.case-studies {
-	padding: 70px 0;
-	margin-left: -15px;
-	margin-right: -15px;
-	&.dark {
-		color: @white;
-		p {
-			color: fadeOut(@white, 20%);
-		}
-		.slick-dots li button {
-			background: @white;
-		}
-	}
-	&.light {
-		color: @black;
-		padding: 20px 0;
-		.slick-dots li button {
-			background: @black;
-		}
-	}
-	a {
-		color: @white;
-		&:hover {
-			opacity: .8;
-		}
-	}
-}
-.section.case-studies .img-container {
-	height: 230px;
-	background-repeat: no-repeat;
-	background-size: cover;
-	display: inline-block;
-	width: 100%;
-}
 .section.case-studies .slick-slider .slick-prev,
 .section.case-studies .slick-slider .slick-next {
 	top: 48.8%;
@@ -131,6 +95,10 @@
 .slider .container,
 .slider .slide-list {
 	height: 100%;
+}
+
+.slick-track {
+	margin: 0 auto;
 }
 
 /* Prevents uploaded images to bleed out of the grid limits */
