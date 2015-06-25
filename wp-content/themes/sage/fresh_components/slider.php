@@ -2,8 +2,18 @@
 
 function get_slider($i) {
 
+	$default_height = 460;
+	$slider_fixed_height = get_sub_field('slider_fixed_height');
+
+	if ($slider_fixed_height === '') {
+		$slider_height = 'height:'. $default_height .'px;';
+		$watch_children = null;
+	} else {
+		$slider_height = 'height:'. $slider_fixed_height .'px;';
+		$watch_children = 'watch-children';
+	}
+	
 	$slide_number = 0;
-	$slider_fixed_height = get_sub_field('slider_fixed_height') === '' ? 460 : get_sub_field('slider_fixed_height');
 	$slide = '';
 
 	if (have_rows('slide')) {
@@ -124,7 +134,7 @@ function get_slider($i) {
 		return false;
 	}
 
-	echo '<div class="section slider slider-'. $i .'" style="margin:0 -15px; '. ( $slider_fixed_height ? 'height:'. $slider_fixed_height .'px;' : null ) .'">';
+	echo '<div class="section slider '. $watch_children .' slider-'. $i .'" style="margin:0 -15px; '. $slider_height .'">';
 	echo '<div class="slide-list">';
 	echo $slide;
 	echo '</div>';
@@ -132,19 +142,19 @@ function get_slider($i) {
 
 	echo "<script>
 	document.addEventListener('DOMContentLoaded', function() {
-	var adjustSectionHeight = debounce(function() {
-		$('.slider').each(function(){
-			if ( $('.align-helper', this).height() > $slider_fixed_height ) {
-				$('.align-helper', this).removeClass('vertical-center');
-				$(this).css({height : 'auto'});
-			} else {
-				$('.align-helper', this).addClass('vertical-center');
-				$(this).css({height : $slider_fixed_height + 'px'});
-			}
-		});
-	}, 250);
-	window.addEventListener('resize', adjustSectionHeight);
-	adjustSectionHeight();
+		var adjustSectionHeight = debounce(function() {
+			$('.slider.watch-children').each(function(){
+				if ( $('.align-helper', this).height() > $slider_fixed_height ) {
+					$('.align-helper', this).removeClass('vertical-center');
+					$(this).css({height : 'auto'});
+				} else {
+					$('.align-helper', this).addClass('vertical-center');
+					$(this).css({height : $slider_fixed_height + 'px'});
+				}
+			});
+		}, 250);
+		window.addEventListener('resize', adjustSectionHeight);
+		adjustSectionHeight();
 	});
 	</script>";
 

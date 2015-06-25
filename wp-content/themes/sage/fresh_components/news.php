@@ -37,26 +37,31 @@ function get_news($i) {
 		'posts_per_page' => 1
 	);
 
-	// $case_loop = new WP_Query( $args );
-	// if ( $case_loop->have_posts() ) :
-	// 	$news .= '<div class="row featured">';
-	// 	while ( $case_loop->have_posts() ) : $case_loop->the_post();
-	// 		// get vars
-	// 		$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-	// 		$featured_image = $featured_image[0];
-	// 		$name = get_the_title();
-	// 		$link = get_the_permalink();
-	// 		$date = get_the_date();
-	// 		$news .= '<div class="col-sm-6">';
-	// 		$news .= '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
-	// 		$news .= '</div>';
-	// 		$news .= '<div class="col-sm-6">';
-	// 		$news .= '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
-	// 		$news .= '</div>';
-	// 	endwhile;
-	// 	$news .= '</div>';
+	$case_loop = new WP_Query( $args );
+	if ( $case_loop->have_posts() ) :
 
-	// endif;
+		$news .= '<div class="row featured">';
+
+		while ( $case_loop->have_posts() ) : $case_loop->the_post();
+			// get vars
+			$featured_image = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+			$featured_image = $featured_image[0];
+			$name = get_the_title();
+			$link = get_the_permalink();
+			$date = get_the_date();
+			$excerpt = get_the_excerpt();
+
+			$news .= '<div class="col-sm-6">';
+			$news .= '<h3>'.$name.'</h3><p>'.$excerpt.'</p>';
+			$news .= '</div>';
+			$news .= '<div class="col-sm-6">';
+			$news .= '<div class="img-container"><a href="'.$link.'"><img src="'.$featured_image.'" alt="'.$name.'" class="img-responsive"></a></div>';
+			$news .= '</div>';
+		endwhile;
+
+		$news .= '</div>';
+
+	endif;
 
 	$result  = '<div class="section news news-'.$i.'">';
 	$result .= '<div class="container">';
