@@ -43,7 +43,7 @@ function get_slider($i) {
 					}
 
 					$rows .= '<div class="row">';
-					
+
 					if (get_sub_field('columns')) {
 
 						$columns_count = count(get_sub_field('columns'));
@@ -54,14 +54,10 @@ function get_slider($i) {
 						while(have_rows('columns')) { the_row();
 
 							$column_rtp_id = get_sub_field('rtp_id');
-							
+
 							$rows .= '<div id="'.$column_rtp_id.'" class="col-sm-'. $col_size .'">';
 							$rows .= get_sub_field('column');
 							$rows .= '</div>';
-
-							if ( $column_number > 0 && $columns_per_slide % $column_number == 1 ) {
-								$rows .= '</div><div class="row">';
-							}
 
 							$column_number++;
 
@@ -72,15 +68,15 @@ function get_slider($i) {
 
 					if ($activate_carousel) {
 						$rows .= "</div><script>
-								$(function(){
-							        $('.slider-$i .carousel').slick({
+								document.addEventListener('DOMContentLoaded', function() {
+							        $('.slider-$i .carousel .row').slick({
 										arrows: true,
 										prevArrow: '<i class=\"fa slick-prev fa-chevron-left\"></i>',
 										nextArrow: '<i class=\"fa slick-next fa-chevron-right\"></i>',
 										autoplay: true,
 										autoplaySpeed: 5000,
 										speed: 800,
-										slidesToShow: 1,
+										slidesToShow: $columns_per_slide,
 										slidesToScroll: 1
 							        });
 							    });
@@ -121,6 +117,7 @@ function get_slider($i) {
 	echo '</div>';
 
 	echo "<script>
+	document.addEventListener('DOMContentLoaded', function() {
 	var adjustSectionHeight = debounce(function() {
 		$('.slider').each(function(){
 			if ( $('.align-helper', this).height() > $slider_fixed_height ) {
@@ -134,11 +131,12 @@ function get_slider($i) {
 	}, 250);
 	window.addEventListener('resize', adjustSectionHeight);
 	adjustSectionHeight();
+	});
 	</script>";
 
-	if ($slide_number > 1) { 
+	if ($slide_number > 1) {
 	echo "<script>
-			$(function(){
+		document.addEventListener('DOMContentLoaded', function() {
 		        $('.slider-$i .slide-list').slick({
 					arrows: true,
 					prevArrow: '<i class=\"fa slick-prev fa-chevron-left\"></i>',
@@ -149,7 +147,7 @@ function get_slider($i) {
 					slidesToShow: 1,
 					slidesToScroll: 1
 		        });
-		    });
+		});
 		</script>";
 	}
 
