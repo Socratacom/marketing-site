@@ -1,36 +1,43 @@
 <?php
 
 /**
- * Shortcodes for CTAs and Video blocks
+ * Shortcodes for CTAs and similarly formatted elements
  */
 function cta_shortcode( $atts, $content = null ) {
   $a = shortcode_atts( array(
     'icon' => '',
     'title' => '',
     'url' => '',
-    'label' => '',
-    'color' => 'blue'
-  ), $atts );
-  $color = !in_array($a['color'], array('green', 'red', 'yellow')) ? 'blue' : $a['color'];
+    'label' => 'Read More',
+    'color' => 'blue',
+    'height' => 'none'
+    ), $atts );
+  //$color = !in_array($a['color'], array('green', 'red', 'yellow')) ? 'blue' : $a['color'];
+  $height = $a['height'] !== '' ? 'height: '.$a['height'].';' : '';
 
-  $shortcode = '<div class="cta">';
-  $shortcode .= '<i class="fa '.$a['icon'].' '.$color.'"></i>';
+  $shortcode = '<div class="cta" style="'.$height.'">';
+  $shortcode .= '<i class="fa '.$a['icon'].' '.$a['color'].'"></i>';
   $shortcode .= '<h3>'.$a['title'].'</h3>';
   $shortcode .= '<p>'.$content.'</p>';
-  $shortcode .= '<a href="'.$a['url'].'" class="button">'.$a['label'].'</a>';
+  if ( '' != $a['url'] ) {
+    $shortcode .= '<a href="'.$a['url'].'" class="button">'.$a['label'].'</a>';
+  }
   $shortcode .= '</div>';
 
   return $shortcode;
 }
 add_shortcode( 'CTA', 'cta_shortcode' );
 
+/**
+ * Shortcodes for Video blocks
+ */
 function video_shortcode( $atts, $content = null ) {
   $a = shortcode_atts( array(
     'title' => '',
     'copy' => '',
     'video' => '',
     'rtp' => ''
-  ), $atts );
+    ), $atts );
 
   if (!empty($a['video'])) {
       $video = apply_filters('the_content', "[embed]" . $a['video'] . "[/embed]");
@@ -44,7 +51,7 @@ function video_shortcode( $atts, $content = null ) {
           'showinfo'  =>0,
           'playsinline' => 1,
           'autoplay' => 1
-      );
+        );
       $new_src = add_query_arg($params, $src);
   }
 
@@ -59,3 +66,34 @@ function video_shortcode( $atts, $content = null ) {
   return $shortcode;
 }
 add_shortcode( 'vid', 'video_shortcode' );
+
+/**
+ * output fontawesome icon
+ */
+function icon_shortcode( $atts ) {
+  $a = shortcode_atts( array(
+      'name' => '',
+      'color' => 'blue',
+    ), $atts );
+
+  $shortcode = '<i class="fa '.$a['name'].' '.$a['color'].'"></i>';
+
+  return $shortcode;
+}
+add_shortcode( 'icon', 'icon_shortcode' );
+
+/**
+ * style buttons
+ */
+function button_shortcode( $atts ) {
+  $a = shortcode_atts( array(
+      'link' => '',
+      'label' => 'Read More',
+      'target' => '_self',
+    ), $atts );
+
+  $shortcode = '<a href="'.$a['link'].'" target="'.$a['target'].'" class="button">'.$a['label'].'</a>';
+
+  return $shortcode;
+}
+add_shortcode( 'button', 'button_shortcode' );

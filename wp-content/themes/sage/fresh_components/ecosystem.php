@@ -19,14 +19,14 @@ function get_ecosystem($i) {
         if ($copy) {
             $output .= $copy;
         }
-        $output .= '</div></div>';
-        $output .= '<div class="row"><div class="col-md-10 col-md-offset-1 col-sm-12">';
-            if ($graphic) {
-                $output .= '<img src="'.$graphic['url'].'" alt="" class="img-responsive hidden-xs">';
-                $output .= '<img src="'.$mobile_graphic['url'].'" alt="" class="img-responsive visible-xs">';
-            }
-        $output .= '</div></div>';
-    $output .='</div></div></div>';
+    $output .= '</div></div>';
+    $output .= '<div class="row"><div class="col-md-10 col-md-offset-1 col-sm-12">';
+        if ($graphic) {
+            $output .= '<img src="'.$graphic['url'].'" alt="" class="img-responsive hidden-xs">';
+            $output .= '<img src="'.$mobile_graphic['url'].'" alt="" class="img-responsive visible-xs">';
+        }
+    $output .= '</div></div>';
+    $output .='</div></div>';
 
     echo $output;
 }

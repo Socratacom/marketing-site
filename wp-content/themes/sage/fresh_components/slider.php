@@ -12,9 +12,10 @@ function get_slider($i) {
 		$slider_height = 'height:'. $slider_fixed_height .'px;';
 		$watch_children = 'watch-children';
 	}
-	
+
 	$slide_number = 0;
 	$slide = '';
+	$slider_class = get_sub_field('class');
 
 	if (have_rows('slide')) {
 		while (have_rows('slide')) { the_row();
@@ -134,7 +135,7 @@ function get_slider($i) {
 		return false;
 	}
 
-	echo '<div class="section slider '. $watch_children .' slider-'. $i .'" style="margin:0 -15px; '. $slider_height .'">';
+	echo '<div class="section slider '. $watch_children .' slider-'. $i .' '. $slider_class .'" style="margin:0 -15px; '. $slider_height .'">';
 	echo '<div class="slide-list">';
 	echo $slide;
 	echo '</div>';
