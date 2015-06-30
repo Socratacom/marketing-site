@@ -5,6 +5,7 @@ function get_news($i) {
 	if ( '' != get_sub_field('label') ) {
 		$label = '<h2>'.get_sub_field('label').'</h2>';
 	}
+	$featured = get_sub_field('show_featured');
 
 	$news_args = array(
 		'post_type' => array( 'tech_blog', 'post' ),
@@ -19,7 +20,10 @@ function get_news($i) {
 		'order' => 'DESC',
 		'posts_per_page' => 1
 	);
-	$news .= output_posts( $case_args, 'case' );
+
+	if ( true === $featured ) {
+		$news .= output_posts( $case_args, 'case' );
+	}
 
 	$result  = '<div class="section news news-'.$i.'">';
 	$result .= '<div class="container">';

@@ -2,16 +2,14 @@
 
 function get_slider($i) {
 
-	$default_height = 460;
+	$the_height = 460;
 	$slider_fixed_height = get_sub_field('slider_fixed_height');
 
-	if ($slider_fixed_height === '') {
-		$slider_height = 'height:'. $default_height .'px;';
-		$watch_children = null;
-	} else {
-		$slider_height = 'height:'. $slider_fixed_height .'px;';
-		$watch_children = 'watch-children';
+	if ($slider_fixed_height !== '') {
+		$the_height = $slider_fixed_height;
 	}
+
+	$slider_height = 'height:'. $the_height .'px;';
 
 	$slide_number = 0;
 	$slide = '';
@@ -121,7 +119,7 @@ function get_slider($i) {
 
 			$slide .= '<div id="'.$rtp_id.'" class="slide slide-'. $slide_number .'" style="'. $slide_background_style .'">';
 			$slide .= '<div class="container">';
-			$slide .= '<div class="align-helper '. ( $slider_fixed_height ? 'vertical-center' : null ) .'">';
+			$slide .= '<div class="align-helper">';
 			$slide .= $rows;
 			$slide .= '</div>';
 			$slide .= '</div>';
@@ -135,7 +133,7 @@ function get_slider($i) {
 		return false;
 	}
 
-	echo '<div class="section slider '. $watch_children .' slider-'. $i .' '. $slider_class .'" style="margin:0 -15px; '. $slider_height .'">';
+	echo '<div class="section slider slider-'. $i .' '. $slider_class .'" style="margin:0 -15px; '. $slider_height .'">';
 	echo '<div class="slide-list">';
 	echo $slide;
 	echo '</div>';
@@ -144,13 +142,16 @@ function get_slider($i) {
 	echo "<script>
 	document.addEventListener('DOMContentLoaded', function() {
 		var adjustSectionHeight = debounce(function() {
-			$('.slider.watch-children').each(function(){
-				if ( $('.align-helper', this).height() > $slider_fixed_height ) {
-					$('.align-helper', this).removeClass('vertical-center');
+			$('.slider-$i').each(function(){
+				console.log($(this).find('.align-helper').height());
+				if ( $(this).find('.align-helper').height() > $the_height ) {
 					$(this).css({height : 'auto'});
+					$(this).find('.align-helper').removeClass('vertical-center');
+					$(this).find('.align-helper').addClass('padding');
 				} else {
-					$('.align-helper', this).addClass('vertical-center');
-					$(this).css({height : $slider_fixed_height + 'px'});
+					$(this).css({height : $the_height + 'px'});
+					$(this).find('.align-helper').addClass('vertical-center');
+					$(this).find('.align-helper').removeClass('padding');
 				}
 			});
 		}, 250);

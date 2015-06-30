@@ -796,6 +796,59 @@
                     "max": ""
                 },
                 {
+                    "key": "5592e84f8d99d",
+                    "name": "webinars",
+                    "label": "Webinars",
+                    "display": "row",
+                    "sub_fields": [
+                        {
+                            "key": "field_5592e84f8d99f",
+                            "label": "Background Color",
+                            "name": "background_color",
+                            "type": "color_picker",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": ""
+                        },
+                        {
+                            "key": "field_5592e84f8d9a0",
+                            "label": "Color Theme",
+                            "name": "color_theme",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "light": "Light",
+                                "dark": "Dark"
+                            },
+                            "default_value": {
+                                "": ""
+                            },
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "ajax": 0,
+                            "placeholder": "",
+                            "disabled": 0,
+                            "readonly": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                {
                     "key": "558856e8e03ee",
                     "name": "news",
                     "label": "News",
@@ -821,6 +874,22 @@
                             "maxlength": "",
                             "readonly": 0,
                             "disabled": 0
+                        },
+                        {
+                            "key": "field_5592ebac49e88",
+                            "label": "Show Featured",
+                            "name": "show_featured",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0
                         }
                     ],
                     "min": "",
@@ -844,5 +913,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1435593730
+    "modified": 1435691968
 }

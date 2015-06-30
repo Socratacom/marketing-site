@@ -28,6 +28,7 @@ require_once 'ecosystem.php';
 require_once 'option-selector.php';
 require_once 'case-studies.php';
 require_once 'news.php';
+require_once 'webinars.php';
 
 function components_euqeue_scripts() {
     wp_register_script(
@@ -72,6 +73,9 @@ function inject_fresh_components( $post_object ) {
 
                 } elseif( get_row_layout() === 'case_studies' ) {
                     echo get_case_studies($i);
+
+                } elseif( get_row_layout() === 'webinars' ) {
+                    echo get_webinars($i);
 
                 } elseif( get_row_layout() === 'news' ) {
                     echo get_news($i);
