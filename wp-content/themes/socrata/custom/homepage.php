@@ -113,7 +113,15 @@ function custom_homepage() {
     		<div class="one_third">
     			<ul>
     			<?php $news_query = new WP_Query('post_type=news&orderby=desc&showposts=4'); while ($news_query->have_posts()) : $news_query->the_post(); ?>
-    				<li><p><small>SOCRATA NEWS</small><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><small><strong>By</strong> <?php the_author(); ?> &bull; <strong>Posted</strong> <?php the_time('F jS, Y') ?></p></small></li>
+    				<li>
+                        <div class="one_third" style="padding-top:3px;">
+                            <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 80, 80);?>" style="width:90%; margin-bottom:15px" /></a>
+                        </div>
+                        <div class="two_third last">
+                            <p><small>SOCRATA NEWS</small><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><small><strong>By</strong> <?php the_author(); ?> &bull; <strong>Posted</strong> <?php the_time('F jS, Y') ?></p></small>
+                        </div>
+                        <div class="clearboth"></div>
+                    </li>
     			<?php endwhile; wp_reset_query(); ?>
     			</ul>
     		</div>
