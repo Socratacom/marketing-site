@@ -107,15 +107,18 @@ function custom_homepage() {
     	</div>
     </section>
     <section class="format_text home-other-stuff">
+
 		<div class="wrapper">
-    		<div class="one_fourth">
+
+    		<div class="one_third">
     			<ul>
     			<?php $news_query = new WP_Query('post_type=news&orderby=desc&showposts=4'); while ($news_query->have_posts()) : $news_query->the_post(); ?>
     				<li><p><small>SOCRATA NEWS</small><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><small><strong>By</strong> <?php the_author(); ?> &bull; <strong>Posted</strong> <?php the_time('F jS, Y') ?></p></small></li>
     			<?php endwhile; wp_reset_query(); ?>
     			</ul>
     		</div>
-    		<div class="one_fourth">    			
+
+    		<div class="one_third">    			
     			<ul>
     			<?php $case_study_query = new WP_Query('post_type=case_study&orderby=desc&showposts=4'); 
     			while ($case_study_query->have_posts()) : $case_study_query->the_post(); ?>
@@ -130,31 +133,15 @@ function custom_homepage() {
     				</li>
     			<?php endwhile; wp_reset_query(); ?>    		
     			</ul>
-    		</div>
-    		<div class="one_fourth">
-    			<ul>
-    			<?php 
-    				$events_query = new WP_Query;
-    				$events_query->query('post_type=tribe_events&orderby=desc&showposts=4');
-    				if ($events_query->post_count == 0) { ?>
-    				<p style="line-height: normal; padding:15px; border:#d1d1d1 solid 1px; background:#f1f1f1; font-weight: bold;">There are no events scheduled at this time.</p>
-    				<?php }
-    				else { while ($events_query->have_posts()) : $events_query->the_post(); ?>
-    				<li>
-    					<div class="one_third" style="padding-top:3px;">
-    						<a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 80, 80);?>" style="width:90%; margin-bottom:15px" /></a>
-    					</div>
-    					<div class="two_third last">
-    						<p><small>EVENT</small><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><small><span class="ss-icon">calendar</span> <?php echo tribe_get_start_date($post->ID, true, 'M j, Y'); ?></small></p>
-    					</div>
-    					<div class="clearboth"></div>
-    				</li>
-    			<?php endwhile;} wp_reset_query(); ?>
-    			</ul>
-    		</div>
-    		<div class="one_fourth last"><a class="twitter-timeline" href="https://twitter.com/socrata" data-widget-id="435899899599532032" data-chrome="nofooter transparent" data-tweet-limit="4">Tweets by @socrata</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
+    		</div>    		
+
+    		<div class="one_third last"><a class="twitter-timeline" href="https://twitter.com/socrata" data-widget-id="435899899599532032" data-chrome="nofooter transparent" data-tweet-limit="4">Tweets by @socrata</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+            </div>
+
     		<div class="clearboth"></div>
+
     	</div>
+
     </section>
     <!--<section  class="format_text home-mobile-stuff">
         <div class="wrapper">
