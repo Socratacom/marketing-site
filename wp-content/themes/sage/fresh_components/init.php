@@ -8,12 +8,15 @@
  *
  * Current components available:
  * * Slider: Show a slider comprised of multiple slides, each can
- * have multiple rows containing multiple columns
- * * Text-Image: Show image on one side, text on the other, can flip
- * * Options Selector: Shows content from the option pages
+ * have multiple rows containing multiple columns. Seach slide can
+ * contain it's own slider using columns as slides
+ * * Text-Image: Show image on one side, text on the other
  *
  * The components are injected automatically in pages and posts
  * that use them through the loop start hook.
+ *
+ * Requirements:
+ * Advanced Custom Fields v5
  *
  * @author Fresh Consulting <freshconsulting.com>
  * @since  1.0

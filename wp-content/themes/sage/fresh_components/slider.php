@@ -30,8 +30,11 @@ function get_slider($i) {
 			$slide_background_style  = $slide_background_array ? 'background-image: url('. $slide_background_image_url .');' : '';
 			$slide_background_style .= 'background-color: '. $slide_background_color .';
 									    background-position: '. $slide_background_image_position .';
-									    background-size: '. $slide_background_image_size .';
 									    background-repeat: no-repeat;';
+
+			$slide_mobile_background_array = get_sub_field('slide_mobile_background_image');
+			$slide_mobile_background_image_url = '';
+			$slide_mobile_background_image_url = $slide_mobile_background_array ? $slide_mobile_background_array['url'] : '';
 
 			if (get_sub_field('slide_top')) {
 				$rows .= '<div class="row">';
@@ -117,13 +120,29 @@ function get_slider($i) {
 				$rows .= '</div>';
 			}
 
-			$slide .= '<div id="'.$rtp_id.'" class="slide slide-'. $slide_number .'" style="'. $slide_background_style .'">';
+			$slide .= '<div id="'.$rtp_id.'" class="slide slide-'. $slide_number .' '. $slide_background_image_size .'" style="'. $slide_background_style .'">';
 			$slide .= '<div class="container">';
 			$slide .= '<div class="align-helper">';
 			$slide .= $rows;
 			$slide .= '</div>';
 			$slide .= '</div>';
 			$slide .= '</div>';
+
+			if ($slide_mobile_background_array) {
+				$slide .= "<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					var adjustSlideBackground = debounce(function() {
+						if ($(window).width() < 768) {
+							$('.slider-$i .slide-$slide_number').css('background-image', 'url($slide_mobile_background_image_url)');
+						} else {
+							$('.slider-$i .slide-$slide_number').css('background-image', 'url($slide_background_image_url)');
+						}
+					}, 250);
+					window.addEventListener('resize', adjustSlideBackground);
+					adjustSlideBackground();
+				});
+				</script>";
+			}
 
 			$slide_number++;
 

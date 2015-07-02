@@ -3,13 +3,23 @@
 	background-color: @btn-primary-bg;
 	color: @white;
 	border-radius: 4px;
-	padding: 15px 35px;
+	padding: 15px 20px;
 	margin-top: 15px;
 	font-weight: @font-light;
 	.transition(background-color, .5s);
 	&:hover, &:focus {
 		color: @white;
 		background-color: @gray-dark;
+	}
+}
+@media (min-width: @screen-sm-min) {
+	.button {
+		padding: 15px 25px;
+	}
+}
+@media (min-width: @screen-md-min) {
+	.button {
+		padding: 15px 35px;
 	}
 }
 

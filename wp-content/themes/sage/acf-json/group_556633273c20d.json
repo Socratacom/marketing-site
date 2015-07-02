@@ -539,6 +539,30 @@
                                     "readonly": 0
                                 },
                                 {
+                                    "key": "field_55959ec23c51c",
+                                    "label": "Slide Mobile Background Image",
+                                    "name": "slide_mobile_background_image",
+                                    "type": "image",
+                                    "instructions": "If left blank, mobile layout will use Slide Background Image if set.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "array",
+                                    "preview_size": "thumbnail",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
                                     "key": "field_5580b8055069e",
                                     "label": "Slide Background Color",
                                     "name": "slide_background_color",
@@ -913,5 +937,5 @@
     "label_placement": "top",
     "instruction_placement": "label",
     "hide_on_screen": "",
-    "modified": 1435691968
+    "modified": 1435868968
 }

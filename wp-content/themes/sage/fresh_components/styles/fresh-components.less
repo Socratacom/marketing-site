@@ -87,6 +87,17 @@
 	margin-right: 0;
 }
 
+/* prevent background-size: contain on mobile layout */
+.slider .slide.contain, .slider .slide.cover {
+	background-size: cover;
+}
+@media (min-width: @screen-sm-min) {
+	.slider .slide.contain {
+		background-size: contain;
+	}
+}
+
+
 /* Fix vertical alignment issues */
 .vertical-center {
 	top:50%;
