@@ -143,7 +143,6 @@ function get_slider($i) {
 	document.addEventListener('DOMContentLoaded', function() {
 		var adjustSectionHeight = debounce(function() {
 			$('.slider-$i').each(function(){
-				console.log($(this).find('.align-helper').height());
 				if ( $(this).find('.align-helper').height() > $the_height ) {
 					$(this).css({height : 'auto'});
 					$(this).find('.align-helper').removeClass('vertical-center');

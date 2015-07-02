@@ -29,7 +29,26 @@ function cta_shortcode( $atts, $content = null ) {
 add_shortcode( 'CTA', 'cta_shortcode' );
 
 /**
- * Shortcodes for Video blocks
+ * Video embed & modal init
+ */
+function video_init($vid) {
+  $video = apply_filters('the_content', "[embed]" . $vid . "[/embed]");
+  preg_match('/src="(.+?)"/', $video, $matches);
+  $src = $matches[1];
+  $params = array(
+      'enablejsapi'   => 1,
+      'rel'   => 0,
+      'controls'  => 0,
+      'html5'     => 1,
+      'showinfo'  =>0,
+      'playsinline' => 1,
+      'autoplay' => 1
+    );
+  return add_query_arg($params, $src);
+}
+
+/**
+ * Shortcodes for video blocks
  */
 function video_shortcode( $atts, $content = null ) {
   $a = shortcode_atts( array(
@@ -40,19 +59,7 @@ function video_shortcode( $atts, $content = null ) {
     ), $atts );
 
   if (!empty($a['video'])) {
-      $video = apply_filters('the_content', "[embed]" . $a['video'] . "[/embed]");
-      preg_match('/src="(.+?)"/', $video, $matches);
-      $src = $matches[1];
-      $params = array(
-          'enablejsapi'   => 1,
-          'rel'   => 0,
-          'controls'  => 0,
-          'html5'     => 1,
-          'showinfo'  =>0,
-          'playsinline' => 1,
-          'autoplay' => 1
-        );
-      $new_src = add_query_arg($params, $src);
+    $new_src = video_init($a['video']);
   }
 
   $shortcode = '<div id="'.$a['rtp'].'" class="video_slide"><a href="#" data-toggle="modal" data-target="#videoModal" data-content="'.$new_src.'">';
@@ -90,9 +97,21 @@ function button_shortcode( $atts ) {
       'link' => '',
       'label' => 'Read More',
       'target' => '_self',
+      'video' => ''
     ), $atts );
 
-  $shortcode = '<a href="'.$a['link'].'" target="'.$a['target'].'" class="button">'.$a['label'].'</a>';
+  $script = '';
+
+  if (!empty($a['video'])) {
+    $new_src = video_init($a['video']);
+    $link = '<a href="#" data-toggle="modal" data-target="#videoModal" data-content="'.$new_src.'" class="button">';
+    $script = '<script>document.addEventListener("DOMContentLoaded", function() { init_modal(); });</script>';
+  } else {
+    $link = '<a href="'.$a['link'].'" target="'.$a['target'].'" class="button">';
+  }
+
+  $shortcode = $link . $a['label'].'</a>';
+  $shortcode .= $script;
 
   return $shortcode;
 }
