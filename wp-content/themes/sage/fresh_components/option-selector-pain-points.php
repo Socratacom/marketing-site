@@ -31,8 +31,20 @@ function get_pain_points_option($i, $selected_option) {
         }
         $output .= '</div>';
     $output .= '</div>';
-    $output .= '<script type="text/javascript"> document.addEventListener("DOMContentLoaded", function() {
-                slider(".pain-points-slider", true, 4800,"","","","","",".arrowsContainer");
+    $output .= '<script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function() {
+                $(".pain-points-slider").slick({
+                    arrows: true,
+                    appendArrows: ".arrowsContainer",
+                    prevArrow: "<i class=\'fa slick-prev fa-chevron-left\'></i>",
+                    nextArrow: "<i class=\'fa slick-next fa-chevron-right\'></i>",
+                    draggable: false,
+                    autoplay: true,
+                    autoplaySpeed: 4800,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    speed: 500
+                });
             }, false);</script>';
     return $output;
 }

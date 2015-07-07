@@ -140,9 +140,35 @@ function output_cloud($oddeven, $single = '') {
         endif;
         $cloud_row .= '</div>';
         if( have_rows('logos', 'option') && '' !== $single ):
-            $cloud_row .= '<script type="text/javascript"> document.addEventListener("DOMContentLoaded", function() {
-                slider(".logos", false, 4000, 6, 5, 3);
-            }, false);</script>';
+            $cloud_row .= '<script type="text/javascript">
+                    document.addEventListener("DOMContentLoaded", function() {
+                        $(".logos").slick({
+                            arrows: false,
+                            draggable: false,
+                            autoplay: true,
+                            autoplaySpeed: 4000,
+                            slidesToShow: 6,
+                            slidesToScroll: 1,
+                            speed: 500,
+                            responsive: [
+                              {
+                                breakpoint: 992,
+                                settings: {
+                                  slidesToShow: 5,
+                                  slidesToScroll: 1
+                                }
+                              },
+                              {
+                                breakpoint: 768,
+                                settings: {
+                                  slidesToShow: 3,
+                                  slidesToScroll: 1
+                                }
+                              }
+                            ]
+                        });
+                    }, false);
+                </script>';
         endif;
     $cloud_row .= '</div>';
     return $cloud_row;

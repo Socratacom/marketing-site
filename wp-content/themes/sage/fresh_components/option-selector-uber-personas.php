@@ -31,8 +31,21 @@ function get_uber_personas_option($i, $selected_option) {
         }
         $output .= '</div>';
     $output .= '</div>';
-    $output .= '<script type="text/javascript"> document.addEventListener("DOMContentLoaded", function() {
-                slider(".uber-personas-slider", true, 4800,"","","","","",".arrowsContainer");
-            }, false);</script>';
+    $output .= '<script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function() {
+                $(".uber-personas-slider").slick({
+                    arrows: true,
+                    appendArrows: ".arrowsContainer",
+                    prevArrow: "<i class=\'fa slick-prev fa-chevron-left\'></i>",
+                    nextArrow: "<i class=\'fa slick-next fa-chevron-right\'></i>",
+                    draggable: false,
+                    autoplay: true,
+                    autoplaySpeed: 4800,
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    speed: 500
+                });
+            }, false);
+        </script>';
     return $output;
 }

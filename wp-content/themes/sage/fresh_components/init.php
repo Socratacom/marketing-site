@@ -9,7 +9,7 @@
  * Current components available:
  * * Slider: Show a slider comprised of multiple slides, each can
  * have multiple rows containing multiple columns. Seach slide can
- * contain it's own slider using columns as slides
+ * contain its own slider using columns as slides
  * * Text-Image: Show image on one side, text on the other
  *
  * The components are injected automatically in pages and posts
@@ -36,7 +36,7 @@ require_once 'webinars.php';
 function components_euqeue_scripts() {
     wp_register_script(
         'fresh-components-main-js',
-        get_stylesheet_directory_uri() . '/fresh_components/scripts/main.js',
+        get_stylesheet_directory_uri() . '/fresh_components/scripts/fresh_components_main.js',
         false,
         '1.0',
         false
