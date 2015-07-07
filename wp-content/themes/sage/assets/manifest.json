@@ -22,6 +22,9 @@
     },
     "modernizr.js": {
       "bower": ["modernizr"]
+    },
+    "jquery.gray.min.js": {
+      "vendor": ["assets/scripts/jquery.gray.min.js"]
     }
   },
   "config": {
