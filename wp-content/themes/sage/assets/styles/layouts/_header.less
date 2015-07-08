@@ -93,7 +93,7 @@ ul#menu-primary-navigation {
           .dropdown-menu {
             border: none;
             position: relative;
-            width: 97%;
+            width: 100%;
             > li {
               &:hover {
                 background-color: transparent;
@@ -330,6 +330,11 @@ header {
           padding: 0;
           float: left;
           background-color: lighten(@gray-med, 30%);
+          li {
+            .dropdown-menu {
+              top: 0;
+            }
+          }
         }
       }
       li.dropdown.active {
