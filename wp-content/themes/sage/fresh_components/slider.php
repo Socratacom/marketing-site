@@ -1,7 +1,9 @@
 <?php
 
 function get_slider($i) {
-
+	/***
+	 * Get slider vars
+	**/
 	$the_height = 460;
 	$slider_fixed_height = get_sub_field('slider_fixed_height');
 
@@ -17,7 +19,9 @@ function get_slider($i) {
 
 	if (have_rows('slide')) {
 		while (have_rows('slide')) { the_row();
-
+			/***
+			 * Get individual slide vars
+			**/
 			$rows = '';
 			$rtp_id = get_sub_field('rtp_id');
 			$slide_background_color = get_sub_field('slide_background_color') !== '' ? get_sub_field('slide_background_color') : 'white';
@@ -36,6 +40,9 @@ function get_slider($i) {
 			$slide_mobile_background_image_url = '';
 			$slide_mobile_background_image_url = $slide_mobile_background_array ? $slide_mobile_background_array['url'] : '';
 
+			/***
+			 * Build the slide
+			**/
 			if (get_sub_field('slide_top')) {
 				$rows .= '<div class="row">';
 				$rows .= '<div class="col-md-12">';
@@ -45,9 +52,13 @@ function get_slider($i) {
 			}
 
 			if (have_rows('rows')) {
-
+				/***
+				 * If a slide has columns, start building columns
+				**/
 				while (have_rows('rows')) { the_row();
-
+					/***
+					 * chceck for carousel functionality (set in acf)
+					**/
 					$activate_carousel = get_sub_field('activate_carousel');
 
 					if ($activate_carousel) {
@@ -151,7 +162,9 @@ function get_slider($i) {
 	} else {
 		return false;
 	}
-
+	/***
+ 	 * Output the slide
+	**/
 	echo '<div class="section slider slider-'. $i .' '. $slider_class .'" style="margin:0 -15px; '. $slider_height .'">';
 	echo '<div class="slide-list">';
 	echo $slide;

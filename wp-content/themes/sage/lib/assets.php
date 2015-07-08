@@ -126,7 +126,7 @@ function assets() {
   wp_enqueue_script('jquery');
   wp_enqueue_script('sage_js', asset_path('scripts/main.js'), [], null, true);
   wp_enqueue_script('slick', '//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js', [], null, true);
-  wp_enqueue_script('gray-js', asset_path('/scripts/jquery.gray.min.js'), [], null, true);
+  wp_enqueue_script('gray-js', asset_path('scripts/jquery.gray.min.js'), [], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
 

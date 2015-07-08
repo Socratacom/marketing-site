@@ -12,7 +12,7 @@ function get_text_image($i) {
 
     $background = '';
     if ($bg_image) {
-        $background = 'background-image: url('.$bg_image['url'].')';
+        $background = 'background-image: url('.$bg_image['url'].');';
     }
     $push = '';
     $pull = '';
@@ -23,7 +23,7 @@ function get_text_image($i) {
     $output = '';
 
     // Output
-    $output .= '<div id="section-'. $i .'" class="section-textimage bg-'.$bg_color.'" style="'.$background.'">';
+    $output .= '<div id="section-'. $i .'" class="section-textimage" style="'.$background.' background-color: '.$bg_color.'">';
     $output .= '<div class="container"><div class="row">';
     if ($header) {
         $output .= '<h2>'.$header.'</h2>';

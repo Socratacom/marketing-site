@@ -8,15 +8,13 @@
  *
  * Current components available:
  * * Slider: Show a slider comprised of multiple slides, each can
- * have multiple rows containing multiple columns. Seach slide can
+ * have multiple rows containing multiple columns. Each slide can
  * contain its own slider using columns as slides
  * * Text-Image: Show image on one side, text on the other
  *
  * The components are injected automatically in pages and posts
  * that use them through the loop start hook.
  *
- * Requirements:
- * Advanced Custom Fields v5
  *
  * @author Fresh Consulting <freshconsulting.com>
  * @since  1.0
@@ -68,11 +66,18 @@ function inject_fresh_components( $post_object ) {
                 } elseif( get_row_layout() === 'slider' ) {
                     get_slider($i);
 
-                } elseif( get_row_layout() === 'ecosystem' ) {
-                    get_ecosystem($i);
-
                 } elseif( get_row_layout() === 'option_selector' ) {
                     get_custom_option($i);
+
+                /***
+                 * Add additional custom components here
+                 *
+                 * } elseif ( get_row_layout() === 'custom_component' ) {
+                 *     get_custom_component($i);
+                 *
+                **/
+                } elseif( get_row_layout() === 'ecosystem' ) {
+                    get_ecosystem($i);
 
                 } elseif( get_row_layout() === 'case_studies' ) {
                     echo get_case_studies($i);
@@ -97,7 +102,7 @@ add_action( 'loop_start', 'inject_fresh_components' );
 
 
 /**
- * Adding ACF options
+ * Add ACF options pages here
  */
 if( function_exists('acf_add_options_page') ) {
   acf_add_options_page(array(
