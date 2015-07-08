@@ -15,13 +15,12 @@ function get_cloud_option($i, $selected_option) {
                 if ($layout === 'full' || $layout === 'overview') {
                     // display all clouds
                     $oddeven = $c = !$c;
-                    $output .= output_cloud($oddeven);
+                    $output .= output_cloud($layout, '', $oddeven);
                 } else {
-                    $oddeven = false;
                     // display only the cloud that matches layout selection
                     $cloud = str_replace('icon-', '', get_sub_field('cloud_icon', 'option'));
                     if ( $cloud === $layout ) {
-                        $output .= output_cloud($oddeven, 'single-cloud');
+                        $output .= output_cloud($layout, 'single-cloud', '');
                     }
                 }
             endwhile;
@@ -61,7 +60,7 @@ function cloud_intro() {
     return $cloud_intro;
 }
 
-function output_cloud($oddeven, $single = '') {
+function output_cloud($layout, $single = '', $oddeven) {
     // Get Vars
     $title = get_sub_field('title');
     $icon = get_sub_field('cloud_icon');
@@ -74,9 +73,7 @@ function output_cloud($oddeven, $single = '') {
     // odd/even classes for alignment
     $push = '';
     $pull = '';
-    if ( false == $oddeven ) {
-        //$pull = 'col-md-offset-1';
-    } else if ( true == $oddeven ) {
+    if ( true == $oddeven && 'full' == $layout ) {
         $push = 'col-md-push-8 col-sm-push-9';
         $pull = 'col-md-pull-4 col-sm-pull-3';
     }
