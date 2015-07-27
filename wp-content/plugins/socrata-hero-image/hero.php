@@ -83,7 +83,7 @@ function hero_shortcode( $atts ) {
   <section id="hero-image">
     <div class="hero-image format_text" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 500); ?>);">
       <div class="hero-wrapper">
-        <div class="fade hero-text <?php $meta = get_hero_meta(); if ($meta[6]) echo "$meta[6]"; ?> <?php $meta = get_hero_meta(); if ($meta[2]) echo "$meta[2]"; ?>">
+        <div class="hero-text <?php $meta = get_hero_meta(); if ($meta[6]) echo "$meta[6]"; ?> <?php $meta = get_hero_meta(); if ($meta[2]) echo "$meta[2]"; ?>">
           <?php $meta = get_hero_meta(); if ($meta[0]) echo "<h1>$meta[0]</h1>"; ?>
           <?php $meta = get_hero_meta(); if ($meta[1]) echo "<h2>$meta[1]</h2>"; ?>
           <?php $meta = get_hero_meta(); if ($meta[3]) echo "<a href='$meta[4]' target='$meta[5]' class='button'>$meta[3]</a>"; ?>

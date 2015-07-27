@@ -379,7 +379,6 @@ header {
 	top:0;
 	width:100%; 
 	height:60px;
-	font-size: .9em;
 	display: block !important;
 }
 header ul {
@@ -648,6 +647,8 @@ footer a:hover, footer span {
 .sidebar-one {float:right; width:300px;}
 .sidebar-one ul {list-style-type: none; margin-left:0;}
 
+
+
 .useful_banner_manager_widget {
 	max-width: 320px;
 	margin-left:auto;
@@ -800,8 +801,6 @@ dl.closeup {
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-color: #222;
-	color:#fff;
-	overflow: hidden;
 	position: absolute;
 	top:60px;
 	left:0;
@@ -818,47 +817,85 @@ dl.closeup {
 .blog-content-wrapper {
 	padding-top:400px;
 }
+
+.category-name {
+	text-transform: uppercase;
+}
+
+.byline {
+	margin-bottom: 2em;
+	font-size: 13px;
+}
+.byline img {
+	-moz-border-radius:50%;
+ 	-webkit-border-radius:50%;
+ 	border-radius:50%;
+ 	margin-right: 10px;
+}
+.author-description {
+	padding:15px;
+	line-height: normal;
+	border-top:#ecf0f1 solid 3px;
+	border-bottom:#ecf0f1 solid 3px;
+	margin:1.5em 0;
+}
+.avatar {
+	-moz-border-radius:50%;
+ 	-webkit-border-radius:50%;
+ 	border-radius:50%;
+}
+
 .blog-avatar img {
 	-moz-border-radius:50%;
  	-webkit-border-radius:50%;
  	border-radius:50%;
  	width:80px;
 	height:80px;
+
 }
+
 .blog-avatar {
 	text-align: center;
 }
 .blog-author {
 	font-size:14px;
 }
-.blog-title h1 {
-	margin-bottom:15px;
-}
-.blog-date {
-	border-bottom:#e9e9e9 solid 5px;
-	display:inline-block;
-	margin-bottom:20px;
-	padding-bottom:10px;
-	font-size: 14px;
-}
 .blog-content img {
 	width:100% !important;
 	border:#e9e9e9 solid 5px;
 	height: auto;
 }
-.blog-right-column {
-	text-align: center;
+
+
+.recipe-card {
+	background:#fcf8e3;
+	margin-bottom:1.5em;
+	background-image:url(../images/texture.png);
+	box-shadow: 0px 10px 10px #e9e9e9;
+	padding: 30px;
+	border-right: #ddd solid 1px;
+	border-bottom: #ddd solid 1px;
 }
-.blog-right-column ul, .blog-right-column ol {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
+.recipe-card * {
+	font-family: 'Indie Flower', cursive;
 }
-.blog-right-column-wrapper {
-	max-width:300px;
-	margin:0 auto;
-	text-align: left;
+.recipe-card p, .recipe-card li {
+	line-height: normal;
+	font-size:16px;
+	color:#444;
 }
+.recipe-card li {
+	margin-bottom:.8em;
+}
+.recipe-card h2 {
+	font-size:20px;
+	padding:15px 0;
+	color:#444;
+	background-image:url(../images/recipe-divider.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+}
+
 .sidebar-post {	
 	border:#d1d1d1 solid 1px;	
 	-webkit-box-shadow: 0 10px 6px -6px #e9e9e9;
@@ -878,6 +915,80 @@ dl.closeup {
 	font-style: 12px;
 	font-weight: 400;
 }
+
+div.cf_widget {	
+	width: 100%;
+}
+.cf_widget .cf_pushbutton .cf_actionElem {
+  position: absolute;
+  top:0;
+  right:100px;
+}
+
+.cf_widget .cf_widget_insightsocialicons {
+	position: absolute;
+	right:0;
+}
+.cf_widget .cf_button_du_jour_green {
+  color: #222 !important;
+  background:none  !important;
+}
+.cf_widget .cf_button_du_jour {
+  font-size: 14px;
+  font-weight: 400 !important;
+  border: none  !important;
+  cursor: pointer;
+  padding: 0  !important;
+  border-radius: none  !important;
+  background: none  !important;
+
+}
+.cf_widget .cf_socialicons .cf_socialicon {
+	width:24px !important;
+	height: 24px !important;
+}
+.cf_widget .cf_socialicons .cf_linkedin {
+	background-image:none !important;
+	background-color:#007bb6 !important;
+	position: relative !important;
+}
+.cf_widget .cf_socialicons .cf_linkedin:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 0;
+	left: 7px;
+	content: "\f0e1";
+	color:#fff;
+}
+.cf_widget .cf_socialicons .cf_twitter {
+	background-image:none !important;
+	background-color:#4099ff !important;
+	position: relative !important;
+}
+.cf_widget .cf_socialicons .cf_twitter:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 0;
+	left: 7px;
+	content: "\f099";
+	color:#fff;
+}
+.cf_widget .cf_socialicons .cf_facebook {
+	background-image:none !important;
+	background-color:#3b5998 !important;
+	position: relative !important;
+}
+.cf_widget .cf_socialicons .cf_facebook:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 0;
+	left: 9px;
+	content: "\f09a";
+	color:#fff;
+}
+
+
+
 
 .blog-feature-post {
 	border:#d1d1d1 solid 1px;	
@@ -1434,18 +1545,21 @@ table.contact-table {
     display: inline-block;
     padding: 0;
     margin: 0;
+
 }
 /* first descendant link within a top level navigation item */
 .nav-item > a {
     display: block;    
     color:#222;
     text-decoration: none;
-    font-weight: 400;
+    font-weight: 400 !important;
     height: 60px;
-    padding:18px 15px 0 15px;    	  
+    font-size: 14px;
+    padding:24px 15px 0 15px;    	  
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
+	line-height: normal;
 }
 .nav-item a.nav-link:hover {
 	background:#222;
@@ -1511,6 +1625,7 @@ table.contact-table {
 	display:block;
 	margin-bottom:.75em;
 	font-weight: 400;
+	font-size: 13px;
 }
 .sub-nav ul a, .sub-nav p a, .sub-nav h4 a {
 	color:#d1d1d1;
@@ -1529,9 +1644,11 @@ table.contact-table {
 .sub-nav h4 {
 	margin:0;
 	line-height: normal;
+	font-size: 13px;
 }
 .sub-nav p {
-	line-height: normal;
+	line-height: normal !important;
+	font-size: 13px;
 }
 .sub-nav-full {
 	left:0; 

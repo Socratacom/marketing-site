@@ -153,37 +153,23 @@ function my_scripts_method() {
 
   wp_register_style( 'sssocial', get_stylesheet_directory_uri() . '/custom/fonts/ss-social-regular/webfonts/ss-social-regular.css', false, null );
   wp_enqueue_style( 'sssocial' );
-
   wp_register_style( 'sspika', get_stylesheet_directory_uri() . '/custom/fonts/ss-pika/webfonts/ss-pika.css', false, null );  
-  wp_enqueue_style( 'sspika' );  
-
+  wp_enqueue_style( 'sspika' );
   wp_register_script( 'modernizr', get_stylesheet_directory_uri() . '/custom/scripts/modernizr.custom.js', false, null, true);
   wp_enqueue_script( 'modernizr' );
-
   wp_register_script( 'megaMenu', get_stylesheet_directory_uri() . '/custom/scripts/jquery-accessibleMegaMenu.js', false, null, true);
   wp_enqueue_script( 'megaMenu' );
-
   wp_register_script( 'classie', get_stylesheet_directory_uri() . '/custom/scripts/classie.js', false, null, true);
   wp_enqueue_script( 'classie' );
-
   wp_register_script( 'uisearch', get_stylesheet_directory_uri() . '/custom/scripts/uisearch.js', false, null, true);
   wp_enqueue_script( 'uisearch' );
-
   wp_register_script( 'gnmenu', get_stylesheet_directory_uri() . '/custom/scripts/gnmenu.js', false, null, true);
   wp_enqueue_script( 'gnmenu' );
-
-  /*wp_register_script( 'smartform_script_one', 'http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js', true );*/
-
   wp_register_script( 'smartform_script_two', get_stylesheet_directory_uri() . '/custom/scripts/smartform_conflict.js', false, null, true);
-
   wp_register_script( 'smartform_script_three', 'http://d12ulf131zb0yj.cloudfront.net/SmartForms3-0/SmartForms.js', false, null, true);
-
   wp_register_script( 'smartform_script_four', get_stylesheet_directory_uri() . '/custom/scripts/smartform.js', false, null, true);
-
-  wp_register_script( 'addthisfire', get_stylesheet_directory_uri() . '/custom/scripts/addthisfire.js', false, null, true);  
-   
+  wp_register_script( 'addthisfire', get_stylesheet_directory_uri() . '/custom/scripts/addthisfire.js', false, null, true);   
   wp_register_script( 'modal', get_stylesheet_directory_uri() . '/custom/scripts/jquery.reveal.js', false, null, true);
-
   wp_register_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', false, null);
   wp_enqueue_style('google-fonts');
   wp_register_script( 'accordion-script', get_stylesheet_directory_uri() . '/custom/scripts/jquery.accordion.js', false, null, true);
@@ -191,6 +177,18 @@ function my_scripts_method() {
   wp_register_script( 'tab-script', get_stylesheet_directory_uri() . '/custom/scripts/cbpFWTabs.js', false, null, true);
   wp_register_style( 'tab-styles', get_stylesheet_directory_uri() . '/custom/css/tabs.css', false, null );
   wp_register_script( 'jumplinks', get_stylesheet_directory_uri() . '/custom/scripts/jumplinks.js', false, null, true);
+  wp_register_style( 'fontawesome', 'http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
+  wp_enqueue_style('fontawesome');
+}
+
+add_action('wp_enqueue_scripts', 'bootstrap_scripts');
+function bootstrap_scripts() {
+  if (is_single()) {
+    wp_register_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', false, null);
+    wp_enqueue_style('bootstrap');
+    wp_register_style( 'recipe-fonts', 'http://fonts.googleapis.com/css?family=Indie+Flower', false, null);
+    wp_enqueue_style('recipe-fonts');
+  }
 }
 
 add_filter( 'avatar_defaults', 'new_custom_default_gravatar' );
@@ -217,3 +215,22 @@ register_sidebar(array(
   'before_title'=>'<h3>',
   'after_title'=>'</h3>'
   ));
+
+// Adds category name to blog
+function user_the_categories() {
+    // get all categories for this post
+    global $cats;
+    $cats = get_the_category();
+    // echo the first category
+    echo $cats[0]->cat_name;
+    // echo the remaining categories, appending separator
+    for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
+}
+
+
+add_filter('get_avatar','add_gravatar_class');
+
+function add_gravatar_class($class) {
+    $class = str_replace("class='avatar", "class='avatar pic-2", $class);
+    return $class;
+}

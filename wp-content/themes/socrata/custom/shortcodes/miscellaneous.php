@@ -87,8 +87,24 @@ function shared_sidebar($atts, $content = null) {
 add_shortcode("shared-sidebar", "shared_sidebar");
 
 
-
-/*function wistia_player( $atts, $content = null ) {
-  return '<div class="feature-box">'.$content.'</div>';
+// Recipes Author
+function author_description($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="author-description">
+    <div class="row">
+      <div class="col-sm-3">
+        <p class="text-center"><?php echo get_avatar( get_the_author_meta('ID'), 100 ); ?></p>
+      </div>
+      <div class="col-sm-9">
+        <h3>About the Author</h3>
+        <?php the_author_description(); ?>
+      </div>
+    </div>
+  </div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
 }
-add_shortcode("wistia", "wistia_player");*/
+add_shortcode("author-description", "author_description");

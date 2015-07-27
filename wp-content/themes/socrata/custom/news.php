@@ -144,7 +144,7 @@ if (is_page('newsroom')) { ?>
   <!-- Right Column -->
   <div class="blog_one_third last format_text blog-right-column">
     <div class="blog-right-column-wrapper">
-      <ul><?php thesis_default_widget('shared'); ?></ul>
+      <ul style="list-style-type: none; margin:0;"><?php thesis_default_widget('shared'); ?></ul>
       <?php $blog_query = new WP_Query('post_type=post&orderby=desc&showposts=2'); 
         if (have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
       ?>
