@@ -1,4 +1,12 @@
 <div class="feature-image" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 400); ?>);"></div>
+<?php
+  $meta = get_attribution_meta(); 
+  if ($meta[1]) {
+    echo "<div class='image-attribution'>Photo: <a href='$meta[1]' target='_blank'>$meta[0]</a></div>";
+  } elseif ($meta[0]) {
+    echo "<div class='image-attribution'>Photo: $meta[0]</div>";
+  } 
+?>
 <div class="container blog-content-wrapper format_text">
   <div class="row">
     <div class="col-sm-7 col-sm-offset-1">
