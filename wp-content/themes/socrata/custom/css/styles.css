@@ -852,7 +852,7 @@ ul.byline {
 	-moz-border-radius:50%;
  	-webkit-border-radius:50%;
  	border-radius:50%;
- 	margin-right: 10px;
+ 	margin-right: 10px !important;
 }
 .cf_actionElem {
 	display:none !important;
