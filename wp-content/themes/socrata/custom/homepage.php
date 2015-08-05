@@ -53,6 +53,7 @@ function custom_homepage() {
     			<div class="home-post-wrapper">
     				<a href="<?php the_permalink() ?>" class="home-post-link"></a>
     				<div class="home-post-meta">
+                        <small class="category-name"><?php user_the_categories(); ?></small>
     					<h3><?php the_title(); ?></h3>
     					<div class="home-post-author">
     						<div style="float:left; width:54px;">
@@ -76,6 +77,7 @@ function custom_homepage() {
     					<div class="home-post-wrapper">
     						<a href="<?php the_permalink() ?>" class="home-post-link"></a>
                             <div class="home-post-meta-one">
+                                <small class="category-name"><?php user_the_categories(); ?></small>
                                 <h4><?php the_title(); ?></h4>
                                 <p style="margin:0;"><small><strong>By</strong> <?php the_author(); ?><br><strong>Posted</strong> <?php the_time('F jS, Y') ?></small></p>
                             </div>
@@ -93,6 +95,7 @@ function custom_homepage() {
                         <div class="home-post-wrapper">
                             <a href="<?php the_permalink() ?>" class="home-post-link"></a>
                             <div class="home-post-meta-one">
+                                <small class="category-name"><?php user_the_categories(); ?></small>
                                 <h4><?php the_title(); ?></h4>
                                 <p style="margin:0;"><small><strong>By</strong> <?php the_author(); ?><br><strong>Posted</strong> <?php the_time('F jS, Y') ?></small></p>
                             </div>

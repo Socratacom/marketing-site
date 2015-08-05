@@ -806,6 +806,13 @@ dl.closeup {
 	left:0;
 	width:100%;
 }
+.pattern-overlay {
+	position:absolute;
+	height:100%;
+	width:100%;
+	background:url(../images/pattern-stripe.png);
+	opacity: 0.3;
+}
 .image-attribution {
 	position: absolute;
 	top:470px;
@@ -821,10 +828,25 @@ dl.closeup {
 .category-name {
 	text-transform: uppercase;
 }
-
-.byline {
-	margin-bottom: 2em;
+.article-content {
+	background:#fff;
+	margin-top:-150px;
+	padding:50px 30px !important;
+}
+ul.byline {
+	list-style-type: none;
+	padding: 0;
+	margin: 2em 0;
 	font-size: 13px;
+	position: relative;
+}
+.byline li {
+	display: inline-block;
+}
+.byline .share {
+	position: absolute;
+	right:0;
+	top:9px;
 }
 .byline img {
 	-moz-border-radius:50%;
@@ -832,6 +854,59 @@ dl.closeup {
  	border-radius:50%;
  	margin-right: 10px;
 }
+.cf_actionElem {
+	display:none !important;
+}
+.cf_widget .cf_socialicons .cf_socialicon {
+	width:32px !important;
+	height: 32px !important;
+}
+.cf_widget .cf_socialicons .cf_linkedin {
+	background-image:none !important;
+	background-color:#007bb6 !important;
+	position: relative !important;
+}
+.cf_widget .cf_socialicons .cf_linkedin:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 3px;
+	left: 9px;
+	content: "\f0e1";
+	color:#fff;
+	font-size: 16px;
+}
+.cf_widget .cf_socialicons .cf_twitter {
+	background-image:none !important;
+	background-color:#4099ff !important;
+	position: relative !important;
+}
+.cf_widget .cf_socialicons .cf_twitter:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 4px;
+	left: 9px;
+	content: "\f099";
+	color:#fff;
+	font-size: 16px;
+}
+.cf_widget .cf_socialicons .cf_facebook {
+	background-image:none !important;
+	background-color:#3b5998 !important;
+	position: relative !important;
+}
+.cf_widget .cf_socialicons .cf_facebook:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	top: 4px;
+	left: 11px;
+	content: "\f09a";
+	color:#fff;
+	font-size: 16px;
+}
+
+
+
+
 .author-description {
 	padding:15px;
 	line-height: normal;
@@ -917,76 +992,7 @@ dl.closeup {
 	font-weight: 400;
 }
 
-div.cf_widget {	
-	width: 100%;
-}
-.cf_widget .cf_pushbutton .cf_actionElem {
-  position: absolute;
-  top:0;
-  right:100px;
-}
 
-.cf_widget .cf_widget_insightsocialicons {
-	position: absolute;
-	right:0;
-}
-.cf_widget .cf_button_du_jour_green {
-  color: #222 !important;
-  background:none  !important;
-}
-.cf_widget .cf_button_du_jour {
-  font-size: 14px;
-  font-weight: 400 !important;
-  border: none  !important;
-  cursor: pointer;
-  padding: 0  !important;
-  border-radius: none  !important;
-  background: none  !important;
-
-}
-.cf_widget .cf_socialicons .cf_socialicon {
-	width:24px !important;
-	height: 24px !important;
-}
-.cf_widget .cf_socialicons .cf_linkedin {
-	background-image:none !important;
-	background-color:#007bb6 !important;
-	position: relative !important;
-}
-.cf_widget .cf_socialicons .cf_linkedin:before {
-	position: absolute;
-	font-family: 'FontAwesome';
-	top: 0;
-	left: 7px;
-	content: "\f0e1";
-	color:#fff;
-}
-.cf_widget .cf_socialicons .cf_twitter {
-	background-image:none !important;
-	background-color:#4099ff !important;
-	position: relative !important;
-}
-.cf_widget .cf_socialicons .cf_twitter:before {
-	position: absolute;
-	font-family: 'FontAwesome';
-	top: 0;
-	left: 7px;
-	content: "\f099";
-	color:#fff;
-}
-.cf_widget .cf_socialicons .cf_facebook {
-	background-image:none !important;
-	background-color:#3b5998 !important;
-	position: relative !important;
-}
-.cf_widget .cf_socialicons .cf_facebook:before {
-	position: absolute;
-	font-family: 'FontAwesome';
-	top: 0;
-	left: 9px;
-	content: "\f09a";
-	color:#fff;
-}
 
 
 

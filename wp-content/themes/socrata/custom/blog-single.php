@@ -1,4 +1,6 @@
-<div class="feature-image" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 400); ?>);"></div>
+<div class="feature-image" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 400); ?>);">
+  <div class="pattern-overlay"></div>
+</div>
 <?php
   $meta = get_attribution_meta(); 
   if ($meta[1]) {
@@ -9,18 +11,16 @@
 ?>
 <div class="container blog-content-wrapper format_text">
   <div class="row">
-    <div class="col-sm-7 col-sm-offset-1">
+    <div class="col-sm-7 col-sm-offset-1 article-content">
       <small class="category-name"><?php user_the_categories(); ?></small>
       <h1><?php the_title(); ?></h1>
-      <div class="row byline">
-        <div class="col-sm-8">
-          <div><?php echo get_avatar( get_the_author_meta('ID'), 50 ); ?> By <?php the_author(); ?> | Posted: <?php the_time('F jS, Y') ?></div>
-        </div>
-        <div class="col-sm-4">
-          <div class='cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397'></div>
-          <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>
-        </div>      
-      </div>
+      <ul class="byline">
+        <li><?php echo get_avatar( get_the_author_meta('ID'), 50 ); ?></li>
+        <li>By <?php the_author(); ?>, </li>
+        <li><?php the_time('F jS, Y') ?></li>
+        <li class="share"><div class='cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397'></div>
+          <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script></li>
+      </ul>
       <?php thesis_content_column(); ?>
       <hr/>
       <div>
