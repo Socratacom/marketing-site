@@ -18,8 +18,7 @@
         <li><?php echo get_avatar( get_the_author_meta('ID'), 50 ); ?></li>
         <li>By <?php the_author(); ?>, </li>
         <li><?php the_time('F jS, Y') ?></li>
-        <li class="share"><div class='cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397'></div>
-          <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script></li>
+        <li class="share"><?php echo do_shortcode( '[marketo-share]' ); ?></li>
       </ul>
       <?php thesis_content_column(); ?>
       <hr/>

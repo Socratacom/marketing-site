@@ -29,3 +29,9 @@ function share_this() {
 <!-- AddThis Button END -->';
 }
 add_shortcode('share this', 'share_this');
+
+// Marketo Sharing
+function marketo_share() {
+  return '<div class="cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397"></div><script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>';
+}
+add_shortcode('marketo-share', 'marketo_share');
