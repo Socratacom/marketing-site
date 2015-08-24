@@ -117,8 +117,25 @@ function stories_product() {
   );
 }
 
+// Single Template Path
+add_filter( 'template_include', 'stories_single_template', 1 );
+function stories_single_template( $template_path ) {
+  if ( get_post_type() == 'stories' ) {
+    if ( is_single() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'single-stories.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'single-stories.php';
+      }
+    }
+  }
+  return $template_path;
+}
+
 // ENQEUE SCRIPTS
-add_action( 'init', 'register_stories_styles', 0 ); 
+/*add_action( 'init', 'register_stories_styles', 0 ); 
 function register_stories_styles() {
     wp_register_style( 'stories_styles', plugins_url( 'css/styles.css' , __FILE__ ), false, null );    
     wp_register_script( 'storiesfilter', plugins_url( 'js/dropit.js' , __FILE__ ), false, null, true );
@@ -133,6 +150,7 @@ function stories_script_loading() {
     } 
 }
 add_action('wp_enqueue_scripts', 'stories_script_loading');
+
 
 // ADD TRUNCATE SCRIPT
 add_action('thesis_hook_after_html', 'stories_truncate_script');
@@ -164,6 +182,7 @@ if ( 'stories' == get_post_type() && is_archive() || is_page('customer-stories')
 <?php } 
 }
 
+
 // BODY CLASSES FOR STYLING
 add_filter('thesis_body_classes', 'stories_styling');
 function stories_styling($classes) {
@@ -186,19 +205,7 @@ function stories_landing_styling($classes) {
   }
   return $classes; 
 }
-
-// FLUSH REWRITE RULES
-function stories_activate() {
-  // register taxonomies/post types here
-  flush_rewrite_rules();
-}
-register_activation_hook( __FILE__, 'stories_activate' );
-
-function stories_deactivate() {
-  flush_rewrite_rules();
-}
-register_deactivation_hook( __FILE__, 'stories_deactivate' );
-
+*/
 
 // REGISTER MENUS
 add_action( 'init', 'register_stories_menus' );
@@ -211,6 +218,18 @@ function register_stories_menus() {
     )
   );
 }
+
+// Custom Images
+function stories_custom_logo( $thumb_size, $image_width ) { 
+  global $post; 
+  $params = array( 'width' => $image_width );
+  $meta = get_socrata_stories_meta();  
+  $imgsrc = wp_get_attachment_image_src($meta[6], $thumb_size );
+  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
+  return $custom_img_src;   
+}
+
+
 // SHORTCODES
 // [featured-stories]
 add_shortcode('featured-stories','featured_stories');

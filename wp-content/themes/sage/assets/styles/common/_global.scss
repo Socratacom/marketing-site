@@ -1,1 +1,66 @@
+@media only screen and (min-width : 320px) {
+	body {
+		font-family: 'Open Sans', sans-serif;
+		color:$gray-dark;
+		font-weight:$font-normal;
+	}
+	.main {
+		padding:0 !important;
+		width:100% !important;
+		float:none !important;
+	}
+	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	    font-family: inherit;
+	    font-weight: $font-normal;
+	    line-height: 1.1;
+	    color: inherit;
+	}
+	h1 {
+		font-size:38px;
+		letter-spacing:-1px;
+	}
+	h2 {
+		font-size:32px;
+	}
+	h3 {
+		font-size:24px;
+	}
+	h4 {
+		font-size:20px;
+	}
+	h5 {
+		font-size:18px;
+	}
+	p, li {
+		font-size: 16px;
+		line-height: 1.5em;
+		margin-bottom:1.63em;
+	}
+	a {
+		color:$peter-river;
+	}
+	a:hover {
+		color:$belize-hole;
+		text-decoration:none;
+	}    
+}
 
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
+}

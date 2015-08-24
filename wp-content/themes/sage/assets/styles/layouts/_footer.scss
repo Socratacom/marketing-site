@@ -1,0 +1,28 @@
+footer {
+	width:100%;
+	padding:50px 0;
+	background-color:$gray-dark;
+}
+footer * {
+	color:$silver;
+	font-size:13px;
+}
+footer h4 {
+	text-transform: uppercase;
+	color:white;
+}
+footer ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+footer li {
+	margin:0;
+}
+footer li:last-child {
+	margin-top:15px;
+}
+footer li span {
+	font-weight: $font-semi-bold;
+	color:white;
+}
