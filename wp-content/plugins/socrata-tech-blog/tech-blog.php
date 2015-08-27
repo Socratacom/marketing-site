@@ -9,8 +9,6 @@ Author URI: http://fishinglounge.com/
 License: GPLv2
 */
 
-include_once("meta-boxes.php");
-
 // REGISTER POST TYPE
 add_action( 'init', 'create_tech_blog' );
 
@@ -45,23 +43,22 @@ function create_tech_blog() {
 
 // TAXONOMIES
 add_action( 'init', 'tech_blog_taxonomies', 0 );
-
 function tech_blog_taxonomies() {
-    register_taxonomy(
-        'tech_blog_category',
-        'tech_blog',
-        array(
-            'labels' => array(
-                'name' => 'Tech Blog Category',
-                'add_new_item' => 'Add New Category',
-                'new_item_name' => "New Category"
-            ),
-            'show_ui' => true,
-            'show_tagcloud' => false,
-            'hierarchical' => true,
-            'rewrite' => array('with_front' => false, 'slug' => 'tech-blog-category')
-        )
-    );
+  register_taxonomy(
+    'tech_blog_category',
+    'tech_blog',
+    array(
+    'labels' => array(
+    'name' => 'Tech Blog Category',
+    'add_new_item' => 'Add New Category',
+    'new_item_name' => "New Category"
+  ),
+    'show_ui' => true,
+    'show_tagcloud' => false,
+    'hierarchical' => true,
+    'rewrite' => array('with_front' => false, 'slug' => 'tech-blog-category')
+    )
+  );
 }
 
 // ASSIGN DEFAULT CATEGORY
@@ -157,7 +154,7 @@ $off = $number_of_feature_posts + (($paged > 1) ? $how_many_secondary_posts_past
   <!-- Right Column -->
   <div class="blog_one_third last format_text blog-right-column">
     <div class="blog-right-column-wrapper">
-      <ul><?php thesis_default_widget('shared'); ?></ul>
+      <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
       <?php $blog_query = new WP_Query('post_type=post&orderby=desc&showposts=2'); 
         if (have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
       ?>

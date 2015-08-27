@@ -23,7 +23,7 @@ function page_templates() {
   elseif (get_post_type() == 'stories' && is_single()) require_once STYLESHEETPATH . '/custom/single-stories.php';
   elseif (get_post_type() == 'stories' && is_archive()) require_once STYLESHEETPATH . '/custom/archive-stories.php';
   elseif (get_post_type() == 'employee_directory' && is_single()) require_once STYLESHEETPATH . '/custom/employee-directory.php';
-  elseif (get_post_type() == 'tech_blog' && is_single()) require_once STYLESHEETPATH . '/custom/tech-blog.php';
+  elseif (get_post_type() == 'tech_blog' && is_single()) require_once STYLESHEETPATH . '/custom/single-tech-blog.php';
   elseif (get_post_type() == 'oi_magazine' && is_single()) require_once STYLESHEETPATH . '/custom/single-magazine.php';
   elseif (is_single()) require_once STYLESHEETPATH . '/custom/blog-single.php';  
   elseif (get_post_type() == 'news' && is_archive()) require_once STYLESHEETPATH . '/custom/news-archive.php';

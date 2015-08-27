@@ -117,6 +117,17 @@ function stories_product() {
   );
 }
 
+// Print Taxonomy Categories
+function stories_the_categories() {
+    // get all categories for this post
+    global $terms;
+    $terms = get_the_terms($post->ID , 'stories_region');
+    // echo the first category
+    echo $terms[0]->name;
+    // echo the remaining categories, appending separator
+    for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
 // ENQEUE SCRIPTS
 add_action( 'init', 'register_stories_styles', 0 ); 
 function register_stories_styles() {

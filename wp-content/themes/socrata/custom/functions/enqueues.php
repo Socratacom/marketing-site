@@ -28,7 +28,7 @@ function my_scripts_method() {
   wp_register_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Open+Sans:400,300,600', false, null);
   wp_enqueue_style('google-fonts');
   wp_register_script( 'accordion-script', get_stylesheet_directory_uri() . '/custom/scripts/jquery.accordion.js', false, null, true);
-   wp_register_style( 'accordion-styles', get_stylesheet_directory_uri() . '/custom/css/accordion.css', false, null );
+  wp_register_style( 'accordion-styles', get_stylesheet_directory_uri() . '/custom/css/accordion.css', false, null );
   wp_register_script( 'tab-script', get_stylesheet_directory_uri() . '/custom/scripts/cbpFWTabs.js', false, null, true);
   wp_register_style( 'tab-styles', get_stylesheet_directory_uri() . '/custom/css/tabs.css', false, null );
   wp_register_script( 'jumplinks', get_stylesheet_directory_uri() . '/custom/scripts/jumplinks.js', false, null, true);
@@ -36,12 +36,19 @@ function my_scripts_method() {
   wp_enqueue_style('fontawesome');
 }
 
-// Adding Bootstrap to blog. This is temporary till whole site retrofit
+// Bootstrap Enqueue. This is temporary till whole site retrofit
 add_action('wp_enqueue_scripts', 'bootstrap_scripts');
 function bootstrap_scripts() {
-  if (is_single()) {
+  if (is_single() || is_page('home')) {
     wp_register_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', false, null);
     wp_enqueue_style('bootstrap');
+  }
+}
+
+// Recipe Fonts. This is used for Recipes for Civic Success section
+add_action('wp_enqueue_scripts', 'recipe_fonts');
+function special_fonts() {
+  if (is_single()) {
     wp_register_style( 'recipe-fonts', 'http://fonts.googleapis.com/css?family=Indie+Flower', false, null);
     wp_enqueue_style('recipe-fonts');
   }

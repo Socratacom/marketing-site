@@ -31,13 +31,12 @@ function blog_all_articles() {
   <?php endwhile; ?>
   <?php endif; ?>
   <?php wp_reset_query(); ?>
-  <hr/>
-  <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>  
+  <?php if (function_exists("pagination")) {pagination($additional_loop->max_num_pages);} ?>
   </div>
   <!-- Right Column -->
   <div class="blog_one_third last format_text blog-right-column">
     <div class="blog-right-column-wrapper">
-      <ul><?php thesis_default_widget('shared'); ?></ul>
+      <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
       <?php $blog_query = new WP_Query('post_type=tech_blog&orderby=desc&showposts=2'); 
         if (have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
       ?>
@@ -113,7 +112,7 @@ function blog_page() {
   <!-- Right Column -->
   <div class="blog_one_third last format_text blog-right-column">
     <div class="blog-right-column-wrapper">
-      <ul><?php thesis_default_widget('shared'); ?></ul>
+      <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
       <?php $blog_query = new WP_Query('post_type=tech_blog&orderby=desc&showposts=2'); 
         if (have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
       ?>

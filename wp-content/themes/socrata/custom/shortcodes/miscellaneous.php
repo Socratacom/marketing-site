@@ -87,7 +87,7 @@ function shared_sidebar($atts, $content = null) {
 add_shortcode("shared-sidebar", "shared_sidebar");
 
 
-// Recipes Author
+// Author Description
 function author_description($atts, $content = null) {
   ob_start();
   ?>
@@ -108,3 +108,50 @@ function author_description($atts, $content = null) {
   return $content;
 }
 add_shortcode("author-description", "author_description");
+
+// Newsletter Signup
+function newsletter_sidebar ($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="newsletter-sidebar newsletter-form">
+    <p><img src="/wp-content/themes/socrata/custom/images/transform.jpg" class="img-responsive"></p>
+    <h3>Subscribe to the Socrata newsletter</h3>
+    <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
+    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <form id="mktoForm_2340"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2340);</script>
+  </div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode("newsletter-sidebar", "newsletter_sidebar");
+
+function newsletter_footer ($atts, $content = null) {
+  ob_start();
+  ?>
+  <section class="section-padding newsletter-footer newsletter-form">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <p><img src="/wp-content/themes/socrata/custom/images/transform.jpg" class="img-responsive"></p>
+          <h2>Stay In Touch</h2>
+          <h3>Subscribe to the Socrata Newsletter</h3>
+          <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
+        </div>
+        <div class="col-sm-6">
+          <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+          <form id="mktoForm_2340"></form>
+          <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2340);</script>
+        </div>
+      </div>
+    </div>
+  </section>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode("newsletter-footer", "newsletter_footer");
+add_shortcode("newsletter-sidebar", "newsletter_sidebar");

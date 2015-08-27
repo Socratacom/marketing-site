@@ -103,6 +103,17 @@ function case_study_custom_columns( $column, $post_id ) {
   }
 }
 
+// Print Taxonomy Categories
+function case_study_the_categories() {
+    // get all categories for this post
+    global $terms;
+    $terms = get_the_terms($post->ID , 'case_study_category');
+    // echo the first category
+    echo $terms[0]->name;
+    // echo the remaining categories, appending separator
+    for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
 // Display Post Type Query on main page
 add_action('thesis_hook_custom_template', 'case_study_main_page');
 function case_study_main_page(){
@@ -138,18 +149,22 @@ if (is_page('case-studies')) { ?>
       </p>
     </article>
     <?php echo $third_div_clear; ?>    
-    <?php endwhile; ?>
-    <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
+    <?php endwhile; ?>    
     <?php endif; ?>
-    <?php wp_enqueue_style( 'case_study_styles' ); ?>
-
+    <?php if (function_exists("pagination")) {pagination($additional_loop->max_num_pages);} ?>
 <?php }
 }
 
 // ADD STYLESHEET TO FRONT END
-add_action( 'init', 'register_case_study_styles' ); 
+
+
+// Data as a Utility Page
+add_action('wp_enqueue_scripts', 'register_case_study_styles');
 function register_case_study_styles() {
+  if (get_post_type() == 'case_study' && is_single()) {
     wp_register_style( 'case_study_styles', plugins_url( 'css/styles.css' , __FILE__ ) );
+    wp_enqueue_style('case_study_styles');
+  }
 }
 
 // Body Classes for Styling 

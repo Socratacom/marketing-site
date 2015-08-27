@@ -91,43 +91,44 @@ function hero_shortcode( $atts ) {
       </div>
     </div>
   </section>
-  <div class="home-video-ctas format_text">
-    <div class="home-video-ctas-wrapper">
-      <div class="one_half video-cta"><!-- Left Column -->
-        <div class="one_third">
-          <div class="home-video-thumb-wrapper">
-            <img src="/wp-content/plugins/socrata-hero-image/images/what-is-socrata.jpg" class="img-responsive">
-            <div class="home-video-play"></div>
-            <a href="/what-is-socrata"></a>
+  <section class="home-videos">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="home-video-thumb-wrapper">
+                <img src="/wp-content/plugins/socrata-hero-image/images/what-is-socrata.jpg" class="img-responsive">
+                <div class="home-video-play"></div>
+                <a href="/what-is-socrata"></a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-8">
+              <small>video</small>
+              <h3>What is Socrata?</h3>
+              <p>The world leader in cloud solutions for open data and data-driven governments</p>
+            </div>
           </div>
         </div>
-        <div class="two_third last">
-          <small>video</small>
-          <h3>What is Socrata?</h3>
-          <p>The world leader in cloud solutions for open data and data-driven governments</p>
-        </div>
-        <div class="clearboth"></div>
-      </div>
-      <div class="one_half last"><!-- Right Column -->
-        <div class="one_third">
-          <div class="home-video-thumb-wrapper">
-            <img src="/wp-content/plugins/socrata-hero-image/images/socrata-video-thumb.jpg" class="img-responsive">
-            <div class="home-video-play"></div>
-            <a href="/unleash-the-power-of-open-data"></a>
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="home-video-thumb-wrapper">
+                <img src="/wp-content/plugins/socrata-hero-image/images/socrata-video-thumb.jpg" class="img-responsive">
+                <div class="home-video-play"></div>
+                <a href="/unleash-the-power-of-open-data"></a>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-8">
+              <small>video</small>
+              <h3>Who uses Socrata?</h3>
+              <p>Organizations focused on democratizing access to public sector data</p>
+            </div>
           </div>
         </div>
-        <div class="two_third last">
-          <small>video</small>
-          <h3>Who uses Socrata?</h3>
-          <p>Organizations focused on democratizing access to public sector data</p>
-        </div>
       </div>
-      <div class="clearboth"></div>
     </div>
-  </div>
-
-
-
+  </section>
   <?php endwhile; wp_reset_postdata(); ?>
   <?php $myvariable = ob_get_clean();
   return $myvariable;

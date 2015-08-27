@@ -1,4 +1,6 @@
-<div class="feature-image" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 400); ?>);"></div>
+<div class="feature-image" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 400); ?>);">
+  <div class="pattern-overlay"></div>
+</div>
 <?php
   $meta = get_attribution_meta(); 
   if ($meta[1]) {
@@ -7,42 +9,30 @@
     echo "<div class='image-attribution'>Photo: $meta[0]</div>";
   } 
 ?>
-<div class="blog-content-wrapper">
-  <!-- Left Column -->
-  <div class="blog_one_sixth format_text">
-    <div class="blog-avatar">
-      <?php echo get_avatar( get_the_author_meta('ID'), 80 ); ?>
-      <div class="blog-author"><strong>By</strong> <?php the_author(); ?></div>    
-    </div>
-  </div>
-  <!-- Center Column -->
-  <div class="blog_one_half blog-content">
-    <div class="blog-title format_text">
-      <!-- AddThis Button BEGIN -->
-      <div class="addthis_toolbox addthis_32x32_style" style="float:right; margin-left:30px;">
-        <a class="addthis_button_facebook"></a>
-        <a class="addthis_button_twitter"></a>
-        <a class="addthis_button_google_plusone_share"></a>
-        <a class="addthis_button_compact"></a>
-      </div>
-      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4e590fc12e22e79e"></script>
-      <!-- AddThis Button END -->
+<div class="container blog-content-wrapper">
+  <div class="row">
+    <div class="col-sm-8 col-md-7 col-md-offset-1 article-content">
+      <small class="category-name"><?php news_the_categories(); ?></small>
       <h1><?php the_title(); ?></h1>
-      <div class="blog-date"><strong>Posted</strong> <?php the_time('F jS, Y') ?></div>
-    </div>
-    <?php thesis_content_column(); ?>
-    <hr/>
-    <div class="format_text" style="line-height: normal;">
-      <?php if( 'news' == get_post_type() ) {      
-      previous_post_link('<p><strong><small>NEXT POST:</small><br>%link</strong></p>');
-      next_post_link('<p><strong><small>PREVIOUS POST:</small><br>%link</strong></p>');
-      }?>
-    </div>
-  </div>
-  <!-- Right Column -->
-  <div class="blog_one_third last format_text blog-right-column">
-    <div class="blog-right-column-wrapper">
-      <ul style="list-style-type: none; margin:0;"><?php thesis_default_widget('shared'); ?></ul>
+      <ul class="byline">
+        <li><?php echo get_avatar( get_the_author_meta('ID'), 50 ); ?></li>
+        <li>By <?php the_author(); ?>, </li>
+        <li><?php the_time('F jS, Y') ?></li>
+      </ul>
+      <div class="marketo-share">
+        <?php echo do_shortcode( '[marketo-share]' ); ?>
+      </div>
+      <?php thesis_content_column(); ?>
+      <hr/>
+      <div class="format_text" style="line-height: normal;">
+        <?php if( 'news' == get_post_type() ) {      
+        previous_post_link('<p><strong><small>NEXT POST:</small><br>%link</strong></p>');
+        next_post_link('<p><strong><small>PREVIOUS POST:</small><br>%link</strong></p>');
+        }?>
+      </div>
+    </div> 
+    <div class="col-sm-4 col-md-3">
+      <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
       <?php $blog_query = new WP_Query('post_type=post&orderby=desc&showposts=2'); 
         if (have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
       ?>
@@ -63,7 +53,8 @@
       <?php endwhile; ?>
       <?php endif; ?>
       <?php wp_reset_postdata(); ?>
-    </div>  
+    </div>
+
   </div>
-  <div class="clearboth"></div>
+
 </div>

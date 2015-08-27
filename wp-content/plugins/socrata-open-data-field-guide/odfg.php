@@ -42,14 +42,13 @@ function create_guide() {
 // MENU ICON
 //Using Dashicon Font http://melchoyce.github.io/dashicons/
 add_action( 'admin_head', 'add_guide_icon' );
-function add_guide_icon(){
-?>
-<style>
-#adminmenu .menu-icon-guide div.wp-menu-image:before {
-  content: '\f331';
-}
-</style>
-<?php
+function add_guide_icon() { ?>
+  <style>
+    #adminmenu .menu-icon-guide div.wp-menu-image:before {
+      content: '\f331';
+    }
+  </style>
+  <?php
 }
 
 // Custom Columns for admin management page

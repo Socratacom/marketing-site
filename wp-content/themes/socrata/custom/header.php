@@ -9,171 +9,167 @@ $wp_google_tag_manager->output_manual();
 } ?>
 
 <header>
-    <div class="wrapper format_text">
+    <div class="wrapper">
         <div class="logo color-logo"></div>
         <div class="logo-link"><a href="/" class="logo-link" title="Socrata, The Data Experience Company"></a></div>
         <nav>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="/products/">Products <span class="ss-icon">descend</span></a>
-                <div class="sub-nav sub-nav-full">
-                    <div class="sub-nav-container">
-                        <div class="sub-nav-group one_third">
-                            <h4><a href="/products/open-data-portal/">Open Data Portal</a></h4>
-                            <p>The Socrata Open Data Portal&trade; simplifies data movement by making it easy to upload, query, analyze, visualize, and share.</p>                      
-                        </div>
-                        <div class="sub-nav-group one_third">
-                            <h4><a href="/products/govstat/">Open Performance (GovStat)</a></h4>
-                            <p>Socrata Open Performance&trade; not only helps you set goals, but measure their impact against data, perform broad analysis, and share your results automatically.</p> 
-                        </div>
-                        <div class="sub-nav-group one_third last">
-                            <h4><a href="/products/financial-transparency-suite/">Financial Transparency Suite</a></h4>
-                            <p>Socrata’s Financial Transparency Suite™ provides a detailed view of public finance decisions by transforming complex data sets into straightforward visuals that anyone can access.</p>
-                        </div>
-                        <div class="clearboth"></div>
-                        <div class="sub-nav-group one_third">
-                            <h4><a href="/apps" target="_blank">Socrata Apps Marketplace</a></h4>
-                            <p>The Socrata Apps Marketplace features innovative applications for citizens, businesses, and local government. Find the best services Socrata and the open data community have to offer.</p>
-                        </div>
-                        <div class="sub-nav-group one_third">
-                            <h4><a href="/products/open-data-network-ecosystem/">Open Data Network</a></h4>
-                            <p>The Open Data Network™ brings together a vast ecosystem of participants, taking an industry-specific approach to streamline the access and syndication of open data.</p> 
-                        </div>
-                        <div class="sub-nav-group one_third last">
-                            <h4><a href="/products/open-data-cloud-platform/ ">Socrata Platform</a></h4>
-                            <p>The Socrata Platform makes it easy to put your data where researchers, developers, and entrepreneurs can access it and create new products.</p> 
-                        </div>
-                        <div class="clearboth"></div>
-                        <div class="sub-nav-group one_third">
-                            <h4><a href="/products/open-data-api">Open Data API</a></h4>
-                            <p>Socrata Open Data API&trade; (SODA) makes every Socrata-hosted dataset uniformly accessible, searchable, and easy to combine with other web services.</p>
-                        </div>
-                        <div class="sub-nav-group one_third">
-                            <h4><a href="/products/api-foundry/">API Foundry</a></h4>
-                            <p>With Socrata API Foundry&trade; you can build robust, flexible, customized APIs in minutes, and ensure that your data is easily available to developers.</p> 
-                        </div>
-                        <div class="sub-nav-group one_third last">
-                            <h4><a href="/products/open-source-development-community/ ">Open Source</a></h4>
-                            <p>Socrata &lt;3 open source. Learn about our commitment to the open source community, open standards, and data portability and interoperability.</p> 
-                        </div>
-                        <div class="clearboth"></div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="/industries/">Industries <span class="ss-icon">descend</span></a>
-                <div class="sub-nav sub-nav-full">                    
-                    <div class="sub-nav-container">
-                        <div class="sub-nav-group one_third">
-                            <h3>Industry Solutions</h3>
-                            <?php wp_nav_menu( array( 'theme_location' => 'industry-solutions' ) ); ?>
-                        </div>
-                        <div class="sub-nav-group one_third">
-                            <h3>Recent Case Study</h3>                        
-                            <?php echo do_shortcode('[recent-case-study]');?>
-                        </div>
-                        <div class="sub-nav-group one_third last">
-                            <h3>Open Data Field Guide</h3>
-                            <div class="one_third"><a href="/open-data-field-guide/"><img src="/wp-content/uploads/open-data-standards-thumb.jpg" style="width:90%;"></a></div>
-                            <div class="two_third last"><h4><a href="/open-data-field-guide/">Read the Definitive Guide on Achieving Open Data Success</a></h4><p>We've worked with leading open data experts to compile the industry's best practices. Learn how to ensure you and your citizens can get the most out of open data at every stage.</p></div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/products/">Products <i class="fa fa-caret-down"></i></a>
+                    <div class="sub-nav sub-nav-full">
+                        <div class="sub-nav-container">
+                            <div class="sub-nav-group one_third">
+                                <h4><a href="/products/open-data-portal/">Open Data Portal</a></h4>
+                                <p>The Socrata Open Data Portal&trade; simplifies data movement by making it easy to upload, query, analyze, visualize, and share.</p>                      
+                            </div>
+                            <div class="sub-nav-group one_third">
+                                <h4><a href="/products/govstat/">Open Performance (GovStat)</a></h4>
+                                <p>Socrata Open Performance&trade; not only helps you set goals, but measure their impact against data, perform broad analysis, and share your results automatically.</p> 
+                            </div>
+                            <div class="sub-nav-group one_third last">
+                                <h4><a href="/products/financial-transparency-suite/">Financial Transparency Suite</a></h4>
+                                <p>Socrata’s Financial Transparency Suite™ provides a detailed view of public finance decisions by transforming complex data sets into straightforward visuals that anyone can access.</p>
+                            </div>
+                            <div class="clearboth"></div>
+                            <div class="sub-nav-group one_third">
+                                <h4><a href="http://open-data-apps.socrata.com/" target="_blank">Socrata Apps Marketplace</a></h4>
+                                <p>The Socrata Apps Marketplace features innovative applications for citizens, businesses, and local government. Find the best services Socrata and the open data community have to offer.</p>
+                            </div>
+                            <div class="sub-nav-group one_third">
+                                <h4><a href="/products/open-data-network-ecosystem/">Open Data Network</a></h4>
+                                <p>The Open Data Network™ brings together a vast ecosystem of participants, taking an industry-specific approach to streamline the access and syndication of open data.</p> 
+                            </div>
+                            <div class="sub-nav-group one_third last">
+                                <h4><a href="/products/open-data-cloud-platform/ ">Socrata Platform</a></h4>
+                                <p>The Socrata Platform makes it easy to put your data where researchers, developers, and entrepreneurs can access it and create new products.</p> 
+                            </div>
+                            <div class="clearboth"></div>
+                            <div class="sub-nav-group one_third">
+                                <h4><a href="/products/open-data-api">Open Data API</a></h4>
+                                <p>Socrata Open Data API&trade; (SODA) makes every Socrata-hosted dataset uniformly accessible, searchable, and easy to combine with other web services.</p>
+                            </div>
+                            <div class="sub-nav-group one_third">
+                                <h4><a href="/products/api-foundry/">API Foundry</a></h4>
+                                <p>With Socrata API Foundry&trade; you can build robust, flexible, customized APIs in minutes, and ensure that your data is easily available to developers.</p> 
+                            </div>
+                            <div class="sub-nav-group one_third last">
+                                <h4><a href="/products/open-source-development-community/ ">Open Source</a></h4>
+                                <p>Socrata &lt;3 open source. Learn about our commitment to the open source community, open standards, and data portability and interoperability.</p> 
+                            </div>
                             <div class="clearboth"></div>
                         </div>
-                        <div class="clearboth"></div>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="/resources">Learning <span class="ss-icon">descend</span></a>
-                <div class="sub-nav sub-nav-full">                    
-                    <div class="sub-nav-container">
-                        <div class="sub-nav-group one_fourth">
-                            <h3>By Topic</h3>
-                            <?php wp_nav_menu( array( 'theme_location' => 'learning-by-topic' ) ); ?>
-                        </div>
-                        <div class="sub-nav-group one_fourth">
-                            <h3>By Content Type</h3>
-                            <?php wp_nav_menu( array( 'theme_location' => 'learning-by-content-type' ) ); ?>
-                        </div>
-                        <div class="sub-nav-group one_fourth">
-                            <h3>Open Innovation Magazine</h3>
-                            <?php echo do_shortcode('[menu-magazine]');?>
-                        </div>
-                        <div class="sub-nav-group one_fourth last">
-                            <h3>Recent Blog Post</h3>
-                            <?php echo do_shortcode('[menu-blog]');?>
-                        </div>
-                        <div class="clearboth"></div>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="/partner">Partners <span class="ss-icon">descend</span></a>
-                <div class="sub-nav sub-nav-full">                    
-                    <div class="sub-nav-container">
-                        <div class="sub-nav-group one_third">
-                            <h3>Work with Us</h3>
-                            <?php wp_nav_menu( array( 'theme_location' => 'partner-links' ) ); ?>
-                        </div>
-                        <div class="sub-nav-group one_third">
-                            <h3>Sell Your App</h3>
-                            <div class="one_third"><a href="/apps/submit-app" target="_blank"><img src="/wp-content/uploads/app-icons.png" style="width:90%;"></a></div>
-                            <div class="two_third last"><h4><a href="/apps/submit-app" target="_blank">
-                                Promote and Sell through the Socrata Apps Marketplace</a></h4><p>The Socrata Apps Marketplace features some of the best applications from the open data community. It is an ideal vehicle to help you promote and even monetize your civic app.</p></div>
+                </li>
+                <li class="nav-item">
+                    <a href="/industries/">Industries <i class="fa fa-caret-down"></i></a>
+                    <div class="sub-nav sub-nav-full">                    
+                        <div class="sub-nav-container">
+                            <div class="sub-nav-group one_third">
+                                <h3>Industry Solutions</h3>
+                                <?php wp_nav_menu( array( 'theme_location' => 'industry-solutions' ) ); ?>
+                            </div>
+                            <div class="sub-nav-group one_third">
+                                <h3>Recent Case Study</h3>                        
+                                <?php echo do_shortcode('[recent-case-study]');?>
+                            </div>
+                            <div class="sub-nav-group one_third last">
+                                <h3>Open Data Field Guide</h3>
+                                <div class="one_third"><a href="/open-data-field-guide/"><img src="/wp-content/uploads/open-data-standards-thumb.jpg" style="width:90%;"></a></div>
+                                <div class="two_third last"><h4><a href="/open-data-field-guide/">Read the Definitive Guide on Achieving Open Data Success</a></h4><p>We've worked with leading open data experts to compile the industry's best practices. Learn how to ensure you and your citizens can get the most out of open data at every stage.</p></div>
+                                <div class="clearboth"></div>
+                            </div>
                             <div class="clearboth"></div>
                         </div>
-                        <div class="sub-nav-group one_third last">
-                            <h3>Demo for Partners</h3>
-                            <div class="one_third"><a href="/partner/demo" target="_blank"><img src="/wp-content/uploads/register-icon.png" style="width:90%;"></a></div>
-                            <div class="two_third last"><h4><a href="/partner/demo" target="_blank">Register for the Next Monthly Demo</a></h4><p>See Socrata's technology in action through real customer stories, and discover opportunities to grow your business by partnering with us.</p></div>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="/resources">Learning <i class="fa fa-caret-down"></i></a>
+                    <div class="sub-nav sub-nav-full">                    
+                        <div class="sub-nav-container">
+                            <div class="sub-nav-group one_fourth">
+                                <h3>By Topic</h3>
+                                <?php wp_nav_menu( array( 'theme_location' => 'learning-by-topic' ) ); ?>
+                            </div>
+                            <div class="sub-nav-group one_fourth">
+                                <h3>By Content Type</h3>
+                                <?php wp_nav_menu( array( 'theme_location' => 'learning-by-content-type' ) ); ?>
+                            </div>
+                            <div class="sub-nav-group one_fourth">
+                                <h3>Open Innovation Magazine</h3>
+                                <?php echo do_shortcode('[menu-magazine]');?>
+                            </div>
+                            <div class="sub-nav-group one_fourth last">
+                                <h3>Recent Blog Post</h3>
+                                <?php echo do_shortcode('[menu-blog]');?>
+                            </div>
                             <div class="clearboth"></div>
                         </div>
-                        <div class="clearboth"></div>
                     </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="/company-info">Company <span class="ss-icon">descend</span></a>
-                <div class="sub-nav sub-nav-full">
-                    <div class="sub-nav-container">
-                        <div class="sub-nav-group one_fourth">
-                            <h3>Company Links</h3>
-                            <?php wp_nav_menu( array( 'theme_location' => 'company-links' ) ); ?>
+                </li>
+                <li class="nav-item">
+                    <a href="/partner">Partners <i class="fa fa-caret-down"></i></a>
+                    <div class="sub-nav sub-nav-full">                    
+                        <div class="sub-nav-container">
+                            <div class="sub-nav-group one_third">
+                                <h3>Work with Us</h3>
+                                <?php wp_nav_menu( array( 'theme_location' => 'partner-links' ) ); ?>
+                            </div>
+                            <div class="sub-nav-group one_third">
+                                <h3>Sell Your App</h3>
+                                <div class="one_third"><a href="/apps/submit-app" target="_blank"><img src="/wp-content/uploads/app-icons.png" style="width:90%;"></a></div>
+                                <div class="two_third last"><h4><a href="/apps/submit-app" target="_blank">
+                                    Promote and Sell through the Socrata Apps Marketplace</a></h4><p>The Socrata Apps Marketplace features some of the best applications from the open data community. It is an ideal vehicle to help you promote and even monetize your civic app.</p></div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="sub-nav-group one_third last">
+                                <h3>Demo for Partners</h3>
+                                <div class="one_third"><a href="/partner/demo" target="_blank"><img src="/wp-content/uploads/register-icon.png" style="width:90%;"></a></div>
+                                <div class="two_third last"><h4><a href="/partner/demo" target="_blank">Register for the Next Monthly Demo</a></h4><p>See Socrata's technology in action through real customer stories, and discover opportunities to grow your business by partnering with us.</p></div>
+                                <div class="clearboth"></div>
+                            </div>
+                            <div class="clearboth"></div>
                         </div>
-                        <div class="sub-nav-group one_fourth">
-                            <h3>Additional Links</h3>
-                            <?php wp_nav_menu( array( 'theme_location' => 'company-additional-links' ) ); ?>
-                        </div>
-                        <div class="sub-nav-group one_fourth">
-                            <h3>Recent Press Release</h3>
-                            <?php echo do_shortcode('[menu-news category="press-releases"]');?>
-                        </div>
-                        <div class="sub-nav-group one_fourth last">
-                            <h3>Contact Us</h3>
-                            <p><strong>Headquartered in Seattle, WA</strong><br><strong>Phone:</strong> 206.340.8008<br><strong>Support:</strong> 206.340.8008 ext. 3<br><strong>Fax:</strong> 206.452.2010<br><strong>Outside U.S.:</strong> +44.7827.966.852</p>
-                            <p><a href="/contact-us">Contact Us</a></p>
-                        </div>
-                        <div class="clearboth"></div>
                     </div>
-                </div>
-            </li>
-        </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="/company-info">Company <i class="fa fa-caret-down"></i></a>
+                    <div class="sub-nav sub-nav-full">
+                        <div class="sub-nav-container">
+                            <div class="sub-nav-group one_fourth">
+                                <h3>Company Links</h3>
+                                <?php wp_nav_menu( array( 'theme_location' => 'company-links' ) ); ?>
+                            </div>
+                            <div class="sub-nav-group one_fourth">
+                                <h3>Additional Links</h3>
+                                <?php wp_nav_menu( array( 'theme_location' => 'company-additional-links' ) ); ?>
+                            </div>
+                            <div class="sub-nav-group one_fourth">
+                                <h3>Recent Press Release</h3>
+                                <?php echo do_shortcode('[menu-news category="press-releases"]');?>
+                            </div>
+                            <div class="sub-nav-group one_fourth last">
+                                <h3>Contact Us</h3>
+                                <p><strong>Headquartered in Seattle, WA</strong><br><strong>Phone:</strong> 206.340.8008<br><strong>Support:</strong> 206.340.8008 ext. 3<br><strong>Fax:</strong> 206.452.2010<br><strong>Outside U.S.:</strong> +44.7827.966.852</p>
+                                <p><a href="/contact-us">Contact Us</a></p>
+                            </div>
+                            <div class="clearboth"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </nav>
-        <section class="search">
-        <div id="sb-search" class="sb-search">
-            <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
-                <input type="search" class="search-field sb-search-input" placeholder="Enter your search term..." value="" name="s" title="Search for:" id="search" />
-                <input type="submit" class="search-submit sb-search-submit" value="Search" />
-                <span class="sb-icon-search ss-icon">search</span> 
-            </form>
+        <div class="search">
+            <div id="sb-search" class="sb-search">
+                <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+                    <input type="search" class="search-field sb-search-input" placeholder="Enter your search term..." value="" name="s" title="Search for:" id="search" />
+                    <input type="submit" class="search-submit sb-search-submit" value="Search" />
+                    <span class="sb-icon-search ss-icon">search</span> 
+                </form>
+            </div>
         </div>
-        </section>
-        <ul class="social-icons">
-            <li><a href="https://www.facebook.com/socrata" class="ss-icon ss-social-regular" target="_blank">facebook</a></li>
-            <li><a href="https://twitter.com/socrata" class="ss-icon ss-social-regular" target="_blank">twitter</a></li>
-            <li><a href="https://www.linkedin.com/company/socrata" class="ss-icon ss-social-regular" target="_blank">linkedin</a></li>
-            <li><a href="https://plus.google.com/+Socrata/about" class="ss-icon ss-social-regular" target="_blank">googleplus</a></li>
-            <li><a href="https://www.youtube.com/user/socratavideos" class="ss-icon ss-social-regular" target="_blank">youtube</a></li>
-        </ul>
+        <div id="request-demo" class="demo-button">
+            <a href="/request-a-demo" class="button">Request a Demo</a>
+        </div>
     </div>  
 </header>
 <ul id="gn-menu" class="gn-menu-main">

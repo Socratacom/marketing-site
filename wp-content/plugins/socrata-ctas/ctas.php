@@ -177,30 +177,35 @@ function cta_group_shortcode( $atts ) {
   $query = new WP_Query( $options );
   if ( $query->have_posts() ) { ?>
   <section class="cta-group clearfix">
-    <?php
+    <div class="container">
+      <div class="row">
+      <?php
       $count = 0;
       while ( $query->have_posts() ) : $query->the_post();
       $count++;
       $third_div = ($count%3 == 0) ? 'last' : '';
       $third_div_clear = ($count%3 == 0) ? '<div class="clearboth"></div>' : ''; 
-    ?>
-      <div class="one_third <?php echo $third_div; ?>">
+      ?>
+      <div class="one_third <?php echo $third_div; ?> col-sm-4">
         <article id="<?php echo get_the_ID(); ?>">
-          <div class="one_fourth">
-            <div class="cta-icon ss-icon <?php $meta = get_cta_meta(); if ($meta[6]) echo "ss-social-regular"; ?>" style="color:<?php $meta = get_cta_meta(); if ($meta[1]) echo "$meta[1]"; ?>; "><?php $meta = get_cta_meta(); if ($meta[0]) echo "$meta[0]"; ?><?php $meta = get_cta_meta(); if ($meta[6]) echo "$meta[6]"; ?></div>
+          <div class="row">
+            <div class="one_fourth col-sm-3 hidden-xs">
+              <div class="text-center cta-icon ss-icon <?php $meta = get_cta_meta(); if ($meta[6]) echo "ss-social-regular"; ?>" style="color:<?php $meta = get_cta_meta(); if ($meta[1]) echo "$meta[1]"; ?>; "><?php $meta = get_cta_meta(); if ($meta[0]) echo "$meta[0]"; ?><?php $meta = get_cta_meta(); if ($meta[6]) echo "$meta[6]"; ?>
+              </div>
+            </div>
+            <div class="three_fourth last col-sm-9 col-xs-12">
+              <h3><?php the_title(); ?></h3>      
+              <p><?php $meta = get_cta_meta(); if ($meta[5]) echo "$meta[5]"; ?></p>
+              <p><a href="<?php $meta = get_cta_meta(); if ($meta[3]) echo "$meta[3]"; ?>" target="<?php $meta = get_cta_meta(); if ($meta[4]) echo "$meta[4]"; ?>" class="button"><?php $meta = get_cta_meta(); if ($meta[2]) echo "$meta[2]"; ?></a></p>
+            </div>
+            <div class="clearboth"></div>
           </div>
-          <div class="three_fourth last">
-            <h3><?php the_title(); ?></h3>      
-            <p><?php $meta = get_cta_meta(); if ($meta[5]) echo "$meta[5]"; ?></p>
-            <p><a href="<?php $meta = get_cta_meta(); if ($meta[3]) echo "$meta[3]"; ?>" target="<?php $meta = get_cta_meta(); if ($meta[4]) echo "$meta[4]"; ?>" class="button"><?php $meta = get_cta_meta(); if ($meta[2]) echo "$meta[2]"; ?></a></p>
-          </div>
-          <div class="clearboth"></div>
         </article>
       </div>
       <?php echo $third_div_clear; ?>
-      <?php endwhile;
-      wp_reset_postdata(); ?>
-      
+      <?php endwhile; wp_reset_postdata(); ?>
+      </div>
+    </div>      
   </section>
   <?php $myvariable = ob_get_clean();
   return $myvariable;

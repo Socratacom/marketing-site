@@ -11,7 +11,7 @@ License: GPLv2
 
 // Add the Meta Box
 function add_attribution_meta_box() {
-  $types = array( 'post', 'news', 'case_study', 'stories' );
+  $types = array( 'post', 'news', 'case_study', 'stories', 'tech_blog' );
   foreach( $types as $type ) {
     add_meta_box(
     'custom_meta_box', // $id
