@@ -47,7 +47,7 @@ function bootstrap_scripts() {
 
 // Recipe Fonts. This is used for Recipes for Civic Success section
 add_action('wp_enqueue_scripts', 'recipe_fonts');
-function special_fonts() {
+function recipe_fonts() {
   if (is_single()) {
     wp_register_style( 'recipe-fonts', 'http://fonts.googleapis.com/css?family=Indie+Flower', false, null);
     wp_enqueue_style('recipe-fonts');
