@@ -1913,7 +1913,12 @@ input.gn-search:focus {
 .mondara .home-video p {line-height:normal;}
 .mondara .home-video img {border:#d1d1d1 solid 1px;}
 
-
+#content img[style] {
+	width:auto !important;
+}
+.img-responsive {
+	max-width: 100%;
+}
 
 /*----------------------------------------*/
 /* RESPONSIVE STYLES
