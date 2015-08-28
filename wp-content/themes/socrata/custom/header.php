@@ -110,21 +110,15 @@ $wp_google_tag_manager->output_manual();
                     <a href="/partner">Partners <i class="fa fa-caret-down"></i></a>
                     <div class="sub-nav sub-nav-full">                    
                         <div class="sub-nav-container">
-                            <div class="sub-nav-group one_third">
+                            <div class="sub-nav-group one_half">
                                 <h3>Work with Us</h3>
                                 <?php wp_nav_menu( array( 'theme_location' => 'partner-links' ) ); ?>
                             </div>
-                            <div class="sub-nav-group one_third">
+                            <div class="sub-nav-group one_half last">
                                 <h3>Sell Your App</h3>
                                 <div class="one_third"><a href="/apps/submit-app" target="_blank"><img src="/wp-content/uploads/app-icons.png" style="width:90%;"></a></div>
-                                <div class="two_third last"><h4><a href="/apps/submit-app" target="_blank">
+                                <div class="one_half last"><h4><a href="/apps/submit-app" target="_blank">
                                     Promote and Sell through the Socrata Apps Marketplace</a></h4><p>The Socrata Apps Marketplace features some of the best applications from the open data community. It is an ideal vehicle to help you promote and even monetize your civic app.</p></div>
-                                <div class="clearboth"></div>
-                            </div>
-                            <div class="sub-nav-group one_third last">
-                                <h3>Demo for Partners</h3>
-                                <div class="one_third"><a href="/partner/demo" target="_blank"><img src="/wp-content/uploads/register-icon.png" style="width:90%;"></a></div>
-                                <div class="two_third last"><h4><a href="/partner/demo" target="_blank">Register for the Next Monthly Demo</a></h4><p>See Socrata's technology in action through real customer stories, and discover opportunities to grow your business by partnering with us.</p></div>
                                 <div class="clearboth"></div>
                             </div>
                             <div class="clearboth"></div>

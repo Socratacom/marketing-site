@@ -743,7 +743,7 @@ footer a:hover, footer span {
     padding:0 !important;
 }
 .marketo-form .mktoFormRow {
-	margin-bottom:10px !important;
+	margin:0 !important;
 }
 .marketo-form .mktoFormRow .mktoFormCol, .marketo-form .mktoFieldWrap {
   width: 100%;
@@ -756,6 +756,7 @@ footer a:hover, footer span {
   width: 100% !important;
   border: solid 1px #bdc3c7 !important;
   margin-top: 0px !important;
+  margin-bottom:10px !important;
   padding-left:15px !important;
   border-radius:0 !important;
   box-shadow: none !important;
@@ -785,6 +786,7 @@ footer a:hover, footer span {
 }
 .marketo-form div.mktoCheckboxList {
 	position: relative !important;
+	margin-bottom:15px !important;
 }
 .marketo-form div.mktoCheckboxList:after {
 	content: "."; 
@@ -829,16 +831,6 @@ footer a:hover, footer span {
 .newsletter-footer .mktoFormRow input#Title {
 	width:50% !important;
 }
-.newsletter-footer form.mktoForm {
-    overflow: hidden !important;
-    height: 260px !important;
-}
-.newsletter-footer .mktoButtonRow {
-	position: absolute;
-	right: 0px;
-	width: 45%;
-	bottom: 19px;
-}
 .newsletter-footer {
 	background-color:#ccc;
 	background-image:url(../images/newsletter-bg.jpg);
@@ -855,6 +847,9 @@ footer a:hover, footer span {
 	padding:15px;
 	background-color: #ecf0f1;
 	margin-bottom:2em;
+}
+.newsletter-sidebar p {
+	line-height: normal;
 }
 
 

@@ -118,8 +118,8 @@ function newsletter_sidebar ($atts, $content = null) {
     <h3>Subscribe to the Socrata newsletter</h3>
     <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
     <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
-    <form id="mktoForm_2340"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2340);</script>
+    <form id="mktoForm_2306"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
   </div>
   <?php
   $content = ob_get_contents();
@@ -142,8 +142,8 @@ function newsletter_footer ($atts, $content = null) {
         </div>
         <div class="col-sm-6 marketo-form">
           <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
-          <form id="mktoForm_2340"></form>
-          <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2340);</script>
+          <form id="mktoForm_2306"></form>
+          <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
         </div>
       </div>
     </div>

@@ -7,8 +7,8 @@ body.request-a-demo {
 .request-a-demo #page {
 	width:100%;
 	max-width:100%;
+	padding:0;
 }
-
 .request-a-demo #page p {
 	letter-spacing: 1px !important;
 	line-height: 1.5em;
@@ -26,6 +26,12 @@ body.request-a-demo {
 .request-a-demo .asbestos * {
 	color:white;
 }
+.request-a-demo .quotes {
+	background-image: url(../images/chat.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center bottom;
+}
 .request-a-demo .quotes p {
 	font-size: 18px;
 	font-weight: 400;
@@ -36,19 +42,38 @@ body.request-a-demo {
 }
 .request-a-demo .highlights ul {
 	list-style-type: none;
-	margin: 0;
+	margin: 0 0 1.63em;
 	padding: 0;
 }
 
 .request-a-demo .highlights li {
 	position: relative;
+	padding:15px 15px 15px 35px ;
+	margin-bottom:3px;
+	background:#e3e3e3;
+	border-radius: 5px;
 }
 .request-a-demo .highlights li:before {
 	position: absolute;
 	font-family: 'FontAwesome';
 	color:#27ae60;
 	font-size: 16px;
-	top:5px;
-	left:0px;
+	top:15px;
+	left:15px;
 	content: "\f054";
+}
+.request-a-demo .hero {
+	background-image: url(../images/background.jpg);
+	background-size: contain;
+	background-repeat: repeat-x;
+	background-color: #3498db;
+	background-position: bottom;
+}
+.request-a-demo .hero * {
+	color:white;
+}
+.request-a-demo .hero h1 {
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: normal;
 }
