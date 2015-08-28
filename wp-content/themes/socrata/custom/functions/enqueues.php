@@ -106,7 +106,7 @@ function deploying_tomorrows_technology_scripts() {
 // Deploying Tomorrows Technology Today
 add_action('wp_enqueue_scripts', 'request_a_demo_scripts');
 function request_a_demo_scripts() {
-  if (is_page('request-a-demo')) {
+  if (is_page(array('request-a-demo', 'request-a-demo-thank-you'))) {
     wp_register_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', false, null);
     wp_enqueue_style('bootstrap');
     wp_register_style( 'request-a-demo-styles', get_stylesheet_directory_uri() . '/custom/request-a-demo/css/styles.css', false, null );

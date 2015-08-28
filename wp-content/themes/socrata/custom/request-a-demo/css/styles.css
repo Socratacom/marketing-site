@@ -1,59 +1,55 @@
-body.request-a-demo {
+body.request-a-demo, body.request-a-demo-thank-you {
 	background-color:#ecf0f1 !important;
 }
-.request-a-demo #container {
+.request-a-demo #container, .request-a-demo-thank-you #container {
 	padding:0;
 }
-.request-a-demo #page {
+.request-a-demo #page, .request-a-demo-thank-you #page {
 	width:100%;
 	max-width:100%;
 	padding:0;
 }
-.request-a-demo #page p {
+.request-a-demo #page p, .request-a-demo-thank-you #page p {
 	letter-spacing: 1px !important;
 	line-height: 1.5em;
 }
-.request-a-demo #page strong {
-	font-weight: 600;
-	color:#a6cf51;
-}
-.request-a-demo .section-padding {
+.section-padding {
 	padding:80px 0;
 }
-.request-a-demo .asbestos {
+.asbestos {
 	background-color:#7f8c8d;
 }
-.request-a-demo .asbestos * {
+.asbestos * {
 	color:white;
 }
-.request-a-demo .quotes {
+.quotes {
 	background-image: url(../images/chat.png);
 	background-repeat: no-repeat;
 	background-size: contain;
 	background-position: center bottom;
 }
-.request-a-demo .quotes p {
+.quotes p {
 	font-size: 18px;
 	font-weight: 400;
 }
-.request-a-demo .quotes span {
+.quotes span {
 	font-style: italic;
 	color:#f1c40f;
 }
-.request-a-demo .highlights ul {
+.highlights ul {
 	list-style-type: none;
 	margin: 0 0 1.63em;
 	padding: 0;
 }
 
-.request-a-demo .highlights li {
+.highlights li {
 	position: relative;
 	padding:15px 15px 15px 35px ;
 	margin-bottom:3px;
 	background:#e3e3e3;
 	border-radius: 5px;
 }
-.request-a-demo .highlights li:before {
+.highlights li:before {
 	position: absolute;
 	font-family: 'FontAwesome';
 	color:#27ae60;
@@ -62,17 +58,17 @@ body.request-a-demo {
 	left:15px;
 	content: "\f054";
 }
-.request-a-demo .hero {
+.hero {
 	background-image: url(../images/background.jpg);
 	background-size: contain;
 	background-repeat: repeat-x;
 	background-color: #3498db;
 	background-position: bottom;
 }
-.request-a-demo .hero * {
+.hero * {
 	color:white;
 }
-.request-a-demo .hero h1 {
+.hero h1 {
 	font-weight: 700;
 	text-transform: uppercase;
 	letter-spacing: normal;
