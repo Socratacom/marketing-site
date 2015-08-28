@@ -33,14 +33,6 @@ function dau_video_shortcode($atts, $content = null) { ob_start(); ?>
 <div id="wistia_p3tr8wbatm" class="wistia_embed overlayVideo" ></div>
 <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/popover-v1.js"></script>
 </section>
-
-
-
-
-
-
-
-
 <?php
 $content = ob_get_contents();
 ob_end_clean();

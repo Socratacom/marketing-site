@@ -109,11 +109,11 @@ function author_description($atts, $content = null) {
 }
 add_shortcode("author-description", "author_description");
 
-// Newsletter Signup
+// Newsletter Signup Forms
 function newsletter_sidebar ($atts, $content = null) {
   ob_start();
   ?>
-  <div class="newsletter-sidebar newsletter-form">
+  <div class="newsletter-sidebar newsletter-form marketo-form">
     <p><img src="/wp-content/themes/socrata/custom/images/transform.jpg" class="img-responsive"></p>
     <h3>Subscribe to the Socrata newsletter</h3>
     <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
@@ -140,7 +140,7 @@ function newsletter_footer ($atts, $content = null) {
           <h3>Subscribe to the Socrata Newsletter</h3>
           <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 marketo-form">
           <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
           <form id="mktoForm_2340"></form>
           <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2340);</script>
@@ -154,4 +154,20 @@ function newsletter_footer ($atts, $content = null) {
   return $content;
 }
 add_shortcode("newsletter-footer", "newsletter_footer");
-add_shortcode("newsletter-sidebar", "newsletter_sidebar");
+
+// Request a Demo Form
+function request_a_demo_form ($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="request-a-demo-form marketo-form">
+    <h3>Request a Demo</h3>
+    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <form id="mktoForm_2625"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2625);</script>
+  </div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode("request-a-demo-form", "request_a_demo_form");

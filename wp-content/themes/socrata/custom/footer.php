@@ -26,7 +26,17 @@ function custom_footer() { ?>
 			<h4>United Kingdom</h3>
 			<p>14-22 Elder St.<br>London E1 6BT<br>UK</p>
 		</div>
-		<div class="clearboth"></div>		
+		<div class="clearboth"></div>
+		<div class="social-icons">
+			<h3>Folow Us</h3>
+			<ul>
+				<li class="facebook"><a href="https://www.facebook.com/socrata" target="_blank">facebook</a></li>
+				<li class="twitter"><a href="https://twitter.com/socrata" class="" target="_blank">twitter</a></li>
+				<li class="linkedin"><a href="https://www.linkedin.com/company/socrata" class="" target="_blank">linkedin</a></li>
+				<li class="google"><a href="https://plus.google.com/+Socrata/about" class="" target="_blank">googleplus</a></li>
+				<li class="youtube"><a href="https://www.youtube.com/user/socratavideos" class="" target="_blank">youtube</a></li>
+			</ul>
+		</div>	
 		<p class="center copyright">Copyright &copy; <?php echo date("Y");?> Socrata, Inc. All rights reserved. &bull; <a href="/privacy/">Privacy Policy</a> &bull; <a href="/terms-of-service/">Terms of Service</a></p>
 		<div class="white-logo logo"></div>
 	</div>

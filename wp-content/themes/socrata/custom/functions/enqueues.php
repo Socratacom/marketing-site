@@ -92,7 +92,7 @@ function dau_scripts() {
   }
 }
 
-// Data as a Utility Page
+// Deploying Tomorrows Technology Today
 add_action('wp_enqueue_scripts', 'deploying_tomorrows_technology_scripts');
 function deploying_tomorrows_technology_scripts() {
   if (is_page('deploying-tomorrows-technology-today')) {
@@ -100,6 +100,17 @@ function deploying_tomorrows_technology_scripts() {
     wp_enqueue_style('bootstrap');
     wp_register_style( 'deploying-technology-styles', get_stylesheet_directory_uri() . '/custom/deploying-tomorrows-technology-today/css/styles.css', false, null );
     wp_enqueue_style( 'deploying-technology-styles' );
+  }
+}
+
+// Deploying Tomorrows Technology Today
+add_action('wp_enqueue_scripts', 'request_a_demo_scripts');
+function request_a_demo_scripts() {
+  if (is_page('request-a-demo')) {
+    wp_register_style( 'bootstrap', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css', false, null);
+    wp_enqueue_style('bootstrap');
+    wp_register_style( 'request-a-demo-styles', get_stylesheet_directory_uri() . '/custom/request-a-demo/css/styles.css', false, null );
+    wp_enqueue_style( 'request-a-demo-styles' );
   }
 }
 

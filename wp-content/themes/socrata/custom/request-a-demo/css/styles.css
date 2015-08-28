@@ -1,0 +1,54 @@
+body.request-a-demo {
+	background-color:#ecf0f1 !important;
+}
+.request-a-demo #container {
+	padding:0;
+}
+.request-a-demo #page {
+	width:100%;
+	max-width:100%;
+}
+
+.request-a-demo #page p {
+	letter-spacing: 1px !important;
+	line-height: 1.5em;
+}
+.request-a-demo #page strong {
+	font-weight: 600;
+	color:#a6cf51;
+}
+.request-a-demo .section-padding {
+	padding:80px 0;
+}
+.request-a-demo .asbestos {
+	background-color:#7f8c8d;
+}
+.request-a-demo .asbestos * {
+	color:white;
+}
+.request-a-demo .quotes p {
+	font-size: 18px;
+	font-weight: 400;
+}
+.request-a-demo .quotes span {
+	font-style: italic;
+	color:#f1c40f;
+}
+.request-a-demo .highlights ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.request-a-demo .highlights li {
+	position: relative;
+}
+.request-a-demo .highlights li:before {
+	position: absolute;
+	font-family: 'FontAwesome';
+	color:#27ae60;
+	font-size: 16px;
+	top:5px;
+	left:0px;
+	content: "\f054";
+}
