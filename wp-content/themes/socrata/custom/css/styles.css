@@ -1408,8 +1408,6 @@ pre {width:600px !important; min-height:120px !important; background:#f1f1f1; bo
 	padding: 20px 0;
 }
 
-
-
 /*-----------------------------------*/
 /* QUOTE
 /*-----------------------------------*/
@@ -1955,11 +1953,6 @@ input.gn-search:focus {
 	-ms-transform: translateX(-50%) translateY(0);
 	transform: translateX(-50%) translateY(0);
 }
-
-
-
-
-
 
 /* Mondara */
 .mondara .video {border:#d1d1d1 solid 1px;}
