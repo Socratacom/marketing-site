@@ -12,7 +12,7 @@ function custom_homepage() {
                     <div class="industry cities">
                         <div class="industry-text">
                             <h5>Socrata for State and Local Government</h5>
-                            <p><a href="">Read More <i class="fa fa-chevron-right"></i></a></p>
+                            <p><a href="/industries/open-data-state-local-government/">Read More <i class="fa fa-chevron-right"></i></a></p>
                         </div>
                     </div>                    
                 </div>
@@ -20,7 +20,7 @@ function custom_homepage() {
                     <div class="industry federal">                        
                         <div class="industry-text">
                             <h5>Socrata for Federal Government</h5>
-                            <p><a href="">Read More <i class="fa fa-chevron-right"></i></a></p>
+                            <p><a href="/industries/open-data-federal-governments/">Read More <i class="fa fa-chevron-right"></i></a></p>
                         </div>
                     </div>  
                 </div>
@@ -28,7 +28,7 @@ function custom_homepage() {
                     <div class="industry ngo">                        
                         <div class="industry-text">
                             <h5>Socrata for Multilateral &amp; Non-Governmental Organizations</h5>
-                            <p><a href="">Read More <i class="fa fa-chevron-right"></i></a></p>
+                            <p><a href="/industries/open-data-multilateral-ngo/">Read More <i class="fa fa-chevron-right"></i></a></p>
                         </div>
                     </div>  
                 </div>
@@ -36,7 +36,7 @@ function custom_homepage() {
                     <div class="industry healthcare">                        
                         <div class="industry-text">
                             <h5>Socrata for Public Health</h5>
-                            <p><a href="">Read More <i class="fa fa-chevron-right"></i></a></p>
+                            <p><a href="/industries/health-data-access-management/">Read More <i class="fa fa-chevron-right"></i></a></p>
                         </div>
                     </div>  
                 </div>
