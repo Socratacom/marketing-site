@@ -102,6 +102,7 @@ ul.jump-links {
   top: 0px;
   z-index: 2000;
   visibility: hidden;
+  pointer-events: none;
 }
 
 #ex {
