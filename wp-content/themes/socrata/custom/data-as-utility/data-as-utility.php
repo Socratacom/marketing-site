@@ -42,7 +42,6 @@ return $content;
 // Shortcode [slider-one]
 add_shortcode('slider-one','slider_one_shortcode');
 function slider_one_shortcode($atts, $content = null) { ob_start(); ?>
-
 <section class="slider-container">
 	<div class="arrowsContainer"></div>
 	<div class="row personas">

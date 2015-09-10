@@ -94,23 +94,7 @@ function hero_shortcode( $atts ) {
   <section class="home-videos">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6">
-          <div class="row">
-            <div class="col-sm-6 col-md-4">
-              <div class="home-video-thumb-wrapper">
-                <img src="/wp-content/plugins/socrata-hero-image/images/what-is-socrata.jpg" class="img-responsive">
-                <div class="home-video-play"></div>
-                <a href="/what-is-socrata"></a>
-              </div>
-            </div>
-            <div class="col-sm-6 col-md-8">
-              <small>video</small>
-              <h3>What is Socrata?</h3>
-              <p>The world leader in cloud solutions for open data and data-driven governments</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6">
+        <div class="col-sm-6 col-sm-offset-3">
           <div class="row">
             <div class="col-sm-6 col-md-4">
               <div class="home-video-thumb-wrapper">
