@@ -28,7 +28,7 @@ function custom_footer() { ?>
 		</div>
 		<div class="clearboth"></div>
 		<div class="social-icons">
-			<h3>Folow Us</h3>
+			<h3>Follow Us</h3>
 			<ul>
 				<li class="facebook"><a href="https://www.facebook.com/socrata" target="_blank">facebook</a></li>
 				<li class="twitter"><a href="https://twitter.com/socrata" class="" target="_blank">twitter</a></li>
