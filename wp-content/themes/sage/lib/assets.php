@@ -65,8 +65,10 @@ function asset_path($filename) {
   }
 }
 
-function assets() {
+function assets() {  
   wp_enqueue_style('sage_css', asset_path('styles/main.css'), false, null);
+  wp_register_style( 'google-fonts', 'http://fonts.googleapis.com/css?family=Lato:300,400,700,900', false, null);
+  wp_enqueue_style('google-fonts');
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');

@@ -2,4 +2,18 @@
 
 body {
   margin: 12px !important;
+  background-color:white;
+}
+img, img[style] {
+	max-width:100% !important;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    color: $gray-dark;
+}
+
+p, li {
+	font-size: 14px;
+	line-height: normal;
+	color: $gray-dark;		
+	font-weight:$font-normal;
 }

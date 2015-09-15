@@ -31,11 +31,40 @@ foreach ($sage_includes as $file) {
 }
 unset($file, $filepath);
 
-// Feature Image Resize
-function custom_feature_image( $thumb_size, $image_width, $image_height ) { 
-  global $post; 
-  $params = array( 'width' => $image_width, 'height' => $image_height );   
-  $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID, '' ), $thumb_size );
-  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
-  return $custom_img_src;
+/**
+ * Pagination
+ */
+function pagination($pages = '', $range = 4) {  
+ $showitems = ($range * 2)+1;
+ global $paged;
+ if(empty($paged)) $paged = 1;
+ if($pages == '')
+ {
+   global $wp_query;
+   $pages = $wp_query->max_num_pages;
+   if(!$pages)
+   {
+       $pages = 1;
+   }
+ }
+ if(1 != $pages)
+ {
+   echo "<div class=\"pagination\"><div class=\"pagination-wrapper\"><span>Page ".$paged." of ".$pages."</span>";
+   if($paged > 2 && $paged > $range+1 && $showitems < $pages) echo "<a href='".get_pagenum_link(1)."'>&laquo; First</a>";
+   if($paged > 1 && $showitems < $pages) echo "<a href='".get_pagenum_link($paged - 1)."'>&lsaquo; Previous</a>";
+   for ($i=1; $i <= $pages; $i++)
+   {
+     if (1 != $pages &&( !($i >= $paged+$range+1 || $i <= $paged-$range-1) || $pages <= $showitems ))
+     {
+         echo ($paged == $i)? "<span class=\"current\">".$i."</span>":"<a href='".get_pagenum_link($i)."' class=\"inactive\">".$i."</a>";
+     }
+   }
+   if ($paged < $pages && $showitems < $pages) echo "<a href=\"".get_pagenum_link($paged + 1)."\">Next &rsaquo;</a>";  
+   if ($paged < $pages-1 &&  $paged+$range-1 < $pages && $showitems < $pages) echo "<a href='".get_pagenum_link($pages)."'>Last &raquo;</a>";
+   echo "</div></div>\n";
+ }
 }
+
+
+
+

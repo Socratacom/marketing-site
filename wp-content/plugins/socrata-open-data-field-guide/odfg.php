@@ -34,7 +34,7 @@ function create_guide() {
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'open-data-guide-chapter')
+      'rewrite' => array('with_front' => false, 'slug' => 'open-data-field-guide-chapter')
     )
   );
 }
@@ -61,8 +61,6 @@ function guide_columns( $columns ) {
   );
   return $columns;
 }
-
-
 // REGISTER MENUS
 add_action( 'init', 'register_odfg_menu' );
 function register_odfg_menu() {
@@ -77,17 +75,30 @@ function register_odfg_menu() {
 function guide_script_loading() {
   if ( 'guide' == get_post_type() && is_single() || 'guide' == get_post_type() && is_archive() || is_page('open-data-field-guide') ) {
     wp_register_style( 'odfg_styles', plugins_url( 'css/styles.css' , __FILE__ ), false, null );
-    wp_enqueue_style( 'odfg_styles' );
-    wp_register_style( 'fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', false, null);
-    wp_enqueue_style( 'fontawesome' );
-    wp_register_script('jumplinks', plugins_url( 'js/jumplinks.js' , __FILE__ ), false, null, true);
-    wp_enqueue_script('jumplinks');
+    wp_enqueue_style( 'odfg_styles' );    
   } 
 }
 add_action('wp_enqueue_scripts', 'guide_script_loading');
 
+// Single Template Path
+add_filter( 'template_include', 'guide_single_template', 1 );
+function guide_single_template( $template_path ) {
+  if ( get_post_type() == 'guide' ) {
+    if ( is_single() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'single-guide.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'single-guide.php';
+      }
+    }
+  }
+  return $template_path;
+}
+
 // Body Classes for Styling 
-add_filter('thesis_body_classes', 'guide_styling');
+/* add_filter('thesis_body_classes', 'guide_styling');
 function guide_styling($classes) {
   if (is_page('open-data-field-guide') || 'guide' == get_post_type() && is_archive() || 'guide' == get_post_type() && is_single()) { 
     $classes[] = 'guide'; 
@@ -139,5 +150,5 @@ if (is_page('open-data-field-guide')) { ?>
 
 <?php }
 }
-
+*/
 
