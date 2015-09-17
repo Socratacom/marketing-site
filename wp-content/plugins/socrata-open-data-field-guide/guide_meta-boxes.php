@@ -27,6 +27,12 @@ $custom_guide_meta_fields = array(
 		'id'	=> $prefix.'textarea',
 		'type'	=> 'textarea'
 	),
+	array(
+		'label'=> 'Chapter Contents',
+		'desc'	=> '',
+		'id'	=> $prefix.'contents',
+		'type'	=> 'textarea'
+	),
 );
 
 // The Callback
@@ -52,7 +58,7 @@ foreach ($custom_guide_meta_fields as $field) {
 
 			// textarea
 			case 'textarea':
-				echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="60" rows="4" maxlength="150" placeholder="150 Character Limit">'.$meta.'</textarea><br /><span class="description">'.$field['desc'].'</span>';				
+				echo '<textarea name="'.$field['id'].'" id="'.$field['id'].'" cols="60" rows="4">'.$meta.'</textarea><br /><span class="description">'.$field['desc'].'</span>';				
 			break;
 
 			} //end switch
@@ -99,11 +105,13 @@ function get_guide_meta() {
   global $post;
   $custom_text = get_post_meta($post->ID, 'custom_text', true);
   $custom_textarea = get_post_meta($post->ID, 'custom_textarea', true);
+  $custom_contents = get_post_meta($post->ID, 'custom_contents', true);
   
 
   return array(
   	$custom_text,
   	$custom_textarea,
+  	$custom_contents
   );
 }
 

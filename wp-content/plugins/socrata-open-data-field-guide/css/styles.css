@@ -21,7 +21,6 @@
 .guide .chapters .menu li a:hover {
   color:#2980b9;
 }
-
 .guide .chapters .menu li.current-menu-item a {
   font-weight: bold;
   color:#2980b9;
@@ -30,10 +29,26 @@
   position: relative;
 }
 .guide-content > h1 {
-  margin-bottom:1em;
+  margin-bottom:.5em;
+  margin-top:0;
 }
+.guide-content h2 {
+  margin:1em 0;
+}
+.guide-content .feature-box {
+  background:#ecf0f1;
+  padding:15px;
+  border:1px solid #bdc3c7;
+}
+.guide-content p.caption {
+  line-height: normal !important;
+  font-size:13px;
+  padding:15px;
+  background:#ecf0f1;
+}
+
 .guide .cf_widget {
-  margin-bottom:15px;
+  margin-bottom:1.63em;
 }
 .guide img {
   max-width: 100%;
@@ -66,6 +81,33 @@
 }
 .guide blockquote li {
   line-height: normal;
+}
+.guide .chapter-contents {
+  padding:15px;  
+  border:5px solid #ecf0f1;
+  box-sizing: border-box;
+}
+.guide .chapter-contents ul {
+  list-style-type: none;
+  margin:0;
+  padding: 0;
+}
+.guide .chapter-contents ol {
+  margin:0 0 1.5em 0;
+  padding-left: 20px;
+}
+.guide .quick-links-wrapper{
+  position: -webkit-sticky;  // required for Safari
+  position: sticky;
+  top:0;
+}
+.guide .quick-links h4 {
+  background:#ecf0f1;
+  padding:10px 10px 5px 20px;
+  text-transform: uppercase;
+  font-size:14px;
+  margin:0;
+  color:#95a5a6;
 }
 
 .guide .iframe-wrapper {
@@ -127,6 +169,18 @@
 .open-data-field-guide #chapters {
   padding:80px 30px;
 }
+.open-data-field-guide #chapters ul {
+  list-style-type: none;
+  margin:0;
+  padding: 0;
+}
+.open-data-field-guide #chapters li {
+  border-bottom:#bdc3c7 solid 1px;
+  margin-bottom:1.63em;
+}
+.open-data-field-guide #chapters li:last-child {
+  border:none;
+}
 .open-data-field-guide article {
   line-height: normal;
   margin-bottom:1.63em;
@@ -138,7 +192,7 @@
 .open-data-field-guide article p {
   font-size: 16px;
 }
-.open-data-field-guide article .chapter-marker {
+.open-data-field-guide .chapter-marker {
   font-size: 13px;
   text-transform: uppercase;
 }
