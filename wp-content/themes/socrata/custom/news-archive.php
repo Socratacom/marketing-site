@@ -9,8 +9,16 @@
       $third_div_clear = ($count%3 == 0) ? '<div class="clearboth"></div>' : '';
     ?>
   <div class="one_third <?php echo $third_div; ?>" style="margin-bottom:4%; line-height:normal;">
+    <?php
+// Must be inside a loop.
 
-    <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 260, 180); ?>" style="width:100%;"></a>
+if ( has_post_thumbnail() ) {
+  echo '<a href="<?php the_permalink() ?>"><img src="' . tuts_custom_img('full', 260, 180) . ' " style="width:100%;" /></a>';
+}
+else {
+  echo '<a href="<?php the_permalink() ?>"><img src="' . get_bloginfo( 'stylesheet_directory' ) . '/custom/images/thumbnail-default.png" /></a>';
+}
+?>
     <small style="text-transform: uppercase; font-size: .7em;"><?php single_cat_title(); ?></small>
     <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><h4>
     <p><small><strong>By</strong> <?php the_author(); ?> &bull; <strong>Posted</strong> <?php the_time('F jS, Y') ?></small></p>
