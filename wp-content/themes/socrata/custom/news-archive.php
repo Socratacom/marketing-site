@@ -13,10 +13,19 @@
 // Must be inside a loop.
 
 if ( has_post_thumbnail() ) {
-  echo '<a href="<?php the_permalink() ?>"><img src="' . tuts_custom_img('full', 260, 180) . ' " style="width:100%;" /></a>';
+  echo '<a href="';
+  echo the_permalink();
+  echo '">'; 
+  echo '<img src="' . tuts_custom_img('full', 260, 180) . ' " style="width:100%;" />';
+  echo '</a>';
+  
 }
 else {
-  echo '<a href="<?php the_permalink() ?>"><img src="' . get_bloginfo( 'stylesheet_directory' ) . '/custom/images/thumbnail-default.png" /></a>';
+  echo '<a href="';
+  echo the_permalink();
+  echo '">'; 
+  echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/custom/images/thumbnail-default.png" />';
+  echo '</a>';
 }
 ?>
     <small style="text-transform: uppercase; font-size: .7em;"><?php single_cat_title(); ?></small>
