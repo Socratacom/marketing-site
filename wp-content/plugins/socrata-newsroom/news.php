@@ -129,7 +129,7 @@ if (is_page('newsroom')) { ?>
   <?php endwhile; ?>
   <?php endif; ?>
   <?php wp_reset_postdata(); ?>
-  <div class="center" style="padding:4% 0;"><a href="/newsroom/press-releases/" class="button">View Press Releases</a> <a href="/newsroom/socrata-in-the-media/" class="button">View Socrata in the Media</a></div>
+  <div class="center" style="padding:4% 0;"><a href="/newsroom/press-releases/" class="button">View Press Releases</a> <a href="/newsroom/socrata-news/" class="button">View Socrata News</a></div>
 </div>
   <!-- Right Column -->
   <div class="blog_one_third last format_text blog-right-column">
