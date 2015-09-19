@@ -68,7 +68,7 @@ function create_news_taxonomies() {
     'show_ui' => true,
     'show_tagcloud' => false,
     'hierarchical' => true,
-    'rewrite' => array('with_front' => false, 'slug' => 'newsroom-category')
+    'rewrite' => array('with_front' => false, 'slug' => 'newsroom')
     )
   );
 }
