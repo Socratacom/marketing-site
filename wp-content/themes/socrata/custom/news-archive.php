@@ -24,7 +24,7 @@ else {
   echo '<a href="';
   echo the_permalink();
   echo '">'; 
-  echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/custom/images/thumbnail-default.png" />';
+  echo '<img src="' . get_bloginfo( 'stylesheet_directory' ) . '/custom/images/thumbnail-default.png" style="width:100%;" />';
   echo '</a>';
 }
 ?>
