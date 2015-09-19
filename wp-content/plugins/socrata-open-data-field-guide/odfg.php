@@ -42,13 +42,12 @@ function create_guide() {
 // MENU ICON
 //Using Dashicon Font http://melchoyce.github.io/dashicons/
 add_action( 'admin_head', 'add_guide_icon' );
-function add_guide_icon(){
-?>
-<style>
-#adminmenu .menu-icon-guide div.wp-menu-image:before {
-  content: '\f331';
-}
-</style>
+function add_guide_icon(){ ?>
+  <style>
+    #adminmenu .menu-icon-guide div.wp-menu-image:before {
+      content: '\f331';
+    }
+  </style>
 <?php
 }
 
@@ -61,6 +60,7 @@ function guide_columns( $columns ) {
   );
   return $columns;
 }
+
 // REGISTER MENUS
 add_action( 'init', 'register_odfg_menu' );
 function register_odfg_menu() {
@@ -106,6 +106,14 @@ function guide_styling($classes) {
   return $classes; 
 }
 
+THIS IS WHERE I NEED TO REPLACE WITH A SHORT CODE FOR THE ODFG PAGE
+THIS IS EXISTING CONTENT FROM THE LANDING PAGE
+
+<div class="cover">
+<h1 class="headline">Open Data Field Guide</h1>
+<p class="abstract">A comprehensive guide to ensuring your open data program serves you and your citizens.</p>
+<p class="association"><strong>With Insight From:</strong> City of Chicago, City of New York, City of Edmonton, State of Maryland, State of Colorado, Code for America, The World Bank, City of Baltimore, State of Oregon, <a href="/open-data-field-guide-chapter/acknowledgements-glossary/">and more</a>.</p>
+</div>
 
 // Display Post Type Query on main page
 add_action('thesis_hook_custom_template', 'open_data_guide_page');
