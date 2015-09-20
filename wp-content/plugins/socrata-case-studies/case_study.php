@@ -37,11 +37,23 @@ function case_study_post_type() {
       'menu_position' => 5,
       'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
       'taxonomies' => array( '' ),
-      'menu_icon' => get_stylesheet_directory_uri() .'/custom/images/icons/menu-socrata.png',
+      'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'case-study'),
     )
   );
+}
+
+// MENU ICON
+//Using Dashicon Font http://melchoyce.github.io/dashicons/
+add_action( 'admin_head', 'add_case_study_icon' );
+function add_case_study_icon() { ?>
+  <style>
+    #adminmenu .menu-icon-case_study div.wp-menu-image:before {
+      content: '\f123';
+    }
+  </style>
+  <?php
 }
 
 // TAXONOMIES

@@ -37,11 +37,23 @@ function create_hero() {
       'menu_position' => 100,
       'supports' => array( 'title', 'thumbnail', 'revisions' ),
       'taxonomies' => array( '' ),
-      'menu_icon' => plugins_url( 'images/image.png', __FILE__ ),
+      'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'hero')
     )
   );
+}
+
+// MENU ICON
+//Using Dashicon Font http://melchoyce.github.io/dashicons/
+add_action( 'admin_head', 'add_hero_icon' );
+function add_hero_icon() { ?>
+  <style>
+    #adminmenu .menu-icon-hero div.wp-menu-image:before {
+      content: '\f128';
+    }
+  </style>
+  <?php
 }
 
 

@@ -1,0 +1,24 @@
+@media only screen and (min-width : 320px) {
+/* Home Page */
+	.home {
+		.home-hero {
+			background-color:$clouds;
+			width:100%;
+			height:100vh;
+		}
+		.articles {
+			ul {
+				list-style-type: none;
+				margin:0;
+				padding:0;
+			}
+			li {
+				border-bottom:$silver solid 1px;
+				line-height: normal;
+			}
+			li:first-child, li:last-child {
+				border:none;
+			}
+		}
+	}
+}

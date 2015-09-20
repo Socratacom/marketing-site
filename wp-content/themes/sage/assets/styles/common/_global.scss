@@ -51,7 +51,17 @@
 	a:hover {
 		color:$belize-hole;
 		text-decoration:none;
-	}    
+	}
+	/* Backgrounds */
+	.clouds {
+		background-color:$clouds;
+	}
+	.gray-dark {
+		background-color:$gray-dark;
+	}
+	.sun-flower {
+		background-color:$sun-flower;
+	}
 }
 
 /* Extra Small Devices, Phones */ 

@@ -37,14 +37,24 @@ function create_quotes() {
       'menu_position' => 100,
       'supports' => array( 'title', 'thumbnail', 'revisions' ),
       'taxonomies' => array( '' ),
-      'menu_icon' => plugins_url( 'images/image.png', __FILE__ ),
+      'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'quotes')
     )
   );
 }
 
-
+// MENU ICON
+//Using Dashicon Font http://melchoyce.github.io/dashicons/
+add_action( 'admin_head', 'add_quotes_icon' );
+function add_quotes_icon() { ?>
+  <style>
+    #adminmenu .menu-icon-quotes div.wp-menu-image:before {
+      content: '\f122';
+    }
+  </style>
+  <?php
+}
 
 
 

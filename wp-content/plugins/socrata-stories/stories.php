@@ -37,11 +37,23 @@ function create_stories() {
       'menu_position' => 5,
       'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
       'taxonomies' => array( '' ),
-      'menu_icon' => plugins_url( 'images/image.png', __FILE__ ),
+      'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'stories')
     )
   );
+}
+
+// MENU ICON
+//Using Dashicon Font http://melchoyce.github.io/dashicons/
+add_action( 'admin_head', 'add_stories_icon' );
+function add_stories_icon() { ?>
+  <style>
+    #adminmenu .menu-icon-stories div.wp-menu-image:before {
+      content: '\f123';
+    }
+  </style>
+  <?php
 }
 
 // REGISTER TAXONOMIES

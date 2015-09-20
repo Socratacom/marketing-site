@@ -11,6 +11,7 @@ License: GPLv2
 
 include_once("meta-boxes.php");
 
+
 // REGISTER POST TYPE
 add_action( 'init', 'create_tech_blog' );
 
@@ -36,11 +37,23 @@ function create_tech_blog() {
       'menu_position' => 5,
       'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' ),
       'taxonomies' => array( '' ),
-      'menu_icon' => plugins_url( 'images/image.png', __FILE__ ),
+      'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'tech-blog-posts')
     )
   );
+}
+
+// MENU ICON
+//Using Dashicon Font http://melchoyce.github.io/dashicons/
+add_action( 'admin_head', 'add_tech_blog_icon' );
+function add_tech_blog_icon() { ?>
+  <style>
+    #adminmenu .menu-icon-tech_blog div.wp-menu-image:before {
+      content: '\f109';
+    }
+  </style>
+  <?php
 }
 
 // TAXONOMIES
