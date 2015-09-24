@@ -24,8 +24,6 @@ function add_attribution_meta_box() {
 }
 add_action('add_meta_boxes', 'add_attribution_meta_box');
 
-
-
 // Field Array
 $prefix = 'custom_';
 $custom_attribution_meta_fields = array(
@@ -100,7 +98,6 @@ function save_attribution_meta($post_id) {
 }
 add_action('save_post', 'save_attribution_meta');
 
-
 // Get and return the values for the URL and description
 function get_attribution_meta() {
   global $post;
@@ -112,3 +109,21 @@ function get_attribution_meta() {
     $custom_link
   );
 }
+
+// Shortcode 
+function shortcode_image_attribution ($atts, $content = null) {
+  ob_start();
+
+  $meta = get_attribution_meta(); 
+  if ($meta[1]) {
+    echo "<div class='image-attribution'>Photo: <a href='$meta[1]' target='_blank'>$meta[0]</a></div>";
+  } elseif ($meta[0]) {
+    echo "<div class='image-attribution'>Photo: $meta[0]</div>";
+  } 
+
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('image-attribution','shortcode_image_attribution');
+

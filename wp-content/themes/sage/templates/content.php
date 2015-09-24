@@ -1,12 +1,18 @@
 
-<div class="col-sm-4 col-md-3">
-<article <?php post_class(); ?> style="background:#ccc; height:200px; overflow:hidden; margin-bottom:30px;">
-  <header>
-    <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-   
-  </header>
-  <div class="entry-summary">
-    <?php the_excerpt(); ?>
-  </div>
-</article>
+
+<div class="col-sm-4">
+<div class="card" data-sr="ease-in-out">
+	<div class="card-image hidden-xs">
+		<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
+		<div class="card-avatar">
+			<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
+		</div>
+		<a href="<?php the_permalink() ?>"></a>
+	</div>
+	<div class="card-text">
+		<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+		<small class="card-meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small>
+		<?php the_excerpt(); ?> 
+	</div>
+</div>
 </div>

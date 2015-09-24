@@ -1,4 +1,7 @@
-<div class="feature-image" style="background-image: url(<?php echo custom_feature_image('full', 1600, 400 ); ?>);"></div>
+<div class="feature-image hidden-xs" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 1600, 400); ?>);">
+  <div class="pattern-overlay"></div>
+</div>
+<?php echo do_shortcode('[image-attribution]'); ?>
 <?php
   $meta = get_attribution_meta(); 
   if ($meta[1]) {

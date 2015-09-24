@@ -18,25 +18,67 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages
+        // JavaScript to be fired on all pages 
       },
       finalize: function() {
         // JavaScript to be fired on all pages, after page specific JS is fired
+
+
       }
     },
     // Home page
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
+        window.sr = new scrollReveal();
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
+         $(".card").dotdotdot({
+          ellipsis  : '... ',
+          wrap    : 'word',
+          fallbackToLetter: true,
+          after   : null,
+          watch   : window,
+          height    : null,
+          tolerance : 0,
+          callback  : function( isTruncated, orgContent ) {}, 
+          lastCharacter : {
+          remove    : [ ' ', ',', ';', '.', '!', '?' ],
+          noEllipsis  : []
+          }
+        });
+      }
+    },
+    // Home page
+    'blog': {
+      init: function() {
+        // JavaScript to be fired on the home page
+        window.sr = new scrollReveal();
+      },
+      finalize: function() {
+        // JavaScript to be fired on the home page, after the init JS
+         $(".card").dotdotdot({
+          ellipsis  : '... ',
+          wrap    : 'word',
+          fallbackToLetter: true,
+          after   : null,
+          watch   : window,
+          height    : null,
+          tolerance : 0,
+          callback  : function( isTruncated, orgContent ) {}, 
+          lastCharacter : {
+          remove    : [ ' ', ',', ';', '.', '!', '?' ],
+          noEllipsis  : []
+          }
+        });
       }
     },
     // About us page, note the change from about-us to about_us.
     'about_us': {
       init: function() {
         // JavaScript to be fired on the about us page
+        window.sr = new scrollReveal();
       }
     }
   };

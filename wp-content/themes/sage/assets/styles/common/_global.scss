@@ -13,30 +13,32 @@
 	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	    font-family: inherit;
 	    font-weight: $font-normal;
-	    line-height: 1.1em;
+	    line-height: 1em;
 	    color: $midnight-blue;
 	    margin:30px 0;
 	}
 	h1 {
-		font-size:38px;
+		font-size:24px;
 		letter-spacing:-1px;
+		font-weight: $font-bold;
 	}
 	h2 {
-		font-size:32px;
+		font-size:20px;
+		font-weight: $font-bold;
 	}
 	h3 {
-		font-size:24px;
-	}
-	h4 {
-		font-size:20px;
-	}
-	h5 {
 		font-size:18px;
 	}
+	h4 {
+		font-size:18px;
+	}
+	h5 {
+		font-size:16px;
+	}
 	p, li {
-		color:$asbestos;
+		color:#666;
 		font-weight:$font-light;
-		font-size: 16px;
+		font-size: 14px;
 		line-height: 1.5em;
 	}
 	p {
@@ -52,15 +54,139 @@
 		color:$belize-hole;
 		text-decoration:none;
 	}
+	.section-padding {
+		padding:80px 0;
+	}
+	.page-padding {
+		padding-top:50px;
+	}
 	/* Backgrounds */
+	.turquoise {
+		background-color:$turquoise;
+	}
+	.green-sea {
+		background-color:$green-sea;
+	}
+	.emerald {
+		background-color:$emerald;
+	}
+	.nephritis {
+		background-color:$nephritis;
+	}
+	.peter-river {
+		background-color:$peter-river;
+	}
+	.belize-hole {
+		background-color:$belize-hole;
+	}
+	.amethyst {
+		background-color:$amethyst;
+	}
+	.wisteria {
+		background-color:$wisteria;
+	}
+	.wet-asphalt {
+		background-color:$wet-asphalt;
+	}
+	.midnight-blue {
+		background-color:$midnight-blue;
+	}
+	.orange {
+		background-color:$orange;
+	}
+	.carrot {
+		background-color:$carrot;
+	}
+	.pumpkin {
+		background-color:$pumpkin;
+	}
+	.alizarin {
+		background-color:$alizarin;
+	}
+	.pomegranate {
+		background-color:$pomegranate;
+	}
+	.silver {
+		background-color:$silver;
+	}
+	.concrete {
+		background-color:$concrete;
+	}
+	.asbestos {
+		background-color:$asbestos;
+	}
 	.clouds {
 		background-color:$clouds;
+	}	
+	.sun-flower {
+		background-color:$sun-flower;
 	}
 	.gray-dark {
 		background-color:$gray-dark;
 	}
-	.sun-flower {
-		background-color:$sun-flower;
+
+	/* Cards */
+	.card {
+		position: relative;
+		border:#e3e3e3 solid 1px;
+		background-color:white;
+		overflow: hidden;
+		.card-banner {
+			position: absolute;
+			top:0;
+			left:0;
+			z-index: 10;
+			width:100%;
+			color:white;
+			padding:10px 15px;
+			text-transform: uppercase;
+			font-weight: $font-normal;
+			font-size:13px;
+		}		
+		.card-meta {
+			font-size: 13px;
+			padding:10px 0;
+			display: block;
+		}
+		.card-image {
+			position: relative;
+			.card-avatar {
+				position: absolute;
+				bottom:-30px;
+				left:0;
+				width:100%;
+				text-align: center;
+				z-index: 10;
+				pointer-events: none;
+				.avatar {
+					border:white solid 2px;
+				}
+			}
+			a {
+				position: absolute;
+				top:0;
+				left:0;
+				height: 100%;
+				width: 100%;
+				z-index: 5;
+			}
+		}
+		.card-text {
+			padding:40px 20px 20px 20px;
+			h4 {
+				margin:0;
+			}
+			a {
+				color:$midnight-blue;
+			}
+			a:hover {
+				text-decoration: underline;
+			}
+			p {
+				font-size:15px;
+				line-height: 1.3em;
+			}
+		}
 	}
 }
 
@@ -76,10 +202,39 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
+	h1 {
+		font-size:36px;
+		letter-spacing:-1px;
+		font-weight: $font-bold;
+	}
+	h2 {
+		font-size:28px;
+		font-weight: $font-bold;
+	}
+	p, li {
+		font-size: 16px;
+	}
 
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-
+	h1 {
+		font-size:50px;
+		letter-spacing:-1px;
+		font-weight: $font-bold;
+	}
+	h2 {
+		font-size:36px;
+		font-weight: $font-bold;
+	}
+	h3 {
+		font-size:24px;
+	}
+	h4 {
+		font-size:20px;
+	}
+	h5 {
+		font-size:18px;
+	}
 }

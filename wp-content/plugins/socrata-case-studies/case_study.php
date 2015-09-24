@@ -58,25 +58,23 @@ function add_case_study_icon() { ?>
 
 // TAXONOMIES
 add_action( 'init', 'create_case_study_taxonomies', 0 );
-
 function create_case_study_taxonomies() {
-    register_taxonomy(
-        'case_study_category',
-        'case_study',
-        array(
-            'labels' => array(
-                'name' => 'Case Study Category',
-                'add_new_item' => 'Add New Category',
-                'new_item_name' => "New Category"
-            ),
-            'show_ui' => true,
-            'show_tagcloud' => false,
-            'hierarchical' => true,
-            'rewrite' => array('with_front' => false, 'slug' => 'case-study-customers'),
-        )
-    );
+  register_taxonomy(
+    'case_study_category',
+    'case_study',
+    array(
+    'labels' => array(
+      'name' => 'Case Study Category',
+      'add_new_item' => 'Add New Category',
+      'new_item_name' => "New Category"
+    ),
+    'show_ui' => true,
+    'show_tagcloud' => false,
+    'hierarchical' => true,
+    'rewrite' => array('with_front' => false, 'slug' => 'case-study-customers'),
+    )
+  );
 }
-
 
 // Custom Columns for admin management page
 add_filter( 'manage_edit-case_study_columns', 'case_study_columns' ) ;
@@ -84,7 +82,7 @@ function case_study_columns( $columns ) {
   $columns = array(
     'cb' => '<input type="checkbox" />',
     'title' => __( 'Customer' ),
-    'case_study_category' => __( 'Status' ),
+    'case_study_category' => __( 'Region' ),
     'date' => __( 'Date' )
   );
   return $columns;
@@ -114,6 +112,34 @@ function case_study_custom_columns( $column, $post_id ) {
       break;
   }
 }
+
+// Template Paths
+add_filter( 'template_include', 'case_study_single_template', 1 );
+function case_study_single_template( $template_path ) {
+  if ( get_post_type() == 'case_study' ) {
+    if ( is_single() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'single-case-study.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'single-case-study.php';
+      }
+    }
+    if ( is_archive() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'archive-case-study.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'archive-case-study.php';
+      }
+    }
+  }
+  return $template_path;
+}
+
+
 
 // Display Post Type Query on main page
 add_action('thesis_hook_custom_template', 'case_study_main_page');

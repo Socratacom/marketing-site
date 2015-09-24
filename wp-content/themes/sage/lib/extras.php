@@ -28,7 +28,7 @@ add_filter('body_class', __NAMESPACE__ . '\\body_class');
  * Clean up the_excerpt()
  */
 function excerpt_more() {
-  return ' &hellip; <a href="' . get_permalink() . '">' . __('Continued', 'sage') . '</a>';
+  return '';
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
@@ -97,7 +97,7 @@ function newsletter_sidebar ($atts, $content = null) {
   ob_start();
   ?>
   <div class="newsletter-sidebar newsletter-form marketo-form">
-    <p><img src="/wp-content/themes/socrata/custom/images/transform.jpg" class="img-responsive"></p>
+    <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
     <h3>Subscribe to the Socrata newsletter</h3>
     <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
     <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>

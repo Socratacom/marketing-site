@@ -19,7 +19,12 @@ function setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
-    'primary_navigation' => __('Primary Navigation', 'sage')
+    'site_nav_products' => __('Site Nav Products', 'sage'),
+    'site_nav_why_socrata' => __('Site Nav Why Socrata', 'sage'),
+    'site_nav_learning' => __('Site Nav Learning', 'sage'),
+    'site_nav_about' => __('Site Nav About', 'sage'),
+    'site_nav_community' => __('Site Nav Community', 'sage'),
+    'site_nav_additional_links' => __('Site Nav Additional Links', 'sage')
   ]);
 
   // Add post thumbnails

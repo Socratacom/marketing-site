@@ -56,9 +56,8 @@ function add_stories_icon() { ?>
   <?php
 }
 
-// REGISTER TAXONOMIES
+// TAXONOMIES
 add_action( 'init', 'stories_region', 0 );
-
 function stories_region() {
   register_taxonomy(
     'stories_region',
@@ -82,7 +81,6 @@ function stories_region() {
 }
 
 add_action( 'init', 'stories_type', 0 );
-
 function stories_type() {
   register_taxonomy(
     'stories_type',
@@ -106,7 +104,6 @@ function stories_type() {
 }
 
 add_action( 'init', 'stories_product', 0 );
-
 function stories_product() {
   register_taxonomy(
     'stories_product',
@@ -140,6 +137,15 @@ function stories_single_template( $template_path ) {
         $template_path = $theme_file;
       } else {
         $template_path = plugin_dir_path( __FILE__ ) . 'single-stories.php';
+      }
+    }
+    if ( is_archive() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'archive-stories.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'archive-stories.php';
       }
     }
   }

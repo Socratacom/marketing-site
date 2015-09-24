@@ -19,6 +19,27 @@
 			li:first-child, li:last-child {
 				border:none;
 			}
+			.recentpost { 
+				padding:15px 20px;
+				p {
+					line-height: 1.3em;
+					margin:0;
+					font-size: 18px;
+				}
+				.meta {
+					font-size: 13px;
+					display: block;
+				}
+			}
+			.card {
+				height:425px;
+			}
+		}
+	}
+	.blog {
+		.card {
+			height:400px;
+			margin-bottom:30px;
 		}
 	}
 }

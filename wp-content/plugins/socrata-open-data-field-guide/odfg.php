@@ -80,7 +80,7 @@ function guide_script_loading() {
 }
 add_action('wp_enqueue_scripts', 'guide_script_loading');
 
-// Single Template Path
+// Template Paths
 add_filter( 'template_include', 'guide_single_template', 1 );
 function guide_single_template( $template_path ) {
   if ( get_post_type() == 'guide' ) {
@@ -91,6 +91,15 @@ function guide_single_template( $template_path ) {
         $template_path = $theme_file;
       } else {
         $template_path = plugin_dir_path( __FILE__ ) . 'single-guide.php';
+      }
+    }
+    if ( is_archive() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'archive-guide.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'archive-guide.php';
       }
     }
   }

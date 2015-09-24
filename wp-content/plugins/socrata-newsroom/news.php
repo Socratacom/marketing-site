@@ -9,6 +9,9 @@ Author URI: http://fishinglounge.com/
 License: GPLv2
 */
 
+
+
+
 // REGISTER POST TYPE
 add_action( 'init', 'news_post_type' );
 
@@ -83,6 +86,37 @@ function news_the_categories() {
     // echo the remaining categories, appending separator
     for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
+
+// Template Paths
+add_filter( 'template_include', 'news_single_template', 1 );
+function news_single_template( $template_path ) {
+  if ( get_post_type() == 'news' ) {
+    if ( is_single() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'single-news.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'single-news.php';
+      }
+    }
+    if ( is_archive() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'archive-news.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'archive-news.php';
+      }
+    }
+  }
+  return $template_path;
+}
+
+
+
+
+
 
 // Display Post Type Query on main page
 add_action('thesis_hook_custom_template', 'news_main_page');

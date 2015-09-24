@@ -11,12 +11,19 @@
     "fontawesome": "~4.4.0",
     "jQuery.dotdotdot": "~1.7.4",
     "modernizr": "2.8.2",
+    "scrollreveal": "scrollReveal.js#~2.3.2",
     "slick-carousel": "~1.5.8"
   },
-  "overrides": {
+  "overrides": {    
+    "jQuery.dotdotdot": {
+      "main": "./src/js/jquery.dotdotdot.min.js"
+    },    
+    "scrollreveal": {
+      "main": "./dist/scrollReveal.min.js"
+    },
     "slick-carousel": {
       "main": "./slick/slick.min.js"
-      },
+    },
     "modernizr": {
       "main": "./modernizr.js"
     },

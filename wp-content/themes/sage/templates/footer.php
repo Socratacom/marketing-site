@@ -1,32 +1,40 @@
-<footer class="content-info" role="contentinfo">
+<footer role="contentinfo">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
-				<h4>Contact</h4>
-				<ul>
-					<li><span>Phone:</span> <a href="tel://1-206-340-8008">+1 (206) 340-8008</a></li>
-					<li><span>Support:</span> <a href="tel://1-888-997-6762">+1 (888) 997-6762</a></li>
-					<li><span>Fax:</span> <a href="tel://1-206-452-2010">+1 (206) 452-2010</a></li>
-					<li><span>Email:</span> <a href="mailto:info@socrata.com">info@socrata.com</a></li>
-					<li><a href="/contact-us/">More Options</a></li>
+				<ul class="social-icons clearfix">
+					<li class="facebook"><a href="https://www.facebook.com/socrata" target="_blank">facebook</a></li>
+					<li class="twitter"><a href="https://twitter.com/socrata" class="" target="_blank">twitter</a></li>
+					<li class="linkedin"><a href="https://www.linkedin.com/company/socrata" class="" target="_blank">linkedin</a></li>
+					<li class="google"><a href="https://plus.google.com/+Socrata/about" class="" target="_blank">googleplus</a></li>
+					<li class="youtube"><a href="https://www.youtube.com/user/socratavideos" class="" target="_blank">youtube</a></li>
+				</ul>
+				<div class="footer-logo gray-logo"></div>
+				<ul class="copyright">
+					<li>&copy; <?php echo date("Y");?> Socrata. All rights reserved.</li>
+					<li>Phone: <a href="tel://1-206-340-8008">+1 (206) 340-8008</a></li>
+					<li>Support: <a href="tel://1-888-997-6762">+1 (888) 997-6762</a></li>
+					<li>Fax: <a href="tel://1-206-452-2010">+1 (206) 452-2010</a></li>
+					<li><a href="/privacy/">Privacy Policy</a> | <a href="/terms-of-service/">Terms of Service</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-3">
-				<h4>Seattle</h4>
-				<p>83 S. King St.<br>Suite 107<br>Seattle, WA 98104</p>
+				<h4>Products</h4>
+				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_products' ) ); ?>
+				<h4>Why Socrata</h4>				
+				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_why_socrata' ) ); ?>
 			</div>
 			<div class="col-sm-3">
-				<h4>Washington DC</h4>
-				<p>1150 17th Street, NW<br>Suite 200<br>Washington, D.C. 20036</p>
+				<h4>Learning</h4>				
+				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_learning' ) ); ?>
+				<h4>About</h4>				
+				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_about' ) ); ?>
 			</div>
 			<div class="col-sm-3">
-				<h4>United Kingdom</h3>
-				<p>14-22 Elder St.<br>London E1 6BT<br>UK</p>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-sm-12">
-				<p class="text-center">Copyright &copy; <?php echo date("Y");?> Socrata, Inc. All rights reserved. &bull; <a href="/privacy/">Privacy Policy</a> &bull; <a href="/terms-of-service/">Terms of Service</a></p>
+				<h4>Community</h4>				
+				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_community' ) ); ?>
+				<h4>Additional Links</h4>				
+				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_additional_links' ) ); ?>
 			</div>
 		</div>
 	</div>

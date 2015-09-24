@@ -58,28 +58,26 @@ function add_tech_blog_icon() { ?>
 
 // TAXONOMIES
 add_action( 'init', 'tech_blog_taxonomies', 0 );
-
 function tech_blog_taxonomies() {
-    register_taxonomy(
-        'tech_blog_category',
-        'tech_blog',
-        array(
-            'labels' => array(
-                'name' => 'Tech Blog Category',
-                'add_new_item' => 'Add New Category',
-                'new_item_name' => "New Category"
-            ),
-            'show_ui' => true,
-            'show_tagcloud' => false,
-            'hierarchical' => true,
-            'rewrite' => array('with_front' => false, 'slug' => 'tech-blog-category')
-        )
-    );
+  register_taxonomy(
+    'tech_blog_category',
+    'tech_blog',
+    array(
+    'labels' => array(
+      'name' => 'Tech Blog Category',
+      'add_new_item' => 'Add New Category',
+      'new_item_name' => "New Category"
+    ),
+    'show_ui' => true,
+    'show_tagcloud' => false,
+    'hierarchical' => true,
+    'rewrite' => array('with_front' => false, 'slug' => 'tech-blog-category')
+    )
+  );
 }
 
 // ASSIGN DEFAULT CATEGORY
 add_action( 'save_post', 'tech_blog_set_default_object_terms', 100, 2 );
-
 function tech_blog_set_default_object_terms( $post_id, $post ) {
   if( 'publish' === $post->post_status ) {
     $defaults = array(
@@ -93,6 +91,32 @@ function tech_blog_set_default_object_terms( $post_id, $post ) {
       }
     }
   }
+}
+
+// Single Template Path
+add_filter( 'template_include', 'tech_blog_single_template', 1 );
+function tech_blog_single_template( $template_path ) {
+  if ( get_post_type() == 'tech_blog' ) {
+    if ( is_single() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'single-tech-blog.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'single-tech-blog.php';
+      }
+    }
+    if ( is_archive() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'archive-tech-blog.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'archive-tech-blog.php';
+      }
+    }
+  }
+  return $template_path;
 }
 
 // ADD STYLESHEET TO PAGE
