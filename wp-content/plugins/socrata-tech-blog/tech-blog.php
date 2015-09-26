@@ -106,6 +106,13 @@ function tech_blog_single_template( $template_path ) {
         $template_path = plugin_dir_path( __FILE__ ) . 'single-tech-blog.php';
       }
     }
+  }
+  return $template_path;
+}
+
+add_filter( 'template_include', 'tech_blog_archive_template', 1 );
+function tech_blog_archive_template( $template_path ) {
+  if ( get_post_type() == 'tech_blog' ) {
     if ( is_archive() ) {
       // checks if the file exists in the theme first,
       // otherwise serve the file from the plugin
@@ -119,112 +126,89 @@ function tech_blog_single_template( $template_path ) {
   return $template_path;
 }
 
-// ADD STYLESHEET TO PAGE
-add_action( 'init', 'register_tech_styles' ); 
-function register_tech_styles() {
-    wp_register_style( 'tech_styles', plugins_url( 'css/tech-styles.css' , __FILE__ ) );
-}
 
-add_action( 'wp_enqueue_scripts', 'add_tech_stylesheet' );
-function add_tech_stylesheet() {
-    if (is_page('tech-blog') || get_post_type() == 'tech_blog' && is_single())
-    wp_enqueue_style( 'tech_styles' );
-}
 
-// ADD BODY CLASS
-add_filter('thesis_body_classes', 'tech_styling');
-function tech_styling($classes) {
-  if (is_page('tech-blog') || get_post_type() == 'tech_blog' && is_single()) { 
-    $classes[] = 'tech'; 
-  }
-  return $classes; 
-}
 
-add_action('thesis_hook_custom_template', 'custom_tech_blog_page');
-function custom_tech_blog_page() {
-  if (is_page('tech-blog')) { ?>
-  <div class="two_third">
-  <div class="format_text">
 
-<?php
-$number_of_feature_posts = 1;
-$number_of_secondary_posts = 6;
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-$how_many_secondary_posts_past = ($number_of_secondary_posts * ($paged - 1));
-$off = $number_of_feature_posts + (($paged > 1) ? $how_many_secondary_posts_past : 0);
-?>
 
-<?php
-  $feature_query = new WP_Query("post_type=tech_blog&posts_per_page=$number_of_feature_posts");
-  while ($feature_query->have_posts()) : $feature_query->the_post(); ?>
-  <div class="tech-feature-post">
-    <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 834, 344); ?>" style="width:100%;"></a>
-    <div class="tech-feature-post-wrapper">
-      <small style="text-transform: uppercase;"><?php $terms_as_text = get_the_term_list( $post->ID, 'tech_blog_category', '', ', ', '' ) ; echo strip_tags($terms_as_text, ''); ?></small>
-      <h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
-      <div class="tech-feature-post-avatar">
-        <?php echo get_avatar( get_the_author_meta('ID'), 50 ); ?>
-        <p><strong>By</strong> <?php the_author(); ?><br><strong>Posted</strong> <?php the_time('F jS, Y') ?></p>
+
+
+// Shortcode
+function tech_blog_posts($atts, $content = null) {
+  ob_start();
+  ?>
+
+  <div class="container page-padding">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row">
+
+          <?php
+
+          $do_not_duplicate = array();
+
+          // The Query
+          $args = array(
+                'post_type' => 'tech_blog',
+                'posts_per_page' => 1
+              );
+          $query1 = new WP_Query( $args );
+
+          // The Loop
+          while ( $query1->have_posts() ) {
+            $query1->the_post();
+            $do_not_duplicate[] = get_the_ID(); ?>
+
+            <div class="col-sm-12">
+              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">           
+                <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>         
+                <?php get_template_part('templates/entry-meta'); ?>
+                <div class="overlay"></div>
+                <a href="<?php the_permalink() ?>"></a>
+              </div>
+            </div>
+
+            <?php
+          }
+
+          wp_reset_postdata();
+
+          /* The 2nd Query (without global var) */
+          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+          $args2 = array(
+                'post_type' => 'tech_blog',
+                'paged' => $paged,
+                'post__not_in' => $do_not_duplicate 
+              );
+          $query2 = new WP_Query( $args2 );
+
+          // The 2nd Loop
+          while ( $query2->have_posts() ) {
+            $query2->the_post(); ?>
+            
+            <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+
+            <?php
+          }
+
+          // Pagination
+          if (function_exists("pagination")) {pagination($query2->max_num_pages,"",$paged);} 
+
+          // Restore original Post Data
+          wp_reset_postdata();
+
+          ?>
+        </div>      
+      </div>
+      <div class="col-sm-3">
+        <?php echo do_shortcode('[newsletter-sidebar]'); ?>
       </div>
     </div>
   </div>
-<?php endwhile; ?>
-<?php wp_reset_query(); ?>
 
-<?php $guide_query = new WP_Query("post_type=tech_blog&posts_per_page=$number_of_secondary_posts&offset=$off&showposts=$number_of_secondary_posts"); 
-    if (have_posts()) : 
-    $count = 0;
-    while ($guide_query->have_posts()) : $guide_query->the_post(); 
-    $count++;
-    $second_div = ($count%2 == 0) ? 'last' : '';
-    $second_div_clear = ($count%2 == 0) ? '<div class="clearboth"></div>' : '';
-  ?>
-  <div class="one_half <?php echo $second_div; ?> secondary-posts">
-    <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 410, 300); ?>" style="width:100%;"></a>
-      <small style="text-transform: uppercase; font-size: .7em;"><?php $terms_as_text = get_the_term_list( $post->ID, 'tech_blog_category', '', ', ', '' ) ; echo strip_tags($terms_as_text, ''); ?></small>
-    <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><h4>
-      <p><small><strong>By</strong> <?php the_author(); ?> &bull; <strong>Posted</strong> <?php the_time('F jS, Y') ?></small></p>
-  </div>
-  <?php echo $second_div_clear; ?>
-  <?php endwhile; ?>
-  <?php endif; ?>
-  <?php wp_reset_query(); ?>    
-</div>
-</div>
-  <!-- Right Column -->
-  <div class="blog_one_third last format_text blog-right-column">
-    <div class="blog-right-column-wrapper">
-      <ul><?php thesis_default_widget('shared'); ?></ul>
-      <?php $blog_query = new WP_Query('post_type=post&orderby=desc&showposts=2'); 
-        if (have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
-      ?>
-      <div class="sidebar-post">    
-        <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 300, 100);?>" style="width:100%;" /></a>
-        <p><small>Open Data Blog</small><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-      </div>
-      <?php endwhile; ?>
-      <?php endif; ?>
-      <?php wp_reset_postdata(); ?><?php $blog_query = new WP_Query('post_type=news&orderby=desc&showposts=2'); 
-        if (have_posts()) : while ($blog_query->have_posts()) : $blog_query->the_post();
-      ?>
-      <div class="sidebar-post">    
-        <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 300, 100);?>" style="width:100%;" /></a>
-        <p><small>Press Releases</small><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></p>
-      </div>
-      <?php endwhile; ?>
-      <?php endif; ?>
-      <?php wp_reset_postdata(); ?>
-    </div>  
-  </div>
-  <div class="clearboth"></div>
-<div class="format_text">
-  <hr>
-  <?php echo do_shortcode('[cta-group category="homepage"]'); ?>
-</div>
-  
-
-  <?php }
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
 }
-
-
-
+add_shortcode('tech-blog-posts', 'tech_blog_posts');

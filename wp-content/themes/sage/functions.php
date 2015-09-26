@@ -34,6 +34,8 @@ unset($file, $filepath);
 /**
  * Pagination
  */
+
+
 function pagination($pages = '', $range = 4) {  
  $showitems = ($range * 2)+1;
  global $paged;
@@ -64,6 +66,35 @@ function pagination($pages = '', $range = 4) {
    echo "</div></div>\n";
  }
 }
+
+function tax_and_offset_homepage( $query ) {
+  if ($query->is_home() && $query->is_main_query() && !is_admin()) {
+    $query->set( 'post_type', 'post' );
+    $query->set( 'post_status', 'publish' );
+    $query->set( 'ignore_sticky_posts', '-1' );
+
+    $ppp = get_option('posts_per_page');
+    $offset = 1;
+    if (!$query->is_paged()) {
+      $query->set('posts_per_page',$offset + $ppp);
+    } else {
+      $offset = $offset + ( ($query->query_vars['paged']-1) * $ppp );
+      $query->set('posts_per_page',$ppp);
+      $query->set('offset',$offset);
+    }
+  }
+}
+add_action('pre_get_posts','tax_and_offset_homepage');
+
+function homepage_offset_pagination( $found_posts, $query ) {
+    $offset = 1;
+
+    if( $query->is_home() && $query->is_main_query() ) {
+        $found_posts = $found_posts - $offset;
+    }
+    return $found_posts;
+}
+add_filter( 'found_posts', 'homepage_offset_pagination', 10, 2 );
 
 
 

@@ -156,7 +156,7 @@ if (is_page('newsroom')) { ?>
   <div class="one_half <?php echo $second_div; ?>" style="line-height: normal;">
     <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 410, 300); ?>" style="width:100%;"></a>
     <small style="text-transform: uppercase; font-size: .7em;"><?php $terms_as_text = get_the_term_list( $post->ID, 'news_category', '', ', ', '' ) ; echo strip_tags($terms_as_text, ''); ?></small>
-    <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><h4>
+    <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
       <p><small><strong>By</strong> <?php the_author(); ?> &bull; <strong>Posted</strong> <?php the_time('F jS, Y') ?></small></p>
   </div>
   <?php echo $second_div_clear; ?>

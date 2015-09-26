@@ -50,11 +50,33 @@
         });
       }
     },
-    // Home page
+    // Blog page
     'blog': {
       init: function() {
-        // JavaScript to be fired on the home page
-        window.sr = new scrollReveal();
+        // JavaScript to be fired on page
+      },
+      finalize: function() {
+        // JavaScript to be fired on the home page, after the init JS
+         $(".card").dotdotdot({
+          ellipsis  : '... ',
+          wrap    : 'word',
+          fallbackToLetter: true,
+          after   : null,
+          watch   : window,
+          height    : null,
+          tolerance : 0,
+          callback  : function( isTruncated, orgContent ) {}, 
+          lastCharacter : {
+          remove    : [ ' ', ',', ';', '.', '!', '?' ],
+          noEllipsis  : []
+          }
+        });
+      }
+    },
+     // Blog page
+    'tech_blog': {
+      init: function() {
+        // JavaScript to be fired on page
       },
       finalize: function() {
         // JavaScript to be fired on the home page, after the init JS
