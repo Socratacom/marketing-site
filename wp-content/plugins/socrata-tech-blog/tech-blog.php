@@ -133,7 +133,7 @@ function tech_blog_archive_template( $template_path ) {
 
 
 
-// Shortcode
+// Shortcode [tech-blog-posts]
 function tech_blog_posts($atts, $content = null) {
   ob_start();
   ?>

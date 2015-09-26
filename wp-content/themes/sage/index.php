@@ -19,11 +19,9 @@
 					<?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
 				<?php endwhile; endif; ?>
 			</div>
-			<div class="row clearfix">
-				<div class="col-sm-12">
+			
 					<?php if (function_exists("pagination")) {pagination($additional_loop->max_num_pages);} ?>
-				</div>
-			</div>
+
 		</div>
 		<div class="col-sm-3">
 			<?php echo do_shortcode('[newsletter-sidebar]'); ?>
