@@ -4,7 +4,7 @@ include_once "header.php";
 include_once "footer.php";
 include_once "homepage.php";
 include_once "blog.php";
-include_once "news.php";
+//include_once "news.php";
 include_once "functions/page_functions.php";
 include_once "functions/enqueues.php";
 include_once "functions/template_functions.php";
