@@ -140,64 +140,86 @@ function case_study_single_template( $template_path ) {
 }
 
 
-
-// Display Post Type Query on main page
-add_action('thesis_hook_custom_template', 'case_study_main_page');
-function case_study_main_page(){
-if (is_page('case-studies')) { ?>
-
-<?php thesis_content_column(); ?>
-
-<div class="format_text">
-  <?php    
-    $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-     query_posts(array(
-      'post_type' => 'case_study',
-      'order' => 'desc',
-      'posts_per_page' => 30, 
-      'paged' => $page
-    ));
+// Shortcode [case-study-posts]
+function case_study_posts($atts, $content = null) {
+  ob_start();
   ?>
-  <?php if (have_posts()) : ?>
+
+  <div class="container page-padding">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row">
+
+          <?php
+
+          $do_not_duplicate = array();
+
+          // The Query
+          $args = array(
+                'post_type' => 'case_study',
+                'posts_per_page' => 1
+              );
+          $query1 = new WP_Query( $args );
+
+          // The Loop
+          while ( $query1->have_posts() ) {
+            $query1->the_post();
+            $do_not_duplicate[] = get_the_ID(); ?>
+
+            <div class="col-sm-12">
+              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">           
+                <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>         
+                <?php get_template_part('templates/entry-meta'); ?>
+                <div class="overlay"></div>
+                <a href="<?php the_permalink() ?>"></a>
+              </div>
+            </div>
+
+            <?php
+          }
+
+          wp_reset_postdata();
+
+          /* The 2nd Query (without global var) */
+          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+          $args2 = array(
+                'post_type' => 'case_study',
+                'paged' => $paged,
+                'post__not_in' => $do_not_duplicate 
+              );
+          $query2 = new WP_Query( $args2 );
+
+          // The 2nd Loop
+          while ( $query2->have_posts() ) {
+            $query2->the_post(); ?>
+            
+            <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+
+            <?php
+          }
+
+          // Pagination
+          if (function_exists("pagination")) {pagination($query2->max_num_pages,"",$paged);} 
+
+          // Restore original Post Data
+          wp_reset_postdata();
+
+          ?>
+        </div>      
+      </div>
+      <div class="col-sm-3">
+        <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+      </div>
+    </div>
+  </div>
+
   <?php
-    $count = 0;
-    while (have_posts()) : the_post(); 
-    $count++;
-    $third_div = ($count%3 == 0) ? 'last' : '';
-    $third_div_clear = ($count%3 == 0) ? '<div class="clearboth"></div>' : '';
-  ?>    
-    <article class="one_third <?php echo $third_div; ?>">
-      <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 400, 200);?>" style="width:100%;" /></a>
-      <p >      
-        <?php $meta = get_case_study_meta(); if ($meta[0]) echo "<small style='display:block;'>$meta[0]</small>"; ?>
-        <a href="<?php the_permalink() ?>">
-        <?php the_title(); ?>
-        </a>
-      </p>
-    </article>
-    <?php echo $third_div_clear; ?>    
-    <?php endwhile; ?>
-    <?php if(function_exists('wp_pagenavi')) { wp_pagenavi(); } ?>
-    <?php endif; ?>
-    <?php wp_enqueue_style( 'case_study_styles' ); ?>
-
-<?php }
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
 }
+add_shortcode('case-study-posts', 'case_study_posts');
 
-// ADD STYLESHEET TO FRONT END
-add_action( 'init', 'register_case_study_styles' ); 
-function register_case_study_styles() {
-    wp_register_style( 'case_study_styles', plugins_url( 'css/styles.css' , __FILE__ ) );
-}
-
-// Body Classes for Styling 
-add_filter('thesis_body_classes', 'case_study_styling');
-function case_study_styling($classes) {
-  if ('case_study' == get_post_type() && is_archive() || 'case_study' == get_post_type() && is_single() || is_page('case-studies')) { 
-    $classes[] = 'case-study'; 
-  }
-  return $classes; 
-}
 
 // SHORTCODE FOR CASE STUDY
 // [case-study-quote]
