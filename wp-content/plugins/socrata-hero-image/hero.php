@@ -103,7 +103,7 @@ function hero_shortcode( $atts ) {
                 <p>Read More <i class="fa fa-arrow-circle-o-right"></i></p>
            
            
-            <a href="http://discover.socrata.com/open-financial-data-ebook.html" class="link" target="_blank"></a>
+            <a href="http://finance.socrata.com/" class="link" target="_blank"></a>
           </div>
         </div>
       </div>
