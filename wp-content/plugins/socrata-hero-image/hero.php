@@ -96,14 +96,13 @@ function hero_shortcode( $atts ) {
       <div class="row">
         <div class="col-sm-12" >
           <div class="wrapper">
-            <div class="label">Free Ebook</div>
-            <div class="row">
-              <div class="col-sm-8">
-                <h2>Three Challenges That Governments Are Solving With Open Financial Data</h2>
-                <p style="color:#3366cc">Read More <i class="fa fa-arrow-circle-o-right"></i></p>
-              </div>
-            </div>
-            <div class="three hidden-xs"></div>
+            <div class="label">New</div>
+            
+                <h1>Socrata for Finance</h2>
+                <h2>Powering data-driven government for citizens, staff, and policymakers</h2>
+                <p>Read More <i class="fa fa-arrow-circle-o-right"></i></p>
+           
+           
             <a href="http://discover.socrata.com/open-financial-data-ebook.html" class="link" target="_blank"></a>
           </div>
         </div>

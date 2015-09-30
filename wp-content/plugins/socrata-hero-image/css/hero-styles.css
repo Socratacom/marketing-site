@@ -39,17 +39,26 @@
 		margin-top:30px;
 		display: inline-block;
 	}
+	.ebook-banner * {
+		color:white;
+	}
 	.ebook-banner .wrapper {
 		background:#ecf0f1;
 		padding:30px;
 		border:#bdc3c7 solid 1px;
 		position: relative;
-		background-image:url(../images/plus.png);
+		background-image:url(../images/people.jpg);
+		background-repeat: no-repeat;
+		background-position:center center;
+		background-size: cover;
+	}
+	.ebook-banner h1 {
+		margin:0;
 	}
 	.ebook-banner h2 {
-		font-size:24px;
-		margin:15px 0;
-		line-height: normal;
+		font-size: 20px;
+		margin:0 0 15px;
+		line-height: 20px;
 	}
 	.ebook-banner small {
 		display: block;
@@ -63,22 +72,10 @@
 		position: absolute;
 		top:0;
 		left:0;
-		background:#222;
+		background:#c0392b;
 		padding:5px 15px;
 		text-transform: uppercase;
 		border-radius: 0;
-	}
-	.ebook-banner .three {
-		background-image: url(../images/three.png);
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: contain;
-		height:100%;
-		width:30%;
-		position: absolute;
-		top:0;
-		right:0;
-		z-index: 10;
 	}
 	.ebook-banner .link {
 		position:absolute;
