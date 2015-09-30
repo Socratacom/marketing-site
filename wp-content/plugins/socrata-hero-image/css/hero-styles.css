@@ -8,9 +8,9 @@
 		max-width:1600px;
 		padding:0 30px;
 		box-sizing: border-box;
+		margin-bottom:2em;
 	}
 	.hero-wrapper {
-		max-width: 1280px;
 		height: 300px;
 		-webkit-transform-style: preserve-3d;
 	  	-moz-transform-style: preserve-3d;
@@ -38,6 +38,55 @@
 		font-weight:300;
 		margin-top:30px;
 		display: inline-block;
+	}
+	.ebook-banner .wrapper {
+		background:#ecf0f1;
+		padding:30px;
+		border:#bdc3c7 solid 1px;
+		position: relative;
+		background-image:url(../images/plus.png);
+	}
+	.ebook-banner h2 {
+		font-size:24px;
+		margin:15px 0;
+		line-height: normal;
+	}
+	.ebook-banner small {
+		display: block;
+		text-transform: uppercase;
+		margin-bottom:5px;
+	}
+	.ebook-banner p {
+		margin:0;
+	}
+	.ebook-banner .label {
+		position: absolute;
+		top:0;
+		left:0;
+		background:#222;
+		padding:5px 15px;
+		text-transform: uppercase;
+		border-radius: 0;
+	}
+	.ebook-banner .three {
+		background-image: url(../images/three.png);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: contain;
+		height:100%;
+		width:30%;
+		position: absolute;
+		top:0;
+		right:0;
+		z-index: 10;
+	}
+	.ebook-banner .link {
+		position:absolute;
+		top:0;
+		left:0;
+		height: 100%;
+		width:100%;
+		z-index: 100;
 	}
 	/* Text Position */
 	.hero-text {

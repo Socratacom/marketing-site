@@ -1,0 +1,36 @@
+.newsroom .cheese {
+  padding:60px 0;
+}
+.newsroom .prev-next-posts {
+  position:absolute;
+  bottom:0;
+  left:0;
+}
+.news-post {
+  width:33.3%;
+  display:none;
+}
+.news-post .wrapper {
+  border:#ddd solid 1px;
+  margin:10px;
+  box-shadow: 0 0 10px #e1e1e1;
+}
+.news-post h3 {
+  font-size: 18px;
+  margin:0;
+  padding:15px;
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 760px){
+  .news-post {
+    width:50%;
+  } 
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px){
+   .news-post {
+    width:100%;
+  } 
+}

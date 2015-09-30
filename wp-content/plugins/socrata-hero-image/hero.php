@@ -82,7 +82,7 @@ function hero_shortcode( $atts ) {
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
   <section id="hero-image">
     <div class="hero-image format_text" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 500); ?>);">
-      <div class="hero-wrapper">
+      <div class="hero-wrapper container">
         <div class="hero-text <?php $meta = get_hero_meta(); if ($meta[6]) echo "$meta[6]"; ?> <?php $meta = get_hero_meta(); if ($meta[2]) echo "$meta[2]"; ?>">
           <?php $meta = get_hero_meta(); if ($meta[0]) echo "<h1>$meta[0]</h1>"; ?>
           <?php $meta = get_hero_meta(); if ($meta[1]) echo "<h2>$meta[1]</h2>"; ?>
@@ -91,23 +91,20 @@ function hero_shortcode( $atts ) {
       </div>
     </div>
   </section>
-  <section class="home-videos">
+  <section class="ebook-banner">
     <div class="container">
       <div class="row">
-        <div class="col-sm-6 col-sm-offset-3">
-          <div class="row">
-            <div class="col-sm-6 col-md-4">
-              <div class="home-video-thumb-wrapper">
-                <img src="/wp-content/plugins/socrata-hero-image/images/socrata-video-thumb.jpg" class="img-responsive">
-                <div class="home-video-play"></div>
-                <a href="/unleash-the-power-of-open-data"></a>
+        <div class="col-sm-12" >
+          <div class="wrapper">
+            <div class="label">Free Ebook</div>
+            <div class="row">
+              <div class="col-sm-8">
+                <h2>Three Challenges That Governments Are Solving With Open Financial Data</h2>
+                <p style="color:#3366cc">Read More <i class="fa fa-arrow-circle-o-right"></i></p>
               </div>
             </div>
-            <div class="col-sm-6 col-md-8">
-              <small>video</small>
-              <h3>Who uses Socrata?</h3>
-              <p>Organizations focused on democratizing access to public sector data</p>
-            </div>
+            <div class="three hidden-xs"></div>
+            <a href="http://discover.socrata.com/open-financial-data-ebook.html" class="link" target="_blank"></a>
           </div>
         </div>
       </div>
