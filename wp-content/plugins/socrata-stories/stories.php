@@ -152,6 +152,14 @@ function stories_single_template( $template_path ) {
   return $template_path;
 }
 
+// Custom Body Class
+add_action( 'body_class', 'stories_body_class');
+function stories_body_class( $classes ) {
+  if ( is_page('customer-stories') || get_post_type() == 'stories' && is_single() )
+    $classes[] = 'stories';
+  return $classes;
+}
+
 // ENQEUE SCRIPTS
 /*add_action( 'init', 'register_stories_styles', 0 ); 
 function register_stories_styles() {
@@ -225,6 +233,7 @@ function stories_landing_styling($classes) {
 }
 */
 
+/*
 // REGISTER MENUS
 add_action( 'init', 'register_stories_menus' );
 function register_stories_menus() {
@@ -437,6 +446,6 @@ $content = ob_get_contents();
 ob_end_clean();
 return $content;
 }
-
+*/
 
 

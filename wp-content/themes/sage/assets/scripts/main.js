@@ -19,10 +19,8 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages 
-      },
-      finalize: function() {
-        // JavaScript to be fired on the home page, after the init JS
-         $(".card").dotdotdot({
+        // Truncate Script
+         $(".truncate").dotdotdot({
           ellipsis  : '... ',
           wrap    : 'word',
           fallbackToLetter: true,
@@ -36,6 +34,51 @@
           noEllipsis  : []
           }
         });
+      },
+      finalize: function() {
+        // JavaScript to be fired after the init JS
+        
+        //Smooth Jumplink Scrolling
+        var target, scroll;
+
+        $("a[href*=#]:not([href=#])").on("click", function(e) {
+          if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+          target = $(this.hash);
+          target = target.length ? target : $("[id=" + this.hash.slice(1) + "]");
+
+          if (target.length) {
+          if (typeof document.body.style.transitionProperty === 'string') {
+          e.preventDefault();
+
+          var avail = $(document).height() - $(window).height();
+
+          scroll = target.offset().top - 60;
+
+          if (scroll > avail) {
+          scroll = avail;
+        }
+
+        $("html").css({
+          "margin-top" : ( $(window).scrollTop() - scroll ) + "px",
+          "transition" : "1s ease-in-out"
+          }).data("transitioning", true);
+          } else {
+            $("html, body").animate({
+              scrollTop: scroll
+              }, 1000);
+              return;
+              }
+            }
+          }
+        });
+
+        $("html").on("transitionend webkitTransitionEnd msTransitionEnd oTransitionEnd", function (e) {
+          if (e.target === e.currentTarget && $(this).data("transitioning") === true) {
+            $(this).removeAttr("style").data("transitioning", false);
+            $("html, body").scrollTop(scroll);
+            return;
+          }
+        });
       }
     },
     // Home page
@@ -45,8 +88,29 @@
         window.sr = new scrollReveal();
       },
       finalize: function() {
-        // JavaScript to be fired on the home page, after the init JS
-
+        // JavaScript to be fired after the init JS
+        $(document).ready(function(){
+          $('.slider').slick({
+            arrows: true,
+            appendArrows: $('.arrowsContainer'),
+            prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
+            nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+            autoplay: false,
+            autoplaySpeed: 8000,
+            speed: 800,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            dots:true
+          });
+          $('.slider').show();
+        });
+      }
+    },
+    // Socrata For Finance
+    'socrata_for_finance': {
+      init: function() {
+        // JavaScript to be fired on the home page
+        window.sr = new scrollReveal();
       }
     },
     // About us page, note the change from about-us to about_us.

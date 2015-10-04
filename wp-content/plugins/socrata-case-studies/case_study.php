@@ -139,6 +139,13 @@ function case_study_single_template( $template_path ) {
   return $template_path;
 }
 
+// Custom Body Class
+add_action( 'body_class', 'case_study_body_class');
+function case_study_body_class( $classes ) {
+  if ( is_page('case-studies') || get_post_type() == 'case_study' && is_single() )
+    $classes[] = 'case-study';
+  return $classes;
+}
 
 // Shortcode [case-study-posts]
 function case_study_posts($atts, $content = null) {

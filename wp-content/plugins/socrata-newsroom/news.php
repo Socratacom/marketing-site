@@ -71,7 +71,7 @@ function create_news_taxonomies() {
     'show_ui' => true,
     'show_tagcloud' => false,
     'hierarchical' => true,
-    'rewrite' => array('with_front' => false, 'slug' => 'newsroom-category')
+    'rewrite' => array('with_front' => false, 'slug' => 'newsroom')
     )
   );
 }
@@ -111,6 +111,14 @@ function news_single_template( $template_path ) {
     }
   }
   return $template_path;
+}
+
+// Custom Body Class
+add_action( 'body_class', 'news_body_class');
+function news_body_class( $classes ) {
+  if ( is_page('newsroom') || get_post_type() == 'news' && is_single() || get_post_type() == 'news' && is_archive() )
+    $classes[] = 'news';
+  return $classes;
 }
 
 // Shortcode [newsroom-posts]
@@ -174,7 +182,6 @@ function newsroom_posts($atts, $content = null) {
           // Pagination
           if (function_exists("pagination")) {pagination($query2->max_num_pages,$pages);} 
 
-
           // Restore original Post Data
           wp_reset_postdata();
 
@@ -183,6 +190,29 @@ function newsroom_posts($atts, $content = null) {
         </div>      
       </div>
       <div class="col-sm-3">
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'news_category';
+          $title = 'Categories';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5>'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>
         <?php echo do_shortcode('[newsletter-sidebar]'); ?>
       </div>
     </div>

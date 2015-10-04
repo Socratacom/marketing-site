@@ -44,12 +44,26 @@
 	.navbar-nav>li>.dropdown-menu {
 		border-radius:0;
 		border:none;
+		background-color: darken($peter-river, 30%);
+		box-shadow:none;
 	}
 	.dropdown-menu>li>a {
 		font-weight: $font-light;
+		color:$silver;
+	}
+	.dropdown-menu>li>a:hover {
+		color:white;
+		background-color: darken($peter-river, 25%);
+	}
+	.dropdown-menu li:first-child {
+		margin-top:10px;
+	}
+	.dropdown-menu li:last-child {
+		margin-bottom:10px;
 	}
 	.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
-		background-color:white;
+		background-color: darken($peter-river, 30%);
+		color:white;
 	}
 	.navbar-collapse {
 		background:black;

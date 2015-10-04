@@ -71,6 +71,7 @@ function register_odfg_menu() {
   );
 }
 
+
 // ENQEUE SCRIPTS
 function guide_script_loading() {
   if ( 'guide' == get_post_type() && is_single() || 'guide' == get_post_type() && is_archive() || is_page('open-data-field-guide') ) {
@@ -104,6 +105,14 @@ function guide_single_template( $template_path ) {
     }
   }
   return $template_path;
+}
+
+// Custom Body Class
+add_action( 'body_class', 'field_guide_body_class');
+function field_guide_body_class( $classes ) {
+  if ( is_page('open-data-field-guide') || get_post_type() == 'guide' && is_single() )
+    $classes[] = 'guide';
+  return $classes;
 }
 
 // Body Classes for Styling 

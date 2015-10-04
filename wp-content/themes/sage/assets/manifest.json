@@ -10,6 +10,11 @@
       "files": [
         "styles/main.scss"
       ],
+      "vendor": [
+        "../../plugins/socrata-case-studies/css/styles.scss",
+        "../../plugins/socrata-tech-blog/css/styles.scss",
+        "../../plugins/socrata-newsroom/css/styles.scss"
+      ],
       "main": true
     },
     "editor-style.css": {

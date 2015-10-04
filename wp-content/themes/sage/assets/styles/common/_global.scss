@@ -1,15 +1,133 @@
+body {
+	font-family: 'Lato', sans-serif;
+	color:$gray-dark;
+	background-color:$gray-dark;
+}
+.main {
+	padding:60px 0 0 0 !important;
+	width:100% !important;
+	float:none !important;
+	background-color:white;
+}
+
+// Custom Icons
+@font-face {
+	font-family: 'icomoon';
+	src:url('../fonts/icomoon.eot?-i98te5');
+	src:url('../fonts/icomoon.eot?-i98te5#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?-i98te5') format('truetype'),
+		url('../fonts/icomoon.woff?-i98te5') format('woff'),
+		url('../fonts/icomoon.svg?-i98te5#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	font-family: 'icomoon';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-city-hall:before {
+	content: "\e601";
+}
+.icon-city:before {
+	content: "\e602";
+}
+.icon-people:before {
+	content: "\e603";
+}
+.icon-flag:before {
+	content: "\e604";
+}
+.icon-star:before {
+	content: "\e605";
+}
+.icon-capital:before {
+	content: "\e606";
+}
+.icon-manager:before {
+	content: "\e600";
+}
+
+// Background Colors
+.background-turquoise {
+	background-color:$turquoise;
+}
+.background-green-sea {
+	background-color:$green-sea;
+}
+.background-emerald {
+	background-color:$emerald;
+}
+.background-nephritis {
+	background-color:$nephritis;
+}
+.background-peter-river {
+	background-color:$peter-river;
+}
+.background-belize-hole {
+	background-color:$belize-hole;
+}
+.background-amethyst {
+	background-color:$amethyst;
+}
+.background-wisteria {
+	background-color:$wisteria;
+}
+.background-wet-asphalt {
+	background-color:$wet-asphalt;
+}
+.background-midnight-blue {
+	background-color:$midnight-blue;
+}
+.background-orange {
+	background-color:$orange;
+}
+.background-carrot {
+	background-color:$carrot;
+}
+.background-pumpkin {
+	background-color:$pumpkin;
+}
+.background-alizarin {
+	background-color:$alizarin;
+}
+.background-pomegranate {
+	background-color:$pomegranate;
+}
+.background-silver {
+	background-color:$silver;
+}
+.background-concrete {
+	background-color:$concrete;
+}
+.background-asbestos {
+	background-color:$asbestos;
+}
+.background-clouds {
+	background-color:$clouds;
+}	
+.background-sun-flower {
+	background-color:$sun-flower;
+}
+.background-gray-dark {
+	background-color:$gray-dark;
+}
+.background-white {
+	background-color:white;
+}
+
 @media only screen and (min-width : 320px) {
-	body {
-		font-family: 'Lato', sans-serif;
-		color:$gray-dark;
-		background-color:$gray-dark;
-	}
-	.main {
-		padding:60px 0 0 0 !important;
-		width:100% !important;
-		float:none !important;
-		background-color:white;
-	}
+
 	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	    font-family: inherit;
 	    font-weight: $font-normal;
@@ -39,7 +157,7 @@
 		color:#666;
 		font-weight:$font-light;
 		font-size: 14px;
-		line-height: 1.5em;
+		line-height: 1.25em;
 	}
 	p {
 		margin-bottom:1.63em;
@@ -54,77 +172,60 @@
 		color:$belize-hole;
 		text-decoration:none;
 	}
+	.btn {
+		border:none;
+		border-radius:0;
+	}
 	.section-padding {
 		padding:80px 0;
 	}
 	.page-padding {
 		padding-top:50px;
 	}
-	/* Backgrounds */
-	.turquoise {
-		background-color:$turquoise;
-	}
-	.green-sea {
-		background-color:$green-sea;
-	}
-	.emerald {
-		background-color:$emerald;
-	}
-	.nephritis {
-		background-color:$nephritis;
-	}
-	.peter-river {
-		background-color:$peter-river;
-	}
-	.belize-hole {
-		background-color:$belize-hole;
-	}
-	.amethyst {
-		background-color:$amethyst;
-	}
-	.wisteria {
-		background-color:$wisteria;
-	}
-	.wet-asphalt {
-		background-color:$wet-asphalt;
-	}
-	.midnight-blue {
-		background-color:$midnight-blue;
-	}
-	.orange {
-		background-color:$orange;
-	}
-	.carrot {
-		background-color:$carrot;
-	}
-	.pumpkin {
-		background-color:$pumpkin;
-	}
-	.alizarin {
-		background-color:$alizarin;
-	}
-	.pomegranate {
-		background-color:$pomegranate;
-	}
-	.silver {
-		background-color:$silver;
-	}
-	.concrete {
-		background-color:$concrete;
-	}
-	.asbestos {
-		background-color:$asbestos;
-	}
-	.clouds {
-		background-color:$clouds;
-	}	
-	.sun-flower {
-		background-color:$sun-flower;
-	}
-	.gray-dark {
-		background-color:$gray-dark;
-	}
 
+	/* NO Gutters */
+	.row.no-gutters {
+	  margin-right: 0;
+	  margin-left: 0;
+
+	  & > [class^="col-"],
+	  & > [class*=" col-"] {
+	    padding-right: 0;
+	    padding-left: 0;
+	  }
+	}
+	/* Category Nav */
+	.category-nav {
+		list-style-type:none;
+		margin:0 0 2em 0;
+		padding:0;
+		h5 {
+			margin:0;
+			font-size: 16px;
+			text-transform: uppercase;
+			padding:10px;
+			background-color:$asbestos;
+			color:white;
+		}
+		ul {
+			list-style-type: none;
+			margin:0;
+			padding:0;
+			li {
+				border-bottom:lighten($silver, 10%) solid 1px;
+			}
+			li:last-child {
+				border:none;
+			}
+			a {
+				padding:5px 10px;
+				display: block;
+			}
+			a:hover {
+				background-color:$clouds;
+			}
+		}
+	}
 	/* Cards */
 	.card {
 		position: relative;
@@ -196,7 +297,7 @@
 }
 
 /* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width : 768px) {	
 
 }
 
@@ -225,11 +326,11 @@
 		font-weight: $font-bold;
 	}
 	h2 {
-		font-size:36px;
+		font-size:40px;
 		font-weight: $font-bold;
 	}
 	h3 {
-		font-size:24px;
+		font-size:32px;
 	}
 	h4 {
 		font-size:20px;
@@ -238,3 +339,6 @@
 		font-size:18px;
 	}
 }
+
+
+

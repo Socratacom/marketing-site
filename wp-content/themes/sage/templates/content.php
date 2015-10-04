@@ -1,5 +1,5 @@
 <div class="col-sm-6 col-lg-4">
-	<div class="card">
+	<div class="card truncate">
 		<div class="card-image hidden-xs">
 			<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">	
 			<div class="card-avatar">

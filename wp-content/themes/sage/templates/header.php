@@ -26,6 +26,14 @@
             ) ); ?>
           </li>
           <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</span></a>
+            <?php wp_nav_menu( array( 
+              'theme_location' => 'site_nav_solutions',
+              'container'       => '',
+              'menu_class' => 'dropdown-menu' 
+            ) ); ?>
+          </li>
+          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Why Socrata</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_why_socrata',
@@ -62,18 +70,4 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-
-
-
-
-
-  <!--
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 header">
-        <a class="white-logo header-logo" href="<?php echo home_url('/'); ?>"></a>
-      </div>
-    </div>
-  </div>
--->
 </header>

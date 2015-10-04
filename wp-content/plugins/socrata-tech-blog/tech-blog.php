@@ -106,13 +106,6 @@ function tech_blog_single_template( $template_path ) {
         $template_path = plugin_dir_path( __FILE__ ) . 'single-tech-blog.php';
       }
     }
-  }
-  return $template_path;
-}
-
-add_filter( 'template_include', 'tech_blog_archive_template', 1 );
-function tech_blog_archive_template( $template_path ) {
-  if ( get_post_type() == 'tech_blog' ) {
     if ( is_archive() ) {
       // checks if the file exists in the theme first,
       // otherwise serve the file from the plugin
@@ -126,12 +119,13 @@ function tech_blog_archive_template( $template_path ) {
   return $template_path;
 }
 
-
-
-
-
-
-
+// Custom Body Class
+add_action( 'body_class', 'tech_blog_body_class');
+function tech_blog_body_class( $classes ) {
+  if ( is_page('tech-blog') || get_post_type() == 'tech_blog' && is_single() || get_post_type() == 'tech_blog' && is_archive() )
+    $classes[] = 'tech-blog';
+  return $classes;
+}
 
 // Shortcode [tech-blog-posts]
 function tech_blog_posts($atts, $content = null) {
@@ -201,6 +195,29 @@ function tech_blog_posts($atts, $content = null) {
         </div>      
       </div>
       <div class="col-sm-3">
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'tech_blog_category';
+          $title = 'Categories';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5>'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>
         <?php echo do_shortcode('[newsletter-sidebar]'); ?>
       </div>
     </div>

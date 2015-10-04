@@ -1,31 +1,100 @@
+
+
+
 <section class="home-hero">
+	<div class="arrowsContainer"></div>
+	<div class="slider">
+
+
+		<!--<div class="arrowsContainer"></div>-->
+		<div class="background-silver" style="height:100vh; width: 100%;" >
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<h1>Hello World</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="background-concrete" style="height:100vh; width: 100%;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<h1>Hello World</h1>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<div class="background-asbestos" style="height:100vh; width: 100%;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<h1>Hello World</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>
+
+
+
+
+
+<section class="background-gray-dark industries">
 	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
+		<div class="row no-gutters">
+			<div class="col-sm-6 col-md-4 tile">
+				<div class="what-we-do">
+					<h2>What We Do</h2>
+					<p class="lead">Our cloud-based open data platform - developed exclusively for governments - collects, refines, and distributes data to 250 innovative global governments and millions of their connected citizens.</p>
+				</div>
+			</div>
+			<div class="col-sm-6 col-md-4 tile background-belize-hole">
+				<h1>Hello World</h1>
+			</div>
+			<div class="col-sm-6 col-md-4 tile background-nephritis">
+				<h1>Hello World</h1>
+			</div>
+			<div class="col-sm-6 col-md-4 tile background-pumpkin">
+				<h1>Hello World</h1>
+			</div>
+			<div class="col-sm-6 col-md-4 tile background-amethyst">
+				<h1>Hello World</h1>
+			</div>
+			<div class="col-sm-6 col-md-4 tile background-orange">
 				<h1>Hello World</h1>
 			</div>
 		</div>
 	</div>
 </section>
-<section class="gray-dark industries">
+
+
+
+
+
+<section class="section-padding customers">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
-				<h1>Hello World</h1>
+			<div class="col-sm-3">
+				<h2>Our Customers</h1>
+				<p class="lead">Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. </p>
 			</div>
+			<div class="col-sm-3"></div>
+			<div class="col-sm-3"></div>
+			<div class="col-sm-3"></div>
 		</div>
 	</div>
 </section>
-<section class="customers">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<h1>Hello World</h1>
-			</div>
-		</div>
-	</div>
-</section>
-<section class="clouds section-padding articles">	
+
+
+
+
+
+
+
+<section class="background-clouds section-padding articles">	
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
@@ -37,8 +106,8 @@
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 				<?php if ( ! $isfirst ): ?>
 				<li class="homefirstpost">
-					<div class="card" data-sr="ease-in-out">
-						<div class="card-banner green-sea">
+					<div class="card truncate" data-sr="ease-in-out">
+						<div class="card-banner background-green-sea">
 							Events
 						</div>
 						<div class="card-image hidden-xs">
@@ -74,8 +143,8 @@
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 				<?php if ( ! $isfirst ): ?>
 				<li class="homefirstpost">
-					<div class="card" data-sr="wait .5s, ease-in-out">
-						<div class="card-banner pumpkin">
+					<div class="card truncate" data-sr="wait .5s, ease-in-out">
+						<div class="card-banner background-pumpkin">
 							Case Studies
 						</div>
 						<div class="card-image hidden-xs">
@@ -111,8 +180,8 @@
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 				<?php if ( ! $isfirst ): ?>
 				<li class="homefirstpost">
-					<div class="card" data-sr="wait 1s, ease-in-out">
-						<div class="card-banner wisteria">
+					<div class="card truncate" data-sr="wait 1s, ease-in-out">
+						<div class="card-banner background-wisteria">
 							Open Data Blog
 						</div>
 						<div class="card-image hidden-xs">
@@ -142,7 +211,7 @@
 		</div>
 	</div>
 </section>
-<section class="sun-flower demo-cta">	
+<section class="background-sun-flower demo-cta">	
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">

@@ -21,6 +21,8 @@
 			<div class="col-sm-3">
 				<h4>Products</h4>
 				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_products' ) ); ?>
+				<h4>Solutions</h4>				
+				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_solutions' ) ); ?>
 				<h4>Why Socrata</h4>				
 				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_why_socrata' ) ); ?>
 			</div>
