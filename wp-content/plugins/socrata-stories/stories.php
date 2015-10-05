@@ -126,7 +126,7 @@ function stories_product() {
   );
 }
 
-// Single Template Path
+// Template Paths
 add_filter( 'template_include', 'stories_single_template', 1 );
 function stories_single_template( $template_path ) {
   if ( get_post_type() == 'stories' ) {
@@ -155,297 +155,157 @@ function stories_single_template( $template_path ) {
 // Custom Body Class
 add_action( 'body_class', 'stories_body_class');
 function stories_body_class( $classes ) {
-  if ( is_page('customer-stories') || get_post_type() == 'stories' && is_single() )
+  if ( is_page('customer-stories') || get_post_type() == 'stories' && is_single() || get_post_type() == 'stories' && is_archive() )
     $classes[] = 'stories';
   return $classes;
 }
 
-// ENQEUE SCRIPTS
-/*add_action( 'init', 'register_stories_styles', 0 ); 
-function register_stories_styles() {
-    wp_register_style( 'stories_styles', plugins_url( 'css/styles.css' , __FILE__ ), false, null );    
-    wp_register_script( 'storiesfilter', plugins_url( 'js/dropit.js' , __FILE__ ), false, null, true );
-    wp_register_script( 'dotdotdot', plugins_url( 'js/jquery.dotdotdot.min.js' , __FILE__ ), false, null, true );
-}
-
-function stories_script_loading() {
-    if ( 'stories' == get_post_type() && is_single() || 'stories' == get_post_type() && is_archive() || is_page('customer-stories') ) {
-        wp_enqueue_style( 'stories_styles' );
-        wp_enqueue_script( 'storiesfilter' );
-        wp_enqueue_script( 'dotdotdot' );
-    } 
-}
-add_action('wp_enqueue_scripts', 'stories_script_loading');
-
-
-// ADD TRUNCATE SCRIPT
-add_action('thesis_hook_after_html', 'stories_truncate_script');
-function stories_truncate_script() {
-if ( 'stories' == get_post_type() && is_archive() || is_page('customer-stories') ) { ?>
-  <script>
-    $(document).ready(function() {
-      $(".truncate").dotdotdot({
-        ellipsis  : '... ',
-        wrap    : 'word',
-        fallbackToLetter: true,
-        after   : null,
-        watch   : false,
-        height    : null,
-        tolerance : 0,
-        callback  : function( isTruncated, orgContent ) {}, 
-        lastCharacter : {
-        remove    : [ ' ', ',', ';', '.', '!', '?' ],
-        noEllipsis  : []
-        }
-      });
-    });
-  </script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('.dropdown').dropit();
-    });
-  </script>
-<?php } 
-}
-
-
-// BODY CLASSES FOR STYLING
-add_filter('thesis_body_classes', 'stories_styling');
-function stories_styling($classes) {
-  if ('stories' == get_post_type() && is_single() || is_page('customer-stories') ) { 
-    $classes[] = 'stories'; 
-  }
-  return $classes; 
-}
-add_filter('thesis_body_classes', 'archive_stories_styling');
-function archive_stories_styling($classes) {
-  if ('stories' == get_post_type() && is_archive() ) { 
-    $classes[] = 'stories archive-stories'; 
-  }
-  return $classes; 
-}
-add_filter('thesis_body_classes', 'stories_landing_styling');
-function stories_landing_styling($classes) {
-  if ( is_page('customer-stories') ) { 
-    $classes[] = 'stories-landing'; 
-  }
-  return $classes; 
-}
-*/
-
-/*
-// REGISTER MENUS
-add_action( 'init', 'register_stories_menus' );
-function register_stories_menus() {
-  register_nav_menus(
-    array(
-        'stories_region' => __( 'Stories Region' ),
-        'stories_type' => __( 'Stories Type' ),
-        'stories_product' => __( 'Stories Product' )
-    )
-  );
-}
-
-// Custom Images
-function stories_custom_logo( $thumb_size, $image_width ) { 
-  global $post; 
-  $params = array( 'width' => $image_width );
-  $meta = get_socrata_stories_meta();  
-  $imgsrc = wp_get_attachment_image_src($meta[6], $thumb_size );
-  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
-  return $custom_img_src;   
-}
-
-
-// SHORTCODES
-// [featured-stories]
-add_shortcode('featured-stories','featured_stories');
-function featured_stories ($atts, $content = null) { ob_start(); ?>
-<div class="featured-stories">
-  <div class="featured-stories-wrapper">
-    <div class="one_half">  
-      <?php $query = new WP_Query('post_type=stories&meta_key=socrata_stories_featured&meta_value=1&orderby=desc&showposts=1'); while ($query->have_posts()) : $query->the_post(); ?>
-      <div class="feature-one" style="background-image:url(<?php echo tuts_custom_img('full', 614, 400, true );?>)">
-        <div class="feature-one-label">Featured Story</div>
-        <div class="feature-content truncate">
-          <h1><?php the_title(); ?></h1>
-          <?php $meta = get_socrata_stories_meta();
-          if ($meta[23]) {echo "<p>$meta[23]</p>";}
-          else { ?> 
-          <?php the_excerpt(); ?> 
-          <?php }
-          ?>
-        </div>
-        <div class="overlay"></div>
-        <div><a href="<?php the_permalink() ?>"></a></div>
-        <?php $meta = get_socrata_stories_meta();
-          if ($meta[19]) { ?>
-          <?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<div><a href='$meta[2]' class='button' target='_blank'>Visit Site</a></div>";} ?>
-          <?php }
-          else { ?>
-          <div><a href="<?php the_permalink() ?>" class="button">Read Story</a></div>
-          <?php }
-        ?>
-      </div>
-      <?php endwhile;  wp_reset_postdata(); ?>
-    </div>
-    <div class="one_fourth feature-tiles hidden-xs">
-      <ul>
-      <?php $query = new WP_Query('post_type=stories&meta_key=socrata_stories_featured&meta_value=1&orderby=desc&showposts=2&offset=1'); while ($query->have_posts()) : $query->the_post(); ?>  
-        <li class="truncate small-tile">
-          <div class="feature-tile-image" style="background-image:url(<?php echo tuts_custom_img('full', 282, 100, false );?>);"><a href="<?php the_permalink() ?>"></a></div>
-          <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-          <?php the_excerpt(); ?>
-        </li>  
-      <?php endwhile;  wp_reset_postdata(); ?>
-      </ul>
-    </div>
-    <div class="one_fourth feature-tiles last hidden-md">
-      <ul>
-      <?php $query = new WP_Query('post_type=stories&meta_key=socrata_stories_featured&meta_value=1&orderby=desc&showposts=2&offset=3'); while ($query->have_posts()) : $query->the_post(); ?>  
-        <li class="truncate small-tile">
-          <div class="feature-tile-image" style="background-image:url(<?php echo tuts_custom_img('full', 282, 100, false );?>);"><a href="<?php the_permalink() ?>"></a></div>
-          <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-          <?php the_excerpt(); ?>
-        </li>   
-      <?php endwhile;  wp_reset_postdata(); ?>
-      </ul>
-    </div>
-    <div class="clearboth"></div>
-  </div>
-</div>
-<?php
-$content = ob_get_contents();
-ob_end_clean();
-return $content;
-}
-
-// [all-stories]
-add_shortcode('all-stories','all_stories');
-function all_stories ($atts, $content = null) { ob_start(); ?>
-  <?php $query = new WP_Query('post_type=stories&orderby=title&order=asc&showposts=100'); ?>
-  <?php 
-    $count = 0;
-    while ($query->have_posts()) : $query->the_post();
-    $count++;
-    $third_div = ($count%3 == 0) ? 'last' : '';
-    $third_div_clear = ($count%3 == 0) ? '<div class="clearboth"></div>' : '';
+// Shortcode [newsroom-posts]
+function stories_posts($atts, $content = null) {
+  ob_start();
   ?>
 
-  <?php $meta = get_socrata_stories_meta();
-  if ($meta[19]) { ?>  
-  <article class="one_third <?php echo $third_div; ?>" style="background-image: url(<?php echo tuts_custom_img('full', 392, 250); ?>)">    
-    <div class="thumb-content">
-      <div class="truncate content-excerpt">
-        <h4><?php the_title(); ?></h4>
-        <?php $meta = get_socrata_stories_meta();
-        if ($meta[23]) {echo "<p>$meta[23]</p>";}
-        else { ?> 
-        <?php the_excerpt(); ?> 
-        <?php }
-        ?>
+  <div class="container page-padding">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row">
+
+          <?php
+
+          $do_not_duplicate = array();
+
+          // The Query
+          $args = array(
+                'post_type' => 'stories',
+                'posts_per_page' => 1
+              );
+          $query1 = new WP_Query( $args );
+
+          // The Loop
+          while ( $query1->have_posts() ) {
+            $query1->the_post();
+            $do_not_duplicate[] = get_the_ID(); ?>
+
+            <div class="col-sm-12">
+              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">           
+                <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>         
+                <?php get_template_part('templates/entry-meta'); ?>
+                <div class="overlay"></div>
+                <a href="<?php the_permalink() ?>"></a>
+              </div>
+            </div>
+
+            <?php
+          }
+
+          wp_reset_postdata();
+
+          /* The 2nd Query (without global var) */
+          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+          $args2 = array(
+                'post_type' => 'stories',
+                'paged' => $paged,
+                'post__not_in' => $do_not_duplicate 
+              );
+          $query2 = new WP_Query( $args2 );
+
+          // The 2nd Loop
+          while ( $query2->have_posts() ) {
+            $query2->the_post(); ?>
+            
+            <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+
+            <?php
+          }
+
+          // Pagination
+          if (function_exists("pagination")) {pagination($query2->max_num_pages,$pages);} 
+
+          // Restore original Post Data
+          wp_reset_postdata();
+
+          ?>
+
+        </div>      
       </div>
-      <?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<a href='$meta[2]' class='button' target='_blank'>Visit Site</a>";} ?>
-      <div class="small-logo-wrapper">
-        <?php $meta = get_socrata_stories_meta(); if ($meta[6]) echo wp_get_attachment_image($meta[6], 'small', false, array('class' => 'img-responsive small-logo')); ?>
+      <div class="col-sm-3">
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'stories_region';
+          $title = 'Region';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5>'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'stories_type';
+          $title = 'Type';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5>'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'stories_product';
+          $title = 'Product';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5>'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>
+        <?php echo do_shortcode('[newsletter-sidebar]'); ?>
       </div>
     </div>
-    <?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<a href='$meta[2]' target='_blank'></a>";} ?>
-  </article>
-
-    <?php }
-  else { ?>
-
-  <article class="one_third <?php echo $third_div; ?>" style="background-image: url(<?php echo tuts_custom_img('full', 392, 250); ?>)">
-    <div class="thumb-content">
-      <div class="truncate content-excerpt">
-        <h4><?php the_title(); ?></h4>
-        <?php $meta = get_socrata_stories_meta();
-        if ($meta[23]) {echo "<p>$meta[23]</p>";}
-        else { ?> 
-        <?php the_excerpt(); ?> 
-        <?php }
-        ?>
-      </div>
-      <a href="<?php the_permalink() ?>" class="button">Read Story</a>
-      <div class="small-logo-wrapper">
-        <?php $meta = get_socrata_stories_meta(); if ($meta[6]) echo wp_get_attachment_image($meta[6], 'small', false, array('class' => 'img-responsive small-logo')); ?>
-      </div>
-    </div>
-    <a href="<?php the_permalink() ?>"></a>
-  </article>
-
-  <?php }
-?>
-
-<?php echo $third_div_clear; ?>  
-<?php endwhile;  wp_reset_postdata(); ?>
-<script>$("article").delay(1000).animate({"opacity": "1"}, 700);</script>
-<?php
-$content = ob_get_contents();
-ob_end_clean();
-return $content;
-}
-
-// [filter-stories]
-add_shortcode('filter-stories','filter_stories');
-function filter_stories ($atts, $content = null) { ob_start(); ?>
-<nav class="filter">
-  <div class="filter-wrapper format_text">
-    <h2>All Stories</h2>
-    <ul class="filter-menu dropdown">
-      <li>
-        <a href="#" class="dd-lable"><span class="hidden-md">Region</span><span class="ss-icon hidden-lg">maplocation</span></a>
-        <?php wp_nav_menu( array( 'theme_location' => 'stories_region' ) ); ?>
-      </li>
-      <li class="or hidden-xs">or</li>
-      <li>
-        <a href="#"><span class="hidden-md">Type</span><span class="ss-icon hidden-lg">heartbook</span></a>
-        <?php wp_nav_menu( array( 'theme_location' => 'stories_type' ) ); ?>
-      </li>
-      <li class="or hidden-xs">or</li>
-      <li>
-        <a href="#"><span class="hidden-md">Product</span><span class="ss-icon hidden-lg">browseonline</span></a>
-        <?php wp_nav_menu( array( 'theme_location' => 'stories_product' ) ); ?>
-      </li>
-    </ul>
   </div>
-</nav>
-<?php
-$content = ob_get_contents();
-ob_end_clean();
-return $content;
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
 }
-
-// [archive-filter-stories]
-add_shortcode('archive-filter-stories','archive_filter_stories');
-function archive_filter_stories ($atts, $content = null) { ob_start(); ?>
-<nav class="filter">
-  <div class="filter-wrapper format_text">
-    <h2><?php single_cat_title(); ?></h2>
-    <ul class="filter-menu dropdown">
-      <li>
-        <a href="#" class="dd-lable"><span class="hidden-md">Region</span><span class="ss-icon hidden-lg">maplocation</span></a>
-        <?php wp_nav_menu( array( 'theme_location' => 'stories_region' ) ); ?>
-      </li>
-      <li class="or hidden-xs">or</li>
-      <li>
-        <a href="#"><span class="hidden-md">Type</span><span class="ss-icon hidden-lg">heartbook</span></a>
-        <?php wp_nav_menu( array( 'theme_location' => 'stories_type' ) ); ?>
-      </li>
-      <li class="or hidden-xs">or</li>
-      <li>
-        <a href="#"><span class="hidden-md">Product</span><span class="ss-icon hidden-lg">browseonline</span></a>
-        <?php wp_nav_menu( array( 'theme_location' => 'stories_product' ) ); ?>
-      </li>
-    </ul>
-  </div>
-</nav>
-<?php
-$content = ob_get_contents();
-ob_end_clean();
-return $content;
-}
-*/
-
-
+add_shortcode('stories-posts', 'stories_posts');

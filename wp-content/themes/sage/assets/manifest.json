@@ -13,7 +13,8 @@
       "vendor": [
         "../../plugins/socrata-case-studies/css/styles.scss",
         "../../plugins/socrata-tech-blog/css/styles.scss",
-        "../../plugins/socrata-newsroom/css/styles.scss"
+        "../../plugins/socrata-newsroom/css/styles.scss",
+        "../../plugins/socrata-stories/css/styles.scss"
       ],
       "main": true
     },
