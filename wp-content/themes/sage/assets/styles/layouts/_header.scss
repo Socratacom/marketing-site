@@ -46,6 +46,12 @@
 		border:none;
 		background-color: darken($peter-river, 30%);
 		box-shadow:none;
+		.divider {
+			background-color: darken($peter-river, 15%);
+			a {
+				display:none;
+			}
+		}
 	}
 	.dropdown-menu>li>a {
 		font-weight: $font-light;

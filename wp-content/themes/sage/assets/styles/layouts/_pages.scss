@@ -7,17 +7,115 @@
 			height:100vh;
 			margin-top:-60px;
 			overflow: hidden;
+			position: relative;
+			.text-wrapper {
+				position: absolute;
+				top:0;
+				left:0;
+				width:100%;
+				z-index: 1;
+			}
             .text {
                 padding-top:100px;
             }
             .btn {
                 border:white solid 5px;
+            }            
+            .slide {
+            	height:100vh;
+            	width:100%;
+            	background-repeat:no-repeat;
+            	background-size:cover;
+            	background-position:center center;
+            }
+            .slide-one {
+            	background-image:url(../images/home-hero-one.jpg);
+            }
+            .slide-two {
+            	background-image:url(../images/home-hero-two.jpg);            	
+            }
+            .slide-three {
+            	background-image:url(../images/home-hero-three.jpg);            	
             }
 		}
 		//Industries
 		.industries {
-			.tile * {
-				color:white;
+			.tile {
+				position: relative;				
+				box-sizing:border-box;
+				overflow: hidden;	
+				* {
+					color:white;
+				}
+				.tile-icon, .tile-text {
+					position: absolute;
+					height:100%;
+					width:100%;
+					padding:30px;
+					transition: all 0.5s ease-in-out;
+				    -webkit-transition: all .5s ease;
+				    -moz-transition: all .5s ease;
+				    -ms-transition: all .5s ease;
+				    -o-transition: all .5s ease;
+				}
+				.link {
+					position: absolute;
+					top:0;
+					left:0;
+					height:100%;
+					width:100%;
+					z-index: 100;
+				}
+				.btn {
+					position: absolute;
+					bottom:30px;
+					left:30px;
+				}
+			}
+			.fed-tile {
+				background-color:$belize-hole;
+				.btn {
+					color:$belize-hole;
+				}
+				.fed-icon:before {
+					content: "\e606";
+				}
+			}
+			.state-tile {
+				background-color:$nephritis;
+				.btn {
+					color:$nephritis;
+				}
+				.state-icon:before {
+					content: "\e801";
+				}
+			}
+			.county-tile {
+				background-color:$pumpkin;
+				.btn {
+					color:$pumpkin;
+				}
+				.county-icon:before {
+					content: "\e800";
+				}
+			}
+			.city-tile {
+				background-color:$amethyst;
+				.btn {
+					color:$amethyst;
+				}
+				.city-icon:before {
+					content: "\e602";
+				}
+			}
+			.ngo-tile {
+				background-color:$orange;
+				.btn {
+					color:$orange;
+				}
+				.ngo-icon:before {
+					content: "\e603";
+				}
 			}
 			.what-we-do {
 				h2 {
@@ -186,10 +284,62 @@
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 	.home {
+		.home-hero {
+			width:100%;
+			height:100vh;
+			margin-top:-60px;
+			overflow: hidden;
+            .text {
+                padding-top:100px;
+            }
+            .btn {
+                border:white solid 5px;
+            }
+		}
 		.industries {
 			.tile {
 				height:380px;
-				box-sizing:border-box;
+				.tile-icon {
+					top:0;
+					h4 {
+						position:absolute;
+						left:0;
+						top:150px;
+						width:100%;
+						margin:0;
+						padding:65px 30px 0 30px;
+					}
+					.icon:before {
+						font-family: 'icomoon';
+						font-size:100px;
+						position: absolute;
+						left:0;
+						top:0;
+						width:100%;
+					}
+				}
+				.tile-text {
+					top:380px;
+					h4 {
+						position: relative;
+						padding-left:32px;
+					}
+					.icon:before {
+						font-family: 'icomoon';
+						font-size:24px;
+						position: absolute;
+						left:0;
+						top:0;
+					}
+				}
+			}
+			.tile:hover {
+				.tile-icon {
+					top:-380px;
+				}
+				.tile-text {
+					top:0;
+				}
 			}
 			.what-we-do {
 				padding:80px 30px 0 0;

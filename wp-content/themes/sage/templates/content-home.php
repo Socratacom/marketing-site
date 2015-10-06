@@ -2,49 +2,24 @@
 
 
 <section class="home-hero">
-	<div class="arrowsContainer"></div>
-	<div class="slider">
-
-
-		<!--<div class="arrowsContainer"></div>-->
-		<div class="background-silver" style="height:100vh; width: 100%;" >
-			<div class="container">
-				<div class="row">
-                    <div class="text">
-    					<div class="col-sm-6">
-    						<h1>Can Data-Driven Government Tranform the World?</h1>
-                            <p><a href="#" class="btn btn-lg btn-warning">Schedule a Demo</a></p>
-    					</div>
-                    </div>
-				</div>
+	<div class="text-wrapper">
+		<div class="container">
+			<div class="row">
+                <div class="text">
+					<div class="col-sm-6">
+						<h1>Socrata is leading the transformation to 21st century digital government</h1>
+						<p class="lead">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vestibulum id ligula porta felis euismod semper.</p>
+                        <p><a href="#" class="btn btn-lg btn-warning">Schedule a Demo</a></p>
+					</div>
+                </div>
 			</div>
 		</div>
 
-
-
-		<div class="background-concrete" style="height:100vh; width: 100%;">
-			<div class="container">
-				<div class="row">
-                    <div class="text">
-    					<div class="col-sm-6">
-    						<h1>Hello World</h1>
-    					</div>
-                    </div>
-				</div>
-			</div>
-		</div>		
-        <div class="background-asbestos" style="height:100vh; width: 100%;">
-            <div class="container">
-                <div class="row">
-                    <div class="text">
-                        <div class="col-sm-6">
-                            <h1>Hello World</h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+	</div>
+	<div class="slider">
+		<div class="background-silver slide slide-one"></div>
+		<div class="background-silver slide slide-two"></div>
+		<div class="background-silver slide slide-three"></div>
 	</div>
 </section>
 
@@ -55,26 +30,61 @@
 <section class="background-gray-dark industries">
 	<div class="container">
 		<div class="row no-gutters">
-			<div class="col-sm-6 col-md-4 tile">
+			<div class="col-sm-6 col-md-4">
 				<div class="what-we-do">
 					<h2>What We Do</h2>
 					<p class="lead">Our cloud-based open data platform - developed exclusively for governments - collects, refines, and distributes data to 250 innovative global governments and millions of their connected citizens.</p>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-belize-hole">
-				<h1>Hello World</h1>
+			<div class="col-sm-6 col-md-4 tile fed-tile" data-sr="enter bottom, opacity 0.5">
+				<div class="tile-icon">
+					<h4 class="text-center icon fed-icon">Federal Government</h4>
+				</div>
+				<div class="tile-text">
+					<h4 class="icon fed-icon">Federal Government</h4>
+					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p><a href="#" class="btn btn-default">Learn More</a></p>
+				</div>				
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-nephritis">
-				<h1>Hello World</h1>
+			<div class="col-sm-6 col-md-4 tile state-tile" data-sr="enter bottom, opacity 0.5">
+				<div class="tile-icon">
+					<h4 class="text-center icon state-icon">State Government</h4>
+				</div>
+				<div class="tile-text">
+					<h4 class="icon state-icon">State Government</h4>
+					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p><a href="#" class="btn btn-default">Learn More</a></p>
+				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-pumpkin">
-				<h1>Hello World</h1>
+			<div class="col-sm-6 col-md-4 tile city-tile" data-sr="enter bottom, opacity 0.5">
+				<div class="tile-icon">
+					<h4 class="text-center icon city-icon">City Government</h4>
+				</div>
+				<div class="tile-text">
+					<h4 class="icon city-icon">City Government</h4>
+					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p><a href="#" class="btn btn-default">Learn More</a></p>
+				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-amethyst">
-				<h1>Hello World</h1>
+			<div class="col-sm-6 col-md-4 tile county-tile" data-sr="enter bottom, opacity 0.5">
+				<div class="tile-icon">
+					<h4 class="text-center icon county-icon">County Government</h4>
+				</div>
+				<div class="tile-text">
+					<h4 class="icon county-icon">County Government</h4>
+					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p><a href="#" class="btn btn-default">Learn More</a></p>
+				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-orange">
-				<h1>Hello World</h1>
+			<div class="col-sm-6 col-md-4 tile ngo-tile" data-sr="enter bottom, opacity 0.5">
+				<div class="tile-icon">
+					<h4 class="text-center icon ngo-icon">Non-Profit and International Organizations</h4>
+				</div>
+				<div class="tile-text">
+					<h4 class="icon ngo-icon">Non-Profit and International Organizations</h4>
+					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p><a href="#" class="btn btn-default">Learn More</a></p>
+				</div>	
 			</div>
 		</div>
 	</div>
@@ -99,7 +109,13 @@ $featuredCustomer->query('post_type=stories&orderby=rand&showposts=3');
 while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post(); 
 ?>
 <div class="col-sm-3">
-<?php the_title(); ?>
+
+	<div class="text-center" style="width:100%; height:180px; border:#ccc solid 5px; position:relative; padding:15px;">
+		<img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="vertical-center" style="margin:auto; width:auto; max-width: 100%;">
+
+	<!--<?php $meta = get_socrata_stories_meta(); if ($meta[6]) echo wp_get_attachment_image($meta[6], 'small', false, array('class' => 'img-responsive')); ?>-->
+</div>
+<h5><?php the_title(); ?></h5>
 </div>
 <?php endwhile; ?>
 <?php wp_reset_query(); ?>

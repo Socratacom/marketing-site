@@ -13,11 +13,11 @@ body {
 // Custom Icons
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?-i98te5');
-	src:url('../fonts/icomoon.eot?-i98te5#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf?-i98te5') format('truetype'),
-		url('../fonts/icomoon.woff?-i98te5') format('woff'),
-		url('../fonts/icomoon.svg?-i98te5#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?qkeee7');
+	src:url('../fonts/icomoon.eot?qkeee7#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?qkeee7') format('truetype'),
+		url('../fonts/icomoon.woff?qkeee7') format('woff'),
+		url('../fonts/icomoon.svg?qkeee7#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -36,6 +36,12 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-map:before {
+	content: "\e800";
+}
+.icon-state:before {
+	content: "\e801";
+}
 .icon-city-hall:before {
 	content: "\e601";
 }

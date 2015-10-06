@@ -33,14 +33,14 @@
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li class="dropdown">
+          <!--<li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Why Socrata</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_why_socrata',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
-          </li>
+          </li>-->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learning</span></a>
             <?php wp_nav_menu( array( 

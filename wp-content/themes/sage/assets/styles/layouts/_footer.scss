@@ -107,6 +107,9 @@
 		}
 		.menu {
 			margin-bottom:2em;
+			.divider {
+				display:none;
+			}
 		}
 		.menu-item a {
 			display: block;

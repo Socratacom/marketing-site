@@ -160,7 +160,17 @@ function stories_body_class( $classes ) {
   return $classes;
 }
 
-// Shortcode [newsroom-posts]
+function stories_logo_home( $thumb_size, $image_height ) { 
+  global $post; 
+  $params = array( 'height' => $image_height);
+  $meta = get_socrata_stories_meta();  
+  $imgsrc = wp_get_attachment_image_src( $meta[6], $thumb_size );
+  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
+  return $custom_img_src;   
+}
+
+
+// Shortcode [stories-posts]
 function stories_posts($atts, $content = null) {
   ob_start();
   ?>
