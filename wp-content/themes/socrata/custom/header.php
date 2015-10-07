@@ -19,42 +19,26 @@ $wp_google_tag_manager->output_manual();
                     <div class="sub-nav sub-nav-full">
                         <div class="sub-nav-container">
                             <div class="sub-nav-group one_third">
+                                <h4><a href="/products/financial-transparency-suite/">Socrata for Finance</a></h4>
+                                <p>Socrata for Finance provides a detailed view of public finance decisions by transforming complex data sets into straightforward visuals that anyone can access.</p>
                                 <h4><a href="/products/open-data-portal/">Open Data Portal</a></h4>
-                                <p>The Socrata Open Data Portal&trade; simplifies data movement by making it easy to upload, query, analyze, visualize, and share.</p>                      
-                            </div>
-                            <div class="sub-nav-group one_third">
-                                <h4><a href="/products/govstat/">Open Performance (GovStat)</a></h4>
-                                <p>Socrata Open Performance&trade; not only helps you set goals, but measure their impact against data, perform broad analysis, and share your results automatically.</p> 
-                            </div>
-                            <div class="sub-nav-group one_third last">
-                                <h4><a href="/products/financial-transparency-suite/">Financial Transparency Suite</a></h4>
-                                <p>Socrata’s Financial Transparency Suite™ provides a detailed view of public finance decisions by transforming complex data sets into straightforward visuals that anyone can access.</p>
-                            </div>
-                            <div class="clearboth"></div>
-                            <div class="sub-nav-group one_third">
-                                <h4><a href="http://open-data-apps.socrata.com/" target="_blank">Socrata Apps Marketplace</a></h4>
-                                <p>The Socrata Apps Marketplace features innovative applications for citizens, businesses, and local government. Find the best services Socrata and the open data community have to offer.</p>
-                            </div>
-                            <div class="sub-nav-group one_third">
-                                <h4><a href="/products/open-data-network-ecosystem/">Open Data Network</a></h4>
-                                <p>The Open Data Network™ brings together a vast ecosystem of participants, taking an industry-specific approach to streamline the access and syndication of open data.</p> 
-                            </div>
-                            <div class="sub-nav-group one_third last">
-                                <h4><a href="/products/open-data-cloud-platform/ ">Socrata Platform</a></h4>
-                                <p>The Socrata Platform makes it easy to put your data where researchers, developers, and entrepreneurs can access it and create new products.</p> 
-                            </div>
-                            <div class="clearboth"></div>
-                            <div class="sub-nav-group one_third">
+                                <p>The Socrata Open Data Portal&trade; simplifies data movement by making it easy to upload, query, analyze, visualize, and share.</p>                                
                                 <h4><a href="/products/open-data-api">Open Data API</a></h4>
                                 <p>Socrata Open Data API&trade; (SODA) makes every Socrata-hosted dataset uniformly accessible, searchable, and easy to combine with other web services.</p>
                             </div>
                             <div class="sub-nav-group one_third">
-                                <h4><a href="/products/api-foundry/">API Foundry</a></h4>
-                                <p>With Socrata API Foundry&trade; you can build robust, flexible, customized APIs in minutes, and ensure that your data is easily available to developers.</p> 
+                                <h4><a href="/products/govstat/">Open Performance (GovStat)</a></h4>
+                                <p>Socrata Open Performance&trade; not only helps you set goals, but measure their impact against data, perform broad analysis, and share your results automatically.</p>
+                                <h4><a href="/products/open-data-network-ecosystem/">Open Data Network</a></h4>
+                                <p>The Open Data Network™ brings together a vast ecosystem of participants, taking an industry-specific approach to streamline the access and syndication of open data.</p>
+                                <h4><a href="http://open-data-apps.socrata.com/" target="_blank">Socrata Apps Marketplace</a></h4>
+                                <p>The Socrata Apps Marketplace features innovative applications for citizens, businesses, and local government. Find the best services Socrata and the open data community have to offer.</p>
                             </div>
                             <div class="sub-nav-group one_third last">
+                                <h4><a href="/products/open-data-cloud-platform/ ">Socrata Platform</a></h4>
+                                <p>The Socrata Platform makes it easy to put your data where researchers, developers, and entrepreneurs can access it and create new products.</p>
                                 <h4><a href="/products/open-source-development-community/ ">Open Source</a></h4>
-                                <p>Socrata &lt;3 open source. Learn about our commitment to the open source community, open standards, and data portability and interoperability.</p> 
+                                <p>Socrata &lt;3 open source. Learn about our commitment to the open source community, open standards, and data portability and interoperability.</p>
                             </div>
                             <div class="clearboth"></div>
                         </div>
@@ -86,19 +70,15 @@ $wp_google_tag_manager->output_manual();
                     <a href="/resources">Learning <i class="fa fa-caret-down"></i></a>
                     <div class="sub-nav sub-nav-full">                    
                         <div class="sub-nav-container">
-                            <div class="sub-nav-group one_fourth">
+                            <div class="sub-nav-group one_third">
                                 <h3>By Topic</h3>
                                 <?php wp_nav_menu( array( 'theme_location' => 'learning-by-topic' ) ); ?>
                             </div>
-                            <div class="sub-nav-group one_fourth">
+                            <div class="sub-nav-group one_third">
                                 <h3>By Content Type</h3>
                                 <?php wp_nav_menu( array( 'theme_location' => 'learning-by-content-type' ) ); ?>
                             </div>
-                            <div class="sub-nav-group one_fourth">
-                                <h3>Open Innovation Magazine</h3>
-                                <?php echo do_shortcode('[menu-magazine]');?>
-                            </div>
-                            <div class="sub-nav-group one_fourth last">
+                            <div class="sub-nav-group one_third last">
                                 <h3>Recent Blog Post</h3>
                                 <?php echo do_shortcode('[menu-blog]');?>
                             </div>
@@ -297,30 +277,7 @@ function menu_blog_shortcode( $atts ) {
     wp_reset_postdata(); ?>     
   <?php $myvariable = ob_get_clean();
   return $myvariable;
-  } 
-}
-
-// SHORTCODE FOR MAGAZINE
-// [menu-magazine]
-add_shortcode('menu-magazine','menu_magazine');
-function menu_magazine ($atts, $content = null) { ob_start(); ?>
-<?php $query = new WP_Query('post_type=oi_magazine&orderby=desc&showposts=1'); ?>
-<?php while ($query->have_posts()) : $query->the_post(); ?>
-
-<div class="one_third" style="padding-top:5px;">
-<a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 80 ); ?>" style="width:90%;"></a>
-</div>
-<div class="two_third last">
-<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-<p><strong>In this issue:</strong><br/><?php $meta = get_socrata_magazine_meta(); if ($meta[0]) {echo "$meta[0]";} ?><?php $meta = get_socrata_magazine_meta(); if ($meta[1]) {echo ", $meta[1]";} ?><?php $meta = get_socrata_magazine_meta(); if ($meta[2]) {echo ", $meta[2]";} ?><?php $meta = get_socrata_magazine_meta(); if ($meta[3]) {echo ", $meta[3]";} ?><?php $meta = get_socrata_magazine_meta(); if ($meta[4]) {echo ", $meta[4]";} ?><?php $meta = get_socrata_magazine_meta(); if ($meta[5]) {echo ", $meta[5]";} ?></p>
-</div>
-<div class="clearboth"></div>
-
-<?php endwhile;  wp_reset_postdata(); ?>
-<?php
-$content = ob_get_contents();
-ob_end_clean();
-return $content;
+  }
 }
 
 // SHORTCODE FOR CASE STUDY
