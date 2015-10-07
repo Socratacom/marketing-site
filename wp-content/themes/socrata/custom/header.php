@@ -19,10 +19,10 @@ $wp_google_tag_manager->output_manual();
                     <div class="sub-nav sub-nav-full">
                         <div class="sub-nav-container">
                             <div class="sub-nav-group one_third">
+                                <h4><a href="/products/open-data-portal/">Open Data Portal</a></h4>
+                                <p>The Socrata Open Data Portal&trade; simplifies data movement by making it easy to upload, query, analyze, visualize, and share.</p>   
                                 <h4><a href="/products/financial-transparency-suite/">Socrata for Finance</a></h4>
                                 <p>Socrata for Finance provides a detailed view of public finance decisions by transforming complex data sets into straightforward visuals that anyone can access.</p>
-                                <h4><a href="/products/open-data-portal/">Open Data Portal</a></h4>
-                                <p>The Socrata Open Data Portal&trade; simplifies data movement by making it easy to upload, query, analyze, visualize, and share.</p>                                
                                 <h4><a href="/products/open-data-api">Open Data API</a></h4>
                                 <p>Socrata Open Data API&trade; (SODA) makes every Socrata-hosted dataset uniformly accessible, searchable, and easy to combine with other web services.</p>
                             </div>
