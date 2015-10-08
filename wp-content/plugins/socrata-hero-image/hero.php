@@ -91,7 +91,7 @@ function hero_shortcode( $atts ) {
       </div>
     </div>
   </section>
-  <section class="ebook-banner">
+  <section class="ebook-banner" style="display:none;">
     <div class="container">
       <div class="row">
         <div class="col-sm-12" >
