@@ -127,6 +127,50 @@
 				}
 			}
 		}
+		//Customers
+		.customers {
+			h2 {
+				margin-top:0;
+			}
+			article {
+				.logo-frame {
+					width:100%;
+					height: 180px;
+					padding:30px;
+					border:$silver solid 5px;
+					img {
+						display:inline-block;
+						position: relative;
+						top: 50%;
+						-webkit-transform: translateY(-50%);
+						-ms-transform: translateY(-50%);
+						transform: translateY(-50%);
+					}
+				}
+				.customer-text {
+					height:150px;
+					h5 {
+						margin-bottom:15px;
+					}
+				}
+				ul {
+					list-style-type: none;
+					margin:0;
+					padding:0;
+				}
+				li {
+					display:inline-block;
+					padding:0 10px;
+				}
+				li:first-child {
+					padding-left:0;
+				}
+				li:last-child {
+					border-left:$silver solid 1px;
+					padding-right:0;
+				}
+			}
+		}
 		//Articles
 		.articles {
 			ul {
@@ -141,7 +185,7 @@
 			li:first-child, li:last-child {
 				border:none;
 			}
-			.recentpost { 
+			.recentpost, li:last-child { 
 				padding:15px 20px;
 				p {
 					line-height: 1.3em;
@@ -152,9 +196,65 @@
 					font-size: 13px;
 					display: block;
 				}
+				.categories {
+					font-size: 11px;
+					text-transform: uppercase;
+					font-weight: $font-bold;
+					letter-spacing: 1px;
+					margin-bottom:5px;
+
+				}
 			}
 			.card {
 				height:425px;
+				.categories {
+					text-transform: uppercase;
+					font-size: 14px;
+					margin-bottom:5px;
+				}
+			}
+			.events-card-avatar {
+				height:60px;
+				width:60px;
+				background-color:$green-sea;
+				border:white solid 2px;
+				margin:0 auto;
+				position: relative;
+			}
+			.events-card-avatar:before {
+				position: absolute;
+				font-family: 'fontawesome';	
+				content: "\f133";			
+				top:12px;
+				left:15px;
+				font-size: 28px;
+				color:white;
+			}
+			.case-study-card-avatar {
+				height:60px;
+				width:60px;
+				background-color:$pumpkin;
+				border:white solid 2px;
+				margin:0 auto;
+				position: relative;
+			}
+			.case-study-card-avatar:before {
+				position: absolute;
+				font-family: 'fontawesome';	
+				content: "\f016";			
+				top:12px;
+				left:16px;
+				font-size: 28px;
+				color:white;
+			}
+		}
+		//CTA
+		.demo-cta * {
+			color:white;
+		}
+		.demo-cta {
+			.btn {
+				color:$sun-flower;
 			}
 		}
 	}	
@@ -265,6 +365,7 @@
 	.open-payroll-image {
 		background-image:url(../images/finance-open-payroll.jpg);
 	}
+
 }
 
 /* Medium Devices, Desktops */

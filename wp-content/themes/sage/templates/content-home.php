@@ -1,6 +1,3 @@
-
-
-
 <section class="home-hero">
 	<div class="text-wrapper">
 		<div class="container">
@@ -22,10 +19,6 @@
 		<div class="background-silver slide slide-three"></div>
 	</div>
 </section>
-
-
-
-
 
 <section class="background-gray-dark industries">
 	<div class="container">
@@ -90,46 +83,39 @@
 	</div>
 </section>
 
-
-
-
-
 <section class="section-padding customers">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
 				<h2>Our Customers</h1>
 				<p class="lead">Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. </p>
+				<p><a href="/customer-stories">View More Customers</a></p>
 			</div>
-
-
-<?php
-$featuredCustomer = new WP_Query();
-$featuredCustomer->query('post_type=stories&orderby=rand&showposts=3');
-while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post(); 
-?>
-<div class="col-sm-3">
-
-	<div class="text-center" style="width:100%; height:180px; border:#ccc solid 5px; position:relative; padding:15px;">
-		<img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="vertical-center" style="margin:auto; width:auto; max-width: 100%;">
-
-	<!--<?php $meta = get_socrata_stories_meta(); if ($meta[6]) echo wp_get_attachment_image($meta[6], 'small', false, array('class' => 'img-responsive')); ?>-->
-</div>
-<h5><?php the_title(); ?></h5>
-</div>
-<?php endwhile; ?>
-<?php wp_reset_query(); ?>
-
-
+			<?php
+			$featuredCustomer = new WP_Query();
+			$featuredCustomer->query('post_type=stories&orderby=rand&showposts=3');
+			while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post(); 
+			?>
+			<div class="col-sm-3">
+				<article>
+					<div class="logo-frame text-center">
+						<img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive">
+					</div>
+					<div class="customer-text truncate">
+						<h5><?php the_title(); ?></h5>
+						<?php the_excerpt(); ?>
+					</div>
+					<ul>
+						<li><a href="<?php the_permalink() ?>">Read More</a></li>
+						<?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<li><a href='$meta[2]' target='_blank'>Visit Site</a></li>";} ?>
+					</ul>
+				</article>
+			</div>
+			<?php endwhile; ?>
+			<?php wp_reset_query(); ?>
 		</div>
 	</div>
 </section>
-
-
-
-
-
-
 
 <section class="background-clouds section-padding articles">	
 	<div class="container">
@@ -139,7 +125,7 @@ while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post();
 				<?php
 				$isfirst = false;
 				$featuredPosts = new WP_Query();
-				$featuredPosts->query('showposts=4');
+				$featuredPosts->query('post_type=tribe_events&orderby=desc&showposts=4');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 				<?php if ( ! $isfirst ): ?>
 				<li class="homefirstpost">
@@ -150,13 +136,14 @@ while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post();
 						<div class="card-image hidden-xs">
 							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
 							<div class="card-avatar">
-								<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
+								<div class="events-card-avatar img-circle"></div>
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
 						<div class="card-text">
+							<div class="categories"><?php events_the_categories(); ?></div>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<small class="card-meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small>
+							<?php echo tribe_events_event_schedule_details( $event_id, '<small class="card-meta">', '</small>' ); ?>					
 							<?php the_excerpt(); ?> 
 						</div>
 					</div>					
@@ -164,11 +151,13 @@ while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post();
 				<?php $isfirst = true; ?>
 				<?php else: ?>
 				<li class="recentpost">
-					<p><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><small class="meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
+					<div class="categories"><?php events_the_categories(); ?></div>
+					<p><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><?php echo tribe_events_event_schedule_details( $event_id, '<small class="meta">', '</small>' ); ?></p>
 				</li>
 				<?php endif; ?>
 				<?php endwhile; ?>
 				<?php wp_reset_query(); ?>
+				<li><a href="/events">View All Events</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-4">
@@ -187,7 +176,7 @@ while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post();
 						<div class="card-image hidden-xs">
 							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
 							<div class="card-avatar">
-								<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
+								<div class="case-study-card-avatar img-circle"></div>
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
@@ -205,7 +194,8 @@ while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post();
 				</li>
 				<?php endif; ?>
 				<?php endwhile; ?>
-				<?php wp_reset_query(); ?>
+				<?php wp_reset_query(); ?>				
+				<li><a href="/case-studies">View More Case Studies</a></li>
 				</ul>
 			</div>
 			<div class="col-sm-4">
@@ -243,16 +233,21 @@ while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post();
 				<?php endif; ?>
 				<?php endwhile; ?>
 				<?php wp_reset_query(); ?>
+				<li><a href="/blog">View More Articles</a></li>
 				</ul>
 			</div>
 		</div>
 	</div>
 </section>
-<section class="background-sun-flower demo-cta">	
+<section class="background-sun-flower demo-cta section-padding">	
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-12">
-				<h1>Hello World</h1>
+
+			<div class="col-sm-6 col-sm-offset-6">
+				<h2 class="text-right">Give us an hour.</h2>
+				<p class="text-right lead">Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+				<p class="text-right"><a href="/request-a-demo" class="btn btn-default btn-lg">Request a Demo</a></p>
+				<p class="text-right">Got question now? Chat with someone live or call us (800) 555-1212</p>
 			</div>
 		</div>
 	</div>

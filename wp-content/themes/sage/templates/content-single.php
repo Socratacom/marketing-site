@@ -27,10 +27,10 @@
             <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>-->
             <?php comments_template('/templates/comments.php'); ?>
           </article>
+          <?php endwhile; ?>
           <div class="marketo-share">
             <?php echo do_shortcode( '[marketo-share]' ); ?>
-          </div>
-        <?php endwhile; ?>
+          </div>        
       </div>
     </div>
     <div class="col-sm-4 col-md-3 sidebar hidden-xs">

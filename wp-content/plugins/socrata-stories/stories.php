@@ -169,6 +169,17 @@ function stories_logo_home( $thumb_size, $image_height ) {
   return $custom_img_src;   
 }
 
+// Print Taxonomy Categories
+function stories_the_categories() {
+    // get all categories for this post
+    global $terms;
+    $terms = get_the_terms($post->ID , 'stories_type');
+    // echo the first category
+    echo $terms[0]->name;
+    // echo the remaining categories, appending separator
+    for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
 
 // Shortcode [stories-posts]
 function stories_posts($atts, $content = null) {
@@ -197,11 +208,13 @@ function stories_posts($atts, $content = null) {
             $do_not_duplicate[] = get_the_ID(); ?>
 
             <div class="col-sm-12">
-              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">           
-                <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>         
+              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
+                <div class="text">
+                  <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+                </div>
                 <?php get_template_part('templates/entry-meta'); ?>
                 <div class="overlay"></div>
-                <a href="<?php the_permalink() ?>"></a>
+                <a href="<?php the_permalink() ?>" class="link"></a>
               </div>
             </div>
 
@@ -239,29 +252,6 @@ function stories_posts($atts, $content = null) {
         </div>      
       </div>
       <div class="col-sm-3">
-        <?php
-          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-          $orderby = 'name';
-          $show_count = 0; // 1 for yes, 0 for no
-          $pad_counts = 0; // 1 for yes, 0 for no
-          $hide_empty = 1;
-          $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'stories_region';
-          $title = 'Region';
-
-          $args = array(
-            'orderby' => $orderby,
-            'show_count' => $show_count,
-            'pad_counts' => $pad_counts,
-            'hide_empty' => $hide_empty,
-            'hierarchical' => $hierarchical,
-            'taxonomy' => $taxonomy,
-            'title_li' => '<h5>'. $title .'</h5>'
-          );
-        ?>
-        <ul class="category-nav">
-          <?php wp_list_categories($args); ?>
-        </ul>
         <?php
           //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
           $orderby = 'name';

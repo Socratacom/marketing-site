@@ -116,6 +116,3 @@ add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
 
 
 
-
-
-

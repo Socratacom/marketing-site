@@ -16,11 +16,13 @@
 				while ( $my_query->have_posts() ) : $my_query->the_post();
 				$do_not_duplicate = $post->ID; ?>
 				<div class="col-sm-12">
-					<div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">						
-						<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>					
+					<div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
+						<div class="text">					
+							<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>	
+						</div>				
 						<?php get_template_part('templates/entry-meta'); ?>
 						<div class="overlay"></div>
-						<a href="<?php the_permalink() ?>"></a>
+						<a href="<?php the_permalink() ?>" class="link"></a>
 					</div>
 				</div>
 				<?php endwhile; ?>

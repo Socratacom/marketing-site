@@ -147,18 +147,25 @@
 		background-size:cover;
 		background-position:center center;
 		height:300px;
-		h2 {
-			margin: 0;
+		.text * {
+			color:white;
+			margin:0;
+		}
+		.text {			
 			width:90%;
 			position: absolute;
 			left:30px;
 			top:40px;			
 			z-index: 100;
-			a {
-				color:white;
+			h2 {
+				margin-bottom:15px;
+				a:hover {
+					text-decoration: underline;
+				}
 			}
-			a:hover {
-				text-decoration: underline;
+			.categories {
+				font-size:14px;
+				text-transform: uppercase;
 			}
 		}
 		.overlay {
@@ -168,7 +175,7 @@
 			z-index: 1;
 			background-color:rgba(0,0,0,.5);
 		}
-		a {
+		.link {
 			position: absolute;
 			top:0;
 			left:0;
@@ -256,8 +263,9 @@
 	}
 	.featured-post {
 		height:400px;
-		h2 {
-			width:45%;
+		.text {
+				width:45%;
+
 		}
 	}
 
@@ -403,7 +411,5 @@
 .newsletter-sidebar p {
 	line-height: normal;
 }
-
-
 
 
