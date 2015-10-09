@@ -1,0 +1,32 @@
+$green-sea: #16a085;
+
+@media only screen and (min-width : 320px) {
+	.events, .events-archive {
+		.card {
+			height:400px;
+			margin-bottom:30px;
+			.card-image {
+				.categories {
+					position: absolute;
+					font-size:11px;
+					background-color:$green-sea;
+					padding:5px 10px;
+					top:15px;
+					left:15px;
+					z-index: 10;
+					text-transform: uppercase;
+					color:white;
+
+				}
+			}
+		}
+		.featured-post {
+			.categories {
+				background-color:$green-sea;
+				padding:5px 10px;
+				display: inline-block;
+				margin-bottom:5px;
+			}
+		}
+	}
+}
