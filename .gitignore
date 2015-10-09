@@ -36,6 +36,7 @@ wp-content/plugins/*
 !wp-content/plugins/socrata-tech-blog/
 !wp-content/plugins/socrata-open-data-field-guide/
 !wp-content/plugins/socrata-newsroom/
+!wp-content/plugins/socrata-events/
 
 # Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
