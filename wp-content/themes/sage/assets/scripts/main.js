@@ -18,7 +18,11 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages 
+        // JavaScript to be fired on all pages         
+      },
+      finalize: function() {
+        // JavaScript to be fired after the init JS
+
         // Truncate Script
          $(".truncate").dotdotdot({
           ellipsis  : '... ',
@@ -34,9 +38,6 @@
           noEllipsis  : []
           }
         });
-      },
-      finalize: function() {
-        // JavaScript to be fired after the init JS
         
         //Smooth Jumplink Scrolling
         var target, scroll;
