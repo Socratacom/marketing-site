@@ -13,11 +13,11 @@ body {
 // Custom Icons
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?qkeee7');
-	src:url('../fonts/icomoon.eot?qkeee7#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf?qkeee7') format('truetype'),
-		url('../fonts/icomoon.woff?qkeee7') format('woff'),
-		url('../fonts/icomoon.svg?qkeee7#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?f28305');
+	src:url('../fonts/icomoon.eot?f28305#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?f28305') format('truetype'),
+		url('../fonts/icomoon.woff?f28305') format('woff'),
+		url('../fonts/icomoon.svg?f28305#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -36,6 +36,21 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-dollar:before {
+	content: "\e802";
+}
+.icon-guest:before {
+	content: "\e803";
+}
+.icon-administrator:before {
+	content: "\e804";
+}
+.icon-user:before {
+	content: "\e805";
+}
+.icon-police:before {
+	content: "\e806";
+}
 .icon-map:before {
 	content: "\e800";
 }
@@ -63,6 +78,8 @@ body {
 .icon-manager:before {
 	content: "\e600";
 }
+
+
 
 // Background Colors
 .background-turquoise {
@@ -137,7 +154,7 @@ body {
 	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	    font-family: inherit;
 	    font-weight: $font-normal;
-	    line-height: 1em;
+	    line-height: normal;
 	    color: $midnight-blue;
 	    margin:30px 0;
 	}
@@ -297,6 +314,14 @@ body {
 				line-height: 1.3em;
 			}
 		}
+		.padding-fallback {
+			height:20px;
+			width:100%;
+			position: absolute;
+			bottom:0;
+			left:0;
+			background:white;
+		}
 		.event-categories {
 			display: block;
 			margin-bottom:15px;
@@ -310,6 +335,26 @@ body {
 			a:hover {
 				text-decoration: none;
 			}
+		}
+	}
+	/* Check Mark List */
+	ul.check-mark-list {
+		list-style-type: none;
+		margin:0;
+		padding:0;
+		li {
+			padding:10px 10px 10px 32px;
+			margin-bottom:5px;
+			position: relative;
+		}
+		li:before {
+			font-family: fontawesome;
+			content:"\f058";
+			position: absolute;
+			top:10px;
+			left:0px;
+			color:$nephritis;
+			font-size: 24px;
 		}
 	}
 }

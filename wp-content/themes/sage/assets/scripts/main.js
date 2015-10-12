@@ -23,20 +23,22 @@
       finalize: function() {
         // JavaScript to be fired after the init JS
 
-        // Truncate Script
-         $(".truncate").dotdotdot({
-          ellipsis  : '... ',
-          wrap    : 'word',
-          fallbackToLetter: true,
-          after   : null,
-          watch   : window,
-          height    : null,
-          tolerance : 0,
-          callback  : function( isTruncated, orgContent ) {}, 
-          lastCharacter : {
-          remove    : [ ' ', ',', ';', '.', '!', '?' ],
-          noEllipsis  : []
-          }
+        // Truncate script
+        $(document).ready(function() {
+          $(".truncate").dotdotdot({
+            ellipsis  : '... ',
+            wrap    : 'word',
+            fallbackToLetter: true,
+            after   : null,
+            watch   : window,
+            height    : null,
+            tolerance : 0,
+            callback  : function( isTruncated, orgContent ) {}, 
+            lastCharacter : {
+            remove    : [ ' ', ',', ';', '.', '!', '?' ],
+            noEllipsis  : []
+            }
+          });
         });
         
         //Smooth Jumplink Scrolling

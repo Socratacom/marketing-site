@@ -36,7 +36,7 @@
 				<div class="tile-text">
 					<h4 class="icon fed-icon">Federal Government</h4>
 					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-					<p><a href="#" class="btn btn-default">Learn More</a></p>
+					<p><a href="/solutions/federal-government" class="btn btn-default">Learn More</a></p>
 				</div>				
 			</div>
 			<div class="col-sm-6 col-md-4 tile state-tile" data-sr="enter bottom, opacity 0.5">
@@ -46,7 +46,7 @@
 				<div class="tile-text">
 					<h4 class="icon state-icon">State Government</h4>
 					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-					<p><a href="#" class="btn btn-default">Learn More</a></p>
+					<p><a href="/solutions/state-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
 			<div class="col-sm-6 col-md-4 tile city-tile" data-sr="enter bottom, opacity 0.5">
@@ -56,7 +56,7 @@
 				<div class="tile-text">
 					<h4 class="icon city-icon">City Government</h4>
 					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-					<p><a href="#" class="btn btn-default">Learn More</a></p>
+					<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
 			<div class="col-sm-6 col-md-4 tile county-tile" data-sr="enter bottom, opacity 0.5">
@@ -66,7 +66,7 @@
 				<div class="tile-text">
 					<h4 class="icon county-icon">County Government</h4>
 					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-					<p><a href="#" class="btn btn-default">Learn More</a></p>
+					<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
 			<div class="col-sm-6 col-md-4 tile ngo-tile" data-sr="enter bottom, opacity 0.5">
@@ -76,7 +76,7 @@
 				<div class="tile-text">
 					<h4 class="icon ngo-icon">Non-Profit and International Organizations</h4>
 					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
-					<p><a href="#" class="btn btn-default">Learn More</a></p>
+					<p><a href="/solutions/non-profit-and-international-organizations" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
 		</div>
@@ -146,6 +146,7 @@
 							<?php echo tribe_events_event_schedule_details( $event_id, '<small class="card-meta">', '</small>' ); ?>					
 							<?php the_excerpt(); ?> 
 						</div>
+						<div class="padding-fallback"></div>
 					</div>					
 				</li>
 				<?php $isfirst = true; ?>
@@ -184,7 +185,8 @@
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 							<small class="card-meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small>
 							<?php the_excerpt(); ?> 
-						</div>
+						</div>						
+						<div class="padding-fallback"></div>
 					</div>	
 				</li>
 				<?php $isfirst = true; ?>
@@ -222,7 +224,8 @@
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 							<small class="card-meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small>
 							<?php the_excerpt(); ?> 
-						</div>
+						</div>						
+						<div class="padding-fallback"></div>
 					</div>	
 				</li>
 				<?php $isfirst = true; ?>

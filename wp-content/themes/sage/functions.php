@@ -100,6 +100,45 @@ add_filter( 'found_posts', 'homepage_offset_pagination', 10, 2 );
 
 
 
+/**
+ * Financial Transparency Posts
+ */
+function financial_transparency_posts($atts, $content = null) {
+  ob_start();
+  ?>
 
+<?php 
+// the query
+$args = array(
+                'category_name' => 'financial-transparency',
+                'posts_per_page' => 3
+              );
+$the_query = new WP_Query( $args ); ?>
+
+<?php if ( $the_query->have_posts() ) : ?>
+
+  <!-- pagination here -->
+
+  <!-- the loop -->
+  <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+    <p><?php the_title(); ?></p>
+  <?php endwhile; ?>
+  <!-- end of the loop -->
+
+  <!-- pagination here -->
+
+  <?php wp_reset_postdata(); ?>
+
+<?php else : ?>
+  <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+<?php endif; ?>
+
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('financial-transparency-posts', 'financial_transparency_posts');
 
 
