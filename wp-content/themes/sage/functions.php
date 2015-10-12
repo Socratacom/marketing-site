@@ -121,15 +121,14 @@ function solutions_logos( $atts ) {
   <div class="logo-frame text-center">
     <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">
   </div>
+  <p class="text-center"><small><?php the_title();?></small></p>
 </div>
 
 <?php
-    endwhile;
-    wp_reset_postdata();
-
-    $list = ob_get_clean();
-    return $list;
-
+  endwhile;
+  wp_reset_postdata();
+  $list = ob_get_clean();
+  return $list;
 }
 
 add_shortcode( 'solutions-logos', 'solutions_logos' );

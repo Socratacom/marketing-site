@@ -437,13 +437,16 @@
 			padding:15px;
 			border:$clouds solid 5px;
 			height:140px;
-			margin-bottom:30px;
+			margin-bottom:15px;
 			img {
 				display:inline-block;
 				position: relative;
 				top: 50%;
 				transform: translateY(-50%);
 			}
+		}		
+		p {
+			line-height: normal;
 		}
 	}
 
@@ -482,7 +485,7 @@
 		color:$green-sea;
 	}
 	.state-solution-image {
-		background-image:url(../images/finance-hero.jpg);
+		background-image:url(../images/state-hero.jpg);
 		.wrapper {
 			background-color:rgba($green-sea,0.90);
 		}
@@ -492,7 +495,7 @@
 		color:$amethyst;
 	}
 	.city-solution-image {
-		background-image:url(../images/finance-hero.jpg);
+		background-image:url(../images/city-hero.jpg);
 		.wrapper {
 			background-color:rgba($amethyst,0.90);
 		}
@@ -502,7 +505,7 @@
 		color:$pumpkin;
 	}
 	.county-solution-image {
-		background-image:url(../images/finance-hero.jpg);
+		background-image:url(../images/county-hero.jpg);
 		.wrapper {
 			background-color:rgba($pumpkin,0.90);
 		}
