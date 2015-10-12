@@ -124,8 +124,7 @@ function solutions_logos( $atts ) {
 </div>
 
 <?php
-    endwhile; 
-    echo '<hr>';
+    endwhile;
     wp_reset_postdata();
 
     $list = ob_get_clean();

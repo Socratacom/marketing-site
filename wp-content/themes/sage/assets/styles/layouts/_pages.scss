@@ -457,16 +457,66 @@
 			background-color:rgba($nephritis,0.90);
 		}
 	}
+
+	.public-safety-icon {
+		color:$peter-river;
+	}
+	.public-safety-solution-image {
+		background-image:url(../images/finance-hero.jpg);
+		.wrapper {
+			background-color:rgba($peter-river,0.90);
+		}
+	}
+
 	.federal-icon {
 		color:$belize-hole;
 	}
 	.federal-solution-image {
-		background-image:url(../images/finance-hero.jpg);
+		background-image:url(../images/federal-hero.jpg);
 		.wrapper {
 			background-color:rgba($belize-hole,0.90);
 		}
 	}
 
+	.state-icon {
+		color:$green-sea;
+	}
+	.state-solution-image {
+		background-image:url(../images/finance-hero.jpg);
+		.wrapper {
+			background-color:rgba($green-sea,0.90);
+		}
+	}
+
+	.city-icon {
+		color:$amethyst;
+	}
+	.city-solution-image {
+		background-image:url(../images/finance-hero.jpg);
+		.wrapper {
+			background-color:rgba($amethyst,0.90);
+		}
+	}
+
+	.county-icon {
+		color:$pumpkin;
+	}
+	.county-solution-image {
+		background-image:url(../images/finance-hero.jpg);
+		.wrapper {
+			background-color:rgba($pumpkin,0.90);
+		}
+	}
+
+	.non-profit-icon {
+		color:$orange;
+	}
+	.non-profit-solution-image {
+		background-image:url(../images/finance-hero.jpg);
+		.wrapper {
+			background-color:rgba($orange,0.90);
+		}
+	}
 
 	.open-budget-image {
 		background-image:url(../images/finance-open-budget.jpg);
