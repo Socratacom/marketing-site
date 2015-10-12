@@ -103,42 +103,36 @@ add_filter( 'found_posts', 'homepage_offset_pagination', 10, 2 );
 /**
  * Financial Transparency Posts
  */
-function financial_transparency_posts($atts, $content = null) {
-  ob_start();
-  ?>
-
-<?php 
-// the query
-$args = array(
-                'category_name' => 'financial-transparency',
-                'posts_per_page' => 3
-              );
-$the_query = new WP_Query( $args ); ?>
-
-<?php if ( $the_query->have_posts() ) : ?>
-
-  <!-- pagination here -->
-
-  <!-- the loop -->
-  <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-    <p><?php the_title(); ?></p>
-  <?php endwhile; ?>
-  <!-- end of the loop -->
-
-  <!-- pagination here -->
-
-  <?php wp_reset_postdata(); ?>
-
-<?php else : ?>
-  <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
-<?php endif; ?>
 
 
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
+
+function solutions_logos( $atts ) {
+    extract( shortcode_atts( array(
+        'query' => ''
+    ), $atts ) );
+
+        $query = html_entity_decode( $query );
+
+        ob_start(); 
+        $the_query = new WP_Query( $query );
+        while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+<div class="col-sm-2 solutions-logos">
+  <div class="logo-frame text-center">
+    <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">
+  </div>
+</div>
+
+<?php
+    endwhile; 
+    echo '<hr>';
+    wp_reset_postdata();
+
+    $list = ob_get_clean();
+    return $list;
+
 }
-add_shortcode('financial-transparency-posts', 'financial_transparency_posts');
+
+add_shortcode( 'solutions-logos', 'solutions_logos' );
 
 

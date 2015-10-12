@@ -279,21 +279,11 @@
 	}
 	/* Product and Solution Pages*/
 	.section-image-fixed {
-		width:100%;
-		height:100vh;
 		background-size:cover;
 		background-repeat:no-repeat;
 		background-position:center center;
 		background-attachment: fixed;		
 		position: relative;
-		.section-full-wrapper {
-			position: absolute;
-			top:0;
-			left:0;
-			height: 100vh;
-			width:100%;
-			z-index: 2;
-		}
 	}
 	.section-image {
 		width:100%;
@@ -433,6 +423,29 @@
 			margin-top:0;
 		}
 	}
+	.value-icon {
+		margin-bottom:20px;
+		border-bottom:dotted 1px;
+		padding-bottom:20px;
+		i {
+			font-size:100px;
+		}
+
+	}
+	.solutions-logos {
+		.logo-frame {
+			padding:15px;
+			border:$clouds solid 5px;
+			height:140px;
+			margin-bottom:30px;
+			img {
+				display:inline-block;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+	}
 
 	//Socrata for Finance
 	.finance-icon {
@@ -440,25 +453,20 @@
 	}
 	.finance-solution-image {
 		background-image:url(../images/finance-hero.jpg);
-		i {
-			font-size:100px;
-			margin-bottom:20px;
-			display: inline-block;
-		}
-		.lead {
-			border-top:white dotted 1px;
-			padding-top:20px;
+		.wrapper {
+			background-color:rgba($nephritis,0.90);
 		}
 	}
-	.finance-solution-image:before {
-		content:"";
-		height:100vh;
-		width:100%;
-		position: absolute;
-		top:0;
-		z-index: 1;
-		background-color:rgba($nephritis,0.90);
+	.federal-icon {
+		color:$belize-hole;
 	}
+	.federal-solution-image {
+		background-image:url(../images/finance-hero.jpg);
+		.wrapper {
+			background-color:rgba($belize-hole,0.90);
+		}
+	}
+
 
 	.open-budget-image {
 		background-image:url(../images/finance-open-budget.jpg);
