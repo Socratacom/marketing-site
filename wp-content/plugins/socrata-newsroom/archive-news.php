@@ -14,10 +14,7 @@
 				<div class="col-sm-6 col-lg-4">
 					<div class="card truncate">
 						<div class="card-image hidden-xs">
-							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">	
-							<div class="card-avatar">
-								<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
-							</div>
+							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
 						<div class="card-text">
