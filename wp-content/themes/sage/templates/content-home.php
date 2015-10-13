@@ -4,9 +4,9 @@
 			<div class="row">
                 <div class="text">
 					<div class="col-sm-6">
-						<h1>Socrata is leading the transformation to 21st century digital government</h1>
-						<p class="lead">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Vestibulum id ligula porta felis euismod semper.</p>
-                        <p><a href="#" class="btn btn-lg btn-warning">Schedule a Demo</a></p>
+						<h1>The Data Platform for 21st Century Digital Government</h1>
+						<p class="lead">Leverage the power of data to improve every community - globally and locally.</p>
+                        <p><a href="#" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
 					</div>
                 </div>
 			</div>

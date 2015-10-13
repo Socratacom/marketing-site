@@ -16,7 +16,7 @@
 				z-index: 1;
 			}
             .text {
-                padding-top:100px;
+                padding-top:110px;
             }
             .btn {
                 border:white solid 5px;
@@ -27,6 +27,11 @@
             	background-repeat:no-repeat;
             	background-size:cover;
             	background-position:center center;
+            }
+            .lead {
+            	color:$midnight-blue;
+            	font-size:32px;
+            	line-height: normal;
             }
             .slide-one {
             	background-image:url(../images/home-hero-one.jpg);
@@ -594,7 +599,7 @@
 			margin-top:-60px;
 			overflow: hidden;
             .text {
-                padding-top:100px;
+                padding-top:110px;
             }
             .btn {
                 border:white solid 5px;
