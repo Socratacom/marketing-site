@@ -26,7 +26,7 @@
 			<div class="col-sm-6 col-md-4">
 				<div class="what-we-do">
 					<h2>What We Do</h2>
-					<p class="lead">Our cloud-based open data platform - developed exclusively for governments - collects, refines, and distributes data to 250 innovative global governments and millions of their connected citizens.</p>
+					<p class="lead">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
 				</div>
 			</div>
 			<div class="col-sm-6 col-md-4 tile fed-tile" data-sr="enter bottom, opacity 0.5">
@@ -35,7 +35,7 @@
 				</div>
 				<div class="tile-text">
 					<h4 class="icon fed-icon">Federal Government</h4>
-					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p>Socrata for Federal Government is helping federal departments and agencies maximize the power of their data.</p>
 					<p><a href="/solutions/federal-government" class="btn btn-default">Learn More</a></p>
 				</div>				
 			</div>
@@ -45,7 +45,7 @@
 				</div>
 				<div class="tile-text">
 					<h4 class="icon state-icon">State Government</h4>
-					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p>States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
 					<p><a href="/solutions/state-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
@@ -55,7 +55,7 @@
 				</div>
 				<div class="tile-text">
 					<h4 class="icon city-icon">City Government</h4>
-					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<p>Both large and small cities can utilize Socrata solutions to communicate more effectively with their constituents to provide the necessary services they depend on.</p>
 					<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
@@ -88,7 +88,7 @@
 		<div class="row">
 			<div class="col-sm-3">
 				<h2>Our Customers</h1>
-				<p class="lead">Curabitur blandit tempus porttitor. Sed posuere consectetur est at lobortis. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Maecenas faucibus mollis interdum. </p>
+				<p class="lead">Over XXX federal departments, states, and cities of all sizes are successfully maximizing the value of their data with Socrata.</p>
 				<p><a href="/customer-stories">View More Customers</a></p>
 			</div>
 			<?php

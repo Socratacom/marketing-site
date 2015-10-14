@@ -42,9 +42,9 @@
             ) ); ?>
           </li>-->
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learning</span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</span></a>
             <?php wp_nav_menu( array( 
-              'theme_location' => 'site_nav_learning',
+              'theme_location' => 'site_nav_resources',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
