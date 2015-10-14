@@ -178,38 +178,7 @@
 		}
 		//Articles
 		.articles {
-			ul {
-				list-style-type: none;
-				margin:0;
-				padding:0;
-			}
-			li {
-				border-bottom:$silver solid 1px;
-				line-height: normal;
-			}
-			li:first-child, li:last-child {
-				border:none;
-			}
-			.recentpost, li:last-child { 
-				padding:15px 20px;
-				p {
-					line-height: 1.3em;
-					margin:0;
-					font-size: 18px;
-				}
-				.meta {
-					font-size: 13px;
-					display: block;
-				}
-				.categories {
-					font-size: 11px;
-					text-transform: uppercase;
-					font-weight: $font-bold;
-					letter-spacing: 1px;
-					margin-bottom:5px;
-
-				}
-			}
+			
 			.card {
 				height:425px;
 				.categories {
@@ -218,39 +187,36 @@
 					margin-bottom:5px;
 				}
 			}
-			.events-card-avatar {
-				height:60px;
-				width:60px;
-				background-color:$green-sea;
-				border:white solid 2px;
-				margin:0 auto;
-				position: relative;
-			}
-			.events-card-avatar:before {
-				position: absolute;
-				font-family: 'fontawesome';	
-				content: "\f133";			
-				top:12px;
-				left:15px;
-				font-size: 28px;
-				color:white;
-			}
-			.case-study-card-avatar {
-				height:60px;
-				width:60px;
-				background-color:$pumpkin;
-				border:white solid 2px;
-				margin:0 auto;
-				position: relative;
-			}
-			.case-study-card-avatar:before {
-				position: absolute;
-				font-family: 'fontawesome';	
-				content: "\f016";			
-				top:12px;
-				left:16px;
-				font-size: 28px;
-				color:white;
+			.card-avatar {				
+				.icon-avatar {
+					height:60px;
+					width:60px;
+					border:white solid 2px;
+					margin:0 auto;
+					position: relative;
+				}
+				.icon-avatar:before {					
+					position: absolute;
+					font-family: 'fontawesome';					
+					font-size: 28px;
+					color:white;
+				}
+				.events {
+					background-color:$green-sea;
+				}
+				.events:before {
+					content: "\f133";			
+					top:12px;
+					left:15px;
+				}
+				.case-studies {
+					background-color:$pumpkin;
+				}
+				.case-studies:before {					
+					content: "\f016";			
+					top:12px;
+					left:16px;
+				}
 			}
 		}
 		//CTA

@@ -121,14 +121,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				<ul>
 				<?php
-				$isfirst = false;
 				$featuredPosts = new WP_Query();
-				$featuredPosts->query('post_type=tribe_events&orderby=desc&showposts=4');
+				$featuredPosts->query('post_type=tribe_events&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
-				<?php if ( ! $isfirst ): ?>
-				<li class="homefirstpost">
 					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-green-sea">
 							Events
@@ -136,7 +132,7 @@
 						<div class="card-image hidden-xs">
 							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
 							<div class="card-avatar">
-								<div class="events-card-avatar img-circle"></div>
+								<div class="icon-avatar img-circle events"></div>
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
@@ -147,29 +143,15 @@
 							<?php the_excerpt(); ?> 
 						</div>
 						<div class="padding-fallback"></div>
-					</div>					
-				</li>
-				<?php $isfirst = true; ?>
-				<?php else: ?>
-				<li class="recentpost">
-					<div class="categories"><?php events_the_categories(); ?></div>
-					<p><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><?php echo tribe_events_event_schedule_details( $event_id, '<small class="meta">', '</small>' ); ?></p>
-				</li>
-				<?php endif; ?>
+					</div>				
 				<?php endwhile; ?>
 				<?php wp_reset_query(); ?>
-				<li><a href="/events">View All Events</a></li>
-				</ul>
 			</div>
 			<div class="col-sm-4">
-				<ul>
 				<?php
-				$isfirst = false;
 				$featuredPosts = new WP_Query();
-				$featuredPosts->query('post_type=case_study&orderby=desc&showposts=4');
+				$featuredPosts->query('post_type=case_study&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
-				<?php if ( ! $isfirst ): ?>
-				<li class="homefirstpost">
 					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-pumpkin">
 							Case Studies
@@ -177,7 +159,7 @@
 						<div class="card-image hidden-xs">
 							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
 							<div class="card-avatar">
-								<div class="case-study-card-avatar img-circle"></div>
+								<div class="icon-avatar img-circle case-studies"></div>
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
@@ -187,28 +169,16 @@
 							<?php the_excerpt(); ?> 
 						</div>						
 						<div class="padding-fallback"></div>
-					</div>	
-				</li>
-				<?php $isfirst = true; ?>
-				<?php else: ?>
-				<li class="recentpost">
-					<p><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><small class="meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
-				</li>
-				<?php endif; ?>
+					</div>
 				<?php endwhile; ?>
-				<?php wp_reset_query(); ?>				
-				<li><a href="/case-studies">View More Case Studies</a></li>
-				</ul>
+				<?php wp_reset_query(); ?>
 			</div>
 			<div class="col-sm-4">
 				<ul>
 				<?php
-				$isfirst = false;
 				$featuredPosts = new WP_Query();
-				$featuredPosts->query('post_type=post&orderby=desc&showposts=4');
+				$featuredPosts->query('post_type=post&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
-				<?php if ( ! $isfirst ): ?>
-				<li class="homefirstpost">
 					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-wisteria">
 							Open Data Blog
@@ -226,18 +196,9 @@
 							<?php the_excerpt(); ?> 
 						</div>						
 						<div class="padding-fallback"></div>
-					</div>	
-				</li>
-				<?php $isfirst = true; ?>
-				<?php else: ?>
-				<li class="recentpost">
-					<p><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><small class="meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
-				</li>
-				<?php endif; ?>
+					</div>
 				<?php endwhile; ?>
 				<?php wp_reset_query(); ?>
-				<li><a href="/blog">View More Articles</a></li>
-				</ul>
 			</div>
 		</div>
 	</div>
