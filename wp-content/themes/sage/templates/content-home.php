@@ -6,7 +6,7 @@
 					<div class="col-sm-6">
 						<h1>The Data Platform for 21st Century Digital Government</h1>
 						<p class="lead">Leverage the power of data to improve every community - globally and locally.</p>
-                        <p><a href="#" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
+                        <p><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
 					</div>
                 </div>
 			</div>
