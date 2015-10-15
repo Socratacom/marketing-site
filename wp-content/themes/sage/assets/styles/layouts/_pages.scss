@@ -98,6 +98,20 @@
 					color:$concrete;
 				}
 			}
+			.stat {
+				position: relative;
+				font-style:italic;
+				font-size:13px;
+				padding-left:20px;
+			}
+			.stat:before {
+				font-family: fontawesome;
+				content:"\f05a";
+				position: absolute;
+				top:0;
+				left:0;
+				font-style: normal;
+			}
 		}
 		//Customers
 		.customers {
@@ -181,35 +195,26 @@
 				}
 			}
 		}
-		//CTA
-		.demo-cta * {
-			color:white;
-		}
-		.demo-cta {
-			.btn {
-				color:$sun-flower;
-			}
-		}
-		//Clock
-		#face {
-			stroke-width: 5px;
-			fill: $peter-river;
-			stroke: white; 
-		}
-		#hour, #min, #sec {
-			stroke-width: 1px;
-			fill: white; 
-			stroke: white;
-		}
-		#sec {
-			stroke: white;
-		}
-		#dot {
-			stroke-width: 1px; 
-			fill: $peter-river; 
-			stroke: white;
-		}
-	}	
+	}
+	//Clock
+	#face {
+		stroke-width: 5px;
+		fill: $peter-river;
+		stroke: white; 
+	}
+	#hour, #min, #sec {
+		stroke-width: 1px;
+		fill: white; 
+		stroke: white;
+	}
+	#sec {
+		stroke: white;
+	}
+	#dot {
+		stroke-width: 1px; 
+		fill: $peter-river; 
+		stroke: white;
+	}
 	/* Hero */
 	.hero {
 		width:100%;
