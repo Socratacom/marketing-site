@@ -48,10 +48,7 @@
 			.tile {
 				position: relative;				
 				box-sizing:border-box;
-				overflow: hidden;	
-				* {
-					color:white;
-				}
+				overflow: hidden;
 				.tile-icon, .tile-text {
 					position: absolute;
 					height:100%;
@@ -77,50 +74,20 @@
 					left:30px;
 				}
 			}
-			.fed-tile {
-				background-color:$belize-hole;
-				.btn {
-					color:$belize-hole;
-				}
-				.fed-icon:before {
-					content: "\e606";
-				}
+			.fed-icon:before {
+				content: "\e606";
 			}
-			.state-tile {
-				background-color:$green-sea;
-				.btn {
-					color:$green-sea;
-				}
-				.state-icon:before {
-					content: "\e801";
-				}
+			.state-icon:before {
+				content: "\e801";
 			}
-			.county-tile {
-				background-color:$pumpkin;
-				.btn {
-					color:$pumpkin;
-				}
-				.county-icon:before {
-					content: "\e800";
-				}
+			.city-icon:before {
+				content: "\e602";
 			}
-			.city-tile {
-				background-color:$amethyst;
-				.btn {
-					color:$amethyst;
-				}
-				.city-icon:before {
-					content: "\e602";
-				}
+			.county-icon:before {
+				content: "\e800";
 			}
-			.ngo-tile {
-				background-color:$orange;
-				.btn {
-					color:$orange;
-				}
-				.ngo-icon:before {
-					content: "\e603";
-				}
+			.ngo-icon:before {
+				content: "\e603";
 			}
 			.what-we-do {
 				h2 {
@@ -181,11 +148,6 @@
 			
 			.card {
 				height:425px;
-				.categories {
-					text-transform: uppercase;
-					font-size: 14px;
-					margin-bottom:5px;
-				}
 			}
 			.card-avatar {				
 				.icon-avatar {
@@ -228,6 +190,25 @@
 				color:$sun-flower;
 			}
 		}
+		//Clock
+		#face {
+			stroke-width: 5px;
+			fill: $peter-river;
+			stroke: white; 
+		}
+		#hour, #min, #sec {
+			stroke-width: 1px;
+			fill: white; 
+			stroke: white;
+		}
+		#sec {
+			stroke: white;
+		}
+		#dot {
+			stroke-width: 1px; 
+			fill: $peter-river; 
+			stroke: white;
+		}
 	}	
 	/* Hero */
 	.hero {
@@ -268,11 +249,6 @@
 	}
 	.section-title {
 		margin-bottom:50px;
-	}
-	.text-reverse {
-		h1,h2,h3,h4,p,li {
-			color:white;
-		}
 	}
 	.box {
 		padding:30px;
@@ -340,34 +316,6 @@
 			top:0;
 			font-size: 32px;
 		}
-		.federal li:before {
-			content:"\e606";
-			color:$belize-hole;
-		}
-		.state li:before {
-			content:"\e801";
-			color:$green-sea;
-		}
-		.city li:before {
-			content:"\e602";
-			color:$amethyst;
-		}
-		.county li:before {
-			content:"\e800";
-			color:$pumpkin;
-		}
-		.non-profit li:before {
-			content:"\e603";
-			color:$orange;
-		}
-		.finance li:before {
-			content:"\e802";
-			color:$nephritis;
-		}
-		.public-safety li:before {
-			content:"\e806";
-			color:$peter-river;
-		}
 	}
 	.solution-icon i {
 		font-size: 200px;
@@ -422,9 +370,6 @@
 	}
 
 	//Socrata for Finance
-	.finance-icon {
-		color:$nephritis;
-	}
 	.finance-solution-image {
 		background-image:url(../images/finance-hero.jpg);
 		.wrapper {
@@ -432,9 +377,6 @@
 		}
 	}
 
-	.public-safety-icon {
-		color:$peter-river;
-	}
 	.public-safety-solution-image {
 		background-image:url(../images/finance-hero.jpg);
 		.wrapper {
@@ -442,9 +384,6 @@
 		}
 	}
 
-	.federal-icon {
-		color:$belize-hole;
-	}
 	.federal-solution-image {
 		background-image:url(../images/federal-hero.jpg);
 		.wrapper {
@@ -452,9 +391,6 @@
 		}
 	}
 
-	.state-icon {
-		color:$green-sea;
-	}
 	.state-solution-image {
 		background-image:url(../images/state-hero.jpg);
 		.wrapper {
@@ -462,9 +398,6 @@
 		}
 	}
 
-	.city-icon {
-		color:$amethyst;
-	}
 	.city-solution-image {
 		background-image:url(../images/city-hero.jpg);
 		.wrapper {
@@ -472,9 +405,6 @@
 		}
 	}
 
-	.county-icon {
-		color:$pumpkin;
-	}
 	.county-solution-image {
 		background-image:url(../images/county-hero.jpg);
 		.wrapper {
@@ -482,9 +412,6 @@
 		}
 	}
 
-	.non-profit-icon {
-		color:$orange;
-	}
 	.non-profit-solution-image {
 		background-image:url(../images/non-profit-hero.jpg);
 		.wrapper {

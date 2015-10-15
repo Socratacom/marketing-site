@@ -29,53 +29,54 @@
 					<p class="lead">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-4 tile fed-tile" data-sr="enter bottom, opacity 0.5">
+			<div class="col-sm-6 col-md-4 tile background-belize-hole" data-sr="enter bottom, opacity 0.5">
 				<div class="tile-icon">
-					<h4 class="text-center icon fed-icon">Federal Government</h4>
+					<h4 class="text-center icon fed-icon text-reverse">Federal Government</h4>
 				</div>
 				<div class="tile-text">
-					<h4 class="icon fed-icon">Federal Government</h4>
-					<p>Socrata for Federal Government is helping federal departments and agencies maximize the power of their data.</p>
+					<h4 class="icon fed-icon text-reverse">Federal Government</h4>
+					<p class=" text-reverse">Socrata for Federal Government is helping federal departments and agencies maximize the power of their data.</p>
 					<p><a href="/solutions/federal-government" class="btn btn-default">Learn More</a></p>
 				</div>				
 			</div>
-			<div class="col-sm-6 col-md-4 tile state-tile" data-sr="enter bottom, opacity 0.5">
+			<div class="col-sm-6 col-md-4 tile background-green-sea" data-sr="enter bottom, opacity 0.5">
 				<div class="tile-icon">
-					<h4 class="text-center icon state-icon">State Government</h4>
+					<h4 class="text-center icon state-icon text-reverse">State Government</h4>
 				</div>
 				<div class="tile-text">
-					<h4 class="icon state-icon">State Government</h4>
-					<p>States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
-					<p><a href="/solutions/state-government" class="btn btn-default">Learn More</a></p>
+					<h4 class="icon state-icon text-reverse">State Government</h4>
+					<p class="text-reverse">States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
+					<p><a href="/solutions/state-government" class="btn btn-default color-green-sea">Learn More</a></p>
 				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile city-tile" data-sr="enter bottom, opacity 0.5">
+
+			<div class="col-sm-6 col-md-4 tile background-pumpkin" data-sr="enter bottom, opacity 0.5">
 				<div class="tile-icon">
-					<h4 class="text-center icon city-icon">City Government</h4>
+					<h4 class="text-center icon city-icon text-reverse">City Government</h4>
 				</div>
 				<div class="tile-text">
-					<h4 class="icon city-icon">City Government</h4>
-					<p>Both large and small cities can utilize Socrata solutions to communicate more effectively with their constituents to provide the necessary services they depend on.</p>
+					<h4 class="icon city-icon text-reverse">City Government</h4>
+					<p class="text-reverse">Both large and small cities can utilize Socrata solutions to communicate more effectively with their constituents to provide the necessary services they depend on.</p>
 					<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile county-tile" data-sr="enter bottom, opacity 0.5">
+			<div class="col-sm-6 col-md-4 tile background-amethyst" data-sr="enter bottom, opacity 0.5">
 				<div class="tile-icon">
-					<h4 class="text-center icon county-icon">County Government</h4>
+					<h4 class="text-center icon county-icon text-reverse">County Government</h4>
 				</div>
 				<div class="tile-text">
-					<h4 class="icon county-icon">County Government</h4>
-					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<h4 class="icon county-icon text-reverse">County Government</h4>
+					<p class="text-reverse">Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
 					<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile ngo-tile" data-sr="enter bottom, opacity 0.5">
+			<div class="col-sm-6 col-md-4 tile background-orange" data-sr="enter bottom, opacity 0.5">
 				<div class="tile-icon">
-					<h4 class="text-center icon ngo-icon">Non-Profit and International Organizations</h4>
+					<h4 class="text-center icon ngo-icon text-reverse">Non-Profit and International Organizations</h4>
 				</div>
 				<div class="tile-text">
-					<h4 class="icon ngo-icon">Non-Profit and International Organizations</h4>
-					<p>Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+					<h4 class="icon ngo-icon text-reverse">Non-Profit and International Organizations</h4>
+					<p class="text-reverse">Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
 					<p><a href="/solutions/non-profit-and-international-organizations" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
@@ -91,28 +92,15 @@
 				<p class="lead">Over XXX federal departments, states, and cities of all sizes are successfully maximizing the value of their data with Socrata.</p>
 				<p><a href="/customer-stories">View More Customers</a></p>
 			</div>
-			<?php
-			$featuredCustomer = new WP_Query();
-			$featuredCustomer->query('post_type=stories&orderby=rand&showposts=3');
-			while ($featuredCustomer->have_posts()) : $featuredCustomer->the_post(); 
-			?>
 			<div class="col-sm-3">
-				<article>
-					<div class="logo-frame text-center">
-						<img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive">
-					</div>
-					<div class="customer-text truncate">
-						<h5><?php the_title(); ?></h5>
-						<?php the_excerpt(); ?>
-					</div>
-					<ul>
-						<li><a href="<?php the_permalink() ?>">Read More</a></li>
-						<?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<li><a href='$meta[2]' target='_blank'>Visit Site</a></li>";} ?>
-					</ul>
-				</article>
+				<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=federal&posts_per_page=1"]');?>
 			</div>
-			<?php endwhile; ?>
-			<?php wp_reset_query(); ?>
+			<div class="col-sm-3">
+				<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=state&posts_per_page=1"]');?>
+			</div>
+			<div class="col-sm-3">
+				<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=city&posts_per_page=1"]');?>
+			</div>
 		</div>
 	</div>
 </section>
@@ -127,7 +115,10 @@
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-green-sea">
-							Events
+							<ul>
+								<li>Events</li>
+								<li><a href="/events">View All</a></li>
+							</ul>
 						</div>
 						<div class="card-image hidden-xs">
 							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
@@ -154,7 +145,10 @@
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-pumpkin">
-							Case Studies
+							<ul>
+								<li>Case Studies</li>
+								<li><a href="/case-studies">View All</a></li>
+							</ul>
 						</div>
 						<div class="card-image hidden-xs">
 							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
@@ -163,9 +157,10 @@
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
-						<div class="card-text">
+						<div class="card-text">							
+							<div class="categories"><?php case_study_the_categories(); ?></div>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<small class="card-meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small>
+							<small class="card-meta"><?php $meta = get_case_study_meta(); if ($meta[0]) echo $meta[0]; ?></small>
 							<?php the_excerpt(); ?> 
 						</div>						
 						<div class="padding-fallback"></div>
@@ -174,14 +169,16 @@
 				<?php wp_reset_query(); ?>
 			</div>
 			<div class="col-sm-4">
-				<ul>
 				<?php
 				$featuredPosts = new WP_Query();
 				$featuredPosts->query('post_type=post&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-wisteria">
-							Open Data Blog
+							<ul>
+								<li>Open Data Blog</li>
+								<li><a href="/blog">View All</a></li>
+							</ul>
 						</div>
 						<div class="card-image hidden-xs">
 							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
@@ -191,6 +188,7 @@
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
 						<div class="card-text">
+							<div class="categories"><?php Roots\Sage\Extras\blog_the_categories(); ?></div>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 							<small class="card-meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small>
 							<?php the_excerpt(); ?> 
@@ -203,15 +201,25 @@
 		</div>
 	</div>
 </section>
-<section class="background-sun-flower demo-cta section-padding">	
+<section class="background-peter-river section-padding">	
 	<div class="container">
 		<div class="row">
-
-			<div class="col-sm-6 col-sm-offset-6">
-				<h2 class="text-right">Give us an hour.</h2>
-				<p class="text-right lead">Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-				<p class="text-right"><a href="/request-a-demo" class="btn btn-default btn-lg">Request a Demo</a></p>
-				<p class="text-right">Got question now? Chat with someone live or call us (800) 555-1212</p>
+			<div class="col-sm-6 col-sm-offset-1">
+				<h2 class="text-reverse">Give us an hour.</h2>
+				<p class="lead text-reverse">Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+				<p class="text-reverse">Got question now? Give us a call at (800) 555-1212</p>
+				<p><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
+			</div>
+			<div class="col-sm-4 hidden-xs">				
+				<svg id="clock" viewBox="0 0 100 100">
+					<circle id="face" cx="50" cy="50" r="45"/>
+					<g id="hands">
+						<rect id="hour" x="48" y="22.5" width="4" height="30" rx="2" ry="2" />
+						<rect id="min" x="48" y="12.5" width="4" height="40" rx="2" ry="2"/>
+						<line id="sec" x1="50" y1="50" x2="50" y2="16" />
+					</g>
+					<circle id="dot" cx="50" cy="50" r="3"/>
+				</svg>
 			</div>
 		</div>
 	</div>

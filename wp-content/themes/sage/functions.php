@@ -100,37 +100,6 @@ add_filter( 'found_posts', 'homepage_offset_pagination', 10, 2 );
 
 
 
-/**
- * Financial Transparency Posts
- */
 
-
-
-function solutions_logos( $atts ) {
-    extract( shortcode_atts( array(
-        'query' => ''
-    ), $atts ) );
-
-        $query = html_entity_decode( $query );
-
-        ob_start(); 
-        $the_query = new WP_Query( $query );
-        while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
-<div class="col-sm-2 solutions-logos">
-  <div class="logo-frame text-center">
-    <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">
-  </div>
-  <p class="text-center"><small><?php the_title();?></small></p>
-</div>
-
-<?php
-  endwhile;
-  wp_reset_postdata();
-  $list = ob_get_clean();
-  return $list;
-}
-
-add_shortcode( 'solutions-logos', 'solutions_logos' );
 
 

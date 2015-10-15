@@ -79,68 +79,183 @@ body {
 	content: "\e600";
 }
 
-
-
-// Background Colors
+// Colors
 .background-turquoise {
 	background-color:$turquoise;
+	.btn-default {
+		color:$turquoise;
+	}
+}
+.color-turquoise {
+	color:$turquoise;
 }
 .background-green-sea {
 	background-color:$green-sea;
+	.btn-default {
+		color:$green-sea;
+	}
+}
+.color-green-sea {
+	color:$green-sea;
 }
 .background-emerald {
 	background-color:$emerald;
+	.btn-default {
+		color:$emerald;
+	}
+}
+.color-emerald {
+	color:$emerald;
 }
 .background-nephritis {
 	background-color:$nephritis;
+	.btn-default {
+		color:$nephritis;
+	}
+}
+.color-nephritis {
+	color:$nephritis;
 }
 .background-peter-river {
 	background-color:$peter-river;
+	.btn-default {
+		color:$peter-river;
+	}
+}
+.color-peter-river {
+	color:$peter-river;
 }
 .background-belize-hole {
 	background-color:$belize-hole;
+	.btn-default {
+		color:$belize-hole;
+	}
+}
+.color-belize-hole {
+	color:$belize-hole;
 }
 .background-amethyst {
 	background-color:$amethyst;
+	.btn-default {
+		color:$amethyst;
+	}
+}
+.color-amethyst {
+	color:$amethyst;
 }
 .background-wisteria {
 	background-color:$wisteria;
+	.btn-default {
+		color:$wisteria;
+	}
+}
+.color-wisteria {
+	color:$wisteria;
 }
 .background-wet-asphalt {
 	background-color:$wet-asphalt;
+	.btn-default {
+		color:$wet-asphalt;
+	}
+}
+.color-wet-asphalt {
+	color:$wet-asphalt;
 }
 .background-midnight-blue {
 	background-color:$midnight-blue;
+	.btn-default {
+		color:$midnight-blue;
+	}
+}
+.color-midnight-blue {
+	color:$midnight-blue;
 }
 .background-orange {
 	background-color:$orange;
+	.btn-default {
+		color:$orange;
+	}
+}
+.color-orange {
+	color:$orange;
 }
 .background-carrot {
 	background-color:$carrot;
+	.btn-default {
+		color:$carrot;
+	}
+}
+.color-carrot {
+	color:$carrot;
 }
 .background-pumpkin {
 	background-color:$pumpkin;
+	.btn-default {
+		color:$pumpkin;
+	}
+}
+.color-pumpkin {
+	color:$pumpkin;
 }
 .background-alizarin {
 	background-color:$alizarin;
+	.btn-default {
+		color:$alizarin;
+	}
+}
+.color-alizarin {
+	color:$alizarin;
 }
 .background-pomegranate {
 	background-color:$pomegranate;
+	.btn-default {
+		color:$pomegranate;
+	}
+}
+.color-pomegranate {
+	color:$pomegranate;
 }
 .background-silver {
 	background-color:$silver;
+	.btn-default {
+		color:$silver;
+	}
+}
+.color-silver {
+	color:$silver;
 }
 .background-concrete {
 	background-color:$concrete;
+	.btn-default {
+		color:$concrete;
+	}
+}
+.color-concrete {
+	color:$concrete;
 }
 .background-asbestos {
 	background-color:$asbestos;
+	.btn-default {
+		color:$asbestos;
+	}
+}
+.color-asbestos {
+	color:$asbestos;
 }
 .background-clouds {
 	background-color:$clouds;
+	.btn-default {
+		color:$clouds;
+	}
 }	
 .background-sun-flower {
 	background-color:$sun-flower;
+	.btn-default {
+		color:$sun-flower;
+	}
+}
+.color-sun-flower {
+	color:$sun-flower;
 }
 .background-gray-dark {
 	background-color:$gray-dark;
@@ -148,6 +263,30 @@ body {
 .background-white {
 	background-color:white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media only screen and (min-width : 320px) {
 
@@ -208,6 +347,9 @@ body {
 	.page-padding {
 		padding-top:60px;
 	}
+	.text-reverse {
+		color:white;
+	}
 
 	/* NO Gutters */
 	.row.no-gutters {
@@ -264,13 +406,33 @@ body {
 			left:0;
 			z-index: 10;
 			width:100%;
-			color:white;
-			padding:10px 15px;
-			text-transform: uppercase;
-			font-weight: $font-normal;
-			font-size:13px;
+			height: 32px;
+			ul {
+				list-style-type:none;
+				margin:0;
+				padding:0;
+			}
+			li {
+				color:white;
+				font-weight: $font-normal;
+				font-size:13px;
+			}
+			li:first-child {
+				text-transform: uppercase;
+				position: absolute;
+				top:8px;
+				left:15px;
+			}
+			li:last-child {
+				position: absolute;
+				top:8px;
+				right:15px;
+			}
+			a {
+				color:white;
+			}
 		}		
-		.card-meta {
+		.card-meta, .categories {
 			font-size: 13px;
 			padding:10px 0;
 			display: block;
@@ -299,7 +461,7 @@ body {
 			}
 		}
 		.card-text {
-			padding:40px 20px 20px 20px;
+			padding:30px 20px 20px 20px;
 			h4 {
 				margin:0;
 			}

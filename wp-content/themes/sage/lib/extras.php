@@ -228,7 +228,66 @@ function socrata_solutions_list($atts, $content = null) {
 add_shortcode('socrata-solutions-list', __NAMESPACE__ . '\\socrata_solutions_list');
 
 
+/**
+ * Query for logos on Solutions Pages
+ */
+function solutions_logos( $atts ) {
+  extract( shortcode_atts( array(
+    'query' => ''
+  ), $atts ) );
+  $query = html_entity_decode( $query );
+  ob_start(); 
+  $the_query = new \WP_Query( $query );
+  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
+  <div class="col-sm-2 solutions-logos">
+    <div class="logo-frame text-center">
+      <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">
+    </div>
+    <p class="text-center"><small><?php the_title();?></small></p>
+  </div>
 
+  <?php
+  endwhile;
+  wp_reset_postdata();
+  $list = ob_get_clean();
+  return $list;
+}
 
+add_shortcode( 'solutions-logos', __NAMESPACE__ . '\\solutions_logos' );
+
+/**
+ * Query for logos and abstract. Used on the homepage and product pages
+ */
+function customer_logos_abstract( $atts ) {
+  extract( shortcode_atts( array(
+    'query' => ''
+  ), $atts ) );
+  $query = html_entity_decode( $query );
+  ob_start(); 
+  $the_query = new \WP_Query( $query );
+  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+  <article>
+    <div class="logo-frame text-center">
+      <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive">
+    </div>
+    <div class="customer-text truncate">
+      <h5><?php the_title(); ?></h5>
+      <?php the_excerpt(); ?>
+    </div>
+    <ul>
+      <li><a href="<?php the_permalink() ?>">Read More</a></li>
+      <?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<li><a href='$meta[2]' target='_blank'>Visit Site</a></li>";} ?>
+    </ul>
+  </article>
+
+  <?php
+  endwhile;
+  wp_reset_postdata();
+  $list = ob_get_clean();
+  return $list;
+}
+
+add_shortcode( 'customer-logos-abstract', __NAMESPACE__ . '\\customer_logos_abstract' );
 

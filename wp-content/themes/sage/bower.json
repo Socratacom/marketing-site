@@ -12,14 +12,18 @@
     "jQuery.dotdotdot": "~1.7.4",
     "modernizr": "2.8.2",
     "scrollreveal": "scrollReveal.js#~2.3.2",
-    "slick-carousel": "~1.5.8"
+    "slick-carousel": "~1.5.8",
+    "Snap.svg": "snap.svg#~0.4.1"
   },
-  "overrides": {    
+  "overrides": {
     "jQuery.dotdotdot": {
       "main": "./src/js/jquery.dotdotdot.min.js"
-    },    
+    },
     "scrollreveal": {
       "main": "./dist/scrollReveal.min.js"
+    },
+    "Snap.svg": {
+      "main": "./dist/snap.svg-min.js"
     },
     "slick-carousel": {
       "main": "./slick/slick.min.js"

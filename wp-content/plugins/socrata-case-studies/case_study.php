@@ -147,6 +147,17 @@ function case_study_body_class( $classes ) {
   return $classes;
 }
 
+// Print Taxonomy Categories
+function case_study_the_categories() {
+    // get all categories for this post
+    global $terms;
+    $terms = get_the_terms($post->ID , 'case_study_category');
+    // echo the first category
+    echo $terms[0]->name;
+    // echo the remaining categories, appending separator
+    for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
 // Shortcode [case-study-posts]
 function case_study_posts($atts, $content = null) {
   ob_start();
