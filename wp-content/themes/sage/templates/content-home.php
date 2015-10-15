@@ -35,7 +35,7 @@
 				</div>
 				<div class="tile-text">
 					<h4 class="icon fed-icon text-reverse">Federal Government</h4>
-					<p class=" text-reverse">Socrata for Federal Government is helping federal departments and agencies maximize the power of their data.</p>
+					<p class=" text-reverse">Socrata for Federal Government helps federal departments and agencies maximize the power of their data.</p>
 					<p class=" text-reverse stat">"In-Process" for FedRAMP certification as of 2015</p>
 					<p><a href="/solutions/federal-government" class="btn btn-default">Learn More</a></p>
 				</div>				
@@ -58,7 +58,7 @@
 				</div>
 				<div class="tile-text">
 					<h4 class="icon city-icon text-reverse">City Government</h4>
-					<p class="text-reverse">Both large and small cities can utilize Socrata solutions to communicate more effectively with their constituents to provide the necessary services they depend on.</p>
+					<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
 					<p class=" text-reverse stat">3k to 8m citizens, cities large and small use Socrata</p>
 					<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
 				</div>	
@@ -69,7 +69,7 @@
 				</div>
 				<div class="tile-text">
 					<h4 class="icon county-icon text-reverse">County Government</h4>
-					<p class="text-reverse">Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor.</p>
+					<p class="text-reverse">With Socrata solutions, counties can publish data that will boost the economy and make the region a better place to live.</p>
 					<p class=" text-reverse stat">4,000+ datasets are hosted by counties on Socrata</p>
 					<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
 				</div>	
@@ -80,7 +80,7 @@
 				</div>
 				<div class="tile-text">
 					<h4 class="icon ngo-icon text-reverse">Non-Profit and International Organizations</h4>
-					<p class="text-reverse">Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor.</p>					
+					<p class="text-reverse">Using Socrata solutions, organizations can make data-driven decisions about program effectiveness and hone long-term strategy.</p>					
 					<p class=" text-reverse stat">15 countries receive support from nonprofits on Socrata</p>
 					<p><a href="/solutions/non-profit-and-international-organizations" class="btn btn-default">Learn More</a></p>
 				</div>	
