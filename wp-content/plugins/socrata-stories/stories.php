@@ -211,8 +211,11 @@ function stories_posts($atts, $content = null) {
               <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
                 <div class="text">
                   <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+                  <div class="truncate">
+                    <?php the_excerpt(); ?> 
+                  </div>
+                  <p><a href="<?php the_permalink() ?>" class="btn btn-primary">Read More</a></p>
                 </div>
-                <?php get_template_part('templates/entry-meta'); ?>
                 <div class="overlay"></div>
                 <a href="<?php the_permalink() ?>" class="link"></a>
               </div>
@@ -236,7 +239,19 @@ function stories_posts($atts, $content = null) {
           while ( $query2->have_posts() ) {
             $query2->the_post(); ?>
             
-            <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card truncate">
+                <div class="card-image hidden-xs">
+                  <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">                    
+                  <a href="<?php the_permalink() ?>"></a>
+                </div>
+                <div class="card-text">
+                  <div class="categories"><?php stories_the_categories(); ?></div>
+                  <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+                  <?php the_excerpt(); ?> 
+                </div>
+              </div>
+            </div>
 
             <?php
           }

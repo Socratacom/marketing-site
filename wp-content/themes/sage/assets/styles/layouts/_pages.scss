@@ -131,7 +131,7 @@
 					width:100%;
 					height: 180px;
 					padding:30px;
-					border:$silver solid 5px;
+					border:lighten($silver, 10%) solid 5px;
 					img {
 						display:inline-block;
 						position: relative;
