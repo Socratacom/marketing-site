@@ -35,7 +35,7 @@
 		border:none;
 	}
 	.navbar-default .navbar-nav>li>.btn-default:hover {
-		background-color:$belize-hole;
+		background-color:darken($peter-river, 10%);
 		color:white;
 	}
 	.navbar-right {

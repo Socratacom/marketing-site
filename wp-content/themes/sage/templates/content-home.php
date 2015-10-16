@@ -36,7 +36,7 @@
 				<div class="tile-text">
 					<h4 class="icon fed-icon text-reverse">Federal Government</h4>
 					<p class=" text-reverse">Socrata for Federal Government helps federal departments and agencies maximize the power of their data.</p>
-					<p class=" text-reverse stat">"In-Process" for FedRAMP certification as of 2015</p>
+					<p class=" text-reverse stat"><span>"In-Process"</span> for FedRAMP certification as of 2015</p>
 					<p><a href="/solutions/federal-government" class="btn btn-default">Learn More</a></p>
 				</div>				
 			</div>
@@ -47,7 +47,7 @@
 				<div class="tile-text">
 					<h4 class="icon state-icon text-reverse">State Government</h4>
 					<p class="text-reverse">States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
-					<p class=" text-reverse stat">20+ U.S. States publish public data through Socrata</p>
+					<p class=" text-reverse stat"><span>20+ U.S. States</span> publish public data through Socrata</p>
 					<p><a href="/solutions/state-government" class="btn btn-default color-green-sea">Learn More</a></p>
 				</div>	
 			</div>
@@ -59,7 +59,7 @@
 				<div class="tile-text">
 					<h4 class="icon city-icon text-reverse">City Government</h4>
 					<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
-					<p class=" text-reverse stat">3k to 8m citizens, cities large and small use Socrata</p>
+					<p class=" text-reverse stat"><span>3k to 8m</span> citizens, cities large and small use Socrata</p>
 					<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
@@ -70,7 +70,7 @@
 				<div class="tile-text">
 					<h4 class="icon county-icon text-reverse">County Government</h4>
 					<p class="text-reverse">With Socrata solutions, counties can publish data that will boost the economy and make the region a better place to live.</p>
-					<p class=" text-reverse stat">4,000+ datasets are hosted by counties on Socrata</p>
+					<p class=" text-reverse stat"><span>4,000+ datasets</span> are hosted by counties on Socrata</p>
 					<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
@@ -81,7 +81,7 @@
 				<div class="tile-text">
 					<h4 class="icon ngo-icon text-reverse">Non-Profit and International Organizations</h4>
 					<p class="text-reverse">Using Socrata solutions, organizations can make data-driven decisions about program effectiveness and hone long-term strategy.</p>					
-					<p class=" text-reverse stat">15 countries receive support from nonprofits on Socrata</p>
+					<p class=" text-reverse stat"><span>15 countries</span> receive support from nonprofits on Socrata</p>
 					<p><a href="/solutions/non-profit-and-international-organizations" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
@@ -209,7 +209,7 @@
 <section class="background-peter-river section-padding">	
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-1">
+			<div class="col-sm-6 col-sm-offset-1" data-sr='enter left move 50px'>
 				<h2 class="text-reverse">Give us an hour.</h2>
 				<p class="lead text-reverse">Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
 				<p class="text-reverse">Got question now? Give us a call at (800) 555-1212</p>

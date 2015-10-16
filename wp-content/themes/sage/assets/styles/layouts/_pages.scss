@@ -87,7 +87,7 @@
 				content: "\e800";
 			}
 			.ngo-icon:before {
-				content: "\e603";
+				content: "\e810";
 			}
 			.what-we-do {
 				h2 {
@@ -100,17 +100,25 @@
 			}
 			.stat {
 				position: relative;
-				font-style:italic;
-				font-size:13px;
+				font-size: 14px;
 				padding-left:20px;
+				padding-top:20px;
+				border-top:white dotted 1px;
+				span {
+					display:block;
+					font-size:24px;
+					font-weight:$font-light;
+					margin-bottom:5px;
+				}
 			}
 			.stat:before {
 				font-family: fontawesome;
 				content:"\f05a";
 				position: absolute;
-				top:0;
+				top:20px;
 				left:0;
 				font-style: normal;
+				font-size: 16px;
 			}
 		}
 		//Customers

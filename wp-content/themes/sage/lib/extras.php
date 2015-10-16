@@ -119,114 +119,21 @@ function newsletter_sidebar ($atts, $content = null) {
 add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
 
 /**
- * Finance Form
+ * Marketo Form
  */
-function socrata_finance_form ($atts, $content = null) {
-  ob_start();
-  ?>
-  <div class="marketo-form">
+function marketo_form($atts) {
+extract(shortcode_atts(array(
+    "id" => '',
+  ), $atts));
+  return '
+    <div class="marketo-form">
     <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
-    <form id="mktoForm_2306"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
-  </div>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('socrata-finance-form', __NAMESPACE__ . '\\socrata_finance_form');
-
-
-
-/**
- * Socrata Solutions
- */
-function socrata_solutions_list($atts, $content = null) {
-  ob_start();
-  ?>
-  <section class="section-padding solutions-list">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h3>Other Socrata Solutions</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <ul class="federal">
-            <li>
-              <h5>Federal Government</h5>
-              <p>Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor.</p>
-              <p><a href="/solutions/federal-government">Learn More <i class="fa fa-arrow-circle-o-right"></i></p>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="state">
-            <li>
-              <h5>State Government</h5>
-              <p>Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor.</p>
-              <p><a href="/solutions/state-government">Learn More <i class="fa fa-arrow-circle-o-right"></i></p>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="city">
-            <li>
-              <h5>City Government</h5>
-              <p>Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor.</p>
-              <p><a href="/solutions/city-government">Learn More <i class="fa fa-arrow-circle-o-right"></i></p>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="county">
-            <li>
-              <h5>County Government</h5>
-              <p>Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor.</p>
-              <p><a href="/solutions/county-government">Learn More <i class="fa fa-arrow-circle-o-right"></i></p>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <ul class="non-profit">
-            <li>
-              <h5>Non-profit and International Organizations</h5>
-              <p>Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor.</p>
-              <p><a href="/solutions/non-profit-and-international-organizations">Learn More <i class="fa fa-arrow-circle-o-right"></i></p>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="finance">
-            <li>
-              <h5>Socrata for Finance</h5>
-              <p>Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor.</p>
-              <p><a href="/solutions/socrata-for-finance">Learn More <i class="fa fa-arrow-circle-o-right"></i></p>
-            </li>
-          </ul>
-        </div>
-        <div class="col-sm-3">
-          <ul class="public-safety">
-            <li>
-              <h5>Socrata for Public Safety</h5>
-              <p>Nulla vitae elit libero, a pharetra augue. Duis mollis, est non commodo luctus, nisi erat porttitor.</p>
-              <p><a href="/solutions/socrata-for-public-safety">Learn More <i class="fa fa-arrow-circle-o-right"></i></p>
-            </li>
-          </ul>
-      </div>
+    <form id="mktoForm_'.$id.'"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
     </div>
-  </section>
-
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
+  ';
 }
-add_shortcode('socrata-solutions-list', __NAMESPACE__ . '\\socrata_solutions_list');
-
+add_shortcode('marketo-form', __NAMESPACE__ . '\\marketo_form');
 
 /**
  * Query for logos on Solutions Pages
