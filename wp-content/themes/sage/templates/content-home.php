@@ -81,7 +81,7 @@
 					<h4 class="text-center icon ngo-icon text-reverse">Non-Profit and International Organizations</h4>
 				</div>
 				<div class="tile-text">
-					<h4 class="icon ngo-icon text-reverse">Non-Profit and International Organizations</h4>
+					<h4 class="icon ngo-icon text-reverse">U.S. Non-Profit and International Organizations</h4>
 					<p class="text-reverse">Using Socrata solutions, organizations can make data-driven decisions about program effectiveness and hone long-term strategy.</p>					
 					<p class=" text-reverse stat"><span>15 countries</span> receive support from nonprofits on Socrata</p>
 					<p><a href="/solutions/non-profit-and-international-organizations" class="btn btn-default">Learn More</a></p>
