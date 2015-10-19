@@ -34,6 +34,29 @@
       </div>
     </div>
     <div class="col-sm-4 col-md-3 sidebar hidden-xs">
+      <?php
+      //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+      $orderby = 'name';
+      $show_count = 0; // 1 for yes, 0 for no
+      $pad_counts = 0; // 1 for yes, 0 for no
+      $hide_empty = 1;
+      $hierarchical = 1; // 1 for yes, 0 for no
+      $taxonomy = 'category';
+      $title = 'Categories';
+
+      $args = array(
+      'orderby' => $orderby,
+      'show_count' => $show_count,
+      'pad_counts' => $pad_counts,
+      'hide_empty' => $hide_empty,
+      'hierarchical' => $hierarchical,
+      'taxonomy' => $taxonomy,
+      'title_li' => '<h5>'. $title .'</h5>'
+      );
+      ?>
+      <ul class="category-nav blog-nav">
+        <?php wp_list_categories($args); ?>
+      </ul>
       <?php echo do_shortcode('[newsletter-sidebar]'); ?>
     </div>
   </div>
