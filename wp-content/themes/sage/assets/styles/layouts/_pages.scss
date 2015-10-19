@@ -30,8 +30,6 @@
             }
             .lead {
             	color:$midnight-blue;
-            	font-size:32px;
-            	line-height: normal;
             }
             .slide-one {
             	background-image:url(../images/home-hero-one.jpg);
@@ -121,50 +119,7 @@
 				font-size: 16px;
 			}
 		}
-		//Customers
-		.customers {
-			h2 {
-				margin-top:0;
-			}
-			article {
-				.logo-frame {
-					width:100%;
-					height: 180px;
-					padding:30px;
-					border:lighten($silver, 10%) solid 5px;
-					img {
-						display:inline-block;
-						position: relative;
-						top: 50%;
-						-webkit-transform: translateY(-50%);
-						-ms-transform: translateY(-50%);
-						transform: translateY(-50%);
-					}
-				}
-				.customer-text {
-					height:150px;
-					h5 {
-						margin-bottom:15px;
-					}
-				}
-				ul {
-					list-style-type: none;
-					margin:0;
-					padding:0;
-				}
-				li {
-					display:inline-block;
-					padding:0 10px;
-				}
-				li:first-child {
-					padding-left:0;
-				}
-				li:last-child {
-					border-left:$silver solid 1px;
-					padding-right:0;
-				}
-			}
-		}
+		
 		//Articles
 		.articles {
 			
@@ -201,6 +156,50 @@
 					top:12px;
 					left:16px;
 				}
+			}
+		}
+	}
+	//Customers
+	.customers {
+		h2 {
+			margin-top:0;
+		}
+		article {
+			.logo-frame {
+				width:100%;
+				height: 180px;
+				padding:30px;
+				border:lighten($silver, 10%) solid 5px;
+				img {
+					display:inline-block;
+					position: relative;
+					top: 50%;
+					-webkit-transform: translateY(-50%);
+					-ms-transform: translateY(-50%);
+					transform: translateY(-50%);
+				}
+			}
+			.customer-text {
+				height:150px;
+				h5 {
+					margin-bottom:15px;
+				}
+			}
+			ul {
+				list-style-type: none;
+				margin:0;
+				padding:0;
+			}
+			li {
+				display:inline-block;
+				padding:0 10px;
+			}
+			li:first-child {
+				padding-left:0;
+			}
+			li:last-child {
+				border-left:$silver solid 1px;
+				padding-right:0;
 			}
 		}
 	}
@@ -262,15 +261,6 @@
 	}
 	.section-title {
 		margin-bottom:50px;
-	}
-	.box {
-		padding:30px;
-		p, li {
-			font-size:16px;
-		}
-	}
-	.box-offset {
-		margin-top:-50px;
 	}
 	.shadow {
 		box-shadow: 0 0 20px rgba(0,0,0,0.15);
@@ -492,12 +482,6 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-	.box {
-		padding:30px;
-		p, li {
-			font-size:20px;
-		}
-	}
 	.value p span {
 		font-size: 20px;
 		font-weight: $font-normal;

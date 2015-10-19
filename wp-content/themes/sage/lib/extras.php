@@ -168,26 +168,29 @@ add_shortcode( 'solutions-logos', __NAMESPACE__ . '\\solutions_logos' );
  */
 function customer_logos_abstract( $atts ) {
   extract( shortcode_atts( array(
-    'query' => ''
+    'query' => '',
+    'class' => '',
   ), $atts ) );
   $query = html_entity_decode( $query );
   ob_start(); 
   $the_query = new \WP_Query( $query );
   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
-  <article>
-    <div class="logo-frame text-center">
-      <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive">
-    </div>
-    <div class="customer-text truncate">
-      <h5><?php the_title(); ?></h5>
-      <?php the_excerpt(); ?>
-    </div>
-    <ul>
-      <li><a href="<?php the_permalink() ?>">Read More</a></li>
-      <?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<li><a href='$meta[2]' target='_blank'>Visit Site</a></li>";} ?>
-    </ul>
-  </article>
+  <div class="<?php echo $class; ?>">
+    <article>
+      <div class="logo-frame text-center">
+        <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive">
+      </div>
+      <div class="customer-text truncate">
+        <h5><?php the_title(); ?></h5>
+        <?php the_excerpt(); ?>
+      </div>
+      <ul>
+        <li><a href="<?php the_permalink() ?>">Read More</a></li>
+        <?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<li><a href='$meta[2]' target='_blank'>Visit Site</a></li>";} ?>
+      </ul>
+    </article>
+  </div>
 
   <?php
   endwhile;

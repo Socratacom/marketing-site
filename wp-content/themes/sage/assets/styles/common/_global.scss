@@ -411,13 +411,20 @@ body {
 	.text-reverse {
 		color:white;
 	}
-	.box {
-		padding:30px;
-	}
+	//box
 	.box-black {
 		background-color:rgba($gray-dark, 0.8);
+	}	
+	.box-white {
+		background-color:rgba(white, 0.75);
+	}
+	.box-text-reverse * {
+		color:white;
 	}
 	.content h1:first-of-type {
+		margin-top:0;
+	}
+	.section-padding h2:first-of-type {
 		margin-top:0;
 	}
 	// Padding
@@ -600,6 +607,20 @@ body {
 			left:0px;
 			color:$nephritis;
 			font-size: 24px;
+		}
+	}
+	/* CTA List */
+	ul.cta-list {
+		list-style-type: none;
+		margin:0 0 1.63em 0;
+		padding:0;
+		text-align: center;
+		li {
+			display:inline-block;
+			margin-right:10px;
+		}
+		li:last-child {
+			margin:0;
 		}
 	}
 	.img-responsive {

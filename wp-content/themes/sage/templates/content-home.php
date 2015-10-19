@@ -4,9 +4,11 @@
 			<div class="row">
                 <div class="text">
 					<div class="col-sm-6">
-						<h1>The Data Platform for 21st Century Digital Government</h1>
-						<p class="lead">Leverage the power of data to improve every community - globally and locally.</p>
-                        <p><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
+						<div class="box-white padding-30">
+							<h1>The Data Platform for 21st Century Digital Government</h1>
+							<p class="lead">Leverage the power of data to improve every community - globally and locally.</p>
+	                        <p><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
+                    	</div>
 					</div>
                 </div>
 			</div>
@@ -97,15 +99,9 @@
 				<p class="lead">Over XXX federal departments, states, and cities of all sizes are successfully maximizing the value of their data with Socrata.</p>
 				<p><a href="/customer-stories">View More Customers</a></p>
 			</div>
-			<div class="col-sm-3">
-				<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=federal&posts_per_page=1"]');?>
-			</div>
-			<div class="col-sm-3">
-				<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=state&posts_per_page=1"]');?>
-			</div>
-			<div class="col-sm-3">
-				<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=city&posts_per_page=1"]');?>
-			</div>
+			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=federal&posts_per_page=1" class="col-sm-3"]');?>
+			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=state&posts_per_page=1" class="col-sm-3"]');?>
+			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=city&posts_per_page=1" class="col-sm-3"]');?>
 		</div>
 	</div>
 </section>
