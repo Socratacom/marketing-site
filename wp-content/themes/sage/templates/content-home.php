@@ -96,7 +96,7 @@
 		<div class="row">
 			<div class="col-sm-3">
 				<h2>Our Customers</h1>
-				<p class="lead">Over XXX federal departments, states, and cities of all sizes are successfully maximizing the value of their data with Socrata.</p>
+				<p class="lead">Hundreds of federal departments, states, and cities of all sizes are successfully maximizing the value of their data with Socrata.</p>
 				<p><a href="/customer-stories">View More Customers</a></p>
 			</div>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=federal&posts_per_page=1" class="col-sm-3"]');?>
@@ -207,8 +207,8 @@
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-1" data-sr='enter left move 50px'>
 				<h2 class="text-reverse">Give us an hour.</h2>
-				<p class="lead text-reverse">Donec ullamcorper nulla non metus auctor fringilla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-				<p class="text-reverse">Got question now? Give us a call at (800) 555-1212</p>
+				<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our Data Platform can do for you.</p>
+				<p class="lead text-reverse">Got question now? Give us a call at (206) 340-8008 or ...</p>
 				<p><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
 			</div>
 			<div class="col-sm-4 hidden-xs">				
