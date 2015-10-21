@@ -265,40 +265,6 @@
 	.shadow {
 		box-shadow: 0 0 20px rgba(0,0,0,0.15);
 	}
-	.value {
-		* {
-			color:white;
-		}
-		ul.value-icons {
-			list-style-type:none;
-			margin:0;
-			padding:0;
-			li {
-				position: relative;
-				padding-left:60px;
-			}
-			li:before {
-				position: absolute;
-				font-family: 'icomoon';				
-				top:10px;
-				left:0;
-				font-size: 50px;
-			}
-		}
-		.city li:before {
-			content: "\e602";
-		}
-		.capital li:before {
-			content: "\e606";
-		}
-		.manager li:before {
-			content: "\e600";
-		}
-		span {
-			font-size: 20px;
-			font-weight: $font-normal;
-		}
-	}
 	.solutions-list {
 		p {
 			margin:0 0 10px 0;
@@ -340,11 +306,6 @@
 			left:0;
 		}
 	}
-	.cta-form-section {
-		h2 {
-			margin-top:0;
-		}
-	}
 	.value-icon {
 		margin-bottom:20px;
 		border-bottom:dotted 1px;
@@ -353,6 +314,9 @@
 			font-size:100px;
 		}
 
+	}
+	.icon-100 {
+		font-size:100px;
 	}
 	.solutions-logos {
 		.logo-frame {
@@ -372,6 +336,7 @@
 		}
 	}
 
+	// Solution Pages
 	//Socrata for Finance
 	.finance-solution-image {
 		background-image:url(../images/finance-hero.jpg);
@@ -381,7 +346,7 @@
 	}
 
 	.public-safety-solution-image {
-		background-image:url(../images/finance-hero.jpg);
+		background-image:url(../images/public-safety-hero.jpg);
 		.wrapper {
 			background-color:rgba($peter-river,0.90);
 		}
@@ -432,14 +397,30 @@
 		background-image:url(../images/finance-open-payroll.jpg);
 	}
 
-	// Non-profit and International Organizations
+	// Background Images
+	.img-background {
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-size:cover;
+	}
+	.public-safety-one {
+		background-image:url(../images/public-safety-one.jpg);
+	}
+	.public-safety-two {
+		background-image:url(../images/public-safety-two.jpg);
+	}
+	.public-safety-three {
+		background-image:url(../images/public-safety-three.jpg);
+	}
+
 	.background-international {
 		background-image:url(../images/international.jpg);
 		background-repeat:no-repeat;
 		background-position:center center;
 		background-size:cover;
 	}
-	//404
+
+	//404 Page
 	.sad-snuffy {
 		background-image:url(../images/sad-snuffy.png);
 		background-repeat:no-repeat;
