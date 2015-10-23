@@ -74,85 +74,6 @@ function marketo_share($atts, $content = null) {
 add_shortcode('marketo-share', __NAMESPACE__ . '\\marketo_share');
 
 
-
-
-function test_video($atts, $content = null) {
-  ob_start();
-  ?>
-
-
-<div id="ecg_video_wrapper" class="video-container">
-  <object type="application/x-shockwave-flash" data="http://webcastevent.com/jw-flv/5.10/player.swf" width="100%" height="100%" bgcolor="#000000" id="ecg_video" name="ecg_video" tabindex="0"><param name="allowfullscreen" value="true"><param name="allowscriptaccess" value="always"><param name="seamlesstabbing" value="true"><param name="wmode" value="opaque"><param name="flashvars" value="netstreambasepath=http%3A%2F%2Fwebcastevent.com%2Fevents%2Fsocrata%2Fcustomersummit%2Fplayer.htm&amp;id=ecg_video&amp;flashplayer=http%3A%2F%2Fwebcastevent.com%2Fjw-flv%2F5.10%2Fplayer.swf&amp;abouttext=Event%20Compression%20Group%20Webcasting&amp;aboutlink=http%3A%2F%2Fwww.eventcg.com&amp;image=pre-event-slate-1280.png&amp;stretch=uniform&amp;autostart=true&amp;provider=rtmp&amp;rtmp.subscribe=true&amp;streamer=rtmp%3A%2F%2Ffml.BBFB.systemcdn.net%2F20BBFB&amp;file=socrata-live&amp;bufferlength=3&amp;controlbar.position=over"></object>
-</div>
-<script type="text/javascript" src="http://webcastevent.com/jw-flv/5.10/jwplayer.js"></script>
-<script type="text/javascript">
-  jwplayer('ecg_video').setup({
-    'flashplayer': 'http://webcastevent.com/jw-flv/5.10/player.swf',
-    'abouttext': 'Event Compression Group Webcasting',
-    'aboutlink': 'http://www.eventcg.com',
-    'image': 'pre-event-slate-1280.png',
-    'controlbar': 'over',  // over, bottom, none
-    'stretch': 'uniform',  // exactfit, uniform, 
-    'autostart': 'true',
-    'provider': 'rtmp',
-    'rtmp.subscribe': 'true',  // Live Only
-    'streamer': 'rtmp://fml.BBFB.systemcdn.net/20BBFB',  // Live
-//    'streamer': 'rtmp://eventcg.flash.internapcdn.net/eventcg/live_1',  // Live
-    'file': 'socrata-live',  // Live
-    'modes': [
-      {
-        'type': 'flash',
-        'src': 'http://webcastevent.com/jw-flv/5.10/player.swf'
-      },
-      {
-        'type': 'html5',
-        'config': {
-//          'file': 'http://wpc.BBFB.systemcdn.net/hls-live/20BBFB/http/eventcg01/socrata-live.m3u8',  // Live /http/eventcg01/
-          'file': 'http://eventcg.ios.internapcdn.net/eventcg/live_1/socrata-live/socrata-live.m3u8',  // Live
-          'provider': 'video'
-        }
-      }
-    ],
-    'bufferlength': '3',
-    'width': '960',
-    'height': '540'
-  });
-</script>
-<style>
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 35px;
-    height: 0;
-    overflow: hidden;
-}
-.video-container object {
-    position: absolute;
-    top:0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-</style>
-
-
-
-
-
-
-
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('test-video', __NAMESPACE__ . '\\test_video');
-
-
-
-
-
-
 /**
  * Author Description
  */
@@ -185,7 +106,7 @@ function newsletter_sidebar ($atts, $content = null) {
   ?>
   <div class="newsletter-sidebar newsletter-form marketo-form">
     <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
-    <h3>Subscribe to the Socrata newsletter</h3>
+    <h4>Subscribe to the Socrata newsletter</h4>
     <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
     <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
     <form id="mktoForm_2306"></form>

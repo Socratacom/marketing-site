@@ -389,7 +389,7 @@ body {
 		color:#666;
 		font-weight:$font-light;
 		font-size: 16px;
-		line-height: 1.25em;
+		line-height: 1.5em;
 	}
 	p {
 		margin-bottom:1.63em;
@@ -411,6 +411,11 @@ body {
 		h4 {
 			margin:20px 0; 
 		}
+	}
+	blockquote {
+		border-left:$peter-river solid 5px;
+		background:$clouds;
+		padding:30px;
 	}
 	.btn {
 		border:none;

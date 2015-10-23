@@ -1,8 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-9 guide-content">      
-      <h1 class="title"><?php the_title(); ?></h1>
+<div class="container page-padding">
+  <div class="row content">
+    <div class="col-sm-8 col-md-9">      
+      <h1><?php the_title(); ?></h1>
       <?php echo do_shortcode( '[marketo-share]' ); ?>
+      <hr/>
       <?php the_content(); ?>
       <hr/>
        <div>
@@ -12,10 +13,9 @@
             }?>
         </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-4 col-md-3 hidden-xs">
       <div class="chapters">
-        <h3>Chapters</h3>
-        <!--<?php wp_nav_menu( array( 'theme_location' => 'field_guide' ) ); ?>-->
+        <?php wp_nav_menu( array( 'theme_location' => 'field_guide' ) ); ?>
       </div>
       <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
     </div>

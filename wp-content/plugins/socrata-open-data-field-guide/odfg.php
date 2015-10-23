@@ -29,7 +29,7 @@ function create_guide() {
         'not_found_in_trash' => 'Not found in Trash'
       ),
       'public' => true,
-      'menu_position' => 5,
+      'menu_position' => 100,
       'supports' => array( 'title', 'editor', 'revisions' ),
       'taxonomies' => array( '' ),
       'menu_icon' => '',
@@ -114,67 +114,4 @@ function field_guide_body_class( $classes ) {
     $classes[] = 'guide';
   return $classes;
 }
-
-// Body Classes for Styling 
-/* add_filter('thesis_body_classes', 'guide_styling');
-function guide_styling($classes) {
-  if (is_page('open-data-field-guide') || 'guide' == get_post_type() && is_archive() || 'guide' == get_post_type() && is_single()) { 
-    $classes[] = 'guide'; 
-  }
-  return $classes; 
-}
-
-THIS IS WHERE I NEED TO REPLACE WITH A SHORT CODE FOR THE ODFG PAGE
-THIS IS EXISTING CONTENT FROM THE LANDING PAGE
-
-<div class="cover">
-<h1 class="headline">Open Data Field Guide</h1>
-<p class="abstract">A comprehensive guide to ensuring your open data program serves you and your citizens.</p>
-<p class="association"><strong>With Insight From:</strong> City of Chicago, City of New York, City of Edmonton, State of Maryland, State of Colorado, Code for America, The World Bank, City of Baltimore, State of Oregon, <a href="/open-data-field-guide-chapter/acknowledgements-glossary/">and more</a>.</p>
-</div>
-
-// Display Post Type Query on main page
-add_action('thesis_hook_custom_template', 'open_data_guide_page');
-function open_data_guide_page(){
-if (is_page('open-data-field-guide')) { ?>
-
-<section id="hero">
-  <div class="wrapper format_text jumplinks">
-    <h1 class="headline">Open Data Field Guide</h1>
-    <h2 class="subhead">A comprehensive guide to ensuring your open data program serves you and your citizens.</h2>
-    <p class="association"><strong>With Insight From:</strong> City of Chicago, City of New York, City of Edmonton, State of Maryland, State of Colorado, Code for America, The World Bank, City of Baltimore, State of Oregon, <a href="/open-data-field-guide-chapter/acknowledgements-glossary/" style="color:#3498DB">and more</a>.</p>
-    <p class="center"><a href="#chapters" class="button">Explore Now</a></p>
-  </div>
-</section>
-<section id="chapters">
-  <div class="wrapper format_text">
-
-<?php $query = new WP_Query('post_type=guide&orderby=desc&showposts=40'); ?>
-  <?php 
-    $count = 0;
-    while ($query->have_posts()) : $query->the_post();
-    $count++;
-    $fourth_div = ($count%4 == 0) ? 'last' : '';
-    $fourth_div_clear = ($count%4 == 0) ? '<div class="clearboth"></div>' : '';
-  ?>
-
-<article class="one_fourth <?php echo $fourth_div; ?>">
-  <div class="chapter-marker">
-    <?php $guide_meta = get_guide_meta(); echo "<i class='fa fa-bookmark'></i> $guide_meta[0]"; ?>
-  </div>
-<h3><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h3>
-<?php $guide_meta = get_guide_meta(); echo "<p>$guide_meta[1]</p>"; ?>
-</article>
-
-<?php echo $fourth_div_clear; ?>  
-<?php endwhile;  wp_reset_postdata(); ?>
-
-</div>
-</section>
-
-
-
-<?php }
-}
-*/
 
