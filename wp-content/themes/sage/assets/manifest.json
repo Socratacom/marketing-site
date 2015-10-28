@@ -32,6 +32,6 @@
     }
   },
   "config": {
-    "devUrl": "http://current.socrata.com"
+    "devUrl": "http://new.socrata.com"
   }
 }

@@ -402,6 +402,7 @@
 		background-repeat:no-repeat;
 		background-position:center center;
 		background-size:cover;
+		position:relative;
 	}
 	.public-safety-one {
 		background-image:url(../images/public-safety-one.jpg);
@@ -442,6 +443,157 @@
 	}
 	.demo-hero {		
 		background-image:url(../images/graph.jpg);
+	}
+	// Company Info
+	.leadership {
+		article {
+			padding:25px;
+			h4 {
+				margin-bottom: 5px;
+				line-height: 1.5em;
+				small {
+					display: block;
+				}
+			}
+			.thumb {
+				position: relative;				
+				img {
+					cursor:pointer;
+					display: inline-block;
+					height:100%;
+					width:100%;
+				}
+				.overlay {
+					position: absolute;
+					top:0;
+					left:0;
+					width:100%;
+					height:100%;
+					background-color: rgba(0, 0, 0, 0.5);
+					border-radius:50%;
+					opacity: 0;
+					transition: opacity .25s ease-in-out;
+					-moz-transition: opacity .25s ease-in-out;
+					-webkit-transition: opacity .25s ease-in-out;
+					ul.profile-links {
+						list-style-type: none;
+						margin: 0;
+						padding: 0;
+						text-align: center;
+						height:100%;
+						width:100%;
+						li {
+							display: inline-block;
+							padding:0 5px;
+							font-size: 16px;
+							position: relative;
+							top: 50%;
+							transform: translateY(-50%);
+							font-size: 24px;
+							a {
+								color:white;
+								cursor:pointer;
+							}
+							a:hover {
+								color:$silver;
+							}
+						}
+					}
+				}
+				.overlay:hover {
+					opacity: 1;
+				}
+			}
+			.modal-header {
+				background-color:$clouds;
+				height:100px;
+			}
+			.modal-body {
+				img {
+					height:80px;
+					width:80px;
+					margin-top:-55px;
+					cursor: default;
+				}
+				h4 {
+					margin-bottom:30px;
+				}
+			}
+		}
+	}
+	.advisors {
+		ul {
+			list-style-type: none;
+			margin:0;
+			padding: 0;
+			li {
+				height:100px;
+				position: relative;
+				padding-left:100px;
+				padding-right:10px;
+				img {
+					height:80px;
+					width:80px;
+					position: absolute;
+					top:10px;
+					left:10px;
+				}
+				h5 {
+					position: relative;
+					top: 50%;
+					margin:0;
+					transform: translateY(-50%);
+					font-size:18px;
+					small {
+						display: block;
+						margin-top:5px;
+					}
+				}
+				a {
+					position: absolute;
+					top:0;
+					left:0;
+					height:100%;
+					width:100%;
+					cursor: pointer;
+				}
+			}
+			li:hover {
+				background-color:lighten($clouds, 5%);
+			}
+		}
+		.modal-header {
+			background-color:$clouds;
+			height:100px;
+		}
+		.modal-body {
+			img {
+				height:80px;
+				width:80px;
+				margin-top:-55px;
+				margin-bottom:15px;
+				cursor: default;
+				position: relative;
+			}
+			h4 {
+				margin-bottom:30px;
+				small {
+					display: block;
+					margin-top:5px;
+				}
+			}
+		}
+	}
+	.investors {
+		a {
+			cursor:pointer;
+		}
+	}
+	.mission-image {
+		background-image:url(../images/mission.jpg);
+	}
+	.employee-image {
+		background-image:url(../images/employees.jpg);
 	}
 
 	//404 Page

@@ -153,6 +153,15 @@ body {
 		color:$turquoise;
 	}
 }
+.overlay-turquoise:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($turquoise, 0.75);
+}
 .color-turquoise {
 	color:$turquoise;
 }
@@ -161,6 +170,15 @@ body {
 	.btn-default {
 		color:$green-sea;
 	}
+}
+.overlay-green-sea:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($green-sea, 0.75);
 }
 .color-green-sea {
 	color:$green-sea;
@@ -171,6 +189,15 @@ body {
 		color:$emerald;
 	}
 }
+.overlay-emerald:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($emerald, 0.75);
+}
 .color-emerald {
 	color:$emerald;
 }
@@ -179,6 +206,15 @@ body {
 	.btn-default {
 		color:$nephritis;
 	}
+}
+.overlay-nephritis:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($nephritis, 0.75);
 }
 .color-nephritis {
 	color:$nephritis;
@@ -189,6 +225,15 @@ body {
 		color:$peter-river;
 	}
 }
+.overlay-peter-river:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($peter-river, 0.75);
+}
 .color-peter-river {
 	color:$peter-river;
 }
@@ -197,6 +242,15 @@ body {
 	.btn-default {
 		color:$belize-hole;
 	}
+}
+.overlay-belize-hole:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($belize-hole, 0.75);
 }
 .color-belize-hole {
 	color:$belize-hole;
@@ -207,6 +261,15 @@ body {
 		color:$amethyst;
 	}
 }
+.overlay-amethyst:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($amethyst, 0.75);
+}
 .color-amethyst {
 	color:$amethyst;
 }
@@ -215,6 +278,15 @@ body {
 	.btn-default {
 		color:$wisteria;
 	}
+}
+.overlay-wisteria:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($wisteria, 0.75);
 }
 .color-wisteria {
 	color:$wisteria;
@@ -225,6 +297,15 @@ body {
 		color:$wet-asphalt;
 	}
 }
+.overlay-wet-asphalt:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($wet-asphalt, 0.75);
+}
 .color-wet-asphalt {
 	color:$wet-asphalt;
 }
@@ -233,6 +314,15 @@ body {
 	.btn-default {
 		color:$midnight-blue;
 	}
+}
+.overlay-midnight-blue:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($midnight-blue, 0.75);
 }
 .color-midnight-blue {
 	color:$midnight-blue;
@@ -243,6 +333,15 @@ body {
 		color:$orange;
 	}
 }
+.overlay-orange:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($orange, 0.75);
+}
 .color-orange {
 	color:$orange;
 }
@@ -251,6 +350,15 @@ body {
 	.btn-default {
 		color:$carrot;
 	}
+}
+.overlay-carrot:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($carrot, 0.75);
 }
 .color-carrot {
 	color:$carrot;
@@ -261,6 +369,15 @@ body {
 		color:$pumpkin;
 	}
 }
+.overlay-pumpkin:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($pumpkin, 0.75);
+}
 .color-pumpkin {
 	color:$pumpkin;
 }
@@ -269,6 +386,15 @@ body {
 	.btn-default {
 		color:$alizarin;
 	}
+}
+.overlay-alizarin:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($alizarin, 0.75);
 }
 .color-alizarin {
 	color:$alizarin;
@@ -279,8 +405,35 @@ body {
 		color:$pomegranate;
 	}
 }
+.overlay-pomegranate:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($pomegranate, 0.75);
+}
 .color-pomegranate {
 	color:$pomegranate;
+}
+.background-sun-flower {
+	background-color:$sun-flower;
+	.btn-default {
+		color:$sun-flower;
+	}
+}
+.overlay-sun-flower:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-color: rgba($sun-flower, 0.75);
+}
+.color-sun-flower {
+	color:$sun-flower;
 }
 .background-silver {
 	background-color:$silver;
@@ -315,44 +468,12 @@ body {
 		color:$clouds;
 	}
 }	
-.background-sun-flower {
-	background-color:$sun-flower;
-	.btn-default {
-		color:$sun-flower;
-	}
-}
-.color-sun-flower {
-	color:$sun-flower;
-}
 .background-gray-dark {
 	background-color:$gray-dark;
 }
 .background-white {
 	background-color:white;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media only screen and (min-width : 320px) {
@@ -391,7 +512,7 @@ body {
 		font-size: 16px;
 		line-height: 1.5em;
 	}
-	p {
+	p, figure {
 		margin-bottom:1.63em;
 	}
 	ul, ol {
@@ -417,6 +538,17 @@ body {
 		background:$clouds;
 		padding:30px;
 	}
+	figure {
+		background:$clouds;
+		padding:15px;
+		figcaption {
+			padding:15px;
+		}
+	}
+	.modal-content {
+		border-radius:0;
+	}
+
 	.btn {
 		border:none;
 		border-radius:0;
