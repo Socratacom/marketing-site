@@ -80,7 +80,8 @@ function hero_shortcode( $atts ) {
   $query = new WP_Query( $options );
   if ( $query->have_posts() ) { ?>
   <?php while ( $query->have_posts() ) : $query->the_post(); ?>
-  <section id="hero-image">
+  <!--<section id="hero-image">-->
+  <section>
     <div class="hero-image format_text" style="background-image: url(<?php echo tuts_custom_img('full', 1600, 500); ?>);">
       <div class="hero-wrapper container">
         <div class="hero-text <?php $meta = get_hero_meta(); if ($meta[6]) echo "$meta[6]"; ?> <?php $meta = get_hero_meta(); if ($meta[2]) echo "$meta[2]"; ?>">
