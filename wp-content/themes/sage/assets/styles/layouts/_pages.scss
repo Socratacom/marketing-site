@@ -306,14 +306,19 @@
 			left:0;
 		}
 	}
-	.value-icon {
-		margin-bottom:20px;
-		border-bottom:dotted 1px;
-		padding-bottom:20px;
+	.value-card {
+		padding:15px;
 		i {
-			font-size:100px;
+			display:inline-block;
 		}
-
+		p:first-of-type {
+			border-bottom:dotted 1px;
+			padding-bottom:20px;
+			color:white;
+		} 
+	}
+	.icon-50 {
+		font-size:50px;
 	}
 	.icon-100 {
 		font-size:100px;
@@ -336,57 +341,34 @@
 		}
 	}
 
-	// Solution Pages
-	//Socrata for Finance
+	// Background Images
+	.img-background {
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-size:cover;
+		position:relative;
+	}
 	.finance-solution-image {
 		background-image:url(../images/finance-hero.jpg);
-		.wrapper {
-			background-color:rgba($nephritis,0.90);
-		}
 	}
-
 	.public-safety-solution-image {
 		background-image:url(../images/public-safety-hero.jpg);
-		.wrapper {
-			background-color:rgba($peter-river,0.90);
-		}
 	}
-
 	.federal-solution-image {
 		background-image:url(../images/federal-hero.jpg);
-		.wrapper {
-			background-color:rgba($belize-hole,0.90);
-		}
 	}
-
 	.state-solution-image {
 		background-image:url(../images/state-hero.jpg);
-		.wrapper {
-			background-color:rgba($green-sea,0.90);
-		}
 	}
-
 	.city-solution-image {
 		background-image:url(../images/city-hero.jpg);
-		.wrapper {
-			background-color:rgba($pumpkin,0.90);
-		}
 	}
-
 	.county-solution-image {
 		background-image:url(../images/county-hero.jpg);
-		.wrapper {
-			background-color:rgba($amethyst,0.90);
-		}
 	}
-
 	.non-profit-solution-image {
 		background-image:url(../images/non-profit-hero.jpg);
-		.wrapper {
-			background-color:rgba($orange,0.90);
-		}
 	}
-
 	.open-budget-image {
 		background-image:url(../images/finance-open-budget.jpg);
 	}
@@ -395,14 +377,6 @@
 	}
 	.open-payroll-image {
 		background-image:url(../images/finance-open-payroll.jpg);
-	}
-
-	// Background Images
-	.img-background {
-		background-repeat:no-repeat;
-		background-position:center center;
-		background-size:cover;
-		position:relative;
 	}
 	.public-safety-one {
 		background-image:url(../images/public-safety-one.jpg);
@@ -434,7 +408,6 @@
 	.open-federal-hero {		
 		background-image:url(../images/federal-hero.jpg);
 	}
-
 	.background-international {
 		background-image:url(../images/international.jpg);
 		background-repeat:no-repeat;

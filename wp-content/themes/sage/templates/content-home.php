@@ -78,7 +78,7 @@
 			</div>
 			<div class="col-sm-6 col-md-4 tile background-orange" data-sr="enter bottom, opacity 0.5">
 				<div class="tile-icon">
-					<h4 class="text-center icon ngo-icon text-reverse">Non-Profit and International Organizations</h4>
+					<h4 class="text-center icon ngo-icon text-reverse">U.S. Non-Profit and International Organizations</h4>
 				</div>
 				<div class="tile-text">
 					<h4 class="icon ngo-icon text-reverse">U.S. Non-Profit and International Organizations</h4>
@@ -208,7 +208,7 @@
 			<div class="col-sm-6 col-sm-offset-1" data-sr='enter left move 50px'>
 				<h2 class="text-reverse">Give us an hour.</h2>
 				<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our Data Platform can do for you.</p>
-				<p class="lead text-reverse">Got question now? Give us a call at (206) 340-8008 or ...</p>
+				<p class="lead text-reverse">Got question now? Give us a call at (206) 340-8008.</p>
 				<p><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
 			</div>
 			<div class="col-sm-4 hidden-xs">				
