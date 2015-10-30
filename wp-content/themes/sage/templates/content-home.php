@@ -76,7 +76,7 @@
 					<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-orange" data-sr="enter bottom, opacity 0.5">
+			<!--<div class="col-sm-6 col-md-4 tile background-orange" data-sr="enter bottom, opacity 0.5">
 				<div class="tile-icon">
 					<h4 class="text-center icon ngo-icon text-reverse">U.S. Non-Profit and International Organizations</h4>
 				</div>
@@ -86,7 +86,7 @@
 					<p class=" text-reverse stat"><span>15 countries</span> receive support from nonprofits on Socrata</p>
 					<p><a href="/solutions/non-profit-and-international-organizations" class="btn btn-default">Learn More</a></p>
 				</div>	
-			</div>
+			</div>-->
 		</div>
 	</div>
 </section>
