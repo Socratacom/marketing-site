@@ -137,6 +137,23 @@ extract(shortcode_atts(array(
 add_shortcode('marketo-form', __NAMESPACE__ . '\\marketo_form');
 
 /**
+ * Marketo Form with Labels
+ */
+function marketo_form_labels($atts) {
+extract(shortcode_atts(array(
+    "id" => '',
+  ), $atts));
+  return '
+    <div class="marketo-form-labels">
+    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <form id="mktoForm_'.$id.'"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
+    </div>
+  ';
+}
+add_shortcode('marketo-form-labels', __NAMESPACE__ . '\\marketo_form_labels');
+
+/**
  * Query for logos on Solutions Pages
  */
 function solutions_logos( $atts ) {

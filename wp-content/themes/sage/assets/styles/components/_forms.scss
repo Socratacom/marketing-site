@@ -1,3 +1,9 @@
+.marketo-form-labels {
+	form[style] {
+		width:100% !important;
+	}
+}
+
 .marketo-form {
 	form[style] {
 		width:100% !important;
@@ -8,27 +14,40 @@
 	}
 	.mktoFormRow {
 		margin:0 !important;
+		input {
+			width: 100% !important;
+			border: solid 1px $silver !important;
+			margin-top: 0px !important;
+			margin-bottom:10px !important;
+			padding-left:15px !important;
+			border-radius:0 !important;
+			box-shadow: none !important;
+			height:40px !important;
+			line-height:normal;
+			font-size:13px !important;
+		}
+		select {
+			width: 100% !important;
+			border: solid 1px $silver !important;
+			margin-top: 0px !important;
+			margin-bottom:10px !important;
+			padding-left:15px !important;
+			border-radius:0 !important;
+			box-shadow: none !important;
+			height:40px !important;
+			line-height:normal;
+			font-size:13px !important;
+		}
+		textarea {
+			width: 100% !important;
+			height:100px !important;
+			border: none !important;
+			padding: 10px !important;
+			box-shadow: none !important;
+			border: solid 1px #bdc3c7 !important;
+		}
 	}
-	.mktoFormRow input {
-		width: 100% !important;
-		border: solid 1px $silver !important;
-		margin-top: 0px !important;
-		margin-bottom:10px !important;
-		padding-left:15px !important;
-		border-radius:0 !important;
-		box-shadow: none !important;
-		height:40px !important;
-		line-height:normal;
-		font-size:13px !important;
-	}
-	.mktoFormRow textarea {
-		width: 100% !important;
-		height:100px !important;
-		border: none !important;
-		padding: 10px !important;
-		box-shadow: none !important;
-		border: solid 1px #bdc3c7 !important;
-	}
+
 	.mktoFormRow .mktoError {
 		left:10px !important;
 		top: 30px !important;
