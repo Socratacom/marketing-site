@@ -206,10 +206,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-1" data-sr='enter left move 50px'>
-				<h2 class="text-reverse">Give us an hour.</h2>
-				<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our Data Platform can do for you.</p>
-				<p class="lead text-reverse">Got question now? Give us a call at (206) 340-8008.</p>
-				<p><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
+				<div class="padding-30">
+					<h2 class="text-reverse">Give us an hour.</h2>
+					<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our Data Platform can do for you.</p>
+					<p class="lead text-reverse">Got question now? Give us a call at (206) 340-8008.</p>
+					<p><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
+				</div>
 			</div>
 			<div class="col-sm-4 hidden-xs">				
 				<svg id="clock" viewBox="0 0 100 100">

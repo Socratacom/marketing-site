@@ -48,7 +48,6 @@ $fields = array(
 // Get and return the values for the URL and description
 function get_case_study_meta() {
   global $post;
-  global $post;
   $case_study_banner_title = get_post_meta($post->ID, 'case_study_banner_title', true);
   $case_study_site_name = get_post_meta($post->ID, 'case_study_site_name', true);
   $case_study_url = get_post_meta($post->ID, 'case_study_url', true);

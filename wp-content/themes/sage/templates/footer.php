@@ -14,9 +14,12 @@
 					<li>&copy; <?php echo date("Y");?> Socrata. All rights reserved.</li>
 					<li>Phone: <a href="tel://1-206-340-8008">+1 (206) 340-8008</a></li>
 					<li>Support: <a href="tel://1-888-997-6762">+1 (888) 997-6762</a></li>
-					<li>Fax: <a href="tel://1-206-452-2010">+1 (206) 452-2010</a></li>
 					<li><a href="/privacy/">Privacy Policy</a> | <a href="/terms-of-service/">Terms of Service</a></li>
 				</ul>
+				<div class="footer-form">
+					<h4>Subscribe to the Socrata newsletter</h4>
+					<?php echo do_shortcode('[marketo-form id="2745"]'); ?>
+				</div>
 			</div>
 			<div class="col-sm-3">
 				<h4>Products</h4>

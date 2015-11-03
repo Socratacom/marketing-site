@@ -119,6 +119,23 @@ function newsletter_sidebar ($atts, $content = null) {
 }
 add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
 
+function newsletter_footer ($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="marketo-form">
+    <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
+    <h4>Subscribe to the Socrata newsletter</h4>
+    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <form id="mktoForm_2306"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
+  </div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('newsletter-footer', __NAMESPACE__ . '\\newsletter_footer');
+
 /**
  * Marketo Form
  */
