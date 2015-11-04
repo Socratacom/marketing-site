@@ -13,13 +13,27 @@
                 </div>
 			</div>
 		</div>
-
 	</div>
 	<div class="slider">
 		<div class="background-silver slide slide-one"></div>
 		<div class="background-silver slide slide-two"></div>
 		<div class="background-silver slide slide-three"></div>
 	</div>
+	<script>
+	jQuery(function ($){
+          $('.slider').slick({
+            arrows: false,
+            autoplay: true,
+            autoplaySpeed: 5000,
+            dots:true,
+            infinite:true,
+            fade:true,
+            cssEase: 'linear',
+            pauseOnHover:false
+          });
+          $('.slider').show();
+        });
+	</script>
 </section>
 
 <section class="background-gray-dark industries">

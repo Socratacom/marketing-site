@@ -166,15 +166,151 @@ function socrata_videos_body_class( $classes ) {
 }
 
 // ENQEUE SCRIPTS
-function video_script_loading() {
-  if ( 'socrata_videos' == get_post_type() && is_single() || 'socrata_videos' == get_post_type() && is_archive() || is_page('socrata_videos') ) {
-    wp_register_style( 'video_styles', plugins_url( 'css/styles.css' , __FILE__ ), false, null );
-    wp_enqueue_style( 'video_styles' );    
-  } 
+add_action( 'wp_enqueue_scripts', 'register_socrata_videos_script' );
+function register_socrata_videos_script() {
+wp_register_script( 'video-slider', plugins_url( '/js/video-slider.js' , __FILE__ ), array(), '1.0.0', true );
 }
-add_action('wp_enqueue_scripts', 'video_script_loading');
 
-/* THIS IS FOR LATER <img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg"> */
+//Shortcode [video-cards]
+
+function video_cards( $atts ) {
+  extract( shortcode_atts( array(
+    'query' => '',
+    'class' => '',
+  ), $atts ) );
+  $query = html_entity_decode( $query );
+  ob_start(); 
+  $the_query = new \WP_Query( $query );
+  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+  <div class="<?php echo $class; ?>">
+    <article class="card card-video truncate">
+      <div class="card-image">
+        <img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+        <a class="link" href="<?php the_permalink() ?>"></a>
+      </div>
+      <div class="card-text">
+        <div class="categories"><?php videos_the_categories(); ?></div>
+        <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+        <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+      </div>
+    </article>
+  </div>
+
+  <?php
+  endwhile;
+  wp_reset_postdata();
+  $list = ob_get_clean();
+  return $list;
+}
+
+add_shortcode( 'video-cards', 'video_cards' );
+
+
+//Shortcode [video-slider]
+
+function video_slider( $atts ) { 
+  extract( shortcode_atts( array(
+    'query' => ''
+  ), $atts ) );
+  $query = html_entity_decode( $query );
+  ob_start(); ?>
+  <div class="video-slide-container">
+  <div class="arrowsContainer"></div>
+  <div class="container">
+  <div class="row slider">
+  <?php
+  $the_query = new \WP_Query( $query );
+  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+  <div class="col-sm-6 col-md-3 slide">
+    <article class="card card-video truncate">
+      <div class="card-image">
+        <img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+        <a class="link" href="<?php the_permalink() ?>"></a>
+      </div>
+      <div class="card-text">
+        <div class="categories"><?php videos_the_categories(); ?></div>
+        <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+        <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+      </div>
+    </article>
+  </div>
+
+  <?php
+  endwhile;
+  wp_reset_postdata(); ?>
+
+<?php { ?>
+</div>
+</div>
+</div>
+
+<?php
+}; ?>
+
+  <?php
+  wp_enqueue_script( 'video-slider' );
+  $list = ob_get_clean();
+  return $list;
+}
+
+add_shortcode( 'video-slider', 'video_slider' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

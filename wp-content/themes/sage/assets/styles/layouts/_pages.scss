@@ -226,7 +226,15 @@
 	.hero {
 		width:100%;
 		height:100vh;
-		background-color:$clouds;
+		margin-top:-60px;
+		position: relative;		
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+	}
+	.hero-full {
+		width:100%;
+		height:100vh;
 		margin-top:-60px;
 		position: relative;		
 		background-repeat: no-repeat;
@@ -419,6 +427,9 @@
 	}
 	.demo-hero {		
 		background-image:url(../images/graph.jpg);
+	}
+	.scs2015-hero {		
+		background-image:url(../images/scs-hero-bw.jpg);
 	}
 	.partner-hero {
 		background-image:url(../images/handshake.png);

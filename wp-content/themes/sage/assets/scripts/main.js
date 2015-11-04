@@ -91,22 +91,7 @@
         window.sr = new scrollReveal();
       },
       finalize: function() {
-        // JavaScript to be fired after the init JS
-
-        // Hero Slider
-        $(document).ready(function(){
-          $('.slider').slick({
-            arrows: false,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            dots:true,
-            infinite:true,
-            fade:true,
-            cssEase: 'linear',
-            pauseOnHover:false
-          });
-          $('.slider').show();
-        });
+        // JavaScript to be fired after the init JS        
 
         // Animate Clock
         setInterval(function() {

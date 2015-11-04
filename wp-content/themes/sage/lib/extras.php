@@ -236,3 +236,4 @@ function customer_logos_abstract( $atts ) {
 
 add_shortcode( 'customer-logos-abstract', __NAMESPACE__ . '\\customer_logos_abstract' );
 
+
