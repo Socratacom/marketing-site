@@ -180,7 +180,7 @@ function video_cards( $atts ) {
   ), $atts ) );
   $query = html_entity_decode( $query );
   ob_start(); 
-  $the_query = new \WP_Query( $query );
+  $the_query = new WP_Query( $query );
   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
   <div class="<?php echo $class; ?>">
@@ -220,7 +220,7 @@ function video_slider( $atts ) {
   <div class="container">
   <div class="row slider">
   <?php
-  $the_query = new \WP_Query( $query );
+  $the_query = new WP_Query( $query );
   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
   <div class="col-sm-6 col-md-3 slide">
@@ -273,133 +273,64 @@ add_shortcode( 'video-slider', 'video_slider' );
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Shortcode [socrata_videos-posts]
+// Shortcode [socrata-videos-posts]
 function socrata_videos_posts($atts, $content = null) {
   ob_start();
   ?>
+  <section class="section-padding background-clouds ">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="text-center">Featured Videos</h1>
+        </div>
+      </div>
+    </div>
+    <?php echo do_shortcode('[video-slider query="post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8"]'); ?>
+  </section>
 
-  <div class="container page-padding">
-    <div class="row">
-      <div class="col-sm-9">
-        <div class="row">
-
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-9">
+          <div class="row">
           <?php
 
-          $do_not_duplicate = array();
-
-          // The Query
+          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
           $args = array(
                 'post_type' => 'socrata_videos',
-                'posts_per_page' => 1
+                'paged' => $paged
               );
-          $query1 = new WP_Query( $args );
-
-          // The Loop
-          while ( $query1->have_posts() ) {
-            $query1->the_post();
-            $do_not_duplicate[] = get_the_ID(); ?>
-
-            <div class="col-sm-12">
-              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
-                <div class="text">
-                  <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-                  <div class="truncate">
-                    <?php the_excerpt(); ?> 
-                  </div>
-                  <p><a href="<?php the_permalink() ?>" class="btn btn-primary">Read More</a></p>
-                </div>
-                <div class="overlay"></div>
-                <a href="<?php the_permalink() ?>" class="link"></a>
-              </div>
-            </div>
-
-            <?php
-          }
-
-          wp_reset_postdata();
-
-          /* The 2nd Query (without global var) */
-          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-          $args2 = array(
-                'post_type' => 'socrata_videos',
-                'paged' => $paged,
-                'post__not_in' => $do_not_duplicate 
-              );
-          $query2 = new WP_Query( $args2 );
+          $query = new WP_Query( $args );
 
           // The 2nd Loop
-          while ( $query2->have_posts() ) {
-            $query2->the_post(); ?>
+          while ( $query->have_posts() ) {
+            $query->the_post(); ?>
             
-            <div class="col-sm-6 col-lg-4">
-              <div class="card truncate">
-                <div class="card-image hidden-xs">
-                  <img src="<?php echo socrata_videos_logo_home( 'full', 100 ); ?>" class="img-responsive ">                    
-                  <a href="<?php the_permalink() ?>"></a>
-                </div>
-                <div class="card-text">
-                  <div class="categories"><?php socrata_videos_the_categories(); ?></div>
-                  <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-                  <?php the_excerpt(); ?> 
-                </div>
+
+
+          <div class="col-sm-6 col-lg-4">
+            <article class="card card-video truncate">
+              <div class="card-image">
+                <img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+                <a class="link" href="<?php the_permalink() ?>"></a>
               </div>
-            </div>
+              <div class="card-text">
+                <div class="categories"><?php videos_the_categories(); ?></div>
+                <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+                <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+              </div>
+            </article>
+          </div>
 
             <?php
           }
-
-          // Pagination
-          if (function_exists("pagination")) {pagination($query2->max_num_pages,$pages);} 
-
           // Restore original Post Data
-          wp_reset_postdata();
-
+          wp_reset_postdata();   
           ?>
-
-        </div>      
-      </div>
-      <div class="col-sm-3">
+        </div>
+        <?php if (function_exists("pagination")) {pagination($query->max_num_pages,$pages);} ; ?>
+        </div>
+      <div class="col-sm-3 hidden-xs">
         <?php
           //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
           $orderby = 'name';
@@ -407,31 +338,8 @@ function socrata_videos_posts($atts, $content = null) {
           $pad_counts = 0; // 1 for yes, 0 for no
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'socrata_videos_type';
-          $title = 'Type';
-
-          $args = array(
-            'orderby' => $orderby,
-            'show_count' => $show_count,
-            'pad_counts' => $pad_counts,
-            'hide_empty' => $hide_empty,
-            'hierarchical' => $hierarchical,
-            'taxonomy' => $taxonomy,
-            'title_li' => '<h5>'. $title .'</h5>'
-          );
-        ?>
-        <ul class="category-nav">
-          <?php wp_list_categories($args); ?>
-        </ul>
-        <?php
-          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-          $orderby = 'name';
-          $show_count = 0; // 1 for yes, 0 for no
-          $pad_counts = 0; // 1 for yes, 0 for no
-          $hide_empty = 1;
-          $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'socrata_videos_product';
-          $title = 'Product';
+          $taxonomy = 'socrata_videos_category';
+          $title = 'Categories';
 
           $args = array(
             'orderby' => $orderby,
@@ -450,10 +358,11 @@ function socrata_videos_posts($atts, $content = null) {
       </div>
     </div>
   </div>
+</section>
 
   <?php
   $content = ob_get_contents();
   ob_end_clean();
   return $content;
 }
-add_shortcode('socrata_videos-posts', 'socrata_videos_posts');
+add_shortcode('socrata-videos-posts', 'socrata_videos_posts');

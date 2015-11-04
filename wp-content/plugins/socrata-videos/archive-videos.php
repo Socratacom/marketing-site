@@ -1,7 +1,7 @@
 <div class="container page-padding">
 	<div class="row">
 		<div class="col-sm-12">
-			<h3 class="archive-title">Customer Stories: <?php single_cat_title(); ?></h3>
+			<h3 class="archive-title">Videos: <?php single_cat_title(); ?></h3>
 		</div>
 	</div>
 
@@ -11,19 +11,19 @@
 
 				<?php while ( have_posts() ) : the_post();  ?>
 
-				<div class="col-sm-6 col-lg-4">
-					<div class="card truncate">
-						<div class="card-image hidden-xs">
-							<img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">                    
-							<a href="<?php the_permalink() ?>"></a>
-						</div>
-						<div class="card-text">
-							<div class="categories"><?php stories_the_categories(); ?></div>
-							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<?php the_excerpt(); ?> 
-						</div>
-					</div>
-				</div>
+<div class="col-sm-6 col-lg-4">
+<article class="card card-video truncate">
+<div class="card-image">
+<img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+<a class="link" href="<?php the_permalink() ?>"></a>
+</div>
+<div class="card-text">
+<div class="categories"><?php videos_the_categories(); ?></div>
+<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+<?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+</div>
+</article>
+</div>
 
 				<?php endwhile; ?>
 
@@ -39,8 +39,8 @@
           $pad_counts = 0; // 1 for yes, 0 for no
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'stories_type';
-          $title = 'Type';
+          $taxonomy = 'socrata_videos_category';
+          $title = 'Categories';
 
           $args = array(
             'orderby' => $orderby,
@@ -55,29 +55,7 @@
         <ul class="category-nav">
           <?php wp_list_categories($args); ?>
         </ul>
-        <?php
-          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-          $orderby = 'name';
-          $show_count = 0; // 1 for yes, 0 for no
-          $pad_counts = 0; // 1 for yes, 0 for no
-          $hide_empty = 1;
-          $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'stories_product';
-          $title = 'Product';
-
-          $args = array(
-            'orderby' => $orderby,
-            'show_count' => $show_count,
-            'pad_counts' => $pad_counts,
-            'hide_empty' => $hide_empty,
-            'hierarchical' => $hierarchical,
-            'taxonomy' => $taxonomy,
-            'title_li' => '<h5>'. $title .'</h5>'
-          );
-        ?>
-        <ul class="category-nav">
-          <?php wp_list_categories($args); ?>
-        </ul>
+      
         <?php echo do_shortcode('[newsletter-sidebar]'); ?>
       </div>
 

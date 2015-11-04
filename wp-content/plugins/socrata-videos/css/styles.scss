@@ -60,7 +60,7 @@ $font-normal: 400;
 			font-weight: $font-normal;
 		}
 		h4, .categories {
-			margin-bottom:15px;
+			margin-bottom:15px !important;
 		}
 	}
 }
@@ -69,4 +69,8 @@ $font-normal: 400;
 	height:400px;
 	max-width:1280px;
 	margin:auto;
+}
+
+.paged.videos .background-clouds {
+	display:none;
 }

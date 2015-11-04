@@ -629,8 +629,13 @@ body {
 				padding:5px 10px;
 				display: block;
 			}
-			a:hover {
+			li:hover {
 				background-color:$clouds;
+			}
+			.children li {
+				border-top:$silver dotted 1px;
+				border-bottom:none;
+				margin-left:15px;
 			}
 		}
 	}
