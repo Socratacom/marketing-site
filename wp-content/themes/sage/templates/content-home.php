@@ -14,6 +14,9 @@
 			</div>
 		</div>
 	</div>
+	<div class="scroll text-center">
+		<div class="mouse"><a href="#start"></a></div>
+	</div>
 	<div class="slider">
 		<div class="background-silver slide slide-one"></div>
 		<div class="background-silver slide slide-two"></div>
@@ -25,7 +28,6 @@
             arrows: false,
             autoplay: true,
             autoplaySpeed: 5000,
-            dots:true,
             infinite:true,
             fade:true,
             cssEase: 'linear',
@@ -35,8 +37,7 @@
         });
 	</script>
 </section>
-
-<section class="background-gray-dark industries">
+<section id="start" class="background-gray-dark industries">
 	<div class="container">
 		<div class="row no-gutters">
 			<div class="col-sm-6 col-md-4">
@@ -90,17 +91,17 @@
 					<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
-			<!--<div class="col-sm-6 col-md-4 tile background-orange" data-sr="enter bottom, opacity 0.5">
+			<div class="col-sm-6 col-md-4 tile" data-sr="enter bottom, opacity 0.5">
 				<div class="tile-icon">
-					<h4 class="text-center icon ngo-icon text-reverse">U.S. Non-Profit and International Organizations</h4>
+					<h4 class="text-center icon open-data-network-icon text-reverse">Open Data Network</h4>
 				</div>
 				<div class="tile-text">
-					<h4 class="icon ngo-icon text-reverse">U.S. Non-Profit and International Organizations</h4>
-					<p class="text-reverse">Using Socrata solutions, organizations can make data-driven decisions about program effectiveness and hone long-term strategy.</p>					
-					<p class=" text-reverse stat"><span>15 countries</span> receive support from nonprofits on Socrata</p>
-					<p><a href="/solutions/non-profit-and-international-organizations" class="btn btn-default">Learn More</a></p>
+					<h4 class="icon open-data-network-icon text-reverse">Open Data Network</h4>
+					<p class="text-reverse">The Open Data Network connects publishers of high-value data to the businesses, developers, and analysts that use, reuse, and enrich data.</p>					
+					<p class=" text-reverse stat"><span>1,000+ datasets</span> by over 50 publishers</p>
+					<p><a href="http://opendatanetwork.com" target="_blank" class="btn btn-default">Explore Data</a></p>
 				</div>	
-			</div>-->
+			</div>
 		</div>
 	</div>
 </section>
@@ -111,7 +112,7 @@
 			<div class="col-sm-3">
 				<h2>Our Customers</h1>
 				<p class="lead">Hundreds of federal departments, states, and cities of all sizes are successfully maximizing the value of their data with Socrata.</p>
-				<p><a href="/customer-stories">View More Customers</a></p>
+				<p><a href="/customer-stories">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
 			</div>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=federal&posts_per_page=1" class="col-sm-3"]');?>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=state&posts_per_page=1" class="col-sm-3"]');?>

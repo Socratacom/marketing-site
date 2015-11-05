@@ -40,6 +40,83 @@
             .slide-three {
             	background-image:url(../images/home-hero-three.jpg);            	
             }
+            .scroll {
+            	position: absolute;
+            	width:100%;
+            	bottom:0;
+            	left:0;
+            	z-index: 2;
+            	padding:15px 0;
+            	.mouse {
+	            	position: relative;
+				    margin:0 auto;
+				    height: 45px;
+				    width: 25px;
+				    background-image: url("../images/mouse.svg");
+				    background-repeat: no-repeat;
+				    background-size: contain;
+				    -webkit-transition: -webkit-transform .3s .9s ease-out,opacity .3s .9s ease-out;
+				    transition: transform .3s .9s ease-out,opacity .3s .9s ease-out;
+				    a {
+				    	position: absolute;
+				    	width:100%;
+				    	height:100%;
+				    	top:0;
+				    	left:0;
+				    }
+            	}
+            	.mouse:after {
+					position: absolute;
+					top: 10px;
+					left: 50%;
+					margin-left: -2px;
+					border-radius: 10px;
+					content: '';
+					width: 5px;
+					height: 5px;
+					background-color: #fff;
+					-webkit-animation-name: mouseScroll;
+					animation-name: mouseScroll;
+					-webkit-animation-duration: 2s;
+					animation-duration: 2s;
+					-webkit-animation-iteration-count: infinite;
+					animation-iteration-count: infinite;
+            	}
+				@-webkit-keyframes mouseScroll {
+					0%, 50% {
+						opacity: 1;
+						-webkit-transform: translateY(0);
+						transform: translateY(0)
+					}
+					90% {
+						opacity: 0;
+						-webkit-transform: translateY(20px);
+						transform: translateY(20px)
+					}
+					91% {
+						opacity: 0;
+						-webkit-transform: translateY(0);
+						transform: translateY(0)
+					}
+				}
+				@keyframes mouseScroll {
+					0%, 50% {
+						opacity: 1;
+						-webkit-transform: translateY(0);
+						transform: translateY(0)
+					}
+					90% {
+						opacity: 0;
+						-webkit-transform: translateY(20px);
+						transform: translateY(20px)
+					}
+					91% {
+						opacity: 0;
+						-webkit-transform: translateY(0);
+						transform: translateY(0)
+					}
+				}
+            }
 		}
 		//Industries
 		.industries {
@@ -87,6 +164,9 @@
 			.ngo-icon:before {
 				content: "\e810";
 			}
+			.open-data-network-icon:before {
+				content: "\e900";
+			}
 			.what-we-do {
 				h2 {
 					color:white;
@@ -99,9 +179,9 @@
 			.stat {
 				position: relative;
 				font-size: 14px;
-				padding-left:20px;
-				padding-top:20px;
-				border-top:white dotted 1px;
+				padding:15px 15px 15px 35px;
+				background-color:rgba(white, 0.1);
+				border-radius:5px;
 				span {
 					display:block;
 					font-size:24px;
@@ -113,8 +193,8 @@
 				font-family: fontawesome;
 				content:"\f05a";
 				position: absolute;
-				top:20px;
-				left:0;
+				top:15px;
+				left:15px;
 				font-style: normal;
 				font-size: 16px;
 			}
@@ -161,15 +241,13 @@
 	}
 	//Customers
 	.customers {
-		h2 {
-			margin-top:0;
-		}
 		article {
 			.logo-frame {
 				width:100%;
 				height: 180px;
 				padding:30px;
 				border:lighten($silver, 10%) solid 5px;
+				margin-bottom:15px;
 				img {
 					display:inline-block;
 					position: relative;
