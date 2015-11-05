@@ -359,6 +359,13 @@
 		background-size:cover;
 		position:relative;
 	}
+	.img-background-fixed {
+		background-size:cover;
+		background-repeat:no-repeat;
+		background-position:center center;
+		background-attachment: fixed;		
+		position: relative;
+	}
 	.finance-solution-image {
 		background-image:url(../images/finance-hero.jpg);
 	}
@@ -399,10 +406,10 @@
 		background-image:url(../images/public-safety-three.jpg);
 	}
 	.open-data-one {		
-		background-image:url(../images/open-data-one.jpg);
+		background-image:url(../images/open-data-hero.jpg);
 	}
 	.open-data-two {		
-		background-image:url(../images/open-data-two.jpg);
+		background-image:url(../images/clouds.jpg);
 	}
 	.open-data-three {		
 		background-image:url(../images/open-data-three.jpg);

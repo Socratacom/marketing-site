@@ -59,6 +59,33 @@ function custom_feature_image( $thumb_size, $image_width, $image_height ) {
 /** SHORTCODES **/
 
 /**
+ * Open Data Sub Nav
+ */
+function open_data_subnav ($atts, $content = null) {
+  ob_start();
+  ?>
+  <section class="product-subnav">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h3><a href="/products/open-data">Open Data</a></h3>
+          <?php wp_nav_menu( array( 
+              'theme_location' => 'product_nav_open_data',
+              'container'       => '',
+              'menu_class' => 'subnav' 
+            ) ); ?>
+        </div>
+      </div>
+    </div>
+  </section>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('open-data-subnav', __NAMESPACE__ . '\\open_data_subnav');
+
+/**
  * Marketo Social Sharing
  */
 function marketo_share($atts, $content = null) {
