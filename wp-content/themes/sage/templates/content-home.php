@@ -76,7 +76,7 @@
 				<div class="tile-text">
 					<h4 class="icon city-icon text-reverse">City Government</h4>
 					<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
-					<p class=" text-reverse stat"><span>3k to 8m</span> citizens, cities large and small use Socrata</p>
+					<p class=" text-reverse stat"><span>3,000 cities</span> large and small use Socrata</p>
 					<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
 				</div>	
 			</div>
@@ -98,7 +98,7 @@
 				<div class="tile-text">
 					<h4 class="icon open-data-network-icon text-reverse">Open Data Network</h4>
 					<p class="text-reverse">The Open Data Network connects publishers of high-value data to the businesses, developers, and analysts that use, reuse, and enrich data.</p>					
-					<p class=" text-reverse stat"><span>1,000+ datasets</span> by over 50 publishers</p>
+					<p class=" text-reverse stat"><span>10,000+ datasets</span> by over 150 publishers</p>
 					<p><a href="http://opendatanetwork.com" target="_blank" class="btn btn-default">Explore Data</a></p>
 				</div>	
 			</div>
