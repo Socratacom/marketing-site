@@ -18,7 +18,8 @@
     // All pages
     'common': {
       init: function() {
-        // JavaScript to be fired on all pages         
+        // JavaScript to be fired on all pages
+        window.sr = new scrollReveal();
       },
       finalize: function() {
         // JavaScript to be fired after the init JS
@@ -88,7 +89,6 @@
     'home': {
       init: function() {
         // JavaScript to be fired on the home page
-        window.sr = new scrollReveal();
       },
       finalize: function() {
         // JavaScript to be fired after the init JS        
@@ -110,14 +110,12 @@
     'socrata_for_finance': {
       init: function() {
         // JavaScript to be fired on the home page
-        window.sr = new scrollReveal();
       }
     },
     // About us page, note the change from about-us to about_us.
     'about_us': {
       init: function() {
         // JavaScript to be fired on the about us page
-        window.sr = new scrollReveal();
       }
     }
   };
