@@ -13,11 +13,11 @@ body {
 // Custom Icons
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?hy1ofg');
-	src:url('../fonts/icomoon.eot?hy1ofg#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf?hy1ofg') format('truetype'),
-		url('../fonts/icomoon.woff?hy1ofg') format('woff'),
-		url('../fonts/icomoon.svg?hy1ofg#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?z3cb4m');
+	src:url('../fonts/icomoon.eot?z3cb4m#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?z3cb4m') format('truetype'),
+		url('../fonts/icomoon.woff?z3cb4m') format('woff'),
+		url('../fonts/icomoon.svg?z3cb4m#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -36,6 +36,15 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-city-sm:before {
+	content: "\e908";
+}
+.icon-city-lg:before {
+	content: "\e909";
+}
+.icon-city-md:before {
+	content: "\e90a";
+}
 .icon-certified:before {
 	content: "\e905";
 }
@@ -165,6 +174,8 @@ body {
 .icon-manager:before {
 	content: "\e600";
 }
+
+
 
 
 
