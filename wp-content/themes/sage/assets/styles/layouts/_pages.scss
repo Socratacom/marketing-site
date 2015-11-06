@@ -401,7 +401,11 @@
 			border-bottom:dotted 1px;
 			padding-bottom:20px;
 			color:white;
-		} 
+		}
+		a {
+			color:lighten($peter-river, 15%);
+			border-bottom: solid 1px;
+		}
 	}
 	.icon-50 {
 		font-size:50px;
