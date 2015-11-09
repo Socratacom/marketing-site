@@ -102,6 +102,35 @@ add_shortcode('marketo-share', __NAMESPACE__ . '\\marketo_share');
 
 
 /**
+ * Carousel Script. This temporary till I can figure out the frick'n plugin
+ */
+function carousel_script($atts, $content = null) {
+  ob_start();
+  ?>
+  <script>
+  jQuery(function ($){
+          $('.carousel-slides').slick({
+            arrows: true,
+            appendArrows: $('.arrowsContainer'),
+            prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
+            nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+            autoplay: true,
+            autoplaySpeed: 8000,
+            speed: 800,
+            slidesToShow: 1,
+            slidesToScroll: 1
+          });
+          $('.carousel-slides').show();
+        });
+  </script>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('carousel-script', __NAMESPACE__ . '\\carousel_script');
+
+/**
  * Author Description
  */
 function author_description($atts, $content = null) {
