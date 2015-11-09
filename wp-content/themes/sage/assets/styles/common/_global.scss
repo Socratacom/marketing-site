@@ -13,11 +13,11 @@ body {
 // Custom Icons
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?l2ss7w');
-	src:url('../fonts/icomoon.eot?l2ss7w#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf?l2ss7w') format('truetype'),
-		url('../fonts/icomoon.woff?l2ss7w') format('woff'),
-		url('../fonts/icomoon.svg?l2ss7w#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?xhv72k');
+	src:url('../fonts/icomoon.eot?xhv72k#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?xhv72k') format('truetype'),
+		url('../fonts/icomoon.woff?xhv72k') format('woff'),
+		url('../fonts/icomoon.svg?xhv72k#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -36,6 +36,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-dashboard:before {
+	content: "\e90c";
+}
 .icon-tools:before {
 	content: "\e90b";
 }
@@ -177,6 +180,8 @@ body {
 .icon-manager:before {
 	content: "\e600";
 }
+
+
 
 
 
