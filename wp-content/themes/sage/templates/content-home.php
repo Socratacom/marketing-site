@@ -5,9 +5,9 @@
                 <div class="text">
 					<div class="col-sm-6">
 						<div class="box-white padding-30">
-							<h1>The Data Platform for 21st Century Digital Government</h1>
-							<p class="lead">Leverage the power of data to improve every community - globally and locally.</p>
-	                        <p><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
+							<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
+							<p class="lead">Leverage your data to design and deliver policies and digital services for an open, connected and digital 21st century government.</p>
+	                        <p style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
                     	</div>
 					</div>
                 </div>
@@ -111,7 +111,7 @@
 		<div class="row">
 			<div class="col-sm-3">
 				<h2>Our Customers</h1>
-				<p class="lead">Hundreds of federal departments, states, and cities of all sizes are successfully maximizing the value of their data with Socrata.</p>
+				<p class="lead">Hundreds of cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>
 				<p><a href="/customer-stories">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
 			</div>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=federal&posts_per_page=1" class="col-sm-3"]');?>

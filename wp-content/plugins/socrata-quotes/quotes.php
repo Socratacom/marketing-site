@@ -56,11 +56,6 @@ function add_quotes_icon() { ?>
   <?php
 }
 
-
-
-
-
-
 // CUSTOM COLUMS FOR ADMIN
 add_filter( 'manage_edit-quotes_columns', 'quotes_edit_columns' ) ;
 function quotes_edit_columns( $columns ) {

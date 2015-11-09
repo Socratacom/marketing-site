@@ -177,10 +177,6 @@ function get_socrata_stories_meta() {
   $socrata_stories_press_three_source = get_post_meta($post->ID, 'socrata_stories_press_three_source', true); // 22  
   $socrata_stories_shortdescription = get_post_meta($post->ID, 'socrata_stories_shortdescription', true); // 23
 
-
-
-
-
   return array(
 	$socrata_stories_featured,
 	$socrata_stories_site_name,
