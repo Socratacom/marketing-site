@@ -19,8 +19,8 @@ function create_tech_blog() {
   register_post_type( 'tech_blog',
     array(
       'labels' => array(
-        'name' => 'Tech Blog',
-        'singular_name' => 'Tech Blog',
+        'name' => 'Developer Blog',
+        'singular_name' => 'Developer Blog',
         'add_new' => 'Add New Post',
         'add_new_item' => 'Add New Post',
         'edit' => 'Edit Post',
@@ -31,7 +31,7 @@ function create_tech_blog() {
         'search_items' => 'Search Posts',
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash',
-        'parent' => 'Parent Tech Blog'
+        'parent' => 'Parent Developer Blog'
       ),
       'public' => true,
       'menu_position' => 5,
@@ -39,7 +39,7 @@ function create_tech_blog() {
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'tech-blog-posts')
+      'rewrite' => array('with_front' => false, 'slug' => 'developer-blog-article')
     )
   );
 }
@@ -64,14 +64,14 @@ function tech_blog_taxonomies() {
     'tech_blog',
     array(
     'labels' => array(
-      'name' => 'Tech Blog Category',
+      'name' => 'Developer Blog Category',
       'add_new_item' => 'Add New Category',
       'new_item_name' => "New Category"
     ),
     'show_ui' => true,
     'show_tagcloud' => false,
     'hierarchical' => true,
-    'rewrite' => array('with_front' => false, 'slug' => 'tech-blog-category')
+    'rewrite' => array('with_front' => false, 'slug' => 'developer-blog-category')
     )
   );
 }
@@ -122,7 +122,7 @@ function tech_blog_single_template( $template_path ) {
 // Custom Body Class
 add_action( 'body_class', 'tech_blog_body_class');
 function tech_blog_body_class( $classes ) {
-  if ( is_page('tech-blog') || get_post_type() == 'tech_blog' && is_single() || get_post_type() == 'tech_blog' && is_archive() )
+  if ( is_page('developer-blog') || get_post_type() == 'tech_blog' && is_single() || get_post_type() == 'tech_blog' && is_archive() )
     $classes[] = 'tech-blog';
   return $classes;
 }
