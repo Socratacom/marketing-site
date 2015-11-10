@@ -237,14 +237,30 @@ function solutions_logos( $atts ) {
   ob_start(); 
   $the_query = new \WP_Query( $query );
   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
   <div class="col-sm-2 solutions-logos">
     <div class="logo-frame text-center">
-      <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">
+    <?php $meta = get_socrata_stories_meta(); 
+      if ($meta[2]) { ?>
+        <a href="<?php echo $meta[2]; ?>" target="_blank"><img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive "></a>
+      <?php
+      }
+      else { ?>
+        <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">
+      <?php
+      }
+    ?>
     </div>
-    <p class="text-center"><small><?php the_title();?></small></p>
+    <?php $meta = get_socrata_stories_meta(); 
+      if ($meta[2]) { ?>
+        <p class="text-center"><a href="<?php echo $meta[2]; ?>" target="_blank"><small><?php the_title();?></small></a></p>
+      <?php
+      }
+      else { ?>
+        <p class="text-center"><small><?php the_title();?></small></p>
+      <?php
+      }
+    ?>    
   </div>
-
   <?php
   endwhile;
   wp_reset_postdata();
@@ -269,9 +285,7 @@ function customer_logos_abstract( $atts ) {
 
   <div class="<?php echo $class; ?>">
     <article>
-      <div class="logo-frame text-center">
-        <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive">
-      </div>
+      <p><img src="<?php echo custom_feature_image('full', 320, 180); ?>" class="img-responsive"></p>
       <div class="customer-text truncate">
         <h5><?php the_title(); ?></h5>
         <?php the_excerpt(); ?>

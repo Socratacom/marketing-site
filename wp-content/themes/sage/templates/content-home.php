@@ -86,7 +86,7 @@
 				</div>
 				<div class="tile-text">
 					<h4 class="icon county-icon text-reverse">County Government</h4>
-					<p class="text-reverse">With Socrata solutions, counties can publish data that will boost the economy and make the region a better place to live.</p>
+					<p class="text-reverse">With Socrata, counties can publish data that will boost the economy and make the region a better place to live.</p>
 					<p class=" text-reverse stat"><span>4,000+ datasets</span> are hosted by counties on Socrata</p>
 					<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
 				</div>	
@@ -120,7 +120,6 @@
 		</div>
 	</div>
 </section>
-
 <section class="background-clouds section-padding articles">	
 	<div class="container">
 		<div class="row">
@@ -223,7 +222,7 @@
 			<div class="col-sm-6 col-sm-offset-1" data-sr='enter left move 50px'>
 				<div class="padding-30">
 					<h2 class="text-reverse">Give us an hour.</h2>
-					<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our Data Platform can do for you.</p>
+					<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our data platform can do for you.</p>
 					<p class="lead text-reverse">Got question now? Give us a call at (206) 340-8008.</p>
 					<p><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
 				</div>
