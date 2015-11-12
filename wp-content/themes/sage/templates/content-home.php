@@ -6,7 +6,7 @@
 					<div class="col-sm-6">
 						<div class="box-white padding-30">
 							<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
-							<p class="lead">Socrata's cloud based solution allows government organizations to put their data online, make data driven decisions, operate more efficiently, and share insights with citizens.</p>
+							<p class="lead">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
 	                        <p style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
                     	</div>
 					</div>
