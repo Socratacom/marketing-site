@@ -1,13 +1,11 @@
 <div class="container page-padding">
 	<div class="row">
-		<div class="col-sm-12">
-			<h3 class="archive-title">Videos: <?php single_cat_title(); ?></h3>
-		</div>
-	</div>
-
-	<div class="row">
 		<div class="col-sm-9">
 			<div class="row">
+        <div class="col-sm-12">
+          <h3 class="archive-title">Videos: <?php single_cat_title(); ?></h3>
+          <hr/>
+        </div>
 
 				<?php while ( have_posts() ) : the_post();  ?>
 

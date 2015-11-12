@@ -16,12 +16,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div class="container page-padding">
 	<div class="row">
-		<div class="col-sm-12">
-			<h3 class="archive-title">Events: <?php events_the_categories(); ?></h3>
-		</div>
-	</div>
-	<div class="row">
 		<div class="col-sm-9">
+        <div class="col-sm-12">
+          <h3 class="archive-title">Events: <?php events_the_categories(); ?></h3>
+          <hr/>
+        </div>
 			<div class="row">
 				<?php tribe_events_the_notices() ?>
 
