@@ -126,29 +126,29 @@
 			<div class="col-sm-4">
 				<?php
 				$featuredPosts = new WP_Query();
-				$featuredPosts->query('post_type=tribe_events&orderby=desc&showposts=1');
+				$featuredPosts->query('post_type=post&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 					<div class="card" data-sr="enter bottom, opacity 0.5">
-						<div class="card-banner background-green-sea">
+						<div class="card-banner background-peter-river">
 							<ul>
-								<li>Events</li>
-								<li><a href="/events">View All</a></li>
+								<li>Open Data Blog</li>
+								<li><a href="/blog">View All</a></li>
 							</ul>
 						</div>
 						<div class="card-image hidden-xs">
 							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
 							<div class="card-avatar">
-								<div class="icon-avatar img-circle events"></div>
+								<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
 						<div class="card-text truncate">
-							<p class="categories"><small><?php events_the_categories(); ?><small></p>
+							<p class="categories"><small><?php Roots\Sage\Extras\blog_the_categories(); ?><small></p>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<?php echo tribe_events_event_schedule_details( $event_id, '<p class="meta"><small>', '</small></p>' ); ?>	
+							<p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
 							<?php the_excerpt(); ?> 
-						</div>
-					</div>				
+						</div>			
+					</div>
 				<?php endwhile; ?>
 				<?php wp_reset_query(); ?>
 			</div>
@@ -183,13 +183,13 @@
 			<div class="col-sm-4">
 				<?php
 				$featuredPosts = new WP_Query();
-				$featuredPosts->query('post_type=post&orderby=desc&showposts=1');
+				$featuredPosts->query('post_type=tech_blog&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 					<div class="card" data-sr="enter bottom, opacity 0.5">
-						<div class="card-banner background-wisteria">
+						<div class="card-banner background-sun-flower">
 							<ul>
-								<li>Open Data Blog</li>
-								<li><a href="/blog">View All</a></li>
+								<li>Developer Blog</li>
+								<li><a href="/developer-blog">View All</a></li>
 							</ul>
 						</div>
 						<div class="card-image hidden-xs">
@@ -200,7 +200,7 @@
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
 						<div class="card-text truncate">
-							<p class="categories"><small><?php Roots\Sage\Extras\blog_the_categories(); ?><small></p>
+							<p class="categories"><small><?php tech_blog_the_categories(); ?><small></p>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 							<p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
 							<?php the_excerpt(); ?> 
