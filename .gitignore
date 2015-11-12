@@ -27,10 +27,7 @@ wp-content/*
 wp-content/plugins/*
 # !wp-content/plugins/my-single-file-plugin.php
 !wp-content/plugins/socrata-case-studies/
-!wp-content/plugins/socrata-ctas/
-!wp-content/plugins/socrata-hero-image/
 !wp-content/plugins/socrata-image-attribution/
-!wp-content/plugins/socrata-openinnovation-mag/
 !wp-content/plugins/socrata-quotes/
 !wp-content/plugins/socrata-stories/
 !wp-content/plugins/socrata-tech-blog/
