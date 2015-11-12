@@ -128,7 +128,7 @@
 				$featuredPosts = new WP_Query();
 				$featuredPosts->query('post_type=tribe_events&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
-					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
+					<div class="card" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-green-sea">
 							<ul>
 								<li>Events</li>
@@ -142,13 +142,12 @@
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
-						<div class="card-text">
-							<div class="categories"><?php events_the_categories(); ?></div>
+						<div class="card-text truncate">
+							<p class="categories"><small><?php events_the_categories(); ?><small></p>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<?php echo tribe_events_event_schedule_details( $event_id, '<small class="card-meta">', '</small>' ); ?>					
+							<?php echo tribe_events_event_schedule_details( $event_id, '<p class="meta"><small>', '</small></p>' ); ?>	
 							<?php the_excerpt(); ?> 
 						</div>
-						<div class="padding-fallback"></div>
 					</div>				
 				<?php endwhile; ?>
 				<?php wp_reset_query(); ?>
@@ -158,7 +157,7 @@
 				$featuredPosts = new WP_Query();
 				$featuredPosts->query('post_type=case_study&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
-					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
+					<div class="card" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-pumpkin">
 							<ul>
 								<li>Case Studies</li>
@@ -172,13 +171,11 @@
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
-						<div class="card-text">							
-							<div class="categories"><?php case_study_the_categories(); ?></div>
-							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<small class="card-meta"><?php $meta = get_case_study_meta(); if ($meta[0]) echo $meta[0]; ?></small>
+						<div class="card-text truncate">
+							<p class="categories"><small><?php case_study_the_categories(); ?><small></p>
+							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>							
 							<?php the_excerpt(); ?> 
-						</div>						
-						<div class="padding-fallback"></div>
+						</div>	
 					</div>
 				<?php endwhile; ?>
 				<?php wp_reset_query(); ?>
@@ -188,7 +185,7 @@
 				$featuredPosts = new WP_Query();
 				$featuredPosts->query('post_type=post&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
-					<div class="card truncate" data-sr="enter bottom, opacity 0.5">
+					<div class="card" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-wisteria">
 							<ul>
 								<li>Open Data Blog</li>
@@ -202,13 +199,12 @@
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
-						<div class="card-text">
-							<div class="categories"><?php Roots\Sage\Extras\blog_the_categories(); ?></div>
+						<div class="card-text truncate">
+							<p class="categories"><small><?php Roots\Sage\Extras\blog_the_categories(); ?><small></p>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<small class="card-meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small>
+							<p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
 							<?php the_excerpt(); ?> 
-						</div>						
-						<div class="padding-fallback"></div>
+						</div>			
 					</div>
 				<?php endwhile; ?>
 				<?php wp_reset_query(); ?>

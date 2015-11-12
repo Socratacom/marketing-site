@@ -42,7 +42,7 @@
       $hide_empty = 1;
       $hierarchical = 1; // 1 for yes, 0 for no
       $taxonomy = 'category';
-      $title = 'Categories';
+      $title = 'Blog Categories';
 
       $args = array(
       'orderby' => $orderby,
@@ -51,7 +51,7 @@
       'hide_empty' => $hide_empty,
       'hierarchical' => $hierarchical,
       'taxonomy' => $taxonomy,
-      'title_li' => '<h5>'. $title .'</h5>'
+      'title_li' => '<h5 class="background-peter-river">'. $title .'</h5>'
       );
       ?>
       <ul class="category-nav blog-nav">

@@ -1,6 +1,8 @@
 <div class="container page-padding">
-  <div class="row content">
-    <div class="col-sm-8 col-md-9">      
+  <div class="row">
+    <div class="col-sm-7 col-sm-offset-1">
+
+
       <h1><?php the_title(); ?></h1>
       <?php echo do_shortcode( '[marketo-share]' ); ?>
       <hr/>
@@ -13,11 +15,14 @@
             }?>
         </div>
     </div>
-    <div class="col-sm-4 col-md-3 hidden-xs">
-      <div class="chapters">
+    <div class="col-md-3 hidden-xs">
+      <div class="category-nav">
+      <h5 class="background-wet-asphalt" >Guide Chapters</h5>
+    
         <?php wp_nav_menu( array( 'theme_location' => 'field_guide' ) ); ?>
-      </div>
+        </div>
       <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
     </div>
+
   </div>
 </div>

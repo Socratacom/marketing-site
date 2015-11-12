@@ -208,15 +208,12 @@ function stories_posts($atts, $content = null) {
             $do_not_duplicate[] = get_the_ID(); ?>
 
             <div class="col-sm-12">
-              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
-                <div class="text">
+              <div class="featured-post overlay-black" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
+                <div class="text truncate" style="height:200px;">
+                  <div class="post-category background-nephritis">Customer Stories</div>
                   <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-                  <div class="truncate">
-                    <?php the_excerpt(); ?> 
-                  </div>
-                  <p><a href="<?php the_permalink() ?>" class="btn btn-primary">Read More</a></p>
+                  <?php the_excerpt(); ?>
                 </div>
-                <div class="overlay"></div>
                 <a href="<?php the_permalink() ?>" class="link"></a>
               </div>
             </div>
@@ -240,13 +237,13 @@ function stories_posts($atts, $content = null) {
             $query2->the_post(); ?>
             
             <div class="col-sm-6 col-lg-4">
-              <div class="card truncate">
+              <div class="card">
                 <div class="card-image hidden-xs">
                   <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">                    
                   <a href="<?php the_permalink() ?>"></a>
                 </div>
-                <div class="card-text">
-                  <div class="categories"><?php stories_the_categories(); ?></div>
+                <div class="card-text truncate">
+                  <p class="categories"><?php stories_the_categories(); ?></p>
                   <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
                   <?php the_excerpt(); ?> 
                 </div>
@@ -275,7 +272,7 @@ function stories_posts($atts, $content = null) {
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
           $taxonomy = 'stories_type';
-          $title = 'Type';
+          $title = 'Stories Categories';
 
           $args = array(
             'orderby' => $orderby,
@@ -284,30 +281,7 @@ function stories_posts($atts, $content = null) {
             'hide_empty' => $hide_empty,
             'hierarchical' => $hierarchical,
             'taxonomy' => $taxonomy,
-            'title_li' => '<h5>'. $title .'</h5>'
-          );
-        ?>
-        <ul class="category-nav">
-          <?php wp_list_categories($args); ?>
-        </ul>
-        <?php
-          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-          $orderby = 'name';
-          $show_count = 0; // 1 for yes, 0 for no
-          $pad_counts = 0; // 1 for yes, 0 for no
-          $hide_empty = 1;
-          $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'stories_product';
-          $title = 'Product';
-
-          $args = array(
-            'orderby' => $orderby,
-            'show_count' => $show_count,
-            'pad_counts' => $pad_counts,
-            'hide_empty' => $hide_empty,
-            'hierarchical' => $hierarchical,
-            'taxonomy' => $taxonomy,
-            'title_li' => '<h5>'. $title .'</h5>'
+            'title_li' => '<h5 class="background-nephritis">'. $title .'</h5>'
           );
         ?>
         <ul class="category-nav">

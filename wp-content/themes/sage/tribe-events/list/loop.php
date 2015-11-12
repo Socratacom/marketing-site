@@ -19,27 +19,28 @@ global $more;
 $more = false;
 ?>
 
-<div class="tribe-events-loop vcalendar">
+<?php while ( have_posts() ) : the_post(); ?>
+<div class="col-sm-6 col-lg-4">
+<div class="card">
+<div class="card-image hidden-xs">
+<?php if ( has_post_thumbnail() ) { ?>
+<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">
+<?php
+} else { ?>
+<img src="/wp-content/uploads/no-image.png" class="img-responsive">
+<?php
+}
+?>							
+<a href="<?php the_permalink() ?>"></a>
+</div>
+<div class="card-text truncate">
+<p class="categories"><small><?php events_the_categories(); ?><small></p>
+<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+<p class="meta"><?php echo tribe_events_event_schedule_details( $event_id, '<small style="font-weight:400;">', '</small>' ); ?></p>
+<?php the_excerpt(); ?> 
+</div>
+</div>
+</div>
+<?php endwhile; ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
-		<?php do_action( 'tribe_events_inside_before_loop' ); ?>
 
-		<!-- Month / Year Headers -->
-		<?php tribe_events_list_the_date_headers(); ?>
-
-		<!-- Event  -->
-		<?php
-		$post_parent = '';
-		if ( $post->post_parent ) {
-			$post_parent = ' data-parent-post-id="' . absint( $post->post_parent ) . '"';
-		}
-		?>
-		<div id="post-<?php the_ID() ?>" class="<?php tribe_events_event_classes() ?>" <?php echo $post_parent; ?>>
-			<?php tribe_get_template_part( 'list/single', 'event' ) ?>
-		</div><!-- .hentry .vevent -->
-
-
-		<?php do_action( 'tribe_events_inside_after_loop' ); ?>
-	<?php endwhile; ?>
-
-</div><!-- .tribe-events-loop -->

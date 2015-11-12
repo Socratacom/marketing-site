@@ -1,11 +1,6 @@
 @media only screen and (min-width : 320px) {
 	.stories {
 		.card {
-			height:400px;
-			margin-bottom:30px;
-			.card-text h4 {
-				margin-bottom:15px;
-			}
 			.card-image {
 				padding:30px;
 				text-align: center;
@@ -19,12 +14,6 @@
 					-ms-transform: translateY(-50%);
 					transform: translateY(-50%);
 				}
-			}
-		}
-		.featured-post {
-			.truncate {
-				height:100px;
-				margin-bottom:20px;
 			}
 		}
 	    .sidebar {

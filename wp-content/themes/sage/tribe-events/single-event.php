@@ -31,22 +31,10 @@ $event_id = get_the_ID();
 				<?php while (have_posts()) : the_post(); ?>
 				<article <?php post_class(); ?>>
 					<?php tribe_events_the_notices() ?>
-					<?php
-					echo tribe_get_event_categories(
-					get_the_id(), array(
-					'before'       => '',
-					'sep'          => ' | ',
-					'after'        => '',
-					'label'        => '', // An appropriate plural/singular label will be provided
-					'label_before' => '<span style="display:none;">',
-					'label_after'  => '</span>',
-					'wrap_before'  => '<div>',
-					'wrap_after'   => '</div>',
-					)
-					);
-					?>
+					<small class="category-name"><?php events_the_categories(); ?></small>
 					<h1 class="entry-title"><?php the_title(); ?></h1>
-					<?php echo tribe_events_event_schedule_details( $event_id, '<h3>', '</h3>' ); ?>
+					<?php echo tribe_events_event_schedule_details( $event_id, '<h4 class="meta">', '</h4>' ); ?>
+					<hr/>
 					<div class="entry-content">
 		              <?php the_content(); ?>
 		            </div>
@@ -56,13 +44,7 @@ $event_id = get_the_ID();
 					<?php tribe_get_template_part( 'modules/meta' ); ?>
 					<?php do_action( 'tribe_events_single_event_after_the_meta' ) ?>
 
-		            <hr/>
-		            <div>
-		              <?php if( get_posts() ) {
-		              previous_post_link('<p><strong><small>NEXT EVENT:</small><br>%link</strong></p>');
-		              next_post_link('<p><strong><small>PREVIOUS EVENT:</small><br>%link</strong></p>');
-		              }?>
-		            </div>
+		            
 				</article>
 				
 				<?php endwhile; ?>
@@ -73,7 +55,30 @@ $event_id = get_the_ID();
 			</div>
 		</div>
 		<div class="col-sm-4 col-md-3 sidebar hidden-xs">
-			<?php echo do_shortcode('[newsletter-sidebar]'); ?>
+	      <?php
+	        //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+	        $orderby = 'name';
+	        $show_count = 0; // 1 for yes, 0 for no
+	        $pad_counts = 0; // 1 for yes, 0 for no
+	        $hide_empty = 1;
+	        $hierarchical = 1; // 1 for yes, 0 for no
+	        $taxonomy = 'tribe_events_cat';
+          	$title = 'Event Categories';
+
+	        $args = array(
+	          'orderby' => $orderby,
+	          'show_count' => $show_count,
+	          'pad_counts' => $pad_counts,
+	          'hide_empty' => $hide_empty,
+	          'hierarchical' => $hierarchical,
+	          'taxonomy' => $taxonomy,
+	          'title_li' => '<h5 class="background-wisteria">'. $title .'</h5>'
+	        );
+	      ?>
+	      <ul class="category-nav">
+	        <?php wp_list_categories($args); ?>
+	      </ul>
+	      <?php echo do_shortcode('[newsletter-sidebar]'); ?>
 		</div>
 	</div>
 </div>

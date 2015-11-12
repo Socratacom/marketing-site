@@ -76,6 +76,17 @@ function tech_blog_taxonomies() {
   );
 }
 
+// Print Taxonomy Categories
+function tech_blog_the_categories() {
+    // get all categories for this post
+    global $terms;
+    $terms = get_the_terms($post->ID , 'tech_blog_category');
+    // echo the first category
+    echo $terms[0]->name;
+    // echo the remaining categories, appending separator
+    for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
 // ASSIGN DEFAULT CATEGORY
 add_action( 'save_post', 'tech_blog_set_default_object_terms', 100, 2 );
 function tech_blog_set_default_object_terms( $post_id, $post ) {
@@ -154,12 +165,12 @@ function tech_blog_posts($atts, $content = null) {
             $do_not_duplicate[] = get_the_ID(); ?>
 
             <div class="col-sm-12">
-              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
-                <div class="text">
+              <div class="featured-post overlay-black" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
+                <div class="text truncate">
+                  <div class="post-category background-sun-flower">Developer Blog</div>
                   <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
                 </div>
                 <?php get_template_part('templates/entry-meta'); ?>
-                <div class="overlay"></div>
                 <a href="<?php the_permalink() ?>" class="link"></a>
               </div>
             </div>
@@ -182,7 +193,30 @@ function tech_blog_posts($atts, $content = null) {
           while ( $query2->have_posts() ) {
             $query2->the_post(); ?>
             
-            <?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
+            <div class="col-sm-6 col-lg-4">
+              <div class="card">
+                <div class="card-image hidden-xs">
+                  <?php if ( has_post_thumbnail() ) { ?>
+                    <img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">
+                  <?php
+                  } else { ?>
+                    <img src="/wp-content/uploads/no-image.png" class="img-responsive">
+                  <?php
+                  }
+                  ?>
+                  <div class="card-avatar">
+                    <?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
+                  </div>
+                  <a href="<?php the_permalink() ?>"></a>
+                </div>
+                <div class="card-text truncate">
+                  <p class="categories"><small><?php tech_blog_the_categories(); ?><small></p>
+                  <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+                  <p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
+                  <?php the_excerpt(); ?> 
+                </div>
+              </div>
+            </div>
 
             <?php
           }
@@ -205,7 +239,7 @@ function tech_blog_posts($atts, $content = null) {
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
           $taxonomy = 'tech_blog_category';
-          $title = 'Categories';
+          $title = 'Developer Blog Categories';
 
           $args = array(
             'orderby' => $orderby,
@@ -214,7 +248,7 @@ function tech_blog_posts($atts, $content = null) {
             'hide_empty' => $hide_empty,
             'hierarchical' => $hierarchical,
             'taxonomy' => $taxonomy,
-            'title_li' => '<h5>'. $title .'</h5>'
+            'title_li' => '<h5 class="background-sun-flower">'. $title .'</h5>'
           );
         ?>
         <ul class="category-nav">

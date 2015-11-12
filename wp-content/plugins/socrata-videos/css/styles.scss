@@ -29,8 +29,6 @@ $font-normal: 400;
 	}
 }
 .card-video {
-	height:400px;
-	margin-bottom:30px;
 	font-weight:$font-light;
 	.card-image {
 		position: relative;
@@ -52,15 +50,6 @@ $font-normal: 400;
 			background-repeat:no-repeat;
 			background-position:center center;
 			opacity: 1;
-		}
-	}
-	.card-text {
-		.categories {
-			padding:0;
-			font-weight: $font-normal;
-		}
-		h4, .categories {
-			margin-bottom:15px !important;
 		}
 	}
 }

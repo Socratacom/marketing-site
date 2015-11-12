@@ -148,11 +148,12 @@ function newsroom_posts($atts, $content = null) {
             $do_not_duplicate[] = get_the_ID(); ?>
 
             <div class="col-sm-12">
-              <div class="featured-post" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
-                <div class="text">
+              <div class="featured-post overlay-black" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
+                <div class="text truncate">
+                  <div class="post-category background-alizarin">Newsroom</div>
                   <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
                 </div>
-                <div class="overlay"></div>
+                <p class="meta"><strong>Posted</strong>, <?php the_time('F jS, Y') ?></p>
                 <a href="<?php the_permalink() ?>" class="link"></a>
               </div>
             </div>
@@ -176,14 +177,22 @@ function newsroom_posts($atts, $content = null) {
             $query2->the_post(); ?>
             
             <div class="col-sm-6 col-lg-4">
-              <div class="card truncate">
+              <div class="card">
                 <div class="card-image hidden-xs">
-                  <img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">  
+                  <?php if ( has_post_thumbnail() ) { ?>
+                    <img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">
+                  <?php
+                  } else { ?>
+                    <img src="/wp-content/uploads/no-image.png" class="img-responsive">
+                  <?php
+                  }
+                  ?>
                   <a href="<?php the_permalink() ?>"></a>
                 </div>
-                <div class="card-text">
+                <div class="card-text truncate">
+                  <p class="categories"><small><?php news_the_categories(); ?><small></p>
                   <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-                  <small class="card-meta">By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small>
+                  <p class="meta"><small><strong>Posted</strong>, <?php the_time('F jS, Y') ?></small></p>
                   <?php the_excerpt(); ?> 
                 </div>
               </div>
@@ -211,7 +220,7 @@ function newsroom_posts($atts, $content = null) {
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
           $taxonomy = 'news_category';
-          $title = 'Categories';
+          $title = 'Newsroom Categories';
 
           $args = array(
             'orderby' => $orderby,
@@ -220,7 +229,7 @@ function newsroom_posts($atts, $content = null) {
             'hide_empty' => $hide_empty,
             'hierarchical' => $hierarchical,
             'taxonomy' => $taxonomy,
-            'title_li' => '<h5>'. $title .'</h5>'
+            'title_li' => '<h5 class="background-alizarin">'. $title .'</h5>'
           );
         ?>
         <ul class="category-nav">

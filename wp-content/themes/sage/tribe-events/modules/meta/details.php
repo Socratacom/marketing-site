@@ -26,9 +26,15 @@ $cost = tribe_get_formatted_cost();
 $website = tribe_get_event_website_link();
 ?>
 
-<div class="tribe-events-meta-group tribe-events-meta-group-details">
-	<h3 class="tribe-events-single-section-title"> <?php esc_html_e( 'Details', 'the-events-calendar' ) ?> </h3>
-	<dl>
+<div class="col-sm-12">
+	<table class="table">
+		<thead>
+        	<tr>
+        		<th><h4><?php esc_html_e( 'Details', 'the-events-calendar' ) ?></h4></th>
+        		<th></th>
+        	</tr>
+        </thead>
+        <tbody>
 
 		<?php
 		do_action( 'tribe_events_single_meta_details_section_start' );
@@ -37,95 +43,85 @@ $website = tribe_get_event_website_link();
 		if ( tribe_event_is_all_day() && tribe_event_is_multiday() ) :
 			?>
 
-			<dt> <?php esc_html_e( 'Start:', 'the-events-calendar' ) ?> </dt>
-			<dd>
-				<abbr class="tribe-events-abbr updated published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_date ) ?> </abbr>
-			</dd>
-
-			<dt> <?php esc_html_e( 'End:', 'the-events-calendar' ) ?> </dt>
-			<dd>
-				<abbr class="tribe-events-abbr dtend" title="<?php esc_attr_e( $end_ts ) ?>"> <?php esc_html_e( $end_date ) ?> </abbr>
-			</dd>
+<tr>
+	<td><?php esc_html_e( 'Start:', 'the-events-calendar' ) ?></td>
+	<td class="text-right"><?php esc_html_e( $start_date ) ?></td>
+</tr>
+<tr>
+	<td><?php esc_html_e( 'End:', 'the-events-calendar' ) ?></td>
+	<td class="text-right"><?php esc_html_e( $end_date ) ?></td>
+</td>
 
 		<?php
 		// All day (single day) events
 		elseif ( tribe_event_is_all_day() ):
 			?>
-
-			<dt> <?php esc_html_e( 'Date:', 'the-events-calendar' ) ?> </dt>
-			<dd>
-				<abbr class="tribe-events-abbr updated published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_date ) ?> </abbr>
-			</dd>
-
+<tr>
+	<td><?php esc_html_e( 'Date:', 'the-events-calendar' ) ?></td>
+	<td class="text-right"><?php esc_html_e( $start_date ) ?></td>
+</tr>
 		<?php
 		// Multiday events
 		elseif ( tribe_event_is_multiday() ) :
 			?>
-
-			<dt> <?php esc_html_e( 'Start:', 'the-events-calendar' ) ?> </dt>
-			<dd>
-				<abbr class="tribe-events-abbr updated published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_datetime ) ?> </abbr>
-			</dd>
-
-			<dt> <?php esc_html_e( 'End:', 'the-events-calendar' ) ?> </dt>
-			<dd>
-				<abbr class="tribe-events-abbr dtend" title="<?php esc_attr_e( $end_ts ) ?>"> <?php esc_html_e( $end_datetime ) ?> </abbr>
-			</dd>
+<tr>
+	<td><?php esc_html_e( 'Start:', 'the-events-calendar' ) ?></td>
+	<td class="text-right"><?php esc_html_e( $start_datetime ) ?></td>
+</tr>
+<tr>
+	<td><?php esc_html_e( 'End:', 'the-events-calendar' ) ?></td>
+	<td class="text-right"><?php esc_html_e( $end_datetime ) ?></td>
+</tr>
 
 		<?php
 		// Single day events
 		else :
 			?>
+		<tr>
 
-			<dt> <?php esc_html_e( 'Date:', 'the-events-calendar' ) ?> </dt>
-			<dd>
-				<abbr class="tribe-events-abbr updated published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_date ) ?> </abbr>
-			</dd>
-
-			<dt> <?php esc_html_e( 'Time:', 'the-events-calendar' ) ?> </dt>
-			<dd><abbr class="tribe-events-abbr updated published dtstart" title="<?php esc_attr_e( $end_ts ) ?>">
+			<td><?php esc_html_e( 'Date:', 'the-events-calendar' ) ?></td>
+			<td class="text-right"><?php esc_html_e( $start_date ) ?></td>
+		</tr>
+		<tr>
+			<td> <?php esc_html_e( 'Time:', 'the-events-calendar' ) ?></td>
+			<td class="text-right">
 					<?php if ( $start_time == $end_time ) {
 						esc_html_e( $start_time );
 					} else {
 						esc_html_e( $start_time . $time_range_separator . $end_time );
 					} ?>
-				</abbr></dd>
+				
+			</td>
+		</tr>
 
 		<?php endif ?>
 
 		<?php
 		// Event Cost
 		if ( ! empty( $cost ) ) : ?>
-
-			<dt> <?php esc_html_e( 'Cost:', 'the-events-calendar' ) ?> </dt>
-			<dd class="tribe-events-event-cost"> <?php esc_html_e( $cost ); ?> </dd>
+		<tr>
+			<td><?php esc_html_e( 'Cost:', 'the-events-calendar' ) ?></td>
+			<td class="text-right"><?php esc_html_e( $cost ); ?></td>
+		</tr>
 		<?php endif ?>
-
-		<?php
-		echo tribe_get_event_categories(
-			get_the_id(), array(
-				'before'       => '',
-				'sep'          => ', ',
-				'after'        => '',
-				'label'        => null, // An appropriate plural/singular label will be provided
-				'label_before' => '<dt>',
-				'label_after'  => '</dt>',
-				'wrap_before'  => '<dd class="tribe-events-event-categories">',
-				'wrap_after'   => '</dd>',
-			)
-		);
-		?>
+		<tr>
+			<td>Event Category:</td>
+			<td class="text-right"><?php events_the_categories(); ?></td>
+		</tr>
 
 		<?php echo tribe_meta_event_tags( sprintf( __( '%s Tags:', 'the-events-calendar' ), tribe_get_event_label_singular() ), ', ', false ) ?>
 
 		<?php
 		// Event Website
 		if ( ! empty( $website ) ) : ?>
-
-			<dt> <?php esc_html_e( 'Website:', 'the-events-calendar' ) ?> </dt>
-			<dd class="tribe-events-event-url"> <?php echo $website; ?> </dd>
+<tr>
+			<td><?php esc_html_e( 'Website:', 'the-events-calendar' ) ?></td>
+			<td class="text-right"><?php echo $website; ?></td>
+			</li>
+		</tr>
 		<?php endif ?>
 
 		<?php do_action( 'tribe_events_single_meta_details_section_end' ) ?>
-	</dl>
+		</tbody>
+	</table>
 </div>

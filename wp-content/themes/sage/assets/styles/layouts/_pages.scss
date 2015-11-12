@@ -202,10 +202,6 @@
 		
 		//Articles
 		.articles {
-			
-			.card {
-				height:425px;
-			}
 			.card-avatar {				
 				.icon-avatar {
 					height:60px;
@@ -528,12 +524,15 @@
 	}
 	.scs2015-hero {		
 		background-image:url(../images/scs-hero-bw.jpg);
+	}	
+	.odfg-hero {		
+		background-image:url(../images/odfg-hero.jpg);
 	}
 	.partner-hero {
 		background-image:url(../images/handshake.png);
 		background-position: center top; 
 		background-repeat:no-repeat;
-		padding-top:250px;
+		padding-top:275px;
 	}
 	// Company Info
 	.leadership {

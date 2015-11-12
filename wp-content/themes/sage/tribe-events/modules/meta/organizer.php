@@ -16,9 +16,16 @@ $email = tribe_get_organizer_email();
 $website = tribe_get_organizer_website_link();
 ?>
 
-<div class="tribe-events-meta-group tribe-events-meta-group-organizer">
-	<h3 class="tribe-events-single-section-title"><?php echo tribe_get_organizer_label( ! $multiple ); ?></h3>
-	<dl>
+<div class="col-sm-12">
+	<table class="table">
+		<thead>
+        	<tr>
+        		<th><h4><?php echo tribe_get_organizer_label( ! $multiple ); ?></h4></th>
+        		<th></th>
+        	</tr>
+        </thead>
+        <tbody>
+
 		<?php
 		do_action( 'tribe_events_single_meta_organizer_section_start' );
 
@@ -28,48 +35,58 @@ $website = tribe_get_organizer_website_link();
 			}
 
 			?>
-			<dd class="fn org">
+			<tr>
+			<td>Organizer:</td>
+			<td class="text-right">
 				<?php echo tribe_get_organizer( $organizer ) ?>
-			</dd>
+			</td>
+			</tr>
 			<?php
 		}
 
 		if ( ! $multiple ) { // only show organizer details if there is one
 			if ( ! empty( $phone ) ) {
 				?>
-				<dt>
+				<tr>
+				<td>
 					<?php esc_html_e( 'Phone:', 'the-events-calendar' ) ?>
-				</dt>
-				<dd class="tel">
+				</td>
+				<td class="text-right">
 					<?php echo esc_html( $phone ); ?>
-				</dd>
+				</td>
+			</tr>
 				<?php
 			}//end if
 
 			if ( ! empty( $email ) ) {
 				?>
-				<dt>
+				<tr>
+				<td>
 					<?php esc_html_e( 'Email:', 'the-events-calendar' ) ?>
-				</dt>
-				<dd class="email">
+				</td>
+				<td class="text-right">
 					<?php echo esc_html( $email ); ?>
-				</dd>
+				</td>
+			</tr>
 				<?php
 			}//end if
 
 			if ( ! empty( $website ) ) {
 				?>
-				<dt>
+				<tr>
+				<td>
 					<?php esc_html_e( 'Website:', 'the-events-calendar' ) ?>
-				</dt>
-				<dd class="url">
+				</td>
+				<td class="text-right">
 					<?php echo $website; ?>
-				</dd>
+				</td>
+			</tr>
 				<?php
 			}//end if
 		}//end if
 
 		do_action( 'tribe_events_single_meta_organizer_section_end' );
 		?>
-	</dl>
+		</tbody>
+	</table>
 </div>

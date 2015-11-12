@@ -115,3 +115,48 @@ function field_guide_body_class( $classes ) {
   return $classes;
 }
 
+
+// Shortcode [field-guide-posts]
+function field_guide_posts($atts, $content = null) {
+  ob_start();
+  ?>
+<section class="section-padding hero-full background-asbestos overlay-midnight-blue odfg-hero">
+<div class="vertical-center">
+<div class="container">
+<div class="row">
+<div class="col-sm-10 col-sm-offset-1">
+<h1 class="text-center text-reverse margin-bottom-15">Open Data Field Guide</h1>
+<h3 class="text-center text-reverse">A comprehensive guide to ensuring your open data program serves you and your citizens.</h3>
+<p class="text-center text-reverse">With Insight From: City of Chicago, City of New York, City of Edmonton, State of Maryland, State of Colorado, Code for America, The World Bank, City of Baltimore, State of Oregon, and <a href="/open-data-guide-chapter/acknowledgements-glossary/">more</a>.</p>
+<p class="text-center"><a href="#chapters" class="btn btn-lg btn-primary">Explore Now</a></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="chapters" class="section-padding">
+<div class="container">
+<div class="row">
+<div class="col-sm-8 col-sm-offset-2">
+<h2 class="text-center">Chapters</h2>
+
+<?php $query = new WP_Query('post_type=guide&orderby=desc&showposts=40'); ?>
+<?php while ($query->have_posts()) : $query->the_post(); ?>
+<div><small><?php $guide_meta = get_guide_meta(); echo "$guide_meta[0]"; ?></small></div>
+<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+<?php $guide_meta = get_guide_meta(); echo "<p>$guide_meta[1]</p>"; ?>
+<hr/>
+<?php endwhile;  wp_reset_postdata(); ?>
+
+</div>
+</div>
+</div>
+</section>
+  
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('field-guide-posts', 'field_guide_posts');
