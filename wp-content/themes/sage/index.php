@@ -1,17 +1,18 @@
 <div class="container page-padding">
-	<?php 
-		if (is_category()){ ?>
-		<div class="row">
-			<div class="col-sm-12">
-				<h3 class="archive-title"><?php single_cat_title('Open Data Blog: '); ?></h3>
-			</div>
-		</div>
-		<?php
-		}
-	?>
+	
 	<div class="row">
 		<div class="col-sm-9">
 			<div class="row">
+				<?php 
+		if (is_category()){ ?>
+			<div class="col-sm-12">
+				<h3 class="archive-title"><?php single_cat_title('Open Data Blog: '); ?></h3>
+				<hr/>
+			</div>
+		<?php
+		}
+	?>
+
 				<?php $my_query = new WP_Query( 'post_type=post&posts_per_page=1' );
 				while ( $my_query->have_posts() ) : $my_query->the_post();
 				$do_not_duplicate = $post->ID; ?>
