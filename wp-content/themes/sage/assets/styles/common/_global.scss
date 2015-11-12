@@ -576,7 +576,7 @@ body {
 		font-size: 16px;
 		line-height: 1.5em;
 	}
-	p, ul, figure {
+	p, ul, ol, figure {
 		margin-bottom:1.63em;
 	}
 	ul, ol {
@@ -829,7 +829,7 @@ body {
 	/* Check Mark List */
 	ul.check-mark-list {
 		list-style-type: none;
-		margin:0;
+		margin-top:-10px;
 		padding:0;
 		li {
 			padding:10px 10px 10px 32px;
