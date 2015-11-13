@@ -16,5 +16,6 @@ Additional Plugins Used
 
 Change History
 ---
+- V1.2.0 - This is the final stage of master before the deployment of v2.
 - V1.1.0 - Removed the Events section from the site.
 - v1.0.0 - This is the initial repository upload of the current live site.
