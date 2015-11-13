@@ -1,7 +1,13 @@
 @media only screen and (min-width : 320px) {
 	/* Home Page */
 	.home {
-		//Hero
+		//Hero		
+        .mobile-hero {
+        	background-repeat:no-repeat;
+        	background-size:cover;
+        	background-position:center center;
+        	background-image:url(../images/home-hero-one.jpg);
+        }
 		.home-hero {
 			width:100%;
 			height:100vh;
@@ -123,7 +129,8 @@
 			.tile {
 				position: relative;				
 				box-sizing:border-box;
-				overflow: hidden;
+				overflow: hidden;				
+				height:380px;
 				.tile-icon, .tile-text {
 					position: absolute;
 					height:100%;
@@ -135,6 +142,39 @@
 				    -ms-transition: all .5s ease;
 				    -o-transition: all .5s ease;
 				}
+				.tile-icon {
+					top:0;
+					h4 {
+						position:absolute;
+						left:0;
+						top:160px;
+						width:100%;
+						margin:0;
+						padding:65px 30px 0 30px;
+					}
+					.icon:before {
+						font-family: 'icomoon';
+						font-size:100px;
+						position: absolute;
+						left:0;
+						top:-50px;
+						width:100%;
+					}
+				}
+				.tile-text {
+					top:380px;
+					h4 {
+						position: relative;
+						padding-left:32px;
+					}
+					.icon:before {
+						font-family: 'icomoon';
+						font-size:24px;
+						position: absolute;
+						left:0;
+						top:0;
+					}
+				}				
 				.link {
 					position: absolute;
 					top:0;
@@ -166,15 +206,6 @@
 			}
 			.open-data-network-icon:before {
 				content: "\e900";
-			}
-			.what-we-do {
-				h2 {
-					color:white;
-					margin:0 0 15px;
-				}
-				p {
-					color:$concrete;
-				}
 			}
 			.stat {
 				position: relative;
@@ -699,38 +730,16 @@
 }
 
 
-
-
-	/* Finance Hero (May not use this!!!!) */
-	.finance-hero {
-		background-image: url(../images/finance-hero.jpg);
-		.text * {
-			color:white;
-		}
-		.text {
-			z-index: 100;
-		}
-		.overlay {
-			height:100% !important;
-			width:100% !important;;
-			position: absolute;
-			top:0;
-			width:0;
-			z-index: 1;
-			background-color:rgba($wet-asphalt,0.75);
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.industries {
+		.what-we-do * {
+			text-align: left;
+			margin-left:-30px;
 		}
 	}
 
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -738,14 +747,6 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-	.value p span {
-		font-size: 20px;
-		font-weight: $font-normal;
-	}
-}
-
-/* Large Devices, Wide Screens */
-@media only screen and (min-width : 1200px) {
 	.home {
 		.home-hero {
 			width:100%;
@@ -759,57 +760,33 @@
                 border:white solid 5px;
             }
 		}
-		.industries {
-			.tile {
-				height:380px;
-				.tile-icon {
-					top:0;
-					h4 {
-						position:absolute;
-						left:0;
-						top:160px;
-						width:100%;
-						margin:0;
-						padding:65px 30px 0 30px;
-					}
-					.icon:before {
-						font-family: 'icomoon';
-						font-size:100px;
-						position: absolute;
-						left:0;
-						top:-50px;
-						width:100%;
-					}
-				}
-				.tile-text {
-					top:380px;
-					h4 {
-						position: relative;
-						padding-left:32px;
-					}
-					.icon:before {
-						font-family: 'icomoon';
-						font-size:24px;
-						position: absolute;
-						left:0;
-						top:0;
-					}
-				}
+	}
+	.industries {
+		
+		.tile:hover {
+			.tile-icon, .link {
+				top:-380px;
 			}
-			.tile:hover {
-				.tile-icon {
-					top:-380px;
-				}
-				.tile-text {
-					top:0;
-				}
-			}
-			.what-we-do {
-				padding:80px 30px 0 0;
-	
+			.tile-text {
+				top:0;
 			}
 		}
 	}
+	.value p span {
+		font-size: 20px;
+		font-weight: $font-normal;
+	}
+}
+
+
+
+
+
+
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
 }
 
 

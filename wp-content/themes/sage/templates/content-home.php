@@ -1,4 +1,4 @@
-<section class="home-hero">
+<section class="home-hero mobile-hero">
 	<div class="text-wrapper">
 		<div class="container">
 			<div class="row">
@@ -14,10 +14,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="scroll text-center">
+	<div class="scroll text-center hidden-xs">
 		<div class="mouse"><a href="#start"></a></div>
 	</div>
-	<div class="slider">
+	<div class="slider hidden-xs">
 		<div class="background-silver slide slide-one"></div>
 		<div class="background-silver slide slide-two"></div>
 		<div class="background-silver slide slide-three"></div>
@@ -41,72 +41,88 @@
 	<div class="container">
 		<div class="row no-gutters">
 			<div class="col-sm-6 col-md-4">
-				<div class="what-we-do">
-					<h2>What We Do</h2>
-					<p class="lead">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
+				<div class="tile">
+					<div class="vertical-center padding-30 what-we-do">
+						<h2 class="text-reverse text-center margin-bottom-15">What We Do</h2>
+						<p class="lead text-center color-concrete">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
+					</div>
 				</div>
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-belize-hole" data-sr="enter bottom, opacity 0.5">
-				<div class="tile-icon">
-					<h4 class="text-center icon fed-icon text-reverse">Federal Government</h4>
-				</div>
-				<div class="tile-text">
-					<h4 class="icon fed-icon text-reverse">Federal Government</h4>
-					<p class=" text-reverse">Socrata for Federal Government helps federal departments and agencies maximize the power of their data.</p>
-					<p class=" text-reverse stat"><span>"In-Process"</span> for FedRAMP certification as of 2015</p>
-					<p><a href="/solutions/federal-government" class="btn btn-default">Learn More</a></p>
-				</div>				
+			<div class="col-sm-6 col-md-4 background-belize-hole" data-sr="enter bottom, opacity 0.5">
+				<div class="tile">
+					<div class="tile-icon">
+						<h4 class="text-center icon fed-icon text-reverse">Federal Government</h4>
+					</div>
+					<div class="tile-text">
+						<h4 class="icon fed-icon text-reverse">Federal Government</h4>
+						<p class=" text-reverse">Socrata for Federal Government helps federal departments and agencies maximize the power of their data.</p>
+						<p class=" text-reverse stat"><span>"In-Process"</span> for FedRAMP certification as of 2015</p>
+						<p><a href="/solutions/federal-government" class="btn btn-default">Learn More</a></p>
+					</div>
+					<a href="/solutions/federal-government" class="link"></a>
+				</div>			
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-green-sea" data-sr="enter bottom, opacity 0.5">
-				<div class="tile-icon">
-					<h4 class="text-center icon state-icon text-reverse">State Government</h4>
+			<div class="col-sm-6 col-md-4 background-green-sea" data-sr="enter bottom, opacity 0.5">
+				<div class="tile">
+					<div class="tile-icon">
+						<h4 class="text-center icon state-icon text-reverse">State Government</h4>
+					</div>
+					<div class="tile-text">
+						<h4 class="icon state-icon text-reverse">State Government</h4>
+						<p class="text-reverse">States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
+						<p class=" text-reverse stat"><span>25 States</span> use Socrata</p>
+						<p><a href="/solutions/state-government" class="btn btn-default color-green-sea">Learn More</a></p>
+					</div>
+					<a href="/solutions/state-government" class="link"></a>
 				</div>
-				<div class="tile-text">
-					<h4 class="icon state-icon text-reverse">State Government</h4>
-					<p class="text-reverse">States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
-					<p class=" text-reverse stat"><span>25 States</span> use Socrata</p>
-					<p><a href="/solutions/state-government" class="btn btn-default color-green-sea">Learn More</a></p>
-				</div>	
 			</div>
-
-			<div class="col-sm-6 col-md-4 tile background-pumpkin" data-sr="enter bottom, opacity 0.5">
-				<div class="tile-icon">
-					<h4 class="text-center icon city-icon text-reverse">City Government</h4>
+			<div class="col-sm-6 col-md-4 background-pumpkin" data-sr="enter bottom, opacity 0.5">
+				<div class="tile">
+					<div class="tile-icon">
+						<h4 class="text-center icon city-icon text-reverse">City Government</h4>
+					</div>
+					<div class="tile-text">
+						<h4 class="icon city-icon text-reverse">City Government</h4>
+						<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
+						<p class=" text-reverse stat"><span>300 cities</span> large and small use Socrata</p>
+						<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
+					</div>
+					<a href="/solutions/city-government" class="link"></a>
 				</div>
-				<div class="tile-text">
-					<h4 class="icon city-icon text-reverse">City Government</h4>
-					<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
-					<p class=" text-reverse stat"><span>300 cities</span> large and small use Socrata</p>
-					<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
-				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile background-amethyst" data-sr="enter bottom, opacity 0.5">
-				<div class="tile-icon">
-					<h4 class="text-center icon county-icon text-reverse">County Government</h4>
+			<div class="col-sm-6 col-md-4 background-amethyst" data-sr="enter bottom, opacity 0.5">
+				<div class="tile">
+					<div class="tile-icon">
+						<h4 class="text-center icon county-icon text-reverse">County Government</h4>
+					</div>
+					<div class="tile-text">
+						<h4 class="icon county-icon text-reverse">County Government</h4>
+						<p class="text-reverse">With Socrata, counties can publish data that will boost the economy and make the region a better place to live.</p>
+						<p class=" text-reverse stat"><span>4,000+ datasets</span> are hosted by counties on Socrata</p>
+						<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
+					</div>
+					<a href="/solutions/county-government" class="link"></a>
 				</div>
-				<div class="tile-text">
-					<h4 class="icon county-icon text-reverse">County Government</h4>
-					<p class="text-reverse">With Socrata, counties can publish data that will boost the economy and make the region a better place to live.</p>
-					<p class=" text-reverse stat"><span>4,000+ datasets</span> are hosted by counties on Socrata</p>
-					<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
-				</div>	
 			</div>
-			<div class="col-sm-6 col-md-4 tile" data-sr="enter bottom, opacity 0.5">
-				<div class="tile-icon">
-					<h4 class="text-center icon open-data-network-icon text-reverse">Open Data Network</h4>
+			<div class="col-sm-6 col-md-4" data-sr="enter bottom, opacity 0.5">
+				<div class="tile">
+					<div class="tile-icon">
+						<h4 class="text-center icon open-data-network-icon text-reverse">Open Data Network</h4>
+					</div>
+					<div class="tile-text">
+						<h4 class="icon open-data-network-icon text-reverse">Open Data Network</h4>
+						<p class="text-reverse">The Open Data Network connects publishers of high-value data to the businesses, developers, and analysts that use, reuse, and enrich data.</p>					
+						<p class=" text-reverse stat"><span>15,000 datasets</span> by 150 publishers</p>
+						<p><a href="http://opendatanetwork.com" target="_blank" class="btn btn-default">Explore Data</a></p>
+					</div>
+					<a href="http://opendatanetwork.com" target="_blank" class="link"></a>
 				</div>
-				<div class="tile-text">
-					<h4 class="icon open-data-network-icon text-reverse">Open Data Network</h4>
-					<p class="text-reverse">The Open Data Network connects publishers of high-value data to the businesses, developers, and analysts that use, reuse, and enrich data.</p>					
-					<p class=" text-reverse stat"><span>15,000 datasets</span> by 150 publishers</p>
-					<p><a href="http://opendatanetwork.com" target="_blank" class="btn btn-default">Explore Data</a></p>
-				</div>	
 			</div>
 		</div>
 	</div>
 </section>
 
-<section class="section-padding customers">
+<section class="section-padding customers hidden-xs">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
@@ -129,7 +145,7 @@
 				$featuredPosts->query('post_type=post&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 					<div class="card" data-sr="enter bottom, opacity 0.5">
-						<div class="card-banner background-peter-river">
+						<div class="card-banner background-peter-river hidden-xs">
 							<ul>
 								<li>Open Data Blog</li>
 								<li><a href="/blog">View All</a></li>
@@ -158,7 +174,7 @@
 				$featuredPosts->query('post_type=case_study&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 					<div class="card" data-sr="enter bottom, opacity 0.5">
-						<div class="card-banner background-pumpkin">
+						<div class="card-banner background-pumpkin hidden-xs">
 							<ul>
 								<li>Case Studies</li>
 								<li><a href="/case-studies">View All</a></li>
@@ -186,7 +202,7 @@
 				$featuredPosts->query('post_type=tech_blog&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
 					<div class="card" data-sr="enter bottom, opacity 0.5">
-						<div class="card-banner background-sun-flower">
+						<div class="card-banner background-sun-flower hidden-xs">
 							<ul>
 								<li>Developer Blog</li>
 								<li><a href="/developer-blog">View All</a></li>
