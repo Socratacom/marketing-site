@@ -1,0 +1,90 @@
+// Glyphicons font path
+$icon-font-path:        "../fonts/";
+
+// Grid settings
+$main-sm-columns:       12;
+$sidebar-sm-columns:    4;
+
+// Color swatches
+$turquoise:                 	#3a9b88;
+$green-sea:                 	#318473;
+
+$emerald:                   	#4dac75;
+$nephritis:                 	#429364;
+
+$peter-river:               	#5591b9;
+$belize-hole:               	#45799c;
+
+$amethyst:                  	#936ba3;
+$wisteria:                  	#855998;
+
+$wet-asphalt:               	#3c4855;
+$midnight-blue:             	#333e49;
+
+$sun-flower:                	#c4a83c;
+$orange:                    	#c6913f;
+
+$carrot:                    	#bf8049;
+$pumpkin:                   	#a95d2a;
+
+$alizarin:                  	#c5685e;
+$pomegranate:               	#a25048;
+
+$clouds:                    	#ecf0f1;
+$silver:                    	#bdc3c7;
+
+$concrete:                  	#95a5a6;
+$asbestos:                  	#7f8c8d;
+
+// Grays
+$gray-dark:                     #222222;
+$gray-light:                	$silver;
+$inverse:                   	white;
+
+// Brand Colors
+$brand-primary:         		$peter-river;
+$brand-success:         		$emerald;
+$brand-info:         			$turquoise;
+$brand-warning:         		$orange;
+$brand-danger:         			$alizarin;
+
+$btn-primary-color:             #fff;
+$btn-primary-bg:                $brand-primary;
+$btn-primary-border:            $btn-primary-bg;
+
+$btn-success-color:             #fff;
+$btn-success-bg:                $brand-success;
+$btn-success-border:            $btn-success-bg;
+
+$btn-success-color:             #fff;
+$btn-success-bg:                $brand-success;
+$btn-success-border:            $btn-success-bg;
+
+$btn-info-color:                #fff;
+$btn-info-bg:                   $brand-info;
+$btn-info-border:               $btn-info-bg;
+
+$btn-warning-color:             #fff;
+$btn-warning-bg:                $brand-warning;
+$btn-warning-border:            $btn-warning-bg;
+
+$btn-danger-color:              #fff;
+$btn-danger-bg:                 $brand-danger;
+$btn-danger-border:             $btn-danger-bg;
+
+// Font Weight
+$font-light:					300;
+$font-normal:					400;
+$font-semi-bold:				700;
+$font-bold:						900;
+
+// Slick Carousel 
+$slick-dot-character: "\f111" !default;
+$slick-dot-size: 15px !default;
+$slick-dot-color: white !default;
+$slick-dot-color-active: $slick-dot-color !default;
+$slick-opacity-default: 0.75 !default;
+$slick-opacity-on-hover: 1 !default;
+$slick-opacity-not-active: 0.25 !default;
+
+

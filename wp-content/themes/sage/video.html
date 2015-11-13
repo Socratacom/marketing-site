@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta http-equiv="PRAGMA" content="NO-CACHE">
+<title>Flash RTMP &amp; HLS</title>
+</head>
+<body>
+<!-- Begin Video -->
+<!-- Start Flash Player 5.10 -->
+<div style=" position: relative; padding-bottom: 56.25%; padding-top: 35px; height: 0; overflow: hidden;">
+	<div id="ecg_video_wrapper" style=" position: absolute; top:0; left: 0; width: 100%; height: 100%;">
+		<object type="application/x-shockwave-flash" data="http://webcastevent.com/jw-flv/5.10/player.swf" width="100%" height="100%" bgcolor="#000000" id="ecg_video" name="ecg_video" tabindex="0"><param name="allowfullscreen" value="true"><param name="allowscriptaccess" value="always"><param name="seamlesstabbing" value="true"><param name="wmode" value="opaque"><param name="flashvars" value="netstreambasepath=http%3A%2F%2Fwebcastevent.com%2Fevents%2Fsocrata%2Fcustomersummit%2Fplayer.htm&amp;id=ecg_video&amp;flashplayer=http%3A%2F%2Fwebcastevent.com%2Fjw-flv%2F5.10%2Fplayer.swf&amp;abouttext=Event%20Compression%20Group%20Webcasting&amp;aboutlink=http%3A%2F%2Fwww.eventcg.com&amp;image=pre-event-slate-1280.png&amp;stretch=uniform&amp;autostart=true&amp;provider=rtmp&amp;rtmp.subscribe=true&amp;streamer=rtmp%3A%2F%2Ffml.BBFB.systemcdn.net%2F20BBFB&amp;file=socrata-live&amp;bufferlength=3&amp;controlbar.position=over"></object>
+	</div>
+</div>
+<script type="text/javascript" src="./video_files/jwplayer.js"></script>
+<script type="text/javascript">
+	jwplayer('ecg_video').setup({
+		'flashplayer': 'http://webcastevent.com/jw-flv/5.10/player.swf',
+		'abouttext': 'Event Compression Group Webcasting',
+		'aboutlink': 'http://www.eventcg.com',
+		'image': 'pre-event-slate-1280.png',
+		'controlbar': 'over',  // over, bottom, none
+		'stretch': 'uniform',  // exactfit, uniform, 
+		'autostart': 'true',
+		'provider': 'rtmp',
+		'rtmp.subscribe': 'true',  // Live Only
+		'streamer': 'rtmp://fml.BBFB.systemcdn.net/20BBFB',  // Live
+//		'streamer': 'rtmp://eventcg.flash.internapcdn.net/eventcg/live_1',  // Live
+		'file': 'socrata-live',  // Live
+		'modes': [
+			{
+				'type': 'flash',
+				'src': 'http://webcastevent.com/jw-flv/5.10/player.swf'
+			},
+			{
+				'type': 'html5',
+				'config': {
+//					'file': 'http://wpc.BBFB.systemcdn.net/hls-live/20BBFB/http/eventcg01/socrata-live.m3u8',  // Live /http/eventcg01/
+					'file': 'http://eventcg.ios.internapcdn.net/eventcg/live_1/socrata-live/socrata-live.m3u8',  // Live
+					'provider': 'video'
+				}
+			}
+		],
+		'bufferlength': '3',
+		'width': '960',
+		'height': '540'
+	});
+</script>
+<!-- End Flash Player 5.10 -->
+<!-- End Video -->
+
+<!-- Start Video Icon -->
+<div align="center">
+	<table border="0" width="100%" id="table6" cellspacing="0" cellpadding="0">
+		<tbody><tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>
+			<p align="center"><font face="Arial" size="2">Click <b>
+			<a target="_self" href="http://webcastevent.com/events/socrata/customersummit/player2.htm">HERE</a></b> 
+			for the Mobile Player</font></p></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="center">						
+			<img border="1" src="./video_files/player-icon-flash.jpg" width="112" height="33"></td>
+		</tr>
+		<tr>
+			<td>
+			<p align="center"><font face="Arial" style="font-size: 4pt">&nbsp;&nbsp;
+			<br>
+			</font><font face="Arial" size="2">Primary <b>RTMP</b> Player</font></p></td>
+		</tr>
+	</tbody></table>
+</div>
+
+<!-- Socrata : 10668358 -->
+<script type="text/javascript">
+var sc_project=10668358; 
+var sc_invisible=1; 
+var sc_security="e411bdb1"; 
+var sc_https=1; 
+var sc_remove_link=1; 
+var scJsHost = (("https:" == document.location.protocol) ?
+"https://secure." : "http://www.");
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script><script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript>&lt;div class="statcounter"&gt;&lt;img class="statcounter"
+src="http://c.statcounter.com/10668358/0/e411bdb1/1/"
+alt="web stats"&gt;&lt;/div&gt;</noscript>
+
+
+</body></html>

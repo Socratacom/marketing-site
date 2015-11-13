@@ -37,34 +37,44 @@ function case_study_post_type() {
       'menu_position' => 5,
       'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
       'taxonomies' => array( '' ),
-      'menu_icon' => get_stylesheet_directory_uri() .'/custom/images/icons/menu-socrata.png',
+      'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'case-study'),
     )
   );
 }
 
-// TAXONOMIES
-add_action( 'init', 'create_case_study_taxonomies', 0 );
-
-function create_case_study_taxonomies() {
-    register_taxonomy(
-        'case_study_category',
-        'case_study',
-        array(
-            'labels' => array(
-                'name' => 'Case Study Category',
-                'add_new_item' => 'Add New Category',
-                'new_item_name' => "New Category"
-            ),
-            'show_ui' => true,
-            'show_tagcloud' => false,
-            'hierarchical' => true,
-            'rewrite' => array('with_front' => false, 'slug' => 'case-study-customers'),
-        )
-    );
+// MENU ICON
+//Using Dashicon Font http://melchoyce.github.io/dashicons/
+add_action( 'admin_head', 'add_case_study_icon' );
+function add_case_study_icon() { ?>
+  <style>
+    #adminmenu .menu-icon-case_study div.wp-menu-image:before {
+      content: '\f123';
+    }
+  </style>
+  <?php
 }
 
+// TAXONOMIES
+add_action( 'init', 'create_case_study_taxonomies', 0 );
+function create_case_study_taxonomies() {
+  register_taxonomy(
+    'case_study_category',
+    'case_study',
+    array(
+    'labels' => array(
+      'name' => 'Case Study Category',
+      'add_new_item' => 'Add New Category',
+      'new_item_name' => "New Category"
+    ),
+    'show_ui' => true,
+    'show_tagcloud' => false,
+    'hierarchical' => true,
+    'rewrite' => array('with_front' => false, 'slug' => 'case-study-customers'),
+    )
+  );
+}
 
 // Custom Columns for admin management page
 add_filter( 'manage_edit-case_study_columns', 'case_study_columns' ) ;
@@ -72,7 +82,7 @@ function case_study_columns( $columns ) {
   $columns = array(
     'cb' => '<input type="checkbox" />',
     'title' => __( 'Customer' ),
-    'case_study_category' => __( 'Status' ),
+    'case_study_category' => __( 'Region' ),
     'date' => __( 'Date' )
   );
   return $columns;
@@ -103,6 +113,40 @@ function case_study_custom_columns( $column, $post_id ) {
   }
 }
 
+// Template Paths
+add_filter( 'template_include', 'case_study_single_template', 1 );
+function case_study_single_template( $template_path ) {
+  if ( get_post_type() == 'case_study' ) {
+    if ( is_single() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'single-case-study.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'single-case-study.php';
+      }
+    }
+    if ( is_archive() ) {
+      // checks if the file exists in the theme first,
+      // otherwise serve the file from the plugin
+      if ( $theme_file = locate_template( array ( 'archive-case-study.php' ) ) ) {
+        $template_path = $theme_file;
+      } else {
+        $template_path = plugin_dir_path( __FILE__ ) . 'archive-case-study.php';
+      }
+    }
+  }
+  return $template_path;
+}
+
+// Custom Body Class
+add_action( 'body_class', 'case_study_body_class');
+function case_study_body_class( $classes ) {
+  if ( is_page('case-studies') || get_post_type() == 'case_study' && is_single() )
+    $classes[] = 'case-study';
+  return $classes;
+}
+
 // Print Taxonomy Categories
 function case_study_the_categories() {
     // get all categories for this post
@@ -114,67 +158,128 @@ function case_study_the_categories() {
     for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
 
-// Display Post Type Query on main page
-add_action('thesis_hook_custom_template', 'case_study_main_page');
-function case_study_main_page(){
-if (is_page('case-studies')) { ?>
-
-<?php thesis_content_column(); ?>
-
-<div class="format_text">
-  <?php    
-    $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
-     query_posts(array(
-      'post_type' => 'case_study',
-      'order' => 'desc',
-      'posts_per_page' => 30, 
-      'paged' => $page
-    ));
+// Shortcode [case-study-posts]
+function case_study_posts($atts, $content = null) {
+  ob_start();
   ?>
-  <?php if (have_posts()) : ?>
+
+  <div class="container page-padding">
+    <div class="row">
+      <div class="col-sm-9">
+        <div class="row">
+          <?php
+
+          $do_not_duplicate = array();
+
+          // The Query
+          $args = array(
+                'post_type' => 'case_study',
+                'posts_per_page' => 1
+              );
+          $query1 = new WP_Query( $args );
+
+          // The Loop
+          while ( $query1->have_posts() ) {
+            $query1->the_post();
+            $do_not_duplicate[] = get_the_ID(); ?>
+
+            <div class="col-sm-12">
+              <div class="featured-post overlay-black" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
+                <div class="text truncate">
+                  <div class="post-category background-green-sea">Case Studies</div>
+                  <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+                </div>
+                <a href="<?php the_permalink() ?>" class="link"></a>
+              </div>
+            </div>
+
+            <?php
+          }
+
+          wp_reset_postdata();
+
+          /* The 2nd Query (without global var) */
+          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+          $args2 = array(
+                'post_type' => 'case_study',
+                'paged' => $paged,
+                'post__not_in' => $do_not_duplicate 
+              );
+          $query2 = new WP_Query( $args2 );
+
+          // The 2nd Loop
+          while ( $query2->have_posts() ) {
+            $query2->the_post(); ?>
+            
+            <div class="col-sm-6 col-lg-4">
+              <div class="card">
+                <div class="card-image hidden-xs">                  
+                  <?php if ( has_post_thumbnail() ) { ?>
+                    <img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">
+                  <?php
+                  } else { ?>
+                    <img src="/wp-content/uploads/no-image.png" class="img-responsive">
+                  <?php
+                  }
+                  ?>
+                  <a href="<?php the_permalink() ?>"></a>
+                </div>
+                <div class="card-text truncate">
+                  <p class="categories"><small><?php case_study_the_categories(); ?><small></p>
+                  <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+                  <?php the_excerpt(); ?> 
+                </div>
+              </div>
+            </div>
+
+            <?php
+          }
+
+          // Pagination
+          if (function_exists("pagination")) {pagination($query2->max_num_pages,"",$paged);} 
+
+          // Restore original Post Data
+          wp_reset_postdata();
+
+          ?>
+        </div>      
+      </div>
+      <div class="col-sm-3">
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'case_study_category';
+          $title = 'Case Study Categories';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5 class="background-green-sea">'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>
+        <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+      </div>
+    </div>
+  </div>
+
   <?php
-    $count = 0;
-    while (have_posts()) : the_post(); 
-    $count++;
-    $third_div = ($count%3 == 0) ? 'last' : '';
-    $third_div_clear = ($count%3 == 0) ? '<div class="clearboth"></div>' : '';
-  ?>    
-    <article class="one_third <?php echo $third_div; ?>">
-      <a href="<?php the_permalink() ?>"><img src="<?php echo tuts_custom_img('full', 400, 200);?>" style="width:100%;" /></a>
-      <p >      
-        <?php $meta = get_case_study_meta(); if ($meta[0]) echo "<small style='display:block;'>$meta[0]</small>"; ?>
-        <a href="<?php the_permalink() ?>">
-        <?php the_title(); ?>
-        </a>
-      </p>
-    </article>
-    <?php echo $third_div_clear; ?>    
-    <?php endwhile; ?>    
-    <?php endif; ?>
-    <?php if (function_exists("pagination")) {pagination($additional_loop->max_num_pages);} ?>
-<?php }
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
 }
+add_shortcode('case-study-posts', 'case_study_posts');
 
-// ADD STYLESHEET TO FRONT END
-
-
-// Data as a Utility Page
-add_action('wp_enqueue_scripts', 'register_case_study_styles');
-function register_case_study_styles() {
-  if (get_post_type() == 'case_study' && is_single()) {
-    wp_register_style( 'case_study_styles', plugins_url( 'css/styles.css' , __FILE__ ) );
-    wp_enqueue_style('case_study_styles');
-  }
-}
-
-// Body Classes for Styling 
-add_filter('thesis_body_classes', 'case_study_styling');
-function case_study_styling($classes) {
-  if ('case_study' == get_post_type() && is_archive() || 'case_study' == get_post_type() && is_single() || is_page('case-studies')) { 
-    $classes[] = 'case-study'; 
-  }
-  return $classes; 
-}
 
 // SHORTCODE FOR CASE STUDY
 // [case-study-quote]
