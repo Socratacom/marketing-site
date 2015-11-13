@@ -18,6 +18,7 @@ Additional Plugins Used
 
 Change History
 ---
+- V2.0.1 - Added IDs to CTA buttons for AB testing.
 - V2.0.0 - This is version replaces the Thesis framework with the Sage/Bootstrap framework.
 - V1.2.0 - This is the final stage of master before the deployment of v2.
 - V1.1.0 - Removed the Events section from the site.
