@@ -26,12 +26,10 @@
 				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_products' ) ); ?>
 				<h4>Solutions</h4>				
 				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_solutions' ) ); ?>
-				<h4>Why Socrata</h4>				
-				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_why_socrata' ) ); ?>
 			</div>
 			<div class="col-sm-3">
-				<h4>Learning</h4>				
-				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_learning' ) ); ?>
+				<h4>Resources</h4>				
+				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
 				<h4>About</h4>				
 				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_about' ) ); ?>
 			</div>
