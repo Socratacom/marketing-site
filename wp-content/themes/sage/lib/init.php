@@ -34,6 +34,10 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails');
+  set_post_thumbnail_size( 360, 180, array( 'center', 'center')  );
+  add_image_size( 'post-image', 850, 400, array( 'center', 'center'));
+  add_image_size( 'feature-image', 1600, 400, array( 'center', 'center'));
+  add_image_size( 'full-width-ratio', 9999, 100 );
 
   // Add post formats
   // http://codex.wordpress.org/Post_Formats

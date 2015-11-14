@@ -1,11 +1,20 @@
-<div class="feature-image hidden-xs" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 1600, 400); ?>);">
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); $url = $thumb['0']; ?>
+<div class="feature-image hidden-xs" style="background-image: url(<?=$url?>);">
   <div class="pattern-overlay"></div>  
   <?php echo do_shortcode('[image-attribution]'); ?>
 </div>
 <div class="container">
   <div class="row">
     <div class="col-sm-3 col-md-2 sidebar hidden-xs">
-      <p class="text-center"><img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive"></p>
+<?php 
+  $meta = get_socrata_stories_meta(); 
+  $thumb = wp_get_attachment_image_src( $meta[6], 'full-width-ratio' ); 
+  $url_logo = $thumb['0']; ?>
+
+
+
+
+      <p class="text-center"><img src="<?=$url_logo?>" class="img-responsive"></p>
       <hr/>
       <?php $meta = get_socrata_stories_meta();
       if ($meta[12]) { ?>

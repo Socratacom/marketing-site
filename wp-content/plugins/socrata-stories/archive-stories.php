@@ -7,12 +7,15 @@
 					<hr/>
 				</div>
 
-				<?php while ( have_posts() ) : the_post();  ?>
-
+				<?php while ( have_posts() ) : the_post();  ?>				
+	            <?php 
+	            $meta = get_socrata_stories_meta(); 
+	            $thumb = wp_get_attachment_image_src( $meta[6], 'full-width-ratio' ); 
+	            $url = $thumb['0']; ?>
 				<div class="col-sm-6 col-lg-4">
 					<div class="card">
 						<div class="card-image hidden-xs">
-							<img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">                    
+							<img src="<?=$url?>" class="img-responsive" style="max-height:100px;"> 
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
 						<div class="card-text truncate">

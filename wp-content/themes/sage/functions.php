@@ -9,7 +9,6 @@
  *
  * @link https://github.com/roots/sage/pull/1042
  */
-require_once locate_template('BFI_Thumb.php');
 
 $sage_includes = [
   'lib/utils.php',                 // Utility functions

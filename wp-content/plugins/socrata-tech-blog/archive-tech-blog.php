@@ -8,12 +8,13 @@
 				</div>
 
 				<?php while ( have_posts() ) : the_post();  ?>
+				<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>
 
 				<div class="col-sm-6 col-lg-4">
 					<div class="card">
 						<div class="card-image hidden-xs">
 							<?php if ( has_post_thumbnail() ) { ?>
-			                    <img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">
+			                    <img src="<?=$url?>" class="img-responsive">
 			                  <?php
 			                  } else { ?>
 			                    <img src="/wp-content/uploads/no-image.png" class="img-responsive">

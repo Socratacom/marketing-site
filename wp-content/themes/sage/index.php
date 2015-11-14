@@ -12,12 +12,12 @@
 		<?php
 		}
 	?>
-
 				<?php $my_query = new WP_Query( 'post_type=post&posts_per_page=1' );
 				while ( $my_query->have_posts() ) : $my_query->the_post();
 				$do_not_duplicate = $post->ID; ?>
-				<div class="col-sm-12">					
-					<div class="featured-post overlay-black" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">						
+				<div class="col-sm-12">
+					<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
+					<div class="featured-post overlay-black" style="background-image: url(<?=$url?>);">				
 						<div class="text truncate">
 							<div class="post-category background-peter-river">Open Data Blog</div>
 							<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>	

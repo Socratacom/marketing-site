@@ -1,4 +1,5 @@
-<div class="feature-image hidden-xs" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 1600, 400); ?>);">
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); $url = $thumb['0']; ?>
+<div class="feature-image hidden-xs" style="background-image: url(<?=$url?>);">
   <div class="pattern-overlay"></div>  
   <?php echo do_shortcode('[image-attribution]'); ?>
 </div>
