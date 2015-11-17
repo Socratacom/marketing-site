@@ -72,12 +72,18 @@
         background-size:cover;
         background-position:center center;
         background-color:$clouds;
+        .row {
+            & > [class^="col-"],
+            & > [class*=" col-"] {
+                height:500px;
+            }
+        }
     }
     .arrowsContainer {
         .toggle-left, .toggle-right {
             background:white;
         }
-    }    
+    } 
 }
 
 .slide {

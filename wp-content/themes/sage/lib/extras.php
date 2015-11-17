@@ -113,7 +113,8 @@ function carousel_script( $atts ) {
             autoplaySpeed: 8000,
             speed: 800,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            accessibility:false
           });
           $(<?php echo $id; ?>).show();
         });
