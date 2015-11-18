@@ -36,7 +36,7 @@ function case_study_post_type() {
       'public' => true,
       'menu_position' => 5,
       'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
-      'taxonomies' => array( '' ),
+      'taxonomies' => array( 'post_tag' ),
       'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'case-study'),
@@ -57,21 +57,48 @@ function add_case_study_icon() { ?>
 }
 
 // TAXONOMIES
-add_action( 'init', 'create_case_study_taxonomies', 0 );
-function create_case_study_taxonomies() {
+add_action( 'init', 'create_case_study_segment', 0 );
+function create_case_study_segment() {
   register_taxonomy(
-    'case_study_category',
+    'case_study_segment',
     'case_study',
     array(
     'labels' => array(
-      'name' => 'Case Study Category',
-      'add_new_item' => 'Add New Category',
-      'new_item_name' => "New Category"
+        'name' => 'Segment',
+        'menu_name' => 'Segment',
+        'add_new_item' => 'Add New Segment',
+        'new_item_name' => "New Segment"
     ),
     'show_ui' => true,
     'show_tagcloud' => false,
     'hierarchical' => true,
-    'rewrite' => array('with_front' => false, 'slug' => 'case-study-customers'),
+    'sort' => true,      
+    'args' => array( 'orderby' => 'term_order' ),
+    'show_admin_column' => true,
+    'rewrite' => array('with_front' => false, 'slug' => 'case-study-segment'),
+    )
+  );
+}
+
+add_action( 'init', 'create_case_study_product', 0 );
+function create_case_study_product() {
+  register_taxonomy(
+    'case_study_product',
+    'case_study',
+    array(
+    'labels' => array(
+        'name' => 'Product',
+        'menu_name' => 'Product',
+        'add_new_item' => 'Add New Product',
+        'new_item_name' => "New Product"
+    ),
+    'show_ui' => true,
+    'show_tagcloud' => false,
+    'hierarchical' => true,
+    'sort' => true,      
+    'args' => array( 'orderby' => 'term_order' ),
+    'show_admin_column' => true,
+    'rewrite' => array('with_front' => false, 'slug' => 'case-study-product'),
     )
   );
 }
@@ -80,10 +107,12 @@ function create_case_study_taxonomies() {
 add_filter( 'manage_edit-case_study_columns', 'case_study_columns' ) ;
 function case_study_columns( $columns ) {
   $columns = array(
-    'cb' => '<input type="checkbox" />',
-    'title' => __( 'Customer' ),
-    'case_study_category' => __( 'Region' ),
-    'date' => __( 'Date' )
+    'cb'              => '<input type="checkbox" />',    
+    'title'           => __( 'Name' ),
+    'segment'         => __( 'Segment' ),
+    'product'         => __( 'Product' ),
+    'date'            => __( 'Date' ),
+    'wpseo-score'     => __( 'SEO' ),
   );
   return $columns;
 }
@@ -91,24 +120,16 @@ function case_study_columns( $columns ) {
 add_action( 'manage_case_study_posts_custom_column', 'case_study_custom_columns', 10, 2 );
 function case_study_custom_columns( $column, $post_id ) {
   global $post;
-  switch( $column ) {
-    case 'case_study_category' :
-      $terms = get_the_terms( $post_id, 'case_study_category' );
-      if ( !empty( $terms ) ) {
-        $out = array();
-        foreach ( $terms as $term ) {
-          $out[] = sprintf( '<a href="%s">%s</a>',
-            esc_url( add_query_arg( array( 'post_type' => $post->post_type, 'case_study' => $term->slug ), 'edit.php' ) ),
-            esc_html( sanitize_term_field( 'name', $term->name, $term->term_id, 'case_study_category', 'display' ) )
-          );
-        }
-        echo join( ', ', $out );
-      }
-      else {
-        _e( 'No Category' );
-      }
+  switch ($column) {
+    case 'segment':
+      $segment = get_the_terms($post->ID , 'case_study_segment');
+      echo $segment[0]->name;
+      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
       break;
-    default :
+    case 'product':
+      $product = get_the_terms($post->ID , 'case_study_product');
+      echo $product[0]->name;
+      for ($i = 1; $i < count($product); $i++) {echo ', ' . $product[$i]->name ;}
       break;
   }
 }
@@ -151,7 +172,7 @@ function case_study_body_class( $classes ) {
 function case_study_the_categories() {
     // get all categories for this post
     global $terms;
-    $terms = get_the_terms($post->ID , 'case_study_category');
+    $terms = get_the_terms($post->ID , 'case_study_segment');
     // echo the first category
     echo $terms[0]->name;
     // echo the remaining categories, appending separator
@@ -252,8 +273,31 @@ function case_study_posts($atts, $content = null) {
           $pad_counts = 0; // 1 for yes, 0 for no
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'case_study_category';
-          $title = 'Case Study Categories';
+          $taxonomy = 'case_study_segment';
+          $title = 'Segment';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5 class="background-green-sea">'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'case_study_product';
+          $title = 'Product';
 
           $args = array(
             'orderby' => $orderby,

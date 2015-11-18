@@ -36,7 +36,7 @@ function create_stories() {
       'public' => true,
       'menu_position' => 5,
       'supports' => array( 'title', 'editor', 'thumbnail', 'revisions' ),
-      'taxonomies' => array( '' ),
+      'taxonomies' => array( 'post_tag' ),
       'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'stories')
@@ -57,17 +57,17 @@ function add_stories_icon() { ?>
 }
 
 // TAXONOMIES
-add_action( 'init', 'stories_region', 0 );
-function stories_region() {
+add_action( 'init', 'create_stories_segment', 0 );
+function create_stories_segment() {
   register_taxonomy(
-    'stories_region',
+    'stories_segment',
     'stories',
     array(
       'labels' => array(
-        'name' => 'Stories Region',
-        'menu_name' => 'Region',
-        'add_new_item' => 'Add New Region',
-        'new_item_name' => "New Region"
+        'name' => 'Segment',
+        'menu_name' => 'Segment',
+        'add_new_item' => 'Add New Segment',
+        'new_item_name' => "New Segment"
       ),
       'show_ui' => true,
       'show_tagcloud' => false,
@@ -75,42 +75,19 @@ function stories_region() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'stories-region')
+      'rewrite' => array('with_front' => false, 'slug' => 'stories-segment')
     )
   );
 }
 
-add_action( 'init', 'stories_type', 0 );
-function stories_type() {
-  register_taxonomy(
-    'stories_type',
-    'stories',
-    array(
-      'labels' => array(
-        'name' => 'Stories Type',
-        'menu_name' => 'Type',
-        'add_new_item' => 'Add New Type',
-        'new_item_name' => "New Type"
-      ),
-      'show_ui' => true,
-      'show_tagcloud' => false,
-      'hierarchical' => true,
-      'sort' => true,      
-      'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'stories-type')
-    )
-  );
-}
-
-add_action( 'init', 'stories_product', 0 );
-function stories_product() {
+add_action( 'init', 'create_stories_product', 0 );
+function create_stories_product() {
   register_taxonomy(
     'stories_product',
     'stories',
     array(
       'labels' => array(
-        'name' => 'Stories Product',
+        'name' => 'Product',
         'menu_name' => 'Product',
         'add_new_item' => 'Add New Product',
         'new_item_name' => "New Product"
@@ -125,6 +102,49 @@ function stories_product() {
     )
   );
 }
+
+// CUSTOM COLUMS FOR ADMIN
+add_filter( 'manage_edit-stories_columns', 'stories_edit_columns' ) ;
+function stories_edit_columns( $columns ) {
+  $columns = array(
+    'cb'              => '<input type="checkbox" />',    
+    'title'           => __( 'Name' ),
+    'segment'         => __( 'Segment' ),
+    'product'         => __( 'Product' ),
+    'date'            => __( 'Date' ),
+    'wpseo-score'     => __( 'SEO' ),
+
+  );
+  return $columns;
+}
+// Get Content for Custom Colums
+add_action("manage_stories_posts_custom_column",  "stories_columns");
+function stories_columns($column){
+  global $post;
+
+  switch ($column) {
+    case 'segment':
+      $segment = get_the_terms($post->ID , 'stories_segment');
+      echo $segment[0]->name;
+      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
+      break;
+    case 'product':
+      $product = get_the_terms($post->ID , 'stories_product');
+      echo $product[0]->name;
+      for ($i = 1; $i < count($product); $i++) {echo ', ' . $product[$i]->name ;}
+      break;
+  }
+}
+// Make these columns sortable
+add_filter( "manage_edit-stories_sortable_columns", "stories_sortable_columns" );
+function stories_sortable_columns() {
+  return array(
+    'title'       => 'title',
+    'segment'     => 'segment',
+    'product'     => 'product'
+  );
+}
+
 
 // Template Paths
 add_filter( 'template_include', 'stories_single_template', 1 );
@@ -160,20 +180,12 @@ function stories_body_class( $classes ) {
   return $classes;
 }
 
-function stories_logo_home( $thumb_size, $image_height ) { 
-  global $post; 
-  $params = array( 'height' => $image_height);
-  $meta = get_socrata_stories_meta();  
-  $imgsrc = wp_get_attachment_image_src( $meta[6], $thumb_size );
-  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
-  return $custom_img_src;   
-}
 
 // Print Taxonomy Categories
 function stories_the_categories() {
     // get all categories for this post
     global $terms;
-    $terms = get_the_terms($post->ID , 'stories_type');
+    $terms = get_the_terms($post->ID , 'stories_segment');
     // echo the first category
     echo $terms[0]->name;
     // echo the remaining categories, appending separator
@@ -274,8 +286,31 @@ function stories_posts($atts, $content = null) {
           $pad_counts = 0; // 1 for yes, 0 for no
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'stories_type';
-          $title = 'Stories Categories';
+          $taxonomy = 'stories_segment';
+          $title = 'Segment';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5 class="background-nephritis">'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'stories_product';
+          $title = 'Product';
 
           $args = array(
             'orderby' => $orderby,
