@@ -146,9 +146,10 @@ function newsroom_posts($atts, $content = null) {
           while ( $query1->have_posts() ) {
             $query1->the_post();
             $do_not_duplicate[] = get_the_ID(); ?>
+            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
 
             <div class="col-sm-12">
-              <div class="featured-post overlay-black" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
+              <div class="featured-post overlay-black" style="background-image: url(<?=$url?>);">
                 <div class="text truncate">
                   <div class="post-category background-alizarin">Newsroom</div>
                   <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
@@ -175,12 +176,13 @@ function newsroom_posts($atts, $content = null) {
           // The 2nd Loop
           while ( $query2->have_posts() ) {
             $query2->the_post(); ?>
+            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>  
             
             <div class="col-sm-6 col-lg-4">
               <div class="card">
                 <div class="card-image hidden-xs">
                   <?php if ( has_post_thumbnail() ) { ?>
-                    <img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">
+                    <img src="<?=$url?>" class="img-responsive">
                   <?php
                   } else { ?>
                     <img src="/wp-content/uploads/no-image.png" class="img-responsive">

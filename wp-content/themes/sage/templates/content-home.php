@@ -144,6 +144,7 @@
 				$featuredPosts = new WP_Query();
 				$featuredPosts->query('post_type=post&orderby=desc&showposts=1');
 				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
+				<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>
 					<div class="card" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-peter-river hidden-xs">
 							<ul>
@@ -152,7 +153,7 @@
 							</ul>
 						</div>
 						<div class="card-image hidden-xs">
-							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
+							<img src="<?=$url?>" class="img-responsive">		
 							<div class="card-avatar">
 								<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
 							</div>
@@ -172,7 +173,8 @@
 				<?php
 				$featuredPosts = new WP_Query();
 				$featuredPosts->query('post_type=case_study&orderby=desc&showposts=1');
-				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
+				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>				
+				<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>
 					<div class="card" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-pumpkin hidden-xs">
 							<ul>
@@ -181,7 +183,7 @@
 							</ul>
 						</div>
 						<div class="card-image hidden-xs">
-							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
+							<img src="<?=$url?>" class="img-responsive">		
 							<div class="card-avatar">
 								<div class="icon-avatar img-circle case-studies"></div>
 							</div>
@@ -200,7 +202,8 @@
 				<?php
 				$featuredPosts = new WP_Query();
 				$featuredPosts->query('post_type=tech_blog&orderby=desc&showposts=1');
-				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>
+				while ($featuredPosts->have_posts()) : $featuredPosts->the_post(); ?>				
+				<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>
 					<div class="card" data-sr="enter bottom, opacity 0.5">
 						<div class="card-banner background-sun-flower hidden-xs">
 							<ul>
@@ -209,7 +212,7 @@
 							</ul>
 						</div>
 						<div class="card-image hidden-xs">
-							<img src="<?php echo Roots\Sage\Extras\custom_feature_image('full', 360, 180); ?>" class="img-responsive">		
+							<img src="<?=$url?>" class="img-responsive">		
 							<div class="card-avatar">
 								<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
 							</div>

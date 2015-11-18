@@ -206,9 +206,9 @@ function stories_posts($atts, $content = null) {
           while ( $query1->have_posts() ) {
             $query1->the_post();
             $do_not_duplicate[] = get_the_ID(); ?>
-
+            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
             <div class="col-sm-12">
-              <div class="featured-post overlay-black" style="background-image: url(<?php echo Roots\Sage\Extras\custom_feature_image('full', 850, 400); ?>);">
+              <div class="featured-post overlay-black" style="background-image: url(<?=$url?>);">
                 <div class="text truncate" style="height:200px;">
                   <div class="post-category background-nephritis">Customer Stories</div>
                   <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
@@ -235,11 +235,14 @@ function stories_posts($atts, $content = null) {
           // The 2nd Loop
           while ( $query2->have_posts() ) {
             $query2->the_post(); ?>
-            
+            <?php 
+            $meta = get_socrata_stories_meta(); 
+            $thumb = wp_get_attachment_image_src( $meta[6], 'full-width-ratio' ); 
+            $url = $thumb['0']; ?>
             <div class="col-sm-6 col-lg-4">
               <div class="card">
                 <div class="card-image hidden-xs">
-                  <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">                    
+                  <img src="<?=$url?>" class="img-responsive">                    
                   <a href="<?php the_permalink() ?>"></a>
                 </div>
                 <div class="card-text truncate">

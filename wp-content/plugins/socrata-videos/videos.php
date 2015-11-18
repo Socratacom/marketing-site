@@ -172,7 +172,6 @@ wp_register_script( 'video-slider', plugins_url( '/js/video-slider.js' , __FILE_
 }
 
 //Shortcode [video-cards]
-
 function video_cards( $atts ) {
   extract( shortcode_atts( array(
     'query' => '',
@@ -186,7 +185,7 @@ function video_cards( $atts ) {
   <div class="<?php echo $class; ?>">
     <article class="card card-video">
       <div class="card-image">
-        <img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+        <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
         <a class="link" href="<?php the_permalink() ?>"></a>
       </div>
       <div class="card-text truncate">
@@ -222,11 +221,11 @@ function video_slider( $atts ) {
   <?php
   $the_query = new WP_Query( $query );
   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-
+  
   <div class="col-sm-6 col-md-3 slide">
     <article class="card card-video">
       <div class="card-image">
-        <img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+        <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
         <a class="link" href="<?php the_permalink() ?>"></a>
       </div>
       <div class="card-text truncate">
@@ -294,7 +293,7 @@ function socrata_videos_posts($atts, $content = null) {
           <div class="col-sm-6 col-lg-4">
             <article class="card card-video">              
               <div class="card-image">
-                <img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+                <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
                 <a class="link" href="<?php the_permalink() ?>"></a>
               </div>
               <div class="card-text truncate">

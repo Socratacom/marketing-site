@@ -45,16 +45,7 @@ function blog_the_categories() {
   for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
 }
 
-/**
- * Feature Image Resize
- */
-function custom_feature_image( $thumb_size, $image_width, $image_height ) { 
-  global $post; 
-  $params = array( 'width' => $image_width, 'height' => $image_height );   
-  $imgsrc = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID, '' ), $thumb_size );
-  $custom_img_src = bfi_thumb( $imgsrc[0], $params );     
-  return $custom_img_src;
-}
+
 
 /** SHORTCODES **/
 
@@ -104,13 +95,17 @@ add_shortcode('marketo-share', __NAMESPACE__ . '\\marketo_share');
 /**
  * Carousel Script. This temporary till I can figure out the frick'n plugin
  */
-function carousel_script($atts, $content = null) {
-  ob_start();
+function carousel_script( $atts ) {
+  extract( shortcode_atts( array(
+    'id' => '',
+  ), $atts ) );
+  ob_start(); 
   ?>
   <script>
   jQuery(function ($){
-          $('.carousel-slides').slick({
+          $(<?php echo $id; ?>).slick({
             arrows: true,
+            dots: true,
             appendArrows: $('.arrowsContainer'),
             prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
             nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
@@ -118,9 +113,10 @@ function carousel_script($atts, $content = null) {
             autoplaySpeed: 8000,
             speed: 800,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
+            accessibility:false
           });
-          $('.carousel-slides').show();
+          $(<?php echo $id; ?>).show();
         });
   </script>
   <?php
@@ -237,15 +233,19 @@ function solutions_logos( $atts ) {
   ob_start(); 
   $the_query = new \WP_Query( $query );
   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+  <?php 
+    $meta = get_socrata_stories_meta(); 
+    $thumb = wp_get_attachment_image_src( $meta[6], 'full' ); 
+    $url = $thumb['0']; ?>
   <div class="col-sm-2 solutions-logos">
     <div class="logo-frame text-center">
     <?php $meta = get_socrata_stories_meta(); 
-      if ($meta[2]) { ?>
-        <a href="<?php echo $meta[2]; ?>" target="_blank"><img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive "></a>
+      if ($meta[2]) { ?>      
+        <a href="<?php echo $meta[2]; ?>" target="_blank"><img src="<?=$url?>" class="img-responsive" style="max-height:100px;"></a>
       <?php
       }
       else { ?>
-        <img src="<?php echo stories_logo_home( 'full', 100 ); ?>" class="img-responsive ">
+        <img src="<?=$url?>" class="img-responsive ">
       <?php
       }
     ?>
@@ -282,10 +282,11 @@ function customer_logos_abstract( $atts ) {
   ob_start(); 
   $the_query = new \WP_Query( $query );
   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+  <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>
 
   <div class="<?php echo $class; ?>">
     <article>
-      <p><img src="<?php echo custom_feature_image('full', 320, 180); ?>" class="img-responsive"></p>
+      <p><img src="<?=$url?>" class="img-responsive"></p>
       <div class="customer-text truncate">
         <h5><?php the_title(); ?></h5>
         <?php the_excerpt(); ?>
