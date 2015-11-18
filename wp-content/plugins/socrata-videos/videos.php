@@ -36,7 +36,7 @@ function create_socrata_videos() {
       'public' => true,
       'menu_position' => 5,
       'supports' => array( 'title', 'revisions' ),
-      'taxonomies' => array( '' ),
+      'taxonomies' => array( 'post_tag' ),
       'menu_icon' => '',
       'has_archive' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'video')
@@ -57,17 +57,17 @@ function add_socrata_videos_icon() { ?>
 }
 
 // TAXONOMIES
-add_action( 'init', 'socrata_videos_category', 0 );
-function socrata_videos_category() {
+add_action( 'init', 'socrata_videos_segment', 0 );
+function socrata_videos_segment() {
   register_taxonomy(
-    'socrata_videos_category',
+    'socrata_videos_segment',
     'socrata_videos',
     array(
       'labels' => array(
-        'name' => 'Category',
-        'menu_name' => 'Category',
-        'add_new_item' => 'Add New Category',
-        'new_item_name' => "New Category"
+        'name' => 'Segment',
+        'menu_name' => 'Segment',
+        'add_new_item' => 'Add New Segment',
+        'new_item_name' => "New Segment"
       ),
       'show_ui' => true,
       'show_tagcloud' => false,
@@ -75,7 +75,30 @@ function socrata_videos_category() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'video-category')
+      'rewrite' => array('with_front' => false, 'slug' => 'video-segment')
+    )
+  );
+}
+
+add_action( 'init', 'socrata_videos_product', 0 );
+function socrata_videos_product() {
+  register_taxonomy(
+    'socrata_videos_product',
+    'socrata_videos',
+    array(
+      'labels' => array(
+        'name' => 'Product',
+        'menu_name' => 'Product',
+        'add_new_item' => 'Add New Product',
+        'new_item_name' => "New Product"
+      ),
+      'show_ui' => true,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'video-product')
     )
   );
 }
@@ -86,7 +109,8 @@ function socrata_videos_edit_columns( $columns ) {
   $columns = array(
     'cb'              => '<input type="checkbox" />',    
     'title'           => __( 'Name' ),
-    'terms'           => __( 'Category' ),
+    'segment'         => __( 'Segment' ),
+    'product'         => __( 'Product' ),
     'featured'        => __( 'Featured' ),
     'date'            => __( 'Date' ),
     'wpseo-score'     => __( 'SEO' ),
@@ -103,10 +127,15 @@ function socrata_videos_columns($column){
     case 'featured':
       $meta = get_socrata_videos_meta(); if ($meta[0]) echo "Yes";
       break;
-    case 'terms':
-      $terms = get_the_terms($post->ID , 'socrata_videos_category');
-      echo $terms[0]->name;
-      for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+    case 'segment':
+      $segment = get_the_terms($post->ID , 'socrata_videos_segment');
+      echo $segment[0]->name;
+      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
+      break;
+    case 'product':
+      $product = get_the_terms($post->ID , 'socrata_videos_product');
+      echo $product[0]->name;
+      for ($i = 1; $i < count($product); $i++) {echo ', ' . $product[$i]->name ;}
       break;
   }
 }
@@ -114,9 +143,10 @@ function socrata_videos_columns($column){
 add_filter( "manage_edit-socrata_videos_sortable_columns", "socrata_videos_sortable_columns" );
 function socrata_videos_sortable_columns() {
   return array(
-    'title'      => 'title',
-    'terms' => 'terms',
-    'featured'     => 'featured'
+    'title'       => 'title',
+    'segment'     => 'segment',
+    'product'     => 'product',
+    'featured'    => 'featured'
   );
 }
 
@@ -133,7 +163,7 @@ function socrata_videos_single_template( $template_path ) {
         $template_path = plugin_dir_path( __FILE__ ) . 'single-videos.php';
       }
     }
-    if ( is_archive() ) {
+    if ( is_archive() || is_tag() ) {
       // checks if the file exists in the theme first,
       // otherwise serve the file from the plugin
       if ( $theme_file = locate_template( array ( 'archive-videos.php' ) ) ) {
@@ -148,13 +178,13 @@ function socrata_videos_single_template( $template_path ) {
 
 // Print Taxonomy Categories
 function videos_the_categories() {
-    // get all categories for this post
-    global $terms;
-    $terms = get_the_terms($post->ID , 'socrata_videos_category');
-    // echo the first category
-    echo $terms[0]->name;
-    // echo the remaining categories, appending separator
-    for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+  // get all categories for this post
+  global $terms;
+  $terms = get_the_terms($post->ID , 'socrata_videos_segment');
+  // echo the first category
+  echo $terms[0]->name;
+  // echo the remaining categories, appending separator
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
 
 // Custom Body Class
@@ -202,12 +232,9 @@ function video_cards( $atts ) {
   $list = ob_get_clean();
   return $list;
 }
-
 add_shortcode( 'video-cards', 'video_cards' );
 
-
 //Shortcode [video-slider]
-
 function video_slider( $atts ) { 
   extract( shortcode_atts( array(
     'query' => ''
@@ -253,10 +280,7 @@ function video_slider( $atts ) {
   $list = ob_get_clean();
   return $list;
 }
-
 add_shortcode( 'video-slider', 'video_slider' );
-
-
 
 // Shortcode [socrata-videos-posts]
 function socrata_videos_posts($atts, $content = null) {
@@ -320,8 +344,31 @@ function socrata_videos_posts($atts, $content = null) {
           $pad_counts = 0; // 1 for yes, 0 for no
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'socrata_videos_category';
-          $title = 'Video Categories';
+          $taxonomy = 'socrata_videos_segment';
+          $title = 'Segment';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5 class="background-carrot">'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>        
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'socrata_videos_product';
+          $title = 'Product';
 
           $args = array(
             'orderby' => $orderby,

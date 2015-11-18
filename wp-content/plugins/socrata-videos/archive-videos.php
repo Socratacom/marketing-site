@@ -29,7 +29,8 @@
 
 			</div>
 		</div>
-		<div class="col-sm-3">
+
+      <div class="col-sm-3 hidden-xs">
         <?php
           //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
           $orderby = 'name';
@@ -37,8 +38,31 @@
           $pad_counts = 0; // 1 for yes, 0 for no
           $hide_empty = 1;
           $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'socrata_videos_category';
-          $title = 'Video Categories';
+          $taxonomy = 'socrata_videos_segment';
+          $title = 'Segment';
+
+          $args = array(
+            'orderby' => $orderby,
+            'show_count' => $show_count,
+            'pad_counts' => $pad_counts,
+            'hide_empty' => $hide_empty,
+            'hierarchical' => $hierarchical,
+            'taxonomy' => $taxonomy,
+            'title_li' => '<h5 class="background-carrot">'. $title .'</h5>'
+          );
+        ?>
+        <ul class="category-nav">
+          <?php wp_list_categories($args); ?>
+        </ul>        
+        <?php
+          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+          $orderby = 'name';
+          $show_count = 0; // 1 for yes, 0 for no
+          $pad_counts = 0; // 1 for yes, 0 for no
+          $hide_empty = 1;
+          $hierarchical = 1; // 1 for yes, 0 for no
+          $taxonomy = 'socrata_videos_product';
+          $title = 'Product';
 
           $args = array(
             'orderby' => $orderby,
@@ -53,7 +77,6 @@
         <ul class="category-nav">
           <?php wp_list_categories($args); ?>
         </ul>
-      
         <?php echo do_shortcode('[newsletter-sidebar]'); ?>
       </div>
 
