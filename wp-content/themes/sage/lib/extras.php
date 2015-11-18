@@ -45,8 +45,6 @@ function blog_the_categories() {
   for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
 }
 
-
-
 /** SHORTCODES **/
 
 /**
@@ -125,6 +123,63 @@ function carousel_script( $atts ) {
   return $content;
 }
 add_shortcode('carousel-script', __NAMESPACE__ . '\\carousel_script');
+
+/**
+ * YouTube Modal
+ */
+function youtube_modal( $atts ) {
+  extract( shortcode_atts( array(
+    'youtube_id' => '',
+    'modal_id' => '',
+  ), $atts ) );
+  ob_start(); 
+  ?>
+
+  <div id="<?php echo $modal_id; ?>" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title">YouTube Video</h4>
+        </div>
+        <div class="modal-body">
+
+          <div class="video-container">
+            <iframe id="<?php echo $youtube_id; ?>" width="853" height="480" src="https://www.youtube.com/embed/<?php echo $youtube_id; ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    /* Get iframe src attribute value i.e. YouTube video url
+    and store it in a variable */
+    var url = $(<?php echo "#$youtube_id"; ?>).attr('src');
+    
+    /* Assign empty url value to the iframe src attribute when
+    modal hide, which stop the video playing */
+    $(<?php echo "#$modal_id"; ?>).on('hide.bs.modal', function(){
+        $(<?php echo "#$youtube_id"; ?>).attr('src', '');
+    });
+    
+    /* Assign the initially stored url back to the iframe src
+    attribute when modal is displayed again */
+    $(<?php echo "#$modal_id"; ?>).on('show.bs.modal', function(){
+        $(<?php echo "#$youtube_id"; ?>).attr('src', url);
+    });
+});
+</script>
+
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('youtube-modal', __NAMESPACE__ . '\\youtube_modal');
 
 /**
  * Author Description
