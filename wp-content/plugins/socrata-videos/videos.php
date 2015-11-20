@@ -628,16 +628,36 @@ $('#segments').show();
         <div id="solution">
 
           <div class="col-sm-6 col-md-3 slide">
-            <img src="http://placehold.it/350x225?text=open data" class="img-responsive">
+            <div class="segment-tile background-asbestos">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15">OPEN DATA</div>
+              </div>
+              <a href="/video/socrata_videos_product/open-data/"></a>
+            </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <img src="http://placehold.it/350x225?text=open performance" class="img-responsive">
+            <div class="segment-tile background-asbestos">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15">OPEN PERFORMANCE</div>
+              </div>
+              <a href="/video/socrata_videos_product/open-performance/"></a>
+            </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <img src="http://placehold.it/350x225?text=socrata for finance" class="img-responsive">
+            <div class="segment-tile background-asbestos">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR FINANCE</div>
+              </div>
+              <a href="/video/socrata_videos_product/socrata-for-finance/"></a>
+            </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <img src="http://placehold.it/350x225?text=socrata for public safety" class="img-responsive">
+            <div class="segment-tile background-asbestos">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR PUBLIC SAFETY</div>
+              </div>
+              <a href="/video/socrata_videos_product/socrata-for-public-safety/"></a>
+            </div>
           </div>
 
         </div>
