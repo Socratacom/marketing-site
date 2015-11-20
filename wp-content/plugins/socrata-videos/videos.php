@@ -377,7 +377,7 @@ while ($query->have_posts()) : $query->the_post(); ?>
 <!--<section>
   <?php do_action('show_beautiful_filters'); ?>
 </section>-->
-<section class="section-padding img-background overlay-black video-hero" 
+<section class="section-padding img-background overlay-black-stripes video-hero" 
 style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/maxresdefault.jpg);">
 <div class="container">
   <div class="row">
@@ -502,34 +502,54 @@ $('#video-slider').show();
         <div id="segments">
 
           <div class="col-sm-6 col-md-3 slide">
-            <a href="/video/socrata_videos_segment/federal/">
-            <img src="http://placehold.it/350x225?text=federal" class="img-responsive">
+            <div class="segment-tile background-peter-river">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15"><i class="icon-capital icon-50"></i><br>FEDERAL</div>
+              </div>
+              <a href="/video/socrata_videos_segment/federal/"></a>
+            </div>
           </a>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <a href="/video/socrata_videos_segment/state/">
-            <img src="http://placehold.it/350x225?text=state" class="img-responsive">
+            <div class="segment-tile background-green-sea">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15"><i class="icon-state icon-50"></i><br>STATE</div>
+              </div>
+              <a href="/video/socrata_videos_segment/state/"></a>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3 slide">
+            <div class="segment-tile background-pumpkin">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15"><i class="icon-city icon-50"></i><br>CITY</div>
+              </div>
+              <a href="/video/socrata_videos_segment/city/"></a>
+            </div>
           </a>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <a href="/video/socrata_videos_segment/city/">
-            <img src="http://placehold.it/350x225?text=city" class="img-responsive">
-          </a>
+            <div class="segment-tile background-amethyst">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15"><i class="icon-map icon-50"></i><br>COUNTY</div>
+              </div>
+              <a href="/video/socrata_videos_segment/county/"></a>
+            </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <a href="/video/socrata_videos_segment/county/">
-            <img src="http://placehold.it/350x225?text=county" class="img-responsive">
-          </a>
+            <div class="segment-tile background-orange">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15"><i class="icon-people icon-50"></i><br>NON-PROFIT</div>
+              </div>
+              <a href="/video/socrata_videos_segment/non-profit/"></a>
+            </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <a href="/video/socrata_videos_segment/non-profit/">
-            <img src="http://placehold.it/350x225?text=non-profit" class="img-responsive">
-          </a>
-          </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <a href="/video/socrata_videos_segment/international/">
-            <img src="http://placehold.it/350x225?text=international" class="img-responsive">
-          </a>
+            <div class="segment-tile background-nephritis">
+              <div class="vertical-center">
+                <div class="text-center text-reverse margin-bottom-15"><i class="icon-geography icon-50"></i><br>INTERNATIONAL</div>
+              </div>
+              <a href="/video/socrata_videos_segment/international/"></a>
+            </div>
           </div>
 
         </div>

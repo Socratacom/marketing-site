@@ -536,6 +536,16 @@ body {
 	width:100%;
 	background-color: rgba(black, 0.5);
 }
+.overlay-black-stripes:before {
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+	background-image: url(../images/pattern-stripe.png);
+	background-color:rgba(black, 0.5);
+}
 
 
 @media only screen and (min-width : 320px) {
