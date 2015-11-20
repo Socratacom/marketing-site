@@ -8,7 +8,6 @@
         </div>
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1">
-            <p class="categories"><?php videos_the_categories(); ?></p>
             <h1 class="entry-title"><?php the_title(); ?></h1>
             <div class="marketo-share">
               <?php echo do_shortcode( '[marketo-share]' ); ?>

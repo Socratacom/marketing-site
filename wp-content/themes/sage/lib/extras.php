@@ -104,7 +104,7 @@ function carousel_script( $atts ) {
           $(<?php echo $id; ?>).slick({
             arrows: true,
             dots: true,
-            appendArrows: $('.arrowsContainer'),
+            appendArrows: $('#slider-one'),
             prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
             nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
             autoplay: true,
