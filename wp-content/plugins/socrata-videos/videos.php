@@ -515,7 +515,7 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-state icon-50"></i><br>STATE</div>
               </div>
-              <a href="/video/socrata_videos_segment/state/"></a>
+              <a href="/socrata_videos_segment/state/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
@@ -523,7 +523,7 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-city icon-50"></i><br>CITY</div>
               </div>
-              <a href="/video/socrata_videos_segment/city/"></a>
+              <a href="/socrata_videos_segment/city/"></a>
             </div>
           </a>
           </div>
@@ -532,7 +532,7 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-map icon-50"></i><br>COUNTY</div>
               </div>
-              <a href="/video/socrata_videos_segment/county/"></a>
+              <a href="/socrata_videos_segment/county/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
@@ -540,7 +540,7 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-people icon-50"></i><br>NON-PROFIT</div>
               </div>
-              <a href="/video/socrata_videos_segment/non-profit/"></a>
+              <a href="/socrata_videos_segment/non-profit/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
@@ -548,7 +548,7 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-geography icon-50"></i><br>INTERNATIONAL</div>
               </div>
-              <a href="/video/socrata_videos_segment/international/"></a>
+              <a href="/socrata_videos_segment/international/"></a>
             </div>
           </div>
 
