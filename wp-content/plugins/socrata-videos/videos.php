@@ -617,7 +617,7 @@ $('#segments').show();
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h3>Videos by Solution</h3>
+        <h3>Videos by Product</h3>
       </div>
     </div>
   </div>
