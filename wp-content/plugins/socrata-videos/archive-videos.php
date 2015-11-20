@@ -7,7 +7,7 @@
   <hr/>
   <div class="row">        
 
-				<?php while ( have_posts() ) : the_post();  ?>
+        <?php while ( have_posts() ) : the_post();  ?>
 
         <div class="col-sm-6 col-lg-3">
         <article class="card card-video">
@@ -23,9 +23,9 @@
         </article>
         </div>
 
-				<?php endwhile; ?>
+        <?php endwhile; ?>
 
-				<?php if (function_exists("pagination")) {pagination($additional_loop->max_num_pages);} ?>
+        <?php if (function_exists("pagination")) {pagination($additional_loop->max_num_pages);} ?>
 
   </div>
 </div>
