@@ -350,23 +350,33 @@ $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby
 while ($query->have_posts()) : $query->the_post(); ?>
 <section class="img-background overlay-black-stripes video-hero" 
 style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/maxresdefault.jpg);">
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4 padding-30">
-      <div class="text truncate">
-        <h2 class="text-reverse margin-bottom-15"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>        
-        <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4 padding-30">
+        <div class="text truncate">
+          <h2 class="text-reverse margin-bottom-15"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>        
+          <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+        </div>
+        <p class="meta text-reverse"><small><strong>Posted</strong>, <?php the_time('F jS, Y') ?></small></p>
       </div>
-      <p class="meta text-reverse"><small><strong>Posted</strong>, <?php the_time('F jS, Y') ?></small></p>
     </div>
   </div>
-</div>
-<div class="vertical-center text-center hidden-xs">
-  <a href="<?php the_permalink() ?>"><i class="fa fa-play-circle-o"></i></a>
-</div>
+  <div class="vertical-center text-center hidden-xs">
+    <a href="<?php the_permalink() ?>"><i class="fa fa-play-circle-o"></i></a>
+  </div>
 </section>
 <?php endwhile; ?>
 <?php wp_reset_query(); ?>
+
+<section class="padding-15 background-midnight-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="text-center text-reverse" style="margin:0;">Over <span class="color-sun-flower" style="font-weight: 900;">100+</span> Open Data Videos Available</h5>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="section-padding background-clouds">
   <div class="container">
@@ -377,94 +387,73 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
     </div>
   </div>
 
-<div id="slider-one">
-  <div class="container">
-    <div class="row">    
-      <div id="video-slider">
-
-<?php $query = new WP_Query();
-$query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8&offset=1');
-while ($query->have_posts()) : $query->the_post(); ?>
-
-        <div class="col-sm-6 col-md-3 slide">
-        <article class="card card-video">
-        <div class="card-image">
-        <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
-        <a class="link" href="<?php the_permalink() ?>"></a>
+  <div id="slider-one">
+    <div class="container">
+      <div class="row">    
+        <div id="video-slider">
+          <?php $query = new WP_Query();
+          $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8&offset=1');
+          while ($query->have_posts()) : $query->the_post(); ?>
+          <div class="col-sm-6 col-md-3 slide">
+            <article class="card card-video">
+              <div class="card-image">
+                <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+                <a class="link" href="<?php the_permalink() ?>"></a>
+              </div>
+              <div class="card-text truncate">
+                <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+                <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+              </div>      
+            </article>
+          </div>
+          <?php endwhile; ?>
+          <?php wp_reset_query(); ?>
         </div>
-        <div class="card-text truncate">
-        <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-        <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
-        </div>      
-        </article>
-        </div>
-
-<?php endwhile; ?>
-<?php wp_reset_query(); ?>
-</div>
-</div>
-</div>
-</div>
-<script>
-jQuery(function ($){
-  $('#video-slider').slick({
-
-
-arrows: true,
-appendArrows: $('#slider-one'),
-prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
-autoplay: false,
-autoplaySpeed: 8000,
-speed: 800,
-slidesToShow: 4,
-slidesToScroll: 4,
-accessibility:false,
-dots:false,
-
-  responsive: [
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-
-
-});
-$('#video-slider').show();
-});
-
-</script>
-
-
-</section>
-<section class="section-padding background-midnight-blue">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h3 class="text-center text-reverse">Over <span class="color-sun-flower font-bold">100+</span> Open Data Videos Available</h3>
       </div>
     </div>
   </div>
-  </section>
-
+  <script>
+  jQuery(function ($){
+    $('#video-slider').slick({
+    arrows: true,
+    appendArrows: $('#slider-one'),
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+    autoplay: false,
+    autoplaySpeed: 8000,
+    speed: 800,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    accessibility:false,
+    dots:false,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  });
+  $('#video-slider').show();
+  });
+  </script>
+</section>
 <section class="section-padding">
   <div class="container">
     <div class="row">
@@ -533,51 +522,48 @@ $('#video-slider').show();
     </div>
   </div>
 
-<script>
-jQuery(function ($){
-  $('#segments').slick({
+  <script>
+  jQuery(function ($){
+    $('#segments').slick({
+    arrows: true,
+    appendArrows: $('#slider-two'),
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+    autoplay: false,
+    autoplaySpeed: 8000,
+    speed: 800,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    accessibility:false,
+    dots:false,
 
-
-arrows: true,
-appendArrows: $('#slider-two'),
-prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
-autoplay: false,
-autoplaySpeed: 8000,
-speed: 800,
-slidesToShow: 4,
-slidesToScroll: 4,
-accessibility:false,
-dots:false,
-
-  responsive: [
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-  ]
-});
-$('#segments').show();
-});
-</script>
-
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+    $('#segments').show();
+  });
+  </script>
 </section>
 
 <section class="section-padding background-clouds">
@@ -595,7 +581,7 @@ $('#segments').show();
         <div id="solution">
 
           <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile img-background odfg-hero overlay-black">
+            <div class="segment-tile img-background channel-open-data overlay-black">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15">OPEN DATA</div>
               </div>
@@ -603,7 +589,7 @@ $('#segments').show();
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile img-background open-performance-one overlay-black">
+            <div class="segment-tile img-background channel-open-performance  overlay-black">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15">OPEN PERFORMANCE</div>
               </div>
@@ -611,7 +597,7 @@ $('#segments').show();
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile img-background finance-solution-image overlay-black">
+            <div class="segment-tile img-background channel-socrata-for-finance overlay-black">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR FINANCE</div>
               </div>
@@ -619,7 +605,7 @@ $('#segments').show();
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile img-background public-safety-solution-image overlay-black">
+            <div class="segment-tile img-background channel-socrata-for-public-safety overlay-black">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR PUBLIC SAFETY</div>
               </div>
@@ -631,66 +617,52 @@ $('#segments').show();
       </div>
     </div>
   </div>
+  <script>
+  jQuery(function ($){
+    $('#solution').slick({
+    arrows: true,
+    appendArrows: $('#slider-three'),
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+    autoplay: false,
+    autoplaySpeed: 8000,
+    speed: 800,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    accessibility:false,
+    dots:false,
 
-<script>
-jQuery(function ($){
-  $('#solution').slick({
-
-
-arrows: true,
-appendArrows: $('#slider-three'),
-prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
-autoplay: false,
-autoplaySpeed: 8000,
-speed: 800,
-slidesToShow: 4,
-slidesToScroll: 4,
-accessibility:false,
-dots:false,
-
-  responsive: [
-    {
-      breakpoint: 992,
-      settings: {
-        slidesToShow: 3,
-        slidesToScroll: 3
-      }
-    },
-    {
-      breakpoint: 768,
-      settings: {
-        slidesToShow: 2,
-        slidesToScroll: 2
-      }
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        slidesToShow: 1,
-        slidesToScroll: 1
-      }
-    }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
-  ]
-
-
-});
-$('#solutions').show();
-});
-
-</script>
-
-
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+    $('#solutions').show();
+  });
+  </script>
 </section>
-
-
-
-
-
-
 
   <?php
   $content = ob_get_contents();
