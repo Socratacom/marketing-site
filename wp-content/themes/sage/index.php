@@ -36,7 +36,7 @@
 					<?php if (function_exists("pagination")) {pagination($additional_loop->max_num_pages);} ?>
 
 		</div>
-		<div class="col-sm-3 hidden-xs">        
+		<div class="col-sm-3 hidden-xs">
 			<?php
 	          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
 	          $orderby = 'name';

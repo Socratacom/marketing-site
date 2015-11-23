@@ -75,6 +75,7 @@ function socrata_videos_segment() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'videos-segment'),
     )
   );
 }
@@ -97,6 +98,7 @@ function socrata_videos_product() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'videos-product'),
     )
   );
 }
@@ -119,6 +121,7 @@ function socrata_videos_categories() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'videos-category'),
     )
   );
 }
@@ -254,10 +257,6 @@ function add_youtube_plugin($plugin_array) {
 }
 
 
-
-
-
-
 //Shortcode [video-cards]
 function video_cards( $atts ) {
   extract( shortcode_atts( array(
@@ -342,31 +341,6 @@ add_shortcode( 'video-slider', 'video_slider' );
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Shortcode [socrata-videos-posts]
 function socrata_videos_posts($atts, $content = null) {
   ob_start();
@@ -374,15 +348,15 @@ function socrata_videos_posts($atts, $content = null) {
 <?php $query = new WP_Query();
 $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=1');
 while ($query->have_posts()) : $query->the_post(); ?>
-<!--<section>
-  <?php do_action('show_beautiful_filters'); ?>
-</section>-->
-<section class="section-padding img-background overlay-black-stripes video-hero" 
+<section class="img-background overlay-black-stripes video-hero" 
 style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/maxresdefault.jpg);">
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
-      <h2 class="text-reverse margin-bottom-15 truncate"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+    <div class="col-sm-4 padding-30">
+      <div class="text truncate">
+        <h2 class="text-reverse margin-bottom-15"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>        
+        <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+      </div>
       <p class="meta text-reverse"><small><strong>Posted</strong>, <?php the_time('F jS, Y') ?></small></p>
     </div>
   </div>
@@ -460,21 +434,16 @@ dots:false,
       breakpoint: 768,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
+        slidesToScroll: 2
       }
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
+        slidesToScroll: 1
       }
     }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
   ]
 
 
@@ -486,6 +455,15 @@ $('#video-slider').show();
 
 
 </section>
+<section class="section-padding background-midnight-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="text-center text-reverse">Over <span class="color-sun-flower font-bold">100+</span> Open Data Videos Available</h3>
+      </div>
+    </div>
+  </div>
+  </section>
 
 <section class="section-padding">
   <div class="container">
@@ -506,16 +484,15 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-capital icon-50"></i><br>FEDERAL</div>
               </div>
-              <a href="/video/socrata_videos_segment/federal/"></a>
+              <a href="/videos-segment/federal/"></a>
             </div>
-          </a>
           </div>
           <div class="col-sm-6 col-md-3 slide">
             <div class="segment-tile background-green-sea">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-state icon-50"></i><br>STATE</div>
               </div>
-              <a href="/socrata_videos_segment/state/"></a>
+              <a href="/videos-segment/state/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
@@ -523,16 +500,15 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-city icon-50"></i><br>CITY</div>
               </div>
-              <a href="/socrata_videos_segment/city/"></a>
+              <a href="/videos-segment/city/"></a>
             </div>
-          </a>
           </div>
           <div class="col-sm-6 col-md-3 slide">
             <div class="segment-tile background-amethyst">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-map icon-50"></i><br>COUNTY</div>
               </div>
-              <a href="/socrata_videos_segment/county/"></a>
+              <a href="/videos-segment/county/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
@@ -540,7 +516,7 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-people icon-50"></i><br>NON-PROFIT</div>
               </div>
-              <a href="/socrata_videos_segment/non-profit/"></a>
+              <a href="/videos-segment/non-profit/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
@@ -548,7 +524,7 @@ $('#video-slider').show();
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15"><i class="icon-geography icon-50"></i><br>INTERNATIONAL</div>
               </div>
-              <a href="/socrata_videos_segment/international/"></a>
+              <a href="/videos-segment/international/"></a>
             </div>
           </div>
 
@@ -586,30 +562,21 @@ dots:false,
       breakpoint: 768,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
+        slidesToScroll: 2
       }
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
+        slidesToScroll: 1
       }
     }
-    // You can unslick at a given breakpoint now by adding:
-    // settings: "unslick"
-    // instead of a settings object
   ]
-
-
 });
 $('#segments').show();
 });
-
 </script>
-
 
 </section>
 
@@ -628,35 +595,35 @@ $('#segments').show();
         <div id="solution">
 
           <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-asbestos">
+            <div class="segment-tile img-background odfg-hero overlay-black">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15">OPEN DATA</div>
               </div>
-              <a href="/socrata_videos_product/open-data/"></a>
+              <a href="/videos-product/open-data/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-asbestos">
+            <div class="segment-tile img-background open-performance-one overlay-black">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15">OPEN PERFORMANCE</div>
               </div>
-              <a href="/socrata_videos_product/open-performance/"></a>
+              <a href="/videos-product/open-performance/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-asbestos">
+            <div class="segment-tile img-background finance-solution-image overlay-black">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR FINANCE</div>
               </div>
-              <a href="/socrata_videos_product/socrata-for-finance/"></a>
+              <a href="/videos-product/socrata-for-finance/"></a>
             </div>
           </div>
           <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-asbestos">
+            <div class="segment-tile img-background public-safety-solution-image overlay-black">
               <div class="vertical-center">
                 <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR PUBLIC SAFETY</div>
               </div>
-              <a href="/socrata_videos_product/socrata-for-public-safety/"></a>
+              <a href="/videos-product/socrata-for-public-safety/"></a>
             </div>
           </div>
 
@@ -694,16 +661,14 @@ dots:false,
       breakpoint: 768,
       settings: {
         slidesToShow: 2,
-        slidesToScroll: 2,
-        arrows: false,
+        slidesToScroll: 2
       }
     },
     {
       breakpoint: 480,
       settings: {
         slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
+        slidesToScroll: 1
       }
     }
     // You can unslick at a given breakpoint now by adding:
