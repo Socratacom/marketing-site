@@ -130,9 +130,9 @@
 				<p class="lead">Hundreds of cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>
 				<p><a href="/customer-stories">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
 			</div>
-			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=federal&posts_per_page=1" class="col-sm-3"]');?>
-			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=state&posts_per_page=1" class="col-sm-3"]');?>
-			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_type=city&posts_per_page=1" class="col-sm-3"]');?>
+			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=federal&posts_per_page=1" class="col-sm-3"]');?>
+			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=state&posts_per_page=1" class="col-sm-3"]');?>
+			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=city&posts_per_page=1" class="col-sm-3"]');?>
 		</div>
 	</div>
 </section>
