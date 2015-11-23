@@ -3,7 +3,7 @@
 		<div class="col-sm-9">
 			<div class="row">
 				<div class="col-sm-12">
-					<h3 class="archive-title">Developer Blog: <?php single_cat_title(); ?></h3>
+					<h3 class="archive-title"><a href="/developer-blog">Developer Blog</a>: <?php single_cat_title(); ?></h3>
 					<hr/>
 				</div>
 
