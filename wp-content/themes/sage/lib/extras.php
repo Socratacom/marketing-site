@@ -155,7 +155,7 @@ jQuery(document).ready(function($){
   
 // BOOTSTRAP 3.0 - Open YouTube Video Dynamicaly in Modal Window
 // Modal Window for dynamically opening videos
-$('a[href^="http://www.youtube.com"]').on('click', function(e){
+$('a[href^="https://www.youtube.com"]').on('click', function(e){
   // Store the query string variables and values
   // Uses "jQuery Query Parser" plugin, to allow for various URL formats (could have extra parameters)
   var queryString = $(this).attr('href').slice( $(this).attr('href').indexOf('?') + 1);
@@ -172,7 +172,7 @@ $('a[href^="http://www.youtube.com"]').on('click', function(e){
     var vidHeight = 720; // default
     if ( $(this).attr('data-width') ) { vidWidth = parseInt($(this).attr('data-width')); }
     if ( $(this).attr('data-height') ) { vidHeight =  parseInt($(this).attr('data-height')); }
-    var iFrameCode = '<div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="http://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe></div>';
+    var iFrameCode = '<div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe></div>';
  
     // Replace Modal HTML with iFrame Embed
     $('#mediaModal .modal-body').html(iFrameCode);
