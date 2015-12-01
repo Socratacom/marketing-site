@@ -682,9 +682,9 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
         </div>
       </div>
       <div class="col-sm-6 col-md-3">
-        <div class="segment-tile background-silver">
+        <div class="segment-tile background-gray-dark">
           <div class="vertical-center">
-            <div class="text-center margin-bottom-15"><img src="/wp-content/themes/sage/dist/images/re-logo.png"></div>
+            <div class="text-center margin-bottom-15"><img src="/wp-content/themes/sage/dist/images/re-think-logo.png"></div>
           </div>
           <a href="/videos-category/customer-summit-2015/"></a>
         </div>
