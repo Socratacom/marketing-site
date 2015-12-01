@@ -125,13 +125,72 @@ function carousel_script( $atts ) {
 add_shortcode('carousel-script', __NAMESPACE__ . '\\carousel_script');
 
 /**
+ * Responsive Carousel [responsive-carousel id="" slide_id=""]
+ */
+function carousel_script_responsive( $atts ) {
+  extract( shortcode_atts( array(
+    'id' => '',
+    'slide_id' => '',
+  ), $atts ) );
+  ob_start(); 
+  ?>
+  <script>
+  jQuery(function ($){
+    $(<?php echo "'#$slide_id'"; ?>).slick({
+    arrows: true,
+    appendArrows: $(<?php echo "'#$id'"; ?>),
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+    autoplay: false,
+    autoplaySpeed: 8000,
+    speed: 800,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    accessibility:false,
+    dots:false,
+
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+    $(<?php echo "'#$slide_id'"; ?>).show();
+  });
+  </script>
+
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('responsive-carousel', __NAMESPACE__ . '\\carousel_script_responsive');
+
+/**
  * YouTube Modal
  */
 function youtube_modal( $atts ) {
   ob_start(); 
   ?>
-
-
 
 <!-- Video / Generic Modal -->
 <div class="modal video-modal" id="mediaModal" tabindex="-1" role="dialog" aria-hidden="true">

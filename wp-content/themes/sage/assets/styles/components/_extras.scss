@@ -51,6 +51,8 @@
 
 }
 .video-modal {
+    .modal-dialog {
+    }
     .modal-content {
         position: relative;
         button {
@@ -335,7 +337,7 @@
             }
         }
     }
-    #slider-one, #slider-two, #slider-three, #slider-four, .carousel {
+    #slider-one, #slider-three, #slider-four, .carousel, .slider-arrows {
         position:relative;
         .slick-arrow[style] {
             display:inline-block !important;
@@ -390,6 +392,35 @@
     .video-hero {
         height:500px;
         padding:50px 0;
+        position: relative;
+        .video-subnav {
+            position: absolute;
+            top:15px;
+            left:0;
+            z-index: 100;
+            width:100%;
+            .navbar-right {
+                padding:0 15px;
+            }
+            .nav>li>a {
+                height: auto;
+                padding: 5px 15px;
+                color:white;
+            }
+            .nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .nav>li>a:hover, .dropdown-menu {
+                background-color:rgba(white, .25%);
+                border:none;
+                border-radius:0;
+            }
+            .dropdown-menu>li>a {
+                font-weight: 300;
+                color: white;
+            }
+            .dropdown-menu>li>a:hover {
+                background-color:rgba(white, .25%);
+            }
+
+        }
         .text {
             max-height:280px;
             overflow: hidden;
@@ -418,7 +449,7 @@
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-    #slider-one, #slider-two, #slider-three, #slider-four, .carousel {
+    #slider-one, #slider-three, #slider-four, .carousel, .slider-arrows {
         .toggle-left, .toggle-right {
             font-size: 32px;
             padding:30px 15px;

@@ -231,7 +231,7 @@ function cwc_youtube($atts) {
     "id" => '',
   ), $atts));
   return '<div class="video-container">
-  <iframe src="http://www.youtube.com/embed/'.$id.'?rel=0" frameborder="0" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/'.$id.'?rel=0" frameborder="0" allowfullscreen></iframe>
   </div>'
   ;
 }
@@ -350,8 +350,49 @@ $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby
 while ($query->have_posts()) : $query->the_post(); ?>
 <section class="img-background overlay-black-stripes video-hero" 
 style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/maxresdefault.jpg);">
+<div class="video-subnav hidden-xs hidden-sm">
+<div class="container">
+
+
+<ul class="nav nav-pills navbar-right">
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Segment <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="/videos-segment/federal">Federal</a></li>
+<li><a href="/videos-segment/state">State</a></li>
+<li><a href="/videos-segment/city">City</a></li>
+<li><a href="/videos-segment/county">County</a></li>
+<li><a href="/videos-segment/non-profit">Non-Profit</a></li>
+<li><a href="/videos-segment/international">International</a></li>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="/videos-product/open-data">Open Data</a></li>
+<li><a href="/videos-product/open-performance">Open Performance</a></li>
+<li><a href="/videos-product/socrata-for-finance">Socrata for Finance</a></li>
+<li><a href="/videos-product/socrata-for-public-safety">Socrata for Public Safety</a></li>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Series <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="/videos-category/open-data-tv">Open Data TV</a></li>
+<li><a href="/videos-category/customer-summit-2015">Socrata Customer Summit</a></li>
+</ul>
+</li>
+
+</ul>
+
+</div>
+</div>
+
   <div class="container">
-    <div class="row">
+    <div class="row">      
       <div class="col-sm-4 padding-30">
         <div class="text truncate">
           <h2 class="text-reverse margin-bottom-15"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>        
@@ -382,320 +423,188 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h3>New and Noteworthy</h3>
+        <h3 class="color-concrete">New and Noteworthy</h3>
       </div>
     </div>
   </div>
-
-  <div id="slider-one">
+  <div id="noteworthy" class="slider-arrows">
     <div class="container">
-      <div class="row">    
-        <div id="video-slider">
-          <?php $query = new WP_Query();
-          $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8&offset=1');
-          while ($query->have_posts()) : $query->the_post(); ?>
-          <div class="col-sm-6 col-md-3 slide">
-            <article class="card card-video">
-              <div class="card-image">
-                <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
-                <a class="link" href="<?php the_permalink() ?>"></a>
-              </div>
-              <div class="card-text truncate">
-                <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-                <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
-              </div>      
-            </article>
-          </div>
-          <?php endwhile; ?>
-          <?php wp_reset_query(); ?>
+      <div id="noteworthy-slides" class="row">    
+
+        <?php $query = new WP_Query();
+        $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8&offset=1');
+        while ($query->have_posts()) : $query->the_post(); ?>
+        <div class="col-sm-6 col-md-3 slide">
+          <article class="card card-video">
+            <div class="card-image">
+              <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+              <a class="link" href="<?php the_permalink() ?>"></a>
+            </div>
+            <div class="card-text truncate">
+              <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+              <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+            </div>      
+          </article>
         </div>
+        <?php endwhile; ?>
+        <?php wp_reset_query(); ?>
+
       </div>
     </div>
   </div>
-  <script>
-  jQuery(function ($){
-    $('#video-slider').slick({
-    arrows: true,
-    appendArrows: $('#slider-one'),
-    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
-    autoplay: false,
-    autoplaySpeed: 8000,
-    speed: 800,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    accessibility:false,
-    dots:false,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-  });
-  $('#video-slider').show();
-  });
-  </script>
 </section>
-<section class="section-padding">
+<?php echo do_shortcode('[responsive-carousel id="noteworthy" slide_id="noteworthy-slides"]'); ?>
+
+<section id="videos-segment" class="section-padding">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h3>Videos by Segment</h3>
+        <h3 class="color-concrete">Videos by Segment</h3>
       </div>
     </div>
   </div>
-  <div id="slider-two" style="min-height:200px;">
-    <div class="vertical-center">
+  <div id="segments" class="slider-arrows" style="min-height:200px;">
     <div class="container">
-      <div class="row">    
-        <div id="segments">
+      <div id="segment-slides" class="row">
 
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-peter-river">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15"><i class="icon-capital icon-50"></i><br>FEDERAL</div>
-              </div>
-              <a href="/videos-segment/federal/"></a>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-peter-river">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-capital icon-50"></i><br>FEDERAL</div>
             </div>
+            <a href="/videos-segment/federal/"></a>
           </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-green-sea">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15"><i class="icon-state icon-50"></i><br>STATE</div>
-              </div>
-              <a href="/videos-segment/state/"></a>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-pumpkin">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15"><i class="icon-city icon-50"></i><br>CITY</div>
-              </div>
-              <a href="/videos-segment/city/"></a>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-amethyst">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15"><i class="icon-map icon-50"></i><br>COUNTY</div>
-              </div>
-              <a href="/videos-segment/county/"></a>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-orange">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15"><i class="icon-people icon-50"></i><br>NON-PROFIT</div>
-              </div>
-              <a href="/videos-segment/non-profit/"></a>
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile background-nephritis">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15"><i class="icon-geography icon-50"></i><br>INTERNATIONAL</div>
-              </div>
-              <a href="/videos-segment/international/"></a>
-            </div>
-          </div>
-
         </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-green-sea">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-state icon-50"></i><br>STATE</div>
+            </div>
+            <a href="/videos-segment/state/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-pumpkin">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-city icon-50"></i><br>CITY</div>
+            </div>
+            <a href="/videos-segment/city/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-amethyst">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-map icon-50"></i><br>COUNTY</div>
+            </div>
+            <a href="/videos-segment/county/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-orange">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-people icon-50"></i><br>NON-PROFIT</div>
+            </div>
+            <a href="/videos-segment/non-profit/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-nephritis">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-geography icon-50"></i><br>INTERNATIONAL</div>
+            </div>
+            <a href="/videos-segment/international/"></a>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
-
-  <script>
-  jQuery(function ($){
-    $('#segments').slick({
-    arrows: true,
-    appendArrows: $('#slider-two'),
-    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
-    autoplay: false,
-    autoplaySpeed: 8000,
-    speed: 800,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    accessibility:false,
-    dots:false,
-
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    });
-    $('#segments').show();
-  });
-  </script>
 </section>
+<?php echo do_shortcode('[responsive-carousel id="segments" slide_id="segment-slides"]'); ?>
 
-<section class="section-padding background-clouds">
+<section id="videos-product" class="section-padding background-clouds">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h3>Videos by Product</h3>
+        <h3 class="color-concrete">Videos by Product</h3>
       </div>
     </div>
   </div>
-  <div id="slider-three" style="min-height:200px;">
-    <div class="vertical-center">
+  <div id="products" class="slider-arrows" style="min-height:200px;">    
     <div class="container">
-      <div class="row">    
-        <div id="solution">
-
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile img-background channel-open-data overlay-black">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15">OPEN DATA</div>
-              </div>
-              <a href="/videos-product/open-data/"></a>
+      <div id="product-slides" class="row">
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile img-background channel-open-data overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">OPEN DATA</div>
             </div>
+            <a href="/videos-product/open-data/"></a>
           </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile img-background channel-open-performance  overlay-black">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15">OPEN PERFORMANCE</div>
-              </div>
-              <a href="/videos-product/open-performance/"></a>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile img-background channel-open-performance  overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">OPEN PERFORMANCE</div>
             </div>
+            <a href="/videos-product/open-performance/"></a>
           </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile img-background channel-socrata-for-finance overlay-black">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR FINANCE</div>
-              </div>
-              <a href="/videos-product/socrata-for-finance/"></a>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile img-background channel-socrata-for-finance overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR FINANCE</div>
             </div>
+            <a href="/videos-product/socrata-for-finance/"></a>
           </div>
-          <div class="col-sm-6 col-md-3 slide">
-            <div class="segment-tile img-background channel-socrata-for-public-safety overlay-black">
-              <div class="vertical-center">
-                <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR PUBLIC SAFETY</div>
-              </div>
-              <a href="/videos-product/socrata-for-public-safety/"></a>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile img-background channel-socrata-for-public-safety overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR PUBLIC SAFETY</div>
             </div>
+            <a href="/videos-product/socrata-for-public-safety/"></a>
           </div>
-
         </div>
       </div>
     </div>
-  </div>
-  <script>
-  jQuery(function ($){
-    $('#solution').slick({
-    arrows: true,
-    appendArrows: $('#slider-three'),
-    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
-    autoplay: false,
-    autoplaySpeed: 8000,
-    speed: 800,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    accessibility:false,
-    dots:false,
-
-      responsive: [
-        {
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 3,
-            slidesToScroll: 3
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-        // You can unslick at a given breakpoint now by adding:
-        // settings: "unslick"
-        // instead of a settings object
-      ]
-    });
-    $('#solutions').show();
-  });
-  </script>
+  </div>  
 </section>
+<?php echo do_shortcode('[responsive-carousel id="products" slide_id="product-slides"]'); ?>
 
-<section class="section-padding">
+<section id="videos-series" class="section-padding">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h3>Videos by Series</h3>
+        <h3 class="color-concrete">Videos by Series</h3>
       </div>
-  
-
-
-      <div class="col-sm-6 col-md-3">
-        <div class="segment-tile background-gray-dark">
-          <div class="vertical-center">
-            <div class="text-center margin-bottom-15"><img src="/wp-content/themes/sage/dist/images/odtv-logo.png"></div>
-          </div>
-          <a href="/videos-category/open-data-tv/"></a>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <div class="segment-tile background-gray-dark">
-          <div class="vertical-center">
-            <div class="text-center margin-bottom-15"><img src="/wp-content/themes/sage/dist/images/re-think-logo.png"></div>
-          </div>
-          <a href="/videos-category/customer-summit-2015/"></a>
-        </div>
-      </div>
-      
-
-
     </div>
   </div>
-
+  <div id="series" class="slider-arrows" style="min-height:200px;">
+    <div class="container">
+      <div id="series-slides" class="row">              
+        <div class="col-sm-6 col-md-3">
+          <div class="segment-tile img-background channel-odtv overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">OPEN DATA TV</div>
+            </div>
+            <a href="/videos-category/open-data-tv/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="segment-tile img-background channel-customer-summit overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">SOCRATA CUSTOMER SUMMIT</div>
+            </div>
+            <a href="/videos-category/customer-summit-2015/"></a>
+          </div>
+        </div>          
+      </div>
+    </div>
+  </div>
 </section>
+<?php echo do_shortcode('[responsive-carousel id="series" slide_id="series-slides"]'); ?>
+
+
 
   <?php
   $content = ob_get_contents();
