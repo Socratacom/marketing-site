@@ -290,6 +290,35 @@
 .slick-arrow.slick-hidden {
     display: none;
 }
+.video-thumb  {
+    position: relative;
+    text-align: center;
+    .btn-play:before, .btn-play:after {        
+        opacity: 0;
+    }
+    .btn-play:hover:before {
+        content:'';
+        position:absolute;
+        top: 0;
+        left:0;
+        width:100%;
+        height: 100%;
+        background-color: rgba($gray-dark, 0.85);
+        display:inline-block;
+        opacity: .5;
+    }
+    .btn-play:hover:after {
+        font-family: FontAwesome;
+        content:'\f01d';
+        position:absolute;
+        top: 45%;
+        left:45%;
+        opacity: 1;
+        z-index: 1;
+        font-size: 50px;
+        color:white;
+    }
+}
 
 
 
