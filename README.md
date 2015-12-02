@@ -18,6 +18,7 @@ Additional Plugins Used
 
 Change History
 ---
+- V2.0.3 - Added new video section to the site. Bug fixes and updated CSS.
 - V2.0.2 - Removed BFI Thumb script and added fixed image sizes to be processed. Updated CSS.
 - V2.0.1 - Added IDs to CTA buttons for AB testing.
 - V2.0.0 - This is version replaces the Thesis framework with the Sage/Bootstrap framework.
