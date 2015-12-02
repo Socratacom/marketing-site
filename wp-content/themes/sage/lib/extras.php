@@ -104,7 +104,7 @@ function carousel_script( $atts ) {
           $(<?php echo $id; ?>).slick({
             arrows: true,
             dots: true,
-            appendArrows: $('.arrowsContainer'),
+            appendArrows: $('.carousel'),
             prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
             nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
             autoplay: true,
@@ -125,52 +125,130 @@ function carousel_script( $atts ) {
 add_shortcode('carousel-script', __NAMESPACE__ . '\\carousel_script');
 
 /**
- * YouTube Modal
+ * Responsive Carousel [responsive-carousel id="" slide_id=""]
  */
-function youtube_modal( $atts ) {
+function carousel_script_responsive( $atts ) {
   extract( shortcode_atts( array(
-    'youtube_id' => '',
-    'modal_id' => '',
+    'id' => '',
+    'slide_id' => '',
   ), $atts ) );
   ob_start(); 
   ?>
+  <script>
+  jQuery(function ($){
+    $(<?php echo "'#$slide_id'"; ?>).slick({
+    arrows: true,
+    appendArrows: $(<?php echo "'#$id'"; ?>),
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+    autoplay: false,
+    autoplaySpeed: 8000,
+    speed: 800,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    accessibility:false,
+    dots:false,
 
-  <div id="<?php echo $modal_id; ?>" class="modal fade">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h4 class="modal-title">YouTube Video</h4>
-        </div>
-        <div class="modal-body">
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+    $(<?php echo "'#$slide_id'"; ?>).show();
+  });
+  </script>
 
-          <div class="video-container">
-            <iframe id="<?php echo $youtube_id; ?>" width="853" height="480" src="https://www.youtube.com/embed/<?php echo $youtube_id; ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-          </div>
 
-        </div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('responsive-carousel', __NAMESPACE__ . '\\carousel_script_responsive');
+
+/**
+ * YouTube Modal
+ */
+function youtube_modal( $atts ) {
+  ob_start(); 
+  ?>
+
+<!-- Video / Generic Modal -->
+<div class="modal video-modal" id="mediaModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <button type="button" data-dismiss="modal"><i class="fa fa-times"></i></button>
+      <div class="modal-body">
+        <!-- content dynamically inserted -->
       </div>
     </div>
   </div>
+</div>
 
-<script type="text/javascript">
-$(document).ready(function(){
-    /* Get iframe src attribute value i.e. YouTube video url
-    and store it in a variable */
-    var url = $(<?php echo "#$youtube_id"; ?>).attr('src');
-    
-    /* Assign empty url value to the iframe src attribute when
-    modal hide, which stop the video playing */
-    $(<?php echo "#$modal_id"; ?>).on('hide.bs.modal', function(){
-        $(<?php echo "#$youtube_id"; ?>).attr('src', '');
-    });
-    
-    /* Assign the initially stored url back to the iframe src
-    attribute when modal is displayed again */
-    $(<?php echo "#$modal_id"; ?>).on('show.bs.modal', function(){
-        $(<?php echo "#$youtube_id"; ?>).attr('src', url);
-    });
+<script>
+// REQUIRED: Include "jQuery Query Parser" plugin here or before this point: 
+// https://github.com/mattsnider/jquery-plugin-query-parser
+ (function($){var pl=/\+/g,searchStrict=/([^&=]+)=+([^&]*)/g,searchTolerant=/([^&=]+)=?([^&]*)/g,decode=function(s){return decodeURIComponent(s.replace(pl," "));};$.parseQuery=function(query,options){var match,o={},opts=options||{},search=opts.tolerant?searchTolerant:searchStrict;if('?'===query.substring(0,1)){query=query.substring(1);}while(match=search.exec(query)){o[decode(match[1])]=decode(match[2]);}return o;};$.getQuery=function(options){return $.parseQuery(window.location.search,options);};$.fn.parseQuery=function(options){return $.parseQuery($(this).serialize(),options);};}(jQuery));
+
+// YOUTUBE VIDEO CODE
+jQuery(document).ready(function($){
+  
+// BOOTSTRAP 3.0 - Open YouTube Video Dynamicaly in Modal Window
+// Modal Window for dynamically opening videos
+$('a[href^="https://www.youtube.com"]').on('click', function(e){
+  // Store the query string variables and values
+  // Uses "jQuery Query Parser" plugin, to allow for various URL formats (could have extra parameters)
+  var queryString = $(this).attr('href').slice( $(this).attr('href').indexOf('?') + 1);
+  var queryVars = $.parseQuery( queryString );
+ 
+  // if GET variable "v" exists. This is the Youtube Video ID
+  if ( 'v' in queryVars )
+  {
+    // Prevent opening of external page
+    e.preventDefault();
+ 
+    // Variables for iFrame code. Width and height from data attributes, else use default.
+    var vidWidth = 1280; // default
+    var vidHeight = 720; // default
+    if ( $(this).attr('data-width') ) { vidWidth = parseInt($(this).attr('data-width')); }
+    if ( $(this).attr('data-height') ) { vidHeight =  parseInt($(this).attr('data-height')); }
+    var iFrameCode = '<div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe></div>';
+ 
+    // Replace Modal HTML with iFrame Embed
+    $('#mediaModal .modal-body').html(iFrameCode);
+
+ 
+    // Open Modal
+    $('#mediaModal').modal();
+  }
 });
+ 
+// Clear modal contents on close. 
+// There was mention of videos that kept playing in the background.
+$('#mediaModal').on('hidden.bs.modal', function () {
+  $('#mediaModal .modal-body').html('');
+});
+ 
+}); 
 </script>
 
 
@@ -180,6 +258,25 @@ $(document).ready(function(){
   return $content;
 }
 add_shortcode('youtube-modal', __NAMESPACE__ . '\\youtube_modal');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * Author Description

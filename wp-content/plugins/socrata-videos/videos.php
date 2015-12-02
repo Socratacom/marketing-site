@@ -75,7 +75,7 @@ function socrata_videos_segment() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'video-segment')
+      'rewrite' => array('with_front' => false, 'slug' => 'videos-segment'),
     )
   );
 }
@@ -98,10 +98,34 @@ function socrata_videos_product() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'video-product')
+      'rewrite' => array('with_front' => false, 'slug' => 'videos-product'),
     )
   );
 }
+
+add_action( 'init', 'socrata_videos_categories', 0 );
+function socrata_videos_categories() {
+  register_taxonomy(
+    'socrata_videos_category',
+    'socrata_videos',
+    array(
+      'labels' => array(
+        'name' => 'Category',
+        'menu_name' => 'Category',
+        'add_new_item' => 'Add New Category',
+        'new_item_name' => "New Category"
+      ),
+      'show_ui' => true,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'videos-category'),
+    )
+  );
+}
+
 
 // CUSTOM COLUMS FOR ADMIN
 add_filter( 'manage_edit-socrata_videos_columns', 'socrata_videos_edit_columns' ) ;
@@ -199,7 +223,39 @@ function socrata_videos_body_class( $classes ) {
 add_action( 'wp_enqueue_scripts', 'register_socrata_videos_script' );
 function register_socrata_videos_script() {
 wp_register_script( 'video-slider', plugins_url( '/js/video-slider.js' , __FILE__ ), array(), '1.0.0', true );
+
+// YouTube Button and Shorcode for TinyMCE
+add_shortcode("youtube", "cwc_youtube");
+function cwc_youtube($atts) {
+  extract(shortcode_atts(array(
+    "id" => '',
+  ), $atts));
+  return '<div class="video-container">
+  <iframe src="https://www.youtube.com/embed/'.$id.'?rel=0" frameborder="0" allowfullscreen></iframe>
+  </div>'
+  ;
 }
+
+add_action('init', 'add_youtube_button');
+function add_youtube_button() {
+   if ( current_user_can('edit_posts') &&  current_user_can('edit_pages') )
+   {
+     add_filter('mce_external_plugins', 'add_youtube_plugin');
+     add_filter('mce_buttons', 'register_youtube_button');
+   }
+}
+
+function register_youtube_button($buttons) {
+   array_push($buttons, "youtube");
+   return $buttons;
+}
+
+function add_youtube_plugin($plugin_array) {
+   $plugin_array['youtube'] = plugins_url( '/js/youtube.js' , __FILE__ );
+   return $plugin_array;
+}
+}
+
 
 //Shortcode [video-cards]
 function video_cards( $atts ) {
@@ -234,6 +290,7 @@ function video_cards( $atts ) {
 }
 add_shortcode( 'video-cards', 'video_cards' );
 
+
 //Shortcode [video-slider]
 function video_slider( $atts ) { 
   extract( shortcode_atts( array(
@@ -241,35 +298,35 @@ function video_slider( $atts ) {
   ), $atts ) );
   $query = html_entity_decode( $query );
   ob_start(); ?>
-  <div class="video-slide-container">
-  <div class="arrowsContainer"></div>
+<div id="slider-one">
   <div class="container">
-  <div class="row slider">
-  <?php
-  $the_query = new WP_Query( $query );
-  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-  
-  <div class="col-sm-6 col-md-3 slide">
-    <article class="card card-video">
-      <div class="card-image">
+    <div class="row">    
+      <div id="video-slider">
+        <?php
+        $the_query = new WP_Query( $query );
+        while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+
+        <div class="col-sm-6 col-md-3 slide">
+        <article class="card card-video">
+        <div class="card-image">
         <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
         <a class="link" href="<?php the_permalink() ?>"></a>
-      </div>
-      <div class="card-text truncate">
-        <p class="categories"><?php videos_the_categories(); ?></p>
+        </div>
+        <div class="card-text truncate">
         <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
         <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
-      </div>      
-    </article>
+        </div>      
+        </article>
+        </div>
+
+        <?php
+        endwhile;
+        wp_reset_postdata(); ?>
+        <?php { ?>
+
+      </div>
+    </div>
   </div>
-
-  <?php
-  endwhile;
-  wp_reset_postdata(); ?>
-
-<?php { ?>
-</div>
-</div>
 </div>
 
 <?php
@@ -282,112 +339,272 @@ function video_slider( $atts ) {
 }
 add_shortcode( 'video-slider', 'video_slider' );
 
+
+
 // Shortcode [socrata-videos-posts]
 function socrata_videos_posts($atts, $content = null) {
   ob_start();
   ?>
-  <section class="section-padding background-clouds ">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h1 class="text-center" style="margin-top:0;">Featured Videos</h1>
+<?php $query = new WP_Query();
+$query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=1');
+while ($query->have_posts()) : $query->the_post(); ?>
+<section class="img-background overlay-black-stripes video-hero" 
+style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/maxresdefault.jpg);">
+<div class="video-subnav hidden-xs hidden-sm">
+<div class="container">
+
+
+<ul class="nav nav-pills navbar-right">
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Segment <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="/videos-segment/federal">Federal</a></li>
+<li><a href="/videos-segment/state">State</a></li>
+<li><a href="/videos-segment/city">City</a></li>
+<li><a href="/videos-segment/county">County</a></li>
+<li><a href="/videos-segment/non-profit">Non-Profit</a></li>
+<li><a href="/videos-segment/international">International</a></li>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Product <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="/videos-product/open-data">Open Data</a></li>
+<li><a href="/videos-product/open-performance">Open Performance</a></li>
+<li><a href="/videos-product/socrata-for-finance">Socrata for Finance</a></li>
+<li><a href="/videos-product/socrata-for-public-safety">Socrata for Public Safety</a></li>
+</ul>
+</li>
+
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Series <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="/videos-category/open-data-tv">Open Data TV</a></li>
+<li><a href="/videos-category/customer-summit-2015">Socrata Customer Summit</a></li>
+</ul>
+</li>
+
+</ul>
+
+</div>
+</div>
+
+  <div class="container">
+    <div class="row">      
+      <div class="col-sm-4 padding-30">
+        <div class="text truncate">
+          <h2 class="text-reverse margin-bottom-15"><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>        
+          <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
         </div>
+        <p class="meta text-reverse"><small><strong>Posted</strong>, <?php the_time('F jS, Y') ?></small></p>
       </div>
     </div>
-    <?php echo do_shortcode('[video-slider query="post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8"]'); ?>
-  </section>
+  </div>
+  <div class="vertical-center text-center hidden-xs">
+    <a href="<?php the_permalink() ?>"><i class="fa fa-play-circle-o"></i></a>
+  </div>
+</section>
+<?php endwhile; ?>
+<?php wp_reset_query(); ?>
 
-  <section class="section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-9">
-          <div class="row">
-          <?php
-
-          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-          $args = array(
-                'post_type' => 'socrata_videos',
-                'paged' => $paged
-              );
-          $query = new WP_Query( $args );
-
-          while ( $query->have_posts() ) {
-            $query->the_post(); ?>     
-
-          <div class="col-sm-6 col-lg-4">
-            <article class="card card-video">              
-              <div class="card-image">
-                <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
-                <a class="link" href="<?php the_permalink() ?>"></a>
-              </div>
-              <div class="card-text truncate">
-                <p class="categories"><?php videos_the_categories(); ?></p>
-                <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-                <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
-              </div>
-            </article>
-          </div>
-
-            <?php
-          }
-          // Restore original Post Data
-          wp_reset_postdata();   
-          ?>
-        </div>
-        <?php if (function_exists("pagination")) {pagination($query->max_num_pages,$pages);} ; ?>
-        </div>
-      <div class="col-sm-3 hidden-xs">
-        <?php
-          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-          $orderby = 'name';
-          $show_count = 0; // 1 for yes, 0 for no
-          $pad_counts = 0; // 1 for yes, 0 for no
-          $hide_empty = 1;
-          $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'socrata_videos_segment';
-          $title = 'Segment';
-
-          $args = array(
-            'orderby' => $orderby,
-            'show_count' => $show_count,
-            'pad_counts' => $pad_counts,
-            'hide_empty' => $hide_empty,
-            'hierarchical' => $hierarchical,
-            'taxonomy' => $taxonomy,
-            'title_li' => '<h5 class="background-carrot">'. $title .'</h5>'
-          );
-        ?>
-        <ul class="category-nav">
-          <?php wp_list_categories($args); ?>
-        </ul>        
-        <?php
-          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-          $orderby = 'name';
-          $show_count = 0; // 1 for yes, 0 for no
-          $pad_counts = 0; // 1 for yes, 0 for no
-          $hide_empty = 1;
-          $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'socrata_videos_product';
-          $title = 'Product';
-
-          $args = array(
-            'orderby' => $orderby,
-            'show_count' => $show_count,
-            'pad_counts' => $pad_counts,
-            'hide_empty' => $hide_empty,
-            'hierarchical' => $hierarchical,
-            'taxonomy' => $taxonomy,
-            'title_li' => '<h5 class="background-carrot">'. $title .'</h5>'
-          );
-        ?>
-        <ul class="category-nav">
-          <?php wp_list_categories($args); ?>
-        </ul>
-        <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+<section class="padding-15 background-midnight-blue">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h5 class="text-center text-reverse" style="margin:0;">Over <span class="color-sun-flower" style="font-weight: 900;">100+</span> Open Data Videos Available</h5>
       </div>
     </div>
   </div>
 </section>
+
+<section class="section-padding background-clouds">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="color-concrete">New and Noteworthy</h3>
+      </div>
+    </div>
+  </div>
+  <div id="noteworthy" class="slider-arrows">
+    <div class="container">
+      <div id="noteworthy-slides" class="row">    
+
+        <?php $query = new WP_Query();
+        $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8&offset=1');
+        while ($query->have_posts()) : $query->the_post(); ?>
+        <div class="col-sm-6 col-md-3 slide">
+          <article class="card card-video">
+            <div class="card-image">
+              <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+              <a class="link" href="<?php the_permalink() ?>"></a>
+            </div>
+            <div class="card-text truncate">
+              <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+              <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+            </div>      
+          </article>
+        </div>
+        <?php endwhile; ?>
+        <?php wp_reset_query(); ?>
+
+      </div>
+    </div>
+  </div>
+</section>
+<?php echo do_shortcode('[responsive-carousel id="noteworthy" slide_id="noteworthy-slides"]'); ?>
+
+<section id="videos-segment" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="color-concrete">Videos by Segment</h3>
+      </div>
+    </div>
+  </div>
+  <div id="segments" class="slider-arrows" style="min-height:200px;">
+    <div class="container">
+      <div id="segment-slides" class="row">
+
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-peter-river">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-capital icon-50"></i><br>FEDERAL</div>
+            </div>
+            <a href="/videos-segment/federal/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-green-sea">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-state icon-50"></i><br>STATE</div>
+            </div>
+            <a href="/videos-segment/state/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-pumpkin">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-city icon-50"></i><br>CITY</div>
+            </div>
+            <a href="/videos-segment/city/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-amethyst">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-map icon-50"></i><br>COUNTY</div>
+            </div>
+            <a href="/videos-segment/county/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-orange">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-people icon-50"></i><br>NON-PROFIT</div>
+            </div>
+            <a href="/videos-segment/non-profit/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile background-nephritis">
+            <div class="vertical-center">
+              <div class="text-center text-reverse margin-bottom-15"><i class="icon-geography icon-50"></i><br>INTERNATIONAL</div>
+            </div>
+            <a href="/videos-segment/international/"></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<?php echo do_shortcode('[responsive-carousel id="segments" slide_id="segment-slides"]'); ?>
+
+<section id="videos-product" class="section-padding background-clouds">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="color-concrete">Videos by Product</h3>
+      </div>
+    </div>
+  </div>
+  <div id="products" class="slider-arrows" style="min-height:200px;">    
+    <div class="container">
+      <div id="product-slides" class="row">
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile img-background channel-open-data overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">OPEN DATA</div>
+            </div>
+            <a href="/videos-product/open-data/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile img-background channel-open-performance  overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">OPEN PERFORMANCE</div>
+            </div>
+            <a href="/videos-product/open-performance/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile img-background channel-socrata-for-finance overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR FINANCE</div>
+            </div>
+            <a href="/videos-product/socrata-for-finance/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3 slide">
+          <div class="segment-tile img-background channel-socrata-for-public-safety overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR PUBLIC SAFETY</div>
+            </div>
+            <a href="/videos-product/socrata-for-public-safety/"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  
+</section>
+<?php echo do_shortcode('[responsive-carousel id="products" slide_id="product-slides"]'); ?>
+
+<section id="videos-series" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h3 class="color-concrete">Videos by Series</h3>
+      </div>
+    </div>
+  </div>
+  <div id="series" class="slider-arrows" style="min-height:200px;">
+    <div class="container">
+      <div id="series-slides" class="row">              
+        <div class="col-sm-6 col-md-3">
+          <div class="segment-tile img-background channel-odtv overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">OPEN DATA TV</div>
+            </div>
+            <a href="/videos-category/open-data-tv/"></a>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <div class="segment-tile img-background channel-customer-summit overlay-black">
+            <div class="vertical-center padding-30">
+              <div class="text-center text-reverse margin-bottom-15">SOCRATA CUSTOMER SUMMIT</div>
+            </div>
+            <a href="/videos-category/customer-summit-2015/"></a>
+          </div>
+        </div>          
+      </div>
+    </div>
+  </div>
+</section>
+<?php echo do_shortcode('[responsive-carousel id="series" slide_id="series-slides"]'); ?>
+
+
 
   <?php
   $content = ob_get_contents();
@@ -397,33 +614,4 @@ function socrata_videos_posts($atts, $content = null) {
 add_shortcode('socrata-videos-posts', 'socrata_videos_posts');
 
 
-// YouTube Button and Shorcode for TinyMCE
-add_shortcode("youtube", "cwc_youtube");
-function cwc_youtube($atts) {
-  extract(shortcode_atts(array(
-    "id" => '',
-  ), $atts));
-  return '<div class="video-container">
-  <iframe src="http://www.youtube.com/embed/'.$id.'?rel=0" frameborder="0" allowfullscreen></iframe>
-  </div>'
-  ;
-}
 
-add_action('init', 'add_youtube_button');
-function add_youtube_button() {
-   if ( current_user_can('edit_posts') &&  current_user_can('edit_pages') )
-   {
-     add_filter('mce_external_plugins', 'add_youtube_plugin');
-     add_filter('mce_buttons', 'register_youtube_button');
-   }
-}
-
-function register_youtube_button($buttons) {
-   array_push($buttons, "youtube");
-   return $buttons;
-}
-
-function add_youtube_plugin($plugin_array) {
-   $plugin_array['youtube'] = plugins_url( '/js/youtube.js' , __FILE__ );
-   return $plugin_array;
-}

@@ -1,9 +1,9 @@
 jQuery(function ($){
-          $('.slider').slick({
+  $('#video-slider').slick({
 
 
 arrows: true,
-appendArrows: $('.arrowsContainer'),
+appendArrows: $('#slider-one'),
 prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
 nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
 autoplay: false,
@@ -44,6 +44,7 @@ dots:false,
   ]
 
 
-          });
-          $('.slider').show();
-        });
+});
+$('#video-slider').show();
+});
+
