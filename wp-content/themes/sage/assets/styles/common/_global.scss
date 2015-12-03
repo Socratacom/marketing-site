@@ -517,7 +517,10 @@ body {
 	.btn-default {
 		color:$clouds;
 	}
-}	
+}
+.background-clouds-dark {
+	background-color:darken($clouds, 5%);
+}
 .background-gray-dark {
 	background-color:$gray-dark;
 }

@@ -18,7 +18,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</span></a>
+            <a href="/products" role="button" aria-haspopup="true" aria-expanded="false">Products</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_products',
               'container'       => '',
@@ -26,7 +26,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="solutions" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</span></a>
+            <a href="/solutions" role="button" aria-haspopup="true" aria-expanded="false">Solutions</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_solutions',
               'container'       => '',
