@@ -346,6 +346,15 @@
 		background-position: center center;
 		background-size: cover;
 	}
+	.hero-600 {
+		min-height: 600px;
+		width: 100%;
+		display: table;
+	}
+	.hero-600>div {
+		display:table-cell;
+		vertical-align: middle;
+	}
 	.vertical-center{
 	    position: absolute;
 	    top:50%;
