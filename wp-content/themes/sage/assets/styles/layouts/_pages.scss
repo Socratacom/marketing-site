@@ -328,15 +328,6 @@
 		stroke: white;
 	}
 	/* Hero */
-	.hero {
-		width:100%;
-		height:100vh;
-		margin-top:-60px;
-		position: relative;		
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
-	}
 	.hero-full {
 		width:100%;
 		height:100vh;
@@ -346,12 +337,12 @@
 		background-position: center center;
 		background-size: cover;
 	}
-	.hero-600 {
-		min-height: 600px;
+	.hero {
+		min-height: 300px;
 		width: 100%;
 		display: table;
 	}
-	.hero-600>div {
+	.hero>div {
 		display:table-cell;
 		vertical-align: middle;
 	}
@@ -782,6 +773,9 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+	.hero {
+		min-height: 450px;
+	}
 	.industries {
 		.what-we-do * {
 			text-align: left;
@@ -835,11 +829,11 @@
 
 
 
-
-
-
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
+	.hero {
+		min-height: 600px;
+	}
 
 }
 

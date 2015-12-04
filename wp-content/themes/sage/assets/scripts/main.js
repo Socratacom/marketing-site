@@ -24,14 +24,6 @@
       finalize: function() {
         // JavaScript to be fired after the init JS
 
-        // Disable Main Nav Click on Mobile
-
-        $('.dropdown-toggle').click(function(event){
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        event.preventDefault();
-    }
-}); 
-
         // Truncate script
         $(document).ready(function() {
           $(".truncate").dotdotdot({
