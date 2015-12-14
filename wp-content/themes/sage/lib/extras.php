@@ -186,6 +186,58 @@ function carousel_script_responsive( $atts ) {
 add_shortcode('responsive-carousel', __NAMESPACE__ . '\\carousel_script_responsive');
 
 /**
+ * Responsive Carousel [responsive-carousel id="" slide_id=""]
+ */
+function partner_logos_carousel_js( $atts ) {
+  extract( shortcode_atts( array(
+    'id' => '',
+    'slide_id' => '',
+  ), $atts ) );
+  ob_start(); 
+  ?>
+
+<script>
+jQuery(function ($){
+$(<?php echo $id; ?>).slick({
+autoplay: true,
+autoplaySpeed: 5000,
+slidesToShow: 4,
+slidesToScroll: 1,
+accessibility:false,
+pauseOnHover:false,
+responsive: [
+  {
+    breakpoint: 992,
+    settings: {
+      slidesToShow: 3
+    }
+  },
+  {
+  breakpoint: 768,
+    settings: {
+      slidesToShow: 2
+    }
+  },
+  {
+  breakpoint: 480,
+    settings: {
+      slidesToShow: 1
+    }
+  }
+]
+});
+$(<?php echo $id; ?>).show();
+});
+</script>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('partner-logos-carousel-js', __NAMESPACE__ . '\\partner_logos_carousel_js');
+
+/**
  * YouTube Modal
  */
 function youtube_modal( $atts ) {

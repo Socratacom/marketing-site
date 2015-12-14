@@ -256,6 +256,12 @@ body {
 	.btn-default {
 		color:$nephritis;
 	}
+	a {
+		color:lighten($nephritis, 20%);
+	}
+	a:hover {
+		color:lighten($nephritis, 30%);
+	}
 }
 .overlay-nephritis:before {
 	content:'';
@@ -605,13 +611,13 @@ body {
 	a {
 		color:$peter-river;
 		cursor: pointer;
+	}	
+	a:hover {
+		color:darken($peter-river, 10%);
+		text-decoration:none;
 	}
 	hr {
 	    border-top: 5px solid $clouds;
-	}
-	a:hover {
-		color:$belize-hole;
-		text-decoration:none;
 	}
 	table {
 		h4 {

@@ -198,6 +198,9 @@
 		.navbar-default .navbar-nav>li:hover {
 		    background-color: darken($peter-river, 30%);	    
 		}
+		.navbar-default .navbar-nav>li:last-child:hover {
+		    background-color: darken($peter-river, 0%);	    
+		}
 		.navbar-default .navbar-nav>li>a:hover {
 			color:white;	    
 		}
