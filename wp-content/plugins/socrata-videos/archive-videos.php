@@ -12,7 +12,7 @@
         <div class="col-sm-6 col-lg-3">
         <article class="card card-video">
         <div class="card-image">
-        <img src="http://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
+        <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
         <a class="link" href="<?php the_permalink() ?>"></a>
         </div>
         <div class="card-text truncate">
