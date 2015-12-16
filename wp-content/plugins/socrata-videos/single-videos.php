@@ -4,7 +4,6 @@
       <?php while (have_posts()) : the_post(); ?>
       <article <?php post_class(); ?>>
         <div class="video-container">
-          <!--<iframe class="delayed" width="853" height="480" src="https://www.youtube.com/embed/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>?rel=0&amp;showinfo=0&autoplay=1" frameborder="0" allowfullscreen></iframe>-->
           <div id="ytplayer"></div>
         </div>
         <div class="row">
