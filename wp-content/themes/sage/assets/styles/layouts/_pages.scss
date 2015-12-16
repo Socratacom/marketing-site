@@ -554,7 +554,7 @@
 		}
 		.overlay {
 			z-index: 1;
-			background-color:rgba(black, .75%);
+			background-color:rgba($gray-dark, .75%);
 		}
 		.outer {
 			z-index: 2;

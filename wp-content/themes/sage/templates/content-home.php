@@ -7,7 +7,7 @@
 						<div class="box-white padding-30">
 							<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
 							<p class="lead">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-	                        <p style="margin:0;"><a id="hero-cta-button" href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></p>
+	                        <div id="hero-cta-button" style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></div>
                     	</div>
 					</div>
                 </div>
@@ -238,7 +238,7 @@
 				<div class="padding-30">
 					<h2 class="text-reverse">Give us an hour.</h2>
 					<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our data platform can do for you.</p>
-					<p><a id="section-cta-button" href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
+					<p id="section-cta-button"><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
 					<p class="lead text-reverse">Or call (206) 340-8008.</p>
 				</div>
 			</div>
