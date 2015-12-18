@@ -18,8 +18,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="/products" class="hidden-xs hidden-sm hidden-md">Products</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_products',
               'container'       => '',
@@ -27,17 +26,23 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="/solutions" class="hidden-xs hidden-sm hidden-md">Solutions</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_solutions',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
+          <!--<li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Why Socrata</span></a>
+            <?php wp_nav_menu( array( 
+              'theme_location' => 'site_nav_why_socrata',
+              'container'       => '',
+              'menu_class' => 'dropdown-menu' 
+            ) ); ?>
+          </li>-->
           <li class="dropdown">
-            <a href="#" class="hidden-xs hidden-sm hidden-md">Resources</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources',
               'container'       => '',
@@ -45,8 +50,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="#" class="hidden-xs hidden-sm hidden-md">Community</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_community',
               'container'       => '',
@@ -54,8 +58,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="#" class="hidden-xs hidden-sm hidden-md">About</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</span></a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_about',
               'container'       => '',

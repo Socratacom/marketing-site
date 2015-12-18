@@ -142,7 +142,7 @@
 <div class="row">
 <div class="col-sm-10 col-sm-offset-1">
 <h2 class="text-center text-reverse margin-bottom-15">Why Socrata?</h2>
-<p class="text-center text-reverse lead">The Data Platform for 21st Century Digital Government --
+<p class="text-center text-reverse lead">The Data Platform for 21st Century Digital Government &mdash;
 Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
 <p class="text-center"><a href="https://www.youtube.com/watch?v=yH4RnuPijZA" role="button"><i class="fa fa-play-circle-o"></i></a></p>
 </div>
