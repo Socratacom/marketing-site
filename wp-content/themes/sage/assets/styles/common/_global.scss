@@ -13,17 +13,18 @@ body {
 // Custom Icons
 @font-face {
 	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?xhv72k');
-	src:url('../fonts/icomoon.eot?xhv72k#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf?xhv72k') format('truetype'),
-		url('../fonts/icomoon.woff?xhv72k') format('woff'),
-		url('../fonts/icomoon.svg?xhv72k#icomoon') format('svg');
+	src:url('../fonts/icomoon.eot?b6pbrw');
+	src:url('../fonts/icomoon.eot?b6pbrw#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.ttf?b6pbrw') format('truetype'),
+		url('../fonts/icomoon.woff?b6pbrw') format('woff'),
+		url('../fonts/icomoon.svg?b6pbrw#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
-	font-family: 'icomoon';
+    /* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
 	speak: none;
 	font-style: normal;
 	font-weight: normal;
@@ -36,6 +37,9 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.icon-close:before {
+	content: "\e90d";
+}
 .icon-dashboard:before {
 	content: "\e90c";
 }
@@ -190,6 +194,8 @@ body {
 
 
 
+
+
 // Colors
 .background-turquoise {
 	background-color:$turquoise;
@@ -249,6 +255,12 @@ body {
 	background-color:$nephritis;
 	.btn-default {
 		color:$nephritis;
+	}
+	a {
+		color:lighten($nephritis, 20%);
+	}
+	a:hover {
+		color:lighten($nephritis, 30%);
 	}
 }
 .overlay-nephritis:before {
@@ -511,7 +523,10 @@ body {
 	.btn-default {
 		color:$clouds;
 	}
-}	
+}
+.background-clouds-dark {
+	background-color:darken($clouds, 5%);
+}
 .background-gray-dark {
 	background-color:$gray-dark;
 }
@@ -596,13 +611,13 @@ body {
 	a {
 		color:$peter-river;
 		cursor: pointer;
+	}	
+	a:hover {
+		color:darken($peter-river, 10%);
+		text-decoration:none;
 	}
 	hr {
 	    border-top: 5px solid $clouds;
-	}
-	a:hover {
-		color:$belize-hole;
-		text-decoration:none;
 	}
 	table {
 		h4 {

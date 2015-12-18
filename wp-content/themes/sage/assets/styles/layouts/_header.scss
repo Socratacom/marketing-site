@@ -191,3 +191,29 @@
 	  left:0;
 	}
 }
+
+/* Large Devices, Wide Screens */
+/*
+@media only screen and (min-width : 1200px) {
+	header {
+		.navbar-default .navbar-nav>li:hover {
+		    background-color: darken($peter-river, 30%);	    
+		}
+		.navbar-default .navbar-nav>li:last-child:hover {
+		    background-color: darken($peter-river, 0%);	    
+		}
+		.navbar-default .navbar-nav>li>a:hover {
+			color:white;	    
+		}
+		.dropdown-menu li:hover .sub-menu {
+		    visibility: visible;
+		}
+		.dropdown:hover .dropdown-menu {
+		    display: block;
+		}
+	}
+}
+
+*/
+
+

@@ -186,6 +186,58 @@ function carousel_script_responsive( $atts ) {
 add_shortcode('responsive-carousel', __NAMESPACE__ . '\\carousel_script_responsive');
 
 /**
+ * Responsive Carousel [responsive-carousel id="" slide_id=""]
+ */
+function partner_logos_carousel_js( $atts ) {
+  extract( shortcode_atts( array(
+    'id' => '',
+    'slide_id' => '',
+  ), $atts ) );
+  ob_start(); 
+  ?>
+
+<script>
+jQuery(function ($){
+$(<?php echo $id; ?>).slick({
+autoplay: true,
+autoplaySpeed: 5000,
+slidesToShow: 4,
+slidesToScroll: 1,
+accessibility:false,
+pauseOnHover:false,
+responsive: [
+  {
+    breakpoint: 992,
+    settings: {
+      slidesToShow: 3
+    }
+  },
+  {
+  breakpoint: 768,
+    settings: {
+      slidesToShow: 2
+    }
+  },
+  {
+  breakpoint: 480,
+    settings: {
+      slidesToShow: 1
+    }
+  }
+]
+});
+$(<?php echo $id; ?>).show();
+});
+</script>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('partner-logos-carousel-js', __NAMESPACE__ . '\\partner_logos_carousel_js');
+
+/**
  * YouTube Modal
  */
 function youtube_modal( $atts ) {
@@ -194,9 +246,9 @@ function youtube_modal( $atts ) {
 
 <!-- Video / Generic Modal -->
 <div class="modal video-modal" id="mediaModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog">
     <div class="modal-content">
-        <button type="button" data-dismiss="modal"><i class="fa fa-times"></i></button>
+        <button type="button" data-dismiss="modal"><i class="icon-close"></i></button>
       <div class="modal-body">
         <!-- content dynamically inserted -->
       </div>
@@ -231,7 +283,7 @@ $('a[href^="https://www.youtube.com"]').on('click', function(e){
     var vidHeight = 720; // default
     if ( $(this).attr('data-width') ) { vidWidth = parseInt($(this).attr('data-width')); }
     if ( $(this).attr('data-height') ) { vidHeight =  parseInt($(this).attr('data-height')); }
-    var iFrameCode = '<div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe></div>';
+    var iFrameCode = '<div class="container"><div class="row"><div class="col-sm-10 col-sm-offset-1"><div class="frame"><div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe></div></div></div></div></div>';
  
     // Replace Modal HTML with iFrame Embed
     $('#mediaModal .modal-body').html(iFrameCode);

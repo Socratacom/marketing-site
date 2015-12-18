@@ -22,6 +22,11 @@
         "styles/editor-style.scss"
       ]
     },
+    "ytplayer.js": {
+      "files": [
+        "scripts/jquery.mb.YTPlayer.min.js"
+      ]
+    },
     "jquery.js": {
       "bower": ["jquery"]
     },
