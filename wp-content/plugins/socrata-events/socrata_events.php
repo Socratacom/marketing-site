@@ -27,91 +27,37 @@ function tribe_events_posts($atts, $content = null) {
 
   <div class="container page-padding">
     <div class="row">
-      <div class="col-sm-9">
-        <div class="row">
+      <div class="col-sm-8">
+        
+<ul>
+  <?php
+  $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+  $args = array(
+  'post_type' => 'tribe_events',
+  'paged' => $paged
+  );
+  $query = new WP_Query( $args );
+  while ( $query->have_posts() ) {
+  $query->the_post(); ?>
+    <li>
+      <p class="meta"><?php echo tribe_events_event_schedule_details(); ?></p>
+      <h4><?php the_title(); ?></h4>
+      <p><?php events_the_categories(); ?></p>
+      <?php the_excerpt(); ?> 
+    </li>
+  <?php
+  }
+  ?>
+</ul>
+<?php     
+// Pagination
+if (function_exists("pagination")) {pagination($query->max_num_pages,$pages);}
+// Restore original Post Data
+wp_reset_postdata();
+?>
 
-          <?php
-
-          $do_not_duplicate = array();
-
-          // The Query
-          $args = array(
-                'post_type' => 'tribe_events',
-                'posts_per_page' => 1
-              );
-          $query1 = new WP_Query( $args );
-
-          // The Loop
-          while ( $query1->have_posts() ) {
-            $query1->the_post();
-            $do_not_duplicate[] = get_the_ID(); ?>
-            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
-
-            <div class="col-sm-12">
-              <div class="featured-post overlay-black" style="background-image: url(<?=$url?>);">
-                <div class="text truncate">
-                  <div class="post-category background-wisteria">Events</div>
-                  <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>                                
-                </div>
-                <p class="meta"><?php echo tribe_events_event_schedule_details( $event_id, '<strong>', '</strong>' ); ?>    </p>
-                <a href="<?php the_permalink() ?>" class="link"></a>
-              </div>
-            </div>
-            <?php
-          }
-
-          wp_reset_postdata();
-
-          /* The 2nd Query (without global var) */
-          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-          $args2 = array(
-                'post_type' => 'tribe_events',
-                'paged' => $paged,
-                'post__not_in' => $do_not_duplicate 
-              );
-          $query2 = new WP_Query( $args2 );
-
-          // The 2nd Loop
-          while ( $query2->have_posts() ) {
-            $query2->the_post(); ?>
-            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>  
-            
-            <div class="col-sm-6 col-lg-4">
-              <div class="card">
-                <div class="card-image hidden-xs">
-                  <?php if ( has_post_thumbnail() ) { ?>
-                    <img src="<?=$url?>" class="img-responsive">
-                  <?php
-                  } else { ?>
-                    <img src="/wp-content/uploads/no-image.png" class="img-responsive">
-                  <?php
-                  }
-                  ?>
-                  <a href="<?php the_permalink() ?>"></a>
-                </div>
-                <div class="card-text truncate">
-                  <p class="categories"><small><?php events_the_categories(); ?><small></p>
-                  <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-                  <p class="meta"><?php echo tribe_events_event_schedule_details( $event_id, '<small style="font-weight:400;">', '</small>' ); ?></p>
-                  <?php the_excerpt(); ?> 
-                </div>
-              </div>
-            </div>
-
-            <?php
-          }
-
-          // Pagination
-          if (function_exists("pagination")) {pagination($query2->max_num_pages,$pages);} 
-
-          // Restore original Post Data
-          wp_reset_postdata();
-
-          ?>
-
-        </div>      
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <?php
           //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
           $orderby = 'name';
