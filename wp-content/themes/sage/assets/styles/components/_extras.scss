@@ -476,9 +476,6 @@
 }
 
 
-
-
-
 ul.event-list {
     list-style-type: none;
     margin: 0;
@@ -502,11 +499,49 @@ ul.event-list {
         border:none;
     }
 }
-.paged.events {
+.events {
     .featured {
-        display:none;
+        position: relative;
+        .img-background {
+            height: 500px;
+        }
+        .text {
+            position:absolute;
+            padding-top:30px;
+            top:0;
+            left:0; 
+            height:500px; 
+            width:100%;
+            dl {
+                margin-bottom:30px;
+                dt {
+                    font-size: 18px;
+                    font-weight: 400;
+                }
+            }
+        }
     }
 }
+.events-hero {
+    height: 500px;
+}
+.events-sidebar {
+    h4 {
+        border-bottom:$silver solid 1px;
+        padding-bottom:15px;
+    }
+    ul.menu {
+        list-style-type: none;
+        margin:0;
+        padding:0;
+    }
+}
+.paged.events {
+    .featured {
+        display:none;        
+    }
+}
+
 
 
 
