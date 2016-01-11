@@ -11,7 +11,15 @@
           <article <?php post_class(); ?>>
             <small class="category-name"><?php case_study_the_categories(); ?></small>
             <h1 class="entry-title"><?php the_title(); ?></h1>
-            <p class="meta"><small><strong>Posted</strong>, <?php the_time('F jS, Y') ?></small></p>
+            <!--<p class="meta"><small><strong>Posted</strong>, <?php the_time('F jS, Y') ?></small></p>-->
+
+          <?php $meta = get_case_study_meta(); if ($meta[0]) { ?>
+            <p class="meta"><?php echo $meta[0];?> <?php if ($meta[2]) { echo "| <a href='$meta[2]' target='_blank'>$meta[1]</a>"; } else { echo "| $meta[1]"; }?>
+          <?php
+          }
+          ?>
+
+
             <hr/>
             <div class="entry-content">
               <?php the_content(); ?>
@@ -31,6 +39,16 @@
       </div>
     </div>
     <div class="col-sm-4 col-md-3 sidebar">
+
+      <?php $meta = get_case_study_meta(); if ($meta[3]) { ?>
+        <p>"<span style="font-style: italic; font-weight: 400;"><?php echo $meta[3];?></span>"<?php if ($meta[4]) { echo "<br>- $meta[4]"; } ?></p>
+        <?php if ($meta[3]) { echo "<hr/>"; } ?>
+      <?php 
+        } ?>
+      <?php $meta = get_case_study_meta(); if ($meta[5]) { echo $meta[5]; }  ?>
+
+
+
         <?php
           //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
           $orderby = 'name';
