@@ -87,7 +87,9 @@ function tribe_events_posts($atts, $content = null) {
         </div>
       </div>
     </div>
-  </section>  
+  </section>
+  <?php if ( function_exists('yoast_breadcrumb') ) 
+{yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
   <section class="section-padding">
     <div class="container">
       <div class="row">
@@ -208,6 +210,16 @@ add_shortcode('tribe-events', 'tribe_events_posts');
 function events_webinar_posts($atts, $content = null) {
   ob_start();
   ?>
+<section class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <?php if ( function_exists('yoast_breadcrumb') ) 
+      {yoast_breadcrumb('<div id="breadcrumbs">','</div>');} ?>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section-padding">
   <div class="container">
     <div class="row">
@@ -307,6 +319,16 @@ add_shortcode('webinars', 'events_webinar_posts');
 function events_lunch_and_learn_posts($atts, $content = null) {
   ob_start();
   ?>
+<section class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <?php if ( function_exists('yoast_breadcrumb') ) 
+      {yoast_breadcrumb('<div id="breadcrumbs">','</div>');} ?>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section-padding">
   <div class="container">
     <div class="row">
