@@ -88,8 +88,6 @@ function tribe_events_posts($atts, $content = null) {
       </div>
     </div>
   </section>
-  <?php if ( function_exists('yoast_breadcrumb') ) 
-{yoast_breadcrumb('<p id="breadcrumbs">','</p>');} ?>
   <section class="section-padding">
     <div class="container">
       <div class="row">
