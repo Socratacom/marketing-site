@@ -482,7 +482,7 @@ ul.event-list {
     padding: 0;
     li {
         border-bottom:$silver solid 1px;
-        padding: 30px 0;        
+        padding: 30px 0;
         p, h4 {
             margin: 0;
         }
@@ -527,13 +527,29 @@ ul.event-list {
 }
 .events-sidebar {
     h4 {
-        border-bottom:$silver solid 1px;
+        border-bottom:$clouds solid 3px;
         padding-bottom:15px;
+        text-transform: uppercase;
     }
     ul.menu {
         list-style-type: none;
         margin:0;
         padding:0;
+        a {
+            font-weight: 400;
+        }
+    }
+    .next-event {
+        background-color:$clouds;
+        margin-bottom:30px;
+        h5 {
+            text-transform:uppercase;
+            margin-bottom:0;
+            font-size: 16px;
+            background-color:$midnight-blue;
+            padding:15px;
+            color:white;
+        }
     }
 }
 .paged.events {

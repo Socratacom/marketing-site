@@ -95,10 +95,23 @@ function tribe_events_posts($atts, $content = null) {
           <h3>Upcoming Events</h3>
           <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Event Type <span class="caret"></span></button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+           <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <li><a href="/events/webinars">Webinar</a></li>
               <li><a href="/events/lunch-and-learn">Lunch and Learn</a></li>
-            </ul>
+            </ul> -->
+
+<?php wp_nav_menu( array( 
+              'theme_location' => 'events_filter',
+              'container'       => '',
+              'menu_class' => 'dropdown-menu' 
+            ) ); ?>
+
+
+
+
+
+
+
           </div>
           <ul class="event-list">
           <?php
@@ -182,7 +195,7 @@ function tribe_events_posts($atts, $content = null) {
           <?php if (function_exists("pagination")) {pagination($query->max_num_pages,$pages);}; ?> 
         </div>      
 
-        <div class="col-sm-4">
+        <div class="col-sm-4 events-sidebar hidden-xs">
           <div class="padding-30 background-clouds">
             <h4>Let's Meet Up</h4>
             <p>See an event you'd like to attend or want to suggest an event we should attend...</p>
@@ -271,29 +284,31 @@ function events_webinar_posts($atts, $content = null) {
 
       </div>      
       <div class="col-sm-4 hidden-xs events-sidebar">
-        <div class="padding-30 background-clouds margin-bottom-30">
+        <div class="next-event">
           <h5>Next Lunch and Learn</h5>
-          <?php
-            $args = array(
-            'post_type' => 'tribe_events',
-            'tribe_events_cat' => 'lunch-and-learn',
-            'posts_per_page' => 1
-            );
-            $query = new WP_Query( $args );
-
-            // The Loop
-            while ( $query->have_posts() ) {
-            $query->the_post(); ?>
-              <p><strong><?php the_title();?></strong><br><?php echo tribe_events_event_schedule_details( $event_id ); ?></p>
-
-              <?php $meta = get_marketo_meta(); if ($meta[0]) { ?>
-                <p><a href="<?php echo $meta[0];?>" class="btn btn-primary" target="_blank">Sign-up Now</a></p>
-                <?php
-              } ?>
+          <div class="padding-30">          
             <?php
-            }
-            wp_reset_postdata();
-          ?>
+              $args = array(
+              'post_type' => 'tribe_events',
+              'tribe_events_cat' => 'lunch-and-learn',
+              'posts_per_page' => 1
+              );
+              $query = new WP_Query( $args );
+
+              // The Loop
+              while ( $query->have_posts() ) {
+              $query->the_post(); ?>
+                <p><strong><?php the_title();?></strong><br><?php echo tribe_events_event_schedule_details( $event_id ); ?></p>
+
+                <?php $meta = get_marketo_meta(); if ($meta[0]) { ?>
+                  <p><a href="<?php echo $meta[0];?>" class="btn btn-primary" target="_blank">Sign-up Now</a></p>
+                  <?php
+                } ?>
+              <?php
+              }
+              wp_reset_postdata();
+            ?>
+          </div>
         </div>
         <h4>Additional Resources</h4>
         <?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
@@ -378,29 +393,31 @@ function events_lunch_and_learn_posts($atts, $content = null) {
 
       </div>      
       <div class="col-sm-4 hidden-xs events-sidebar">
-        <div class="padding-30 background-clouds margin-bottom-30">
+        <div class="next-event">
           <h5>Next Webinar</h5>
-          <?php
-            $args = array(
-            'post_type' => 'tribe_events',
-            'tribe_events_cat' => 'webinar',
-            'posts_per_page' => 1
-            );
-            $query = new WP_Query( $args );
-
-            // The Loop
-            while ( $query->have_posts() ) {
-            $query->the_post(); ?>
-              <p><strong><?php the_title();?></strong><br><?php echo tribe_events_event_schedule_details( $event_id ); ?></p>
-
-              <?php $meta = get_marketo_meta(); if ($meta[0]) { ?>
-                <p><a href="<?php echo $meta[0];?>" class="btn btn-primary" target="_blank">Register Now</a></p>
-                <?php
-              } ?>
+          <div class="padding-30">          
             <?php
-            }
-            wp_reset_postdata();
-          ?>
+              $args = array(
+              'post_type' => 'tribe_events',
+              'tribe_events_cat' => 'webinar',
+              'posts_per_page' => 1
+              );
+              $query = new WP_Query( $args );
+
+              // The Loop
+              while ( $query->have_posts() ) {
+              $query->the_post(); ?>
+                <p><strong><?php the_title();?></strong><br><?php echo tribe_events_event_schedule_details( $event_id ); ?></p>
+
+                <?php $meta = get_marketo_meta(); if ($meta[0]) { ?>
+                  <p><a href="<?php echo $meta[0];?>" class="btn btn-primary" target="_blank">Register Now</a></p>
+                  <?php
+                } ?>
+              <?php
+              }
+              wp_reset_postdata();
+            ?>
+          </div>
         </div>
         <h4>Additional Resources</h4>
         <?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
@@ -408,14 +425,6 @@ function events_lunch_and_learn_posts($atts, $content = null) {
     </div>    
   </div>
 </section>
-
-
-
-
-
-
-
-
 
   <?php
   $content = ob_get_contents();
