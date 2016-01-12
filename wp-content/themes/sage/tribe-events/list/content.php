@@ -24,24 +24,19 @@ if ( ! defined( 'ABSPATH' ) ) {
   </div>
 </section>
 
-<div class="container page-padding">
+<section class="section-padding">
+<div class="container">
 	<div class="row">
 		<div class="col-sm-8">
-        <div class="col-sm-12">
-          <h3 class="archive-title">Events: <?php events_the_categories(); ?></h3>
-          <hr/>
-        </div>
-			<div class="row">
-				<?php tribe_events_the_notices() ?>
+      <h3>Upcoming <?php events_the_categories(); ?></h3>
+      <?php tribe_events_the_notices() ?>
+      		
 
 				<?php if ( have_posts() ) : ?>
 					<?php tribe_get_template_part( 'list/loop' ) ?>
 				<?php endif; ?>
 
 
-
-
-			</div>
 		</div>
 
 
@@ -78,3 +73,4 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
 	</div>
 </div>
+</section>
