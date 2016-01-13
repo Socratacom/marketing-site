@@ -215,11 +215,13 @@ function tribe_events_posts($atts, $content = null) {
         </div>      
 
         <div class="col-sm-4 events-sidebar hidden-xs">
-          <div class="padding-30 background-clouds">
+          <div class="padding-30 margin-bottom-30 background-clouds">
             <h4>Let's Meet Up</h4>
             <p>See an event you'd like to attend or want to suggest an event we should attend...</p>
             <p><a href="mailto:events@socrata.com" class="btn btn-warning">Email Us</a></p>
           </div>
+          <h4>Additional Resources</h4>
+          <?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
         </div>
 
       </div>
