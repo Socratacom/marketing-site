@@ -627,19 +627,28 @@ body {
 		h4 {
 			margin:20px 0; 
 		}
+		.thead-inverse {
+			background-color:$concrete;
+			border:none;
+			th {
+				color:white;
+			}
+		}
 	}
 	blockquote {
 		border-left:$peter-river solid 5px;
 		background:$clouds;
 		padding:30px;
+		margin-bottom:1.63em;
 	}
 	figure {
 		background:$clouds;
 		padding:15px;
+		margin-bottom:1.63em;
 		figcaption {
 			padding:15px;
 		}
-	}	
+	}
 	.modal-content {
 		border-radius:0;
 	}
