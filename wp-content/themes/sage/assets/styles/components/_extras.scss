@@ -539,25 +539,19 @@ ul.event-list {
     }
 }
 .events {
-    .featured {
+    .feature {
+        margin-top:60px;
         position: relative;
-        .img-background {
-            height: 500px;
-        }
-        .text {
-            position:absolute;
-            padding-top:30px;
+    }
+    .feature>div {
+        padding:2vw;
+        min-height: 350px;
+        a {
+            position: absolute;
             top:0;
-            left:0; 
-            height:500px; 
+            left:0;
             width:100%;
-            dl {
-                margin-bottom:30px;
-                dt {
-                    font-size: 18px;
-                    font-weight: 400;
-                }
-            }
+            height: 100%;
         }
     }
 }
@@ -592,7 +586,7 @@ ul.event-list {
     }
 }
 .paged.events {
-    .featured {
+    .feature {
         display:none;        
     }
 }

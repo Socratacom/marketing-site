@@ -24,95 +24,22 @@ function events_the_categories() {
 function tribe_events_posts($atts, $content = null) {
   ob_start();
   ?>
-  <section class="background-gray-dark featured hidden-xs">
-    <div class="row no-gutters">
-      <div class="col-sm-6 img-background overlay-black" style="background-image: url(/wp-content/uploads/background-lunch-and-learn.jpg);"></div>
-      <div class="col-sm-6 img-background overlay-black" style="background-image: url(/wp-content/uploads/background-webinars.jpg);"></div>
-    </div>
-    <div class="text">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="padding-30">
-              <h2 class="text-reverse margin-bottom-15">Lunch and Learn</h2>
-              <p class="text-reverse">Aenean lacinia bibendum nulla sed consectetur. Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-              <dl>
-                <dt class="text-reverse">Next Lunch and Learn:</dt>
-                <?php
-                $args = array(
-                'post_type' => 'tribe_events',
-                'tribe_events_cat' => 'lunch-and-learn',
-                'posts_per_page' => 1
-                );
-                $query = new WP_Query( $args );
-
-                // The Loop
-                while ( $query->have_posts() ) {
-                $query->the_post(); ?>
-                <?php echo tribe_events_event_schedule_details( $event_id, '<dd class="text-reverse">', '</dd>' ); ?>
-                <?php
-                }
-                wp_reset_postdata();
-                ?>
-              </dl>
-              <p><a href="/events/lunch-and-learn" class="btn btn-primary btn-lg">View All <i class="fa fa-arrow-circle-o-right"></i></a></p>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="padding-30">
-              <h2 class="text-reverse margin-bottom-15">Webinars</h2>
-              <p class="text-reverse">Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-              <dl>
-                <dt class="text-reverse">Next Webinar:</dt>
-                <?php
-                $args = array(
-                'post_type' => 'tribe_events',
-                'tribe_events_cat' => 'webinar',
-                'posts_per_page' => 1
-                );
-                $query = new WP_Query( $args );
-
-                // The Loop
-                while ( $query->have_posts() ) {
-                $query->the_post(); ?>
-                <?php echo tribe_events_event_schedule_details( $event_id, '<dd class="text-reverse">', '</dd>' ); ?>
-                <?php
-                }
-                wp_reset_postdata();
-                ?>
-              </dl>
-              <p><a href="/events/webinars" class="btn btn-primary btn-lg">View All <i class="fa fa-arrow-circle-o-right"></i></a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
   <section class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-sm-8">
           <h3>Upcoming Events</h3>
-          <div class="dropdown">
+          <!--<div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Event Type <span class="caret"></span></button>
-           <!-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-              <li><a href="/events/webinars">Webinar</a></li>
-              <li><a href="/events/lunch-and-learn">Lunch and Learn</a></li>
-            </ul> -->
 
-<?php wp_nav_menu( array( 
+          <?php wp_nav_menu( array( 
               'theme_location' => 'events_filter',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
 
 
-
-
-
-
-
-          </div>
+          </div>-->
           <ul class="event-list">
           <?php
             $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
