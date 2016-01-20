@@ -1,7 +1,7 @@
 <section class="section-padding">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-9">
+      <div class="col-sm-12 col-md-7 col-md-offset-1">
         <?php the_content(); ?>
         <hr/>
         <!--<?php if( get_posts() ) {

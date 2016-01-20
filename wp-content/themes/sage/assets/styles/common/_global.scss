@@ -644,6 +644,13 @@ body {
 				color:white;
 			}
 		}
+		td p, th p, td li {
+			font-size:14px;
+		}
+		th p {
+			font-weight: 400;
+		}
+
 	}
 	blockquote {
 		border-left:$peter-river solid 5px;
