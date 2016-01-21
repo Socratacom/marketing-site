@@ -62,6 +62,7 @@
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
+          <li><a href="/search"><i class="fa fa-search"></i></a></li>
           <li id="header-cta-button" class="hidden-xs hidden-sm"><a href="/request-a-demo/" class="btn btn-default">Schedule a Meeting</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
