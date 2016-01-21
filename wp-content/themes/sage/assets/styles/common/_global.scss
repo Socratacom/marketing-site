@@ -644,10 +644,11 @@ body {
 				color:white;
 			}
 		}
-		td p, th p, td li {
+		tr>th, td, td p, th p, td li {
 			font-size:14px;
+			font-weight: 300;
 		}
-		th p {
+		tr>th, th p {
 			font-weight: 400;
 		}
 
