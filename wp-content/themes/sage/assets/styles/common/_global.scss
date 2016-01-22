@@ -658,6 +658,9 @@ body {
 		background:$clouds;
 		padding:30px;
 		margin-bottom:1.63em;
+		li p:last-child {
+			margin-bottom:1.63em;
+		}
 	}
 	figure {
 		background:$clouds;
