@@ -25,7 +25,7 @@
             <hr/>
             <!-- Begin Outbrain -->
             <div class="OUTBRAIN" data-widget-id="NA"></div> 
-            <script type="text/javascript" async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+            <script type="text/javascript" async="async" src="https://widgets.outbrain.com/outbrain.js"></script>
             <?php comments_template('/templates/comments.php'); ?>
           </article>
           <?php endwhile; ?>
