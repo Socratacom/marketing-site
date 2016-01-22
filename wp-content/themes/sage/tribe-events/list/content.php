@@ -14,51 +14,63 @@ if ( ! defined( 'ABSPATH' ) ) {
 	die( '-1' );
 } ?>
 
-<div class="container page-padding">
+<section class="breadcrumbs">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+          <a href="/events">Events</a> » <?php events_the_categories(); ?>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+<div class="container">
 	<div class="row">
-		<div class="col-sm-9">
-        <div class="col-sm-12">
-          <h3 class="archive-title">Events: <?php events_the_categories(); ?></h3>
-          <hr/>
-        </div>
-			<div class="row">
-				<?php tribe_events_the_notices() ?>
+		<div class="col-sm-8">
+      <h3>Upcoming <?php events_the_categories(); ?></h3>
+      <?php tribe_events_the_notices() ?>
+      		
 
 				<?php if ( have_posts() ) : ?>
 					<?php tribe_get_template_part( 'list/loop' ) ?>
 				<?php endif; ?>
 
 
-
-
-			</div>
-		</div>
-		<div class="col-sm-3">
-        <?php
-          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-          $orderby = 'name';
-          $show_count = 0; // 1 for yes, 0 for no
-          $pad_counts = 0; // 1 for yes, 0 for no
-          $hide_empty = 1;
-          $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'tribe_events_cat';
-          $title = 'Event Categories';
-
-          $args = array(
-            'orderby' => $orderby,
-            'show_count' => $show_count,
-            'pad_counts' => $pad_counts,
-            'hide_empty' => $hide_empty,
-            'hierarchical' => $hierarchical,
-            'taxonomy' => $taxonomy,
-            'title_li' => '<h5 class="background-wisteria">'. $title .'</h5>'
-          );
-        ?>
-        <ul class="category-nav">
-          <?php wp_list_categories($args); ?>
-        </ul>
-			<?php echo do_shortcode('[newsletter-sidebar]'); ?>
 		</div>
 
+
+
+    <div class="col-sm-4 hidden-xs events-sidebar">
+      <div class="next-event">
+        <h5>Next Webinar</h5>
+        <div class="padding-30">          
+          <?php
+            $args = array(
+            'post_type' => 'tribe_events',
+            'tribe_events_cat' => 'webinar',
+            'posts_per_page' => 1
+            );
+            $query = new WP_Query( $args );
+
+            // The Loop
+            while ( $query->have_posts() ) {
+            $query->the_post(); ?>
+              <p><strong><?php the_title();?></strong><br><?php echo tribe_events_event_schedule_details( $event_id ); ?></p>
+
+              <?php $meta = get_marketo_meta(); if ($meta[0]) { ?>
+                <p><a href="<?php echo $meta[0];?>" class="btn btn-primary" target="_blank">Register Now</a></p>
+                <?php
+              } ?>
+            <?php
+            }
+            wp_reset_postdata();
+          ?>
+        </div>
+      </div>
+      <h4>Additional Resources</h4>
+      <?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
+    </div>
 	</div>
 </div>
+</section>

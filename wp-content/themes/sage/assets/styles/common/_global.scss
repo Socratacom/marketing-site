@@ -12,178 +12,188 @@ body {
 
 // Custom Icons
 @font-face {
-	font-family: 'icomoon';
-	src:url('../fonts/icomoon.eot?b6pbrw');
-	src:url('../fonts/icomoon.eot?b6pbrw#iefix') format('embedded-opentype'),
-		url('../fonts/icomoon.ttf?b6pbrw') format('truetype'),
-		url('../fonts/icomoon.woff?b6pbrw') format('woff'),
-		url('../fonts/icomoon.svg?b6pbrw#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?ppt22v');
+    src:    url('../fonts/icomoon.eot?ppt22v#iefix') format('embedded-opentype'),
+        	url('../fonts/icomoon.ttf?ppt22v') format('truetype'),
+        	url('../fonts/icomoon.woff?ppt22v') format('woff'),
+        	url('../fonts/icomoon.svg?ppt22v#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 [class^="icon-"], [class*=" icon-"] {
     /* use !important to prevent issues with browser extensions that change fonts */
-	font-family: 'icomoon' !important;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 
-	/* Better Font Rendering =========== */
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-restaurant:before {
+    content: "\e90e";
+}
+.icon-class:before {
+    content: "\e90f";
+}
+.icon-monitor:before {
+    content: "\e910";
+}
 .icon-close:before {
-	content: "\e90d";
+    content: "\e90d";
 }
 .icon-dashboard:before {
-	content: "\e90c";
+    content: "\e90c";
 }
 .icon-tools:before {
-	content: "\e90b";
+    content: "\e90b";
 }
 .icon-city-sm:before {
-	content: "\e908";
+    content: "\e908";
 }
 .icon-city-lg:before {
-	content: "\e909";
+    content: "\e909";
 }
 .icon-city-md:before {
-	content: "\e90a";
+    content: "\e90a";
 }
 .icon-certified:before {
-	content: "\e905";
+    content: "\e905";
 }
 .icon-university:before {
-	content: "\e906";
+    content: "\e906";
 }
 .icon-student:before {
-	content: "\e907";
+    content: "\e907";
 }
 .icon-clinic:before {
-	content: "\e901";
+    content: "\e901";
 }
 .icon-snow-plow:before {
-	content: "\e902";
+    content: "\e902";
 }
 .icon-bus:before {
-	content: "\e903";
+    content: "\e903";
 }
 .icon-subway:before {
-	content: "\e904";
+    content: "\e904";
 }
 .icon-open-data-network:before {
-	content: "\e900";
+    content: "\e900";
 }
 .icon-life-cycle:before {
-	content: "\e81a";
+    content: "\e81a";
 }
 .icon-combo-chart:before {
-	content: "\e81b";
+    content: "\e81b";
 }
 .icon-ecosystem:before {
-	content: "\e813";
+    content: "\e813";
 }
 .icon-root-server:before {
-	content: "\e814";
+    content: "\e814";
 }
 .icon-key:before {
-	content: "\e815";
+    content: "\e815";
 }
 .icon-shield:before {
-	content: "\e816";
+    content: "\e816";
 }
 .icon-lock:before {
-	content: "\e817";
+    content: "\e817";
 }
 .icon-expand:before {
-	content: "\e818";
+    content: "\e818";
 }
 .icon-open-source:before {
-	content: "\e819";
+    content: "\e819";
 }
 .icon-accept-database:before {
-	content: "\e807";
+    content: "\e807";
 }
 .icon-inspection:before {
-	content: "\e808";
+    content: "\e808";
 }
 .icon-conference-call:before {
-	content: "\e809";
+    content: "\e809";
 }
 .icon-collaboration:before {
-	content: "\e80a";
+    content: "\e80a";
 }
 .icon-data-sheet:before {
-	content: "\e80b";
+    content: "\e80b";
 }
 .icon-heat-map:before {
-	content: "\e80c";
+    content: "\e80c";
 }
 .icon-pie-chart:before {
-	content: "\e80d";
+    content: "\e80d";
 }
 .icon-statistics:before {
-	content: "\e80e";
+    content: "\e80e";
 }
 .icon-water-tower:before {
-	content: "\e80f";
+    content: "\e80f";
 }
 .icon-geography:before {
-	content: "\e810";
+    content: "\e810";
 }
 .icon-caretaker:before {
-	content: "\e811";
+    content: "\e811";
 }
 .icon-area-chart:before {
-	content: "\e812";
+    content: "\e812";
 }
 .icon-dollar:before {
-	content: "\e802";
+    content: "\e802";
 }
 .icon-guest:before {
-	content: "\e803";
+    content: "\e803";
 }
 .icon-administrator:before {
-	content: "\e804";
+    content: "\e804";
 }
 .icon-user:before {
-	content: "\e805";
+    content: "\e805";
 }
 .icon-police:before {
-	content: "\e806";
+    content: "\e806";
 }
 .icon-map:before {
-	content: "\e800";
+    content: "\e800";
 }
 .icon-state:before {
-	content: "\e801";
+    content: "\e801";
 }
 .icon-city-hall:before {
-	content: "\e601";
+    content: "\e601";
 }
 .icon-city:before {
-	content: "\e602";
+    content: "\e602";
 }
 .icon-people:before {
-	content: "\e603";
+    content: "\e603";
 }
 .icon-flag:before {
-	content: "\e604";
+    content: "\e604";
 }
 .icon-star:before {
-	content: "\e605";
+    content: "\e605";
 }
 .icon-capital:before {
-	content: "\e606";
+    content: "\e606";
 }
 .icon-manager:before {
-	content: "\e600";
+    content: "\e600";
 }
+
 
 
 
@@ -596,6 +606,10 @@ body {
 	h5 {
 		font-size:16px;
 	}
+	h6 {
+		font-size:16px;
+		margin-bottom:1em;
+	}
 	p, li {
 		color:#666;
 		font-weight:$font-light;
@@ -623,19 +637,36 @@ body {
 		h4 {
 			margin:20px 0; 
 		}
+		.thead-inverse {
+			background-color:$concrete;
+			border:none;
+			th {
+				color:white;
+			}
+		}
+		tr>th, td, td p, th p, td li {
+			font-size:14px;
+			font-weight: 300;
+		}
+		tr>th, th p {
+			font-weight: 400;
+		}
+
 	}
 	blockquote {
 		border-left:$peter-river solid 5px;
 		background:$clouds;
 		padding:30px;
+		margin-bottom:1.63em;
 	}
 	figure {
 		background:$clouds;
 		padding:15px;
+		margin-bottom:1.63em;
 		figcaption {
 			padding:15px;
 		}
-	}	
+	}
 	.modal-content {
 		border-radius:0;
 	}
@@ -702,7 +733,6 @@ body {
 	.padding-30 {
 		padding:30px;
 	}
-
 
 
 	/* Category Nav */
@@ -861,6 +891,21 @@ body {
 			color:$nephritis;
 			font-size: 24px;
 		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			li {
+				padding:0 0 0 15px;
+				margin: 0;
+			}		
+			li:before {
+				content:"\f111";
+				font-size: 10px;
+				top:0;
+				left:0;
+			}
+		}
 	}
 	/* CTA List */
 	ul.cta-list {
@@ -891,6 +936,17 @@ body {
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
+	/* NO Gutters */
+	.row.no-gutters {
+	  margin-right: 0;
+	  margin-left: 0;
+
+	  & > [class^="col-"],
+	  & > [class*=" col-"] {
+	    padding-right: 0;
+	    padding-left: 0;
+	  }
+	}
 
 }
 
@@ -910,17 +966,6 @@ body {
 	}
 	.lead {
 		font-size:21px;
-	}
-	/* NO Gutters */
-	.row.no-gutters {
-	  margin-right: 0;
-	  margin-left: 0;
-
-	  & > [class^="col-"],
-	  & > [class*=" col-"] {
-	    padding-right: 0;
-	    padding-left: 0;
-	  }
 	}
 
 }

@@ -17,14 +17,14 @@ function create_guide() {
       'labels' => array(
         'name' => 'ODFG',
         'singular_name' => 'ODFG',
-        'add_new' => 'Add New Chapter',
-        'add_new_item' => 'Add New Chapter',
-        'edit' => 'Edit Chapter',
-        'edit_item' => 'Edit Chapter',
-        'new_item' => 'New Chapter',
+        'add_new' => 'Add New',
+        'add_new_item' => 'Add New',
+        'edit' => 'Edit',
+        'edit_item' => 'Edit',
+        'new_item' => 'New',
         'view' => 'View',
-        'view_item' => 'View Chapter',
-        'search_items' => 'Search Chapters',
+        'view_item' => 'View',
+        'search_items' => 'Search',
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash'
       ),
@@ -33,8 +33,8 @@ function create_guide() {
       'supports' => array( 'title', 'editor', 'revisions' ),
       'taxonomies' => array( '' ),
       'menu_icon' => '',
-      'has_archive' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'open-data-field-guide-chapter')
+      'has_archive' => false,
+      'rewrite' => array('with_front' => false, 'slug' => 'open-data-field-guide')
     )
   );
 }
@@ -49,6 +49,26 @@ function add_guide_icon(){ ?>
     }
   </style>
 <?php
+}
+
+// TAXONOMIES
+add_action( 'init', 'create_guide_taxonomies', 0 );
+function create_guide_taxonomies() {
+  register_taxonomy(
+    'guide_category',
+    'guide',
+    array (
+    'labels' => array(
+    'name' => 'Guide Category',
+    'add_new_item' => 'Add New Category',
+    'new_item_name' => "New Category"
+  ),
+    'show_ui' => true,
+    'show_tagcloud' => false,
+    'hierarchical' => true,
+    'rewrite' => array('with_front' => false, 'slug' => 'open-data-field-guide-category')
+    )
+  );
 }
 
 // Custom Columns for admin management page
