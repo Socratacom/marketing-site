@@ -18,6 +18,7 @@ Additional Plugins Used
 
 Change History
 ---
+- V2.1.0 - Addition of new product pages. Addition of product and solution landing pages. Header navigation changed to hover activation. Updated Open Data Field Guide.
 - V2.0.4 - CSS updates mostly centered around video display. Added video bacground scripts and modal updates.
 - V2.0.3 - Added new video section to the site. Bug fixes and updated CSS.
 - V2.0.2 - Removed BFI Thumb script and added fixed image sizes to be processed. Updated CSS.
