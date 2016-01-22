@@ -66,7 +66,6 @@ function create_guide_taxonomies() {
     'show_ui' => true,
     'show_tagcloud' => false,
     'hierarchical' => true,
-    'rewrite' => array('with_front' => false, 'slug' => 'open-data-field-guide-category')
     )
   );
 }

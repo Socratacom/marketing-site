@@ -136,12 +136,14 @@
         padding: 0;
     }
     li {
-        border-bottom:$silver solid 1px;
+        border-bottom:$clouds solid 1px;
+        line-height: normal;
     }
     li a {
         padding: 5px 0;
         font-weight: 400;
         display: block;
+        font-size: 14px;
     }
 }
 

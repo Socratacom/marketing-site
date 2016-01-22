@@ -4,8 +4,8 @@
       <div class="col-sm-12 col-md-7 col-md-offset-1">
         <?php the_content(); ?>
         <hr/>
-        <div><?php next_post_link( '%link', 'PREVIOUS CHAPTER: %title', TRUE, '', 'guide_category' ); ?></div>
-        <div><?php previous_post_link( '%link', 'NEXT CHAPTER: %title', TRUE, '', 'guide_category' ); ?></div>
+        <div><?php next_post_link( '%link', 'PREVIOUS CHAPTER: %title', TRUE, '1283,1282,1562,1563', 'guide_category' ); ?></div>
+        <div><?php previous_post_link( '%link', 'NEXT CHAPTER: %title', TRUE, '1283,1282,1562,1563', 'guide_category' ); ?></div>
         <!--<?php if( get_posts() ) {
         previous_post_link('<p><strong><small>NEXT CHAPTER:</small><br>%link</strong></p>');
         next_post_link('<p><strong><small>PREVIOUS CHAPTER:</small><br>%link</strong></p>');
