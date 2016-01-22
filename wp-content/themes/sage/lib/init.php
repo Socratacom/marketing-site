@@ -76,30 +76,3 @@ function widgets_init() {
   ]);
 }
 add_action('widgets_init', __NAMESPACE__ . '\\widgets_init');
-
-/**
- * Defautl Post Type Slug
- */
-function remove_default_post_type() {
-  remove_menu_page('edit.php');
-}
-add_action('admin_menu', __NAMESPACE__ . '\\remove_default_post_type');
-
-function my_new_default_post_type() { 
-  register_post_type( 'post', array(
-    'menu_position' => 1,
-    'labels' => array(
-        'name_admin_bar' => _x( 'Post', 'add new on admin bar' ),
-    ),
-    'public'  => true,
-    '_builtin' => false, 
-    '_edit_link' => 'post.php?post=%d', 
-    'capability_type' => 'post',
-    'map_meta_cap' => true,
-    'hierarchical' => false,
-    'rewrite' => array( 'slug' => 'blog' ),
-    'query_var' => false,
-    'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'post-formats' ),
-  ) );
-}
-add_action( 'init', __NAMESPACE__ . '\\my_new_default_post_type', 1 );

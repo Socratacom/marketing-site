@@ -8,7 +8,6 @@ Author: Michael Church
 Author URI: http://socrata.com/
 License: GPLv2
 */
-include_once("guide_meta-boxes.php");
 
 add_action( 'init', 'create_guide' );
 function create_guide() {
@@ -74,10 +73,23 @@ function create_guide_taxonomies() {
 add_filter( 'manage_edit-guide_columns', 'guide_columns' ) ;
 function guide_columns( $columns ) {
   $columns = array(
-    'cb' => '<input type="checkbox" />',
-    'title' => __( 'Chapter' )
+    'cb'       => '<input type="checkbox" />',
+    'title'    => __( 'Chapter' ),
+    'category' => __( 'Category' ),
   );
   return $columns;
+}
+
+add_action( 'manage_guide_posts_custom_column', 'guide_custom_columns', 10, 2 );
+function guide_custom_columns( $column, $post_id ) {
+  global $post;
+  switch ($column) {
+    case 'category':
+      $category = get_the_terms($post->ID , 'guide_category');
+      echo $category[0]->name;
+      for ($i = 1; $i < count($category); $i++) {echo ', ' . $category[$i]->name ;}
+      break;
+  }
 }
 
 // REGISTER MENUS
