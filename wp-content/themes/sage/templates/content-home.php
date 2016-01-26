@@ -1,9 +1,9 @@
-<section class="home-hero mobile-hero">
+<section class="home-hero">
 	
 	<div class="scroll text-center hidden-xs">
 		<div class="mouse"><a href="#start"></a></div>
 	</div>
-	<div class="slider hidden-xs">
+	<div class="slider">
 		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-one.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
