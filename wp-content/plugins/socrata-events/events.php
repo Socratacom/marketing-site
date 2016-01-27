@@ -454,10 +454,12 @@ function events_posts($atts, $content = null) {
         <?php if (function_exists("pagination")) {pagination($query->max_num_pages,$pages);} ?>
       </div>
       <div class="col-sm-4 hidden-xs events-sidebar">
-        <div class="padding-30 margin-bottom-30 background-clouds">
-          <h4>Let's Meet Up</h4>
-          <p>See an event you'd like to meet us or want to suggest an event we should attend? Send us and email.</p>
-          <p><a href="mailto:events@socrata.com" class="btn btn-warning">Email Us</a></p>
+        <div class="padding-15 margin-bottom-30 background-clouds">          
+          <h4 class="background-orange padding-15 text-reverse">Let's Meet Up</h4>
+          <div class="padding-15">
+            <p>See an event you'd like to meet us or want to suggest an event we should attend? Send us and email.</p>
+            <p><a href="mailto:events@socrata.com" class="btn btn-primary">Email Us</a></p>
+          </div>
         </div>
         <h4>Additional Resources</h4>
         <?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
