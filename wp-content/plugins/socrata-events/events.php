@@ -339,8 +339,8 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 function events_posts($atts, $content = null) {
   ob_start();
   ?>
-
-  <div class="container page-padding">
+<section class="section-padding">
+  <div class="container">
     <div class="row">
       <div class="col-sm-8">
         <ul class="event-list">
@@ -437,7 +437,7 @@ function events_posts($atts, $content = null) {
       </div>
     </div>
   </div>
-
+</section>
   <?php
   $content = ob_get_contents();
   ob_end_clean();
