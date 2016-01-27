@@ -29,7 +29,7 @@ function create_socrata_events() {
       ),
       'public' => true,
       'menu_position' => 5,
-      'supports' => array( 'title', 'revisions' ),
+      'supports' => array( 'title', 'thumbnail' ),
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => false,
@@ -69,7 +69,7 @@ function socrata_events_columns($column){
 
   switch ($column) {    
     case 'eventdate':
-      $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp);
+      $timestamp = rwmb_meta( 'socrata_events_starttime' ); echo date("F j, Y, g:i a", $timestamp);
       break;
     case 'category':
       $segment = get_the_terms($post->ID , 'socrata_events_cat');
@@ -172,6 +172,12 @@ function socrata_events_register_meta_boxes( $meta_boxes )
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Event Date and Time', 'socrata-events' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
       // DATETIME
       array(
         'name'        => __( 'Start Date and Time', 'socrata-events' ),
@@ -201,28 +207,28 @@ function socrata_events_register_meta_boxes( $meta_boxes )
           'stepMinute'      => 15,
           'showTimepicker'  => true,
         ),
-      ),
-      // SELECT BOX
+      ),      
+      // TEXT
       array(
-        'name'        => __( 'Timezone', 'socrata-events' ),
-        'id'          => "{$prefix}select",
-        'type'        => 'select',
-        // Array of 'value' => 'Label' pairs for select box
-        'options'     => array(
-          'PST' => __( 'PST', 'socrata-events' ),
-          'CST' => __( 'CST', 'socrata-events' ),
-          'EST' => __( 'EST', 'socrata-events' ),
-        ),
-        // Select multiple values, optional. Default is false.
-        'multiple'    => false,
-        'std'         => 'PST',
-        'placeholder' => __( 'Select a Timezone', 'socrata-events' ),
+        'name'  => __( 'Display Date and Time', 'socrata-events' ),
+        'id'    => "{$prefix}displaydate",
+        'desc' => __( 'Example: Jan 1st - 2:00pm PST', 'socrata-events' ),
+        'type'  => 'text',
+        'clone' => false,
       ),
       // HEADING
       array(
         'type' => 'heading',
         'name' => __( 'Event Location', 'socrata-events' ),
         'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'Location Name', 'socrata-events' ),
+        'id'    => "{$prefix}location",
+        'desc' => __( 'Example: Hometown Pub', 'socrata-events' ),
+        'type'  => 'text',
+        'clone' => false,
       ),
       // TEXT
       array(
@@ -308,6 +314,13 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type'  => 'text',
         'clone' => false,
       ),
+      // URL
+      array(
+        'name'  => __( 'Google Map Link', 'socrata-events' ),
+        'id'    => "{$prefix}directions",
+        'desc' => __( 'Link for Directions', 'socrata-events' ),
+        'type'  => 'url',
+      ),
       // HEADING
       array(
         'type' => 'heading',
@@ -340,7 +353,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'options' => array(
           'textarea_rows' => 15,
           'teeny'         => false,
-          'media_buttons' => false,
+          'media_buttons' => true,
         ),
       ),
     )
@@ -391,14 +404,11 @@ function events_posts($atts, $content = null) {
           if ( $query->have_posts() ) : 
           while( $query->have_posts() ): $query->the_post();
 
-            if ( has_term( 'lunch-and-learn','socrata_events_cat' ) ) { ?>
+            if ( has_term( 'socrata-sponsored','socrata_events_cat' ) ) { ?>
             <li>
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-              <p class="date">
-                <?php $starttime = rwmb_meta( 'socrata_events_starttime' ); echo date("M j, g:i a", $starttime); ?>
-                <?php $endtime = rwmb_meta( 'socrata_events_endtime' ); echo ' - '; echo date("M j, g:i a", $endtime); ?>
-                <?php echo rwmb_meta( 'socrata_events_select' );?></p>              
+              <p class="date"><?php echo rwmb_meta( 'socrata_events_displaydate' );?></p>             
               <?php 
                 $city = rwmb_meta( 'socrata_events_city' );
                 if ($city) { ?>
@@ -414,10 +424,7 @@ function events_posts($atts, $content = null) {
             <li>
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><?php the_title(); ?></h4>
-              <p class="date">
-                <?php $starttime = rwmb_meta( 'socrata_events_starttime' ); echo date("M j, g:i a", $starttime); ?>
-                <?php $endtime = rwmb_meta( 'socrata_events_endtime' ); echo ' - '; echo date("M j, g:i a", $endtime); ?>
-                <?php echo rwmb_meta( 'socrata_events_select' );?></p>
+              <p class="date"><?php echo rwmb_meta( 'socrata_events_displaydate' );?></p>
                 <?php $city = rwmb_meta( 'socrata_events_city' );
                   if ($city) { ?>
                     <?php echo rwmb_meta( 'socrata_events_city' ); echo ', ';?><?php echo rwmb_meta( 'socrata_events_state' );?>
