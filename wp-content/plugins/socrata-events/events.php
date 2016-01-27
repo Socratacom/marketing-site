@@ -174,8 +174,23 @@ function socrata_events_register_meta_boxes( $meta_boxes )
     'fields' => array(
       // DATETIME
       array(
-        'name'        => __( 'Event Date and Time', 'socrata-events' ),
-        'id'          => $prefix . 'datetime',
+        'name'        => __( 'Start Date and Time', 'socrata-events' ),
+        'id'          => $prefix . 'starttime',
+        'type'        => 'datetime',
+        'timestamp'   => true,
+        // jQuery datetime picker options.
+        // For date options, see here http://api.jqueryui.com/datepicker
+        // For time options, see here http://trentrichardson.com/examples/timepicker/
+        'js_options'  => array(
+          'timeFormat'      => 'hh:mm TT',
+          'stepMinute'      => 15,
+          'showTimepicker'  => true,
+        ),
+      ),
+      // DATETIME
+      array(
+        'name'        => __( 'End Date and Time', 'socrata-events' ),
+        'id'          => $prefix . 'endtime',
         'type'        => 'datetime',
         'timestamp'   => true,
         // jQuery datetime picker options.
@@ -353,7 +368,7 @@ function events_posts($atts, $content = null) {
           $event_meta_query = array( 
             'relation' => 'AND',
             array( 
-              'key' => 'socrata_events_datetime', 
+              'key' => 'socrata_events_endtime', 
               'value' => $today, 
               'compare' => '>=', 
             ) 
@@ -364,7 +379,7 @@ function events_posts($atts, $content = null) {
                 'paged' => $paged,
                 'post_status' => 'publish',
                 'ignore_sticky_posts' => true,  
-                'meta_key' => 'socrata_events_datetime',
+                'meta_key' => 'socrata_events_endtime',
                 'orderby' => 'meta_value_num',
                 'order' => 'asc',
                 'meta_query' => $event_meta_query
@@ -380,7 +395,10 @@ function events_posts($atts, $content = null) {
             <li>
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-              <p class="date"><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>              
+              <p class="date">
+                <?php $starttime = rwmb_meta( 'socrata_events_starttime' ); echo date("F j, Y, g:i a", $starttime); ?>
+                <?php $endtime = rwmb_meta( 'socrata_events_endtime' ); echo date("F j, Y, g:i a", $endtime); ?>
+                <?php echo rwmb_meta( 'socrata_events_select' );?></p>              
               <?php 
                 $city = rwmb_meta( 'socrata_events_city' );
                 if ($city) { ?>
@@ -396,8 +414,10 @@ function events_posts($atts, $content = null) {
             <li>
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><?php the_title(); ?></h4>
-              <p class="date"><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>
-              <p>
+              <p class="date">
+                <?php $starttime = rwmb_meta( 'socrata_events_starttime' ); echo date("M j, g:i a", $starttime); ?>
+                <?php $endtime = rwmb_meta( 'socrata_events_endtime' ); echo ' - '; echo date("M j, g:i a", $endtime); ?>
+                <?php echo rwmb_meta( 'socrata_events_select' );?></p>
                 <?php $city = rwmb_meta( 'socrata_events_city' );
                   if ($city) { ?>
                     <?php echo rwmb_meta( 'socrata_events_city' ); echo ', ';?><?php echo rwmb_meta( 'socrata_events_state' );?>
