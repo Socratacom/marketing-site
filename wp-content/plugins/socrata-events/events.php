@@ -169,6 +169,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   $meta_boxes[] = array(
     'title'  => __( 'Event Details', 'socrata-events' ),
     'post_types' => array( 'socrata_events' ),
+    'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
       // DATETIME
