@@ -380,8 +380,14 @@ function events_posts($atts, $content = null) {
             <li>
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-              <p class="date"><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>
-              
+              <p class="date"><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>              
+              <?php 
+                $city = rwmb_meta( 'socrata_events_city' );
+                if ($city) { ?>
+                  <p><?php echo rwmb_meta( 'socrata_events_city' ); echo ', ';?><?php echo rwmb_meta( 'socrata_events_state' );?></p>
+                <?php
+                }                
+              ?>              
               <p style="margin-top:15px;"><a href="<?php the_permalink() ?>" class="btn btn-primary">Learn More</a></p>
             </li>
             <?php
@@ -391,15 +397,20 @@ function events_posts($atts, $content = null) {
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><?php the_title(); ?></h4>
               <p class="date"><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>
-              <?php 
-                $city = rwmb_meta( 'socrata_events_city' );
-                if ($city) { ?>
-                  <p><?php echo rwmb_meta( 'socrata_events_city' );?></p>
-                <?php
-                }
-                
-              ?>
-              
+              <p>
+                <?php $city = rwmb_meta( 'socrata_events_city' );
+                  if ($city) { ?>
+                    <?php echo rwmb_meta( 'socrata_events_city' ); echo ', ';?><?php echo rwmb_meta( 'socrata_events_state' );?>
+                  <?php
+                  }             
+                ?>
+                <?php $url = rwmb_meta( 'socrata_events_url' );
+                  if ($url) { ?>
+                    | <a href="<?php echo rwmb_meta( 'socrata_events_url' );?>" target="_blank">Visit Site</a>
+                  <?php
+                  }             
+                ?>
+              </p>
               <p style="margin-top:15px;"><a href="mailto:events@socrata.com" class="btn btn-primary" target="_blank">Meet Us</a></p>
             </li>
             <?php
