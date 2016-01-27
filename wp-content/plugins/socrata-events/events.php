@@ -8,13 +8,8 @@ Author: Michael Church
 Author URI: http://socrata.com/
 License: GPLv2
 */
-include_once('metaboxes/meta_box.php');
-include_once('inc/fields.php');
 
-
-// REGISTER POST TYPE
 add_action( 'init', 'create_socrata_events' );
-
 function create_socrata_events() {
   register_post_type( 'socrata_events',
     array(
@@ -35,7 +30,7 @@ function create_socrata_events() {
       'public' => true,
       'menu_position' => 5,
       'supports' => array( 'title', 'revisions' ),
-      'taxonomies' => array( 'post_tag' ),
+      'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => false,
       'rewrite' => array('with_front' => false, 'slug' => 'events')
@@ -44,12 +39,12 @@ function create_socrata_events() {
 }
 
 // MENU ICON
-//Using Dashicon Font http://melchoyce.github.io/dashicons/
+//Using Dashicon Font https://developer.wordpress.org/resource/dashicons
 add_action( 'admin_head', 'add_socrata_events_icon' );
 function add_socrata_events_icon() { ?>
   <style>
     #adminmenu .menu-icon-socrata_events div.wp-menu-image:before {
-      content: '\f236';
+      content: '\f508';
     }
   </style>
   <?php
@@ -76,44 +71,6 @@ function socrata_events_cat() {
       'show_admin_column' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'events-category'),
     )
-  );
-}
-
-// CUSTOM COLUMS FOR ADMIN
-add_filter( 'manage_edit-socrata_events_columns', 'socrata_events_edit_columns' ) ;
-function socrata_events_edit_columns( $columns ) {
-  $columns = array(
-    'cb'          => '<input type="checkbox" />',    
-    'title'       => __( 'Name' ),
-    'category'    => __( 'Category' ),
-    'eventdate'   => __( 'Event Date' ),
-
-  );
-  return $columns;
-}
-// Get Content for Custom Colums
-add_action("manage_socrata_events_posts_custom_column",  "socrata_events_columns");
-function socrata_events_columns($column){
-  global $post;
-
-  switch ($column) {    
-    case 'eventdate':
-      $meta = get_socrata_events_meta(); if ($meta[0]) echo $meta[0];
-      break;
-    case 'category':
-      $segment = get_the_terms($post->ID , 'socrata_events_cat');
-      echo $segment[0]->name;
-      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
-      break;
-  }
-}
-// Make these columns sortable
-add_filter( "manage_edit-socrata_events_sortable_columns", "socrata_events_sortable_columns" );
-function socrata_events_sortable_columns() {
-  return array(
-    'title'       => 'title',
-    'category'    => 'category',
-    'eventdate'   => 'eventdate',
   );
 }
 
@@ -153,6 +110,117 @@ function socrata_events_body_class( $classes ) {
   return $classes;
 }
 
+// Fixes JS when Yoast enabled and thumbnail disabled
+add_action( 'admin_enqueue_scripts', 'socrata_events_box_scripts' );
+function socrata_events_box_scripts() {
+
+    global $post;
+
+    wp_enqueue_media( array( 
+        'post' => $post->ID, 
+    ) );
+
+}
+
+// Metabox
+add_filter( 'rwmb_meta_boxes', 'socrata_events_register_meta_boxes' );
+function socrata_events_register_meta_boxes( $meta_boxes )
+{
+  $prefix = 'socrata_events_';
+  $meta_boxes[] = array(
+    'title'  => __( 'Event Details', 'socrata-events' ),
+    'post_types' => array( 'socrata_events' ),
+    'priority'   => 'high',
+    'fields' => array(
+      // DATETIME
+      array(
+        'name'        => __( 'Event Date and Time', 'socrata-events' ),
+        'id'          => $prefix . 'datetime',
+        'type'        => 'datetime',
+        'timestamp'   => true,
+        // jQuery datetime picker options.
+        // For date options, see here http://api.jqueryui.com/datepicker
+        // For time options, see here http://trentrichardson.com/examples/timepicker/
+        'js_options'  => array(
+          'timeFormat'      => 'hh:mm TT',
+          'stepMinute'      => 15,
+          'showTimepicker'  => true,
+        ),
+      ),
+      // SELECT BOX
+      array(
+        'name'        => __( 'Timezone', 'socrata-events' ),
+        'id'          => "{$prefix}select",
+        'type'        => 'select',
+        // Array of 'value' => 'Label' pairs for select box
+        'options'     => array(
+          'PST' => __( 'PST', 'socrata-events' ),
+          'CST' => __( 'CST', 'socrata-events' ),
+          'EST' => __( 'EST', 'socrata-events' ),
+        ),
+        // Select multiple values, optional. Default is false.
+        'multiple'    => false,
+        'std'         => 'PST',
+        'placeholder' => __( 'Select a Timezone', 'socrata-events' ),
+      ),
+      // URL
+      array(
+        'name' => __( 'Event URL', 'socrata-events' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( 'Example: http://somesite.com', 'socrata-events' ),
+        'type' => 'url',
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'Marketo Form ID', 'socrata-events' ),
+        'id'    => "{$prefix}marketo",
+        'desc' => __( 'Example: 1234', 'socrata-events' ),
+        'type'  => 'text',
+        'clone' => false,
+      ),
+      // WYSIWYG/RICH TEXT EDITOR
+      array(
+        'name'    => __( 'Content', 'socrata-events' ),
+        'id'      => "{$prefix}wysiwyg",
+        'type'    => 'wysiwyg',
+        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+        'raw'     => false,
+        // Editor settings, see wp_editor() function: look4wp.com/wp_editor
+        'options' => array(
+          'textarea_rows' => 15,
+          'teeny'         => false,
+          'media_buttons' => false,
+        ),
+      ),
+    )
+  );
+  return $meta_boxes;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Shortcode [current-events]
 function events_posts($atts, $content = null) {
   ob_start();
@@ -160,70 +228,59 @@ function events_posts($atts, $content = null) {
 
   <div class="container page-padding">
     <div class="row">
-      <div class="col-sm-9">
-        <div class="row">
+      <div class="col-sm-8">
 
           <?php
-
-
-
-
           /* The Query */
           $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-          $today = strtotime('today');
-          
+          $today = strtotime('today UTC');          
 
           $event_meta_query = array( 
             'relation' => 'AND',
             array( 
-              'key' => 'socrata_events_date', 
+              'key' => 'socrata_events_datetime', 
               'value' => $today, 
-              'compare' => '>=' 
+              'compare' => '>=', 
             ) 
           ); 
-
 
           $args = array(
                 'post_type' => 'socrata_events',
                 'paged' => $paged,
                 'post_status' => 'publish',
                 'ignore_sticky_posts' => true,  
-                'meta_key' => 'socrata_events_date',
+                'meta_key' => 'socrata_events_datetime',
                 'orderby' => 'meta_value_num',
                 'order' => 'asc',
                 'meta_query' => $event_meta_query
               );
+
           $query = new WP_Query( $args );
 
           // The Loop
-          while ( $query->have_posts() ) {
-            $query->the_post();
-            $socrata_events_date = get_post_meta($post->ID, 'socrata_events_date', true); // 0
+          if ( $query->have_posts() ) : 
+          while( $query->have_posts() ): $query->the_post();        
 
+          ?>
+            <p class="categories"><small><?php events_the_categories(); ?></small></p>            
+            <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+            <p><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>
+            <p><?php echo rwmb_meta( 'socrata_events_url' );?></p>
+            <p><?php echo rwmb_meta( 'socrata_events_marketo' );?></p>
+            <?php echo rwmb_meta( 'socrata_events_wysiwyg' );?>
+            <hr>
+          <?php
 
-            ?>
-                       
-           
-
-                  <p class="categories"><small><?php events_the_categories(); ?><small></p>
-                  <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-
-
-
-            <?php
-          }
-
-          // Pagination
-          if (function_exists("pagination")) {pagination($query->max_num_pages,$pages);} 
+          endwhile;
+          endif;
 
           // Restore original Post Data
           wp_reset_postdata();
 
           ?>
-
-        </div>      
+     
       </div>
-      <div class="col-sm-3">        
+      <div class="col-sm-4">        
         <?php echo do_shortcode('[newsletter-sidebar]'); ?>
       </div>
     </div>

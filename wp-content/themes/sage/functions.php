@@ -99,6 +99,3 @@ add_filter( 'found_posts', 'homepage_offset_pagination', 10, 2 );
 
 
 
-
-
-
