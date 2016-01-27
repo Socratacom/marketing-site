@@ -396,8 +396,8 @@ function events_posts($atts, $content = null) {
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
               <p class="date">
-                <?php $starttime = rwmb_meta( 'socrata_events_starttime' ); echo date("F j, Y, g:i a", $starttime); ?>
-                <?php $endtime = rwmb_meta( 'socrata_events_endtime' ); echo date("F j, Y, g:i a", $endtime); ?>
+                <?php $starttime = rwmb_meta( 'socrata_events_starttime' ); echo date("M j, g:i a", $starttime); ?>
+                <?php $endtime = rwmb_meta( 'socrata_events_endtime' ); echo ' - '; echo date("M j, g:i a", $endtime); ?>
                 <?php echo rwmb_meta( 'socrata_events_select' );?></p>              
               <?php 
                 $city = rwmb_meta( 'socrata_events_city' );
