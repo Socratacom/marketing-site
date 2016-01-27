@@ -50,6 +50,45 @@ function add_socrata_events_icon() { ?>
   <?php
 }
 
+// CUSTOM COLUMS FOR ADMIN
+add_filter( 'manage_edit-socrata_events_columns', 'socrata_events_edit_columns' ) ;
+function socrata_events_edit_columns( $columns ) {
+  $columns = array(
+    'cb'          => '<input type="checkbox" />',    
+    'title'       => __( 'Name' ),
+    'category'    => __( 'Category' ),
+    'eventdate'   => __( 'Event Date' ),
+
+  );
+  return $columns;
+}
+// Get Content for Custom Colums
+add_action("manage_socrata_events_posts_custom_column",  "socrata_events_columns");
+function socrata_events_columns($column){
+  global $post;
+
+  switch ($column) {    
+    case 'eventdate':
+      $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp);
+      break;
+    case 'category':
+      $segment = get_the_terms($post->ID , 'socrata_events_cat');
+      echo $segment[0]->name;
+      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
+      break;
+  }
+}
+
+// Make these columns sortable
+add_filter( "manage_edit-socrata_events_sortable_columns", "socrata_events_sortable_columns" );
+function socrata_events_sortable_columns() {
+  return array(
+    'title'       => 'title',
+    'category'    => 'category',
+    'eventdate'   => 'eventdate',
+  );
+}
+
 // TAXONOMIES
 add_action( 'init', 'socrata_events_cat', 0 );
 function socrata_events_cat() {
@@ -163,6 +202,101 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'std'         => 'PST',
         'placeholder' => __( 'Select a Timezone', 'socrata-events' ),
       ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Event Location', 'socrata-events' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'Street Address', 'socrata-events' ),
+        'id'    => "{$prefix}address",
+        'type'  => 'text',
+        'clone' => false,
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'City', 'socrata-events' ),
+        'id'    => "{$prefix}city",
+        'desc' => __( 'Required', 'socrata-events' ),
+        'type'  => 'text',
+        'clone' => false,
+      ),
+      // SELECT BOX
+      array(
+        'name'        => __( 'State', 'socrata-events' ),
+        'id'          => "{$prefix}state",
+        'type'        => 'select',
+        // Array of 'value' => 'Label' pairs for select box
+        'options'     => array(
+          'AL' => __( 'Alabama', 'socrata-events' ),
+          'AK' => __( 'Alaska', 'socrata-events' ),
+          'AZ' => __( 'Arizona', 'socrata-events' ),
+          'AR' => __( 'Arkansas', 'socrata-events' ),
+          'CA' => __( 'California', 'socrata-events' ),
+          'CO' => __( 'Colorado', 'socrata-events' ),
+          'CT' => __( 'Connecticut', 'socrata-events' ),
+          'DE' => __( 'Delaware', 'socrata-events' ),
+          'FL' => __( 'Florida', 'socrata-events' ),
+          'GA' => __( 'Georgia', 'socrata-events' ),
+          'HI' => __( 'Hawaii', 'socrata-events' ),
+          'ID' => __( 'Idaho', 'socrata-events' ),
+          'IL' => __( 'Illinois', 'socrata-events' ),
+          'IN' => __( 'Indiana', 'socrata-events' ),
+          'IA' => __( 'Iowa', 'socrata-events' ),
+          'KS' => __( 'Kansas', 'socrata-events' ),
+          'KY' => __( 'Kentucky', 'socrata-events' ),
+          'LA' => __( 'Louisiana', 'socrata-events' ),
+          'ME' => __( 'Maine', 'socrata-events' ),
+          'MD' => __( 'Maryland', 'socrata-events' ),
+          'MA' => __( 'Massachusetts', 'socrata-events' ),
+          'MI' => __( 'Michigan', 'socrata-events' ),
+          'MN' => __( 'Minnesota', 'socrata-events' ),
+          'MS' => __( 'Mississippi', 'socrata-events' ),
+          'MO' => __( 'Missouri', 'socrata-events' ),
+          'MT' => __( 'Montana', 'socrata-events' ),
+          'NE' => __( 'Nebraska', 'socrata-events' ),
+          'NV' => __( 'Nevada', 'socrata-events' ),
+          'NH' => __( 'New Hampshire', 'socrata-events' ),
+          'NJ' => __( 'New Jersey', 'socrata-events' ),
+          'NM' => __( 'New Mexico', 'socrata-events' ),
+          'NY' => __( 'New York', 'socrata-events' ),
+          'NC' => __( 'North Carolina', 'socrata-events' ),
+          'ND' => __( 'North Dakota', 'socrata-events' ),
+          'OH' => __( 'Ohio', 'socrata-events' ),
+          'OK' => __( 'Oklahoma', 'socrata-events' ),
+          'OR' => __( 'Oregon', 'socrata-events' ),
+          'PA' => __( 'Pennsylvania', 'socrata-events' ),
+          'RI' => __( 'Rhode Island', 'socrata-events' ),
+          'SC' => __( 'South Carolina', 'socrata-events' ),
+          'SD' => __( 'South Dakota', 'socrata-events' ),
+          'TN' => __( 'Tennessee  ', 'socrata-events' ),
+          'TX' => __( 'Texas', 'socrata-events' ),
+          'UT' => __( 'Utah', 'socrata-events' ),
+          'VT' => __( 'Vermont', 'socrata-events' ),
+          'VA' => __( 'Virginia', 'socrata-events' ),
+          'WA' => __( 'Washington', 'socrata-events' ),
+          'WV' => __( 'West Virginia', 'socrata-events' ),
+          'WI' => __( 'Wisconsin', 'socrata-events' ),
+          'WY' => __( 'Wyoming', 'socrata-events' ),
+        ),
+        'placeholder' => __( 'Select a State', 'socrata-events' ),
+        'desc' => __( 'Required', 'socrata-events' ),
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'Zip', 'socrata-events' ),
+        'id'    => "{$prefix}zip",
+        'type'  => 'text',
+        'clone' => false,
+      ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Additional Info', 'socrata-events' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
       // URL
       array(
         'name' => __( 'Event URL', 'socrata-events' ),
@@ -199,28 +333,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Shortcode [current-events]
 function events_posts($atts, $content = null) {
   ob_start();
@@ -229,6 +341,7 @@ function events_posts($atts, $content = null) {
   <div class="container page-padding">
     <div class="row">
       <div class="col-sm-8">
+        <ul class="event-list">
 
           <?php
           /* The Query */
@@ -259,17 +372,46 @@ function events_posts($atts, $content = null) {
 
           // The Loop
           if ( $query->have_posts() ) : 
-          while( $query->have_posts() ): $query->the_post();        
+          while( $query->have_posts() ): $query->the_post();
 
-          ?>
-            <p class="categories"><small><?php events_the_categories(); ?></small></p>            
-            <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-            <p><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>
-            <p><?php echo rwmb_meta( 'socrata_events_url' );?></p>
-            <p><?php echo rwmb_meta( 'socrata_events_marketo' );?></p>
-            <?php echo rwmb_meta( 'socrata_events_wysiwyg' );?>
-            <hr>
-          <?php
+            if ( has_term( 'lunch-and-learn','socrata_events_cat' ) ) { ?>
+            <li>
+              <p class="categories"><?php events_the_categories(); ?></p>
+              <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+              <p class="date"><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>
+              <?php $meta = rwmb_meta(); 
+                if ($meta['socrata_events_city']) { ?>
+                  <p style="margin-top:15px;"><?php echo rwmb_meta( 'socrata_events_city' );?>, <?php echo rwmb_meta( 'socrata_events_state' );?>
+                  </p>
+                <?php
+                }
+              ?>
+              <p style="margin-top:15px;"><a href="<?php the_permalink() ?>" class="btn btn-primary">Learn More</a></p>
+            </li>
+            <?php
+            }
+            else { ?>
+            <li>
+              <p class="categories"><?php events_the_categories(); ?></p>
+              <h4><?php the_title(); ?></h4>
+              <p class="date"><?php $timestamp = rwmb_meta( 'socrata_events_datetime' ); echo date("F j, Y, g:i a", $timestamp); ?> <?php echo rwmb_meta( 'socrata_events_select' );?></p>
+              <?php $meta = rwmb_meta(); 
+                if ($meta['socrata_events_city']) { ?>
+                  <p style="margin-top:15px;"><?php echo rwmb_meta( 'socrata_events_city' );?>, <?php echo rwmb_meta( 'socrata_events_state' );?>
+                    <?php $meta = rwmb_meta(); 
+                    if ($meta['socrata_events_url']) { ?>
+                     | <a href="<?php echo rwmb_meta( 'socrata_events_location' );?>" target="_blank">Visit Site</a>
+                    <?php
+                    }
+                    ?>
+                  </p>
+                <?php
+                }
+              ?>
+              <p style="margin-top:15px;"><a href="mailto:events@socrata.com" class="btn btn-primary" target="_blank">Meet Us</a></p>
+            </li>
+            <?php
+            }
 
           endwhile;
           endif;
@@ -278,10 +420,17 @@ function events_posts($atts, $content = null) {
           wp_reset_postdata();
 
           ?>
-     
+        </ul>
+        <?php if (function_exists("pagination")) {pagination($query->max_num_pages,$pages);} ?>
       </div>
-      <div class="col-sm-4">        
-        <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+      <div class="col-sm-4 hidden-xs events-sidebar">
+        <div class="padding-30 margin-bottom-30 background-clouds">
+          <h4>Let's Meet Up</h4>
+          <p>See an event you'd like to meet us or want to suggest an event we should attend? Send us and email.</p>
+          <p><a href="mailto:events@socrata.com" class="btn btn-warning">Email Us</a></p>
+        </div>
+        <h4>Additional Resources</h4>
+        <?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
       </div>
     </div>
   </div>
