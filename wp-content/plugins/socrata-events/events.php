@@ -239,6 +239,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
           'CO' => __( 'Colorado', 'socrata-events' ),
           'CT' => __( 'Connecticut', 'socrata-events' ),
           'DE' => __( 'Delaware', 'socrata-events' ),
+          'DC' => __( 'District of Columbia', 'socrata-events' ),
           'FL' => __( 'Florida', 'socrata-events' ),
           'GA' => __( 'Georgia', 'socrata-events' ),
           'HI' => __( 'Hawaii', 'socrata-events' ),
