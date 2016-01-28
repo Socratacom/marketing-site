@@ -404,7 +404,7 @@ function events_posts($atts, $content = null) {
           if ( $query->have_posts() ) : 
           while( $query->have_posts() ): $query->the_post();
 
-            if ( has_term( 'socrata-hosted','socrata_events_cat' ) ) { ?>
+            if ( has_term( 'socrata-event','socrata_events_cat' ) ) { ?>
             <li>
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
