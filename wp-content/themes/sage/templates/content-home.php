@@ -1,37 +1,73 @@
-<section class="home-hero mobile-hero">
-	<div class="text-wrapper">
-		<div class="container">
-			<div class="row">
-                <div class="text">
-					<div class="col-sm-6">
-						<div class="box-white padding-30">
-							<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
-							<p class="lead">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-	                        <div id="hero-cta-button"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></div>
-                    	</div>
+<section class="home-hero">
+	
+	<!--<div class="scroll text-center hidden-xs">
+		<div class="mouse"><a href="#start"></a></div>
+	</div>-->
+	<div class="slider">
+		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-one.jpg);">
+			<div class="text-wrapper">
+				<div class="container">
+					<div class="row">
+				        <div class="text">
+							<div class="col-sm-6">
+								<div class="box-white padding-30">
+									<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
+									<p class="lead">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
+				                    <div id="hero-cta-button" style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></div>
+				            	</div>
+							</div>
+				        </div>
 					</div>
-                </div>
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="scroll text-center hidden-xs">
-		<div class="mouse"><a href="#start"></a></div>
-	</div>
-	<div class="slider hidden-xs">
-		<div class="background-silver slide slide-one"></div>
-		<div class="background-silver slide slide-two"></div>
-		<div class="background-silver slide slide-three"></div>
+		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-two.jpg);">
+			<div class="text-wrapper">
+				<div class="container">
+					<div class="row">
+				        <div class="text">
+							<div class="col-sm-6">
+								<div class="box-white padding-30">
+									<h1 class="margin-bottom-15">Tell Your Story</h1>
+									<p class="lead">Socrata Perspectives cras justo odio, dapibus ac facilisis in, egestas eget quam. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+				                    <div style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Read More</a></div>
+				            	</div>
+							</div>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-three.jpg);">
+			<div class="text-wrapper">
+				<div class="container">
+					<div class="row">
+				        <div class="text">
+							<div class="col-sm-6">
+								<div class="box-white padding-30">
+									<h1 class="margin-bottom-15">Socrat for Public Safety</h1>
+									<p class="lead">Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+				                    <div style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Read More</a></div>
+				            	</div>
+							</div>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 	<script>
 	jQuery(function ($){
           $('.slider').slick({
             arrows: false,
+            dots: true,
             autoplay: true,
             autoplaySpeed: 5000,
             infinite:true,
             fade:true,
             cssEase: 'linear',
-            pauseOnHover:false
+            pauseOnHover:false,
+            pauseOnDotsHover:true,
           });
           $('.slider').show();
         });
