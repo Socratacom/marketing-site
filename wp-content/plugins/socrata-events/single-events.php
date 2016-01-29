@@ -1,5 +1,5 @@
 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' ); $url = $thumb['0']; ?>
-<section class="events-hero section-padding background-wet-asphalt">
+<section id="top" class="events-hero section-padding background-wet-asphalt">
   <div class="text">
     <div class="container">
       <div class="row">
