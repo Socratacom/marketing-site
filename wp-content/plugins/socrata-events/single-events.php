@@ -26,9 +26,20 @@
         </div>
         <div class="col-sm-6 col-md-4">
           <div class="marketo-form box-black padding-15">
+            <?php
+            $today = strtotime('today UTC');
+            $date = rwmb_meta( 'socrata_events_endtime' );
+            if ($date < $today) { ?>
+            <div class="alert alert-info" style="margin:0;"><strong>This is a past event.</strong> Registration is closed.</div>
+            <?php
+            }
+            else { ?>
             <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
             <form id="mktoForm_<?php echo rwmb_meta( 'socrata_events_marketo' );?>"></form>
             <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", <?php echo rwmb_meta( 'socrata_events_marketo' );?> );</script>
+            <?php
+            }
+            ?>            
           </div>
         </div>
       </div>
