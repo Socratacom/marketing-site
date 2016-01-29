@@ -33,7 +33,7 @@ function create_socrata_events() {
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => false,
-      'rewrite' => array('with_front' => false, 'slug' => 'events')
+      'rewrite' => array('with_front' => false, 'slug' => 'event')
     )
   );
 }
@@ -411,8 +411,9 @@ function events_posts($atts, $content = null) {
               <p class="date"><?php echo rwmb_meta( 'socrata_events_displaydate' );?></p>             
               <?php 
                 $city = rwmb_meta( 'socrata_events_city' );
+                $state = rwmb_meta( 'socrata_events_state' );
                 if ($city) { ?>
-                  <p><?php echo rwmb_meta( 'socrata_events_city' ); echo ', ';?><?php echo rwmb_meta( 'socrata_events_state' );?></p>
+                  <p><?php echo $city;?>, <?php echo $state;?></p>
                 <?php
                 }                
               ?>              
@@ -425,19 +426,19 @@ function events_posts($atts, $content = null) {
               <p class="categories"><?php events_the_categories(); ?></p>
               <h4><?php the_title(); ?></h4>
               <p class="date"><?php echo rwmb_meta( 'socrata_events_displaydate' );?></p>
-                <?php $city = rwmb_meta( 'socrata_events_city' );
-                  if ($city) { ?>
-                    <?php echo rwmb_meta( 'socrata_events_city' ); echo ', ';?><?php echo rwmb_meta( 'socrata_events_state' );?>
-                  <?php
-                  }             
-                ?>
-                <?php $url = rwmb_meta( 'socrata_events_url' );
-                  if ($url) { ?>
-                    | <a href="<?php echo rwmb_meta( 'socrata_events_url' );?>" target="_blank">Visit Site</a>
-                  <?php
-                  }             
-                ?>
-              </p>
+              <?php 
+                $city = rwmb_meta( 'socrata_events_city' );
+                $state = rwmb_meta( 'socrata_events_state' );
+                $url = rwmb_meta( 'socrata_events_url' );
+                if ($url) { ?>
+                  <p><?php echo $city;?>, <?php echo $state;?> | <a href="<?php echo $url;?>" target="_blank">Visit Site</a></p>
+                <?php
+                }
+                elseif ($city) { ?>
+                  <p><?php echo $city;?>, <?php echo $state;?></p>
+                <?php
+                }
+              ?>
               <p style="margin-top:15px;"><a href="mailto:events@socrata.com" class="btn btn-primary" target="_blank">Meet Us</a></p>
             </li>
             <?php
@@ -457,7 +458,7 @@ function events_posts($atts, $content = null) {
         <div class="padding-15 margin-bottom-30 background-clouds">          
           <h4 class="background-orange padding-15 text-reverse">Let's Meet Up</h4>
           <div class="padding-15">
-            <p>See an event you'd like to meet us or want to suggest an event we should attend? Send us and email.</p>
+            <p>See an event in your area and want to meet with us?  Send us an email.</p>
             <p><a href="mailto:events@socrata.com" class="btn btn-primary">Email Us</a></p>
           </div>
         </div>
