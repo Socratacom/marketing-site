@@ -589,16 +589,6 @@
             a {
                 color:white;
             }
-            .excerpt * {
-                color:white;
-            }
-            .excerpt {
-                .btn-default {
-                    color:black;
-                    border:none;
-                    background-color:white;
-                }
-            }
             .lead {
                 margin-bottom:30px;
             }
@@ -615,6 +605,14 @@
             left:0;
             height: 100%;
             width:100%;
+        }
+    }
+    .speakers {
+        h5 {
+            margin: 0;
+        }
+        p {
+            line-height: normal;
         }
     }
     .events-sidebar {
