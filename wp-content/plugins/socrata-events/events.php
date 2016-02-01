@@ -324,7 +324,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Additional Info', 'socrata-events' ),
+        'name' => __( 'Event Info', 'socrata-events' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // URL
@@ -342,19 +342,24 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type'  => 'text',
         'clone' => false,
       ),
-      // TEXTAREA
-      array(
-        'name' => __( 'Excerpt', 'socrata-events' ),
-        'desc' => __( 'Displays in hero section', 'socrata-events' ),
-        'id'   => "{$prefix}excerpt",
-        'type' => 'textarea',
-        'cols' => 20,
-        'rows' => 3,
-      ),
       // WYSIWYG/RICH TEXT EDITOR
       array(
         'name'    => __( 'Content', 'socrata-events' ),
         'id'      => "{$prefix}wysiwyg",
+        'type'    => 'wysiwyg',
+        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+        'raw'     => false,
+        // Editor settings, see wp_editor() function: look4wp.com/wp_editor
+        'options' => array(
+          'textarea_rows' => 15,
+          'teeny'         => false,
+          'media_buttons' => true,
+        ),
+      ),
+      // WYSIWYG/RICH TEXT EDITOR
+      array(
+        'name'    => __( 'Speakers', 'socrata-events' ),
+        'id'      => "{$prefix}speakers",
         'type'    => 'wysiwyg',
         // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
         'raw'     => false,
