@@ -546,15 +546,38 @@
             margin-bottom:60px;
         }
         .text {
-            p {
-                line-height: normal;
-                margin-bottom:1em;
-                small {
-                    background:$sun-flower;
-                    padding:5px 10px;
-                    color:black;
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            li {
+                display: inline-block;
+                padding:0 15px;
+                a {
+                    border-bottom:solid white 1px;
+                    padding-bottom:2px;
                 }
-            }        
+            }
+            p {
+                margin-bottom:1em;
+            }
+            a {
+                color:white;
+            }
+            a:hover {
+                border-bottom: solid 1px white;
+            }
+            .excerpt * {
+                color:white;
+            }
+            .excerpt {
+                .btn-default {
+                    color:black;
+                    border:none;
+                    background-color:white;
+                }
+            }
             .lead {
                 margin-bottom:30px;
             }

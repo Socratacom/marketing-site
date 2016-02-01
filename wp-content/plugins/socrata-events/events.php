@@ -342,6 +342,15 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type'  => 'text',
         'clone' => false,
       ),
+      // TEXTAREA
+      array(
+        'name' => __( 'Excerpt', 'socrata-events' ),
+        'desc' => __( 'Displays in hero section', 'socrata-events' ),
+        'id'   => "{$prefix}excerpt",
+        'type' => 'textarea',
+        'cols' => 20,
+        'rows' => 3,
+      ),
       // WYSIWYG/RICH TEXT EDITOR
       array(
         'name'    => __( 'Content', 'socrata-events' ),

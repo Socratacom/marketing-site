@@ -5,23 +5,31 @@
       <div class="row">
         <div class="col-sm-6 col-md-8 details">
           <h1 class="text-reverse margin-bottom-15"><?php the_title(); ?></h1>
-          <p class="text-reverse lead"><?php echo rwmb_meta( 'socrata_events_displaydate' );?></p>
-          <?php 
-            $location = rwmb_meta( 'socrata_events_location' );
-            $address = rwmb_meta( 'socrata_events_address' );
+          <?php
+            $displaydate = rwmb_meta( 'socrata_events_displaydate' );
             $city = rwmb_meta( 'socrata_events_city' );
             $state = rwmb_meta( 'socrata_events_state' );
-            $zip = rwmb_meta( 'socrata_events_zip' );
             $directions = rwmb_meta( 'socrata_events_directions' );
-            if ($location) { ?>
-              <p><small>LOCATION</small></p>
-              <p class="text-reverse"><?php echo $location;?><br><?php echo $address;?><br><?php echo $city;?>, <?php echo $state;?> <?php echo $zip;?></p>
-            <?php
-            }  
             if ($directions) { ?>
-              <p class="text-reverse"><a href="<?php echo $directions;?>" target="_blank"><i class="fa fa-map-marker"></i> Get Directions</a></p>
+            <ul>
+              <li class="text-reverse lead"><?php echo $displaydate;?></li>
+              <li class="text-reverse lead"><a href="<?php echo $directions;?>" target="_blank"><?php echo $city;?>, <?php echo $state;?></a></li>
+            </ul>
+            <?php
+            }
+            else { ?>
+              <p class="text-reverse"></p>
             <?php
             } 
+          ?>
+          <?php
+            $excerpt = rwmb_meta( 'socrata_events_excerpt' );
+            if ($excerpt) { ?>
+            <div class="excerpt">
+              <?php echo $excerpt;?>
+            </div>
+            <?php
+            }
           ?>
         </div>
         <div class="col-sm-6 col-md-4">
