@@ -3,7 +3,6 @@ This is the main marketing site for Socrata. Only the Theme and custom Socrata p
 
 Additional Plugins Used
 ---
-- The Events Calendar
 - BugMeBar
 - Disqus Comment System
 - Co-Authors Plus
@@ -18,6 +17,7 @@ Additional Plugins Used
 
 Change History
 ---
+- V2.1.1 - Launched Socrata Events section. Bug Fixes.
 - V2.1.0 - Addition of new product pages. Addition of product and solution landing pages. Header navigation changed to hover activation. Updated Open Data Field Guide.
 - V2.0.4 - CSS updates mostly centered around video display. Added video bacground scripts and modal updates.
 - V2.0.3 - Added new video section to the site. Bug fixes and updated CSS.
