@@ -632,6 +632,10 @@ body {
 	}
 	hr {
 	    border-top: 5px solid $clouds;
+	    margin:30px 0;
+	}
+	.background-clouds hr {
+		border-top:darken($clouds, 5%) solid 5px
 	}
 	table {
 		h4 {
@@ -658,6 +662,9 @@ body {
 		background:$clouds;
 		padding:30px;
 		margin-bottom:1.63em;
+		li p:last-child {
+			margin-bottom:1.63em;
+		}
 	}
 	figure {
 		background:$clouds;

@@ -1,9 +1,16 @@
-<article <?php post_class(); ?>>
-  <header>
-    <h2 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-    <?php if (get_post_type() === 'post') { get_template_part('templates/entry-meta'); } ?>
-  </header>
-  <div class="entry-summary">
-    <?php the_excerpt(); ?>
-  </div>
-</article>
+<section class="section-padding">
+	<div class="container">
+		<div class="row">			
+<gcse:search></gcse:search>
+</div>
+</div>
+</section>
+
+<script>
+(function() {
+  var cx = '010927318898930298786:p7-vwztjtlq'; // Insert your own Custom Search engine ID here
+  var gcse = document.createElement('script'); gcse.type = 'text/javascript'; gcse.async = true;
+  gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(gcse, s);
+})();
+</script>
