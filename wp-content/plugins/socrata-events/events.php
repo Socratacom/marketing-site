@@ -431,7 +431,7 @@ function events_posts($atts, $content = null) {
                 <?php
                 }                
               ?>              
-              <p style="margin-top:15px;"><a href="<?php the_permalink() ?>" class="btn btn-primary">Learn More</a></p>
+              <p id="event-socrata-event" style="margin-top:15px;"><a href="<?php the_permalink() ?>" class="btn btn-primary">Learn More</a></p>
             </li>
             <?php
             }
@@ -453,7 +453,7 @@ function events_posts($atts, $content = null) {
                 <?php
                 }
               ?>
-              <p style="margin-top:15px;"><a href="mailto:events@socrata.com" class="btn btn-primary" target="_blank">Meet Us</a></p>
+              <p id="event-conference" style="margin-top:15px;"><a href="mailto:events@socrata.com" class="btn btn-primary" target="_blank">Meet Us</a></p>
             </li>
             <?php
             }
@@ -473,7 +473,7 @@ function events_posts($atts, $content = null) {
           <h4 class="background-orange padding-15 text-reverse">Let's Meet Up</h4>
           <div class="padding-15">
             <p>See an event in your area and want to meet with us?  Send us an email.</p>
-            <p><a href="mailto:events@socrata.com" class="btn btn-primary">Email Us</a></p>
+            <p id="event-side-rail"><a href="mailto:events@socrata.com" class="btn btn-primary">Email Us</a></p>
           </div>
         </div>
         <h4>Additional Resources</h4>
