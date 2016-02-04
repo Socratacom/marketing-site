@@ -2,7 +2,6 @@ $silver:                        #bdc3c7;
 $clouds:                        #ecf0f1;
 $midnight-blue:                 #333e49;
 
-
 @media only screen and (min-width : 320px) {
     ul.event-list {
         list-style-type: none;
@@ -28,71 +27,59 @@ $midnight-blue:                 #333e49;
         }
     }
 
-    .events-hero {
-        height: 500px;
+    .hero-events-single {
+        min-height: 600px;
         position: relative;
-        .outer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            width: 100%;
-            height:100%;
-            display: table;
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
         }
-        .text {
-            display: table-cell;
-            vertical-align: middle;
-            ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-            .date-location {
-                text-align: center;
-                margin-bottom:30px;
-                li {
-                    padding:0;
-                    margin:0;
-                    a {
-                        border-bottom:solid white 1px;
-                        padding-bottom:2px;
-                    }
+        .date-location {
+            text-align: left;
+            margin-bottom:30px;
+            li {
+                padding:0;
+                margin:0;
+                a {
+                    border-bottom:solid white 1px;
+                    padding-bottom:2px;
                 }
             }
-            .cta-buttons {
-                text-align: center;
-                .btn {
-                    width:100%;
-                }
-                li {
-                    margin-bottom:15px;
-                }
-
-            }
-            p {
-                margin-bottom:1em;
-            }
-            a {
-                color:white;
-            }
-            .lead {
-                margin-bottom:30px;
-            }
-            .marketo-form .mktoCheckboxList label {
-                color:white;
-            }
-            .box-black {
-                background-color: rgba(34,34,34,.5);
-            }
         }
-        .image {
-            position: absolute;
-            top:0;
-            left:0;
-            height: 100%;
-            width:100%;
+        .btn-default {
+            border:none;
+            background-color: rgba(white, .75);
+            color:black;
+            margin-bottom:30px;
         }
+        .btn-default:hover {
+            background-color: rgba(white, 1);
+        }
+        p {
+            margin-bottom:1em;
+        }
+        a {
+            color:white;
+        }
+        .lead {
+            margin-bottom:30px;
+        }
+        .marketo-form .mktoCheckboxList label {
+            color:white;
+        }
+        .box-black {
+            background-color: rgba(34,34,34,.5);
+        }
+    }
+    .hero-events-single:before {
+        content:'';
+        position:absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width:100%;
+        background-color:rgba(0, 0, 0, .5);
     }
     .speakers {
         h5 {
@@ -129,47 +116,26 @@ $midnight-blue:                 #333e49;
             }
         }
     }
-    .paged.events {
-        .feature {
-            display:none;        
-        }
-    }
 }
 
 @media only screen and (min-width : 768px) {
-    .events-hero {
-        height: 600px;
-        .text {
-            .date-location {
-                text-align: center;
-                li {
-                    display: inline-block;
-                    padding:0 15px;
-                    a {
-                        border-bottom:solid white 1px;
-                        padding-bottom:2px;
-                    }
-                }
-                li:first-child {
-                    padding-left:0;
-                    border-right:white solid 1px;
-                }
-                li:last-child {
-                    padding-right:0;
+    .hero-events-single {
+        .date-location {
+            text-align: left;
+            li {
+                display: inline-block;
+                padding:0 15px;
+                a {
+                    border-bottom:solid white 1px;
+                    padding-bottom:2px;
                 }
             }
-            .cta-buttons {
-                text-align: center;
-                li {
-                    display: inline-block;
-                    padding:0 15px;
-                }
-                li:first-child {
-                    padding-left:0;
-                }
-                li:last-child {
-                    padding-right:0;
-                }
+            li:first-child {
+                padding-left:0;
+                border-right:white solid 1px;
+            }
+            li:last-child {
+                padding-right:0;
             }
         }
     }

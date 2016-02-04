@@ -523,7 +523,7 @@
         h1, h2, h3, h4, h5 {
             text-transform: uppercase;
         }
-        .opg-hero {
+        .hero-opg-single {
             position: relative;
             height:400px;
             .bar {
@@ -541,11 +541,34 @@
             }
         }
         .guide-quote {
-            background-color:$gray-dark;
             h3 {
                 color:$sun-flower;
                 font-style: italic;
                 text-transform: none;
+            }
+            h4 {
+                color:white;
+                font-style: italic;
+                text-transform: none;
+            }
+            .author {
+                color:white;
+                text-align:right;
+                font-size: 16px;
+                position: relative;
+                padding-right: 80px;
+                padding-top:10px;
+                line-height: normal;
+                img {
+                    position: absolute;
+                    right:0;
+                    top:0;
+                }
+                small {
+                    color:$concrete;
+                    display: block;
+                }
+
             }
         }
         .chapter-button {
@@ -572,7 +595,7 @@
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
     .open-performance-guide {
-        .opg-hero {
+        .hero-opg-single {
             h1 {
                 font-size: 46px;
             }

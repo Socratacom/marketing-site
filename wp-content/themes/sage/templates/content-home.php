@@ -46,7 +46,7 @@
 							<div class="col-sm-6">
 								<div class="box-white padding-30">
 									<h1 class="margin-bottom-15">Socrata for Public Safety</h1>
-									<p class="lead">Maecenas faucibus mollis interdum. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+									<p class="lead">Socrata for Public Safety enables public safety agencies to share their data, increase transparency, and instill greater trust and engagement with their communities.</p>
 				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-safety/" class="btn btn-lg btn-warning">Read More</a></div>
 				            	</div>
 							</div>
