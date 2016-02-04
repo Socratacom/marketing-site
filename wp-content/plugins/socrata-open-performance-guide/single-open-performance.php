@@ -36,15 +36,12 @@
 <section class="background-clouds section-padding opg-footer">
     <div class="container">
       <div class="row">
-        <div class="col-sm-4">
-          <h4>Table of Contents</h4>
-          <p>test</p>
+        <div class="col-sm-4 col-sm-offset-1">
+          <?php echo do_shortcode('[opg-table-of-contents]');?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-6">
           <h2>Request a Demo of Open Performance</h2>            
           <p>Interested in seeing how your Government performs? Send us your contact information to get started with a personalized demo and pricing.</p>
-        </div>
-        <div class="col-sm-4">
           <?php echo do_shortcode('[marketo-form id="2710"]');?>
         </div>
       </div>

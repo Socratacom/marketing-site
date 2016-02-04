@@ -129,16 +129,18 @@ function socrata_opg_body_class( $classes ) {
   return $classes;
 }
 
-// Shortcode [current-opg]
-function opg_posts($atts, $content = null) {
+
+// Shortcode [opg-table-of-contents]
+function opg_table_of_contents($atts, $content = null) {
   ob_start();
   ?>
-<section class="section-padding">
-
-</section>
+  <div class="table-of-contents">
+    <h4>Table of Contents</h4>
+    <?php wp_nav_menu( array( 'theme_location' => 'open_performance_guide' ) ); ?>
+  </div>
   <?php
   $content = ob_get_contents();
   ob_end_clean();
   return $content;
 }
-add_shortcode('current-opg', 'opg_posts');
+add_shortcode('opg-table-of-contents', 'opg_table_of_contents');
