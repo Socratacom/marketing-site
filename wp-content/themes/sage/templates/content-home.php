@@ -20,6 +20,23 @@
 					</div>
 				</div>
 			</div>
+		</div>		
+		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-three.jpg);">
+			<div class="text-wrapper">
+				<div class="container">
+					<div class="row">
+				        <div class="text">
+							<div class="col-sm-6">
+								<div class="box-white padding-30">
+									<h1 class="margin-bottom-15">Socrata for Public Safety</h1>
+									<p class="lead">Socrata for Public Safety enables public safety agencies to share their data, increase transparency, and instill greater trust and engagement with their communities.</p>
+				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-safety/" class="btn btn-lg btn-warning">Read More</a></div>
+				            	</div>
+							</div>
+				        </div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-two.jpg);">
 			<div class="text-wrapper">
@@ -31,23 +48,6 @@
 									<h1 class="margin-bottom-15">Socrata Open Budget</h1>
 									<p class="lead">Socrata Open Budget provides an interactive experience that allows visitors to explore the operating and capital budgets of their government, replacing static reports that are difficult to analyze or consume.</p>
 				                    <div style="margin:0;"><a href="/products/open-budget/" class="btn btn-lg btn-warning">Read More</a></div>
-				            	</div>
-							</div>
-				        </div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-three.jpg);">
-			<div class="text-wrapper">
-				<div class="container">
-					<div class="row">
-				        <div class="text">
-							<div class="col-sm-6">
-								<div class="box-white padding-30">
-									<h1 class="margin-bottom-15">Socrata for Public Safety</h1>
-									<p class="lead">Socrata for Public Safety enables public safety agencies to share their data, increase transparency, and instill greater trust and engagement with their communities.</p>
-				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-safety/" class="btn btn-lg btn-warning">Read More</a></div>
 				            	</div>
 							</div>
 				        </div>

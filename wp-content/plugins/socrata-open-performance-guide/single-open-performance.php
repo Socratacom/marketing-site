@@ -10,25 +10,25 @@
   <div class="bar"></div>
 </section>
 <?php the_content(); ?>
-<section class="section-padding">
+<section class="background-peter-river opg-nav">
   <div class="container">
-    <div class="row">
+    <div class="row no-gutters">
       <div class="col-sm-6">
-        <div class="chapter-button">
+        
 
-<?php if(get_adjacent_post(false, '', true)) { }
+            <?php if(get_adjacent_post(false, '', true)) { }
             else { ?>
-            <a href="/open-performance-guide">PREVIOUS: Open Performance Guide Intro</a>
+            <a href="/open-performance-guide" class="previous-post-button">Open Performance Guide Intro</a>
             <?php
             } ; ?>
 
-          <?php previous_post_link( '%link', 'PREVIOUS: %title', TRUE, '', 'socrata_opg_cat' ); ?>
-        </div>
+          <?php previous_post_link( '%link', '%title', TRUE, '', 'socrata_opg_cat' ); ?>
+      
       </div>
       <div class="col-sm-6">
-        <div class="chapter-button">          
-          <?php next_post_link( '%link', 'NEXT: %title', TRUE, '', 'socrata_opg_cat' ); ?>
-        </div>        
+      
+          <?php next_post_link( '%link', '%title', TRUE, '', 'socrata_opg_cat' ); ?>
+
       </div>
     </div>
   </div>
@@ -36,10 +36,13 @@
 <section class="background-clouds section-padding opg-footer">
     <div class="container">
       <div class="row">
-        <div class="col-sm-4 col-sm-offset-1">
+        <div class="col-sm-4">
           <?php echo do_shortcode('[opg-table-of-contents]');?>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
+          <p>download here</p>
+        </div>
+        <div class="col-sm-4">
           <h2>Request a Demo of Open Performance</h2>            
           <p>Interested in seeing how your Government performs? Send us your contact information to get started with a personalized demo and pricing.</p>
           <?php echo do_shortcode('[marketo-form id="2710"]');?>
