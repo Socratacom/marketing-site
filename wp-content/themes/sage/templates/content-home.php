@@ -1,4 +1,4 @@
-<section class="home-hero">
+ <section class="home-hero">
 	
 	<!--<div class="scroll text-center hidden-xs">
 		<div class="mouse"><a href="#start"></a></div>
@@ -21,7 +21,7 @@
 				</div>
 			</div>
 		</div>		
-		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-three.jpg);">
+		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-law-enforcement.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
 					<div class="row">
@@ -38,7 +38,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-two.jpg);">
+		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-open-budget.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
 					<div class="row">
