@@ -134,7 +134,7 @@ function socrata_opg_body_class( $classes ) {
 function opg_table_of_contents($atts, $content = null) {
   ob_start();
   ?>
-  <div class="table-of-contents">
+  <div class="table-of-contents padding-15 background-clouds-dark">
     <h4>Table of Contents</h4>
     <?php wp_nav_menu( array( 'theme_location' => 'open_performance_guide' ) ); ?>
   </div>

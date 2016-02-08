@@ -524,28 +524,40 @@
             text-transform: uppercase;
         }
         .table-of-contents {
+            border-top:$peter-river solid 5px;
             h4 {
                 margin-top:5px;
+                color:$wet-asphalt;
             }
             ul {
                 list-style-type: none;
                 margin: 0;
                 padding: 0;
                 li {
-                    border-bottom:$silver solid 1px;
+                    border-bottom:darken($clouds, 15%) solid 1px;
                     line-height: normal;
                     a {
-                        padding:5px;
+                        padding:10px;
                         display: block;
+                        font-size:14px;
+                        font-weight: 400;
                     }
                 }
                 li:last-child {
                     border:none;
                 }
                 ul {
-                    padding-left:15px;
+                    padding-left:20px;
                     li {
                         border:none;
+                        a {
+                            padding:5px;
+                        }
+                    }
+                    li:last-child {
+                        a {
+                            padding-bottom:10px;
+                        }
                     }
                 }
             }
