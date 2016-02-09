@@ -578,6 +578,9 @@
             }
             
         }
+        .opg-case-study-hero {
+            min-height:500px;
+        }
         dl.steps {
             counter-reset: my-counter;
             dt {
@@ -598,6 +601,29 @@
                 font-size:32px;
                 background:$peter-river;
                 color:white;
+                text-align:center;
+                padding-top:8px;
+                line-height: normal;
+                font-weight: 400;
+            }
+        }
+        dl.approach {
+            counter-reset: my-counter;
+            dt {
+                position: relative;
+                padding: 10px 0 0 30px;
+                font-size: 16px;
+                font-weight: 300;
+                margin-bottom:15px;
+            }
+            dt:before {
+                content: counter(my-counter);
+                counter-increment: my-counter;
+                position: absolute;
+                left: 0;
+                top: 0;
+                font-size:24px;
+                color:$peter-river;
                 text-align:center;
                 padding-top:8px;
                 line-height: normal;
