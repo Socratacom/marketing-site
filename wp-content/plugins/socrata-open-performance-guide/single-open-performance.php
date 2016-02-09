@@ -36,17 +36,23 @@
 <section class="background-clouds section-padding opg-footer">
     <div class="container">
       <div class="row">        
-        <div class="col-sm-6">
+        <div class="col-sm-5 col-sm-offset-1">
           <h2 class="margin-bottom-15">Request a Demo of Open Performance</h2>            
           <p>Interested in seeing how your Government performs? Send us your contact information to get started with a personalized demo and pricing.</p>
           <?php echo do_shortcode('[marketo-form id="2845"]');?>
-        </div>        
-        <div class="col-sm-3">
-          <p>download hardcopy goes here</p>
-        </div>  
-        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-4 col-sm-offset-1">
           <?php echo do_shortcode('[opg-table-of-contents]');?>
-        </div>      
+        </div>   
       </div>
     </div>
+</section>
+<section class="background-peter-river section-padding">
+  <div class="container">
+    <div class="row">        
+      <div class="col-sm-12">
+        <div class="text-center"><a href="#" class="btn btn-default btn-lg"><i class="fa fa-cloud-download"></i> Download the Hard Copy</a></div>
+      </div>
+    </div>
+  </dib>
 </section>

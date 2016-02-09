@@ -524,7 +524,7 @@
         .table-of-contents {
             border-top:$peter-river solid 5px;
             h4 {
-                margin-top:5px;
+                margin-top:15px;
                 color:$wet-asphalt;
             }
             ul {
@@ -539,6 +539,9 @@
                         display: block;
                         font-size:14px;
                         font-weight: 400;
+                    }
+                    a:hover {
+                        background-color:darken($clouds, 5%);
                     }
                 }
                 li:last-child {
