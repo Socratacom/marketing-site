@@ -685,6 +685,33 @@
                 background-color:$amethyst;
             }
         }
+        .faq {
+            counter-reset: my-badass-counter;
+            dt {
+                position: relative;
+                font-weight:400;
+                font-size:20px;
+                padding: 4px 0 10px 0;
+            }
+            dt:before {
+                content: counter(my-badass-counter);
+                counter-increment: my-badass-counter;
+                position: absolute;
+                left: 0;
+                top: 0;
+                font-size:50px;
+                line-height: normal;
+                color:$peter-river;
+            }
+            dd {
+                margin: 0 0 50px 0;
+                font-size:16px;
+                font-weight: 300;
+            }
+            dt, dd {
+                padding-left: 50px;
+            }
+        }
         .guide-quote {
             h3 {
                 color:$sun-flower;
