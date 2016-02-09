@@ -35,18 +35,18 @@
 </section>
 <section class="background-clouds section-padding opg-footer">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-4">
-          <?php echo do_shortcode('[opg-table-of-contents]');?>
-        </div>
-        <div class="col-sm-4">
-          <p>download here</p>
-        </div>
-        <div class="col-sm-4">
-          <h2>Request a Demo of Open Performance</h2>            
+      <div class="row">        
+        <div class="col-sm-6">
+          <h2 class="margin-bottom-15">Request a Demo of Open Performance</h2>            
           <p>Interested in seeing how your Government performs? Send us your contact information to get started with a personalized demo and pricing.</p>
           <?php echo do_shortcode('[marketo-form id="2710"]');?>
-        </div>
+        </div>        
+        <div class="col-sm-3">
+          <p>download here</p>
+        </div>  
+        <div class="col-sm-3">
+          <?php echo do_shortcode('[opg-table-of-contents]');?>
+        </div>      
       </div>
     </div>
 </section>
