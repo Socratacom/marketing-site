@@ -716,8 +716,9 @@
             }
         }
         .guide-quote {
+            background-color:$turquoise;
             h3 {
-                color:$sun-flower;
+                color:white;
                 font-style: italic;
                 text-transform: none;
             }
@@ -740,7 +741,7 @@
                     top:0;
                 }
                 small {
-                    color:$concrete;
+                    color:darken($clouds, 10%);
                     display: block;
                 }
 
@@ -823,7 +824,7 @@
                 width:46%;
                 float: left;
             }
-            dt:nth-child(odd) {
+            dt:nth-child(2) {
                 float:right;
 
             }

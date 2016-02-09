@@ -47,12 +47,3 @@
       </div>
     </div>
 </section>
-<section class="background-peter-river section-padding">
-  <div class="container">
-    <div class="row">        
-      <div class="col-sm-12">
-        <div class="text-center"><a href="#" class="btn btn-default btn-lg"><i class="fa fa-cloud-download"></i> Download the Hard Copy</a></div>
-      </div>
-    </div>
-  </dib>
-</section>
