@@ -578,6 +578,33 @@
                 font-size: 36px;
                 margin-bottom:30px;
             }
+            
+        }
+        dl.steps {
+            counter-reset: my-counter;
+            dt {
+                position: relative;
+                padding: 5px 0 15px 60px;
+                font-size: 16px;
+                font-weight: 300;
+                margin-bottom:15px;
+            }
+            dt:before {
+                content: counter(my-counter);
+                counter-increment: my-counter;
+                position: absolute;
+                left: 0;
+                top: 10px;
+                width:50px;
+                height:50px;
+                font-size:32px;
+                background:$peter-river;
+                color:white;
+                text-align:center;
+                padding-top:8px;
+                line-height: normal;
+                font-weight: 400;
+            }
         }
         .guide-quote {
             h3 {
@@ -682,10 +709,18 @@
                 font-size: 46px;
             }
         }
+        dl.steps {
+            dt {
+                width:46%;
+                float: left;
+            }
+            dt:nth-child(odd) {
+                float:right;
+
+            }
+        }
     }
 }
-
-
 
 
 

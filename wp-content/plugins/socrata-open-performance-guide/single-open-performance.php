@@ -42,7 +42,7 @@
           <?php echo do_shortcode('[marketo-form id="2845"]');?>
         </div>        
         <div class="col-sm-3">
-          <p>download here</p>
+          <p>download hardcopy goes here</p>
         </div>  
         <div class="col-sm-3">
           <?php echo do_shortcode('[opg-table-of-contents]');?>
