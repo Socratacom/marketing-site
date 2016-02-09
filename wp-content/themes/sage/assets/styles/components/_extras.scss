@@ -758,9 +758,10 @@
             }
         }
         .opg-nav {
+            padding:15px 0;
             a {
                 color:white;        
-                height: 200px;
+                height: 100px;
                 vertical-align: center;
                 display: flex;
                 flex-direction: column;
@@ -780,7 +781,7 @@
                 font-family: fontawesome;
                 content:"\f18e"; 
                 position: absolute;
-                top:75px;
+                top:24px;
                 right:30px;
                 color:white;
                 font-size: 40px;
@@ -788,13 +789,13 @@
             .previous-post-button {
                 text-align: left;
                 padding:30px 30px 30px 80px;
-                border-right:$peter-river solid 1px;         
+                border-bottom:$peter-river solid 1px;         
             }
             .previous-post-button:before {
                 font-family: fontawesome;
                 content:"\f190"; 
                 position: absolute;
-                top:75px;
+                top:24px;
                 left:30px;
                 color:white;
                 font-size: 40px;
@@ -819,6 +820,26 @@
                 font-size: 46px;
             }
         }
+
+        .opg-nav {
+            padding:0;
+             a {      
+                height: 200px;
+            }
+            .previous-post-button {
+                border-bottom:none;
+                border-right:$peter-river solid 1px;         
+            }
+            .next-post-button:before {
+                top:75px;
+            }          
+            .next-post-button:before {
+                top:75px;
+            }
+
+        }
+
+
         dl.steps {
             dt {
                 width:46%;
