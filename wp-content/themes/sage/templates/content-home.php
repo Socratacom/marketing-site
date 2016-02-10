@@ -1,8 +1,4 @@
  <section class="home-hero">
-	
-	<!--<div class="scroll text-center hidden-xs">
-		<div class="mouse"><a href="#start"></a></div>
-	</div>-->
 	<div class="slider">
 		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-one.jpg);">
 			<div class="text-wrapper">
@@ -10,10 +6,10 @@
 					<div class="row">
 				        <div class="text">
 							<div class="col-sm-6">
-								<div class="box-white padding-30">
+								<div id="home-hero-slide-1" class="box-white padding-30">
 									<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
 									<p class="lead">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-				                    <div id="hero-cta-button" style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></div>
+				                    <div style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></div>
 				            	</div>
 							</div>
 				        </div>
@@ -27,7 +23,7 @@
 					<div class="row">
 				        <div class="text">
 							<div class="col-sm-6">
-								<div class="box-white padding-30">
+								<div id="home-hero-slide-2" class="box-white padding-30">
 									<h1 class="margin-bottom-15">Socrata for Public Safety</h1>
 									<p class="lead">Socrata for Public Safety enables public safety agencies to share their data, increase transparency, and instill greater trust and engagement with their communities.</p>
 				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-safety/" class="btn btn-lg btn-warning">Read More</a></div>
@@ -44,10 +40,10 @@
 					<div class="row">
 				        <div class="text">
 							<div class="col-sm-6">
-								<div class="box-white padding-30">
-									<h1 class="margin-bottom-15">Socrata Open Budget</h1>
-									<p class="lead">Socrata Open Budget provides an interactive experience that allows visitors to explore the operating and capital budgets of their government, replacing static reports that are difficult to analyze or consume.</p>
-				                    <div style="margin:0;"><a href="/products/open-budget/" class="btn btn-lg btn-warning">Read More</a></div>
+								<div id="home-hero-slide-3" class="box-white padding-30">
+									<h1 class="margin-bottom-15">Socrata for Public Finance</h1>
+									<p class="lead">Socrata for Public Finance provides a holistic solution for capturing and sharing financial activities and priorities with internal government employees and the general public.</p>
+				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-finance/" class="btn btn-lg btn-warning">Explore Solutions</a></div>
 				            	</div>
 							</div>
 				        </div>
