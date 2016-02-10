@@ -214,7 +214,7 @@ Socrata's cloud-based solution allows government organizations to put their data
 						<div class="card-text truncate">
 							<p class="categories"><small><?php Roots\Sage\Extras\blog_the_categories(); ?><small></p>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
+							<p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F j, Y') ?></small></p>
 							<?php the_excerpt(); ?> 
 						</div>			
 					</div>
@@ -273,7 +273,7 @@ Socrata's cloud-based solution allows government organizations to put their data
 						<div class="card-text truncate">
 							<p class="categories"><small><?php tech_blog_the_categories(); ?><small></p>
 							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
+							<p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F j, Y') ?></small></p>
 							<?php the_excerpt(); ?> 
 						</div>			
 					</div>
