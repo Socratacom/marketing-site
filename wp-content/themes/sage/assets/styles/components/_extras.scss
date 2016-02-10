@@ -523,6 +523,7 @@
 
         .table-of-contents {
             border-top:$peter-river solid 5px;
+            margin-top:60px;
             h4 {
                 margin-top:15px;
                 color:$wet-asphalt;
@@ -819,6 +820,10 @@
             h1 {
                 font-size: 46px;
             }
+        }
+
+        .table-of-contents {
+            margin-top:0;
         }
 
         .opg-nav {
