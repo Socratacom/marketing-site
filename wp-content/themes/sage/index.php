@@ -36,7 +36,7 @@
 					<?php if (function_exists("pagination")) {pagination($additional_loop->max_num_pages);} ?>
 
 		</div>
-		<div class="col-sm-3 hidden-xs">
+		<div class="col-sm-3 hidden-xs">			
 			<?php
 	          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
 	          $orderby = 'name';
@@ -54,13 +54,36 @@
 	            'hide_empty' => $hide_empty,
 	            'hierarchical' => $hierarchical,
 	            'taxonomy' => $taxonomy,
-	            'title_li' => '<h5 class="background-peter-river">'. $title .'</h5>'
+	            'title_li' => '<h5>'. $title .'</h5>'
 	          );
 	        ?>
+			
 	        <ul class="category-nav blog-nav">
 	          <?php wp_list_categories($args); ?>
 	        </ul>
 			<?php echo do_shortcode('[newsletter-sidebar]'); ?>
+			<div class="subscribe">
+	           	<ul>	           		
+	           		<li><a class="twitter-follow-button" href="https://twitter.com/socrata" data-size="large">Follow @Socrata</a></li>
+	           		<li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS'); ?>" target="_blank" class="btn btn-warning"><i class="fa fa-rss"></i> <?php _e('FEED'); ?></a></li>
+	           	</ul>
+				<script>window.twttr = (function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0],
+				t = window.twttr || {};
+				if (d.getElementById(id)) return t;
+				js = d.createElement(s);
+				js.id = id;
+				js.src = "https://platform.twitter.com/widgets.js";
+				fjs.parentNode.insertBefore(js, fjs);
+
+				t._e = [];
+				t.ready = function(f) {
+				t._e.push(f);
+				};
+
+				return t;
+				}(document, "script", "twitter-wjs"));</script>
+           </div>
 		</div>
 	</div>
 </div>

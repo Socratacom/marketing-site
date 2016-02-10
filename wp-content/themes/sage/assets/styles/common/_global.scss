@@ -741,6 +741,18 @@ body {
 		padding:30px;
 	}
 
+	.subscribe {
+		margin-top:30px;
+		ul {
+			list-style-type: none;
+			margin:0;
+			padding:0 15px;
+			li:first-child {
+				margin-bottom:15px;
+			}
+		}
+	}
+
 
 	/* Category Nav */
 	.category-nav {
@@ -752,7 +764,7 @@ body {
 			font-size: 16px;
 			text-transform: uppercase;
 			padding:10px;
-			color:white;
+			border-top:solid 3px $peter-river;
 		}
 		ul {
 			list-style-type: none;
