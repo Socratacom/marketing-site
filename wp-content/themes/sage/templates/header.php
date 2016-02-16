@@ -3,7 +3,7 @@
     <div class="container">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="ui-menu__content">
             <i class="ui-menu__line ui-menu__line_1"></i>
@@ -15,11 +15,10 @@
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="/products" class="hidden-xs hidden-sm hidden-md">Products</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
+            <a href="/products">Products</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_products',
               'container'       => '',
@@ -27,8 +26,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="/solutions" class="hidden-xs hidden-sm hidden-md">Solutions</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
+            <a href="/solutions">Solutions</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_solutions',
               'container'       => '',
@@ -36,17 +34,15 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="#" class="hidden-xs hidden-sm hidden-md">Resources</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <a href="/resources">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li class="dropdown">
-            <a href="#" class="hidden-xs hidden-sm hidden-md">Community</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
+          <li class="dropdown hidden-xs hidden-sm hidden-md">
+            <a href="#">Community</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_community',
               'container'       => '',
@@ -54,8 +50,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="#" class="hidden-xs hidden-sm hidden-md">About</a>
-            <a href="#" class="dropdown-toggle hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+            <a href="/company-info">About</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_about',
               'container'       => '',
@@ -63,10 +58,16 @@
             ) ); ?>
           </li>
           <li><a href="/blog">Blog</a></li>
-          <!--<li><a href="/search"><i class="fa fa-search"></i></a></li>-->
+          <li class="dropdown site-search">
+            <a href="/search"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
+            <ul class="dropdown-menu">
+              <li><gcse:searchbox-only resultsUrl="/search" newWindow="false"></li>
+            </ul>
+          </li>
           <li id="header-cta-button" class="hidden-xs hidden-sm"><a href="/request-a-demo/" class="btn btn-default">Schedule a Meeting</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 </header>
+
