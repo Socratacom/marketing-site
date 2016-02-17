@@ -13,10 +13,14 @@
       </div>
       <div class="col-md-3 hidden-sm hidden-xs">
         <div class="category-nav">
-          <h5 class="background-wet-asphalt" >Guide Chapters</h5>
+          <h5>Guide Chapters</h5>
           <?php wp_nav_menu( array( 'theme_location' => 'field_guide' ) ); ?>
         </div>
-        <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
+        <div class="padding-15 background-clouds">
+          <h4>Request a demo of Open Data</h4>
+          <p>Interested in establishing an open data portal for your community? Send us your contact information to get started with a personalized demo and pricing.</p>
+          <?php echo do_shortcode('[marketo-form id="2846"]');?>
+        </div>
       </div>
     </div>
   </div>

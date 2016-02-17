@@ -151,7 +151,7 @@
 
 .carousel {
     .slide {
-        height:500px;        
+        min-height:500px;        
         background-repeat:no-repeat;
         background-size:cover;
         background-position:center center;
@@ -159,7 +159,7 @@
         .row {
             & > [class^="col-"],
             & > [class*=" col-"] {
-                height:500px;
+                min-height:500px;
             }
         }
     }
