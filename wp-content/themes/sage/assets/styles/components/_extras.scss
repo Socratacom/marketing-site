@@ -35,6 +35,31 @@
     }
 }
 
+dl.quote-author {
+    height: 60px;
+    position: relative;
+    display: table;
+    width:100%;
+    dt {
+        text-align:right;
+        font-size:14px;
+        font-weight: $font-normal;
+        padding-right:75px;
+        vertical-align: middle;
+        display: table-cell;
+        span {
+            display: block;
+            font-weight: $font-light;
+            font-size: 13px;
+        }
+    }
+    dd {
+        position: absolute;
+        top:0;
+        right:0;
+    }
+}
+
 /* Reponsive Video iFrame */
 .video-container {
     position: relative;
