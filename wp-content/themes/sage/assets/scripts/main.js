@@ -24,6 +24,18 @@
       finalize: function() {
         // JavaScript to be fired after the init JS
 
+        // Google Site Search
+        (function() {
+        var cx = '010927318898930298786:p7-vwztjtlq';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+        })();
+        
         // Truncate script
         $(document).ready(function() {
           $(".truncate").dotdotdot({

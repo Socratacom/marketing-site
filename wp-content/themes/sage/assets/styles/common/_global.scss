@@ -741,6 +741,18 @@ body {
 		padding:30px;
 	}
 
+	.subscribe {
+		margin-top:30px;
+		ul {
+			list-style-type: none;
+			margin:0;
+			padding:0 15px;
+			li:first-child {
+				margin-bottom:15px;
+			}
+		}
+	}
+
 
 	/* Category Nav */
 	.category-nav {
@@ -752,7 +764,7 @@ body {
 			font-size: 16px;
 			text-transform: uppercase;
 			padding:10px;
-			color:white;
+			border-top:solid 5px $peter-river;
 		}
 		ul {
 			list-style-type: none;
@@ -885,16 +897,15 @@ body {
 		margin-top:-10px;
 		padding:0;
 		li {
-			padding:10px 10px 10px 32px;
-			margin-bottom:5px;
+			padding:5px 10px 5px 32px;
 			position: relative;
 		}
 		li:before {
 			font-family: fontawesome;
 			content:"\f058"; 
 			position: absolute;
-			top:10px;
-			left:0px;
+			top:4px;
+			left:1px;
 			color:$nephritis;
 			font-size: 24px;
 		}

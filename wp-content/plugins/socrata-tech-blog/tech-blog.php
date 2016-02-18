@@ -214,7 +214,7 @@ function tech_blog_posts($atts, $content = null) {
                 <div class="card-text truncate">
                   <p class="categories"><small><?php tech_blog_the_categories(); ?><small></p>
                   <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-                  <p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F jS, Y') ?></small></p>
+                  <p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F j, Y') ?></small></p>
                   <?php the_excerpt(); ?> 
                 </div>
               </div>
@@ -250,7 +250,7 @@ function tech_blog_posts($atts, $content = null) {
             'hide_empty' => $hide_empty,
             'hierarchical' => $hierarchical,
             'taxonomy' => $taxonomy,
-            'title_li' => '<h5 class="background-sun-flower">'. $title .'</h5>'
+            'title_li' => '<h5>'. $title .'</h5>'
           );
         ?>
         <ul class="category-nav">

@@ -54,7 +54,7 @@
             'hide_empty' => $hide_empty,
             'hierarchical' => $hierarchical,
             'taxonomy' => $taxonomy,
-            'title_li' => '<h5 class="background-green-sea">'. $title .'</h5>'
+            'title_li' => '<h5>'. $title .'</h5>'
           );
         ?>
         <ul class="category-nav">
@@ -77,7 +77,7 @@
             'hide_empty' => $hide_empty,
             'hierarchical' => $hierarchical,
             'taxonomy' => $taxonomy,
-            'title_li' => '<h5 class="background-green-sea">'. $title .'</h5>'
+            'title_li' => '<h5>'. $title .'</h5>'
           );
         ?>
         <ul class="category-nav">

@@ -32,6 +32,23 @@ function excerpt_more() {
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
+
+
+add_filter('next_post_link', __NAMESPACE__ . '\\next_post_link_attributes');
+function next_post_link_attributes($output) {
+    $code = 'class="next-post-button"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
+}
+
+add_filter('previous_post_link', __NAMESPACE__ . '\\previous_post_link_attributes');
+function previous_post_link_attributes($output) {
+    $code = 'class="previous-post-button"';
+    return str_replace('<a href=', '<a '.$code.' href=', $output);
+}
+
+
+
+
 /**
  * Adds category name to blog
  */

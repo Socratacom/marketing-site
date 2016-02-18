@@ -25,7 +25,7 @@
 						<div class="card-text truncate">
 		                  <p class="categories"><small><?php news_the_categories(); ?><small></p>
 		                  <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-		                  <p class="meta"><small><strong>Posted</strong>, <?php the_time('F jS, Y') ?></small></p>
+		                  <p class="meta"><small><strong>Posted</strong>, <?php the_time('F j, Y') ?></small></p>
 		                  <?php the_excerpt(); ?> 
 		                </div>
 					</div>
@@ -55,7 +55,7 @@
             'hide_empty' => $hide_empty,
             'hierarchical' => $hierarchical,
             'taxonomy' => $taxonomy,
-            'title_li' => '<h5 class="background-alizarin">'. $title .'</h5>'
+            'title_li' => '<h5>'. $title .'</h5>'
           );
         ?>
         <ul class="category-nav">
