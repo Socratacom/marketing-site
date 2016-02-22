@@ -1,5 +1,22 @@
  <section class="home-hero">
 	<div class="slider">
+		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-crime-reports.jpg);">
+			<div class="text-wrapper">
+				<div class="container">
+					<div class="row">
+				        <div class="text">
+							<div class="col-sm-6">
+								<div class="box-white padding-30">
+									<h1 class="margin-bottom-15">Introducing Crime Reports</h1>
+									<p class="lead">Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor.</p>
+				                    <div style="margin:0;"><a href="#" class="btn btn-lg btn-warning">Read More</a></div>
+				            	</div>
+							</div>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>	
 		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-one.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
@@ -17,7 +34,7 @@
 				</div>
 			</div>
 		</div>		
-		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-law-enforcement.jpg);">
+		<!--<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-law-enforcement.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
 					<div class="row">
@@ -33,7 +50,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-open-budget.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
