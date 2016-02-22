@@ -268,6 +268,7 @@ body {
 	}
 	a {
 		color:lighten($nephritis, 20%);
+		border-bottom:lighten($nephritis, 20%) dotted 1px;
 	}
 	a:hover {
 		color:lighten($nephritis, 30%);
@@ -289,6 +290,13 @@ body {
 	background-color:$peter-river;
 	.btn-default {
 		color:$peter-river;
+	}
+	a {
+		color:lighten($peter-river, 20%);
+		border-bottom:lighten($peter-river, 20%) dotted 1px;
+	}
+	a:hover {
+		color:lighten($peter-river, 30%);
 	}
 }
 .overlay-peter-river:before {

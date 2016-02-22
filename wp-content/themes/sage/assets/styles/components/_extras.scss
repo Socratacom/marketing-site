@@ -172,6 +172,24 @@ dl.quote-author {
     }
 }
 
+.feature-table {
+    i {
+        font-size: 18px;
+    }
+    tbody td:nth-child(2) {
+        background-color:lighten($nephritis, 50%);
+        i {
+            color:$nephritis;
+        }
+    }
+    tbody td:nth-child(3) {
+        background-color:lighten($nephritis, 46%);
+        i {
+            color:$nephritis;
+        }
+    }
+}
+
 /* Slider My Styles */
 
 .carousel {
