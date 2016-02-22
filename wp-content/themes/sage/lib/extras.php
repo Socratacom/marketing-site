@@ -32,8 +32,9 @@ function excerpt_more() {
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
-
-
+/**
+ * Next Previous nav
+ */
 add_filter('next_post_link', __NAMESPACE__ . '\\next_post_link_attributes');
 function next_post_link_attributes($output) {
     $code = 'class="next-post-button"';
@@ -46,6 +47,18 @@ function previous_post_link_attributes($output) {
     return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
 
+
+/**
+ * Adds responisve image class to images
+ */
+function WPTime_add_custom_class_to_all_images($content){
+    /* Filter by Qassim Hassan - http://wp-time.com */
+    $my_custom_class = "img-responsive"; // your custom class
+    $add_class = str_replace('<img class="', '<img class="'.$my_custom_class.' ', $content); // add class
+
+    return $add_class; // display class to image
+}
+add_filter('the_content', __NAMESPACE__ . '\\WPTime_add_custom_class_to_all_images');
 
 
 
@@ -327,25 +340,6 @@ $('#mediaModal').on('hidden.bs.modal', function () {
   return $content;
 }
 add_shortcode('youtube-modal', __NAMESPACE__ . '\\youtube_modal');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /**
  * Author Description
