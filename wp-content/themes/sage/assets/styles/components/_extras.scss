@@ -166,7 +166,7 @@ dl.quote-author {
     }
     li a {
         padding: 5px 0;
-        font-weight: 400;
+        font-weight: $font-normal;
         display: block;
         font-size: 14px;
     }
@@ -514,7 +514,7 @@ dl.quote-author {
                 border-radius:0;
             }
             .dropdown-menu>li>a {
-                font-weight: 300;
+                font-weight: $font-light;
                 color: white;
             }
             .dropdown-menu>li>a:hover {

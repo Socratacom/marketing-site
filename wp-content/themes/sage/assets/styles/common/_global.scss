@@ -1,5 +1,5 @@
 body {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color:$gray-dark;
 	background-color:$gray-dark;
 }
@@ -571,47 +571,49 @@ body {
 @media only screen and (min-width : 320px) {
 
 	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	    font-family: inherit;
-	    font-weight: $font-normal;
-	    line-height: normal;
 	    color: $midnight-blue;
 	    margin-top:0;
-	    margin-bottom:1em;
+	    margin-bottom:15px;
 	}
-	h1 {
-		font-size:24px;
+	h1, h2 {
 		letter-spacing:-1px;
 		font-weight: $font-bold;
-
-	}
-	h2 {
-		font-size:20px;
-		font-weight: $font-bold;
-	
 	}
 	h3 {
-		font-size:18px;
-		
+		font-weight: $font-normal;
+	}
+
+	h4, h5, h6 {
+		font-weight: $font-semi-bold;		
+	}
+	h1 {
+		font-size: 36px;
+	}
+	h2 {
+		font-size: 30px;
+	}
+	h3 {
+		font-size: 24px;
 	}
 	h4 {
-		font-size:18px;
-		margin-bottom:20px;
+		font-size: 18px;
 	}
 	h5 {
-		font-size:16px;
+		font-size: 14px;
 	}
-	h6 {
-		font-size:16px;
-		margin-bottom:1em;
+	p, li {		
+		font-size:14px;
 	}
-	p, li {
-		color:#666;
+	.lead {
+		font-size: 18px;
+	}
+	.lead, p, li {
+		color:darken($asbestos, 15%);
 		font-weight:$font-light;
-		font-size: 16px;
 		line-height: 1.5em;
 	}
-	p, ul, ol, figure {
-		margin-bottom:1.63em;
+	ul, p, blockquote {
+		margin-bottom:1.5em;
 	}
 	ul, ol {
 		padding-left:20px;
@@ -631,6 +633,7 @@ body {
 	.background-clouds hr {
 		border-top:darken($clouds, 5%) solid 5px
 	}
+
 	table {
 		h4 {
 			margin:20px 0; 
@@ -644,10 +647,10 @@ body {
 		}
 		tr>th, td, td p, th p, td li {
 			font-size:14px;
-			font-weight: 300;
+			font-weight: $font-light;
 		}
 		tr>th, th p {
-			font-weight: 400;
+			font-weight: $font-normal;
 		}
 
 	}
@@ -943,9 +946,7 @@ body {
 	.img-responsive {
 		display: inline-block;
 	}
-	.lead {
-		font-size: 16px;
-	}
+	
 }
 
 /* Extra Small Devices, Phones */ 
@@ -966,50 +967,42 @@ body {
 	    padding-left: 0;
 	  }
 	}
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
 	h1 {
-		font-size:36px;
-		letter-spacing:-1px;
-		font-weight: $font-bold;
+		font-size: 40px;
 	}
 	h2 {
-		font-size:28px;
-		font-weight: $font-bold;
+		font-size: 32px;
 	}
-	p, li {
+	h3 {
+		font-size: 28px;
+	}
+	h4 {
+		font-size: 20px;
+	}
+	h5 {
 		font-size: 16px;
 	}
-	.lead {
-		font-size:21px;
+	p, li {		
+		font-size:16px;
 	}
-
+	.lead {
+		font-size: 20px;
+	}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 	h1 {
-		font-size:50px;
-		letter-spacing:-1px;
-		font-weight: $font-bold;
+		font-size: 50px;
 	}
 	h2 {
-		font-size:40px;
-		font-weight: $font-bold;
+		font-size: 36px;
 	}
 	h3 {
-		font-size:32px;
-	}
-	h4 {
-		font-size:20px;
-	}
-	h5 {
-		font-size:18px;
+		font-size: 30px;
 	}
 }
+
 
 
 
