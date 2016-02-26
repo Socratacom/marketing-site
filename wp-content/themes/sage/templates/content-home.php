@@ -174,7 +174,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
-				<h2>Our Customers</h1>
+				<h2 class="margin-bottom-15">Our Customers</h1>
 				<p class="lead">Hundreds of cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>
 				<p><a href="/customer-stories">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
 			</div>
@@ -305,7 +305,7 @@ Socrata's cloud-based solution allows government organizations to put their data
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-1" data-sr='enter left move 50px'>
 				<div class="padding-30">
-					<h2 class="text-reverse">Give us an hour.</h2>
+					<h2 class="text-reverse margin-bottom-15">Give us an hour.</h2>
 					<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our data platform can do for you.</p>
 					<p id="section-cta-button"><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
 					<p class="lead text-reverse">Or call (206) 340-8008.</p>
