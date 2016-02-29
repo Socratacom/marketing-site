@@ -58,8 +58,8 @@
             ) ); ?>
           </li>
           <li><a href="/blog">Blog</a></li>
-          <li class="dropdown site-search">
-            <a href="#" class="hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
+          <li class="dropdown site-search">            
+            <a href="#" class="hidden-xs hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>            
             <a href="/search" class="hidden-lg"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
             <ul class="dropdown-menu">
               <li><gcse:searchbox-only resultsUrl="/search" newWindow="false"></li>
