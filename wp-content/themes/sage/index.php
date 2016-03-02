@@ -8,6 +8,20 @@
 	</div>	
 	<div class="row">
 		<div class="col-sm-9">
+			<?php $my_query = new WP_Query( 'post_type=post&posts_per_page=1' );
+while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+<div class="col-sm-12">
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
+<div class="featured-post overlay-black" style="background-image: url(<?=$url?>);">				
+<div class="text truncate">
+<div class="post-category background-peter-river">Open Data Blog</div>
+<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>	
+</div>				
+<?php get_template_part('templates/entry-meta'); ?>
+<a href="<?php the_permalink() ?>" class="link"></a>
+</div>
+</div>
+<?php endwhile; ?>
 			<?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
 		</div>
 		<div class="col-sm-3 hidden-xs">

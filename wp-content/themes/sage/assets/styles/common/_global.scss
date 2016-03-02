@@ -897,6 +897,13 @@ body {
 			}
 		}
 	}
+	ul.no-bullets {
+		list-style-type: none;
+		padding:0;
+		li {
+			margin-bottom:1em;
+		}
+	}
 	/* Check Mark List */
 	ul.check-mark-list {
 		list-style-type: none;

@@ -37,9 +37,9 @@
         })();
 
         setTimeout( function(){ 
-    jQuery(".gsc-input").attr("placeholder", "Search this site");
-  }
- , 1000 );
+          jQuery(".gsc-input").attr("placeholder", "Search this site");
+        }
+       , 1000 );
         
         // Truncate script
         $(document).ready(function() {
