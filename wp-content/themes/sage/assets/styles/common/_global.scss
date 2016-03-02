@@ -682,13 +682,6 @@ body {
 	}
 	.text-reverse {
 		color:white;
-		a {
-			color:white;
-			border-bottom: white dotted 1px;
-		}
-		a:hover {
-			color:lighten($peter-river, 30%);
-		}
 	}
 	//margins
 	.margin-bottom-15 {
