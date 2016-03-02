@@ -17,6 +17,7 @@ Additional Plugins Used
 
 Change History
 ---
+- V2.1.2 - Added Google Site search and updated header navigation CSS.
 - V2.1.1 - Launched Socrata Events section. Bug Fixes.
 - V2.1.0 - Addition of new product pages. Addition of product and solution landing pages. Header navigation changed to hover activation. Updated Open Data Field Guide.
 - V2.0.4 - CSS updates mostly centered around video display. Added video bacground scripts and modal updates.
