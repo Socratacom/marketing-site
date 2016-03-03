@@ -7,9 +7,9 @@
 				        <div class="text">
 							<div class="col-sm-6">
 								<div class="box-white padding-30">
-									<h1 class="margin-bottom-15">Introducing Motorola CrimeReports&trade; powered by Socrata</h1>
+									<h1 class="margin-bottom-15">Introducing CrimeReports&trade;</h1>
 									<p class="lead">Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor.</p>
-				                    <div style="margin:0;"><a href="/products/motorola-solutions-crimereports" class="btn btn-lg btn-warning">Read More</a></div>
+				                    <div style="margin:0;"><a href="/products/crimereports" class="btn btn-lg btn-warning">Read More</a></div>
 				            	</div>
 							</div>
 				        </div>

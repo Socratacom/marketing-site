@@ -623,7 +623,14 @@ body {
 	a {
 		color:$peter-river;
 		cursor: pointer;
-	}	
+	}
+	a.link-reverse {
+		color:white;
+		border-bottom:white dotted 1px;
+	}
+	a.link-reverse:hover {
+		color:lighten($peter-river, 30%)
+	}
 	a:hover {
 		color:darken($peter-river, 10%);
 		text-decoration:none;
@@ -665,13 +672,17 @@ body {
 			margin-bottom:1.63em;
 		}
 	}
-	figure {
-		background:$clouds;
-		padding:15px;
-		margin-bottom:1.63em;
+	figure.wp-caption {
+		background-color:$clouds !important;
+		padding:15px !important;
+		margin-bottom:1.63em !important;
+		border-radius:0 !important;
 		figcaption {
 			padding:15px;
 		}
+	}
+	figure[style] {
+		max-width:100% !important;
 	}
 	.modal-content {
 		border-radius:0;
