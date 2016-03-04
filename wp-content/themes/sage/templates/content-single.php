@@ -1,11 +1,11 @@
 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); $url = $thumb['0']; ?>
-<div class="feature-image hidden-xs" style="background-image: url(<?=$url?>);">
-  <div class="pattern-overlay"></div>
+<div class="feature-image" style="background-image: url(<?=$url?>);">
   <?php echo do_shortcode('[image-attribution]'); ?>
 </div>
+<section class="section-padding">
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 col-md-7 col-md-offset-1 article-content">
+    <div class="col-sm-8 col-md-6">
       <div class="wrapper">
         <?php while (have_posts()) : the_post(); ?>
           <article <?php post_class(); ?>>
@@ -34,31 +34,194 @@
           </div>        
       </div>
     </div>
-    <div class="col-sm-4 col-md-3 sidebar hidden-xs">
-      <?php
-      //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-      $orderby = 'name';
-      $show_count = 0; // 1 for yes, 0 for no
-      $pad_counts = 0; // 1 for yes, 0 for no
-      $hide_empty = 1;
-      $hierarchical = 1; // 1 for yes, 0 for no
-      $taxonomy = 'category';
-      $title = 'Blog Categories';
 
-      $args = array(
-      'orderby' => $orderby,
-      'show_count' => $show_count,
-      'pad_counts' => $pad_counts,
-      'hide_empty' => $hide_empty,
-      'hierarchical' => $hierarchical,
-      'taxonomy' => $taxonomy,
-      'title_li' => '<h5>'. $title .'</h5>'
-      );
-      ?>
-      <ul class="category-nav blog-nav">
-        <?php wp_list_categories($args); ?>
-      </ul>
+
+<div class="col-sm-4 col-md-3 hidden-xs">
+
+<?php
+$args = array(
+'post_type'         => 'post',
+'order'             => 'asc',
+'posts_per_page'    => 3,
+'post_status'       => 'publish',
+);
+
+// The Query
+$the_query = new WP_Query( $args );
+
+// The Loop
+if ( $the_query->have_posts() ) {
+echo '<ul class="no-bullets sidebar-list">';
+echo '<li><h5>Recent Articles</h5></li>';
+while ( $the_query->have_posts() ) {
+$the_query->the_post(); { ?> 
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
+<li>
+  <div class="article-img-container">
+    <img src="<?=$url?>" class="img-responsive">
+  </div>
+  <div class="article-title-container">
+    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php the_time('F j, Y') ?></small>
+  </div>
+</li>
+<?php }
+}
+echo '<li><a href="/blog">View All Articles <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+echo '</ul>';
+} else {
+// no posts found
+}
+/* Restore original Post Data */
+wp_reset_postdata(); ?>
+
+<?php
+$args = array(
+'post_type'         => 'socrata_videos',
+'order'             => 'asc',
+'posts_per_page'    => 3,
+'post_status'       => 'publish',
+);
+
+// The Query
+$the_query = new WP_Query( $args );
+
+// The Loop
+if ( $the_query->have_posts() ) {
+echo '<ul class="no-bullets sidebar-list">';
+echo '<li><h5>Recent Videos</h5></li>';
+while ( $the_query->have_posts() ) {
+$the_query->the_post(); { ?> 
+
+<li>
+  <div class="article-img-container">
+    <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/default.jpg" class="img-responsive">
+  </div>
+  <div class="article-title-container">
+    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+  </div>
+</li>
+
+<?php }
+}
+echo '<li><a href="/videos">View All Videos <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+echo '</ul>';
+} else {
+// no posts found
+}
+/* Restore original Post Data */
+wp_reset_postdata(); ?>
+
+<?php
+$args = array(
+'post_type'         => 'case_study',
+'order'             => 'asc',
+'posts_per_page'    => 3,
+'post_status'       => 'publish',
+);
+
+// The Query
+$the_query = new WP_Query( $args );
+
+// The Loop
+if ( $the_query->have_posts() ) {
+echo '<ul class="no-bullets sidebar-list">';
+echo '<li><h5>Recent Case Studies</h5></li>';
+while ( $the_query->have_posts() ) {
+$the_query->the_post(); { ?> 
+
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
+<li>
+  <div class="article-img-container">
+    <img src="<?=$url?>" class="img-responsive">
+  </div>
+  <div class="article-title-container">
+    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+  </div>
+</li>
+
+<?php }
+}
+echo '<li><a href="/case-studies">View All Case Studies <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+echo '</ul>';
+} else {
+// no posts found
+}
+/* Restore original Post Data */
+wp_reset_postdata(); ?>
+
+<?php
+
+$today = strtotime('today UTC');        
+
+$event_meta_query = array( 
+  'relation' => 'AND',
+  array( 
+    'key' => 'socrata_events_endtime', 
+    'value' => $today, 
+    'compare' => '>=', 
+  ) 
+); 
+
+$args = array(
+'post_type'         => 'socrata_events',
+'posts_per_page'    => 3,
+'post_status' => 'publish',
+'ignore_sticky_posts' => true,  
+'meta_key' => 'socrata_events_endtime',
+'orderby' => 'meta_value_num',
+'order' => 'asc',
+'meta_query' => $event_meta_query
+);
+
+// The Query
+$the_query = new WP_Query( $args );
+
+// The Loop
+if ( $the_query->have_posts() ) {
+echo '<ul class="no-bullets sidebar-list">';
+echo '<li><h5>Upcoming Events</h5></li>';
+while ( $the_query->have_posts() ) {
+$the_query->the_post(); { ?> 
+
+<li><?php the_title(); ?></li>
+
+<?php }
+}
+echo '<li><a href="/events">View All Events <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+echo '</ul>';
+} else { ?>
+<ul class="no-bullets sidebar-list">
+<li><h5>Upcoming Events</h5></li>
+<li>No Events</li>
+</ul>
+<?php
+}
+/* Restore original Post Data */
+wp_reset_postdata(); ?>
+
+
+
+ 
+</div>
+
+<div class="col-md-3 hidden-xs hidden-sm">
+<?php echo do_shortcode('[newsletter-sidebar]'); ?> 
+</div>
+
+
+
+
+
+    
+
+
+    <!--
+    <div class="col-sm-4 col-md-3 sidebar hidden-xs">
+      
+
       <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+      
+
       <div class="subscribe">
         <ul>                
           <li><a class="twitter-follow-button" href="https://twitter.com/socrata" data-size="large">Follow @Socrata</a></li>
@@ -81,6 +244,13 @@
         return t;
         }(document, "script", "twitter-wjs"));</script>
       </div>
+
+
+
+
+
     </div>
+    -->
   </div>
 </div>
+</section>

@@ -423,7 +423,43 @@ dl.quote-author {
     }
 }
 
+.sidebar-list {
+    margin-bottom:30px;
+    h5 {
+        margin:0;
+        text-transform: uppercase;
+    }
+    li {
+        border-bottom:lighten($silver, 15%) solid 1px;
+        margin:0 !important;
+        padding: 10px 0;
+        line-height: normal;
+        font-weight: $font-normal;
+        font-size: 14px;
+    }
+    li:first-child {
+        border-top:$clouds solid 5px;
+    }
+    li:last-child {
+        border:none;
+    }
+    a {
+        font-weight: $font-normal;
+        font-size: 14px;
+    }
+    .article-img-container {
+        display:inline-block;
+        width:20%;
+        vertical-align: top;
+        margin-right:4%;
+    }
+    .article-title-container {
+        display:inline-block;
+        width:70%;
+        vertical-align: top;
+    }
 
+}
 
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {        
