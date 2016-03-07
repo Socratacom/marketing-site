@@ -8,7 +8,7 @@
 							<div class="col-sm-6">
 								<div class="box-white padding-30">
 									<h1 class="margin-bottom-15">Introducing CrimeReports&trade;</h1>
-									<p class="lead">Curabitur blandit tempus porttitor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor.</p>
+									<p class="lead">CrimeReports can help police agencies improve public and media perception by proactively sharing local crime information and providing visibility to agency operations.</p>
 				                    <div style="margin:0;"><a href="/products/crimereports" class="btn btn-lg btn-warning">Read More</a></div>
 				            	</div>
 							</div>

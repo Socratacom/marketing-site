@@ -699,22 +699,13 @@
 					display: block;
 				}
 			}
-
 			.thumb {
-				position: relative;
-				height:200px;
-				width:200px;
-				margin: 0 auto 15px auto;
-				text-align: center;
-				border-radius:50%;
-				p {
-					margin: 0;
-				}
 				img {
+					max-width: 200px;
+					max-height: 200px;
 					cursor: pointer;
 				}
 			}
-
 			.modal-header {
 				background-color:$clouds;
 				height:100px;
@@ -727,7 +718,30 @@
 					cursor: default;
 				}
 				h4 {
-					margin-bottom:30px;
+					margin-bottom:15px;
+				}
+				.social-icons {
+					list-style-type: none;
+					padding: 0;
+					text-align: center;
+					li {
+						display: inline-block;
+						margin:0 5px;
+						a {
+							display: block;
+							position: relative;
+							width:32px;
+							height:32px;
+							background-color:$peter-river;
+							border-radius:50%;
+							overflow: hidden;
+						}
+						i {
+							font-size: 16px;
+							padding-top:7px;
+							color:white;
+						}
+					}
 				}
 			}
 		}
@@ -834,7 +848,7 @@
 	}
 	.leadership {
 		article {
-			.thumb {
+			/*.thumb {
 				ul {
 					list-style-type: none;
 					margin: 0;
@@ -857,8 +871,8 @@
 						}
 					}
 				}
-			}
-			.thumb:before {
+			}*/
+			/*.thumb:before {
 				content:"";
 				position: absolute;
 				top:0;
@@ -874,7 +888,7 @@
 			}
 			.thumb:hover ul, .thumb:hover:before {
 				opacity: 1;
-			}			
+			}	*/		
 		}
 	}
 }
