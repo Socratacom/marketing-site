@@ -119,6 +119,19 @@ function marketo_share($atts, $content = null) {
 }
 add_shortcode('marketo-share', __NAMESPACE__ . '\\marketo_share');
 
+function marketo_share_custom($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397"></div>
+  <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('marketo-share-custom', __NAMESPACE__ . '\\marketo_share_custom');
+
+
 
 /**
  * Carousel Script. This temporary till I can figure out the frick'n plugin

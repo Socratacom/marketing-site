@@ -50,48 +50,71 @@
 		position: absolute;
 		right:13px;
 		top:15px;
+		.cf_actionElem {
+			display:none !important;
+		}
+		.cf_widget .cf_socialicons .cf_socialicon {
+			width:32px !important;
+			height: 32px !important;
+		}
+		.cf_linkedin, .cf_twitter, .cf_facebook {
+			background-image:none !important;
+			position: relative !important;
+		}
+		.cf_linkedin {	
+			background-color:#007bb6 !important;
+		}
+		.cf_twitter {
+			background-color:#4099ff !important;
+		}
+		.cf_facebook {
+			background-color:#3b5998 !important;
+		}
+		.cf_linkedin:before, .cf_twitter:before, .cf_facebook:before  {
+			position: absolute;
+			font-family: 'FontAwesome';
+			color:#fff;
+			font-size: 16px;
+		}
+		.cf_linkedin:before {
+			top: 3px;
+			left: 9px;
+			content: "\f0e1";
+		}
+		.cf_twitter:before {
+			top: 4px;
+			left: 9px;
+			content: "\f099";
+		}
+		.cf_facebook:before {
+			top: 4px;
+			left: 11px;
+			content: "\f09a";
+		}
 	}
-	.cf_actionElem {
-		display:none !important;
+	.social-sharing {
+		margin-bottom:30px;
+		.cf_actionElem {
+			display:none !important;
+		}
 	}
-	.cf_widget .cf_socialicons .cf_socialicon {
-		width:32px !important;
-		height: 32px !important;
-	}
-	.cf_linkedin, .cf_twitter, .cf_facebook {
-		background-image:none !important;
-		position: relative !important;
-	}
-	.cf_linkedin {	
-		background-color:#007bb6 !important;
-	}
-	.cf_twitter {
-		background-color:#4099ff !important;
-	}
-	.cf_facebook {
-		background-color:#3b5998 !important;
-	}
-	.cf_linkedin:before, .cf_twitter:before, .cf_facebook:before  {
-		position: absolute;
-		font-family: 'FontAwesome';
-		color:#fff;
-		font-size: 16px;
-	}
-	.cf_linkedin:before {
-		top: 3px;
-		left: 9px;
-		content: "\f0e1";
-	}
-	.cf_twitter:before {
-		top: 4px;
-		left: 9px;
-		content: "\f099";
-	}
-	.cf_facebook:before {
-		top: 4px;
-		left: 11px;
-		content: "\f09a";
-	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	/* Pagination */
 
@@ -233,29 +256,16 @@
 			font-weight: $font-normal;
 		}
 	}
-}
-
-/* Extra Small Devices, Phones */ 
-@media only screen and (min-width : 480px) {
-
-}
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
 	.feature-image {
-		height:300px;
+		min-height:400px;
 		background-size: cover;
 		background-repeat: no-repeat;
 		background-position: center center;
 		background-color: #222;
 		width:100%;
 		position:relative;
-		.pattern-overlay {
-			position:absolute;
-			height:100%;
-			width:100%;
-			background:url(../images/pattern-stripe.png);
-			opacity: 0.3;
+		h1 {
+			margin:0;
 		}
 		.image-attribution {
 			position: absolute;
@@ -268,6 +278,17 @@
 			color:$silver;
 		}
 	}
+
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
 	.featured-post {
 		height:400px;
 		.text {
@@ -288,9 +309,7 @@
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
-	.feature-image {
-		height:400px;
-	}
+
 
 }
 

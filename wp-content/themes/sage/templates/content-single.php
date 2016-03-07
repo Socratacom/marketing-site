@@ -1,39 +1,43 @@
 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); $url = $thumb['0']; ?>
-<div class="feature-image" style="background-image: url(<?=$url?>);">
+<div class="feature-image overlay-black" style="background-image: url(<?=$url?>);">
+  <div class="vertical-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <h1 class="entry-title text-reverse text-center"><?php the_title(); ?></h1>
+        </div>
+      </div>
+    </div>
+  </div>
   <?php echo do_shortcode('[image-attribution]'); ?>
 </div>
 <section class="section-padding">
-<div class="container">
-  <div class="row">
-    <div class="col-sm-8 col-md-6">
-      <div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-md-6">
         <?php while (have_posts()) : the_post(); ?>
           <article <?php post_class(); ?>>
-            <small class="category-name"><?php Roots\Sage\Extras\blog_the_categories(); ?></small>
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            <?php get_template_part('templates/entry-meta'); ?>
-            <div class="entry-content">
-              <?php the_content(); ?>
+            <div class="social-sharing">
+              <?php echo do_shortcode('[marketo-share-custom]');?>
             </div>
+            <!--<small class="category-name"><?php Roots\Sage\Extras\blog_the_categories(); ?></small>-->         
+            <div style="float:left; margin:0 15px 15px 0;">
+            <?php get_template_part('templates/entry-meta'); ?>
+            </div>
+            <?php the_content(); ?>
             <hr/>
-            <div>
               <?php if( get_posts() ) {
               previous_post_link('<p><strong><small>NEXT POST:</small><br>%link</strong></p>');
               next_post_link('<p><strong><small>PREVIOUS POST:</small><br>%link</strong></p>');
               }?>
-            </div>
             <hr/>
             <!-- Begin Outbrain -->
             <div class="OUTBRAIN hidden-xs" data-widget-id="NA"></div> 
             <script type="text/javascript" async="async" src="https://widgets.outbrain.com/outbrain.js"></script>
             <?php comments_template('/templates/comments.php'); ?>
           </article>
-          <?php endwhile; ?>
-          <div class="marketo-share">
-            <?php echo do_shortcode( '[marketo-share]' ); ?>
-          </div>        
+          <?php endwhile; ?>                 
       </div>
-    </div>
 
 
 <div class="col-sm-4 col-md-3 hidden-xs">
@@ -41,7 +45,7 @@
 <?php
 $args = array(
 'post_type'         => 'post',
-'order'             => 'asc',
+'order'             => 'desc',
 'posts_per_page'    => 3,
 'post_status'       => 'publish',
 );
@@ -77,7 +81,7 @@ wp_reset_postdata(); ?>
 <?php
 $args = array(
 'post_type'         => 'socrata_videos',
-'order'             => 'asc',
+'order'             => 'desc',
 'posts_per_page'    => 3,
 'post_status'       => 'publish',
 );
@@ -114,7 +118,7 @@ wp_reset_postdata(); ?>
 <?php
 $args = array(
 'post_type'         => 'case_study',
-'order'             => 'asc',
+'order'             => 'desc',
 'posts_per_page'    => 3,
 'post_status'       => 'publish',
 );

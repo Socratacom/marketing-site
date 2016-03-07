@@ -65,7 +65,7 @@
               <li><gcse:searchbox-only resultsUrl="/search" newWindow="false"></li>
             </ul>
           </li>
-          <li id="header-cta-button" class="hidden-xs hidden-sm"><a href="/request-a-demo/" class="btn btn-default">Schedule a Meeting</a></li>
+          <li class="hidden-xs hidden-sm"><a href="/pricing/" class="btn btn-default">Get Pricing</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
