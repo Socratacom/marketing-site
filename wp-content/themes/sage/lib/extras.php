@@ -123,7 +123,9 @@ function marketo_share_custom($atts, $content = null) {
   ob_start();
   ?>
   <div class="cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397"></div>
+  <div class="rss-button"><a href="#"></a></div>
   <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>
+  
   <?php
   $content = ob_get_contents();
   ob_end_clean();
