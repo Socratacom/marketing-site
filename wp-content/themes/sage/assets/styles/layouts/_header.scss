@@ -280,9 +280,8 @@
 	}
 }
 
-/* Large Devices, Wide Screens */
-
-@media only screen and (min-width : 1200px) {
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
 	header.banner {
 		
 		.dropdown-menu li:hover .sub-menu {
@@ -292,6 +291,12 @@
 		    display: block;
 		}
 	}
+}
+
+/* Large Devices, Wide Screens */
+
+@media only screen and (min-width : 1200px) {
+
 }
 
 

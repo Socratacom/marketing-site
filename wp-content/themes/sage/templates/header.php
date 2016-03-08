@@ -18,7 +18,8 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="/products">Products</a>
+            <a href="/products" class="hidden-xs hidden-sm">Products</a>
+            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_products',
               'container'       => '',
@@ -26,23 +27,35 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="/solutions">Solutions</a>
+            <a href="/solutions" class="hidden-xs hidden-sm">Solutions</a>
+            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_solutions',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li class="dropdown">
-            <a href="/resources">Resources</a>
+          <li class="dropdown hidden-xs hidden-sm">
+            <a href="#" class="hidden-xs hidden-sm">Resources</a>
+            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li class="dropdown hidden-xs hidden-sm hidden-md">
-            <a href="#">Community</a>
+          <li class="dropdown hidden-md hidden-lg">
+            <a href="#" class="hidden-xs hidden-sm">Resources</a>
+            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <?php wp_nav_menu( array( 
+              'theme_location' => 'site_nav_resources_mobile',
+              'container'       => '',
+              'menu_class' => 'dropdown-menu' 
+            ) ); ?>
+          </li>
+          <li class="dropdown hidden-xs hidden-sm">
+            <a href="#" class="hidden-xs hidden-sm">Community</a>
+            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_community',
               'container'       => '',
@@ -50,14 +63,15 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="/company-info">About</a>
+            <a href="#" class="hidden-xs hidden-sm">About</a>
+            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_about',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li><a href="/blog">Blog</a></li>
+          <li class="hidden-xs hidden-sm"><a href="/blog">Blog</a></li>
           <li class="dropdown site-search">            
             <a href="#" class="hidden-xs hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>            
             <a href="/search" class="hidden-lg"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
@@ -71,3 +85,4 @@
     </div><!-- /.container-fluid -->
   </nav>
 </header>
+

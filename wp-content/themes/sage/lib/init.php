@@ -23,6 +23,7 @@ function setup() {
     'site_nav_solutions' => __('Site Nav Solutions', 'sage'),
     'site_nav_why_socrata' => __('Site Nav Why Socrata', 'sage'),
     'site_nav_resources' => __('Site Nav Resources', 'sage'),
+    'site_nav_resources_mobile' => __('Site Nav Resources Mobile', 'sage'),
     'site_nav_about' => __('Site Nav About', 'sage'),
     'site_nav_community' => __('Site Nav Community', 'sage'),
     'site_nav_additional_links' => __('Site Nav Additional Links', 'sage'),    
