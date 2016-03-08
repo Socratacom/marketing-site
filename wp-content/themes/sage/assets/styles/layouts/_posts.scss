@@ -24,8 +24,6 @@
 			border-bottom:$clouds solid 5px;
 		}	
 	}
-	/* Blog Nav */
-
 
 	/* By Line */
 	.byline {
@@ -43,6 +41,14 @@
 		 	border-radius:50%;
 		 	margin-right: 10px !important;
 		}
+	}
+
+	.entry-meta {
+		float:left;
+		width:200px;
+		margin:0 15px 15px 0;
+		padding-bottom:15px;
+		border-bottom:$clouds solid 5px;
 	}
 
 	/* Marketo Sharing Icons */

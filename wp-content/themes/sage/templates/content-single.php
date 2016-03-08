@@ -21,8 +21,8 @@
               <?php echo do_shortcode('[marketo-share-custom]');?>
             </div>
             <!--<small class="category-name"><?php Roots\Sage\Extras\blog_the_categories(); ?></small>-->         
-            <div style="float:left; margin:0 15px 15px 0;">
-            <?php get_template_part('templates/entry-meta'); ?>
+            <div class="entry-meta">
+              <?php get_template_part('templates/entry-meta'); ?>
             </div>
             <?php the_content(); ?>
             <hr/>
