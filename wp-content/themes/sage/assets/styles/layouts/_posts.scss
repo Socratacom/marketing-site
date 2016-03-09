@@ -44,6 +44,45 @@
 		 	margin-right: 10px !important;
 		}
 	}
+	dl.post-byline {
+		position: relative;
+		height:50px;
+		display: table;
+		dt {
+			position: absolute;
+			top:0;
+			left:0;
+			width:50px;
+			height: 50px;
+		}
+		dd {
+			vertical-align: middle;
+			padding-left:60px;
+			line-height: normal;
+			height: 50px;
+			display: table-cell;
+			color:$asbestos;
+		}
+	}
+	.featured-post {
+		dl {
+			position: absolute;
+			bottom:30px;
+			left:30px;
+			margin:0;
+			dt {
+				img {
+					border:white solid 2px;
+				}
+			}
+			dd {
+				color:white;
+			}
+		}
+		dl + dl {
+			display: none;
+		}
+	}
 
 	/* Marketo Sharing Icons */
 	.marketo-share {

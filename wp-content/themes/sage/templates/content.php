@@ -11,15 +11,23 @@
 			}
 			?>
 			<div class="card-avatar">
-				<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
+				<?php  global $post; 
+				$author_id=$post->post_author; 
+				foreach( get_coauthors() as $coauthor ): ?>
+				<?php echo get_avatar( $coauthor->user_email, '60' ); ?>
+				<?php endforeach; ?>
 			</div>
 			<a href="<?php the_permalink() ?>"></a>
 		</div>
 		<div class="card-text truncate">
 			<p class="categories"><small><?php Roots\Sage\Extras\blog_the_categories(); ?><small></p>
 			<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-			<p class="meta"><small>By <strong><?php the_author(); ?></strong>, <?php the_time('F j, Y') ?></small></p>
-			<?php the_excerpt(); ?> 
+			<p class="meta"><small>By <strong><?php if(function_exists('coauthors')) coauthors();?></strong>, <?php the_time('F j, Y') ?></small></p>
+			<?php the_excerpt(); ?>
 		</div>
 	</div>
 </div>
+
+
+
+           

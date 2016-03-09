@@ -21,8 +21,13 @@
 						<div class="text truncate">
 							<div class="post-category background-peter-river">Open Data Blog</div>
 							<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>	
-						</div>				
-						<?php get_template_part('templates/entry-meta'); ?>
+						</div>						
+			            <?php  global $post; $author_id=$post->post_author; foreach( get_coauthors() as $coauthor ): ?>
+			            <dl class="post-byline">
+			            <dt><?php echo get_avatar( $coauthor->user_email, '50' ); ?></dt>
+			            <dd>By <strong><?php echo $coauthor->display_name; ?></strong><br><?php the_time('F j, Y') ?></dd>
+			            </dl>
+			            <?php endforeach; ?>
 						<a href="<?php the_permalink() ?>" class="link"></a>
 					</div>
 				</div>

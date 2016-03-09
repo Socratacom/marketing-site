@@ -11,7 +11,13 @@
           <article <?php post_class(); ?>>
             <small class="category-name"><?php Roots\Sage\Extras\blog_the_categories(); ?></small>
             <h1 class="entry-title"><?php the_title(); ?></h1>
-            <?php get_template_part('templates/entry-meta'); ?>
+            <?php  global $post; $author_id=$post->post_author; foreach( get_coauthors() as $coauthor ): ?>
+            <dl class="post-byline">
+            <dt><?php echo get_avatar( $coauthor->user_email, '50' ); ?></dt>
+            <dd>By <strong><?php echo $coauthor->display_name; ?></strong><br><?php the_time('F j, Y') ?></dd>
+            </dl>
+            <?php endforeach; ?>
+            <hr/>
             <div class="entry-content">
               <?php the_content(); ?>
             </div>
