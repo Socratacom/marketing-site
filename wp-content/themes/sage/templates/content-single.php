@@ -22,7 +22,17 @@
             </div>
             <!--<small class="category-name"><?php Roots\Sage\Extras\blog_the_categories(); ?></small>-->         
             <div class="entry-meta">
-              <?php get_template_part('templates/entry-meta'); ?>
+              <p class="hidden-sm hidden-md hidden-lg">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?> / <?php Roots\Sage\Extras\blog_the_categories(); ?></p>
+              <ul class="hidden-xs">
+                <li class="meta"><?php Roots\Sage\Extras\blog_the_categories(); ?></li>
+                <li class="date"><?php the_time('F j, Y') ?></li>
+                <?php  global $post;
+                $author_id=$post->post_author;
+                foreach( get_coauthors() as $coauthor ): ?>
+                <li class="headshot"><?php echo get_avatar( $coauthor->user_email, '50' ); ?></li>
+                <li class="author">By <?php echo $coauthor->display_name; ?></li>
+                <?php endforeach; ?>
+              </ul>
             </div>
             <?php the_content(); ?>
             <hr/>

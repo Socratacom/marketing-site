@@ -44,11 +44,39 @@
 	}
 
 	.entry-meta {
-		float:left;
-		width:200px;
+		width:100%;
 		margin:0 15px 15px 0;
-		padding-bottom:15px;
+		padding:15px 0 0 0 ;
 		border-bottom:$clouds solid 5px;
+		border-top:$peter-river solid 5px;
+
+		ul {
+			list-style-type: none;
+			padding:0;
+			li {
+				font-size: 12px;
+				text-align: left;
+				margin-bottom:0;
+				line-height: normal;
+				font-weight: $font-normal;
+			}
+			.categories {
+				font-weight: $font-semi-bold;
+			}
+			.headshot {
+				margin-bottom:5px;
+			}
+			.author {
+				font-style: italic;				
+			}
+		}
+		p {
+			margin-bottom:15px;
+			font-size:12px;
+			span {
+				font-weight: $font-semi-bold !important;
+			}
+		}
 	}
 
 	/* Marketo Sharing Icons */
@@ -188,23 +216,6 @@
 			content: "\f09e";
 		}
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	/* Pagination */
 
@@ -398,6 +409,7 @@
 			left: 15px;
 		}
 	}
+
 }
 
 /* Small Devices, Tablets */
@@ -432,6 +444,18 @@
 		}
 		.cf_facebook:before {
 			left: 52px;
+		}
+	}
+	.entry-meta {
+		float:left;
+		width:170px;
+		margin:0 15px 15px 0;
+		padding:15px 0 0 0 ;
+		ul {
+			li {
+				text-align: center;
+				margin-bottom:10px;
+			}
 		}
 	}
 }
