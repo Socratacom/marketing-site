@@ -14,7 +14,7 @@
 <section class="content">
   <div class="container">
     <div class="row">
-      <div class="col-sm-8 col-md-6">
+      <div class="col-sm-8">
         <?php while (have_posts()) : the_post(); ?>
           <article <?php post_class(); ?>>
             <div class="social-sharing">
@@ -23,7 +23,19 @@
             <div class="entry-meta">
               <p class="hidden-sm hidden-md hidden-lg">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?> / <?php Roots\Sage\Extras\blog_the_categories(); ?></p>
               <ul class="hidden-xs">
-                <li class="categories"><?php Roots\Sage\Extras\blog_the_categories(); ?></li>
+                <li class="categories">
+                <?php
+                $categories = get_the_category();
+                $separator = ', ';
+                $output = '';
+                if ( ! empty( $categories ) ) {
+                    foreach( $categories as $category ) {
+                        $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+                    }
+                    echo trim( $output, $separator );
+                }
+                ?>
+                </li>
                 <li class="date"><?php the_time('F j, Y') ?></li>
                 <?php  global $post;
                 $author_id=$post->post_author;
@@ -74,7 +86,6 @@
 
 
 
-            <hr/>
             <!-- Begin Outbrain -->
             <div class="OUTBRAIN hidden-xs" data-widget-id="NA"></div> 
             <script type="text/javascript" async="async" src="https://widgets.outbrain.com/outbrain.js"></script>
@@ -86,7 +97,9 @@
       </div>
 
 
-<div class="col-sm-4 col-md-3 hidden-xs">
+<div class="col-sm-4 hidden-xs">
+
+<?php echo do_shortcode('[newsletter-sidebar]'); ?> 
 
 <?php
 $args = array(
@@ -275,9 +288,7 @@ wp_reset_postdata(); ?>
  
 </div>
 
-<div class="col-md-3 hidden-xs hidden-sm">
-<?php echo do_shortcode('[newsletter-sidebar]'); ?> 
-</div>
+
 
   </div>
 </div>

@@ -455,24 +455,21 @@
 	.content {
 		padding:80px 0;
 	}
-
-
-
 	.social-sharing {
 		.cf_widget .cf_socialicons .cf_socialicon, .rss-button {
-			width:110px !important;
+			width:116px !important;
 		}
 		.rss-button {
-			left:336px;
+			left:354px;
 		}
 		.cf_linkedin {	
-			left:224px;
+			left:236px;
 		}
 		.cf_twitter {
-			left:112px;
+			left:118px;
 		}
 		.cf_linkedin:before, .cf_twitter:before, .rss-button:before {
-			left: 48px;
+			left: 50px;
 		}
 		.cf_facebook:before {
 			left: 52px;
@@ -503,30 +500,48 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
-
-
+	.social-sharing {
+		.cf_widget .cf_socialicons .cf_socialicon, .rss-button {
+			width:152px !important;
+		}
+		.rss-button {
+			left:462px;
+		}
+		.cf_linkedin {	
+			left:308px;
+		}
+		.cf_twitter {
+			left:154px;
+		}
+		.cf_linkedin:before, .cf_twitter:before, .rss-button:before {
+			left: 70px;
+		}
+		.cf_facebook:before {
+			left: 72px;
+		}
+	}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 	.social-sharing {
 		.cf_widget .cf_socialicons .cf_socialicon, .rss-button {
-			width:134px !important;
+			width:184px !important;
 		}
 		.rss-button {
-			left:408px;
+			left:558px;
 		}
 		.cf_linkedin {	
-			left:272px;
+			left:372px;
 		}
 		.cf_twitter {
-			left:136px;
+			left:186px;
 		}
 		.cf_linkedin:before, .cf_twitter:before, .rss-button:before {
-			left: 58px;
+			left: 85px;
 		}
 		.cf_facebook:before {
-			left: 62px;
+			left: 87px;
 		}
 	}
 }
