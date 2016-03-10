@@ -61,7 +61,8 @@ wp_reset_postdata(); ?>
 				<div class="col-sm-12 col-md-6">
 
 
-
+<h4>Category Title</h4>
+<ul>
 <?php
 $do_not_duplicate = array();
 // The Query
@@ -80,7 +81,7 @@ $query1->the_post();
 $do_not_duplicate[] = get_the_ID(); ?>
 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
 
-<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+<li><h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4></li>
 
 <?php
 }
@@ -102,28 +103,185 @@ $query2 = new WP_Query( $args2 );
 while ( $query2->have_posts() ) {
 $query2->the_post(); ?>
 
-<div><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></div>
+<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
 
 <?php
 }
 wp_reset_postdata();
 
 ?>
-
-
+<li><a href="#">View More</a></li>
+</ul>
 
 
 				</div>
 				<div class="col-sm-12 col-md-6">
-					<p>Category Query</p>
+
+<h4>Category Title</h4>
+<ul>
+<?php
+$do_not_duplicate = array();
+// The Query
+$args1 = array(
+'post_type'         => 'post',
+'category_name'     => 'opengov',
+'order'             => 'desc',
+'post_status'       => 'publish',
+'posts_per_page'    => 1,
+);
+$query1 = new WP_Query( $args1 );
+
+// The Loop
+while ( $query1->have_posts() ) {
+$query1->the_post();
+$do_not_duplicate[] = get_the_ID(); ?>
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
+
+<li><h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4></li>
+
+<?php
+}
+
+wp_reset_postdata();
+
+/* The 2nd Query (without global var) */
+$args2 = array(
+'post_type'         => 'post',
+'category_name'     => 'opengov',
+'order'             => 'desc',
+'post_status'       => 'publish',
+'posts_per_page'    => 4,
+'post__not_in' => $do_not_duplicate 
+);
+$query2 = new WP_Query( $args2 );
+
+// The 2nd Loop
+while ( $query2->have_posts() ) {
+$query2->the_post(); ?>
+
+<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+
+<?php
+}
+wp_reset_postdata();
+
+?>
+<li><a href="#">View More</a></li>
+</ul>
+
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
-					<p>Category Query</p>
+
+<h4>Category Title</h4>
+<ul>
+<?php
+$do_not_duplicate = array();
+// The Query
+$args1 = array(
+'post_type'         => 'post',
+'category_name'     => 'opengov',
+'order'             => 'desc',
+'post_status'       => 'publish',
+'posts_per_page'    => 1,
+);
+$query1 = new WP_Query( $args1 );
+
+// The Loop
+while ( $query1->have_posts() ) {
+$query1->the_post();
+$do_not_duplicate[] = get_the_ID(); ?>
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
+
+<li><h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4></li>
+
+<?php
+}
+
+wp_reset_postdata();
+
+/* The 2nd Query (without global var) */
+$args2 = array(
+'post_type'         => 'post',
+'category_name'     => 'opengov',
+'order'             => 'desc',
+'post_status'       => 'publish',
+'posts_per_page'    => 4,
+'post__not_in' => $do_not_duplicate 
+);
+$query2 = new WP_Query( $args2 );
+
+// The 2nd Loop
+while ( $query2->have_posts() ) {
+$query2->the_post(); ?>
+
+<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+
+<?php
+}
+wp_reset_postdata();
+
+?>
+<li><a href="#">View More</a></li>
+</ul>
+
 				</div>
 				<div class="col-sm-12 col-md-6">
-					<p>Category Query</p>
+
+<h4>Category Title</h4>
+<ul>
+<?php
+$do_not_duplicate = array();
+// The Query
+$args1 = array(
+'post_type'         => 'post',
+'category_name'     => 'opengov',
+'order'             => 'desc',
+'post_status'       => 'publish',
+'posts_per_page'    => 1,
+);
+$query1 = new WP_Query( $args1 );
+
+// The Loop
+while ( $query1->have_posts() ) {
+$query1->the_post();
+$do_not_duplicate[] = get_the_ID(); ?>
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
+
+<li><h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4></li>
+
+<?php
+}
+
+wp_reset_postdata();
+
+/* The 2nd Query (without global var) */
+$args2 = array(
+'post_type'         => 'post',
+'category_name'     => 'opengov',
+'order'             => 'desc',
+'post_status'       => 'publish',
+'posts_per_page'    => 4,
+'post__not_in' => $do_not_duplicate 
+);
+$query2 = new WP_Query( $args2 );
+
+// The 2nd Loop
+while ( $query2->have_posts() ) {
+$query2->the_post(); ?>
+
+<li><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></li>
+
+<?php
+}
+wp_reset_postdata();
+
+?>
+<li><a href="#">View More</a></li>
+</ul>
+
+
 				</div>
 			</div>
 			<div class="row">
