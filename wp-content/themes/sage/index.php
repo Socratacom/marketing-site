@@ -59,7 +59,60 @@ wp_reset_postdata(); ?>
 		<div class="col-sm-6">
 			<div class="row">
 				<div class="col-sm-12 col-md-6">
-					<p>Category Query</p>
+
+
+
+<?php
+$do_not_duplicate = array();
+// The Query
+$args1 = array(
+'post_type'         => 'post',
+'category_name'     => 'opengov',
+'order'             => 'desc',
+'post_status'       => 'publish',
+'posts_per_page'    => 1,
+);
+$query1 = new WP_Query( $args1 );
+
+// The Loop
+while ( $query1->have_posts() ) {
+$query1->the_post();
+$do_not_duplicate[] = get_the_ID(); ?>
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
+
+<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+
+<?php
+}
+
+wp_reset_postdata();
+
+/* The 2nd Query (without global var) */
+$args2 = array(
+'post_type'         => 'post',
+'category_name'     => 'opengov',
+'order'             => 'desc',
+'post_status'       => 'publish',
+'posts_per_page'    => 4,
+'post__not_in' => $do_not_duplicate 
+);
+$query2 = new WP_Query( $args2 );
+
+// The 2nd Loop
+while ( $query2->have_posts() ) {
+$query2->the_post(); ?>
+
+<div><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></div>
+
+<?php
+}
+wp_reset_postdata();
+
+?>
+
+
+
+
 				</div>
 				<div class="col-sm-12 col-md-6">
 					<p>Category Query</p>
