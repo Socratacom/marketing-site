@@ -71,7 +71,7 @@
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li class="hidden-xs hidden-sm"><a href="/blog">Blog</a></li>
+          <li class="hidden-xs hidden-sm"><a href="digital-government-transformation">Blog</a></li>
           <li class="dropdown site-search">            
             <a href="#" class="hidden-xs hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>            
             <a href="/search" class="hidden-lg"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
