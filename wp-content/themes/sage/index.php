@@ -27,21 +27,21 @@
 			<?php get_template_part('templates/content', get_post_type() != 'post' ? get_post_type() : get_post_format()); ?>
 			</div>
 			<script>
-function cat_ajax_get(catID) {
-    jQuery("a.ajax").removeClass("current");
-    jQuery("a.ajax").addClass("current"); //adds class current to the category menu item being displayed so you can style it with css
-    var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); //must echo it ?>';
-    jQuery.ajax({
-        type: 'POST',
-        url: ajaxurl,
-        data: {"action": "load-filter", cat: catID },
-        success: function(response) {
-            jQuery("#boobs").html(response);
-            return false;
-        }
-    });
-}
-</script>
+			function cat_ajax_get(catID) {
+			    jQuery("a.ajax").removeClass("current");
+			    jQuery("a.ajax").addClass("current"); //adds class current to the category menu item being displayed so you can style it with css
+			    var ajaxurl = '<?php echo admin_url( 'admin-ajax.php' ); //must echo it ?>';
+			    jQuery.ajax({
+			        type: 'POST',
+			        url: ajaxurl,
+			        data: {"action": "load-filter", cat: catID },
+			        success: function(response) {
+			            jQuery("#boobs").html(response);
+			            return false;
+			        }
+			    });
+			}
+			</script>
 		</div>
 		<div class="col-sm-3 hidden-xs">
 		

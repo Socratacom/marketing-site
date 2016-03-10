@@ -19,8 +19,7 @@
           <article <?php post_class(); ?>>
             <div class="social-sharing">
               <?php echo do_shortcode('[marketo-share-custom]');?>
-            </div>
-            <!--<small class="category-name"><?php Roots\Sage\Extras\blog_the_categories(); ?></small>-->         
+            </div> 
             <div class="entry-meta">
               <p class="hidden-sm hidden-md hidden-lg">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?> / <?php Roots\Sage\Extras\blog_the_categories(); ?></p>
               <ul class="hidden-xs">
@@ -36,15 +35,52 @@
             </div>
             <?php the_content(); ?>
             <hr/>
-              <?php if( get_posts() ) {
-              previous_post_link('<p><strong><small>NEXT POST:</small><br>%link</strong></p>');
-              next_post_link('<p><strong><small>PREVIOUS POST:</small><br>%link</strong></p>');
-              }?>
+<div class="row next-prev-posts">
+<?php
+$prev_post = get_previous_post();
+if (!empty( $prev_post )): ?>
+  <div class="col-sm-6">
+    <div class="margin-bottom-15 thumb"><span>Next Article</span><a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo get_the_post_thumbnail($prev_post->ID, 'post-thumbnail', array('class'=>'img-responsive')); ?></a></div>
+    <div class="category-name">
+        <?php 
+        $cats = get_the_category( $prev_post->ID );
+        echo $cats[0]->cat_name;
+        for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
+        ?>
+    </div>
+    <h5><a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo get_the_title( $prev_post->ID ); ?></a></h5>
+    <p><small><?php echo get_the_time( 'F j, Y', $prev_post->ID ); ?></small></p>
+  </div>
+<?php endif; ?>
+<?php
+$next_post = get_next_post();
+if (!empty( $next_post )): ?>
+  <div class="col-sm-6">
+    <div class="margin-bottom-15 thumb"><span>Previous Article</span><a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_post_thumbnail($next_post->ID, 'post-thumbnail', array('class'=>'img-responsive')); ?></a></div>
+    <div class="category-name">
+        <?php 
+        $cats = get_the_category( $next_post->ID );
+        echo $cats[0]->cat_name;
+        for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
+        ?>
+    </div>
+    <h5><a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_title( $next_post->ID ); ?></a></h5>
+    <p><small><?php echo get_the_time( 'F j, Y', $next_post->ID ); ?></small></p>
+  </div>
+<?php endif; ?>
+</div>
+
+
+
+
+
             <hr/>
             <!-- Begin Outbrain -->
             <div class="OUTBRAIN hidden-xs" data-widget-id="NA"></div> 
             <script type="text/javascript" async="async" src="https://widgets.outbrain.com/outbrain.js"></script>
-            <?php comments_template('/templates/comments.php'); ?>
+            
+            
+
           </article>
           <?php endwhile; ?>                 
       </div>
@@ -177,14 +213,14 @@ $event_meta_query = array(
 ); 
 
 $args = array(
-'post_type'         => 'socrata_events',
-'posts_per_page'    => 3,
-'post_status' => 'publish',
+'post_type'           => 'socrata_events',
+'posts_per_page'      => 3,
+'post_status'         => 'publish',
 'ignore_sticky_posts' => true,  
-'meta_key' => 'socrata_events_endtime',
-'orderby' => 'meta_value_num',
-'order' => 'asc',
-'meta_query' => $event_meta_query
+'meta_key'            => 'socrata_events_endtime',
+'orderby'             => 'meta_value_num',
+'order'               => 'asc',
+'meta_query'          => $event_meta_query
 );
 
 // The Query
@@ -197,7 +233,28 @@ echo '<li><h5>Upcoming Events</h5></li>';
 while ( $the_query->have_posts() ) {
 $the_query->the_post(); { ?> 
 
-<li><?php the_title(); ?></li>
+  <?php if ( has_term( 'socrata-event','socrata_events_cat' ) ) { ?>
+  <li><small style="text-transform: uppercase;"><?php events_the_categories(); ?></small><br><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php echo rwmb_meta( 'socrata_events_displaydate' );?></small></li>
+  <?php }
+  else { ?>
+  <li><small style="text-transform: uppercase;"><?php events_the_categories(); ?></small><br>
+
+  <?php 
+    $url = rwmb_meta( 'socrata_events_url' ); 
+    if ($url) { ?>
+      <a href="<?php echo $url;?>" target="_blank"><?php the_title(); ?></a>
+      <?php 
+    }
+    else { ?>
+      <?php the_title(); ?>
+      <?php
+    }
+  ?>
+  <br><small><?php echo rwmb_meta( 'socrata_events_displaydate' );?></small>
+
+  </li>
+  <?php
+  } ?>
 
 <?php }
 }
@@ -206,7 +263,7 @@ echo '</ul>';
 } else { ?>
 <ul class="no-bullets sidebar-list">
 <li><h5>Upcoming Events</h5></li>
-<li>No Events</li>
+<li>No events at this time.</li>
 </ul>
 <?php
 }
@@ -222,49 +279,6 @@ wp_reset_postdata(); ?>
 <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
 </div>
 
-
-
-
-
-    
-
-
-    <!--
-    <div class="col-sm-4 col-md-3 sidebar hidden-xs">
-      
-
-      <?php echo do_shortcode('[newsletter-sidebar]'); ?>
-      
-
-      <div class="subscribe">
-        <ul>                
-          <li><a class="twitter-follow-button" href="https://twitter.com/socrata" data-size="large">Follow @Socrata</a></li>
-          <li><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS'); ?>" target="_blank" class="btn btn-warning"><i class="fa fa-rss"></i> <?php _e('FEED'); ?></a></li>
-        </ul>
-        <script>window.twttr = (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {};
-        if (d.getElementById(id)) return t;
-        js = d.createElement(s);
-        js.id = id;
-        js.src = "https://platform.twitter.com/widgets.js";
-        fjs.parentNode.insertBefore(js, fjs);
-
-        t._e = [];
-        t.ready = function(f) {
-        t._e.push(f);
-        };
-
-        return t;
-        }(document, "script", "twitter-wjs"));</script>
-      </div>
-
-
-
-
-
-    </div>
-    -->
   </div>
 </div>
 </section>

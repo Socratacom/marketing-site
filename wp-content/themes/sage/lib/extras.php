@@ -123,7 +123,7 @@ function marketo_share_custom($atts, $content = null) {
   ob_start();
   ?>
   <div class="cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397"></div>
-  <div class="rss-button"><a href="#"></a></div>
+  <div class="rss-button"><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS'); ?>" target="_blank"></a></div>
   <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>
   
   <?php
@@ -363,14 +363,10 @@ function author_description($atts, $content = null) {
   ob_start();
   ?>
   <div class="author-description">
-    <div class="row">
-      <div class="col-sm-3">
-        <p class="text-center"><?php echo get_avatar( get_the_author_meta('ID'), 100 ); ?></p>
-      </div>
-      <div class="col-sm-9">
-        <h3>About the Author</h3>
-        <?php the_author_description(); ?>
-      </div>
+    <?php echo get_avatar( get_the_author_meta('ID'), 80 ); ?>
+    <div class="box-white">
+      <h5>About the Author</h5>
+      <?php the_author_description(); ?>
     </div>
   </div>
   <?php
@@ -387,9 +383,8 @@ function newsletter_sidebar ($atts, $content = null) {
   ob_start();
   ?>
   <div class="newsletter-sidebar newsletter-form marketo-form">
-    <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
-    <h4>Subscribe to the Socrata newsletter</h4>
-    <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
+    <h4>Subscribe to our Weekly Newsletter</h4>
+    <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>
     <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
