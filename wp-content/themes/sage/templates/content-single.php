@@ -11,7 +11,7 @@
   </div>
   <?php echo do_shortcode('[image-attribution]'); ?>
 </div>
-<section class="section-padding">
+<section class="content">
   <div class="container">
     <div class="row">
       <div class="col-sm-8 col-md-6">
@@ -35,40 +35,40 @@
             </div>
             <?php the_content(); ?>
             <hr/>
-<div class="row next-prev-posts">
-<?php
-$prev_post = get_previous_post();
-if (!empty( $prev_post )): ?>
-  <div class="col-sm-6">
-    <div class="margin-bottom-15 thumb"><span>Next Article</span><a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo get_the_post_thumbnail($prev_post->ID, 'post-thumbnail', array('class'=>'img-responsive')); ?></a></div>
-    <div class="category-name">
-        <?php 
-        $cats = get_the_category( $prev_post->ID );
-        echo $cats[0]->cat_name;
-        for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
-        ?>
-    </div>
-    <h5><a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo get_the_title( $prev_post->ID ); ?></a></h5>
-    <p><small><?php echo get_the_time( 'F j, Y', $prev_post->ID ); ?></small></p>
-  </div>
-<?php endif; ?>
-<?php
-$next_post = get_next_post();
-if (!empty( $next_post )): ?>
-  <div class="col-sm-6">
-    <div class="margin-bottom-15 thumb"><span>Previous Article</span><a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_post_thumbnail($next_post->ID, 'post-thumbnail', array('class'=>'img-responsive')); ?></a></div>
-    <div class="category-name">
-        <?php 
-        $cats = get_the_category( $next_post->ID );
-        echo $cats[0]->cat_name;
-        for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
-        ?>
-    </div>
-    <h5><a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_title( $next_post->ID ); ?></a></h5>
-    <p><small><?php echo get_the_time( 'F j, Y', $next_post->ID ); ?></small></p>
-  </div>
-<?php endif; ?>
-</div>
+            <div class="row next-prev-posts">
+            <?php
+            $prev_post = get_previous_post();
+            if (!empty( $prev_post )): ?>
+              <div class="col-sm-6">
+                <div class="margin-bottom-15 thumb"><span>Next Article</span><a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo get_the_post_thumbnail($prev_post->ID, 'post-thumbnail', array('class'=>'img-responsive')); ?></a></div>
+                <div class="category-name">
+                    <?php 
+                    $cats = get_the_category( $prev_post->ID );
+                    echo $cats[0]->cat_name;
+                    for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
+                    ?>
+                </div>
+                <h5><a href="<?php echo get_permalink( $prev_post->ID ); ?>"><?php echo get_the_title( $prev_post->ID ); ?></a></h5>
+                <p><small><?php echo get_the_time( 'F j, Y', $prev_post->ID ); ?></small></p>
+              </div>
+            <?php endif; ?>
+            <?php
+            $next_post = get_next_post();
+            if (!empty( $next_post )): ?>
+              <div class="col-sm-6">
+                <div class="margin-bottom-15 thumb"><span>Previous Article</span><a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_post_thumbnail($next_post->ID, 'post-thumbnail', array('class'=>'img-responsive')); ?></a></div>
+                <div class="category-name">
+                    <?php 
+                    $cats = get_the_category( $next_post->ID );
+                    echo $cats[0]->cat_name;
+                    for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
+                    ?>
+                </div>
+                <h5><a href="<?php echo get_permalink( $next_post->ID ); ?>"><?php echo get_the_title( $next_post->ID ); ?></a></h5>
+                <p><small><?php echo get_the_time( 'F j, Y', $next_post->ID ); ?></small></p>
+              </div>
+            <?php endif; ?>
+            </div>
 
 
 

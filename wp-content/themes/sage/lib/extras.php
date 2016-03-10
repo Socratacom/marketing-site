@@ -362,13 +362,25 @@ add_shortcode('youtube-modal', __NAMESPACE__ . '\\youtube_modal');
 function author_description($atts, $content = null) {
   ob_start();
   ?>
-  <div class="author-description">
-    <?php echo get_avatar( get_the_author_meta('ID'), 80 ); ?>
-    <div class="box-white">
-      <h5>About the Author</h5>
-      <?php the_author_description(); ?>
-    </div>
+
+
+
+
+<?php  global $post;
+$author_id=$post->post_author;
+foreach( get_coauthors() as $coauthor ): ?>
+<div class="author-description">
+  <div class="headshot">
+    <?php echo get_avatar( $coauthor->user_email, '70' ); ?>
+    <h5><?php echo $coauthor->display_name; ?></h5>
   </div>
+  <div class="box-white">
+    <p><strong>About <?php echo $coauthor->display_name; ?></strong> - <?php echo $coauthor->description; ?></p>
+  </div>
+</div>
+<?php endforeach; ?>
+
+
   <?php
   $content = ob_get_contents();
   ob_end_clean();
