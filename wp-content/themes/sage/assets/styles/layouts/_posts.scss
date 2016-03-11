@@ -2,6 +2,9 @@
 	.content {
 		padding:30px 0;
 	}
+	.col-padding {
+		padding:30px 15px;
+	}
 	.archive-title {
 		margin-top:0;
 	}
@@ -414,10 +417,10 @@
 		list-style-type: none;
 		padding:0;
 		li {
-			padding:10px 0;
-			border-bottom:lighten($silver, 15%) solid 1px;
+			padding:15px;
+			border-bottom:lighten($silver, 10%) solid 1px;
 			h4 {
-				margin:15px 0 5px 0;
+				margin-bottom:5px;
 				font-weight: $font-light;
 			}
 			a {
@@ -439,7 +442,9 @@
 			border:none;
 		}
 		li:nth-child(2) {
-			padding-top:0;
+			padding:0;			
+			background:white;
+			border:none;
 		}
 		li:last-child {
 			border:none;
@@ -543,6 +548,9 @@
 	}
 	.content {
 		padding:80px 0;
+	}
+	.col-padding {
+		padding:80px 15px;
 	}
 	.social-sharing {
 		.cf_widget .cf_socialicons .cf_socialicon, .rss-button {

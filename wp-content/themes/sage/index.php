@@ -24,11 +24,11 @@
 	wp_reset_postdata();
 ?>
 
-<section class="content">
+<section>
 
 <div class="container">
 	<div class="row">
-		<div class="col-sm-4 col-md-3">
+		<div class="col-sm-4 col-md-3 col-padding">
 			<?php
 			$args = array(
 			'post_type'         => 'post',
@@ -68,7 +68,7 @@
 		</div>
 
 
-		<div class="col-sm-8 col-md-9">
+		<div class="col-sm-8 col-md-9 background-clouds col-padding">
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
@@ -96,8 +96,10 @@
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
 							</div>
-							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
+							<div class="padding-15">
+								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
+							</div>
 						</li>
 
 						<?php
@@ -156,9 +158,11 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+							</div>							
+							<div class="padding-15">
+								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
-							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
 
 						<?php
@@ -219,9 +223,11 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+							</div>							
+							<div class="padding-15">
+								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
-							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
 
 						<?php
@@ -280,9 +286,11 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+							</div>							
+							<div class="padding-15">
+								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
-							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
 
 						<?php
@@ -343,9 +351,11 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+							</div>							
+							<div class="padding-15">
+								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
-							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
 
 						<?php
@@ -404,9 +414,11 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+							</div>							
+							<div class="padding-15">
+								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
+								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
-							<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
 
 						<?php
