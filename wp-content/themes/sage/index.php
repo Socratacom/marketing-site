@@ -15,7 +15,15 @@
 	$do_not_duplicate[] = get_the_ID(); ?>
 
 		<section class="feature-image overlay-black" style="background-image: url(<?=$url?>);">
-
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6">
+						<div class="text truncate">
+							<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 
 	<?php
