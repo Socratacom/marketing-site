@@ -410,7 +410,96 @@
 			margin-bottom:5px;
 		}
 	}
-
+	ul.category-list {
+		list-style-type: none;
+		padding:0;
+		li {
+			padding:10px 0;
+			border-bottom:lighten($silver, 15%) solid 1px;
+			h4 {
+				margin:15px 0 5px 0;
+				font-weight: $font-light;
+			}
+			a {
+				color:$gray-dark;
+			}
+			a:hover {
+				color:$peter-river;
+			}
+			.meta {
+				font-size: 14px;
+				color:$asbestos;
+				span {
+					font-weight: $font-semi-bold;
+				}
+			}
+		}
+		li:first-child {
+			padding:0;
+			border:none;
+		}
+		li:nth-child(2) {
+			padding-top:0;
+		}
+		li:last-child {
+			border:none;
+		}
+		.btn {
+			color:white;
+			width:100%;
+			text-align: left;
+			position: relative;
+			padding: 6px 35px 6px 12px;
+			i {
+				font-size: 18px;
+				position: absolute;
+				top:7px;
+				right:10px;
+			}
+		}
+		.btn:hover {
+			color:white;
+		}
+		.background-green-sea:hover {
+			background-color:lighten($green-sea,10%);
+		}
+	}
+	.sidebar-list {
+	    margin-bottom:30px;
+	    h5 {
+	        margin:0;
+	        text-transform: uppercase;
+	    }
+	    li {
+	        border-bottom:lighten($silver, 15%) solid 1px;
+	        margin:0 !important;
+	        padding: 10px 0;
+	        line-height: normal;
+	        font-weight: $font-normal;
+	        font-size: 14px;
+	    }
+	    li:first-child {
+	        border-top:$clouds solid 5px;
+	    }
+	    li:last-child {
+	        border:none;
+	    }
+	    a {
+	        font-weight: $font-normal;
+	        font-size: 14px;
+	    }
+	    .article-img-container {
+	        display:inline-block;
+	        width:20%;
+	        vertical-align: top;
+	        margin-right:4%;
+	    }
+	    .article-title-container {
+	        display:inline-block;
+	        width:70%;
+	        vertical-align: top;
+	    }
+	}
 }
 
 /* Extra Small Devices, Phones */ 
