@@ -14,16 +14,18 @@
 	$query1->the_post();
 	$do_not_duplicate[] = get_the_ID(); ?>
 
-		<section class="feature-image overlay-black" style="background-image: url(<?=$url?>);">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="text truncate">
-							<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+		<section class="feature-image blog-feature-image overlay-black" style="background-image: url(<?=$url?>);">
+
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="text truncate">
+								<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+
 		</section>
 
 	<?php
@@ -147,8 +149,6 @@
 						wp_reset_postdata();
 						?>
 					</ul>
-				</div>
-				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
 						<li><a href="/digital-government-transformation/category/opengov/" class="btn background-carrot">Open Government (Gov2.0) <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
@@ -217,10 +217,6 @@
 						wp_reset_postdata();
 						?>
 					</ul>
-				</div>
-			</div><!-- End Nested Row -->
-			<div class="row">
-				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
 						<li><a href="/digital-government-transformation/category/opengov/" class="btn background-alizarin">Open Government (Gov2.0) <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
@@ -359,10 +355,6 @@
 						wp_reset_postdata();
 						?>
 					</ul>
-				</div>
-			</div><!-- End Nested Row -->
-			<div class="row">
-				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
 						<li><a href="/digital-government-transformation/category/opengov/" class="btn background-nephritis">Open Government (Gov2.0) <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
@@ -431,8 +423,6 @@
 						wp_reset_postdata();
 						?>
 					</ul>
-				</div>
-				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
 						<li><a href="/digital-government-transformation/category/opengov/" class="btn background-wisteria">Open Government (Gov2.0) <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php

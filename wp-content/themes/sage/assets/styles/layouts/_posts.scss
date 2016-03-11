@@ -390,6 +390,14 @@
 			color:$silver;
 		}
 	}
+	.blog-feature-image {
+		.text {
+			margin-top:30px;
+		}
+
+
+
+	}
 	.next-prev-posts {
 		.thumb {
 			position: relative;			
@@ -418,7 +426,9 @@
 		padding:0;
 		li {
 			padding:15px;
-			border-bottom:lighten($silver, 10%) solid 1px;
+			background-color:white;
+			margin-bottom:5px;
+
 			h4 {
 				margin:20px 0 5px 0;
 				font-weight: $font-light;
@@ -439,15 +449,12 @@
 		}
 		li:first-child {
 			padding:0;
-			border:none;
+			margin:0;
 		}
 		li:nth-child(2) {
-			padding:0 0 15px 0;			
-			background:white;
-			border:none;
+			padding:0 0 15px 0;
 		}
 		li:last-child {
-			border:none;
 		}
 		.thumb {
 			position: relative;
