@@ -95,6 +95,13 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+								<div class="avatars">
+									<?php  global $post;
+					                $author_id=$post->post_author;
+					                foreach( get_coauthors() as $coauthor ): ?>
+					                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
+					                <?php endforeach; ?>
+				            	</div>
 							</div>
 							<div class="padding-15">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
@@ -158,6 +165,13 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+								<div class="avatars">
+									<?php  global $post;
+					                $author_id=$post->post_author;
+					                foreach( get_coauthors() as $coauthor ): ?>
+					                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
+					                <?php endforeach; ?>
+				            	</div>
 							</div>							
 							<div class="padding-15">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
@@ -223,6 +237,13 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+								<div class="avatars">
+									<?php  global $post;
+					                $author_id=$post->post_author;
+					                foreach( get_coauthors() as $coauthor ): ?>
+					                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
+					                <?php endforeach; ?>
+				            	</div>
 							</div>							
 							<div class="padding-15">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
@@ -286,6 +307,13 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+								<div class="avatars">
+									<?php  global $post;
+					                $author_id=$post->post_author;
+					                foreach( get_coauthors() as $coauthor ): ?>
+					                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
+					                <?php endforeach; ?>
+				            	</div>
 							</div>							
 							<div class="padding-15">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
@@ -351,6 +379,13 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+								<div class="avatars">
+									<?php  global $post;
+					                $author_id=$post->post_author;
+					                foreach( get_coauthors() as $coauthor ): ?>
+					                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
+					                <?php endforeach; ?>
+				            	</div>
 							</div>							
 							<div class="padding-15">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
@@ -414,6 +449,13 @@
 						<li>
 							<div class="thumb">
 								<a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+								<div class="avatars">
+									<?php  global $post;
+					                $author_id=$post->post_author;
+					                foreach( get_coauthors() as $coauthor ): ?>
+					                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
+					                <?php endforeach; ?>
+				            	</div>
 							</div>							
 							<div class="padding-15">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>

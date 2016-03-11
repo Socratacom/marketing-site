@@ -420,7 +420,7 @@
 			padding:15px;
 			border-bottom:lighten($silver, 10%) solid 1px;
 			h4 {
-				margin-bottom:5px;
+				margin:20px 0 5px 0;
 				font-weight: $font-light;
 			}
 			a {
@@ -448,6 +448,17 @@
 		}
 		li:last-child {
 			border:none;
+		}
+		.thumb {
+			position: relative;
+			.avatars {
+				position: absolute;
+				left:15px;
+				bottom:-25px;
+				img {
+					border:white solid 2px;
+				}
+			}
 		}
 		.btn {
 			color:white;
