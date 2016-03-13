@@ -82,13 +82,13 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
-						<li><a href="/digital-government-transformation/category/open-data/" class="btn background-green-sea">Open Data <i class="fa fa-arrow-circle-o-right"></i></a></li>
+						<li><a href="/digital-government-transformation/category/open-data-article/" class="btn background-green-sea">Open Data <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0'];
 						// The Query
 						$args1 = array(
 						'post_type'         => 'post',
-						'category_name'     => 'open-data',
+						'category_name'     => 'open-data-article',
 						'order'             => 'desc',
 						'post_status'       => 'publish',
 						'posts_per_page'    => 1,
@@ -127,7 +127,7 @@
 						/* The 2nd Query (without global var) */
 						$args2 = array(
 						'post_type'         => 'post',
-						'category_name'     => 'open-data',
+						'category_name'     => 'open-data-article',
 						'order'             => 'desc',
 						'post_status'       => 'publish',
 						'posts_per_page'    => 2,
