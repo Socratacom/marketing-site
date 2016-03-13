@@ -48,6 +48,8 @@ function previous_post_link_attributes($output) {
 }
 
 
+
+
 /**
  * Adds responisve image class to images
  */
