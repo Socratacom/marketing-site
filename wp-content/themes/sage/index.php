@@ -14,19 +14,27 @@
 	$query1->the_post();
 	$do_not_duplicate[] = get_the_ID(); ?>
 
-		<section class="feature-image blog-feature-image overlay-black" style="background-image: url(<?=$url?>);">
-
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-6">
-							<div class="text truncate">
-								<h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-							</div>
-						</div>
-					</div>
+	<section class="feature-image blog-feature-image overlay-black" style="background-image: url(<?=$url?>);">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<div class="text truncate">
+						<div class="categories text-reverse"><?php Roots\Sage\Extras\blog_the_categories(); ?></div>
+						<h2 class="text-reverse"><?php the_title(); ?></h2>
+					</div>							
+	            	<div class="meta text-reverse">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
+					<div class="avatars">
+						<?php  global $post;
+		                $author_id=$post->post_author;
+		                foreach( get_coauthors() as $coauthor ): ?>
+		                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
+		                <?php endforeach; ?>
+	            	</div>
 				</div>
-
-		</section>
+			</div>
+		</div>
+		<a href="<?php the_permalink() ?>" class="link"></a>
+	</section>
 
 	<?php
 	}
