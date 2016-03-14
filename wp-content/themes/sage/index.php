@@ -20,7 +20,7 @@
 				<div class="col-sm-6">
 					<div class="text truncate">
 						<div class="categories text-reverse"><?php Roots\Sage\Extras\blog_the_categories(); ?></div>
-						<h2 class="text-reverse"><?php the_title(); ?></h2>
+						<h2><a href="<?php the_permalink() ?>" class="text-reverse"><?php the_title(); ?></a></h2>
 					</div>							
 	            	<div class="meta text-reverse">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 					<div class="avatars">
@@ -33,7 +33,6 @@
 				</div>
 			</div>
 		</div>
-		<a href="<?php the_permalink() ?>" class="link"></a>
 	</section>
 
 	<?php

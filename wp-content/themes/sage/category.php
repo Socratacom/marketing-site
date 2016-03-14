@@ -1,12 +1,59 @@
 
+<?php 
+if (is_category()){ ?>
+<div class="col-sm-12">
+<h3 class="archive-title"><?php single_cat_title(); ?></h3>
+<hr/>
+</div>
+<?php
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="container page-padding">
 	<div class="row">
 		<div class="col-sm-8">
+
+			<?php $post_counter = 0; // start a counter before the loop ?>
+<?php if ( have_posts() ) : ?>
+<?php while ( have_posts() ) : the_post(); ?>
+<?php $post_counter++; // increment the counter for each post ?>
+
+
+
+<?php if ( $post_counter <= 1 ) : ?>
+<p><?php the_title(); ?></p>
+<?php endif; ?>
+
+
+
+<?php endwhile; ?>
+<?php endif; ?>
+<?php wp_reset_postdata();?>
+
+
+
+
+
+
+
+
+
 			<?php 
 			$cat = get_category( get_query_var( 'cat' ) );
 			$category = $cat->slug;
-			echo do_shortcode('[ajax_load_more category="'.$category.'" posts_per_page="6"]');
+			echo do_shortcode('[ajax_load_more category="'.$category.'" posts_per_page="6" offset="1"]');
 			?>
 		</div>
 
