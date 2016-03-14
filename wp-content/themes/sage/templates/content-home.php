@@ -1,5 +1,22 @@
  <section class="home-hero">
 	<div class="slider">
+		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-crime-reports.jpg);">
+			<div class="text-wrapper">
+				<div class="container">
+					<div class="row">
+				        <div class="text">
+							<div class="col-sm-6">
+								<div class="box-white padding-30">
+									<h1 class="margin-bottom-15">Introducing CrimeReports&trade;</h1>
+									<p class="lead">CrimeReports helps police agencies improve public and media perception by proactively sharing local crime information and providing visibility to agency operations.</p>
+				                    <div style="margin:0;"><a href="/products/crimereports" class="btn btn-lg btn-warning">Read More</a></div>
+				            	</div>
+							</div>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>	
 		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-one.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
@@ -10,23 +27,6 @@
 									<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
 									<p class="lead">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
 				                    <div style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></div>
-				            	</div>
-							</div>
-				        </div>
-					</div>
-				</div>
-			</div>
-		</div>		
-		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-law-enforcement.jpg);">
-			<div class="text-wrapper">
-				<div class="container">
-					<div class="row">
-				        <div class="text">
-							<div class="col-sm-6">
-								<div id="home-hero-slide-2" class="box-white padding-30">
-									<h1 class="margin-bottom-15">Socrata for Public Safety</h1>
-									<p class="lead">Socrata for Public Safety enables public safety agencies to share their data, increase transparency, and instill greater trust and engagement with their communities.</p>
-				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-safety/" class="btn btn-lg btn-warning">Read More</a></div>
 				            	</div>
 							</div>
 				        </div>
@@ -157,7 +157,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
-				<h2>Our Customers</h1>
+				<h2 class="margin-bottom-15">Our Customers</h1>
 				<p class="lead">Hundreds of cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>
 				<p><a href="/customer-stories">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
 			</div>
@@ -288,7 +288,7 @@ Socrata's cloud-based solution allows government organizations to put their data
 		<div class="row">
 			<div class="col-sm-6 col-sm-offset-1" data-sr='enter left move 50px'>
 				<div class="padding-30">
-					<h2 class="text-reverse">Give us an hour.</h2>
+					<h2 class="text-reverse margin-bottom-15">Give us an hour.</h2>
 					<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our data platform can do for you.</p>
 					<p id="section-cta-button"><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
 					<p class="lead text-reverse">Or call (206) 340-8008.</p>

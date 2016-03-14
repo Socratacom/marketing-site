@@ -625,7 +625,14 @@ body {
 	a {
 		color:$peter-river;
 		cursor: pointer;
-	}	
+	}
+	a.link-reverse {
+		color:white;
+		border-bottom:white dotted 1px;
+	}
+	a.link-reverse:hover {
+		color:lighten($peter-river, 30%)
+	}
 	a:hover {
 		color:darken($peter-river, 10%);
 		text-decoration:none;
