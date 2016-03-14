@@ -89,7 +89,7 @@
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
-						<li><a href="/digital-government-transformation/category/open-data-article/" class="btn background-green-sea">Open Data <i class="fa fa-arrow-circle-o-right"></i></a></li>
+						<li><a href="/blog/category/open-data-article/" class="btn background-green-sea">Open Data <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0'];
 						// The Query
@@ -157,7 +157,7 @@
 						?>
 					</ul>
 					<ul class="margin-bottom-30 category-list">
-						<li><a href="/digital-government-transformation/category/effective-governing/" class="btn background-carrot">Effective Governing <i class="fa fa-arrow-circle-o-right"></i></a></li>
+						<li><a href="/blog/category/effective-governing/" class="btn background-carrot">Effective Governing <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0'];
 						// The Query
@@ -225,7 +225,7 @@
 						?>
 					</ul>
 					<ul class="margin-bottom-30 category-list">
-						<li><a href="/digital-government-transformation/category/public-safety/" class="btn background-alizarin">Public Safety <i class="fa fa-arrow-circle-o-right"></i></a></li>
+						<li><a href="/blog/category/public-safety/" class="btn background-alizarin">Public Safety <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0'];
 						// The Query
@@ -295,7 +295,7 @@
 				</div>
 				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
-						<li><a href="/digital-government-transformation/category/public-finance/" class="btn background-belize-hole">Public Finance <i class="fa fa-arrow-circle-o-right"></i></a></li>
+						<li><a href="/blog/category/public-finance/" class="btn background-belize-hole">Public Finance <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0'];
 						// The Query
@@ -363,7 +363,7 @@
 						?>
 					</ul>
 					<ul class="margin-bottom-30 category-list">
-						<li><a href="/digital-government-transformation/category/data-rockstars/" class="btn background-nephritis">Data Rockstars <i class="fa fa-arrow-circle-o-right"></i></a></li>
+						<li><a href="/blog/category/data-rockstars/" class="btn background-nephritis">Data Rockstars <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0'];
 						// The Query
@@ -431,7 +431,7 @@
 						?>
 					</ul>
 					<ul class="margin-bottom-30 category-list">
-						<li><a href="/digital-government-transformation/category/open-data-download/" class="btn background-wisteria">Open Data Download <i class="fa fa-arrow-circle-o-right"></i></a></li>
+						<li><a href="/blog/category/open-data-download/" class="btn background-wisteria">Open Data Download <i class="fa fa-arrow-circle-o-right"></i></a></li>
 						<?php
 						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0'];
 						// The Query
