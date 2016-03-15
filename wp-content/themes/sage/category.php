@@ -12,14 +12,12 @@
 						<div class="categories text-reverse"><?php single_cat_title(); ?></div>
 						<h2><a href="<?php the_permalink() ?>" class="text-reverse"><?php the_title(); ?></a></h2>
 					</div>							
-	            	<div class="meta text-reverse">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
-					<div class="avatars">
-						<?php  global $post;
-		                $author_id=$post->post_author;
-		                foreach( get_coauthors() as $coauthor ): ?>
+	            	<ul class="meta">
+						<li><?php  global $post; $author_id=$post->post_author; foreach( get_coauthors() as $coauthor ): ?>
 		                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
-		                <?php endforeach; ?>
-	            	</div>
+		                <?php endforeach; ?></li>
+		                <li>By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></li>
+					</ul>
 				</div>
 			</div>
 		</div>

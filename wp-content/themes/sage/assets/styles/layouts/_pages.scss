@@ -270,7 +270,7 @@
 		vertical-align: middle;
 	}
 	.hero-animated {
-		height:300px;
+		height:400px;
 		position: relative;
 		overflow: hidden;
 		.outer {
@@ -796,7 +796,7 @@
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
 	.hero, .hero-animated, .video-background {
-		min-height: 450px;
+		min-height: 500px;
 	}
 	.industries {
 		.what-we-do * {

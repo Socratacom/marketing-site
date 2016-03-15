@@ -21,15 +21,13 @@
 					<div class="text truncate">
 						<div class="categories text-reverse"><?php Roots\Sage\Extras\blog_the_categories(); ?></div>
 						<h2><a href="<?php the_permalink() ?>" class="text-reverse"><?php the_title(); ?></a></h2>
-					</div>							
-	            	<div class="meta text-reverse">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
-					<div class="avatars">
-						<?php  global $post;
-		                $author_id=$post->post_author;
-		                foreach( get_coauthors() as $coauthor ): ?>
+					</div>
+					<ul class="meta">
+						<li><?php  global $post; $author_id=$post->post_author; foreach( get_coauthors() as $coauthor ): ?>
 		                <?php echo get_avatar( $coauthor->user_email, '50' ); ?>
-		                <?php endforeach; ?>
-	            	</div>
+		                <?php endforeach; ?></li>
+		                <li>By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></li>
+					</ul>
 				</div>
 			</div>
 		</div>
@@ -146,6 +144,7 @@
 						$query2->the_post(); ?>
 
 						<li>
+							<small>OPEN DATA</small><br>
 							<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
@@ -214,6 +213,7 @@
 						$query2->the_post(); ?>
 
 						<li>
+							<small>EFFECTIVE GOVERNING</small><br>
 							<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
@@ -282,6 +282,7 @@
 						$query2->the_post(); ?>
 
 						<li>
+							<small>PUBLIC SAFETY</small><br>
 							<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
@@ -352,6 +353,7 @@
 						$query2->the_post(); ?>
 
 						<li>
+							<small>PUBLIC FINANCE</small><br>
 							<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
@@ -420,6 +422,7 @@
 						$query2->the_post(); ?>
 
 						<li>
+							<small>DATA ROCKSTARS</small><br>
 							<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>
@@ -488,6 +491,7 @@
 						$query2->the_post(); ?>
 
 						<li>
+							<small>OPEN DATA DOWNLOAD</small><br>
 							<a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
 							<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 						</li>

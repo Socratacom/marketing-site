@@ -421,16 +421,23 @@
 				font-weight: $font-light;
 			}
 		}
-		.meta {
-			font-size: 13px;
-			margin-bottom: 5px;
-			font-weight: $font-light;
-			span {
-				font-weight: $font-semi-bold;
-			}
-		}
-		.avatars img {
-			border:white solid 2px;
+		ul.meta {
+			list-style-type: none;
+			margin:0;
+			padding: 0;
+			li {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 14px;
+				color:white;
+				span {
+					font-weight: $font-semi-bold;
+				}
+				img {
+					border:white solid 2px;
+					margin-right:5px;
+				}
+			}			
 		}
 		.link {
 			position: absolute;
@@ -591,6 +598,78 @@
 	        vertical-align: top;
 	    }
 	}
+	.alm-listing{
+		margin: 0;
+		padding: 0;
+	}
+	.alm-listing li{
+		background: none;
+		margin: 0 0 5px 0;
+		padding: 15px;
+		position: relative;
+		list-style: none;
+		border:lighten($silver, 15%) solid 2px;
+		min-height: 134px;
+		h4 {
+			margin:0;
+			padding: 5px 0;
+			font-weight: $font-light;
+			small {
+				text-transform: uppercase;
+				color:$asbestos;
+				display: block;
+				margin-bottom:3px;
+			}
+			 a {
+				color:$gray-dark;
+			}
+			a:hover {
+				color:$peter-river;
+			}
+		}
+		ul.meta {
+			list-style-type: none;
+			margin:0;
+			padding: 0;
+			li {
+				border:none;
+				padding:0;
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 14px;
+				color:$asbestos;
+				width:auto;
+				min-height: 32px;
+				span {
+					font-weight: $font-semi-bold;
+				}
+				img {
+					border:white solid 2px;
+					margin-right:5px;
+				}
+			}
+			li:nth-child(2) {
+				padding-top:4px;
+			}		
+		}
+		.meta {
+			font-size: 14px;
+			color:$asbestos;
+			margin-bottom:5px;
+			span {
+				font-weight: $font-semi-bold;
+			}
+		}
+	}	
+	.alm-listing li.no-img { 
+			padding: 0; 
+	}		
+	.alm-listing li p{
+		margin: 0;
+	}
+	.alm-listing li h3{
+		margin: 0 0 10px;
+	}
 }
 
 /* Extra Small Devices, Phones */ 
@@ -677,6 +756,14 @@
 			.author {
 				font-style: italic;				
 			}
+		}
+	}
+	.alm-listing li{
+		padding: 15px 15px 15px 134px;
+		.thumb {
+			position:absolute;
+			top:15px;
+			left:15px;
 		}
 	}
 }
@@ -845,92 +932,35 @@ button.alm-load-more-btn{
    cursor: default !important;
    outline: none !important;
 }
-   .ajax-load-more-wrap.infinite button.alm-load-more-btn:before {
-      display: none !important;  
-   }
-   .ajax-load-more-wrap.infinite button.alm-load-more-btn.done {
-   	opacity: 0;
-      filter: alpha(opacity=0); 
-   }   
-	.ajax-load-more-wrap.infinite button.alm-load-more-btn:active{
-		-webkit-box-shadow: none;
-		-moz-box-shadow: none;
-		box-shadow: none;
-	}	
-	
-   .ajax-load-more-wrap.infinite button.alm-load-more-btn {
-		background-color: transparent;
-		background-position: center center;
-		background-repeat: no-repeat;
-		background-image: url("../../core/img/spinner.gif");   	
-		border: none !important;
-		opacity: 0;
-		filter: alpha(opacity=0); 
-   }
-   .ajax-load-more-wrap.infinite button.alm-load-more-btn {      
-      -webkit-transition: opacity 0.25s ease;
-      -moz-transition: opacity 0.25s ease;
-      transition: opacity 0.25s ease;
-   }
-   .ajax-load-more-wrap.infinite button.alm-load-more-btn.loading {
-      opacity: 1;
-      filter: alpha(opacity=100);  
-   }
-   
-
-
-/*
-*  Generic alm-listing styles
-*  @since 1.0.0
-*/
-
-.alm-listing{
-	margin: 0;
-	padding: 0;
+.ajax-load-more-wrap.infinite button.alm-load-more-btn:before {
+  display: none !important;  
 }
-	.alm-listing li{
-		background: none;
-		margin: 0 0 5px 0;
-		padding: 15px 15px 15px 134px;
-		position: relative;
-		list-style: none;
-		border:lighten($silver, 15%) solid 2px;
-		min-height: 134px;
-		.thumb {
-			position:absolute;
-			top:15px;
-			left:15px;
-		}
-		h4 {
-			margin:0;
-			padding: 5px 0;
-			font-weight: $font-light;
-			 a {
-				color:$gray-dark;
-			}
-			a:hover {
-				color:$peter-river;
-			}
-		}
-		.meta {
-			font-size: 14px;
-			color:$asbestos;
-			margin-bottom:5px;
-			span {
-				font-weight: $font-semi-bold;
-			}
-		}
-	}	
-	.alm-listing li.no-img{ 
-   	padding: 0; 
-   }		
-	.alm-listing li a{}
-	.alm-listing li p{
-		margin: 0;
-	}
-	.alm-listing li h3{
-		margin: 0 0 10px;
-	}
-	.alm-listing li img{
+.ajax-load-more-wrap.infinite button.alm-load-more-btn.done {
+	opacity: 0;
+  filter: alpha(opacity=0); 
+}   
+.ajax-load-more-wrap.infinite button.alm-load-more-btn:active{
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+}	
 
-	}
+.ajax-load-more-wrap.infinite button.alm-load-more-btn {
+	background-color: transparent;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-image: url("../../core/img/spinner.gif");   	
+	border: none !important;
+	opacity: 0;
+	filter: alpha(opacity=0); 
+}
+.ajax-load-more-wrap.infinite button.alm-load-more-btn {      
+  -webkit-transition: opacity 0.25s ease;
+  -moz-transition: opacity 0.25s ease;
+  transition: opacity 0.25s ease;
+}
+.ajax-load-more-wrap.infinite button.alm-load-more-btn.loading {
+  opacity: 1;
+  filter: alpha(opacity=100);  
+}
+   
