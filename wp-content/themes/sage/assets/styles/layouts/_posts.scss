@@ -551,6 +551,9 @@
 		.background-belize-hole:hover {
 			background-color:lighten($belize-hole,10%);
 		}
+		.repeater {
+			border:lighten($silver, 15%) solid 2px;
+		}
 	}
 	.sidebar-list {
 	    margin-bottom:30px;
@@ -887,10 +890,36 @@ button.alm-load-more-btn{
 }
 	.alm-listing li{
 		background: none;
-		margin: 0 0 30px;
-		padding: 0;
+		margin: 0 0 5px 0;
+		padding: 15px 15px 15px 134px;
 		position: relative;
 		list-style: none;
+		border:lighten($silver, 15%) solid 2px;
+		min-height: 134px;
+		.thumb {
+			position:absolute;
+			top:15px;
+			left:15px;
+		}
+		h4 {
+			margin:0;
+			padding: 5px 0;
+			font-weight: $font-light;
+			 a {
+				color:$gray-dark;
+			}
+			a:hover {
+				color:$peter-river;
+			}
+		}
+		.meta {
+			font-size: 14px;
+			color:$asbestos;
+			margin-bottom:5px;
+			span {
+				font-weight: $font-semi-bold;
+			}
+		}
 	}	
 	.alm-listing li.no-img{ 
    	padding: 0; 

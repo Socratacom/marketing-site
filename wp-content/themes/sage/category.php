@@ -33,13 +33,13 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-8">
-				<ul class="no-bullets">
+
 				<?php 
 				$cat = get_category( get_query_var( 'cat' ) );
 				$category = $cat->slug;
 				echo do_shortcode('[ajax_load_more category="'.$category.'" posts_per_page="6" offset="1"]');
 				?>
-				</ul>
+
 			</div>
 			<div class="col-sm-4 hidden-xs">
 				<?php echo do_shortcode('[newsletter-sidebar]'); ?> 
