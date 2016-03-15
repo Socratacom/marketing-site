@@ -474,7 +474,20 @@ dl.quote-author {
             height: 100%;
             z-index: 10;
         }
-    }       
+    }
+    .speaker {
+        padding:30px;
+        text-align: center;
+        img {
+            max-width: 200px;
+        }
+        h5 {
+            margin:0;
+        }
+        p {
+            line-height: normal;
+        }
+    }  
 }
 
 /* Extra Small Devices, Phones */ 
