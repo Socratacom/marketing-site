@@ -41,11 +41,10 @@
 	wp_reset_postdata();
 ?>
 
-<section>
-
+<section class="section-padding">
 <div class="container">
 	<div class="row">
-		<div class="col-sm-4 col-md-3 col-padding">
+		<div class="col-sm-4 col-md-3">
 			<?php
 			$args = array(
 			'post_type'         => 'post',
@@ -85,7 +84,7 @@
 		</div>
 
 
-		<div class="col-sm-8 col-md-9 background-clouds col-padding">
+		<div class="col-sm-8 col-md-9">
 			<div class="row">
 				<div class="col-md-6">
 					<ul class="margin-bottom-30 category-list">
@@ -120,7 +119,7 @@
 					                <?php endforeach; ?>
 				            	</div>
 							</div>
-							<div class="padding-15">
+							<div class="title">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
@@ -188,7 +187,7 @@
 					                <?php endforeach; ?>
 				            	</div>
 							</div>							
-							<div class="padding-15">
+							<div class="title">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
@@ -256,7 +255,7 @@
 					                <?php endforeach; ?>
 				            	</div>
 							</div>							
-							<div class="padding-15">
+							<div class="title">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
@@ -326,7 +325,7 @@
 					                <?php endforeach; ?>
 				            	</div>
 							</div>							
-							<div class="padding-15">
+							<div class="title">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
@@ -394,7 +393,7 @@
 					                <?php endforeach; ?>
 				            	</div>
 							</div>							
-							<div class="padding-15">
+							<div class="title">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
@@ -462,7 +461,7 @@
 					                <?php endforeach; ?>
 				            	</div>
 							</div>							
-							<div class="padding-15">
+							<div class="title">
 								<h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
 								<div class="meta">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?></div>
 							</div>
