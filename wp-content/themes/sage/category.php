@@ -29,10 +29,10 @@
 <?php endif; ?>
 <?php wp_reset_postdata();?>
 
-<section>
+<section class="section-padding">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-8 col-padding background-clouds">
+			<div class="col-sm-8">
 				<ul class="no-bullets">
 				<?php 
 				$cat = get_category( get_query_var( 'cat' ) );
@@ -41,7 +41,7 @@
 				?>
 				</ul>
 			</div>
-			<div class="col-sm-4 hidden-xs col-padding">
+			<div class="col-sm-4 hidden-xs">
 				<?php echo do_shortcode('[newsletter-sidebar]'); ?> 
 				<?php
 				$args = array(
