@@ -207,6 +207,33 @@ function od_directory_register_meta_boxes( $meta_boxes )
         'std'  => 'http://google.com',
         'clone' => true,
       ),
+      // CHECKBOX LIST
+      array(
+        'name'    => __( 'Data Types', 'od-directory' ),
+        'id'      => "{$prefix}checkbox_list",
+        'type'    => 'checkbox_list',
+        // Options of checkboxes, in format 'value' => 'Label'
+        'options' => array(
+          'asset_disclosure' => __( 'Asset Disclosure', 'od-directory' ),
+          'business_listings' => __( 'Business Listings', 'od-directory' ),
+          'campaign_finance' => __( 'Campaign Finance', 'od-directory' ),
+          'code_enforcement' => __( 'Code Enforcement', 'od-directory' ),
+          'construction_permits' => __( 'Construction Permits', 'od-directory' ),
+          'crime_police' => __( 'Crime & Police', 'od-directory' ),
+          'loby_activity' => __( 'Loby Activity', 'od-directory' ),
+          'parcels' => __( 'Parcels', 'od-directory' ),
+          'payroll' => __( 'Payroll', 'od-directory' ),
+          'procurement_contracts' => __( 'Procurement Contracts', 'od-directory' ),
+          'property_assesments' => __( 'Property Assesments', 'od-directory' ),
+          'property_deeds' => __( 'Property Deeds', 'od-directory' ),
+          'public_buildings' => __( 'Public Buildings', 'od-directory' ),          
+          'restaurant_inspections' => __( 'Restaurant Inspections', 'od-directory' ),
+          'service_requests' => __( 'Service Requests (311)', 'od-directory' ),
+          'spending' => __( 'Spending', 'od-directory' ),          
+          'transit' => __( 'Transit', 'od-directory' ),
+          'zoning' => __( 'Zoning', 'od-directory' ),
+        ),
+      ),
       // HEADING
       array(
         'type' => 'heading',
