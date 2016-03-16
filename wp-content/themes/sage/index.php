@@ -1,12 +1,3 @@
-<section class="page-banner background-wet-asphalt">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<h4 class="text-reverse text-uppercase" style="margin:0;">Digital Government Transformation</h4>
-			</div>
-		</div>
-	</div>
-</section>
 <?php
 	$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); $url = $thumb['0'];
 	$do_not_duplicate = array();
@@ -47,7 +38,15 @@
 
 	wp_reset_postdata();
 ?>
-
+<section class="page-banner background-wet-asphalt">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h4 class="text-reverse text-uppercase" style="margin:0;">Digital Government Transformation</h4>
+			</div>
+		</div>
+	</div>
+</section>
 <section class="section-padding">
 <div class="container">
 	<div class="row">
