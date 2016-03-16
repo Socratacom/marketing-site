@@ -1,3 +1,12 @@
+<section class="page-banner background-wet-asphalt">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<h1 class="text-reverse text-uppercase" style="margin:0;">Digital Government Transformation</h1>
+			</div>
+		</div>
+	</div>
+</section>
 <?php $post_counter = 0; // start a counter before the loop ?>
 <?php if ( have_posts() ) : ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -26,15 +35,6 @@
 <?php endwhile; ?>
 <?php endif; ?>
 <?php wp_reset_postdata();?>
-<section class="page-banner background-wet-asphalt">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<h4 class="text-reverse text-uppercase" style="margin:0;">Digital Government Transformation: <?php single_cat_title(); ?></h4>
-			</div>
-		</div>
-	</div>
-</section>
 <section class="section-padding">
 	<div class="container">
 		<div class="row">

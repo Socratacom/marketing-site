@@ -704,11 +704,13 @@
 
 /* Small Devices, Tablets */
 @media only screen and (min-width : 768px) {
-
+	.article-content {
+		margin-top:-150px;
+	}
 	.featured-post {
 		height:400px;
 		.text {
-				width:45%;
+			width:45%;
 		}
 	}
 	.content {

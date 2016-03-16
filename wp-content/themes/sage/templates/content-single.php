@@ -1,3 +1,12 @@
+<section class="page-banner background-wet-asphalt">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="text-reverse text-uppercase" style="margin:0;">Digital Government Transformation</h1>
+      </div>
+    </div>
+  </div>
+</section>
 <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); $url = $thumb['0']; ?>
 <div class="feature-image overlay-black" style="background-image: url(<?=$url?>);">
   <div class="vertical-center">

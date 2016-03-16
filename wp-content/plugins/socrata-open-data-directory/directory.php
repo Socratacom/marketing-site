@@ -172,6 +172,12 @@ function od_directory_register_meta_boxes( $meta_boxes )
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Customer Details', 'od-directory' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
     // RADIO BUTTONS
       array(
         'name'    => __( 'Is this a Socrata customer?', 'od-directory' ),
@@ -206,6 +212,12 @@ function od_directory_register_meta_boxes( $meta_boxes )
         'type' => 'url',
         'std'  => 'http://google.com',
         'clone' => true,
+      ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Data Details', 'od-directory' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // CHECKBOX LIST
       array(
