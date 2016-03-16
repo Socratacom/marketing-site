@@ -1,12 +1,3 @@
-<section class="page-banner background-wet-asphalt">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<h1 class="text-reverse text-uppercase" style="margin:0;">Digital Government Transformation</h1>
-			</div>
-		</div>
-	</div>
-</section>
 <?php $post_counter = 0; // start a counter before the loop ?>
 <?php if ( have_posts() ) : ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -14,6 +5,15 @@
 <?php if ( $post_counter <= 1 ) : ?>
 	<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); $url = $thumb['0']; ?>
 	<section class="feature-image blog-feature-image overlay-black" style="background-image: url(<?=$url?>);">
+				<div class="page-banner">
+		<div class="container">
+		<div class="row">
+		<div class="col-sm-12">
+		<h1 class="text-reverse text-uppercase" style="margin:0;">Digital Government Transformation</h1>
+		</div>
+		</div>
+		</div>
+		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-6">
