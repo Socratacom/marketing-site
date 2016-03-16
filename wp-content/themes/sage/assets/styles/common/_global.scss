@@ -577,7 +577,6 @@ body {
 	    margin-bottom:30px;
 	}
 	h1, h2 {
-		letter-spacing:-1px;
 		font-weight: $font-bold;
 	}
 	h3 {
@@ -588,10 +587,12 @@ body {
 	h4, h5, h6 {
 		font-weight: $font-semi-bold;		
 	}
-	h1 {
+	h1 {		
+		letter-spacing:-2px;
 		font-size: 36px;
 	}
-	h2 {
+	h2 {		
+		letter-spacing:-1px;
 		font-size: 30px;
 	}
 	h3 {

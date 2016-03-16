@@ -42,6 +42,9 @@
 <section class="section-padding">
 <div class="container">
 	<div class="row">
+		<div class="col-sm-12">
+			<h1 class="margin-bottom-60 text-center">Digital Government Transformation</h1>
+		</div>
 		<div class="col-sm-4 col-md-3">
 			<?php
 			$args = array(
