@@ -943,11 +943,12 @@ body {
 		padding:0;
 		text-align: center;
 		li {
-			display:inline-block;
-			margin-right:10px;
-		}
-		li:last-child {
+			display:block;
 			margin:0;
+			padding:5px 0;
+			.btn {
+				width:100%;
+			}
 		}
 	}
 	.img-responsive {
@@ -960,6 +961,15 @@ body {
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
+	ul.cta-list {
+		li {
+			display:inline-block;
+			padding:0 5px;
+			.btn {
+				width:auto;
+			}
+		}
+	}
 
 }
 
