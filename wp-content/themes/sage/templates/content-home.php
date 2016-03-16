@@ -93,7 +93,7 @@
 				<div class="tile">
 					<div class="vertical-center padding-30 what-we-do">
 						<h2 class="text-reverse text-center margin-bottom-15">What We Do</h2>
-						<p class="lead text-center color-concrete">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
+						<p class="lead text-center text-reverse">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
 					</div>
 				</div>
 			</div>
