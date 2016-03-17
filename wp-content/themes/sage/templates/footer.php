@@ -9,7 +9,7 @@
 					<li class="google"><a href="https://plus.google.com/+Socrata/about" class="" target="_blank">googleplus</a></li>
 					<li class="youtube"><a href="https://www.youtube.com/user/socratavideos" class="" target="_blank">youtube</a></li>
 				</ul>
-				<div class="footer-logo gray-logo"></div>
+				<div class="footer-logo logo"></div>
 				<ul class="copyright">
 					<li>&copy; <?php echo date("Y");?> Socrata. All rights reserved.</li>
 					<li>Phone: <a href="tel://1-206-340-8008">+1 (206) 340-8008</a></li>

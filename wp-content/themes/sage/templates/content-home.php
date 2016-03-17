@@ -86,7 +86,7 @@
         });
 	</script>
 </section>
-<section id="start" class="background-gray-dark industries">
+<section id="start" class="background-asbestos industries">
 	<div class="container">
 		<div class="row no-gutters">
 			<div class="col-sm-6 col-md-4">

@@ -175,13 +175,13 @@ function od_directory_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Customer Details', 'od-directory' ),
+        'name' => __( 'Listing', 'od-directory' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
-    // RADIO BUTTONS
+      // RADIO BUTTONS
       array(
-        'name'    => __( 'Is this a Socrata customer?', 'od-directory' ),
-        'id'      => "{$prefix}radio",
+        'name'    => __( 'Does this listing have an Open Data Site', 'od-directory' ),
+        'id'      => "{$prefix}datasite",
         'type'    => 'radio',
         // Array of 'value' => 'Label' pairs for radio options.
         // Note: the 'value' is stored in meta field, not the 'Label'
@@ -190,19 +190,143 @@ function od_directory_register_meta_boxes( $meta_boxes )
           'value2' => __( 'No', 'od-directory' ),
         ),
       ),
+      // RADIO BUTTONS
+      array(
+        'name'    => __( 'Is this a Socrata customer?', 'od-directory' ),
+        'id'      => "{$prefix}customer",
+        'type'    => 'radio',
+        // Array of 'value' => 'Label' pairs for radio options.
+        // Note: the 'value' is stored in meta field, not the 'Label'
+        'options' => array(
+          'value1' => __( 'Yes', 'od-directory' ),
+          'value2' => __( 'No', 'od-directory' ),
+        ),
+      ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Location Info', 'od-directory' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
       // TEXT
       array(
         // Field name - Will be used as label
-        'name'  => __( 'Sites', 'your-prefix' ),
+        'name'  => __( 'City', 'your-prefix' ),
         // Field ID, i.e. the meta key
-        'id'    => "{$prefix}text",
-        // Field description (optional)
-        'desc'  => __( 'Text description', 'your-prefix' ),
+        'id'    => "{$prefix}city-name",
         'type'  => 'text',
-        // Default value (optional)
-        'std'   => __( 'Default text value', 'your-prefix' ),
         // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => true,
+        'clone' => false,
+      ),
+      // TEXT
+      array(
+        // Field name - Will be used as label
+        'name'  => __( 'County', 'your-prefix' ),
+        // Field ID, i.e. the meta key
+        'id'    => "{$prefix}county-name",
+        'type'  => 'text',
+        // CLONES: Add to make the field cloneable (i.e. have multiple value)
+        'clone' => false,
+      ),
+      // SELECT BOX
+      array(
+        'name'        => __( 'State', 'socrata-events' ),
+        'id'          => "{$prefix}state",
+        'type'        => 'select',
+        // Array of 'value' => 'Label' pairs for select box
+        'options'     => array(
+          'AL' => __( 'Alabama', 'socrata-events' ),
+          'AK' => __( 'Alaska', 'socrata-events' ),
+          'AZ' => __( 'Arizona', 'socrata-events' ),
+          'AR' => __( 'Arkansas', 'socrata-events' ),
+          'CA' => __( 'California', 'socrata-events' ),
+          'CO' => __( 'Colorado', 'socrata-events' ),
+          'CT' => __( 'Connecticut', 'socrata-events' ),
+          'DE' => __( 'Delaware', 'socrata-events' ),
+          'DC' => __( 'District of Columbia', 'socrata-events' ),
+          'FL' => __( 'Florida', 'socrata-events' ),
+          'GA' => __( 'Georgia', 'socrata-events' ),
+          'HI' => __( 'Hawaii', 'socrata-events' ),
+          'ID' => __( 'Idaho', 'socrata-events' ),
+          'IL' => __( 'Illinois', 'socrata-events' ),
+          'IN' => __( 'Indiana', 'socrata-events' ),
+          'IA' => __( 'Iowa', 'socrata-events' ),
+          'KS' => __( 'Kansas', 'socrata-events' ),
+          'KY' => __( 'Kentucky', 'socrata-events' ),
+          'LA' => __( 'Louisiana', 'socrata-events' ),
+          'ME' => __( 'Maine', 'socrata-events' ),
+          'MD' => __( 'Maryland', 'socrata-events' ),
+          'MA' => __( 'Massachusetts', 'socrata-events' ),
+          'MI' => __( 'Michigan', 'socrata-events' ),
+          'MN' => __( 'Minnesota', 'socrata-events' ),
+          'MS' => __( 'Mississippi', 'socrata-events' ),
+          'MO' => __( 'Missouri', 'socrata-events' ),
+          'MT' => __( 'Montana', 'socrata-events' ),
+          'NE' => __( 'Nebraska', 'socrata-events' ),
+          'NV' => __( 'Nevada', 'socrata-events' ),
+          'NH' => __( 'New Hampshire', 'socrata-events' ),
+          'NJ' => __( 'New Jersey', 'socrata-events' ),
+          'NM' => __( 'New Mexico', 'socrata-events' ),
+          'NY' => __( 'New York', 'socrata-events' ),
+          'NC' => __( 'North Carolina', 'socrata-events' ),
+          'ND' => __( 'North Dakota', 'socrata-events' ),
+          'OH' => __( 'Ohio', 'socrata-events' ),
+          'OK' => __( 'Oklahoma', 'socrata-events' ),
+          'OR' => __( 'Oregon', 'socrata-events' ),
+          'PA' => __( 'Pennsylvania', 'socrata-events' ),
+          'RI' => __( 'Rhode Island', 'socrata-events' ),
+          'SC' => __( 'South Carolina', 'socrata-events' ),
+          'SD' => __( 'South Dakota', 'socrata-events' ),
+          'TN' => __( 'Tennessee  ', 'socrata-events' ),
+          'TX' => __( 'Texas', 'socrata-events' ),
+          'UT' => __( 'Utah', 'socrata-events' ),
+          'VT' => __( 'Vermont', 'socrata-events' ),
+          'VA' => __( 'Virginia', 'socrata-events' ),
+          'WA' => __( 'Washington', 'socrata-events' ),
+          'WV' => __( 'West Virginia', 'socrata-events' ),
+          'WI' => __( 'Wisconsin', 'socrata-events' ),
+          'WY' => __( 'Wyoming', 'socrata-events' ),
+        ),
+        'placeholder' => __( 'Select a State', 'socrata-events' ),
+      ),
+      // TEXT
+      array(
+        // Field name - Will be used as label
+        'name'  => __( 'Agency', 'your-prefix' ),
+        // Field ID, i.e. the meta key
+        'id'    => "{$prefix}agency-name",        
+        'desc' => __( 'Used for Federal Listings', 'od-directory' ),
+        'type'  => 'text',
+        // CLONES: Add to make the field cloneable (i.e. have multiple value)
+        'clone' => false,
+      ),
+      // TEXT
+      array(
+        // Field name - Will be used as label
+        'name'  => __( 'Population', 'your-prefix' ),
+        // Field ID, i.e. the meta key
+        'id'    => "{$prefix}population",        
+        'desc' => __( 'Used for City, County, and State', 'od-directory' ),
+        'type'  => 'text',
+        // CLONES: Add to make the field cloneable (i.e. have multiple value)
+        'clone' => false,
+      ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Site Info', 'od-directory' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // TEXT
+      array(
+        // Field name - Will be used as label
+        'name'  => __( 'Site Name', 'your-prefix' ),
+        // Field ID, i.e. the meta key
+        'id'    => "{$prefix}site-name",        
+        'desc' => __( 'Example: Open Data New York', 'od-directory' ),
+        'type'  => 'text',
+        // CLONES: Add to make the field cloneable (i.e. have multiple value)
+        'clone' => false,
       ),
       // URL
       array(
@@ -211,7 +335,6 @@ function od_directory_register_meta_boxes( $meta_boxes )
         'desc' => __( 'URL description', 'your-prefix' ),
         'type' => 'url',
         'std'  => 'http://google.com',
-        'clone' => true,
       ),
       // HEADING
       array(
@@ -246,84 +369,6 @@ function od_directory_register_meta_boxes( $meta_boxes )
           'zoning' => __( 'Zoning', 'od-directory' ),
         ),
       ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Event Date and Time', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Display Date and Time', 'od-directory' ),
-        'id'    => "{$prefix}displaydate",
-        'desc' => __( 'Example: Jan 1st - 2:00pm PST', 'od-directory' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Event Location', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Location Name', 'od-directory' ),
-        'id'    => "{$prefix}location",
-        'desc' => __( 'Example: Hometown Pub', 'od-directory' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Street Address', 'od-directory' ),
-        'id'    => "{$prefix}address",
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'City', 'od-directory' ),
-        'id'    => "{$prefix}city",
-        'desc' => __( 'Required', 'od-directory' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),      
-      // TEXT
-      array(
-        'name'  => __( 'Zip', 'od-directory' ),
-        'id'    => "{$prefix}zip",
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // URL
-      array(
-        'name'  => __( 'Google Map Link', 'od-directory' ),
-        'id'    => "{$prefix}directions",
-        'desc' => __( 'Link for Directions', 'od-directory' ),
-        'type'  => 'url',
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Event Info', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // URL
-      array(
-        'name' => __( 'Event URL', 'od-directory' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'Example: http://somesite.com', 'od-directory' ),
-        'type' => 'url',
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Marketo Form ID', 'od-directory' ),
-        'id'    => "{$prefix}marketo",
-        'desc' => __( 'Example: 1234', 'od-directory' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
       // WYSIWYG/RICH TEXT EDITOR
       array(
         'name'    => __( 'Content', 'od-directory' ),
@@ -342,3 +387,31 @@ function od_directory_register_meta_boxes( $meta_boxes )
   );
   return $meta_boxes;
 }
+
+
+
+
+/* Things to Note:
+• Each Record will by Category Entity (i.e City, County, State, and Federal).
+• Ability for multiple site entries
+• Population will be the default query order. 
+• Look into adding a map view. 
+• Add Number of open data Datasets
+• Socrata Customers will get a Logo and Screenshot
+• Socrata Customers will also get "Open Data Leader Since 2004"
+• If customers have apps, enter url.
+• Add Feedback/Recomend a site. Possibly Marketo.
+• Visualizations will be: 150 Cities have Open Data Sites, etc.
+*/
+
+
+
+
+
+
+
+
+
+
+
+
