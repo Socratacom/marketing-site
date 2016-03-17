@@ -1,7 +1,7 @@
 <footer role="contentinfo">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-4 col-md-3 margin-bottom-30">
 				<ul class="social-icons clearfix">
 					<li class="facebook"><a href="https://www.facebook.com/socrata" target="_blank">facebook</a></li>
 					<li class="twitter"><a href="https://twitter.com/socrata" class="" target="_blank">twitter</a></li>
@@ -21,23 +21,27 @@
 					<?php echo do_shortcode('[marketo-form id="2745"]'); ?>
 				</div>
 			</div>
-			<div class="col-sm-3">
-				<h4>Products</h4>
-				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_products' ) ); ?>
-				<h4>Solutions</h4>				
-				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_solutions' ) ); ?>
-			</div>
-			<div class="col-sm-3">
-				<h4>Resources</h4>				
-				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
-				<h4>About</h4>				
-				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_about' ) ); ?>
-			</div>
-			<div class="col-sm-3">
-				<h4>Community</h4>				
-				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_community' ) ); ?>
-				<h4>Additional Links</h4>				
-				<?php wp_nav_menu( array( 'theme_location' => 'site_nav_additional_links' ) ); ?>
+			<div class="col-sm-8 col-md-9">
+				<div class="row">
+					<div class="col-sm-4">
+						<h4>Products</h4>
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_products' ) ); ?>
+						<h4>Solutions</h4>				
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_solutions' ) ); ?>
+					</div>
+					<div class="col-sm-4">
+						<h4>Resources</h4>				
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
+						<h4>About</h4>				
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_about' ) ); ?>
+					</div>
+					<div class="col-sm-4">
+						<h4>Community</h4>				
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_community' ) ); ?>
+						<h4>Additional Links</h4>				
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_additional_links' ) ); ?>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

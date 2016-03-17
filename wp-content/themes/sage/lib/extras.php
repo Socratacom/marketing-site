@@ -32,8 +32,9 @@ function excerpt_more() {
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
-
-
+/**
+ * Next Previous nav
+ */
 add_filter('next_post_link', __NAMESPACE__ . '\\next_post_link_attributes');
 function next_post_link_attributes($output) {
     $code = 'class="next-post-button"';
@@ -46,6 +47,20 @@ function previous_post_link_attributes($output) {
     return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
 
+
+
+
+/**
+ * Adds responisve image class to images
+ */
+function WPTime_add_custom_class_to_all_images($content){
+    /* Filter by Qassim Hassan - http://wp-time.com */
+    $my_custom_class = "img-responsive"; // your custom class
+    $add_class = str_replace('<img class="', '<img class="'.$my_custom_class.' ', $content); // add class
+
+    return $add_class; // display class to image
+}
+add_filter('the_content', __NAMESPACE__ . '\\WPTime_add_custom_class_to_all_images');
 
 
 
@@ -105,6 +120,21 @@ function marketo_share($atts, $content = null) {
   return $content;
 }
 add_shortcode('marketo-share', __NAMESPACE__ . '\\marketo_share');
+
+function marketo_share_custom($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397"></div>
+  <div class="rss-button"><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS'); ?>" target="_blank"></a></div>
+  <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>
+  
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('marketo-share-custom', __NAMESPACE__ . '\\marketo_share_custom');
+
 
 
 /**
@@ -328,42 +358,31 @@ $('#mediaModal').on('hidden.bs.modal', function () {
 }
 add_shortcode('youtube-modal', __NAMESPACE__ . '\\youtube_modal');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Author Description
  */
 function author_description($atts, $content = null) {
   ob_start();
   ?>
-  <div class="author-description">
-    <div class="row">
-      <div class="col-sm-3">
-        <p class="text-center"><?php echo get_avatar( get_the_author_meta('ID'), 100 ); ?></p>
-      </div>
-      <div class="col-sm-9">
-        <h3>About the Author</h3>
-        <?php the_author_description(); ?>
-      </div>
-    </div>
+
+
+
+
+<?php  global $post;
+$author_id=$post->post_author;
+foreach( get_coauthors() as $coauthor ): ?>
+<div class="author-description">
+  <div class="headshot">
+    <?php echo get_avatar( $coauthor->user_email, '70' ); ?>
+    <h5><?php echo $coauthor->display_name; ?></h5>
   </div>
+  <div class="box-white">
+    <p><strong>About <?php echo $coauthor->display_name; ?></strong> - <?php echo $coauthor->description; ?></p>
+  </div>
+</div>
+<?php endforeach; ?>
+
+
   <?php
   $content = ob_get_contents();
   ob_end_clean();
@@ -378,9 +397,8 @@ function newsletter_sidebar ($atts, $content = null) {
   ob_start();
   ?>
   <div class="newsletter-sidebar newsletter-form marketo-form">
-    <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
-    <h4>Subscribe to the Socrata newsletter</h4>
-    <p>T R A N S F O R M, Socrata’s Newsletter, brings you essential news about open data, best practices for data-driven governments, and resources for successful implementation.</p>
+    <h4 class="margin-bottom-15">Subscribe to our Weekly Newsletter</h4>
+    <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>
     <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>

@@ -1,5 +1,5 @@
 body {
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color:$gray-dark;
 	background-color:$gray-dark;
 }
@@ -265,12 +265,6 @@ body {
 	background-color:$nephritis;
 	.btn-default {
 		color:$nephritis;
-	}
-	a {
-		color:lighten($nephritis, 20%);
-	}
-	a:hover {
-		color:lighten($nephritis, 30%);
 	}
 }
 .overlay-nephritis:before {
@@ -559,7 +553,7 @@ body {
 	left:0;
 	height:100%;
 	width:100%;
-	background-color: rgba(black, 0.5);
+	background-color: rgba(black, 0.35);
 }
 .overlay-black-stripes:before {
 	content:'';
@@ -577,47 +571,52 @@ body {
 @media only screen and (min-width : 320px) {
 
 	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	    font-family: inherit;
-	    font-weight: $font-normal;
-	    line-height: normal;
 	    color: $midnight-blue;
 	    margin-top:0;
-	    margin-bottom:1em;
+	    line-height: 1.2em;
+	    margin-bottom:30px;
 	}
-	h1 {
-		font-size:24px;
-		letter-spacing:-1px;
+	h1, h2 {
 		font-weight: $font-bold;
-
-	}
-	h2 {
-		font-size:20px;
-		font-weight: $font-bold;
-	
 	}
 	h3 {
-		font-size:18px;
-		
+		font-weight: $font-normal;
+		line-height: 1.25em;
+	}
+
+	h4, h5, h6 {
+		font-weight: $font-semi-bold;		
+	}
+	h1 {		
+		letter-spacing:-2px;
+		font-size: 36px;
+	}
+	h2 {		
+		letter-spacing:-1px;
+		font-size: 30px;
+	}
+	h3 {
+		font-size: 24px;
 	}
 	h4 {
-		font-size:18px;
-		margin-bottom:20px;
+		font-size: 18px;
 	}
 	h5 {
-		font-size:16px;
+		font-size: 14px;
 	}
-	h6 {
-		font-size:16px;
-		margin-bottom:1em;
+	p, li {		
+		font-size:14px;
 	}
-	p, li {
-		color:#666;
+	.lead {
+		font-size: 18px;
+	}
+	.lead, p, li {
+		color:darken($asbestos, 15%);
 		font-weight:$font-light;
-		font-size: 16px;
 		line-height: 1.5em;
 	}
-	p, ul, ol, figure {
-		margin-bottom:1.63em;
+	ul, p, blockquote {
+		margin-bottom:1.5em;
 	}
 	ul, ol {
 		padding-left:20px;
@@ -644,6 +643,7 @@ body {
 	.background-clouds hr {
 		border-top:darken($clouds, 5%) solid 5px
 	}
+
 	table {
 		h4 {
 			margin:20px 0; 
@@ -657,10 +657,10 @@ body {
 		}
 		tr>th, td, td p, th p, td li {
 			font-size:14px;
-			font-weight: 300;
+			font-weight: $font-light;
 		}
 		tr>th, th p {
-			font-weight: 400;
+			font-weight: $font-normal;
 		}
 
 	}
@@ -801,6 +801,20 @@ body {
 			}
 		}
 	}
+	.page-banner {
+		position: absolute;
+		top:0;
+		left:0;
+		width:100%;
+		background-color:rgba($gray-dark, 0.5);
+		padding:15px 0;
+		h1 {
+			font-size: 18px;
+			letter-spacing: 1px;
+			font-weight: $font-light;
+			line-height: 20px !important;
+		}
+	}
 	/* Cards */
 	.card {
 		position: relative;
@@ -902,6 +916,13 @@ body {
 			}
 		}
 	}
+	ul.no-bullets {
+		list-style-type: none;
+		padding:0;
+		li {
+			margin-bottom:1em;
+		}
+	}
 	/* Check Mark List */
 	ul.check-mark-list {
 		list-style-type: none;
@@ -954,9 +975,7 @@ body {
 	.img-responsive {
 		display: inline-block;
 	}
-	.lead {
-		font-size: 16px;
-	}
+	
 }
 
 /* Extra Small Devices, Phones */ 
@@ -968,6 +987,23 @@ body {
 			.btn {
 				width:auto;
 			}
+		}
+	}
+
+	ul.cta-list {
+		li {
+			display:inline-block;
+			padding:0 5px;
+			.btn {
+				width:auto;
+			}
+		}
+	}
+	.page-banner {
+		padding:30px 0;
+		h1 {
+			font-size: 20px;
+			line-height: 22px !important;
 		}
 	}
 
@@ -986,50 +1022,48 @@ body {
 	    padding-left: 0;
 	  }
 	}
-
-}
-
-/* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
 	h1 {
-		font-size:36px;
-		letter-spacing:-1px;
-		font-weight: $font-bold;
+		font-size: 40px;
 	}
 	h2 {
-		font-size:28px;
-		font-weight: $font-bold;
+		font-size: 32px;
 	}
-	p, li {
+	h3 {
+		font-size: 28px;
+	}
+	h4 {
+		font-size: 20px;
+	}
+	h5 {
 		font-size: 16px;
 	}
-	.lead {
-		font-size:21px;
+	p, li {		
+		font-size:16px;
 	}
-
+	.lead {
+		font-size: 20px;
+	}
+	.page-banner {
+		h1 {
+			font-size: 24px;
+			line-height: 26px !important;
+		}
+	}
 }
 
 /* Large Devices, Wide Screens */
 @media only screen and (min-width : 1200px) {
 	h1 {
-		font-size:50px;
-		letter-spacing:-1px;
-		font-weight: $font-bold;
+		font-size: 50px;
 	}
 	h2 {
-		font-size:40px;
-		font-weight: $font-bold;
+		font-size: 36px;
 	}
 	h3 {
-		font-size:32px;
-	}
-	h4 {
-		font-size:20px;
-	}
-	h5 {
-		font-size:18px;
+		font-size: 30px;
 	}
 }
+
 
 
 

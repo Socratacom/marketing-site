@@ -166,9 +166,27 @@ dl.quote-author {
     }
     li a {
         padding: 5px 0;
-        font-weight: 400;
+        font-weight: $font-normal;
         display: block;
         font-size: 14px;
+    }
+}
+
+.feature-table {
+    i {
+        font-size: 18px;
+    }
+    tbody td:nth-child(2) {
+        background-color:lighten($nephritis, 50%);
+        i {
+            color:$nephritis;
+        }
+    }
+    tbody td:nth-child(3) {
+        background-color:lighten($nephritis, 46%);
+        i {
+            color:$nephritis;
+        }
     }
 }
 
@@ -405,8 +423,6 @@ dl.quote-author {
     }
 }
 
-
-
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {        
     .video-hero {
@@ -458,7 +474,7 @@ dl.quote-author {
             height: 100%;
             z-index: 10;
         }
-    } 
+    }
     .speaker {
         padding:30px;
         text-align: center;
@@ -471,7 +487,7 @@ dl.quote-author {
         p {
             line-height: normal;
         }
-    }        
+    }  
 }
 
 /* Extra Small Devices, Phones */ 
@@ -509,7 +525,7 @@ dl.quote-author {
                 border-radius:0;
             }
             .dropdown-menu>li>a {
-                font-weight: 300;
+                font-weight: $font-light;
                 color: white;
             }
             .dropdown-menu>li>a:hover {
@@ -553,3 +569,8 @@ dl.quote-author {
     }
 
 }
+
+
+
+
+

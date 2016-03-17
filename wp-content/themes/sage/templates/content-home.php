@@ -33,7 +33,24 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>		
+		<!--<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-law-enforcement.jpg);">
+			<div class="text-wrapper">
+				<div class="container">
+					<div class="row">
+				        <div class="text">
+							<div class="col-sm-6">
+								<div id="home-hero-slide-2" class="box-white padding-30">
+									<h1 class="margin-bottom-15">Socrata for Public Safety</h1>
+									<p class="lead">Socrata for Public Safety enables public safety agencies to share their data, increase transparency, and instill greater trust and engagement with their communities.</p>
+				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-safety/" class="btn btn-lg btn-warning">Read More</a></div>
+				            	</div>
+							</div>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>-->
 		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-open-budget.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
@@ -76,7 +93,7 @@
 				<div class="tile">
 					<div class="vertical-center padding-30 what-we-do">
 						<h2 class="text-reverse text-center margin-bottom-15">What We Do</h2>
-						<p class="lead text-center color-concrete">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
+						<p class="lead text-center text-reverse">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
 					</div>
 				</div>
 			</div>
