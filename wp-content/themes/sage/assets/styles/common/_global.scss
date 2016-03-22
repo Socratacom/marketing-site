@@ -703,13 +703,25 @@ body {
 	.margin-bottom-15 {
 		margin-bottom:15px;
 	}
+	.margin-bottom-sm-15 {
+		margin-bottom:15px;
+	}
 	.margin-bottom-30 {
+		margin-bottom:30px;
+	}	
+	.margin-bottom-sm-30 {
 		margin-bottom:30px;
 	}
 	.margin-bottom-45 {
 		margin-bottom:45px;
 	}
+	.margin-bottom-sm-45 {
+		margin-bottom:45px;
+	}
 	.margin-bottom-60 {
+		margin-bottom:60px;
+	}
+	.margin-bottom-sm-60 {
 		margin-bottom:60px;
 	}
 	//title borders
@@ -1043,6 +1055,13 @@ body {
 			font-size: 24px;
 			line-height: 26px !important;
 		}
+	}
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.margin-bottom-sm-15, .margin-bottom-sm-30, .margin-bottom-sm-45, .margin-bottom-sm-60 {
+		margin-bottom:auto;
 	}
 }
 

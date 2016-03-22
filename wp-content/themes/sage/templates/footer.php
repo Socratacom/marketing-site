@@ -23,23 +23,26 @@
 			</div>
 			<div class="col-sm-8 col-md-9">
 				<div class="row">
-					<div class="col-sm-4">
+					<div class="col-sm-4 col-md-2 col-md-offset-1">
 						<h4>Products</h4>
-						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_products' ) ); ?>
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_products' ) ); ?>						
+					</div>
+					<div class="col-sm-4 col-md-2">
 						<h4>Solutions</h4>				
-						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_solutions' ) ); ?>
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_solutions' ) ); ?>						
 					</div>
-					<div class="col-sm-4">
+					<div class="col-sm-4 col-md-2">
 						<h4>Resources</h4>				
-						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>
-						<h4>About</h4>				
-						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_about' ) ); ?>
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>	
 					</div>
-					<div class="col-sm-4">
+					<div class="clearfix visible-sm-block"></div>				
+					<div class="col-sm-4 col-md-2">
+						<h4>About</h4>				
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_about' ) ); ?>						
+					</div>					
+					<div class="col-sm-4 col-md-2">
 						<h4>Community</h4>				
 						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_community' ) ); ?>
-						<h4>Additional Links</h4>				
-						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_additional_links' ) ); ?>
 					</div>
 				</div>
 			</div>
