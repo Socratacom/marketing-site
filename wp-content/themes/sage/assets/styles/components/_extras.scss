@@ -1,7 +1,7 @@
 .speakers {
     .profile {
         list-style-type: none;
-        margin:0;
+        margin:0 0 30px 0;
         padding: 0;
         li {
             text-align: center;
@@ -72,7 +72,6 @@
             }
         }
         .profile {
-            margin-bottom:30px;
             li {
                 .headshot {
                     height:80px;
