@@ -1,3 +1,91 @@
+.speakers {
+    .profile {
+        list-style-type: none;
+        margin:0;
+        padding: 0;
+        li {
+            text-align: center;
+            line-height: normal; 
+            .headshot {
+                display: inline-block;
+                margin: 0 auto;
+                border-radius: 50%;
+                height: 200px;
+                width: 200px;
+                background-size:cover;
+                background-position: center center;
+                background-repeat:no-repeat;
+                position: relative;
+            }
+            .headshot[data-toggle]:before {
+                font-family: FontAwesome;
+                content: "\f05a";
+                padding-top:85px;
+                font-size: 32px;
+                color:white;
+                position: absolute;
+                top:0;
+                left:0;
+                height: 100%;
+                width: 100%;
+                background-color:rgba(0,0,0,.3);
+                border-radius:50%;
+                transition: opacity .25s ease-in-out;
+                -moz-transition: opacity .25s ease-in-out;
+                -webkit-transition: opacity .25s ease-in-out;
+                opacity: 0;
+            }
+            .headshot[data-toggle]:hover:before {
+                cursor: pointer;
+                opacity: 1;
+            }        
+        }
+        li:first-child {
+            margin-bottom:15px;
+        }
+        li:nth-child(2) {
+            font-size: 18px;
+            font-weight: $font-normal;
+            margin-bottom: 5px;
+        }
+        li:nth-child(3) {
+            font-size: 14px;
+            font-style: italic;
+        }
+    }
+    .modal {
+        .modal-body {
+            padding: 30px;
+        }
+        .modal-header {
+            position: absolute;
+            top:0;
+            left:0;
+            height: 70px;
+            width:100%;
+            background-color:$clouds;
+            button {
+                position: absolute;
+                top:15px;
+                right: 15px;
+                z-index: 1000;
+            }
+        }
+        .profile {
+            margin-bottom:30px;
+            li {
+                .headshot {
+                    height:80px;
+                    width:80px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
 /* Speech Bubble */
 .speech-bubble {
     .bubble {
@@ -422,6 +510,28 @@ dl.quote-author {
         color:white;
     }
 }
+
+
+#directory-map {
+    height:600px;
+    width:100%;
+}
+
+#directory {
+    ul.directory-list {
+        list-style-type: none;
+        margin:0;
+        padding: 0;
+        li {
+            padding:15px;
+            margin-bottom: 5px;
+            border:lighten($silver, 10%) solid 1px;
+        }
+    }
+}
+
+
+
 
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {        

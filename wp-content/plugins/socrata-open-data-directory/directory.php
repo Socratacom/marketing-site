@@ -175,7 +175,7 @@ function od_directory_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Listing', 'od-directory' ),
+        'name' => __( 'Listing', 'od_directory_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // RADIO BUTTONS
@@ -186,203 +186,127 @@ function od_directory_register_meta_boxes( $meta_boxes )
         // Array of 'value' => 'Label' pairs for radio options.
         // Note: the 'value' is stored in meta field, not the 'Label'
         'options' => array(
-          'value1' => __( 'Yes', 'od-directory' ),
-          'value2' => __( 'No', 'od-directory' ),
+          'value1' => __( 'Yes', 'od_directory_' ),
+          'value2' => __( 'No', 'od_directory_' ),
         ),
-      ),
-      // RADIO BUTTONS
-      array(
-        'name'    => __( 'Is this a Socrata customer?', 'od-directory' ),
-        'id'      => "{$prefix}customer",
-        'type'    => 'radio',
-        // Array of 'value' => 'Label' pairs for radio options.
-        // Note: the 'value' is stored in meta field, not the 'Label'
-        'options' => array(
-          'value1' => __( 'Yes', 'od-directory' ),
-          'value2' => __( 'No', 'od-directory' ),
-        ),
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Location Info', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
       array(
         // Field name - Will be used as label
-        'name'  => __( 'City', 'your-prefix' ),
+        'name'  => __( 'City', 'od_directory_' ),
         // Field ID, i.e. the meta key
-        'id'    => "{$prefix}city-name",
+        'id'    => "{$prefix}city",
         'type'  => 'text',
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => false,
-      ),
-      // TEXT
-      array(
-        // Field name - Will be used as label
-        'name'  => __( 'County', 'your-prefix' ),
-        // Field ID, i.e. the meta key
-        'id'    => "{$prefix}county-name",
-        'type'  => 'text',
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => false,
       ),
       // SELECT BOX
       array(
-        'name'        => __( 'State', 'socrata-events' ),
+        'name'        => __( 'State', 'od_directory_' ),
         'id'          => "{$prefix}state",
         'type'        => 'select',
         // Array of 'value' => 'Label' pairs for select box
         'options'     => array(
-          'AL' => __( 'Alabama', 'socrata-events' ),
-          'AK' => __( 'Alaska', 'socrata-events' ),
-          'AZ' => __( 'Arizona', 'socrata-events' ),
-          'AR' => __( 'Arkansas', 'socrata-events' ),
-          'CA' => __( 'California', 'socrata-events' ),
-          'CO' => __( 'Colorado', 'socrata-events' ),
-          'CT' => __( 'Connecticut', 'socrata-events' ),
-          'DE' => __( 'Delaware', 'socrata-events' ),
-          'DC' => __( 'District of Columbia', 'socrata-events' ),
-          'FL' => __( 'Florida', 'socrata-events' ),
-          'GA' => __( 'Georgia', 'socrata-events' ),
-          'HI' => __( 'Hawaii', 'socrata-events' ),
-          'ID' => __( 'Idaho', 'socrata-events' ),
-          'IL' => __( 'Illinois', 'socrata-events' ),
-          'IN' => __( 'Indiana', 'socrata-events' ),
-          'IA' => __( 'Iowa', 'socrata-events' ),
-          'KS' => __( 'Kansas', 'socrata-events' ),
-          'KY' => __( 'Kentucky', 'socrata-events' ),
-          'LA' => __( 'Louisiana', 'socrata-events' ),
-          'ME' => __( 'Maine', 'socrata-events' ),
-          'MD' => __( 'Maryland', 'socrata-events' ),
-          'MA' => __( 'Massachusetts', 'socrata-events' ),
-          'MI' => __( 'Michigan', 'socrata-events' ),
-          'MN' => __( 'Minnesota', 'socrata-events' ),
-          'MS' => __( 'Mississippi', 'socrata-events' ),
-          'MO' => __( 'Missouri', 'socrata-events' ),
-          'MT' => __( 'Montana', 'socrata-events' ),
-          'NE' => __( 'Nebraska', 'socrata-events' ),
-          'NV' => __( 'Nevada', 'socrata-events' ),
-          'NH' => __( 'New Hampshire', 'socrata-events' ),
-          'NJ' => __( 'New Jersey', 'socrata-events' ),
-          'NM' => __( 'New Mexico', 'socrata-events' ),
-          'NY' => __( 'New York', 'socrata-events' ),
-          'NC' => __( 'North Carolina', 'socrata-events' ),
-          'ND' => __( 'North Dakota', 'socrata-events' ),
-          'OH' => __( 'Ohio', 'socrata-events' ),
-          'OK' => __( 'Oklahoma', 'socrata-events' ),
-          'OR' => __( 'Oregon', 'socrata-events' ),
-          'PA' => __( 'Pennsylvania', 'socrata-events' ),
-          'RI' => __( 'Rhode Island', 'socrata-events' ),
-          'SC' => __( 'South Carolina', 'socrata-events' ),
-          'SD' => __( 'South Dakota', 'socrata-events' ),
-          'TN' => __( 'Tennessee  ', 'socrata-events' ),
-          'TX' => __( 'Texas', 'socrata-events' ),
-          'UT' => __( 'Utah', 'socrata-events' ),
-          'VT' => __( 'Vermont', 'socrata-events' ),
-          'VA' => __( 'Virginia', 'socrata-events' ),
-          'WA' => __( 'Washington', 'socrata-events' ),
-          'WV' => __( 'West Virginia', 'socrata-events' ),
-          'WI' => __( 'Wisconsin', 'socrata-events' ),
-          'WY' => __( 'Wyoming', 'socrata-events' ),
+          'AL' => __( 'Alabama', 'od_directory_' ),
+          'AK' => __( 'Alaska', 'od_directory_' ),
+          'AZ' => __( 'Arizona', 'od_directory_' ),
+          'AR' => __( 'Arkansas', 'od_directory_' ),
+          'CA' => __( 'California', 'od_directory_' ),
+          'CO' => __( 'Colorado', 'od_directory_' ),
+          'CT' => __( 'Connecticut', 'od_directory_' ),
+          'DE' => __( 'Delaware', 'od_directory_' ),
+          'DC' => __( 'District of Columbia', 'od_directory_' ),
+          'FL' => __( 'Florida', 'od_directory_' ),
+          'GA' => __( 'Georgia', 'od_directory_' ),
+          'HI' => __( 'Hawaii', 'od_directory_' ),
+          'ID' => __( 'Idaho', 'od_directory_' ),
+          'IL' => __( 'Illinois', 'od_directory_' ),
+          'IN' => __( 'Indiana', 'od_directory_' ),
+          'IA' => __( 'Iowa', 'od_directory_' ),
+          'KS' => __( 'Kansas', 'od_directory_' ),
+          'KY' => __( 'Kentucky', 'od_directory_' ),
+          'LA' => __( 'Louisiana', 'od_directory_' ),
+          'ME' => __( 'Maine', 'od_directory_' ),
+          'MD' => __( 'Maryland', 'od_directory_' ),
+          'MA' => __( 'Massachusetts', 'od_directory_' ),
+          'MI' => __( 'Michigan', 'od_directory_' ),
+          'MN' => __( 'Minnesota', 'od_directory_' ),
+          'MS' => __( 'Mississippi', 'od_directory_' ),
+          'MO' => __( 'Missouri', 'od_directory_' ),
+          'MT' => __( 'Montana', 'od_directory_' ),
+          'NE' => __( 'Nebraska', 'od_directory_' ),
+          'NV' => __( 'Nevada', 'od_directory_' ),
+          'NH' => __( 'New Hampshire', 'od_directory_' ),
+          'NJ' => __( 'New Jersey', 'od_directory_' ),
+          'NM' => __( 'New Mexico', 'od_directory_' ),
+          'NY' => __( 'New York', 'od_directory_' ),
+          'NC' => __( 'North Carolina', 'od_directory_' ),
+          'ND' => __( 'North Dakota', 'od_directory_' ),
+          'OH' => __( 'Ohio', 'od_directory_' ),
+          'OK' => __( 'Oklahoma', 'od_directory_' ),
+          'OR' => __( 'Oregon', 'od_directory_' ),
+          'PA' => __( 'Pennsylvania', 'od_directory_' ),
+          'RI' => __( 'Rhode Island', 'od_directory_' ),
+          'SC' => __( 'South Carolina', 'od_directory_' ),
+          'SD' => __( 'South Dakota', 'od_directory_' ),
+          'TN' => __( 'Tennessee  ', 'od_directory_' ),
+          'TX' => __( 'Texas', 'od_directory_' ),
+          'UT' => __( 'Utah', 'od_directory_' ),
+          'VT' => __( 'Vermont', 'od_directory_' ),
+          'VA' => __( 'Virginia', 'od_directory_' ),
+          'WA' => __( 'Washington', 'od_directory_' ),
+          'WV' => __( 'West Virginia', 'od_directory_' ),
+          'WI' => __( 'Wisconsin', 'od_directory_' ),
+          'WY' => __( 'Wyoming', 'od_directory_' ),
         ),
-        'placeholder' => __( 'Select a State', 'socrata-events' ),
+        'placeholder' => __( 'Select a State', 'od_directory_' ),
       ),
       // TEXT
       array(
         // Field name - Will be used as label
-        'name'  => __( 'Agency', 'your-prefix' ),
-        // Field ID, i.e. the meta key
-        'id'    => "{$prefix}agency-name",        
-        'desc' => __( 'Used for Federal Listings', 'od-directory' ),
-        'type'  => 'text',
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => false,
-      ),
-      // TEXT
-      array(
-        // Field name - Will be used as label
-        'name'  => __( 'Population', 'your-prefix' ),
+        'name'  => __( 'Population', 'od_directory_' ),
         // Field ID, i.e. the meta key
         'id'    => "{$prefix}population",        
-        'desc' => __( 'Used for City, County, and State', 'od-directory' ),
-        'type'  => 'text',
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => false,
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Site Info', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        // Field name - Will be used as label
-        'name'  => __( 'Site Name', 'your-prefix' ),
-        // Field ID, i.e. the meta key
-        'id'    => "{$prefix}site-name",        
-        'desc' => __( 'Example: Open Data New York', 'od-directory' ),
+        'desc' => __( 'Used for City, County, and State', 'od_directory_' ),
         'type'  => 'text',
         // CLONES: Add to make the field cloneable (i.e. have multiple value)
         'clone' => false,
       ),
       // URL
       array(
-        'name' => __( 'URL', 'your-prefix' ),
+        'name' => __( 'URL', 'od_directory_' ),
         'id'   => "{$prefix}url",
-        'desc' => __( 'URL description', 'your-prefix' ),
+        'desc' => __( 'URL description', 'od_directory_' ),
         'type' => 'url',
         'std'  => 'http://google.com',
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Data Details', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
+        // CLONES: Add to make the field cloneable (i.e. have multiple value)
+        'clone' => true,
       ),
       // CHECKBOX LIST
       array(
-        'name'    => __( 'Data Types', 'od-directory' ),
-        'id'      => "{$prefix}checkbox_list",
+        'name'    => __( 'Data Types', 'od_directory_' ),
+        'id'      => "{$prefix}data_types",
         'type'    => 'checkbox_list',
         // Options of checkboxes, in format 'value' => 'Label'
         'options' => array(
-          'asset_disclosure' => __( 'Asset Disclosure', 'od-directory' ),
-          'business_listings' => __( 'Business Listings', 'od-directory' ),
-          'campaign_finance' => __( 'Campaign Finance', 'od-directory' ),
-          'code_enforcement' => __( 'Code Enforcement', 'od-directory' ),
-          'construction_permits' => __( 'Construction Permits', 'od-directory' ),
-          'crime_police' => __( 'Crime & Police', 'od-directory' ),
-          'loby_activity' => __( 'Loby Activity', 'od-directory' ),
-          'parcels' => __( 'Parcels', 'od-directory' ),
-          'payroll' => __( 'Payroll', 'od-directory' ),
-          'procurement_contracts' => __( 'Procurement Contracts', 'od-directory' ),
-          'property_assesments' => __( 'Property Assesments', 'od-directory' ),
-          'property_deeds' => __( 'Property Deeds', 'od-directory' ),
-          'public_buildings' => __( 'Public Buildings', 'od-directory' ),          
-          'restaurant_inspections' => __( 'Restaurant Inspections', 'od-directory' ),
-          'service_requests' => __( 'Service Requests (311)', 'od-directory' ),
-          'spending' => __( 'Spending', 'od-directory' ),          
-          'transit' => __( 'Transit', 'od-directory' ),
-          'zoning' => __( 'Zoning', 'od-directory' ),
+          'Asset Disclosure' => __( 'Asset Disclosure', 'od_directory_' ),
+          'Business Listings' => __( 'Business Listings', 'od_directory_' ),
+          'Campaign Finance' => __( 'Campaign Finance', 'od_directory_' ),
+          'Code Enforcement' => __( 'Code Enforcement', 'od_directory_' ),
+          'Construction Permits' => __( 'Construction Permits', 'od_directory_' ),
+          'Crime &amp; Police' => __( 'Crime & Police', 'od_directory_' ),
+          'Loby Activity' => __( 'Loby Activity', 'od_directory_' ),
+          'Parcels' => __( 'Parcels', 'od_directory_' ),
+          'Payroll' => __( 'Payroll', 'od_directory_' ),
+          'Procurement Contracts' => __( 'Procurement Contracts', 'od_directory_' ),
+          'Property Assesments' => __( 'Property Assesments', 'od_directory_' ),
+          'Property Deeds' => __( 'Property Deeds', 'od_directory_' ),
+          'Public Buildings' => __( 'Public Buildings', 'od_directory_' ),          
+          'Restaurant Inspections' => __( 'Restaurant Inspections', 'od_directory_' ),
+          'Service Requests (311)' => __( 'Service Requests (311)', 'od_directory_' ),
+          'Spending' => __( 'Spending', 'od_directory_' ),          
+          'Transit' => __( 'Transit', 'od_directory_' ),
+          'Zoning' => __( 'Zoning', 'od_directory_' ),
         ),
-      ),
-      // WYSIWYG/RICH TEXT EDITOR
-      array(
-        'name'    => __( 'Content', 'od-directory' ),
-        'id'      => "{$prefix}wysiwyg",
-        'type'    => 'wysiwyg',
-        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
-        'raw'     => false,
-        // Editor settings, see wp_editor() function: look4wp.com/wp_editor
-        'options' => array(
-          'textarea_rows' => 15,
-          'teeny'         => false,
-          'media_buttons' => true,
-        ),
-      ),
+      ),     
     )
   );
   return $meta_boxes;
@@ -407,11 +331,263 @@ function od_directory_register_meta_boxes( $meta_boxes )
 
 
 
+// Shortcode [newsroom-posts]
+function op_directory_stats($atts, $content = null) {
+  ob_start();
+  ?>
+
+  <section>
+    <div class="container" style="width:100%; padding:0;">
+    <div class="row no-gutters">
+      <div class="col-sm-3">
+        <div class="background-asbestos overlay-midnight-blue img-background-fixed" style="background-image:url(/wp-content/uploads/finance-city-street.jpg); height: 300px;">
+          <div class="padding-30 vertical-center">
+            <?php
+              $args = array(
+                'post_type' => 'od_directory',
+                'od_directory_cat' => 'city',
+                'meta_query' => array(
+                  array(
+                      'key' => 'od_directory_datasite',
+                      'value' => 'value1'
+                  )
+                )
+              );
+              $myquery = new WP_Query($args);
+              echo "<h1 class='text-reverse text-center margin-bottom-15'>$myquery->found_posts</h1>";
+              wp_reset_postdata();
+            ?>
+            <div class="text-center text-reverse">Cities have Open Data sites</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="background-silver overlay-wet-asphalt img-background-fixed" style="background-image:url(/wp-content/uploads/business-crowd-partner-summit-2016.jpg); height: 300px;">
+          <div class="padding-30 vertical-center">
+            <?php
+              $args = array(
+                'post_type' => 'od_directory',
+                'od_directory_cat' => 'county',
+                'meta_query' => array(
+                  array(
+                      'key' => 'od_directory_datasite',
+                      'value' => 'value1'
+                  )
+                )
+              );
+              $myquery = new WP_Query($args);
+              echo "<h1 class='text-reverse text-center margin-bottom-15'>$myquery->found_posts</h1>";
+              wp_reset_postdata();
+            ?>
+            <div class="text-center text-reverse">Counties have Open Data sites</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="background-asbestos overlay-midnight-blue img-background-fixed" style="background-image:url(/wp-content/uploads/11718018374_29cbdaea40_k.jpg); height: 300px;">
+          <div class="padding-30 vertical-center">
+            <?php
+              $args = array(
+                'post_type' => 'od_directory',
+                'od_directory_cat' => 'state',
+                'meta_query' => array(
+                  array(
+                      'key' => 'od_directory_datasite',
+                      'value' => 'value1'
+                  )
+                )
+              );
+              $myquery = new WP_Query($args);
+              echo "<h1 class='text-reverse text-center margin-bottom-15'>$myquery->found_posts</h1>";
+              wp_reset_postdata();
+            ?>
+            <div class="text-center text-reverse">States have Open Data sites</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="background-asbestos overlay-wet-asphalt img-background-fixed" style="background-image:url(/wp-content/uploads/what-works-kansas-city.jpg); height: 300px;">
+          <div class="padding-30 vertical-center">
+            <?php
+              $args = array(
+                'post_type' => 'od_directory',
+                'od_directory_cat' => 'federal',
+                'meta_query' => array(
+                  array(
+                      'key' => 'od_directory_datasite',
+                      'value' => 'value1'
+                  )
+                )
+              );
+              $myquery = new WP_Query($args);
+              echo "<h1 class='text-reverse text-center margin-bottom-15'>$myquery->found_posts</h1>";
+              wp_reset_postdata();
+            ?>
+            <div class="text-center text-reverse">Federal Agencies have Open Data sites</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('directory-stats', 'op_directory_stats');
 
 
 
 
 
+
+
+
+
+
+
+
+// Shortcode [directory-map]
+function op_directory_map($atts, $content = null) {
+  ob_start();
+  ?>
+<section class="hidden-xs">
+  <div id="directory-map"></div>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw"></script>
+  
+  <script type="text/javascript">
+      // When the window has finished loading create our google map below
+      google.maps.event.addDomListener(window, 'load', init);
+  
+      function init() {
+          // Basic options for a simple Google Map
+          // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+          var mapOptions = {
+              // How zoomed in you want the map to start at (always required)
+              zoom: 5,
+
+              // The latitude and longitude to center the map (always required)
+              center: new google.maps.LatLng(38.5111,-96.8005),
+              scrollwheel: false,
+
+              // How you would like to style the map. 
+              // This is where you would paste any style found on Snazzy Maps.
+              styles: [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
+          };
+
+          // Get the HTML DOM element that will contain your map 
+          // We are using a div with id="map" seen below in the <body>
+          var mapElement = document.getElementById('directory-map');
+
+          // Create the Google Map using our element and options defined above
+          var map = new google.maps.Map(mapElement, mapOptions);
+
+
+          // Let's also add a marker while we're at it
+          var marker = new google.maps.Marker({
+            <?php echo "position: new google.maps.LatLng(40.6700, -73.9400)," ;?>              
+              map: map,
+              title: 'Snazzy!'
+          });
+
+          var marker = new google.maps.Marker({
+              position: new google.maps.LatLng(41.6700, -73.9400),
+              map: map,
+              title: 'Snazzy!'
+          });
+      }
+  </script>
+
+</section>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('directory-map', 'op_directory_map');
+
+
+
+
+// Shortcode [directory]
+function op_directory($atts, $content = null) {
+  ob_start();
+  ?>
+
+
+
+
+  <section id="directory" class="section-padding background-clouds">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul class="directory-list">
+
+
+
+<?php
+  /* The Query */
+
+  $args = array(
+      'post_type' => 'od_directory',
+      'post_status' => 'publish',
+      'ignore_sticky_posts' => true,
+    );
+
+  $query = new WP_Query( $args );
+
+  // The Loop
+  if ( $query->have_posts() ) : 
+  while( $query->have_posts() ): $query->the_post(); { ?>
+  
+  <li>
+    <h4><?php the_title(); ?></h4>
+    <?php
+      $url = rwmb_meta( 'od_directory_url' );
+      foreach($url as $site) { ?>
+      <p>Site: <a href="<?php echo $site ;?>" target="_blank"><?php echo $site ;?></a></p>      
+      <?php
+      }
+    ?>
+    <?php
+      $data_types = rwmb_meta( 'od_directory_data_types' );
+      echo implode(', ', $data_types);
+    ?>
+  </li>
+
+
+  <?php
+  }
+
+  endwhile;
+  endif;
+
+  // Restore original Post Data
+  wp_reset_postdata();
+
+  ?>
+
+          </ul>
+
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('directory', 'op_directory');
 
 
 
