@@ -18,6 +18,7 @@ Additional Plugins Used
 Change History
 ---
 - V2.1.4 - Standardize CSS for speakers and leadership modal UX.
+- V2.1.3 - This update includes the redesign of the Blog templates.
 - V2.1.2 - Added Google Site search and updated header navigation CSS.
 - V2.1.1 - Launched Socrata Events section. Bug Fixes.
 - V2.1.0 - Addition of new product pages. Addition of product and solution landing pages. Header navigation changed to hover activation. Updated Open Data Field Guide.
