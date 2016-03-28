@@ -688,67 +688,6 @@
 	.channel-odtv{
 		background-image:url(../images/channel-odtv.jpg);		
 	}
-
-
-	// Company Info
-	.leadership {
-		article {
-			padding:25px;
-			h4 {
-				margin-bottom: 5px;
-				line-height: 1.5em;
-				small {
-					display: block;
-				}
-			}
-			.thumb {
-				img {
-					max-width: 200px;
-					max-height: 200px;
-					cursor: pointer;
-				}
-			}
-			.modal-header {
-				background-color:$clouds;
-				height:100px;
-			}
-			.modal-body {
-				img {
-					height:80px;
-					width:80px;
-					margin-top:-55px;
-					cursor: default;
-				}
-				h4 {
-					margin-bottom:15px;
-				}
-				.social-icons {
-					list-style-type: none;
-					padding: 0;
-					text-align: center;
-					li {
-						display: inline-block;
-						margin:0 5px;
-						a {
-							display: block;
-							position: relative;
-							width:32px;
-							height:32px;
-							background-color:$peter-river;
-							border-radius:50%;
-							overflow: hidden;
-						}
-						i {
-							font-size: 16px;
-							padding-top:7px;
-							color:white;
-						}
-					}
-				}
-			}
-		}
-	}
-	
 	.investors {
 		.logo {
 			border:$silver solid 1px;
