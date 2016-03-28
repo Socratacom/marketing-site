@@ -66,7 +66,7 @@ function asset_path($filename) {
 }
 
 function assets() {  
-  wp_enqueue_style('sage_css', asset_path('styles/main.css?v=2.1.3'), false, null);
+  wp_enqueue_style('sage_css', asset_path('styles/main.css?v=2.1.4'), false, null);
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
   
