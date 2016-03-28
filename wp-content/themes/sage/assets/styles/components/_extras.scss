@@ -78,6 +78,19 @@
                     width:80px;
                 }
             }
+            .social a {
+                display: inline-block;
+                background-color:$peter-river;
+                height: 32px;
+                width:32px;
+                border-radius:50%;
+                text-align: center;
+                margin:5px;
+                i {
+                    color:white;
+                    margin-top: 7px;
+                }
+            }
         }
     }
 }

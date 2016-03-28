@@ -248,7 +248,7 @@ $(<?php echo "'#$id'"; ?>).slick({
 arrows: false,
 autoplay: true,
 autoplaySpeed: 3000,
-slidesToShow: 5,
+slidesToShow: 6,
 slidesToScroll: 1,
 accessibility:false,
 pauseOnHover:false,
