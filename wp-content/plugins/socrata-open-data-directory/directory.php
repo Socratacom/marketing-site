@@ -116,6 +116,30 @@ function od_directory_cat() {
   );
 }
 
+// TAXONOMIES
+add_action( 'init', 'od_directory_type', 0 );
+function od_directory_type() {
+  register_taxonomy(
+    'od_directory_type',
+    'od_directory',
+    array(
+      'labels' => array(
+        'name' => 'Data Type',
+        'menu_name' => 'Data Type',
+        'add_new_item' => 'Add New Type',
+        'new_item_name' => "New Type"
+      ),
+      'show_ui' => true,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'directory-data-type'),
+    )
+  );
+}
+
 // Template Paths
 add_filter( 'template_include', 'od_directory_single_template', 1 );
 function od_directory_single_template( $template_path ) {
@@ -162,153 +186,126 @@ function od_directory_box_scripts() {
 }
 
 // Metabox
-add_filter( 'rwmb_meta_boxes', 'od_directory_register_meta_boxes' );
-function od_directory_register_meta_boxes( $meta_boxes )
+
+add_filter( 'rwmb_meta_boxes', 'od_directory_group_register_meta_boxes' );
+function od_directory_group_register_meta_boxes( $meta_boxes )
 {
-  $prefix = 'od_directory_';
+  $prefix = 'directory_';
+
   $meta_boxes[] = array(
-    'title'  => __( 'Listing Details', 'od-directory' ),
+    'title'  => __( 'Listing Details', 'directory' ),
     'post_types' => array( 'od_directory' ),
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Listing', 'od_directory_' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
       // RADIO BUTTONS
       array(
-        'name'    => __( 'Does this listing have an Open Data Site', 'od-directory' ),
+        'name'    => __( 'Does this listing have an open data site?', 'directory' ),
         'id'      => "{$prefix}datasite",
         'type'    => 'radio',
         // Array of 'value' => 'Label' pairs for radio options.
         // Note: the 'value' is stored in meta field, not the 'Label'
         'options' => array(
-          'value1' => __( 'Yes', 'od_directory_' ),
-          'value2' => __( 'No', 'od_directory_' ),
+          'value1' => __( 'Yes', 'directory' ),
+          'value2' => __( 'No', 'directory' ),
         ),
+      ),
+      // CHECKBOX
+      array(
+        'name' => __( 'Is this a Socrata customer?', 'your-prefix' ),
+        'id'   => "{$prefix}checkbox",
+        'desc' => __( 'Yes' ),
+        'type' => 'checkbox',
+      ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Geo Location', 'directory' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
       array(
-        // Field name - Will be used as label
-        'name'  => __( 'City', 'od_directory_' ),
-        // Field ID, i.e. the meta key
-        'id'    => "{$prefix}city",
+        'name'  => __( 'Latitude', 'directory' ),
+        'id'    => "{$prefix}latitude",
+        'desc' => __( 'Eample: 38.5111', 'directory' ),
         'type'  => 'text',
-      ),
-      // SELECT BOX
-      array(
-        'name'        => __( 'State', 'od_directory_' ),
-        'id'          => "{$prefix}state",
-        'type'        => 'select',
-        // Array of 'value' => 'Label' pairs for select box
-        'options'     => array(
-          'AL' => __( 'Alabama', 'od_directory_' ),
-          'AK' => __( 'Alaska', 'od_directory_' ),
-          'AZ' => __( 'Arizona', 'od_directory_' ),
-          'AR' => __( 'Arkansas', 'od_directory_' ),
-          'CA' => __( 'California', 'od_directory_' ),
-          'CO' => __( 'Colorado', 'od_directory_' ),
-          'CT' => __( 'Connecticut', 'od_directory_' ),
-          'DE' => __( 'Delaware', 'od_directory_' ),
-          'DC' => __( 'District of Columbia', 'od_directory_' ),
-          'FL' => __( 'Florida', 'od_directory_' ),
-          'GA' => __( 'Georgia', 'od_directory_' ),
-          'HI' => __( 'Hawaii', 'od_directory_' ),
-          'ID' => __( 'Idaho', 'od_directory_' ),
-          'IL' => __( 'Illinois', 'od_directory_' ),
-          'IN' => __( 'Indiana', 'od_directory_' ),
-          'IA' => __( 'Iowa', 'od_directory_' ),
-          'KS' => __( 'Kansas', 'od_directory_' ),
-          'KY' => __( 'Kentucky', 'od_directory_' ),
-          'LA' => __( 'Louisiana', 'od_directory_' ),
-          'ME' => __( 'Maine', 'od_directory_' ),
-          'MD' => __( 'Maryland', 'od_directory_' ),
-          'MA' => __( 'Massachusetts', 'od_directory_' ),
-          'MI' => __( 'Michigan', 'od_directory_' ),
-          'MN' => __( 'Minnesota', 'od_directory_' ),
-          'MS' => __( 'Mississippi', 'od_directory_' ),
-          'MO' => __( 'Missouri', 'od_directory_' ),
-          'MT' => __( 'Montana', 'od_directory_' ),
-          'NE' => __( 'Nebraska', 'od_directory_' ),
-          'NV' => __( 'Nevada', 'od_directory_' ),
-          'NH' => __( 'New Hampshire', 'od_directory_' ),
-          'NJ' => __( 'New Jersey', 'od_directory_' ),
-          'NM' => __( 'New Mexico', 'od_directory_' ),
-          'NY' => __( 'New York', 'od_directory_' ),
-          'NC' => __( 'North Carolina', 'od_directory_' ),
-          'ND' => __( 'North Dakota', 'od_directory_' ),
-          'OH' => __( 'Ohio', 'od_directory_' ),
-          'OK' => __( 'Oklahoma', 'od_directory_' ),
-          'OR' => __( 'Oregon', 'od_directory_' ),
-          'PA' => __( 'Pennsylvania', 'od_directory_' ),
-          'RI' => __( 'Rhode Island', 'od_directory_' ),
-          'SC' => __( 'South Carolina', 'od_directory_' ),
-          'SD' => __( 'South Dakota', 'od_directory_' ),
-          'TN' => __( 'Tennessee  ', 'od_directory_' ),
-          'TX' => __( 'Texas', 'od_directory_' ),
-          'UT' => __( 'Utah', 'od_directory_' ),
-          'VT' => __( 'Vermont', 'od_directory_' ),
-          'VA' => __( 'Virginia', 'od_directory_' ),
-          'WA' => __( 'Washington', 'od_directory_' ),
-          'WV' => __( 'West Virginia', 'od_directory_' ),
-          'WI' => __( 'Wisconsin', 'od_directory_' ),
-          'WY' => __( 'Wyoming', 'od_directory_' ),
-        ),
-        'placeholder' => __( 'Select a State', 'od_directory_' ),
       ),
       // TEXT
       array(
-        // Field name - Will be used as label
-        'name'  => __( 'Population', 'od_directory_' ),
-        // Field ID, i.e. the meta key
-        'id'    => "{$prefix}population",        
-        'desc' => __( 'Used for City, County, and State', 'od_directory_' ),
+        'name'  => __( 'Longitude', 'directory' ),
+        'id'    => "{$prefix}longitude",
+        'desc' => __( 'Eample: -96.8005', 'directory' ),
         'type'  => 'text',
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => false,
       ),
-      // URL
+      // HEADING
       array(
-        'name' => __( 'URL', 'od_directory_' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'URL description', 'od_directory_' ),
-        'type' => 'url',
-        'std'  => 'http://google.com',
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => true,
+        'type' => 'heading',
+        'name' => __( 'Profile', 'directory' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
       ),
-      // CHECKBOX LIST
+      // PLUPLOAD IMAGE UPLOAD (WP 3.3+)
       array(
-        'name'    => __( 'Data Types', 'od_directory_' ),
-        'id'      => "{$prefix}data_types",
-        'type'    => 'checkbox_list',
-        // Options of checkboxes, in format 'value' => 'Label'
-        'options' => array(
-          'Asset Disclosure' => __( 'Asset Disclosure', 'od_directory_' ),
-          'Business Listings' => __( 'Business Listings', 'od_directory_' ),
-          'Campaign Finance' => __( 'Campaign Finance', 'od_directory_' ),
-          'Code Enforcement' => __( 'Code Enforcement', 'od_directory_' ),
-          'Construction Permits' => __( 'Construction Permits', 'od_directory_' ),
-          'Crime &amp; Police' => __( 'Crime & Police', 'od_directory_' ),
-          'Loby Activity' => __( 'Loby Activity', 'od_directory_' ),
-          'Parcels' => __( 'Parcels', 'od_directory_' ),
-          'Payroll' => __( 'Payroll', 'od_directory_' ),
-          'Procurement Contracts' => __( 'Procurement Contracts', 'od_directory_' ),
-          'Property Assesments' => __( 'Property Assesments', 'od_directory_' ),
-          'Property Deeds' => __( 'Property Deeds', 'od_directory_' ),
-          'Public Buildings' => __( 'Public Buildings', 'od_directory_' ),          
-          'Restaurant Inspections' => __( 'Restaurant Inspections', 'od_directory_' ),
-          'Service Requests (311)' => __( 'Service Requests (311)', 'od_directory_' ),
-          'Spending' => __( 'Spending', 'od_directory_' ),          
-          'Transit' => __( 'Transit', 'od_directory_' ),
-          'Zoning' => __( 'Zoning', 'od_directory_' ),
-        ),
-      ),     
+        'name'             => __( 'Logo', 'your-prefix' ),
+        'id'               => "{$prefix}logo",
+        'desc' => __( 'Only for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
+        'type'             => 'plupload_image',
+        'max_file_uploads' => 1,
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'Population', 'directory' ),
+        'id'    => "{$prefix}population",
+        'desc' => __( 'ONLY for City, County, and State', 'directory' ),
+        'type'  => 'text',
+      ),         
     )
   );
+
+  $meta_boxes[] = array(
+    'title'  => __( 'Site(s) Information' ),   
+      'post_types' => 'od_directory',
+      'context'    => 'normal',
+      'priority'   => 'high',
+      'fields' => array(
+        array(
+        'id'     => "{$prefix}sites",
+        'type'   => 'group',
+        'clone'  => true,
+        'sort_clone' => true,
+        // Sub-fields
+        'fields' => array(
+          array(
+            'name' => __( 'Site Name', 'directory' ),
+            'id'   => "{$prefix}site_name",
+            'type' => 'text',
+          ),
+          array(
+            'name' => __( 'URL', 'directory' ),
+            'id'   => "{$prefix}site_url",
+            'desc' => __( 'URL description', 'directory' ),
+            'type' => 'url',
+          ),
+        ),
+      ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Screen Shots', 'directory' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // PLUPLOAD IMAGE UPLOAD (WP 3.3+)
+      array(
+        'name'             => __( 'Add up to 4 screen shots.', 'your-prefix' ),
+        'id'               => "{$prefix}screen",
+        'desc' => __( 'Only for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
+        'type'             => 'plupload_image',
+        'max_file_uploads' => 4,
+      ),
+    ),
+  );
+
+
+
   return $meta_boxes;
 }
 
@@ -511,6 +508,12 @@ add_shortcode('directory-map', 'op_directory_map');
 
 
 
+
+
+
+
+
+
 // Shortcode [directory]
 function op_directory($atts, $content = null) {
   ob_start();
@@ -525,11 +528,11 @@ function op_directory($atts, $content = null) {
         <div class="col-sm-12">
           <ul class="directory-list">
 
-
-
 <?php
   /* The Query */
 
+  
+  
   $args = array(
       'post_type' => 'od_directory',
       'post_status' => 'publish',
@@ -540,26 +543,28 @@ function op_directory($atts, $content = null) {
 
   // The Loop
   if ( $query->have_posts() ) : 
-  while( $query->have_posts() ): $query->the_post(); { ?>
+  while( $query->have_posts() ): $query->the_post(); {
   
-  <li>
-    <h4><?php the_title(); ?></h4>
-    <?php
-      $url = rwmb_meta( 'od_directory_url' );
-      foreach($url as $site) { ?>
-      <p>Site: <a href="<?php echo $site ;?>" target="_blank"><?php echo $site ;?></a></p>      
-      <?php
-      }
-    ?>
-    <?php
-      $data_types = rwmb_meta( 'od_directory_data_types' );
-      echo implode(', ', $data_types);
-    ?>
-  </li>
+    
+$customer = rwmb_meta( 'directory_customer' );
+    if ( $customer ) { ?>
 
+    <li><?php the_title(); ?></li>
 
-  <?php
+    <?php
+    }
+
+    else {?>
+
+    <li>Fucker</li>
+
+    <?php
+
+    }
+  
   }
+
+
 
   endwhile;
   endif;
@@ -567,12 +572,9 @@ function op_directory($atts, $content = null) {
   // Restore original Post Data
   wp_reset_postdata();
 
-  ?>
+?>
 
           </ul>
-
-
-
         </div>
       </div>
     </div>
