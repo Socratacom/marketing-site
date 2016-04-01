@@ -538,6 +538,19 @@ dl.quote-author {
             padding:15px;
             margin-bottom: 5px;
             border:lighten($silver, 10%) solid 1px;
+            background-color:white;
+            ul {
+                list-style-type: none;
+                padding:0;
+                li {
+                    border:none;
+                    padding:0;
+                }
+            }
+        }
+        li.socrata-customer {
+            border-color:$peter-river;
+            position: relative;
         }
     }
 }

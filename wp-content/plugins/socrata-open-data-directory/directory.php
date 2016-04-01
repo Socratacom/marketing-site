@@ -140,6 +140,21 @@ function od_directory_type() {
   );
 }
 
+// PRINT TAXONOMIES
+function directory_categories() {
+  global $terms;
+  $terms = get_the_terms($post->ID , 'od_directory_cat');
+  echo $terms[0]->name;
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+function directory_data_types() {
+  global $terms;
+  $terms = get_the_terms($post->ID , 'od_directory_type');
+  echo $terms[0]->name;
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
+
 // Template Paths
 add_filter( 'template_include', 'od_directory_single_template', 1 );
 function od_directory_single_template( $template_path ) {
@@ -155,17 +170,6 @@ function od_directory_single_template( $template_path ) {
     }
   }
   return $template_path;
-}
-
-// Print Taxonomy Categories
-function od_directory_the_categories() {
-  // get all categories for this post
-  global $terms;
-  $terms = get_the_terms($post->ID , 'od_directory_cat');
-  // echo the first category
-  echo $terms[0]->name;
-  // echo the remaining categories, appending separator
-  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
 
 // Custom Body Class
@@ -198,24 +202,20 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
-      // RADIO BUTTONS
+      // CHECKBOX
       array(
-        'name'    => __( 'Does this listing have an open data site?', 'directory' ),
-        'id'      => "{$prefix}datasite",
-        'type'    => 'radio',
-        // Array of 'value' => 'Label' pairs for radio options.
-        // Note: the 'value' is stored in meta field, not the 'Label'
-        'options' => array(
-          'value1' => __( 'Yes', 'directory' ),
-          'value2' => __( 'No', 'directory' ),
-        ),
+        'name' => __( 'Does this listing have an open data site?', 'directory' ),
+        'id'   => "{$prefix}datasite",
+        'desc' => __( 'Yes' ),
+        'type' => 'checkbox',
       ),
       // CHECKBOX
       array(
-        'name' => __( 'Is this a Socrata customer?', 'your-prefix' ),
-        'id'   => "{$prefix}checkbox",
+        'name' => __( 'Is this a Socrata customer?', 'your-directory' ),
+        'id'   => "{$prefix}customer",
         'desc' => __( 'Yes' ),
         'type' => 'checkbox',
+        'std'  => 0,
       ),
       // HEADING
       array(
@@ -282,7 +282,7 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
           array(
             'name' => __( 'URL', 'directory' ),
             'id'   => "{$prefix}site_url",
-            'desc' => __( 'URL description', 'directory' ),
+            'desc' => __( 'Include the http:// or https://', 'directory' ),
             'type' => 'url',
           ),
         ),
@@ -345,8 +345,8 @@ function op_directory_stats($atts, $content = null) {
                 'od_directory_cat' => 'city',
                 'meta_query' => array(
                   array(
-                      'key' => 'od_directory_datasite',
-                      'value' => 'value1'
+                      'key' => 'directory_datasite',
+                      'value' => '1'
                   )
                 )
               );
@@ -367,8 +367,8 @@ function op_directory_stats($atts, $content = null) {
                 'od_directory_cat' => 'county',
                 'meta_query' => array(
                   array(
-                      'key' => 'od_directory_datasite',
-                      'value' => 'value1'
+                      'key' => 'directory_datasite',
+                      'value' => '1'
                   )
                 )
               );
@@ -389,8 +389,8 @@ function op_directory_stats($atts, $content = null) {
                 'od_directory_cat' => 'state',
                 'meta_query' => array(
                   array(
-                      'key' => 'od_directory_datasite',
-                      'value' => 'value1'
+                      'key' => 'directory_datasite',
+                      'value' => '1'
                   )
                 )
               );
@@ -411,8 +411,8 @@ function op_directory_stats($atts, $content = null) {
                 'od_directory_cat' => 'federal',
                 'meta_query' => array(
                   array(
-                      'key' => 'od_directory_datasite',
-                      'value' => 'value1'
+                      'key' => 'directory_datasite',
+                      'value' => '1'
                   )
                 )
               );
@@ -483,7 +483,7 @@ function op_directory_map($atts, $content = null) {
 
           // Let's also add a marker while we're at it
           var marker = new google.maps.Marker({
-            <?php echo "position: new google.maps.LatLng(40.6700, -73.9400)," ;?>              
+              position: new google.maps.LatLng(40.6700, -73.9400),            
               map: map,
               title: 'Snazzy!'
           });
@@ -543,20 +543,105 @@ function op_directory($atts, $content = null) {
 
   // The Loop
   if ( $query->have_posts() ) : 
-  while( $query->have_posts() ): $query->the_post(); {
-  
+  while( $query->have_posts() ): $query->the_post(); {  
     
-$customer = rwmb_meta( 'directory_customer' );
-    if ( $customer ) { ?>
+    $customer = rwmb_meta( 'directory_customer' );
 
-    <li><?php the_title(); ?></li>
+    if ( ! empty( $customer ) ) { ?>
+    <!-- Code for Socrata customers -->
+    <li class="socrata-customer">
+      
+      <small>Socrata Customer</small>
+      <p><?php directory_categories(); ?></p>
+
+      <h4><?php the_title(); ?></h4>
+
+
+
+
+
+
+<?php $logo = rwmb_meta( 'directory_logo' );
+
+if ( !empty( $logo ) ) {
+    foreach ( $logo as $image ) {
+        echo "<img src='{$image['url']}' width='{$image['width']}' height='{$image['height']}' alt='{$image['alt']}' />";
+    }
+}
+?>
+
+
+
+      
+
+      <?php $datasite = rwmb_meta( 'directory_datasite' );
+        if ( ! empty( $datasite ) )
+          {
+            echo "<p>Yep, got a Open Data site.</p>";
+          }
+        else  {
+          echo "<p>Nope. Ain't got no Open Data site.</p>";
+        }
+      ?>
+
+      <?php $sites_group = rwmb_meta( 'directory_sites' );
+        if ( ! empty( $sites_group ) )
+        { ?>
+          <ul>
+          <?php foreach ( $sites_group as $group_value )
+            {
+                $name = isset( $group_value['directory_site_name'] ) ? $group_value['directory_site_name'] : '';
+                $url = isset( $group_value['directory_site_url'] ) ? $group_value['directory_site_url'] : '';
+                ?>
+                <li><a href="<?php echo $url;?>" target="_blank"><?php echo $name;?></a></li>
+                <?php
+            } ?>
+          </ul>
+          <?php
+        }
+      ?>
+
+      <?php $population = rwmb_meta( 'directory_population' );
+        if ( ! empty( $population ) )
+          { ?>
+            <p><?php echo $population;?></p>
+            <?php
+          }
+      ?>
+
+      <p><?php directory_data_types(); ?></p>
+
+      <?php $screen = rwmb_meta( 'directory_screen', 'size=thumbnail' );
+
+      if ( !empty( $screen ) ) {
+          foreach ( $screen as $image ) {
+              echo "<p><img src='{$image['url']}' width='{$image['width']}' height='{$image['height']}' alt='{$image['alt']}' /></p>";
+          }
+      }
+      ?>
+
+
+
+    </li>
 
     <?php
     }
 
     else {?>
+    <!-- Code for everyone else -->
 
-    <li>Fucker</li>
+    <li>
+      <h4><?php the_title(); ?></h4>
+      <?php $datasite = rwmb_meta( 'directory_datasite' );
+        if ( ! empty( $datasite ) )
+          {
+            echo "<p>Yep, got a Open Data site.</p>";
+          }
+        else  {
+          echo "<p>Nope. Ain't got no Open Data site.</p>";
+        }
+      ?>
+    </li>
 
     <?php
 
