@@ -303,25 +303,23 @@ Socrata's cloud-based solution allows government organizations to put their data
 <section class="background-peter-river section-padding">	
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-6 col-sm-offset-1" data-sr='enter left move 50px'>
-				<div class="padding-30">
+			<div class="col-sm-10 col-sm-offset-1 text-center">
+				<div style="height:100px; width:100px; display: inline-block;">				
+					<svg id="clock" viewBox="0 0 100 100">
+						<circle id="face" cx="50" cy="50" r="45"/>
+						<g id="hands">
+							<rect id="hour" x="48" y="22.5" width="4" height="30" rx="2" ry="2" />
+							<rect id="min" x="48" y="12.5" width="4" height="40" rx="2" ry="2"/>
+							<line id="sec" x1="50" y1="50" x2="50" y2="16" />
+						</g>
+						<circle id="dot" cx="50" cy="50" r="3"/>
+					</svg>
+				</div>
 					<h2 class="text-reverse margin-bottom-15">Give us an hour.</h2>
 					<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our data platform can do for you.</p>
 					<p id="section-cta-button"><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
 					<p class="lead text-reverse">Or call (206) 340-8008.</p>
-				</div>
-			</div>
-			<div class="col-sm-4 hidden-xs">				
-				<svg id="clock" viewBox="0 0 100 100">
-					<circle id="face" cx="50" cy="50" r="45"/>
-					<g id="hands">
-						<rect id="hour" x="48" y="22.5" width="4" height="30" rx="2" ry="2" />
-						<rect id="min" x="48" y="12.5" width="4" height="40" rx="2" ry="2"/>
-						<line id="sec" x1="50" y1="50" x2="50" y2="16" />
-					</g>
-					<circle id="dot" cx="50" cy="50" r="3"/>
-				</svg>
-			</div>
+			</div>			
 		</div>
 	</div>
 </section>

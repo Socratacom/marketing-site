@@ -233,22 +233,22 @@ function carousel_script_responsive( $atts ) {
 add_shortcode('responsive-carousel', __NAMESPACE__ . '\\carousel_script_responsive');
 
 /**
- * Responsive Carousel [responsive-carousel id="" slide_id=""]
+ * Responsive Carousel [partner-logos-carousel-js id=""]
  */
 function partner_logos_carousel_js( $atts ) {
   extract( shortcode_atts( array(
     'id' => '',
-    'slide_id' => '',
   ), $atts ) );
   ob_start(); 
   ?>
 
 <script>
 jQuery(function ($){
-$(<?php echo $id; ?>).slick({
+$(<?php echo "'#$id'"; ?>).slick({
+arrows: false,
 autoplay: true,
-autoplaySpeed: 5000,
-slidesToShow: 4,
+autoplaySpeed: 3000,
+slidesToShow: 6,
 slidesToScroll: 1,
 accessibility:false,
 pauseOnHover:false,
@@ -256,24 +256,24 @@ responsive: [
   {
     breakpoint: 992,
     settings: {
-      slidesToShow: 3
+      slidesToShow: 4
     }
   },
   {
   breakpoint: 768,
     settings: {
-      slidesToShow: 2
+      slidesToShow: 3
     }
   },
   {
   breakpoint: 480,
     settings: {
-      slidesToShow: 1
+      slidesToShow: 2
     }
   }
 ]
 });
-$(<?php echo $id; ?>).show();
+$(<?php echo "'#$id'"; ?>).show();
 });
 </script>
 
