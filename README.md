@@ -17,6 +17,7 @@ Additional Plugins Used
 
 Change History
 ---
+- V2.1.4 - Updates to CSS, added icons, and updated footer layout.
 - V2.1.4 - Standardize CSS for speakers and leadership modal UX.
 - V2.1.3 - This update includes the redesign of the Blog templates.
 - V2.1.2 - Added Google Site search and updated header navigation CSS.
