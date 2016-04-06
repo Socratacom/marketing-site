@@ -93,17 +93,17 @@ function od_directory_sortable_columns() {
 */
 
 // TAXONOMIES
-add_action( 'init', 'od_directory_cat', 0 );
-function od_directory_cat() {
+add_action( 'init', 'od_directory_segment', 0 );
+function od_directory_segment() {
   register_taxonomy(
-    'od_directory_cat',
+    'od_directory_segment',
     'od_directory',
     array(
       'labels' => array(
-        'name' => 'Region',
-        'menu_name' => 'Region',
-        'add_new_item' => 'Add New Region',
-        'new_item_name' => "New Region"
+        'name' => 'Directory Segment',
+        'menu_name' => 'Directory Segment',
+        'add_new_item' => 'Add New Segment',
+        'new_item_name' => "New Segment"
       ),
       'show_ui' => true,
       'show_tagcloud' => false,
@@ -111,7 +111,7 @@ function od_directory_cat() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'directory-region'),
+      'rewrite' => array('with_front' => false, 'slug' => 'directory-segment'),
     )
   );
 }
@@ -141,9 +141,9 @@ function od_directory_type() {
 }
 
 // PRINT TAXONOMIES
-function directory_categories() {
+function directory_segments() {
   global $terms;
-  $terms = get_the_terms($post->ID , 'od_directory_cat');
+  $terms = get_the_terms($post->ID , 'od_directory_segment');
   echo $terms[0]->name;
   for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
@@ -202,20 +202,31 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
-      // CHECKBOX
+
+
+      // RADIO BUTTONS
       array(
-        'name' => __( 'Does this listing have an open data site?', 'directory' ),
-        'id'   => "{$prefix}datasite",
-        'desc' => __( 'Yes' ),
-        'type' => 'checkbox',
+        'name'    => __( 'Does this listing have an open data site?', 'directory' ),
+        'id'      => "{$prefix}open_data_site",
+        'type'    => 'radio',
+        // Array of 'value' => 'Label' pairs for radio options.
+        // Note: the 'value' is stored in meta field, not the 'Label'
+        'options' => array(
+          'Yes' => __( 'Yes', 'your-prefix' ),
+          'No' => __( 'No', 'your-prefix' ),
+        ),
       ),
-      // CHECKBOX
+      // RADIO BUTTONS
       array(
-        'name' => __( 'Is this a Socrata customer?', 'your-directory' ),
-        'id'   => "{$prefix}customer",
-        'desc' => __( 'Yes' ),
-        'type' => 'checkbox',
-        'std'  => 0,
+        'name'    => __( 'Is this a Socrata customer?', 'directory' ),
+        'id'      => "{$prefix}socrata_customer",
+        'type'    => 'radio',
+        // Array of 'value' => 'Label' pairs for radio options.
+        // Note: the 'value' is stored in meta field, not the 'Label'
+        'options' => array(
+          'Yes' => __( 'Yes', 'your-prefix' ),
+          'No' => __( 'No', 'your-prefix' ),
+        ),
       ),
       // HEADING
       array(
@@ -251,13 +262,15 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
         'type'             => 'plupload_image',
         'max_file_uploads' => 1,
       ),
-      // TEXT
+      // NUMBER
       array(
-        'name'  => __( 'Population', 'directory' ),
-        'id'    => "{$prefix}population",
+        'name' => __( 'Population', 'your-prefix' ),
+        'id'   => "{$prefix}population",
         'desc' => __( 'ONLY for City, County, and State', 'directory' ),
-        'type'  => 'text',
-      ),         
+        'type' => 'number',
+        'min'  => 0,
+        'step' => 5,
+      ),
     )
   );
 
@@ -519,155 +532,50 @@ function op_directory($atts, $content = null) {
   ob_start();
   ?>
 
-
-
-
-  <section id="directory" class="section-padding background-clouds">
+  <section id="directory" class="background-clouds background-half-white">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12">
-          <ul class="directory-list">
+        <div class="directory">
+          <div class="col-sm-3 left">
+            <button onclick="FWP.reset()" class="btn btn-primary">Clear All Filters</button>
+            <div class="filters">
+              <button type="button" data-toggle="collapse" data-target="#segments">Segment</button> 
+              <div id="segments" class="collapse in">
+                <?php echo do_shortcode('[facetwp facet="directory_segment"]') ;?>
+              </div>
 
-<?php
-  /* The Query */
+              <button type="button" data-toggle="collapse" data-target="#datatypes">Data Types</button> 
+              <div id="datatypes" class="collapse in">
+                <?php echo do_shortcode('[facetwp facet="directory_data_type"]') ;?>
+              </div>
 
-  
-  
-  $args = array(
-      'post_type' => 'od_directory',
-      'post_status' => 'publish',
-      'ignore_sticky_posts' => true,
-    );
+              <button type="button" data-toggle="collapse" data-target="#customer">Socrata Customer</button> 
+              <div id="customer" class="collapse in">
+                <?php echo do_shortcode('[facetwp facet="socrata_customer"]') ;?>
+              </div>
 
-  $query = new WP_Query( $args );
-
-  // The Loop
-  if ( $query->have_posts() ) : 
-  while( $query->have_posts() ): $query->the_post(); {  
-    
-    $customer = rwmb_meta( 'directory_customer' );
-
-    if ( ! empty( $customer ) ) { ?>
-    <!-- Code for Socrata customers -->
-    <li class="socrata-customer">
-      
-      <small>Socrata Customer</small>
-      <p><?php directory_categories(); ?></p>
-
-      <h4><?php the_title(); ?></h4>
-
-
-
-
-
-
-<?php $logo = rwmb_meta( 'directory_logo' );
-
-if ( !empty( $logo ) ) {
-    foreach ( $logo as $image ) {
-        echo "<img src='{$image['url']}' width='{$image['width']}' height='{$image['height']}' alt='{$image['alt']}' />";
-    }
-}
-?>
-
-
-
-      
-
-      <?php $datasite = rwmb_meta( 'directory_datasite' );
-        if ( ! empty( $datasite ) )
-          {
-            echo "<p>Yep, got a Open Data site.</p>";
-          }
-        else  {
-          echo "<p>Nope. Ain't got no Open Data site.</p>";
-        }
-      ?>
-
-      <?php $sites_group = rwmb_meta( 'directory_sites' );
-        if ( ! empty( $sites_group ) )
-        { ?>
-          <ul>
-          <?php foreach ( $sites_group as $group_value )
-            {
-                $name = isset( $group_value['directory_site_name'] ) ? $group_value['directory_site_name'] : '';
-                $url = isset( $group_value['directory_site_url'] ) ? $group_value['directory_site_url'] : '';
-                ?>
-                <li><a href="<?php echo $url;?>" target="_blank"><?php echo $name;?></a></li>
-                <?php
-            } ?>
-          </ul>
-          <?php
-        }
-      ?>
-
-      <?php $population = rwmb_meta( 'directory_population' );
-        if ( ! empty( $population ) )
-          { ?>
-            <p><?php echo $population;?></p>
-            <?php
-          }
-      ?>
-
-      <p><?php directory_data_types(); ?></p>
-
-      <?php $screen = rwmb_meta( 'directory_screen', 'size=thumbnail' );
-
-      if ( !empty( $screen ) ) {
-          foreach ( $screen as $image ) {
-              echo "<p><img src='{$image['url']}' width='{$image['width']}' height='{$image['height']}' alt='{$image['alt']}' /></p>";
-          }
-      }
-      ?>
-
-
-
-    </li>
-
-    <?php
-    }
-
-    else {?>
-    <!-- Code for everyone else -->
-
-    <li>
-      <h4><?php the_title(); ?></h4>
-      <?php $datasite = rwmb_meta( 'directory_datasite' );
-        if ( ! empty( $datasite ) )
-          {
-            echo "<p>Yep, got a Open Data site.</p>";
-          }
-        else  {
-          echo "<p>Nope. Ain't got no Open Data site.</p>";
-        }
-      ?>
-    </li>
-
-    <?php
-
-    }
-  
-  }
-
-
-
-  endwhile;
-  endif;
-
-  // Restore original Post Data
-  wp_reset_postdata();
-
-?>
-
-          </ul>
+              <button type="button" data-toggle="collapse" data-target="#population">Population</button> 
+              <div id="population" class="collapse in">
+                <?php echo do_shortcode('[facetwp facet="directory_population"]') ;?>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-sm-9 right">
+            <ul class="sort">
+              <li>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></li>             
+              <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li> 
+              <li><?php echo do_shortcode('[facetwp sort="true"]') ;?></li> 
+            </ul>
+            <div class="directory-results">
+              <?php echo do_shortcode('[facetwp template="directory"]') ;?>
+            </div>
+            <?php echo do_shortcode('[facetwp pager="true"]') ;?>
+          </div>
         </div>
       </div>
     </div>
   </section>
-
-
-
-
 
   <?php
   $content = ob_get_contents();

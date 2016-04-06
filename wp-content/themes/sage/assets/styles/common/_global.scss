@@ -540,6 +540,11 @@ body {
 .background-white {
 	background-color:white;
 }
+.background-half-white {
+	background-image:url(../images/half-white.png);
+	background-repeat: repeat-y;
+	background-position: center; 
+}
 .overlay-white:before {
 	content:'';
 	position:absolute;
@@ -765,6 +770,27 @@ body {
 	}
 	.padding-30 {
 		padding:30px;
+	}
+	.padding-60 {
+		padding:60px;
+	}
+	.padding-top-15 {
+		padding-top:15px;
+	}
+	.padding-top-30 {
+		padding-top:30px
+	}
+	.padding-top-60 {
+		padding-top:60px;
+	}
+	.padding-bottom-15 {
+		padding-bottom:15px;
+	}
+	.padding-bottom-30 {
+		padding-bottom:30px;
+	}
+	.padding-bottom-60 {
+		padding-bottom:60px;
 	}
 
 	.subscribe {
