@@ -782,7 +782,6 @@ dl.quote-author {
                 }
                 .sites {
                     padding:15px;
-                    border-bottom:lighten($silver, 15%) solid 1px;
                     .site {
                         position: relative;
                         border-bottom:lighten($silver, 15%) solid 1px;                    
@@ -808,7 +807,8 @@ dl.quote-author {
                 ul.meta {
                     list-style-type: none;
                     margin:0;
-                    padding:15px;
+                    padding:15px;                    
+                    border-top:lighten($silver, 15%) solid 1px;
                     li {
                         font-size: 13px;
                         font-weight: $font-normal;
