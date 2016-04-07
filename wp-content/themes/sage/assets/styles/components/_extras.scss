@@ -523,6 +523,23 @@ dl.quote-author {
     }
 }
 
+#directory-stats {
+    .stat {
+        text-align: center;
+        .number {
+            font-weight: $font-bold;
+            font-size: 100px;
+            color:$orange;
+        }
+        p {
+            font-weight: $font-normal;
+            font-size: 14px;
+            strong {
+                font-weight: $font-semi-bold;
+            }
+        }
+    }
+}
 
 #directory-map {
     height:600px;

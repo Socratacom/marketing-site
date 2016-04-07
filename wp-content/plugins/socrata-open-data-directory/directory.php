@@ -341,101 +341,96 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
 
 
 
-// Shortcode [newsroom-posts]
+// Shortcode [directory-stats]
 function op_directory_stats($atts, $content = null) {
   ob_start();
   ?>
 
-  <section>
-    <div class="container" style="width:100%; padding:0;">
-    <div class="row no-gutters">
+  <section id="directory-stats" class="section-padding">
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-center">How many have open data sites?</h2>
+      </div>
       <div class="col-sm-3">
-        <div class="background-asbestos overlay-midnight-blue img-background-fixed" style="background-image:url(/wp-content/uploads/finance-city-street.jpg); height: 300px;">
-          <div class="padding-30 vertical-center">
+        <div class="stat">
             <?php
               $args = array(
                 'post_type' => 'od_directory',
-                'od_directory_cat' => 'city',
+                'od_directory_segment' => 'city',
                 'meta_query' => array(
                   array(
-                      'key' => 'directory_datasite',
-                      'value' => '1'
+                      'key' => 'directory_open_data_site',
+                      'value' => 'Yes'
                   )
                 )
               );
               $myquery = new WP_Query($args);
-              echo "<h1 class='text-reverse text-center margin-bottom-15'>$myquery->found_posts</h1>";
+              echo "<div class='number'>$myquery->found_posts</div>";
               wp_reset_postdata();
             ?>
-            <div class="text-center text-reverse">Cities have Open Data sites</div>
-          </div>
+            <p><strong>Cities</strong> have Open Data sites</p>
         </div>
       </div>
       <div class="col-sm-3">
-        <div class="background-silver overlay-wet-asphalt img-background-fixed" style="background-image:url(/wp-content/uploads/business-crowd-partner-summit-2016.jpg); height: 300px;">
-          <div class="padding-30 vertical-center">
+        <div class="stat">
             <?php
               $args = array(
                 'post_type' => 'od_directory',
-                'od_directory_cat' => 'county',
+                'od_directory_segment' => 'county',
                 'meta_query' => array(
                   array(
-                      'key' => 'directory_datasite',
-                      'value' => '1'
+                      'key' => 'directory_open_data_site',
+                      'value' => 'Yes'
                   )
                 )
               );
               $myquery = new WP_Query($args);
-              echo "<h1 class='text-reverse text-center margin-bottom-15'>$myquery->found_posts</h1>";
+              echo "<div class='number'>$myquery->found_posts</div>";
               wp_reset_postdata();
             ?>
-            <div class="text-center text-reverse">Counties have Open Data sites</div>
+            <p><strong>Counties</strong> have Open Data sites</p>
           </div>
-        </div>
       </div>
       <div class="col-sm-3">
-        <div class="background-asbestos overlay-midnight-blue img-background-fixed" style="background-image:url(/wp-content/uploads/11718018374_29cbdaea40_k.jpg); height: 300px;">
-          <div class="padding-30 vertical-center">
+        <div class="stat">
             <?php
               $args = array(
                 'post_type' => 'od_directory',
-                'od_directory_cat' => 'state',
+                'od_directory_segment' => 'state',
                 'meta_query' => array(
                   array(
-                      'key' => 'directory_datasite',
-                      'value' => '1'
+                      'key' => 'directory_open_data_site',
+                      'value' => 'Yes'
                   )
                 )
               );
               $myquery = new WP_Query($args);
-              echo "<h1 class='text-reverse text-center margin-bottom-15'>$myquery->found_posts</h1>";
+              echo "<div class='number'>$myquery->found_posts</div>";
               wp_reset_postdata();
             ?>
-            <div class="text-center text-reverse">States have Open Data sites</div>
+            <p><strong>States</strong> have Open Data sites</p>
           </div>
-        </div>
       </div>
       <div class="col-sm-3">
-        <div class="background-asbestos overlay-wet-asphalt img-background-fixed" style="background-image:url(/wp-content/uploads/what-works-kansas-city.jpg); height: 300px;">
-          <div class="padding-30 vertical-center">
+        <div class="stat">
             <?php
               $args = array(
                 'post_type' => 'od_directory',
-                'od_directory_cat' => 'federal',
+                'od_directory_segment' => 'federal',
                 'meta_query' => array(
                   array(
-                      'key' => 'directory_datasite',
-                      'value' => '1'
+                      'key' => 'directory_open_data_site',
+                      'value' => 'Yes'
                   )
                 )
               );
               $myquery = new WP_Query($args);
-              echo "<h1 class='text-reverse text-center margin-bottom-15'>$myquery->found_posts</h1>";
+              echo "<div class='number'>$myquery->found_posts</div>";
               wp_reset_postdata();
             ?>
-            <div class="text-center text-reverse">Federal Agencies have Open Data sites</div>
+            <p><strong>Federal Agencies</strong> have Open Data sites</p>
           </div>
-        </div>
       </div>
     </div>
   </div>
