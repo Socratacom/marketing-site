@@ -369,7 +369,7 @@ function op_directory_stats($atts, $content = null) {
               echo "<div class='number'>$myquery->found_posts</div>";
               wp_reset_postdata();
             ?>
-            <p><strong>Cities</strong> have Open Data sites</p>
+            <div class="stat-label">Cities</div>
         </div>
       </div>
       <div class="col-sm-3">
@@ -389,7 +389,7 @@ function op_directory_stats($atts, $content = null) {
               echo "<div class='number'>$myquery->found_posts</div>";
               wp_reset_postdata();
             ?>
-            <p><strong>Counties</strong> have Open Data sites</p>
+            <div class="stat-label">Counties</div>
           </div>
       </div>
       <div class="col-sm-3">
@@ -409,7 +409,7 @@ function op_directory_stats($atts, $content = null) {
               echo "<div class='number'>$myquery->found_posts</div>";
               wp_reset_postdata();
             ?>
-            <p><strong>States</strong> have Open Data sites</p>
+            <div class="stat-label">States</div>
           </div>
       </div>
       <div class="col-sm-3">
@@ -429,7 +429,7 @@ function op_directory_stats($atts, $content = null) {
               echo "<div class='number'>$myquery->found_posts</div>";
               wp_reset_postdata();
             ?>
-            <p><strong>Federal Agencies</strong> have Open Data sites</p>
+            <div class="stat-label">Federal Agencies</div>
           </div>
       </div>
     </div>
