@@ -478,7 +478,7 @@ function op_directory_map($atts, $content = null) {
 
               // How you would like to style the map. 
               // This is where you would paste any style found on Snazzy Maps.
-              styles: [{"elementType":"geometry","stylers":[{"hue":"#ff4400"},{"saturation":-68},{"lightness":-4},{"gamma":0.72}]},{"featureType":"road","elementType":"labels.icon"},{"featureType":"landscape.man_made","elementType":"geometry","stylers":[{"hue":"#0077ff"},{"gamma":3.1}]},{"featureType":"water","stylers":[{"hue":"#00ccff"},{"gamma":0.44},{"saturation":-33}]},{"featureType":"poi.park","stylers":[{"hue":"#44ff00"},{"saturation":-23}]},{"featureType":"water","elementType":"labels.text.fill","stylers":[{"hue":"#007fff"},{"gamma":0.77},{"saturation":65},{"lightness":99}]},{"featureType":"water","elementType":"labels.text.stroke","stylers":[{"gamma":0.11},{"weight":5.6},{"saturation":99},{"hue":"#0091ff"},{"lightness":-86}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"lightness":-48},{"hue":"#ff5e00"},{"gamma":1.2},{"saturation":-23}]},{"featureType":"transit","elementType":"labels.text.stroke","stylers":[{"saturation":-64},{"hue":"#ff9100"},{"lightness":16},{"gamma":0.47},{"weight":2.7}]}]
+              styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}]
           };
 
           // Get the HTML DOM element that will contain your map 
@@ -487,21 +487,54 @@ function op_directory_map($atts, $content = null) {
 
           // Create the Google Map using our element and options defined above
           var map = new google.maps.Map(mapElement, mapOptions);
-
-
-          // Let's also add a marker while we're at it
-          var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(40.6700, -73.9400),            
-              map: map,
-              title: 'Snazzy!'
-          });
-
-          var marker = new google.maps.Marker({
-              position: new google.maps.LatLng(41.6700, -73.9400),
-              map: map,
-              title: 'Snazzy!'
-          });
+          setMarkers(map);
       }
+      var beaches = [
+  ['Bondi Beach', -33.890542, 151.274856, 4],
+  ['Coogee Beach', -33.923036, 151.259052, 5],
+  ['Cronulla Beach', -34.028249, 151.157507, 3],
+  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+  ['Maroubra Beach', -33.950198, 151.259302, 1]
+];
+
+function setMarkers(map) {
+  // Adds markers to the map.
+
+  // Marker sizes are expressed as a Size of X,Y where the origin of the image
+  // (0,0) is located in the top left of the image.
+
+  // Origins, anchor positions and coordinates of the marker increase in the X
+  // direction to the right and in the Y direction down.
+  var image = {
+    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    // This marker is 20 pixels wide by 32 pixels high.
+    size: new google.maps.Size(20, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
+  // Shapes define the clickable region of the icon. The type defines an HTML
+  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+  // The final coordinate closes the poly by connecting to the first coordinate.
+  var shape = {
+    coords: [1, 1, 1, 20, 18, 20, 18, 1],
+    type: 'poly'
+  };
+  for (var i = 0; i < beaches.length; i++) {
+    var beach = beaches[i];
+    var marker = new google.maps.Marker({
+      position: {lat: beach[1], lng: beach[2]},
+      map: map,
+      icon: image,
+      shape: shape,
+      title: beach[0],
+      zIndex: beach[3]
+    });
+  }
+}
+
+
   </script>
 
 </section>
