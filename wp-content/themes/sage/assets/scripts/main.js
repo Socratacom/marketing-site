@@ -19,7 +19,7 @@
     'common': {
       init: function() {
         // JavaScript to be fired on all pages
-        window.sr = new scrollReveal();
+        // window.sr = new scrollReveal();
       },
       finalize: function() {
         // JavaScript to be fired after the init JS
