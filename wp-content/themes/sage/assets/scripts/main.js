@@ -62,7 +62,7 @@
         //Smooth Jumplink Scrolling
         var target, scroll;
 
-        $("a[href*=#]:not([href=#])").on("click", function(e) {
+        $("a[href*=\\#]:not([href=\\#])").on("click", function(e) {
           if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
           target = $(this.hash);
           target = target.length ? target : $("[id=" + this.hash.slice(1) + "]");
