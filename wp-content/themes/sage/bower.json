@@ -7,7 +7,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap-sass-official": "3.3.5",
+    "bootstrap-sass": "3.3.6",
     "Chart.js": "~1.0.2",
     "fontawesome": "~4.4.0",
     "jQuery.dotdotdot": "~1.7.4",
