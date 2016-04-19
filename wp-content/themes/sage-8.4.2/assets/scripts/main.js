@@ -21,7 +21,84 @@
         // JavaScript to be fired on all pages
       },
       finalize: function() {
-        // JavaScript to be fired on all pages, after page specific JS is fired
+        // JavaScript to be fired after the init JS
+
+        // Google Site Search
+        (function() {
+        var cx = '010927318898930298786:p7-vwztjtlq';
+        var gcse = document.createElement('script');
+        gcse.type = 'text/javascript';
+        gcse.async = true;
+        gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+            '//cse.google.com/cse.js?cx=' + cx;
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(gcse, s);
+        })();
+
+        setTimeout( function(){ 
+          jQuery(".gsc-input").attr("placeholder", "Search this site");
+        }
+       , 1000 );
+        
+        // Truncate script
+        $(document).ready(function() {
+          $(".truncate").dotdotdot({
+            ellipsis  : '... ',
+            wrap    : 'word',
+            fallbackToLetter: true,
+            after   : null,
+            watch   : window,
+            height    : null,
+            tolerance : 0,
+            callback  : function( isTruncated, orgContent ) {}, 
+            lastCharacter : {
+            remove    : [ ' ', ',', ';', '.', '!', '?' ],
+            noEllipsis  : []
+            }
+          });
+        });
+        
+        //Smooth Jumplink Scrolling
+        var target, scroll;
+
+        $("a[href*=\\#]:not([href=\\#])").on("click", function(e) {
+          if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
+          target = $(this.hash);
+          target = target.length ? target : $("[id=" + this.hash.slice(1) + "]");
+
+          if (target.length) {
+          if (typeof document.body.style.transitionProperty === 'string') {
+          e.preventDefault();
+
+          var avail = $(document).height() - $(window).height();
+
+          scroll = target.offset().top - 60;
+
+          if (scroll > avail) {
+          scroll = avail;
+        }
+
+        $("html").css({
+          "margin-top" : ( $(window).scrollTop() - scroll ) + "px",
+          "transition" : "1s ease-in-out"
+          }).data("transitioning", true);
+          } else {
+            $("html, body").animate({
+              scrollTop: scroll
+              }, 1000);
+              return;
+              }
+            }
+          }
+        });
+
+        $("html").on("transitionend webkitTransitionEnd msTransitionEnd oTransitionEnd", function (e) {
+          if (e.target === e.currentTarget && $(this).data("transitioning") === true) {
+            $(this).removeAttr("style").data("transitioning", false);
+            $("html, body").scrollTop(scroll);
+            return;
+          }
+        });
       }
     },
     // Home page
@@ -30,7 +107,19 @@
         // JavaScript to be fired on the home page
       },
       finalize: function() {
-        // JavaScript to be fired on the home page, after the init JS
+        // JavaScript to be fired after the init JS        
+
+        // Animate Clock
+        setInterval(function() {
+          function r(el, deg) {
+            el.setAttribute('transform', 'rotate('+ deg +' 50 50)');
+          }
+          var d = new Date();
+          r(sec, 6*d.getSeconds());
+          r(min, 6*d.getMinutes());
+          r(hour, 30*(d.getHours()%12) + d.getMinutes()/2);
+        }, 1000);
+
       }
     },
     // About us page, note the change from about-us to about_us.

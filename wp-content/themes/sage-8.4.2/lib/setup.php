@@ -27,14 +27,27 @@ function setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
-    'primary_navigation' => __('Primary Navigation', 'sage')
+    'site_nav_products' => __('Site Nav Products', 'sage'),
+    'site_nav_solutions' => __('Site Nav Solutions', 'sage'),
+    'site_nav_why_socrata' => __('Site Nav Why Socrata', 'sage'),
+    'site_nav_resources' => __('Site Nav Resources', 'sage'),    
+    'site_nav_resources_mobile' => __('Site Nav Resources Mobile', 'sage'),
+    'site_nav_about' => __('Site Nav About', 'sage'),
+    'site_nav_community' => __('Site Nav Community', 'sage'),
+    'site_nav_additional_links' => __('Site Nav Additional Links', 'sage'),
+    'product_nav_open_data' => __('Product Nav Open Data', 'sage'),    
+    'events_filter' => __('Events Filter', 'sage')
   ]);
 
   // Enable post thumbnails
   // http://codex.wordpress.org/Post_Thumbnails
   // http://codex.wordpress.org/Function_Reference/set_post_thumbnail_size
   // http://codex.wordpress.org/Function_Reference/add_image_size
-  add_theme_support('post-thumbnails');
+  add_theme_support('post-thumbnails', array('post','socrata_events','case_study'));
+  set_post_thumbnail_size( 360, 180, array( 'center', 'center')  );
+  add_image_size( 'post-image', 850, 400, array( 'center', 'center'));
+  add_image_size( 'feature-image', 1600, 400, array( 'center', 'center'));
+  add_image_size( 'full-width-ratio', 9999, 100 );
 
   // Enable post formats
   // http://codex.wordpress.org/Post_Formats
@@ -85,6 +98,10 @@ function display_sidebar() {
     // @link https://codex.wordpress.org/Conditional_Tags
     is_404(),
     is_front_page(),
+    is_home(),
+    is_page(),
+    is_archive(),
+    is_single(),
     is_page_template('template-custom.php'),
   ]);
 
@@ -95,12 +112,15 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), false, null);
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css?v=2.1.5'), false, null);
+  wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
+  wp_enqueue_style('google-fonts');
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);
+  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);  
+  wp_enqueue_script('ytplayer', Assets\asset_path('scripts/ytplayer.js'), [], null, true);
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

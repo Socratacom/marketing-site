@@ -7,9 +7,15 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "3.3.6"
+    "bootstrap-sass": "3.3.6",
+    "slick-carousel": "^1.5.9",
+    "jQuery.dotdotdot": "^1.8.1",
+    "font-awesome": "fontawesome#^4.6.1"
   },
   "overrides": {
+    "slick-carousel": {
+      "main": "./slick/slick.min.js"
+    },
     "bootstrap-sass": {
       "main": [
         "./assets/stylesheets/_bootstrap.scss",
