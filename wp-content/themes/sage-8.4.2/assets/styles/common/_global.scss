@@ -1,7 +1,6 @@
 body {
 	font-family: 'Open Sans', sans-serif;
-	color:$gray-dark;
-	background-color:$gray-dark;
+	color:$default-text-color;
 }
 .main {
 	padding:60px 0 0 0 !important;
@@ -208,8 +207,21 @@ body {
     content: "\e600";
 }
 
-
-
+.background-primary {background-color:$primary;}
+.background-primary-light {background-color:$primary-light;}
+.background-primary-dark {background-color:$primary-dark;}
+.background-primary-alt-1 {background-color:$primary-alt-1;}
+.background-primary-alt-1-light {background-color:$primary-alt-1-light;}
+.background-primary-alt-1-dark {background-color:$primary-alt-1-dark;}
+.background-primary-alt-2 {background-color:$primary-alt-2;}
+.background-primary-alt-2-light {background-color:$primary-alt-2-light;}
+.background-primary-alt-2-dark {background-color:$primary-alt-2-dark;}
+.background-primary-alt-3 {background-color:$primary-alt-3;}
+.background-primary-alt-3-light {background-color:$primary-alt-3-light;}
+.background-primary-alt-3-dark {background-color:$primary-alt-3-dark;}
+.background-secondary {background-color:$secondary;}
+.background-secondary-light {background-color:$secondary-light;}
+.background-secondary-dark {background-color:$secondary-dark;}
 
 
 
@@ -1394,24 +1406,6 @@ dl.quote-author {
         font-weight: $font-normal;
         display: block;
         font-size: 14px;
-    }
-}
-
-.feature-table {
-    i {
-        font-size: 18px;
-    }
-    tbody td:nth-child(2) {
-        background-color:lighten($nephritis, 50%);
-        i {
-            color:$nephritis;
-        }
-    }
-    tbody td:nth-child(3) {
-        background-color:lighten($nephritis, 46%);
-        i {
-            color:$nephritis;
-        }
     }
 }
 
