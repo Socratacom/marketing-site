@@ -20,11 +20,11 @@ body {
 // Custom Icons
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?lzv9q3');
-    src:    url('../fonts/icomoon.eot?lzv9q3#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?lzv9q3') format('truetype'),
-        url('../fonts/icomoon.woff?lzv9q3') format('woff'),
-        url('../fonts/icomoon.svg?lzv9q3#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?e6hbac');
+    src:    url('../fonts/icomoon.eot?e6hbac#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?e6hbac') format('truetype'),
+        url('../fonts/icomoon.woff?e6hbac') format('woff'),
+        url('../fonts/icomoon.svg?e6hbac#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -44,6 +44,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-support:before {
+    content: "\e913";
+}
 .icon-handshake:before {
     content: "\e911";
 }
@@ -207,6 +210,8 @@ body {
     content: "\e600";
 }
 
+
+
 .background-primary {background-color:$primary;}
 .background-primary-light {background-color:$primary-light;}
 .background-primary-dark {background-color:$primary-dark;}
@@ -222,7 +227,40 @@ body {
 .background-secondary {background-color:$secondary;}
 .background-secondary-light {background-color:$secondary-light;}
 .background-secondary-dark {background-color:$secondary-dark;}
+.background-warning {background-color:$warning;}
+.background-warning-light {background-color:$warning-light;}
+.background-warning-dark {background-color:$warning-dark;}
+.background-error {background-color:$error;}
+.background-error-light {background-color:$error-light;}
+.background-error-dark {background-color:$error-dark;}
+.background-success {background-color:$success;}
+.background-success-light {background-color:$success-light;}
+.background-success-dark {background-color:$success-dark;}
 
+.color-primary {color:$primary;}
+.color-primary-light {color:$primary-light;}
+.color-primary-dark {color:$primary-dark;}
+.color-primary-alt-1 {color:$primary-alt-1;}
+.color-primary-alt-1-light {color:$primary-alt-1-light;}
+.color-primary-alt-1-dark {color:$primary-alt-1-dark;}
+.color-primary-alt-2 {color:$primary-alt-2;}
+.color-primary-alt-2-light {color:$primary-alt-2-light;}
+.color-primary-alt-2-dark {color:$primary-alt-2-dark;}
+.color-primary-alt-3 {color:$primary-alt-3;}
+.color-primary-alt-3-light {color:$primary-alt-3-light;}
+.color-primary-alt-3-dark {color:$primary-alt-3-dark;}
+.color-secondary {color:$secondary;}
+.color-secondary-light {color:$secondary-light;}
+.color-secondary-dark {color:$secondary-dark;}
+.color-warning {color:$warning;}
+.color-warning-light {color:$warning-light;}
+.color-warning-dark {color:$warning-dark;}
+.color-error {color:$error;}
+.color-error-light {color:$error-light;}
+.color-error-dark {color:$error-dark;}
+.color-success {color:$success;}
+.color-success-light {color:$success-light;}
+.color-success-dark {color:$success-dark;}
 
 
 // Colors
@@ -661,7 +699,7 @@ body {
 		text-decoration:none;
 	}
 	hr {
-	    border-top: 5px solid $clouds;
+	    border-top: 5px solid $light-grey-4;
 	    margin:30px 0;
 	}
 	.background-clouds hr {
@@ -687,6 +725,60 @@ body {
 			font-weight: $font-normal;
 		}
 
+	}
+	table.feature-table {
+		border-collapse: separate;
+		border-spacing: 10px 0px;
+		th {
+			text-transform: uppercase;
+			font-weight: $font-semi-bold;
+			color:$white;
+			background-color:$secondary;
+		}
+		th:nth-child(1) {
+			background:none;
+		}
+		tr:hover {
+			background-color:$light-grey-4;
+		}
+		td {
+			border-left:$light-grey-4 solid 1px;
+			border-right:$light-grey-4 solid 1px;
+			border-top:$light-grey-4 solid 1px !important;
+		}
+		thead tr:hover {
+			background:none;
+		}
+		tbody tr:last-child td {
+			border-bottom:$light-grey-4 solid 1px;
+		}
+		.fa-check {
+			color:$success;
+		}
+	}
+	table.feature-table-alt-1 {
+		border-collapse: separate;
+		border-spacing: 10px 0px;
+		th {
+			text-transform: uppercase;
+			font-weight: $font-semi-bold;
+			color:$white;
+			background-color:$secondary;
+		}
+		tr:hover {
+			background-color:$light-grey-4;
+		}
+		td {
+			border-left:$light-grey-4 solid 1px;
+			border-right:$light-grey-4 solid 1px;
+			border-top:$light-grey-4 solid 1px !important;
+		}
+		thead tr:hover {
+			background:none;
+		}
+		tbody tr:last-child td {
+			border-bottom:$light-grey-4 solid 1px;
+		}
 	}
 	blockquote {
 		border-left:$peter-river solid 5px;
@@ -720,6 +812,9 @@ body {
 		color:white;
 	}
 	//margins
+	.margin-bottom-0 {
+		margin-bottom:0;
+	}
 	.margin-bottom-15 {
 		margin-bottom:15px;
 	}
