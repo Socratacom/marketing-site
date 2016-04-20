@@ -109,19 +109,6 @@
 	}
 }
 
-.footer-form {
-	h4 {
-		border:none;
-		padding:0;
-	}
-	.marketo-form {
-		input {
-			background-color:lighten($gray-dark, 5%);
-			border-color:lighten($gray-dark, 10%) !important;
-		}
-	}
-}
-
 .newsletter-sidebar {
 	padding:15px;
 	background-color: $clouds;

@@ -1,4 +1,4 @@
-<footer role="contentinfo">
+<footer role="contentinfo" class="section-padding">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4 col-md-3 margin-bottom-30">
@@ -9,7 +9,7 @@
 					<li class="google"><a href="https://plus.google.com/+Socrata/about" class="" target="_blank">googleplus</a></li>
 					<li class="youtube"><a href="https://www.youtube.com/user/socratavideos" class="" target="_blank">youtube</a></li>
 				</ul>
-				<div class="footer-logo logo"></div>
+				<div class="footer-logo color-logo"></div>
 				<ul class="copyright">
 					<li>&copy; <?php echo date("Y");?> Socrata. All rights reserved.</li>
 					<li>Phone: <a href="tel://1-206-340-8008">+1 (206) 340-8008</a></li>
