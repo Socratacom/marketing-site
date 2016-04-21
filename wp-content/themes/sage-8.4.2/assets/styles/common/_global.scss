@@ -269,6 +269,7 @@ body {
 .color-success {color:$success;}
 .color-success-light {color:$success-light;}
 .color-success-dark {color:$success-dark;}
+.color-black {color:$black;}
 
 .overlay:before {content:'';position:absolute;top:0;left:0;height:100%;width:100%;z-index:1;}
 .overlay-primary:before {background-color: rgba($primary, 0.8);}
@@ -642,7 +643,7 @@ body {
 @media only screen and (min-width : 320px) {
 
 	h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-	    color: $midnight-blue;
+	    color: $black;
 	    margin-top:0;
 	    line-height: 1.2em;
 	    margin-bottom:30px;
@@ -675,14 +676,10 @@ body {
 	h5 {
 		font-size: 14px;
 	}
-	p, li {		
+	p, li, .lead {		
 		font-size:14px;
 	}
-	.lead {
-		font-size: 18px;
-	}
 	.lead, p, li {
-		color:darken($asbestos, 15%);
 		font-weight:$font-light;
 		line-height: 1.5em;
 	}
@@ -693,7 +690,7 @@ body {
 		padding-left:20px;
 	}
 	a {
-		color:$peter-river;
+		color:$primary;
 		cursor: pointer;
 	}
 	a.link-reverse {
@@ -1206,7 +1203,7 @@ body {
 		font-size:16px;
 	}
 	.lead {
-		font-size: 20px;
+		font-size: 18px;
 	}
 	.page-banner {
 		h1 {
@@ -1233,6 +1230,9 @@ body {
 	}
 	h3 {
 		font-size: 30px;
+	}
+	.lead {
+		font-size: 20px;
 	}
 }
 
@@ -1431,7 +1431,7 @@ dl.quote-author {
         display: table;
         box-shadow:none;
         border:none;
-        background-color:rgba(white,1);
+        background-color:rgba(white,.8);
         .modal-body {
             display:table-cell;
             vertical-align:middle;
