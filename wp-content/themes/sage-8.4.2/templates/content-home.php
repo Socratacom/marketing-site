@@ -1,6 +1,23 @@
  <section class="home-hero">
 	<div class="slider">
-		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-crime-reports.jpg);">
+		<div class="slide img-background" style="background-image:url(/wp-content/uploads/home-hero-default.jpg);">
+			<div class="text-wrapper">
+				<div class="container">
+					<div class="row">
+				        <div class="text">
+							<div class="col-sm-6">
+								<div class="box-white padding-30">
+									<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
+									<p class="lead">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
+				                    <div><a href="/request-a-demo" class="btn btn-lg btn-primary">Schedule a Meeting</a></div>
+				            	</div>
+							</div>
+				        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="slide img-background" style="background-image:url(/wp-content/uploads/home-hero-crime-reports.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
 					<div class="row">
@@ -9,7 +26,7 @@
 								<div class="box-white padding-30">
 									<h1 class="margin-bottom-15">Introducing CrimeReports&trade;</h1>
 									<p class="lead">CrimeReports helps police agencies improve public and media perception by proactively sharing local crime information and providing visibility to agency operations.</p>
-				                    <div style="margin:0;"><a href="/products/crimereports" class="btn btn-lg btn-warning">Read More</a></div>
+				                    <div><a href="/products/crimereports" class="btn btn-lg btn-primary">Read More</a></div>
 				            	</div>
 							</div>
 				        </div>
@@ -17,50 +34,16 @@
 				</div>
 			</div>
 		</div>
-		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-one.jpg);">
+		<div class="slide img-background" style="background-image:url(/wp-content/uploads/home-hero-open-budget.jpg);">
 			<div class="text-wrapper">
 				<div class="container">
 					<div class="row">
 				        <div class="text">
 							<div class="col-sm-6">
-								<div id="home-hero-slide-1" class="box-white padding-30">
-									<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
-									<p class="lead">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-				                    <div style="margin:0;"><a href="/request-a-demo" class="btn btn-lg btn-warning">Schedule a Meeting</a></div>
-				            	</div>
-							</div>
-				        </div>
-					</div>
-				</div>
-			</div>
-		</div>		
-		<!--<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-law-enforcement.jpg);">
-			<div class="text-wrapper">
-				<div class="container">
-					<div class="row">
-				        <div class="text">
-							<div class="col-sm-6">
-								<div id="home-hero-slide-2" class="box-white padding-30">
-									<h1 class="margin-bottom-15">Socrata for Public Safety</h1>
-									<p class="lead">Socrata for Public Safety enables public safety agencies to share their data, increase transparency, and instill greater trust and engagement with their communities.</p>
-				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-safety/" class="btn btn-lg btn-warning">Read More</a></div>
-				            	</div>
-							</div>
-				        </div>
-					</div>
-				</div>
-			</div>
-		</div>-->
-		<div class="background-silver slide img-background" style="background-image:url(/wp-content/uploads/home-hero-open-budget.jpg);">
-			<div class="text-wrapper">
-				<div class="container">
-					<div class="row">
-				        <div class="text">
-							<div class="col-sm-6">
-								<div id="home-hero-slide-3" class="box-white padding-30">
+								<div class="box-white padding-30">
 									<h1 class="margin-bottom-15">Socrata for Public Finance</h1>
 									<p class="lead">Socrata for Public Finance provides a holistic solution for capturing and sharing financial activities and priorities with internal government employees and the general public.</p>
-				                    <div style="margin:0;"><a href="/solutions/socrata-for-public-finance/" class="btn btn-lg btn-warning">Explore Solutions</a></div>
+				                    <div><a href="/solutions/socrata-for-public-finance/" class="btn btn-lg btn-primary">Explore Solutions</a></div>
 				            	</div>
 							</div>
 				        </div>
@@ -69,103 +52,38 @@
 			</div>
 		</div>
 	</div>
-	<script>
-	jQuery(function ($){
-          $('.slider').slick({
-            arrows: false,
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            infinite:true,
-            fade:true,
-            cssEase: 'linear',
-            pauseOnHover:false,
-            pauseOnDotsHover:true,
-          });
-          $('.slider').show();
-        });
-	</script>
+	<script>jQuery(function(e){e(".slider").slick({arrows:!1,dots:!0,autoplay:!0,autoplaySpeed:5e3,infinite:!0,fade:!0,cssEase:"linear",pauseOnHover:!1,pauseOnDotsHover:!0}),e(".slider").show()});</script>
 </section>
-<section id="start" class="background-gray-dark industries">
+<section class="section-padding background-secondary-dark">
 	<div class="container">
-		<div class="row no-gutters">
-			<div class="col-sm-6 col-md-4">
-				<div class="tile">
-					<div class="vertical-center padding-30 what-we-do">
-						<h2 class="text-reverse text-center margin-bottom-15">What We Do</h2>
-						<p class="lead text-center text-reverse">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
-					</div>
-				</div>
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<h2 class="text-reverse text-center margin-bottom-15">What We Do</h2>
+				<p class="lead text-center text-reverse margin-bottom-60">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
 			</div>
-			<div class="col-sm-6 col-md-4 background-belize-hole" data-sr="enter bottom, opacity 0.5">
-				<div class="tile">
-					<div class="tile-icon">
-						<h4 class="text-center icon fed-icon text-reverse">Federal Government</h4>
-					</div>
-					<div class="tile-text">
-						<h4 class="icon fed-icon text-reverse">Federal Government</h4>
-						<p class=" text-reverse">Socrata for Federal Government helps federal departments and agencies maximize the power of their data.</p>
-						<p class=" text-reverse stat"><span>"In-Process"</span> for FedRAMP certification as of 2015</p>
-						<p><a href="/solutions/federal-government" class="btn btn-default">Learn More</a></p>
-					</div>
-					<a href="/solutions/federal-government" class="link"></a>
-				</div>			
+			<div class="col-sm-3">
+				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary-dark icon-50 icon-capital"></i></p>
+				<h4 class="text-center text-reverse title-border-bottom">Federal Government</h4>
+				<p class="text-reverse">Socrata for Federal Government helps federal departments and agencies maximize the power of their data.</p>
+				<p><a href="/solutions/federal-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
-			<div class="col-sm-6 col-md-4 background-green-sea" data-sr="enter bottom, opacity 0.5">
-				<div class="tile">
-					<div class="tile-icon">
-						<h4 class="text-center icon state-icon text-reverse">State Government</h4>
-					</div>
-					<div class="tile-text">
-						<h4 class="icon state-icon text-reverse">State Government</h4>
-						<p class="text-reverse">States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
-						<p class=" text-reverse stat"><span>25 States</span> use Socrata</p>
-						<p><a href="/solutions/state-government" class="btn btn-default color-green-sea">Learn More</a></p>
-					</div>
-					<a href="/solutions/state-government" class="link"></a>
-				</div>
+			<div class="col-sm-3">
+				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary-dark icon-50 icon-state"></i></p>
+				<h4 class="text-center text-reverse title-border-bottom">State Government</h4>
+				<p class="text-reverse">States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
+				<p><a href="/solutions/state-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
-			<div class="col-sm-6 col-md-4 background-pumpkin" data-sr="enter bottom, opacity 0.5">
-				<div class="tile">
-					<div class="tile-icon">
-						<h4 class="text-center icon city-icon text-reverse">City Government</h4>
-					</div>
-					<div class="tile-text">
-						<h4 class="icon city-icon text-reverse">City Government</h4>
-						<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
-						<p class=" text-reverse stat"><span>300 cities</span> large and small use Socrata</p>
-						<p><a href="/solutions/city-government" class="btn btn-default">Learn More</a></p>
-					</div>
-					<a href="/solutions/city-government" class="link"></a>
-				</div>
+			<div class="col-sm-3">
+				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary-dark icon-50 icon-city"></i></p>
+				<h4 class="text-center text-reverse title-border-bottom">City Government</h4>
+				<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
+				<p><a href="/solutions/city-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
-			<div class="col-sm-6 col-md-4 background-amethyst" data-sr="enter bottom, opacity 0.5">
-				<div class="tile">
-					<div class="tile-icon">
-						<h4 class="text-center icon county-icon text-reverse">County Government</h4>
-					</div>
-					<div class="tile-text">
-						<h4 class="icon county-icon text-reverse">County Government</h4>
-						<p class="text-reverse">With Socrata, counties can publish data that will boost the economy and make the region a better place to live.</p>
-						<p class=" text-reverse stat"><span>4,000+ datasets</span> are hosted by counties on Socrata</p>
-						<p><a href="/solutions/county-government" class="btn btn-default">Learn More</a></p>
-					</div>
-					<a href="/solutions/county-government" class="link"></a>
-				</div>
-			</div>
-			<div class="col-sm-6 col-md-4" data-sr="enter bottom, opacity 0.5">
-				<div class="tile">
-					<div class="tile-icon">
-						<h4 class="text-center icon open-data-network-icon text-reverse">Open Data Network</h4>
-					</div>
-					<div class="tile-text">
-						<h4 class="icon open-data-network-icon text-reverse">Open Data Network</h4>
-						<p class="text-reverse">The Open Data Network connects publishers of high-value data to the businesses, developers, and analysts that use, reuse, and enrich data.</p>					
-						<p class=" text-reverse stat"><span>15,000 datasets</span> by 150 publishers</p>
-						<p><a href="http://opendatanetwork.com" target="_blank" class="btn btn-default">Explore Data</a></p>
-					</div>
-					<a href="http://opendatanetwork.com" target="_blank" class="link"></a>
-				</div>
+			<div class="col-sm-3">
+				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary-dark icon-50 icon-map"></i></p>
+				<h4 class="text-center text-reverse title-border-bottom">County Government</h4>
+				<p class="text-reverse">With Socrata, counties can publish data that will boost the economy and make the region a better place to live.</p>
+				<p><a href="/solutions/county-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
 		</div>
 	</div>
@@ -185,27 +103,26 @@
 	</div>
 </section>
 <section class="video-background">
-<div class="outer">
-<div class="inner">
-<div class="container">
-<div class="row">
-<div class="col-sm-10 col-sm-offset-1">
-<h2 class="text-center text-reverse margin-bottom-15">Why Socrata?</h2>
-<p class="text-center text-reverse lead">The Data Platform for 21st Century Digital Government &mdash;
-Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-<p class="text-center"><a href="https://www.youtube.com/watch?v=yH4RnuPijZA" role="button"><i class="fa fa-play-circle-o"></i></a></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="myvideo" class="video-wrapper img-background" style="background-image:url(https://img.youtube.com/vi/yH4RnuPijZA/maxresdefault.jpg)"></div>
-<div class="overlay"></div>
-<div id="video" class="player" data-property="{videoURL:'yH4RnuPijZA',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:21, stopAt:41, opacity:1, addRaster:true, quality:'default'}"></div>
-<script>jQuery(function(e){e("#video").YTPlayer()});</script>
-<?php echo do_shortcode('[youtube-modal]');?>
+	<div class="outer">
+		<div class="inner">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-10 col-sm-offset-1">
+						<h2 class="text-center text-reverse margin-bottom-15">Why Socrata?</h2>
+						<p class="text-center text-reverse lead">The Data Platform for 21st Century Digital Government &mdash;
+						Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
+						<p class="text-center"><a href="https://www.youtube.com/watch?v=yH4RnuPijZA" role="button"><i class="fa fa-play-circle-o"></i></a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="myvideo" class="video-wrapper img-background overlay overlay-primary" style="background-image:url(https://img.youtube.com/vi/yH4RnuPijZA/maxresdefault.jpg)"></div>
+	<div id="video" class="player overlay overlay-primary" data-property="{videoURL:'yH4RnuPijZA',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:21, stopAt:41, opacity:1, addRaster:true, quality:'default'}"></div>
+	<script>jQuery(function(e){e("#video").YTPlayer()});</script>
+	<?php echo do_shortcode('[youtube-modal]');?>
 </section>
-<section class="background-clouds section-padding articles">	
+<section class="background-light-grey-4 section-padding articles">	
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
@@ -300,7 +217,7 @@ Socrata's cloud-based solution allows government organizations to put their data
 		</div>
 	</div>
 </section>
-<section class="background-peter-river section-padding">	
+<section class="background-primary section-padding">	
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1 text-center">
@@ -317,7 +234,7 @@ Socrata's cloud-based solution allows government organizations to put their data
 				</div>
 				<h2 class="text-reverse margin-bottom-15">Give us an hour.</h2>
 				<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our data platform can do for you.</p>
-				<p id="section-cta-button"><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
+				<p id="section-cta-button"><a href="/request-a-demo" class="btn btn-warning btn-lg">Schedule a Meeting</a></p>
 				<p class="lead text-reverse">Or call (206) 340-8008.</p>
 			</div>			
 		</div>

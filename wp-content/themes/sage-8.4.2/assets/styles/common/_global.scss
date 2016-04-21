@@ -236,6 +236,14 @@ body {
 .background-success {background-color:$success;}
 .background-success-light {background-color:$success-light;}
 .background-success-dark {background-color:$success-dark;}
+.background-light-grey-4 {background-color:$light-grey-4;}
+.background-light-grey-5 {background-color:$light-grey-5;}
+.background-white {background-color:white;}
+
+/* Depreciated */
+.background-clouds {background-color:$light-grey-4;}
+.background-clouds-dark {background-color:$light-grey-3;}
+/* End Depreciated */
 
 .color-primary {color:$primary;}
 .color-primary-light {color:$primary-light;}
@@ -262,6 +270,17 @@ body {
 .color-success-light {color:$success-light;}
 .color-success-dark {color:$success-dark;}
 
+.overlay:before {content:'';position:absolute;top:0;left:0;height:100%;width:100%;z-index:1;}
+.overlay-primary:before {background-color: rgba($primary, 0.8);}
+.overlay-primary-dark:before {background-color: rgba($primary-dark, 0.8);}
+.overlay-primary-alt-1:before {background-color: rgba($primary-alt-1, 0.8);}
+.overlay-primary-alt-1-dark:before {background-color: rgba($primary-alt-1-dark, 0.8);}
+.overlay-primary-alt-2:before {background-color: rgba($primary-alt-2, 0.8);}
+.overlay-primary-alt-2-dark:before {background-color: rgba($primary-alt-2-dark, 0.8);}
+.overlay-primary-alt-3:before {background-color: rgba($primary-alt-3, 0.8);}
+.overlay-primary-alt-3-dark:before {background-color: rgba($primary-alt-3-dark, 0.8);}
+.overlay-secondary:before {background-color: rgba($secondary, 0.8);}
+.overlay-secondary-dark:before {background-color: rgba($secondary-dark, 0.8);}
 
 // Colors
 .background-turquoise {
@@ -350,6 +369,7 @@ body {
 	height:100%;
 	width:100%;
 	background-color: rgba($peter-river, 0.85);
+	z-index:1;
 }
 .color-peter-river {
 	color:$peter-river;
@@ -579,21 +599,10 @@ body {
 .color-asbestos {
 	color:$asbestos;
 }
-.background-clouds {
-	background-color:$clouds;
-	.btn-default {
-		color:$clouds;
-	}
-}
-.background-clouds-dark {
-	background-color:darken($clouds, 5%);
-}
 .background-gray-dark {
 	background-color:$gray-dark;
 }
-.background-white {
-	background-color:white;
-}
+
 .background-half-white {
 	background-image:url(../images/half-white.png);
 	background-repeat: repeat-y;
