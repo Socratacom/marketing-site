@@ -123,9 +123,25 @@
       }
     },
     // About us page, note the change from about-us to about_us.
-    'about_us': {
+    'consulting': {
       init: function() {
-        // JavaScript to be fired on the about us page
+        jQuery(document).ready(function($){
+          var $timeline_block = $('.timeline-block');
+
+          $timeline_block.each(function(){
+            if($(this).offset().top > $(window).scrollTop()+$(window).height()*0.75) {
+              $(this).find('.timeline-dot, .timeline-image, .timeline-content').addClass('is-hidden');
+            }
+          });
+
+          $(window).on('scroll', function(){
+            $timeline_block.each(function(){
+              if( $(this).offset().top <= $(window).scrollTop()+$(window).height()*0.75 && $(this).find('.timeline-dot, .timeline-image').hasClass('is-hidden') ) {
+                $(this).find('.timeline-dot, .timeline-image, .timeline-content').removeClass('is-hidden').addClass('bounce-in');
+              }
+            });
+          });
+        });
       }
     }
   };
