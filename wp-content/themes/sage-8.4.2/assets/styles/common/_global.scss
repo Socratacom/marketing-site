@@ -20,11 +20,11 @@ body {
 // Custom Icons
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?e6hbac');
-    src:    url('../fonts/icomoon.eot?e6hbac#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?e6hbac') format('truetype'),
-        url('../fonts/icomoon.woff?e6hbac') format('woff'),
-        url('../fonts/icomoon.svg?e6hbac#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?eomlcw');
+    src:    url('../fonts/icomoon.eot?eomlcw#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?eomlcw') format('truetype'),
+        url('../fonts/icomoon.woff?eomlcw') format('woff'),
+        url('../fonts/icomoon.svg?eomlcw#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -44,6 +44,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-services:before {
+    content: "\e914";
+}
+.icon-share:before {
+    content: "\e915";
+}
 .icon-support:before {
     content: "\e913";
 }
@@ -211,7 +217,6 @@ body {
 }
 
 
-
 .background-primary {background-color:$primary;}
 .background-primary-light {background-color:$primary-light;}
 .background-primary-dark {background-color:$primary-dark;}
@@ -277,6 +282,7 @@ body {
 .overlay-primary-alt-1:before {background-color: rgba($primary-alt-1, 0.8);}
 .overlay-primary-alt-1-dark:before {background-color: rgba($primary-alt-1-dark, 0.8);}
 .overlay-primary-alt-2:before {background-color: rgba($primary-alt-2, 0.8);}
+.overlay-primary-alt-2-light:before {background-color: rgba($primary-alt-2-light, 0.8);}
 .overlay-primary-alt-2-dark:before {background-color: rgba($primary-alt-2-dark, 0.8);}
 .overlay-primary-alt-3:before {background-color: rgba($primary-alt-3, 0.8);}
 .overlay-primary-alt-3-dark:before {background-color: rgba($primary-alt-3-dark, 0.8);}

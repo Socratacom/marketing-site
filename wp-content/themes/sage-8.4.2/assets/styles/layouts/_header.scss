@@ -69,12 +69,13 @@
 				margin-right:-15px;
 			}
 			.navbar-nav>li>.btn {
-				background-color: $primary-alt-2;
+				background-color: $warning;
 				color:white;
 				border:none;
 			}
 			.navbar-nav>li>.btn:hover {
-				color:$primary-dark;
+				background-color: $warning-dark;
+				color:white;
 			}
 			li.site-search {
 				border-bottom:none;
