@@ -697,8 +697,13 @@
 	}
 	.timeline-container::after {
 		content: '';
-		display: table;
-		clear: both;
+		position: absolute;
+		bottom: -12px;
+		left: 10px;
+		height: 0;
+		width: 0;
+		border: 10px solid transparent;
+		border-top: 10px solid $light-grey-1;
 	}
 	.timeline-container::before {
 	  /* this is the vertical line */
@@ -791,8 +796,11 @@
 	}
 }
 
-
 @media only screen and (min-width : 992px) {
+	.timeline-container::after {
+		left: 50%;
+		margin-left: -10px;
+	}
 	.timeline-container::before {
 		left: 50%;
 		margin-left: -2px;
