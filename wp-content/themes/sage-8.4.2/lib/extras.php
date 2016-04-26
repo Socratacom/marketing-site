@@ -564,5 +564,14 @@ function countdown_timer( $atts ) {
 }
 add_shortcode('countdown-timer', __NAMESPACE__ . '\\countdown_timer');
 
-
-
+/* Animated Hero Image Script */
+function hero_zoom ($atts, $content = null) {
+  ob_start();
+  ?>
+  <script>jQuery(document).ready(function(e){setTimeout(function(){e(".image").addClass("animate")},500)});</script>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('hero-zoom', __NAMESPACE__ . '\\hero_zoom');
