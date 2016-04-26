@@ -546,5 +546,23 @@ function customer_logos_abstract( $atts ) {
 
 add_shortcode( 'customer-logos-abstract', __NAMESPACE__ . '\\customer_logos_abstract' );
 
+/**
+ * Countdown Timer [countdown-timer id="CONTAINER ID" date="YYYY/MM/DD"]
+ */
+function countdown_timer( $atts ) {
+  extract( shortcode_atts( array(
+    'id' => '',
+    'date' => '',
+  ), $atts ) );
+  ob_start(); 
+  ?>
+  <script type="text/javascript">jQuery(document).ready(function(t){t("#<?php echo $id; ?>").countdown("<?php echo $date; ?>").on("update.countdown",function(n){var o="%H:%M:%S";n.offset.days>0&&(o="%-d day%!d "+o),n.offset.weeks>0&&(o="%-w week%!w "+o),t(this).html(n.strftime(o))}).on("finish.countdown",function(n){t(this).html("This event has started!").parent().addClass("disabled")})});</script>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('countdown-timer', __NAMESPACE__ . '\\countdown_timer');
+
 
 
