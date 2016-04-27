@@ -54,7 +54,7 @@
 	</div>
 	<script>jQuery(function(e){e(".slider").slick({arrows:!1,dots:!0,autoplay:!0,autoplaySpeed:5e3,infinite:!0,fade:!0,cssEase:"linear",pauseOnHover:!1,pauseOnDotsHover:!0}),e(".slider").show()});</script>
 </section>
-<section class="section-padding background-secondary-dark">
+<section class="section-padding background-secondary">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
@@ -62,28 +62,28 @@
 				<p class="lead text-center text-reverse margin-bottom-60">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
 			</div>
 			<div class="col-sm-3">
-				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary-dark icon-50 icon-capital"></i></p>
+				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary icon-50 icon-capital"></i></p>
 				<h5 class="text-center text-reverse title-border">Federal Government</h5>
 				<p class="text-reverse">Socrata for Federal Government helps federal departments and agencies maximize the power of their data.</p>
 				<p class="text-reverse"><i class="fa fa-info-circle" aria-hidden="true"></i> <i>In Process for FedRamp certification as 2016</i></p>
 				<p><a href="/solutions/federal-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
 			<div class="col-sm-3">
-				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary-dark icon-50 icon-state"></i></p>
+				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary icon-50 icon-state"></i></p>
 				<h5 class="text-center text-reverse title-border">State Government</h5>
 				<p class="text-reverse">States rely on Socrata to increase transparency, improve operational efficiencies, and stimulate their economy.</p>
 				<p class="text-reverse"><i class="fa fa-info-circle" aria-hidden="true"></i> <i>25 States use Socrata products and services</i></p>
 				<p><a href="/solutions/state-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
 			<div class="col-sm-3">
-				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary-dark icon-50 icon-map"></i></p>
+				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary icon-50 icon-map"></i></p>
 				<h5 class="text-center text-reverse title-border">County Government</h5>
 				<p class="text-reverse">With Socrata, counties can publish data that will boost the economy and make the region a better place to live.</p>
 				<p class="text-reverse"><i class="fa fa-info-circle" aria-hidden="true"></i> <i>4,000+ datasets are hosted by counties on Socrata</i></p>
 				<p><a href="/solutions/county-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
 			<div class="col-sm-3">
-				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary-dark icon-50 icon-city"></i></p>
+				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary icon-50 icon-city"></i></p>
 				<h5 class="text-center text-reverse title-border">City Government</h5>
 				<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
 				<p class="text-reverse"><i class="fa fa-info-circle" aria-hidden="true"></i> <i>300 Cities use Socrata</i></p>
