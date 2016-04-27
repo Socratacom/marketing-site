@@ -296,6 +296,23 @@ body {
 .overlay-secondary:before {background-color: rgba($secondary, 0.8);}
 .overlay-secondary-dark:before {background-color: rgba($secondary-dark, 0.8);}
 
+.overlay {
+	position: relative;
+	.outer {
+		position: absolute;
+		top:0;
+		left:0;
+		z-index: 2;
+		height:100%;
+		width:100%;
+		display: table;
+	}	
+	.inner {
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
 // Colors
 .background-turquoise {
 	background-color:$turquoise;
@@ -1409,6 +1426,10 @@ dl.quote-author {
         position: absolute;
         top:0;
         right:0;
+    }
+    img {
+    	height: 60px;
+    	width: 60px;
     }
 }
 

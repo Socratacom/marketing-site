@@ -421,19 +421,19 @@
 	}
 	.featured-assets {
 		h4 {
-			padding-top:32px;
-			position: relative;
+			margin-bottom:15px;
+		}
+		p:first-of-type {
+			margin:0 0 15px 0;
+			line-height: normal;
 		}
 		small {
 			display: inline-block;
-			background:$asbestos;
-			color:white;
+			background:$light-grey-4;
+			color:$grey;
 			font-size:12px;
 			text-transform: uppercase;
 			padding:5px 10px;
-			position: absolute;
-			top:0;
-			left:0;
 		}
 	}
 	.value-card {
