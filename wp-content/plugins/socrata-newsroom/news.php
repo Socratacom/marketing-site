@@ -10,8 +10,6 @@ License: GPLv2
 */
 
 
-
-
 // REGISTER POST TYPE
 add_action( 'init', 'news_post_type' );
 
@@ -35,7 +33,7 @@ function news_post_type() {
       ),
       'public' => true,
       'menu_position' => 5,
-      'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments', 'revisions' ),
+      'supports' => array( 'title','thumbnail' ),
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => true,
@@ -71,6 +69,9 @@ function create_news_taxonomies() {
     'show_ui' => true,
     'show_tagcloud' => false,
     'hierarchical' => true,
+    'sort' => true,      
+    'args' => array( 'orderby' => 'term_order' ),
+    'show_admin_column' => true,
     'rewrite' => array('with_front' => false, 'slug' => 'newsroom')
     )
   );
@@ -121,126 +122,176 @@ function news_body_class( $classes ) {
   return $classes;
 }
 
+
+// Metabox
+
+add_filter( 'rwmb_meta_boxes', 'news_register_meta_boxes' );
+function news_register_meta_boxes( $meta_boxes )
+{
+  $prefix = 'news_';
+
+  $meta_boxes[] = array(
+    'title'  => __( 'News Details', 'news' ),
+    'post_types' => array( 'news' ),
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(
+
+      // TEXT
+      array(
+        'name'  => __( 'Source', 'news' ),
+        'id'    => "{$prefix}source",
+        'desc' => __( 'Eample: Wall Street Journal', 'news' ),
+        'type'  => 'text',
+      ),
+      // URL
+      array(
+        'name' => __( 'Source URL', 'news' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( 'Include the http:// or https://', 'news' ),
+        'type' => 'url',
+      ),
+      // FILE ADVANCED (WP 3.5+)
+      array(
+        'name'             => __( 'Logo', 'news' ),
+        'id'               => "{$prefix}logo",
+        'desc' => __( 'NOT FOR PRESS RELEASES. Minimum size 300x300 pixels.', 'news' ),
+        'type'             => 'file_advanced',
+        'max_file_uploads' => 1,
+        'mime_type'        => 'image', // Leave blank for all file types
+      ),
+      array(
+        'name'    => __( 'Press Release Content', 'news' ),
+        'id'      => "{$prefix}wysiwyg",
+        'type'    => 'wysiwyg',
+        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+        'raw'     => false,
+        // Editor settings, see wp_editor() function: look4wp.com/wp_editor
+        'options' => array(
+          'textarea_rows' => 15,
+          'teeny'         => true,
+          'media_buttons' => false,
+        ),
+      ),
+    )
+  );
+  return $meta_boxes;
+}
+
+
 // Shortcode [newsroom-posts]
 function newsroom_posts($atts, $content = null) {
   ob_start();
   ?>
-
-  <div class="container page-padding">
-    <div class="row">
-      <div class="col-sm-9">
-        <div class="row">
-
-          <?php
-
-          $do_not_duplicate = array();
-
-          // The Query
-          $args = array(
-                'post_type' => 'news',
-                'posts_per_page' => 1
-              );
-          $query1 = new WP_Query( $args );
-
-          // The Loop
-          while ( $query1->have_posts() ) {
-            $query1->the_post();
-            $do_not_duplicate[] = get_the_ID(); ?>
-            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' ); $url = $thumb['0']; ?>
-
-            <div class="col-sm-12">
-              <div class="featured-post overlay-black" style="background-image: url(<?=$url?>);">
-                <div class="text truncate">
-                  <div class="post-category background-alizarin">Newsroom</div>
-                  <h2><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
-                </div>
-                <p class="meta"><strong>Posted</strong>, <?php the_time('F j, Y') ?></p>
-                <a href="<?php the_permalink() ?>" class="link"></a>
-              </div>
-            </div>
-
-            <?php
-          }
-
-          wp_reset_postdata();
-
-          /* The 2nd Query (without global var) */
-          $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-          $args2 = array(
-                'post_type' => 'news',
-                'paged' => $paged,
-                'post__not_in' => $do_not_duplicate 
-              );
-          $query2 = new WP_Query( $args2 );
-
-          // The 2nd Loop
-          while ( $query2->have_posts() ) {
-            $query2->the_post(); ?>
-            <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>  
-            
-            <div class="col-sm-6 col-lg-4">
-              <div class="card">
-                <div class="card-image hidden-xs">
-                  <?php if ( has_post_thumbnail() ) { ?>
-                    <img src="<?=$url?>" class="img-responsive">
-                  <?php
-                  } else { ?>
-                    <img src="/wp-content/uploads/no-image.png" class="img-responsive">
-                  <?php
-                  }
-                  ?>
-                  <a href="<?php the_permalink() ?>"></a>
-                </div>
-                <div class="card-text truncate">
-                  <p class="categories"><small><?php news_the_categories(); ?><small></p>
-                  <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-                  <p class="meta"><small><strong>Posted</strong>, <?php the_time('F j, Y') ?></small></p>
-                  <?php the_excerpt(); ?> 
-                </div>
-              </div>
-            </div>
-
-            <?php
-          }
-
-          // Pagination
-          if (function_exists("pagination")) {pagination($query2->max_num_pages,$pages);} 
-
-          // Restore original Post Data
-          wp_reset_postdata();
-
-          ?>
-
-        </div>      
-      </div>
-      <div class="col-sm-3">
-        <?php
-          //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
-          $orderby = 'name';
-          $show_count = 0; // 1 for yes, 0 for no
-          $pad_counts = 0; // 1 for yes, 0 for no
-          $hide_empty = 1;
-          $hierarchical = 1; // 1 for yes, 0 for no
-          $taxonomy = 'news_category';
-          $title = 'Newsroom Categories';
-
-          $args = array(
-            'orderby' => $orderby,
-            'show_count' => $show_count,
-            'pad_counts' => $pad_counts,
-            'hide_empty' => $hide_empty,
-            'hierarchical' => $hierarchical,
-            'taxonomy' => $taxonomy,
-            'title_li' => '<h5>'. $title .'</h5>'
-          );
-        ?>
-        <ul class="category-nav">
-          <?php wp_list_categories($args); ?>
-        </ul>
-        <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+  <section class="section-padding background-primary-alt-2-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+          <h1 class="text-center">News and Press Releases</h1>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+
+
+<?php
+echo '<h3>Featured News</h3>';
+
+$args1 = array(
+  'post_type' => 'news',
+  'news_category' => array('socrata-in-the-news','customer-news'),
+  'posts_per_page' => 3
+);
+$query1 = new WP_Query( $args1 );
+
+// The Loop
+while ( $query1->have_posts() ) {
+  $query1->the_post(); { ?>
+    <p><?php the_title(); ?></p>
+  <?php
+  };
+
+}
+wp_reset_postdata();
+
+echo '<h3>Recent News Articles</h3>';
+
+/* The 2nd Query (without global var) */
+$args2 = array(
+  'post_type' => 'news',
+  'news_category' => array('socrata-in-the-news','customer-news'),
+  'offset' => 3,
+  'posts_per_page' => 10
+);
+$query2 = new WP_Query( $args2 );
+
+// The Loop
+while ( $query2->have_posts() ) {
+  $query2->the_post();
+  echo '<p>' . get_the_title() . '</p>';
+}
+wp_reset_postdata();
+
+echo '<h3>Recent Press Releases</h3>';
+
+/* The 3rd Query (without global var) */
+$args3 = array(
+  'post_type' => 'news',
+  'news_category' => 'press-releases',
+  'posts_per_page' => 10
+);
+$query3 = new WP_Query( $args3 );
+
+// The 2nd Loop
+while ( $query3->have_posts() ) {
+  $query3->the_post();
+  echo '<p>' . get_the_title( $query3->post->ID ) . '</p>';
+}
+
+// Restore original Post Data
+wp_reset_postdata();
+
+?>
+
+
+
+
+
+
+        </div>
+        <div class="col-sm-4">
+            <?php
+            //list terms in a given taxonomy using wp_list_categories  (also useful as a widget)
+            $orderby = 'name';
+            $show_count = 0; // 1 for yes, 0 for no
+            $pad_counts = 0; // 1 for yes, 0 for no
+            $hide_empty = 1;
+            $hierarchical = 1; // 1 for yes, 0 for no
+            $taxonomy = 'news_category';
+            $title = 'Newsroom Categories';
+            $args = array(
+              'orderby' => $orderby,
+              'show_count' => $show_count,
+              'pad_counts' => $pad_counts,
+              'hide_empty' => $hide_empty,
+              'hierarchical' => $hierarchical,
+              'taxonomy' => $taxonomy,
+              'title_li' => '<h5>'. $title .'</h5>'
+            );
+          ?>
+          <ul class="category-nav">
+            <?php wp_list_categories($args); ?>
+          </ul>
+          <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <?php
   $content = ob_get_contents();

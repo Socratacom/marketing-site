@@ -50,53 +50,6 @@ function add_socrata_downloads_icon() { ?>
   <?php
 }
 
-// TAXONOMIES
-add_action( 'init', 'create_socrata_downloads_segment', 0 );
-function create_socrata_downloads_segment() {
-  register_taxonomy(
-    'downloads_segment',
-    'socrata_downloads',
-    array(
-      'labels' => array(
-        'name' => 'Segment',
-        'menu_name' => 'Segment',
-        'add_new_item' => 'Add New Segment',
-        'new_item_name' => "New Segment"
-      ),
-      'show_ui' => true,
-      'show_tagcloud' => false,
-      'hierarchical' => true,
-      'sort' => true,      
-      'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'downloads-segment')
-    )
-  );
-}
-
-add_action( 'init', 'create_socrata_downloads_product', 0 );
-function create_socrata_downloads_product() {
-  register_taxonomy(
-    'downloads_product',
-    'socrata_downloads',
-    array(
-      'labels' => array(
-        'name' => 'Product',
-        'menu_name' => 'Product',
-        'add_new_item' => 'Add New Product',
-        'new_item_name' => "New Product"
-      ),
-      'show_ui' => true,
-      'show_tagcloud' => false,
-      'hierarchical' => true,
-      'sort' => true,      
-      'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'downloads-product')
-    )
-  );
-}
-
 // Template Paths
 add_filter( 'template_include', 'socrata_downloads_single_template', 1 );
 function socrata_downloads_single_template( $template_path ) {

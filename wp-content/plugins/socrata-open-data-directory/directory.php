@@ -50,72 +50,6 @@ function add_od_directory_icon() { ?>
   <?php
 }
 
-/*
-// CUSTOM COLUMS FOR ADMIN
-add_filter( 'manage_edit-od_directory_columns', 'od_directory_edit_columns' ) ;
-function od_directory_edit_columns( $columns ) {
-  $columns = array(
-    'cb'          => '<input type="checkbox" />',    
-    'title'       => __( 'Name' ),
-    'category'    => __( 'Category' ),
-    'eventdate'   => __( 'Event Date' ),
-
-  );
-  return $columns;
-}
-// Get Content for Custom Colums
-add_action("manage_od_directory_posts_custom_column",  "od_directory_columns");
-function od_directory_columns($column){
-  global $post;
-
-  switch ($column) {    
-    case 'eventdate':
-      $timestamp = rwmb_meta( 'od_directory_starttime' ); echo date("F j, Y, g:i a", $timestamp);
-      break;
-    case 'category':
-      $segment = get_the_terms($post->ID , 'od_directory_cat');
-      echo $segment[0]->name;
-      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
-      break;
-  }
-}
-
-// Make these columns sortable
-add_filter( "manage_edit-od_directory_sortable_columns", "od_directory_sortable_columns" );
-function od_directory_sortable_columns() {
-  return array(
-    'title'       => 'title',
-    'category'    => 'category',
-    'eventdate'   => 'eventdate',
-  );
-}
-
-*/
-
-// TAXONOMIES
-add_action( 'init', 'od_directory_segment', 0 );
-function od_directory_segment() {
-  register_taxonomy(
-    'od_directory_segment',
-    'od_directory',
-    array(
-      'labels' => array(
-        'name' => 'Directory Segment',
-        'menu_name' => 'Directory Segment',
-        'add_new_item' => 'Add New Segment',
-        'new_item_name' => "New Segment"
-      ),
-      'show_ui' => true,
-      'show_tagcloud' => false,
-      'hierarchical' => true,
-      'sort' => true,      
-      'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'directory-segment'),
-    )
-  );
-}
-
 // TAXONOMIES
 add_action( 'init', 'od_directory_type', 0 );
 function od_directory_type() {
@@ -143,7 +77,7 @@ function od_directory_type() {
 // PRINT TAXONOMIES
 function directory_segments() {
   global $terms;
-  $terms = get_the_terms($post->ID , 'od_directory_segment');
+  $terms = get_the_terms($post->ID , 'segment');
   echo $terms[0]->name;
   for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
@@ -357,7 +291,7 @@ function op_directory_stats($atts, $content = null) {
             <?php
               $args = array(
                 'post_type' => 'od_directory',
-                'od_directory_segment' => 'city',
+                'segment' => 'city',
                 'meta_query' => array(
                   array(
                       'key' => 'directory_open_data_site',
@@ -377,7 +311,7 @@ function op_directory_stats($atts, $content = null) {
             <?php
               $args = array(
                 'post_type' => 'od_directory',
-                'od_directory_segment' => 'county',
+                'segment' => 'county',
                 'meta_query' => array(
                   array(
                       'key' => 'directory_open_data_site',
@@ -397,7 +331,7 @@ function op_directory_stats($atts, $content = null) {
             <?php
               $args = array(
                 'post_type' => 'od_directory',
-                'od_directory_segment' => 'state',
+                'segment' => 'state',
                 'meta_query' => array(
                   array(
                       'key' => 'directory_open_data_site',
@@ -417,7 +351,7 @@ function op_directory_stats($atts, $content = null) {
             <?php
               $args = array(
                 'post_type' => 'od_directory',
-                'od_directory_segment' => 'federal',
+                'segment' => 'federal',
                 'meta_query' => array(
                   array(
                       'key' => 'directory_open_data_site',
@@ -443,21 +377,11 @@ function op_directory_stats($atts, $content = null) {
 add_shortcode('directory-stats', 'op_directory_stats');
 
 
-
-
-
-
-
-
-
-
-
-
 // Shortcode [directory-map]
 function op_directory_map($atts, $content = null) {
   ob_start();
   ?>
-<section class="hidden-xs">
+<section class="hidden-xs background-light-grey-4">
   <div id="directory-map"></div>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw"></script>
   
@@ -569,7 +493,7 @@ function op_directory($atts, $content = null) {
             <div class="filters">
               <button type="button" data-toggle="collapse" data-target="#segments">Segment</button> 
               <div id="segments" class="collapse in">
-                <?php echo do_shortcode('[facetwp facet="directory_segment"]') ;?>
+                <?php echo do_shortcode('[facetwp facet="segment"]') ;?>
               </div>
 
               <button type="button" data-toggle="collapse" data-target="#datatypes">Data Types</button> 

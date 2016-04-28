@@ -95,14 +95,17 @@
 <section class="section-padding customers hidden-xs">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3">
-				<h2 class="margin-bottom-15">Our Customers</h1>
-				<p class="lead">Hundreds of cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>
-				<p><a href="/customer-stories">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
+			<div class="col-sm-10 col-sm-offset-1">
+				<h2 class="text-center">Our Customers</h1>
+				<p class="lead text-center margin-bottom-60">Hundreds of cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>
 			</div>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=federal&posts_per_page=1" class="col-sm-3"]');?>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=state&posts_per_page=1" class="col-sm-3"]');?>
+			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=county&posts_per_page=1" class="col-sm-3"]');?>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=city&posts_per_page=1" class="col-sm-3"]');?>
+			<div class="col-sm-10 col-sm-offset-1">
+				<p class="text-center" style="margin-top:60px;"><a href="/customer-stories" class="btn btn-lg btn-primary">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
+			</div>
 		</div>
 	</div>
 </section>

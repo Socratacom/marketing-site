@@ -64,8 +64,8 @@ function create_case_study_segment() {
     'case_study',
     array(
     'labels' => array(
-        'name' => 'Segment',
-        'menu_name' => 'Segment',
+        'name' => 'Case Study Segment',
+        'menu_name' => 'Case Study Segment',
         'add_new_item' => 'Add New Segment',
         'new_item_name' => "New Segment"
     ),
@@ -87,8 +87,8 @@ function create_case_study_product() {
     'case_study',
     array(
     'labels' => array(
-        'name' => 'Product',
-        'menu_name' => 'Product',
+        'name' => 'Case Study Product',
+        'menu_name' => 'Case Study Product',
         'add_new_item' => 'Add New Product',
         'new_item_name' => "New Product"
     ),

@@ -47,9 +47,6 @@ function previous_post_link_attributes($output) {
     return str_replace('<a href=', '<a '.$code.' href=', $output);
 }
 
-
-
-
 /**
  * Adds responisve image class to images
  */
@@ -62,8 +59,6 @@ function WPTime_add_custom_class_to_all_images($content){
 }
 add_filter('the_content', __NAMESPACE__ . '\\WPTime_add_custom_class_to_all_images');
 
-
-
 /**
  * Adds category name to blog
  */
@@ -75,6 +70,53 @@ function blog_the_categories() {
   echo $cats[0]->cat_name;
   // echo the remaining categories, appending separator
   for ($i = 1; $i < count($cats); $i++) {echo ', ' . $cats[$i]->cat_name ;}
+}
+
+// SHARED TAXONOMIES
+add_action( 'init', __NAMESPACE__ . '\\shared_segment', 0 );
+function shared_segment() {
+  register_taxonomy(
+    'segment',
+    array('od_directory','case_study','socrata_videos','socrata_downloads'),
+    array(
+      'labels' => array(
+        'name' => 'Segment',
+        'menu_name' => 'Segment',
+        'add_new_item' => 'Add New Segment',
+        'new_item_name' => "New Segment"
+      ),
+      'show_ui' => true,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'segment'),
+    )
+  );
+}
+
+add_action( 'init', __NAMESPACE__ . '\\shared_product', 0 );
+function shared_product() {
+  register_taxonomy(
+    'product',
+    array('case_study','socrata_videos','socrata_downloads'),
+    array(
+      'labels' => array(
+        'name' => 'Product',
+        'menu_name' => 'Product',
+        'add_new_item' => 'Add New Product',
+        'new_item_name' => "New Product"
+      ),
+      'show_ui' => true,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'product'),
+    )
+  );
 }
 
 /** SHORTCODES **/
