@@ -58,7 +58,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<h2 class="text-reverse text-center margin-bottom-15">What We Do</h2>
+				<h2 class="text-reverse text-center">What We Do</h2>
 				<p class="lead text-center text-reverse margin-bottom-60">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
 			</div>
 			<div class="col-sm-3">
