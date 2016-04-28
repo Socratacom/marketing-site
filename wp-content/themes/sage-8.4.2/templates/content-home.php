@@ -104,7 +104,8 @@
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=county&posts_per_page=1" class="col-sm-3"]');?>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=city&posts_per_page=1" class="col-sm-3"]');?>
 			<div class="col-sm-10 col-sm-offset-1">
-				<p class="text-center" style="margin-top:60px;"><a href="/customer-stories" class="btn btn-lg btn-primary">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
+				<p class="text-center margin-bottom-60" style="margin-top:60px;"><a href="/customer-stories" class="btn btn-lg btn-primary">View More Customers <i class="fa fa-arrow-circle-o-right"></i></a></p>
+				<p class="text-center">Socrata customer sites are powered by: <a href="https://aws.amazon.com/" target="_blank"><img src="/wp-content/uploads/logo-aws-small.png"></a></p>
 			</div>
 		</div>
 	</div>
