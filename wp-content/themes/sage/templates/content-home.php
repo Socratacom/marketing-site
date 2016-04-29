@@ -315,10 +315,17 @@ Socrata's cloud-based solution allows government organizations to put their data
 						<circle id="dot" cx="50" cy="50" r="3"/>
 					</svg>
 				</div>
+<<<<<<< HEAD
 					<h2 class="text-reverse margin-bottom-15">Give us an hour.</h2>
 					<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our data platform can do for you.</p>
 					<p id="section-cta-button"><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
 					<p class="lead text-reverse">Or call (206) 340-8008.</p>
+=======
+				<h2 class="text-reverse margin-bottom-15">Give us an hour.</h2>
+				<p class="lead text-reverse">Transform the way your constituents consume your data. Give us an hour and we'll show you what our data platform can do for you.</p>
+				<p id="section-cta-button"><a href="/request-a-demo" class="btn btn-default btn-lg">Schedule a Meeting</a></p>
+				<p class="lead text-reverse">Or call (206) 340-8008.</p>
+>>>>>>> mikes-sage
 			</div>			
 		</div>
 	</div>

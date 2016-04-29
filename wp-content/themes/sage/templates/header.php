@@ -11,7 +11,7 @@
             <i class="ui-menu__line ui-menu__line_3"></i>
           </span>
         </button>
-        <a class="white-logo header-logo" href="<?php echo home_url('/'); ?>"></a>
+        <a class="logo header-logo" href="<?php echo home_url('/'); ?>"></a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->

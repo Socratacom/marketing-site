@@ -50,60 +50,18 @@ function add_od_directory_icon() { ?>
   <?php
 }
 
-/*
-// CUSTOM COLUMS FOR ADMIN
-add_filter( 'manage_edit-od_directory_columns', 'od_directory_edit_columns' ) ;
-function od_directory_edit_columns( $columns ) {
-  $columns = array(
-    'cb'          => '<input type="checkbox" />',    
-    'title'       => __( 'Name' ),
-    'category'    => __( 'Category' ),
-    'eventdate'   => __( 'Event Date' ),
-
-  );
-  return $columns;
-}
-// Get Content for Custom Colums
-add_action("manage_od_directory_posts_custom_column",  "od_directory_columns");
-function od_directory_columns($column){
-  global $post;
-
-  switch ($column) {    
-    case 'eventdate':
-      $timestamp = rwmb_meta( 'od_directory_starttime' ); echo date("F j, Y, g:i a", $timestamp);
-      break;
-    case 'category':
-      $segment = get_the_terms($post->ID , 'od_directory_cat');
-      echo $segment[0]->name;
-      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
-      break;
-  }
-}
-
-// Make these columns sortable
-add_filter( "manage_edit-od_directory_sortable_columns", "od_directory_sortable_columns" );
-function od_directory_sortable_columns() {
-  return array(
-    'title'       => 'title',
-    'category'    => 'category',
-    'eventdate'   => 'eventdate',
-  );
-}
-
-*/
-
 // TAXONOMIES
-add_action( 'init', 'od_directory_cat', 0 );
-function od_directory_cat() {
+add_action( 'init', 'od_directory_type', 0 );
+function od_directory_type() {
   register_taxonomy(
-    'od_directory_cat',
+    'od_directory_type',
     'od_directory',
     array(
       'labels' => array(
-        'name' => 'Region',
-        'menu_name' => 'Region',
-        'add_new_item' => 'Add New Region',
-        'new_item_name' => "New Region"
+        'name' => 'Data Type',
+        'menu_name' => 'Data Type',
+        'add_new_item' => 'Add New Type',
+        'new_item_name' => "New Type"
       ),
       'show_ui' => true,
       'show_tagcloud' => false,
@@ -111,10 +69,25 @@ function od_directory_cat() {
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'directory-region'),
+      'rewrite' => array('with_front' => false, 'slug' => 'directory-data-type'),
     )
   );
 }
+
+// PRINT TAXONOMIES
+function directory_segments() {
+  global $terms;
+  $terms = get_the_terms($post->ID , 'segment');
+  echo $terms[0]->name;
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+function directory_data_types() {
+  global $terms;
+  $terms = get_the_terms($post->ID , 'od_directory_type');
+  echo $terms[0]->name;
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
 
 // Template Paths
 add_filter( 'template_include', 'od_directory_single_template', 1 );
@@ -131,17 +104,6 @@ function od_directory_single_template( $template_path ) {
     }
   }
   return $template_path;
-}
-
-// Print Taxonomy Categories
-function od_directory_the_categories() {
-  // get all categories for this post
-  global $terms;
-  $terms = get_the_terms($post->ID , 'od_directory_cat');
-  // echo the first category
-  echo $terms[0]->name;
-  // echo the remaining categories, appending separator
-  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
 
 // Custom Body Class
@@ -162,183 +124,417 @@ function od_directory_box_scripts() {
 }
 
 // Metabox
-add_filter( 'rwmb_meta_boxes', 'od_directory_register_meta_boxes' );
-function od_directory_register_meta_boxes( $meta_boxes )
+
+add_filter( 'rwmb_meta_boxes', 'od_directory_group_register_meta_boxes' );
+function od_directory_group_register_meta_boxes( $meta_boxes )
 {
-  $prefix = 'od_directory_';
+  $prefix = 'directory_';
+
   $meta_boxes[] = array(
-    'title'  => __( 'Listing Details', 'od-directory' ),
+    'title'  => __( 'Listing Details', 'directory' ),
     'post_types' => array( 'od_directory' ),
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(
-      // HEADING
+
+
+      // RADIO BUTTONS
       array(
-        'type' => 'heading',
-        'name' => __( 'Customer Details', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-    // RADIO BUTTONS
-      array(
-        'name'    => __( 'Is this a Socrata customer?', 'od-directory' ),
-        'id'      => "{$prefix}radio",
+        'name'    => __( 'Does this listing have an open data site?', 'directory' ),
+        'id'      => "{$prefix}open_data_site",
         'type'    => 'radio',
         // Array of 'value' => 'Label' pairs for radio options.
         // Note: the 'value' is stored in meta field, not the 'Label'
         'options' => array(
-          'value1' => __( 'Yes', 'od-directory' ),
-          'value2' => __( 'No', 'od-directory' ),
+          'Yes' => __( 'Yes', 'your-prefix' ),
+          'No' => __( 'No', 'your-prefix' ),
         ),
       ),
-      // TEXT
+      // RADIO BUTTONS
       array(
-        // Field name - Will be used as label
-        'name'  => __( 'Sites', 'your-prefix' ),
-        // Field ID, i.e. the meta key
-        'id'    => "{$prefix}text",
-        // Field description (optional)
-        'desc'  => __( 'Text description', 'your-prefix' ),
-        'type'  => 'text',
-        // Default value (optional)
-        'std'   => __( 'Default text value', 'your-prefix' ),
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => true,
-      ),
-      // URL
-      array(
-        'name' => __( 'URL', 'your-prefix' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'URL description', 'your-prefix' ),
-        'type' => 'url',
-        'std'  => 'http://google.com',
-        'clone' => true,
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Data Details', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // CHECKBOX LIST
-      array(
-        'name'    => __( 'Data Types', 'od-directory' ),
-        'id'      => "{$prefix}checkbox_list",
-        'type'    => 'checkbox_list',
-        // Options of checkboxes, in format 'value' => 'Label'
+        'name'    => __( 'Is this a Socrata customer?', 'directory' ),
+        'id'      => "{$prefix}socrata_customer",
+        'type'    => 'radio',
+        // Array of 'value' => 'Label' pairs for radio options.
+        // Note: the 'value' is stored in meta field, not the 'Label'
         'options' => array(
-          'asset_disclosure' => __( 'Asset Disclosure', 'od-directory' ),
-          'business_listings' => __( 'Business Listings', 'od-directory' ),
-          'campaign_finance' => __( 'Campaign Finance', 'od-directory' ),
-          'code_enforcement' => __( 'Code Enforcement', 'od-directory' ),
-          'construction_permits' => __( 'Construction Permits', 'od-directory' ),
-          'crime_police' => __( 'Crime & Police', 'od-directory' ),
-          'loby_activity' => __( 'Loby Activity', 'od-directory' ),
-          'parcels' => __( 'Parcels', 'od-directory' ),
-          'payroll' => __( 'Payroll', 'od-directory' ),
-          'procurement_contracts' => __( 'Procurement Contracts', 'od-directory' ),
-          'property_assesments' => __( 'Property Assesments', 'od-directory' ),
-          'property_deeds' => __( 'Property Deeds', 'od-directory' ),
-          'public_buildings' => __( 'Public Buildings', 'od-directory' ),          
-          'restaurant_inspections' => __( 'Restaurant Inspections', 'od-directory' ),
-          'service_requests' => __( 'Service Requests (311)', 'od-directory' ),
-          'spending' => __( 'Spending', 'od-directory' ),          
-          'transit' => __( 'Transit', 'od-directory' ),
-          'zoning' => __( 'Zoning', 'od-directory' ),
+          'Yes' => __( 'Yes', 'your-prefix' ),
+          'No' => __( 'No', 'your-prefix' ),
         ),
       ),
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Event Date and Time', 'od-directory' ),
+        'name' => __( 'Geo Location', 'directory' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
       array(
-        'name'  => __( 'Display Date and Time', 'od-directory' ),
-        'id'    => "{$prefix}displaydate",
-        'desc' => __( 'Example: Jan 1st - 2:00pm PST', 'od-directory' ),
+        'name'  => __( 'Latitude', 'directory' ),
+        'id'    => "{$prefix}latitude",
+        'desc' => __( 'Eample: 38.5111', 'directory' ),
         'type'  => 'text',
-        'clone' => false,
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'Longitude', 'directory' ),
+        'id'    => "{$prefix}longitude",
+        'desc' => __( 'Eample: -96.8005', 'directory' ),
+        'type'  => 'text',
       ),
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Event Location', 'od-directory' ),
+        'name' => __( 'Profile', 'directory' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
-      // TEXT
+      // PLUPLOAD IMAGE UPLOAD (WP 3.3+)
       array(
-        'name'  => __( 'Location Name', 'od-directory' ),
-        'id'    => "{$prefix}location",
-        'desc' => __( 'Example: Hometown Pub', 'od-directory' ),
-        'type'  => 'text',
-        'clone' => false,
+        'name'             => __( 'Logo', 'your-prefix' ),
+        'id'               => "{$prefix}logo",
+        'desc' => __( 'Only for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
+        'type'             => 'plupload_image',
+        'max_file_uploads' => 1,
       ),
-      // TEXT
+      // NUMBER
       array(
-        'name'  => __( 'Street Address', 'od-directory' ),
-        'id'    => "{$prefix}address",
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'City', 'od-directory' ),
-        'id'    => "{$prefix}city",
-        'desc' => __( 'Required', 'od-directory' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),      
-      // TEXT
-      array(
-        'name'  => __( 'Zip', 'od-directory' ),
-        'id'    => "{$prefix}zip",
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // URL
-      array(
-        'name'  => __( 'Google Map Link', 'od-directory' ),
-        'id'    => "{$prefix}directions",
-        'desc' => __( 'Link for Directions', 'od-directory' ),
-        'type'  => 'url',
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Event Info', 'od-directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // URL
-      array(
-        'name' => __( 'Event URL', 'od-directory' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'Example: http://somesite.com', 'od-directory' ),
-        'type' => 'url',
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Marketo Form ID', 'od-directory' ),
-        'id'    => "{$prefix}marketo",
-        'desc' => __( 'Example: 1234', 'od-directory' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // WYSIWYG/RICH TEXT EDITOR
-      array(
-        'name'    => __( 'Content', 'od-directory' ),
-        'id'      => "{$prefix}wysiwyg",
-        'type'    => 'wysiwyg',
-        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
-        'raw'     => false,
-        // Editor settings, see wp_editor() function: look4wp.com/wp_editor
-        'options' => array(
-          'textarea_rows' => 15,
-          'teeny'         => false,
-          'media_buttons' => true,
-        ),
+        'name' => __( 'Population', 'your-prefix' ),
+        'id'   => "{$prefix}population",
+        'desc' => __( 'ONLY for City, County, and State', 'directory' ),
+        'type' => 'number',
+        'min'  => 0,
+        'step' => 5,
       ),
     )
   );
+
+  $meta_boxes[] = array(
+    'title'  => __( 'Site(s) Information' ),   
+      'post_types' => 'od_directory',
+      'context'    => 'normal',
+      'priority'   => 'high',
+      'fields' => array(
+        array(
+        'id'     => "{$prefix}sites",
+        'type'   => 'group',
+        'clone'  => true,
+        'sort_clone' => true,
+        // Sub-fields
+        'fields' => array(
+          array(
+            'name' => __( 'Site Name', 'directory' ),
+            'id'   => "{$prefix}site_name",
+            'type' => 'text',
+          ),
+          array(
+            'name' => __( 'URL', 'directory' ),
+            'id'   => "{$prefix}site_url",
+            'desc' => __( 'Include the http:// or https://', 'directory' ),
+            'type' => 'url',
+          ),
+        ),
+      ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Screen Shots', 'directory' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // PLUPLOAD IMAGE UPLOAD (WP 3.3+)
+      array(
+        'name'             => __( 'Add up to 4 screen shots.', 'your-prefix' ),
+        'id'               => "{$prefix}screen",
+        'desc' => __( 'Only for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
+        'type'             => 'plupload_image',
+        'max_file_uploads' => 4,
+      ),
+    ),
+  );
+
+
+
   return $meta_boxes;
 }
+
+
+
+
+/* Things to Note:
+• Each Record will by Category Entity (i.e City, County, State, and Federal).
+• Ability for multiple site entries
+• Population will be the default query order. 
+• Look into adding a map view. 
+• Add Number of open data Datasets
+• Socrata Customers will get a Logo and Screenshot
+• Socrata Customers will also get "Open Data Leader Since 2004"
+• If customers have apps, enter url.
+• Add Feedback/Recomend a site. Possibly Marketo.
+• Visualizations will be: 150 Cities have Open Data Sites, etc.
+*/
+
+
+
+
+// Shortcode [directory-stats]
+function op_directory_stats($atts, $content = null) {
+  ob_start();
+  ?>
+
+  <section id="directory-stats" class="section-padding">
+    <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="text-center">How many have open data sites?</h2>
+      </div>
+      <div class="col-sm-3">
+        <div class="stat">
+            <?php
+              $args = array(
+                'post_type' => 'od_directory',
+                'segment' => 'city',
+                'meta_query' => array(
+                  array(
+                      'key' => 'directory_open_data_site',
+                      'value' => 'Yes'
+                  )
+                )
+              );
+              $myquery = new WP_Query($args);
+              echo "<div class='number'>$myquery->found_posts</div>";
+              wp_reset_postdata();
+            ?>
+            <div class="stat-label">Cities</div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="stat">
+            <?php
+              $args = array(
+                'post_type' => 'od_directory',
+                'segment' => 'county',
+                'meta_query' => array(
+                  array(
+                      'key' => 'directory_open_data_site',
+                      'value' => 'Yes'
+                  )
+                )
+              );
+              $myquery = new WP_Query($args);
+              echo "<div class='number'>$myquery->found_posts</div>";
+              wp_reset_postdata();
+            ?>
+            <div class="stat-label">Counties</div>
+          </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="stat">
+            <?php
+              $args = array(
+                'post_type' => 'od_directory',
+                'segment' => 'state',
+                'meta_query' => array(
+                  array(
+                      'key' => 'directory_open_data_site',
+                      'value' => 'Yes'
+                  )
+                )
+              );
+              $myquery = new WP_Query($args);
+              echo "<div class='number'>$myquery->found_posts</div>";
+              wp_reset_postdata();
+            ?>
+            <div class="stat-label">States</div>
+          </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="stat">
+            <?php
+              $args = array(
+                'post_type' => 'od_directory',
+                'segment' => 'federal',
+                'meta_query' => array(
+                  array(
+                      'key' => 'directory_open_data_site',
+                      'value' => 'Yes'
+                  )
+                )
+              );
+              $myquery = new WP_Query($args);
+              echo "<div class='number'>$myquery->found_posts</div>";
+              wp_reset_postdata();
+            ?>
+            <div class="stat-label">Federal Agencies</div>
+          </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('directory-stats', 'op_directory_stats');
+
+
+// Shortcode [directory-map]
+function op_directory_map($atts, $content = null) {
+  ob_start();
+  ?>
+<section class="hidden-xs background-light-grey-4">
+  <div id="directory-map"></div>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw"></script>
+  
+  <script type="text/javascript">
+      // When the window has finished loading create our google map below
+      google.maps.event.addDomListener(window, 'load', init);
+  
+      function init() {
+          // Basic options for a simple Google Map
+          // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+          var mapOptions = {
+              // How zoomed in you want the map to start at (always required)
+              zoom: 5,
+
+              // The latitude and longitude to center the map (always required)
+              center: new google.maps.LatLng(38.5111,-96.8005),
+              scrollwheel: false,
+
+              // How you would like to style the map. 
+              // This is where you would paste any style found on Snazzy Maps.
+              styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}]
+          };
+
+          // Get the HTML DOM element that will contain your map 
+          // We are using a div with id="map" seen below in the <body>
+          var mapElement = document.getElementById('directory-map');
+
+          // Create the Google Map using our element and options defined above
+          var map = new google.maps.Map(mapElement, mapOptions);
+          setMarkers(map);
+      }
+      var beaches = [
+  ['Bondi Beach', -33.890542, 151.274856, 4],
+  ['Coogee Beach', -33.923036, 151.259052, 5],
+  ['Cronulla Beach', -34.028249, 151.157507, 3],
+  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+  ['Maroubra Beach', -33.950198, 151.259302, 1]
+];
+
+function setMarkers(map) {
+  // Adds markers to the map.
+
+  // Marker sizes are expressed as a Size of X,Y where the origin of the image
+  // (0,0) is located in the top left of the image.
+
+  // Origins, anchor positions and coordinates of the marker increase in the X
+  // direction to the right and in the Y direction down.
+  var image = {
+    url: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+    // This marker is 20 pixels wide by 32 pixels high.
+    size: new google.maps.Size(20, 32),
+    // The origin for this image is (0, 0).
+    origin: new google.maps.Point(0, 0),
+    // The anchor for this image is the base of the flagpole at (0, 32).
+    anchor: new google.maps.Point(0, 32)
+  };
+  // Shapes define the clickable region of the icon. The type defines an HTML
+  // <area> element 'poly' which traces out a polygon as a series of X,Y points.
+  // The final coordinate closes the poly by connecting to the first coordinate.
+  var shape = {
+    coords: [1, 1, 1, 20, 18, 20, 18, 1],
+    type: 'poly'
+  };
+  for (var i = 0; i < beaches.length; i++) {
+    var beach = beaches[i];
+    var marker = new google.maps.Marker({
+      position: {lat: beach[1], lng: beach[2]},
+      map: map,
+      icon: image,
+      shape: shape,
+      title: beach[0],
+      zIndex: beach[3]
+    });
+  }
+}
+
+
+  </script>
+
+</section>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('directory-map', 'op_directory_map');
+
+
+
+
+
+
+
+
+
+
+// Shortcode [directory]
+function op_directory($atts, $content = null) {
+  ob_start();
+  ?>
+
+  <section id="directory" class="background-clouds background-half-white">
+    <div class="container">
+      <div class="row">
+        <div class="directory">
+          <div class="col-sm-3 left">
+            <button onclick="FWP.reset()" class="btn btn-primary">Clear All Filters</button>
+            <div class="filters">
+              <button type="button" data-toggle="collapse" data-target="#segments">Segment</button> 
+              <div id="segments" class="collapse in">
+                <?php echo do_shortcode('[facetwp facet="segment"]') ;?>
+              </div>
+
+              <button type="button" data-toggle="collapse" data-target="#datatypes">Data Types</button> 
+              <div id="datatypes" class="collapse in">
+                <?php echo do_shortcode('[facetwp facet="directory_data_type"]') ;?>
+              </div>
+
+              <button type="button" data-toggle="collapse" data-target="#customer">Socrata Customer</button> 
+              <div id="customer" class="collapse in">
+                <?php echo do_shortcode('[facetwp facet="socrata_customer"]') ;?>
+              </div>
+
+              <button type="button" data-toggle="collapse" data-target="#population">Population</button> 
+              <div id="population" class="collapse in">
+                <?php echo do_shortcode('[facetwp facet="directory_population"]') ;?>
+              </div>
+            </div>
+            
+          </div>
+          <div class="col-sm-9 right">
+            <ul class="sort">
+              <li>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></li>             
+              <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li> 
+              <li><?php echo do_shortcode('[facetwp sort="true"]') ;?></li> 
+            </ul>
+            <div class="directory-results">
+              <?php echo do_shortcode('[facetwp template="directory"]') ;?>
+            </div>
+            <?php echo do_shortcode('[facetwp pager="true"]') ;?>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('directory', 'op_directory');
+
+
+

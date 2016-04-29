@@ -64,8 +64,8 @@ function socrata_videos_segment() {
     'socrata_videos',
     array(
       'labels' => array(
-        'name' => 'Segment',
-        'menu_name' => 'Segment',
+        'name' => 'Videos Segment',
+        'menu_name' => 'Videos Segment',
         'add_new_item' => 'Add New Segment',
         'new_item_name' => "New Segment"
       ),
@@ -87,8 +87,8 @@ function socrata_videos_product() {
     'socrata_videos',
     array(
       'labels' => array(
-        'name' => 'Product',
-        'menu_name' => 'Product',
+        'name' => 'Videos Product',
+        'menu_name' => 'Videos Product',
         'add_new_item' => 'Add New Product',
         'new_item_name' => "New Product"
       ),

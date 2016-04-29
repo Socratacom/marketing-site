@@ -22,7 +22,7 @@ $wet-asphalt:               	#3c4855;
 $midnight-blue:             	#333e49;
 
 $sun-flower:                	#c4a83c;
-$orange:                    	#c6913f;
+$orange:                    	#e28432;
 
 $carrot:                    	#bf8049;
 $pumpkin:                   	#a95d2a;
@@ -30,14 +30,16 @@ $pumpkin:                   	#a95d2a;
 $alizarin:                  	#c5685e;
 $pomegranate:               	#a25048;
 
-$clouds:                    	#ecf0f1;
-$silver:                    	#bdc3c7;
 
-$concrete:                  	#95a5a6;
+
 $asbestos:                  	#63656A;
+$clouds:                    	lighten($asbestos, 55%);
+$silver:                    	lighten($asbestos, 30%);
+$concrete:                  	lighten($asbestos, 10%);
+
 
 // Grays
-$gray-dark:                     #222222;
+$gray-dark:                     darken($asbestos, 10%);
 $gray-light:                	$silver;
 $inverse:                   	white;
 

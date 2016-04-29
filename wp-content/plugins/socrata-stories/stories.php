@@ -64,8 +64,8 @@ function create_stories_segment() {
     'stories',
     array(
       'labels' => array(
-        'name' => 'Segment',
-        'menu_name' => 'Segment',
+        'name' => 'Stories Segment',
+        'menu_name' => 'Stories Segment',
         'add_new_item' => 'Add New Segment',
         'new_item_name' => "New Segment"
       ),
@@ -87,8 +87,8 @@ function create_stories_product() {
     'stories',
     array(
       'labels' => array(
-        'name' => 'Product',
-        'menu_name' => 'Product',
+        'name' => 'Stories Product',
+        'menu_name' => 'Stories Product',
         'add_new_item' => 'Add New Product',
         'new_item_name' => "New Product"
       ),

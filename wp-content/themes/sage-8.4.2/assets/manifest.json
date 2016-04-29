@@ -1,0 +1,38 @@
+{
+  "dependencies": {
+    "main.js": {
+      "files": [
+        "scripts/main.js"
+      ],
+      "main": true
+    },
+    "main.css": {
+      "files": [
+        "styles/main.scss"
+      ],
+      "vendor": [
+        "../../plugins/socrata-stories/css/styles.scss",
+        "../../plugins/socrata-events/css/styles.scss",
+        "../../plugins/socrata-videos/css/styles.scss",
+        "../../plugins/socrata-open-performance-guide/css/styles.scss"
+      ],
+      "main": true
+    },
+    "customizer.js": {
+      "files": [
+        "scripts/customizer.js"
+      ]
+    },    
+    "ytplayer.js": {
+      "files": [
+        "scripts/jquery.mb.YTPlayer.min.js"
+      ]
+    },
+    "jquery.js": {
+      "bower": ["jquery"]
+    }
+  },
+  "config": {
+    "devUrl": "http://new.socrata.com"
+  }
+}
