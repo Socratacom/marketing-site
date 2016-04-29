@@ -97,7 +97,7 @@
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
 				<h2 class="text-center">Our Customers</h1>
-				<p class="lead text-center margin-bottom-60">Hundreds of cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>
+				<p class="lead text-center margin-bottom-60">Over 1,400 cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>
 			</div>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=federal&posts_per_page=1" class="col-sm-3"]');?>
 			<?php echo do_shortcode('[customer-logos-abstract query="post_type=stories&stories_segment=state&posts_per_page=1" class="col-sm-3"]');?>
