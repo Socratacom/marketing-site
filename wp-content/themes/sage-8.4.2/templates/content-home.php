@@ -149,7 +149,7 @@
 						<div class="card-image hidden-xs">
 							<img src="<?=$url?>" class="img-responsive">		
 							<div class="card-avatar">
-								<?php echo get_avatar( get_the_author_meta('ID'), 60 ); ?>
+							<?php  global $post; $author_id=$post->post_author;	foreach( get_coauthors() as $coauthor ): echo get_avatar( $coauthor->user_email, '60' ); endforeach; ?>
 							</div>
 							<a href="<?php the_permalink() ?>"></a>
 						</div>
