@@ -65,7 +65,7 @@
 				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary icon-50 icon-capital"></i></p>
 				<h5 class="text-center text-reverse title-border">Federal Government</h5>
 				<p class="text-reverse">Socrata for Federal Government helps federal departments and agencies maximize the power of their data.</p>
-				<p class="text-reverse"><i class="fa fa-info-circle" aria-hidden="true"></i> <i>In Process for FedRamp certification as 2016</i></p>
+				<p class="text-reverse"><i class="fa fa-info-circle" aria-hidden="true"></i> <i>In Process for FedRamp certification in 2016</i></p>
 				<p><a href="/solutions/federal-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
 			<div class="col-sm-3">
@@ -86,7 +86,7 @@
 				<p class="text-center"><i class="padding-15 img-circle background-white color-secondary icon-50 icon-city"></i></p>
 				<h5 class="text-center text-reverse title-border">City Government</h5>
 				<p class="text-reverse">Large and small cities can utilize Socrata solutions to communicate more effectively with their constituents and to provide the essential services they rely upon.</p>
-				<p class="text-reverse"><i class="fa fa-info-circle" aria-hidden="true"></i> <i>300 Cities use Socrata</i></p>
+				<p class="text-reverse"><i class="fa fa-info-circle" aria-hidden="true"></i> <i>300+ Cities use Socrata</i></p>
 				<p><a href="/solutions/city-government/" class="btn btn-primary">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 			</div>
 		</div>
