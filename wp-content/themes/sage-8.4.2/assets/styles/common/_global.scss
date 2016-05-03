@@ -1,4 +1,4 @@
-body {
+imbody {
 	font-family: 'Open Sans', sans-serif;
 	color:$default-text-color;
 }
@@ -1338,12 +1338,6 @@ body {
             height: 70px;
             width:100%;
             background-color:$clouds;
-            button {
-                position: absolute;
-                top:15px;
-                right: 15px;
-                z-index: 1000;
-            }
         }
         .profile {
             li {
@@ -1456,6 +1450,40 @@ dl.quote-author {
 .video-modal[style] {
     padding:0 !important;
 }
+.modal {
+    .modal-content {
+        box-shadow:0 0 15px $light-grey-3;
+        border:$light-grey-4 solid 1px;
+        .modal-header, .modal-body, .modal-footer {
+            padding:30px;
+        }
+        .modal-header {
+            h4 {
+                font-weight:$font-light;
+            }
+        }
+    }
+    .close {        
+        z-index: 100;
+        position: absolute;
+        top:15px;
+        right:15px;
+        button {
+            background: transparent;
+            border: none;
+            font-size: 32px;
+            padding:0;
+            outline:none;
+            cursor:pointer;
+        }
+    }
+}
+.modal-backdrop {
+    background-color:white;
+}
+.modal-backdrop.in {
+    opacity: .8;
+}
 .video-modal {
     .modal-dialog {
         margin:0;
@@ -1470,7 +1498,7 @@ dl.quote-author {
         display: table;
         box-shadow:none;
         border:none;
-        background-color:rgba(white,.8);
+        background-color:rgba(white, 0);
         .modal-body {
             display:table-cell;
             vertical-align:middle;
