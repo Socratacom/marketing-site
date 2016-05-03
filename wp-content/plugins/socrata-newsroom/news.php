@@ -154,7 +154,7 @@ function news_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Source', 'news' ),
+        'name' => __( 'External News Info', 'news' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
@@ -182,7 +182,7 @@ function news_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Content', 'news' ),
+        'name' => __( 'Press Release Content', 'news' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       array(
