@@ -384,6 +384,9 @@ echo '<p><a href="/newsroom/press-releases/" class="btn btn-primary margin-botto
             <?php wp_list_categories($args); ?>
           </ul>
           <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+          <div class="alert alert-info">
+            <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a>
+          </div>
         </div>
       </div>
     </div>

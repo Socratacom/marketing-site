@@ -86,10 +86,10 @@
         <ul class="category-nav">
           <?php wp_list_categories($args); ?>
         </ul>
-        <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
-
-
-
+        <?php echo do_shortcode('[newsletter-sidebar]'); ?>         
+        <div class="alert alert-info">
+          <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a>
+        </div>
         <?php
           $args1 = array(
           'post_type'         => 'news',
@@ -200,17 +200,6 @@
           wp_reset_postdata();
 
         ?>
-
-
-
-
-
-
-
-
-
-
-
 
       </div>
     </div>
