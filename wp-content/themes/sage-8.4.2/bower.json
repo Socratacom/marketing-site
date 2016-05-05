@@ -11,11 +11,15 @@
     "slick-carousel": "^1.5.9",
     "jQuery.dotdotdot": "^1.8.1",
     "font-awesome": "fontawesome#^4.6.1",
-    "jquery.countdown": "^2.1.0"
+    "jquery.countdown": "^2.1.0",
+    "lightbox2": "^2.8.2"
   },
   "overrides": {
     "slick-carousel": {
       "main": "./slick/slick.min.js"
+    },
+    "lightbox2": {
+      "main": "./dist/js/lightbox.min.js"
     },
     "jquery.countdown": {
       "main": "./dist/jquery.countdown.min.js"

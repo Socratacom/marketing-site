@@ -131,11 +131,11 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
   $prefix = 'directory_';
 
   $meta_boxes[] = array(
-    'title'  => __( 'Listing Details', 'directory' ),
-    'post_types' => array( 'od_directory' ),
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields' => array(
+    'title'       => 'Listing Details', 'directory',
+    'post_types'  => 'od_directory',
+    'context'     => 'normal',
+    'priority'    => 'high',
+      'fields' => array(
 
 
       // RADIO BUTTONS
@@ -165,35 +165,15 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Geo Location', 'directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Latitude', 'directory' ),
-        'id'    => "{$prefix}latitude",
-        'desc' => __( 'Eample: 38.5111', 'directory' ),
-        'type'  => 'text',
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Longitude', 'directory' ),
-        'id'    => "{$prefix}longitude",
-        'desc' => __( 'Eample: -96.8005', 'directory' ),
-        'type'  => 'text',
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
         'name' => __( 'Profile', 'directory' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
-      // PLUPLOAD IMAGE UPLOAD (WP 3.3+)
+      // IMAGE ADVANCED (WP 3.5+)
       array(
-        'name'             => __( 'Logo', 'your-prefix' ),
+        'name'             => __( 'Logo', 'directory' ),
         'id'               => "{$prefix}logo",
-        'desc' => __( 'Only for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
-        'type'             => 'plupload_image',
+        'desc' => __( 'ONLY for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
+        'type'             => 'image_advanced',
         'max_file_uploads' => 1,
       ),
       // NUMBER
@@ -209,10 +189,120 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
   );
 
   $meta_boxes[] = array(
-    'title'  => __( 'Site(s) Information' ),   
-      'post_types' => 'od_directory',
-      'context'    => 'normal',
-      'priority'   => 'high',
+    'id'          => 'geolocation',
+    'title'       => 'GeoLocation',
+    'post_types'  => 'od_directory',
+    'context'     => 'normal',
+    'priority'    => 'high',
+    // Tell WP this Meta Box is GeoLocation
+    'geo'         => true,
+    // Or you can set advanced settings for Geo, like this example:
+    // Restrict results to Australia only.
+
+      'geo' => array(
+           'componentRestrictions' => array(
+               'country' => 'us'
+           )
+        ),
+      'fields' => array(
+          // Set the ID to `address` or `address_something` to make Auto Complete field
+          array(
+              'type' => 'text',
+              'name' => 'Address',
+              'id'    => 'address'
+          ),
+          // Auto populate `postal_code` to this field
+          array(
+              'type' => 'number',
+              'name' => 'Postcode',
+              'id'    => 'postal_code'
+          ),
+          // In case you want to limit your result like this example.
+          // Auto populate short name of `administrative_area_level_1`. For example: QLD
+          array(
+              'type' => 'select',
+              'name' => 'State',
+              'placeholder' => 'Select a State',
+              'options' => array(
+                  'AL' => 'AL',
+                  'AK' => 'AK',
+                  'AZ' => 'AZ',
+                  'AR' => 'AR',
+                  'CA' => 'CA',
+                  'CO' => 'CO',
+                  'CT' => 'CT',
+                  'DE' => 'DE',
+                  'DC' => 'DC',
+                  'FL' => 'FL',
+                  'GA' => 'GA',
+                  'HI' => 'HI',
+                  'ID' => 'ID',
+                  'IL' => 'IL',
+                  'IN' => 'IN',
+                  'IA' => 'IA',
+                  'KS' => 'KS',
+                  'KY' => 'KY',
+                  'LA' => 'LA',
+                  'ME' => 'ME',
+                  'MD' => 'MD',
+                  'MA' => 'MA',
+                  'MI' => 'MI',
+                  'MN' => 'MN',
+                  'MS' => 'MS',
+                  'MO' => 'MO',
+                  'MT' => 'MT',
+                  'NE' => 'NE',
+                  'NV' => 'NV',
+                  'NH' => 'NH',
+                  'NJ' => 'NJ',
+                  'NM' => 'NM',
+                  'NY' => 'NY',
+                  'NC' => 'NC',
+                  'ND' => 'ND',
+                  'OH' => 'OH',
+                  'OK' => 'OK',
+                  'OR' => 'OR',
+                  'PA' => 'PA',
+                  'RI' => 'RI',
+                  'SC' => 'SC',
+                  'SD' => 'SD',
+                  'TN' => 'TN',
+                  'TX' => 'TX',
+                  'UT' => 'UT',
+                  'VT' => 'VT',
+                  'VA' => 'VA',
+                  'WA' => 'WA',
+                  'WV' => 'WV',
+                  'WI' => 'WI',
+                  'WY' => 'WY'
+              ),
+              'id'    => 'administrative_area_level_1_short'
+          ),
+
+          // We have custom `geometry` address component. Which is `lat + ',' + lng`
+          array(
+              'type' => 'text',
+              'name' => 'Geometry',
+              'id'    => 'geometry'
+          ),
+          // Here is the advanced usage of Binding Template.
+          // Put any address component + anything you want
+          array(
+              'type' => 'text',
+              'name' => 'State + Country',
+              'id'    => 'state_country',
+              // Example Output: QLD AU
+              'binding' => 'short:administrative_area_level_1 + " " + country'
+          ),
+      )
+  );
+
+
+  $meta_boxes[] = array(
+    'title'         => 'Site(s) Information',   
+    'post_types'    => 'od_directory',
+    'context'       => 'normal',
+    'priority'      => 'high',
       'fields' => array(
         array(
         'id'     => "{$prefix}sites",
@@ -244,7 +334,7 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
       array(
         'name'             => __( 'Add up to 4 screen shots.', 'your-prefix' ),
         'id'               => "{$prefix}screen",
-        'desc' => __( 'Only for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
+        'desc' => __( 'ONLY for Socrata customers.', 'directory' ),
         'type'             => 'plupload_image',
         'max_file_uploads' => 4,
       ),
@@ -484,7 +574,7 @@ function op_directory($atts, $content = null) {
   ob_start();
   ?>
 
-  <section id="directory" class="background-clouds background-half-white">
+  <section id="directory" class="background-light-grey-5">
     <div class="container">
       <div class="row">
         <div class="directory">
