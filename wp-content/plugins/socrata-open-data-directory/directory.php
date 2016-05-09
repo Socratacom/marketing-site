@@ -334,7 +334,6 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
       array(
         'name'             => __( 'Add up to 4 screen shots.', 'your-prefix' ),
         'id'               => "{$prefix}screen",
-        'desc' => __( 'ONLY for Socrata customers.', 'directory' ),
         'type'             => 'plupload_image',
         'max_file_uploads' => 4,
       ),
@@ -370,94 +369,103 @@ function op_directory_stats($atts, $content = null) {
   ob_start();
   ?>
 
-  <section id="directory-stats" class="section-padding">
-    <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2 class="text-center">How many have open data sites?</h2>
-      </div>
-      <div class="col-sm-3">
-        <div class="stat">
-            <?php
-              $args = array(
-                'post_type' => 'od_directory',
-                'segment' => 'city',
-                'meta_query' => array(
-                  array(
-                      'key' => 'directory_open_data_site',
-                      'value' => 'Yes'
-                  )
-                )
-              );
-              $myquery = new WP_Query($args);
-              echo "<div class='number'>$myquery->found_posts</div>";
-              wp_reset_postdata();
-            ?>
-            <div class="stat-label">Cities</div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="stat">
-            <?php
-              $args = array(
-                'post_type' => 'od_directory',
-                'segment' => 'county',
-                'meta_query' => array(
-                  array(
-                      'key' => 'directory_open_data_site',
-                      'value' => 'Yes'
-                  )
-                )
-              );
-              $myquery = new WP_Query($args);
-              echo "<div class='number'>$myquery->found_posts</div>";
-              wp_reset_postdata();
-            ?>
-            <div class="stat-label">Counties</div>
-          </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="stat">
-            <?php
-              $args = array(
-                'post_type' => 'od_directory',
-                'segment' => 'state',
-                'meta_query' => array(
-                  array(
-                      'key' => 'directory_open_data_site',
-                      'value' => 'Yes'
-                  )
-                )
-              );
-              $myquery = new WP_Query($args);
-              echo "<div class='number'>$myquery->found_posts</div>";
-              wp_reset_postdata();
-            ?>
-            <div class="stat-label">States</div>
-          </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="stat">
-            <?php
-              $args = array(
-                'post_type' => 'od_directory',
-                'segment' => 'federal',
-                'meta_query' => array(
-                  array(
-                      'key' => 'directory_open_data_site',
-                      'value' => 'Yes'
-                  )
-                )
-              );
-              $myquery = new WP_Query($args);
-              echo "<div class='number'>$myquery->found_posts</div>";
-              wp_reset_postdata();
-            ?>
-            <div class="stat-label">Federal Agencies</div>
-          </div>
-      </div>
-    </div>
-  </div>
+  <section id="directory-stats" class="hero-animated background-primary-alt-2-light overlay overlay-primary-alt-2">
+    <div class="outer">
+      <div class="inner">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="text-center text-reverse margin-bottom-15">Open Data Directory</h1>
+              <h3 class="text-center text-reverse">Who has an open data site?</h3>
+            </div>
+
+            <div class="col-sm-3 hidden-xs">
+              <div class="stat">
+                  <?php
+                    $args = array(
+                      'post_type' => 'od_directory',
+                      'segment' => 'city',
+                      'meta_query' => array(
+                        array(
+                            'key' => 'directory_open_data_site',
+                            'value' => 'Yes'
+                        )
+                      )
+                    );
+                    $myquery = new WP_Query($args);
+                    echo "<div class='number text-reverse'>$myquery->found_posts</div>";
+                    wp_reset_postdata();
+                  ?>
+                  <div class="stat-label text-reverse">Cities</div>
+              </div>
+            </div>
+            <div class="col-sm-3 hidden-xs">
+              <div class="stat">
+                  <?php
+                    $args = array(
+                      'post_type' => 'od_directory',
+                      'segment' => 'county',
+                      'meta_query' => array(
+                        array(
+                            'key' => 'directory_open_data_site',
+                            'value' => 'Yes'
+                        )
+                      )
+                    );
+                    $myquery = new WP_Query($args);
+                    echo "<div class='number text-reverse'>$myquery->found_posts</div>";
+                    wp_reset_postdata();
+                  ?>
+                  <div class="stat-label text-reverse">Counties</div>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden-xs">
+              <div class="stat">
+                  <?php
+                    $args = array(
+                      'post_type' => 'od_directory',
+                      'segment' => 'state',
+                      'meta_query' => array(
+                        array(
+                            'key' => 'directory_open_data_site',
+                            'value' => 'Yes'
+                        )
+                      )
+                    );
+                    $myquery = new WP_Query($args);
+                    echo "<div class='number text-reverse'>$myquery->found_posts</div>";
+                    wp_reset_postdata();
+                  ?>
+                  <div class="stat-label text-reverse">States</div>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden-xs">
+              <div class="stat">
+                  <?php
+                    $args = array(
+                      'post_type' => 'od_directory',
+                      'segment' => 'federal',
+                      'meta_query' => array(
+                        array(
+                            'key' => 'directory_open_data_site',
+                            'value' => 'Yes'
+                        )
+                      )
+                    );
+                    $myquery = new WP_Query($args);
+                    echo "<div class='number text-reverse'>$myquery->found_posts</div>";
+                    wp_reset_postdata();
+                  ?>
+                  <div class="stat-label text-reverse">Federal Agencies</div>
+                </div>
+            </div>
+
+
+          </div><!-- row -->
+        </div><!-- container -->
+      </div><!-- inner -->
+    </div><!-- outer -->
+    <div class="image" style="background-image:url(/wp-content/uploads/directory-hero.jpg);"></div>
   </section>
   <?php
   $content = ob_get_contents();
@@ -579,8 +587,9 @@ function op_directory($atts, $content = null) {
       <div class="row">
         <div class="directory">
           <div class="col-sm-3 left">
+
             <button onclick="FWP.reset()" class="btn btn-primary">Clear All Filters</button>
-            <div class="filters">
+            <div class="filters margin-bottom-15">
               <button type="button" data-toggle="collapse" data-target="#segments">Segment</button> 
               <div id="segments" class="collapse in">
                 <?php echo do_shortcode('[facetwp facet="segment"]') ;?>
@@ -591,17 +600,13 @@ function op_directory($atts, $content = null) {
                 <?php echo do_shortcode('[facetwp facet="directory_data_type"]') ;?>
               </div>
 
-              <button type="button" data-toggle="collapse" data-target="#customer">Socrata Customer</button> 
-              <div id="customer" class="collapse in">
-                <?php echo do_shortcode('[facetwp facet="socrata_customer"]') ;?>
-              </div>
-
               <button type="button" data-toggle="collapse" data-target="#population">Population</button> 
               <div id="population" class="collapse in">
                 <?php echo do_shortcode('[facetwp facet="directory_population"]') ;?>
               </div>
             </div>
-            
+            <p><a data-toggle="modal" data-target="#suggest" class="btn btn-primary">Suggest a Site</a></p>
+
           </div>
           <div class="col-sm-9 right">
             <ul class="sort">
@@ -618,6 +623,21 @@ function op_directory($atts, $content = null) {
       </div>
     </div>
   </section>
+
+<div id="suggest" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<div class="close"><button type="button" data-dismiss="modal"><i class="icon-close"></i></button></div>
+<h4 class="modal-title">Suggest a Site</h4>
+</div>
+<div class="modal-body">
+<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<?php echo do_shortcode('[marketo-form id="2710"]');?>
+</div>
+</div>
+</div>
+</div>
 
   <?php
   $content = ob_get_contents();

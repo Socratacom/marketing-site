@@ -1816,7 +1816,6 @@ dl.quote-author {
         .number {
             font-weight: $font-bold;
             font-size: 100px;
-            color:$orange;
         }
         .stat-label {
             font-weight: $font-normal;
@@ -1847,18 +1846,18 @@ dl.quote-author {
             outline: none;
         }
         .filters {
-            border-left:darken($clouds, 5%) solid 1px;
-            border-right:darken($clouds, 5%) solid 1px;
-            border-bottom:darken($clouds, 5%) solid 1px;
+            border-left:$light-grey-4 solid 1px;
+            border-right:$light-grey-4 solid 1px;
+            border-bottom:$light-grey-4 solid 1px;
             background:white;
             .in {
-                border-top:darken($clouds, 5%) solid 1px;
+                border-top:$light-grey-4 solid 1px;
             }
             button {
                 width:100%;
                 text-align: left;
-                border-top:darken($clouds, 5%) solid 1px;
-                border-left:$peter-river solid 5px;
+                border-top:$light-grey-4 solid 1px;
+                border-left:$primary solid 5px;
                 border-right:none;
                 border-bottom:none;
                 padding:10px 30px 10px 15px;
@@ -1866,7 +1865,7 @@ dl.quote-author {
                 outline:none;
                 position: relative;
                 font-weight: $font-semi-bold;
-                color:$concrete;
+                color:$dark-grey-2;
                 line-height: normal;
             }
             button:before {
@@ -1877,7 +1876,7 @@ dl.quote-author {
                 right:14px;
             }
             button.collapsed {
-                border-left:lighten($silver, 15%) solid 5px;
+                border-left:$light-grey-4 solid 5px;
             }
             button.collapsed:before {
                 font-family: fontawesome;
@@ -1897,8 +1896,8 @@ dl.quote-author {
                     margin-bottom: 0;
                     padding:10px 30px;
                     cursor: pointer;
-                    border-left:lighten($silver, 15%) solid 5px;
-                    color:$concrete;
+                    border-left:$light-grey-4 solid 5px;
+                    color:$dark-grey-1;
                     position: relative;
                     line-height: normal;
                     height: 40px;
@@ -1907,10 +1906,10 @@ dl.quote-author {
                     }
                 }
                 .facetwp-checkbox:hover {
-                    border-left:lighten($silver, 10%) solid 5px;
+                    border-left:$light-grey-3 solid 5px;
                 }
                 .checked, .checked:hover {
-                    border-left:$emerald solid 5px;
+                    border-left:$primary-alt-3 solid 5px;
                 }
                 /*.facetwp-checkbox:first-of-type {
                     border-top:darken($clouds, 5%) solid 1px;
@@ -1924,7 +1923,7 @@ dl.quote-author {
                     position: absolute;
                     top:10px;
                     right:15px;
-                    color:lighten($silver, 15%);
+                    color:$light-grey-3;
                     font-size: 16px;
                     font-weight: $font-light;
                 }
@@ -1938,22 +1937,22 @@ dl.quote-author {
             }
             .facetwp-type-slider {
                 padding: 20px 15px 15px 15px;
-                border-left:lighten($silver, 15%) solid 5px;
+                border-left:$light-grey-4 solid 5px;
                 .facetwp-slider-label {
                     font-size: 12px;
                     font-weight: $font-semi-bold;
-                    color:$concrete;
+                    color:$dark-grey-1;
                 }
                 .facetwp-slider-reset {
-                    border:lighten($silver, 15%) solid 1px;
-                    background-color:$clouds;
-                    border-radius: 0;
+                    border:$light-grey-3 solid 1px;
+                    background-color:$light-grey-5;
+                    border-radius: 1px;
                     box-shadow: none;
                     padding: 4px 8px;
                     cursor: pointer;
                 }
                 .facetwp-slider-reset:hover {
-                    background-color:darken($clouds, 5%);
+                    background-color:$light-grey-4;
                 }
             }
         }
@@ -1961,17 +1960,17 @@ dl.quote-author {
     .right {
         float: none;
         display: table-cell;
-        background-color:white;
         margin:0;
         padding:60px 15px;
         vertical-align: top;
         .facetwp-per-page, .facetwp-sort {
-            border:lighten($silver, 15%) solid 1px;
-            background-color:$clouds;
+            border:$light-grey-3 solid 1px;
+            background-color:$light-grey-5;
             height: 34px;
             overflow: hidden;
             position: relative;
             width:125px;
+            border-radius:1px;
             select {
                 display: block;
                 width: 100%;
@@ -2003,11 +2002,11 @@ dl.quote-author {
             position: absolute;
             top:5px;
             right:15px;
-            color:$gray-dark;
+            color:$dark-grey-2;
             font-size: 14px;
         }
         .facetwp-per-page:hover, .facetwp-sort:hover {
-            background-color:darken($clouds, 5%);
+            background-color:$light-grey-4;
         }
         ul.sort {
             list-style-type: none;
@@ -2045,16 +2044,17 @@ dl.quote-author {
             }
             .listing {
                 margin-bottom: 15px;
-                border:lighten($silver, 15%) solid 1px;
+                border:$light-grey-4 solid 1px;
                 background-color:white;
                 position: relative;
                 .name {
                     padding:15px 100px 15px 15px;
                     position: relative;
-                    border-bottom:lighten($silver, 15%) solid 1px;
+                    border-bottom:$light-grey-4 solid 1px;
                     h4 {
                         margin:0;
                         font-weight: $font-normal;
+                        color:$dark-grey-2;
                     }
                     .category {
                         position: absolute;
@@ -2062,14 +2062,14 @@ dl.quote-author {
                         right: 15px;
                         font-size: 14px;
                         text-transform: uppercase;
-                        color:$silver;
+                        color:$dark-grey-1;
                     }
                 }
                 .sites {
                     padding:15px;
                     .site {
                         position: relative;
-                        border-bottom:lighten($silver, 15%) solid 1px;                    
+                        border-bottom:$light-grey-4 solid 1px;                    
                         .site-name {
                             width: 600px;
                             white-space: nowrap;
@@ -2091,7 +2091,7 @@ dl.quote-author {
                 }
                 .meta {
                     padding:15px;
-                    border-top:lighten($silver, 15%) solid 1px;
+                    border-top:$light-grey-4 solid 1px;
                     ul {
                         list-style-type: none;
                         margin:0;
@@ -2099,10 +2099,10 @@ dl.quote-author {
                         li {
                             font-size: 13px;
                             font-weight: $font-normal;
-                            color:$concrete;
+                            color:$dark-grey-1;
                             strong {
                                 font-weight: $font-semi-bold;
-                                color:$gray-dark;
+                                color:$dark-grey-2;
                             }
                         }
                     }
@@ -2120,7 +2120,7 @@ dl.quote-author {
                 table {
                     width: 100%;
                     tr {
-                        border-bottom:lighten($silver, 15%) solid 1px;
+                        border-bottom:$light-grey-4 solid 1px;
                         td {
                             padding: 5px 0;
                         }
@@ -2131,7 +2131,7 @@ dl.quote-author {
                 }
             }
             .listing:hover {
-                border-color:$peter-river;
+                border-color:$primary;
             }
             .customer {
                 .name {
