@@ -23,7 +23,7 @@
               <?php echo do_shortcode('[marketo-share-custom]');?>
             </div>
             <p class="meta"><small><?php news_the_categories(); ?> | Posted: <?php the_time('F jS, Y') ?></small></p>
-            <?php the_content(); ?>
+            <?php echo rwmb_meta( 'news_wysiwyg' );?>
           </article>
         <?php endwhile; ?>
         <hr/>
