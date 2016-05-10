@@ -381,6 +381,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 function events_posts($atts, $content = null) {
   ob_start();
   ?>
+
 <section class="section-padding">
   <div class="container">
     <div class="row">
@@ -390,8 +391,7 @@ function events_posts($atts, $content = null) {
           <?php
           /* The Query */
           $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-          $today = strtotime('today UTC');          
-
+          $today = strtotime('today UTC');
           $event_meta_query = array( 
             'relation' => 'AND',
             array( 

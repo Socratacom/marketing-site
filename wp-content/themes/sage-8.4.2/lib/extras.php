@@ -77,7 +77,7 @@ add_action( 'init', __NAMESPACE__ . '\\shared_segment', 0 );
 function shared_segment() {
   register_taxonomy(
     'segment',
-    array('od_directory','case_study','socrata_videos','socrata_downloads'),
+    array('od_directory','case_study','socrata_videos','socrata_downloads','socrata_webinars'),
     array(
       'labels' => array(
         'name' => 'Segment',
@@ -100,7 +100,7 @@ add_action( 'init', __NAMESPACE__ . '\\shared_product', 0 );
 function shared_product() {
   register_taxonomy(
     'product',
-    array('case_study','socrata_videos','socrata_downloads'),
+    array('case_study','socrata_videos','socrata_downloads','socrata_webinars'),
     array(
       'labels' => array(
         'name' => 'Product',

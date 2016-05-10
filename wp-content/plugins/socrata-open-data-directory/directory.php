@@ -491,20 +491,13 @@ function op_directory_map($atts, $content = null) {
           // Basic options for a simple Google Map
           // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
           var mapOptions = {
-              // How zoomed in you want the map to start at (always required)
               zoom: 5,
-
-              // The latitude and longitude to center the map (always required)
               center: new google.maps.LatLng(38.5111,-96.8005),
               scrollwheel: false,
-
-              // How you would like to style the map. 
-              // This is where you would paste any style found on Snazzy Maps.
               styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}]
           };
 
           // Get the HTML DOM element that will contain your map 
-          // We are using a div with id="map" seen below in the <body>
           var mapElement = document.getElementById('directory-map');
 
           // Create the Google Map using our element and options defined above
@@ -512,11 +505,29 @@ function op_directory_map($atts, $content = null) {
           setMarkers(map);
       }
       var beaches = [
-  ['Bondi Beach', -33.890542, 151.274856, 4],
-  ['Coogee Beach', -33.923036, 151.259052, 5],
-  ['Cronulla Beach', -34.028249, 151.157507, 3],
-  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-  ['Maroubra Beach', -33.950198, 151.259302, 1]
+
+
+<?php
+$args = array(
+  'post_type' => 'od_directory',
+  'posts_per_page' => 10
+);
+$query = new WP_Query( $args );
+
+// The Loop
+while ( $query->have_posts() ) {
+  $query->the_post();
+  $pin = rwmb_meta( 'geometry' ); { ?>
+
+  ['<?php the_title();?>',<?php echo $pin;?>],
+
+  <?php
+  };
+}
+wp_reset_postdata();
+
+?>
+
 ];
 
 function setMarkers(map) {
@@ -559,6 +570,39 @@ function setMarkers(map) {
 
   </script>
 
+</section>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+
+
+<?php
+$args = array(
+  'post_type' => 'od_directory',
+  'posts_per_page' => 10
+);
+$query = new WP_Query( $args );
+
+// The Loop
+while ( $query->have_posts() ) {
+  $query->the_post();
+  $pin = rwmb_meta( 'geometry' ); { ?>
+
+  ['<?php the_title();?>',<?php echo $pin;?>],
+
+  <?php
+  };
+}
+wp_reset_postdata();
+
+?>
+
+
+      </div>
+    </div>
+  </div>
 </section>
 
   <?php
