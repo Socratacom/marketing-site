@@ -471,20 +471,17 @@ function events_posts($atts, $content = null) {
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
-        <div class="filterbar">
-          <div class="filter-row left hidden-xs">
+        <div class="filterbar margin-bottom-30">
+          <div class="filter-row float-left hidden-xs">
             <label>Showing</label>
             <?php echo do_shortcode('[facetwp counts="true"]') ;?>
           </div>
-          <div class="filter-row right no-padding">
+          <div class="filter-row float-right no-padding">
             <label class="hidden-xs hidden-sm">Sort by</label>
             <?php echo do_shortcode('[facetwp facet="event_categories"]') ;?>
           </div>
           <div class="clearfix"></div>
         </div>
-
-          
-
         <?php echo do_shortcode('[facetwp template="events"]') ;?>
         <?php echo do_shortcode('[facetwp pager="true"]') ;?>
       </div>
