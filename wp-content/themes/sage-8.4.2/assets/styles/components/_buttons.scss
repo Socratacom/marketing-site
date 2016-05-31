@@ -6,3 +6,49 @@
 .btn-default {
 	background:$clouds;
 }
+.facetwp-per-page, .facetwp-sort, .facetwp-type-dropdown {
+	position: relative;
+	display:inline-block;
+	height:34px;
+	border: $light-grey-3 solid 1px;
+	border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    min-width: 100px;
+	select {
+		height: 34px;
+        padding: 2px 30px 5px 15px;
+        line-height: 1.4em;
+        font-size: 13px;
+        font-weight: $font-normal;
+		background:transparent;
+        background-image: none;
+        border:0;
+        border-radius: 0;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        -moz-appearance: none;
+        -moz-border-radius: 0;
+        outline:none;
+        cursor:pointer;
+	}
+}
+.facetwp-per-page:hover, .facetwp-sort:hover, .facetwp-type-dropdown:hover {
+    background-color:$light-grey-4;
+}
+.facetwp-per-page:before, .facetwp-sort:before, .facetwp-type-dropdown:before {
+    font-family: fontawesome;
+    content:"\f0d7"; 
+    position: absolute;
+    top:5px;
+    right:15px;
+    color:$dark-grey-2;
+    font-size: 14px;
+    pointer-events: none;
+}
+.facetwp-counts {
+    display: inline-block !important;
+}
+.facetwp-facet {
+    margin:0 !important;
+}

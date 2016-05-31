@@ -852,10 +852,31 @@ body {
 	.text-reverse {
 		color:white;
 	}
+    .text-uppercase {
+        text-transform: uppercase;
+    }
+    .text-light {
+        font-weight: $font-light;
+    }
+    .text-normal {
+        font-weight: $font-normal;
+    }
+    .text-semi-bold {
+        font-weight: $font-semi-bold;
+    }
+    .text-bold {
+        font-weight: $font-bold;
+    }
 	//margins
 	.margin-bottom-0 {
 		margin-bottom:0;
 	}
+    .margin-bottom-5 {
+        margin-bottom:5px;
+    }
+    .margin-bottom-10 {
+        margin-bottom:10px;
+    }
 	.margin-bottom-15 {
 		margin-bottom:15px;
 	}
@@ -1191,11 +1212,34 @@ body {
 	    padding-right: 0;
 	    padding-left: 0;
 	  }
-	}	
+	}
+    .filterbar {
+        width:100%;
+        margin-bottom:15px;
+        .filter-row {
+            display: block;
+            padding:5px 0;
+            margin-bottom:15px;
+        }
+        .no-padding {
+            padding:0;
+        }
+    }
 }
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
+    .filterbar {
+        .filter-row {
+            display: inline-block;
+        }
+        .left {
+            float: left;
+        }
+        .right {
+            float: right;
+        }
+    }
 
 	ul.cta-list {
 		li {
@@ -1276,6 +1320,7 @@ body {
 
 
 .speakers, .leadership {
+
     .profile {
         list-style-type: none;
         margin:0 0 30px 0;
@@ -1331,6 +1376,7 @@ body {
         }
     }
     .modal {
+        text-align: left;
         .modal-body {
             padding: 30px;
         }
@@ -1362,6 +1408,18 @@ body {
                     margin-top: 7px;
                 }
             }
+        }
+    }
+    .no-gutters {
+        & > [class^="col-"],
+        & > [class*=" col-"] {
+            float:none;
+            display:inline-block;
+            margin-right:-4px;
+        }
+        .box {
+            height: 320px;
+            overflow: hidden;
         }
     }
 }
@@ -1969,51 +2027,7 @@ dl.quote-author {
         margin:0;
         padding:60px 15px;
         vertical-align: top;
-        .facetwp-per-page, .facetwp-sort {
-            border:$light-grey-3 solid 1px;
-            background-color:$light-grey-5;
-            height: 34px;
-            overflow: hidden;
-            position: relative;
-            width:125px;
-            border-radius:1px;
-            select {
-                display: block;
-                width: 100%;
-                height: 34px;
-                padding: 2px 30px 5px 15px;
-                line-height: 1.4em;
-                font-size: 14px;
-                font-weight: $font-normal;
-                color: #555;
-                background:transparent;
-                background-image: none;
-                border: none;
-                border-radius: 0;
-                -webkit-appearance: none;
-                -webkit-border-radius: 0;
-                -moz-appearance: none;
-                -moz-border-radius: 0;
-                outline:none;
-                cursor:pointer;
-                position: absolute;
-                top:0;
-                left:0;
-                z-index: 2;
-            }
-        }
-        .facetwp-per-page::before, .facetwp-sort::before {
-            font-family: fontawesome;
-            content:"\f0d7"; 
-            position: absolute;
-            top:5px;
-            right:15px;
-            color:$dark-grey-2;
-            font-size: 14px;
-        }
-        .facetwp-per-page:hover, .facetwp-sort:hover {
-            background-color:$light-grey-4;
-        }
+        
         ul.sort {
             list-style-type: none;
             margin:0 0 15px 0;
@@ -2023,26 +2037,9 @@ dl.quote-author {
             position: relative;
             li {
                 display: inline-block;
-                vertical-align: middle;
-                .facetwp-counts {
-                    display: inline-block;
-                }
+                vertical-align: middle;                
             }
-            li:nth-child(1) {
-                font-size: 14px;
-                font-weight: $font-semi-bold;
-                padding:5px 0;
-            }
-            li:nth-child(2) {
-                position: absolute;
-                top:0;
-                right:135px;
-            }
-            li:nth-child(3) {
-                position: absolute;
-                top:0;
-                right:0;
-            }
+
         }
         .directory-results {
             .listing * {

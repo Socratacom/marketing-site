@@ -46,7 +46,8 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails', array('post','socrata_events','case_study','news'));
   set_post_thumbnail_size( 360, 180, array( 'center', 'center')  );
-  add_image_size( 'post-image', 850, 400, array( 'center', 'center'));
+  add_image_size( 'post-image', 850, 400, array( 'center', 'center'));  
+  add_image_size( 'post-image-small', 356, 200, array( 'center', 'center'));
   add_image_size( 'feature-image', 1600, 400, array( 'center', 'center'));
   add_image_size( 'full-width-ratio', 9999, 100 );
 

@@ -67,6 +67,48 @@ function socrata_webinars_single_template( $template_path ) {
   return $template_path;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+function wpd_query_var( $query_vars ){
+$query_vars[] = 'is_abstract';
+return $query_vars;
+}
+add_filter('query_vars', 'wpd_query_var');
+function wpd_post_rewrite(){
+    add_rewrite_rule(
+        'abstract/([^/]+)/?$',
+        'index.php?post_type=socrata_webinars$name=$matches[1]&is_abstract=1',
+        'top'
+    );
+}
+add_action( 'init', 'wpd_post_rewrite' );
+function wpd_abstract_template( $single_template ){
+    global $wp_query;
+    if ( isset( $wp_query->query_vars['is_abstract'] ) ) {
+        $single_template = locate_template( 'template-webinar-confirmation.php', false );
+    }
+    return $single_template;
+}
+add_filter( 'single_template', 'wpd_abstract_template' );
+
+
+
+
+
+
+
+
+
+
 // Custom Body Class
 add_action( 'body_class', 'socrata_webinars_body_class');
 function socrata_webinars_body_class( $classes ) {
@@ -82,9 +124,22 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
   $prefix = 'webinars_';
   $meta_boxes[] = array(
     'title'  => __( 'Webinar Details', 'webinars_' ),
-    'post_types' => array( 'socrata_webinars' ),
+    'post_types' => 'socrata_webinars',
     'context'    => 'normal',
     'priority'   => 'high',
+    'validation' => array(
+      'rules'    => array(
+        "{$prefix}city" => array(
+            'required'  => true,
+        ),
+        "{$prefix}state" => array(
+            'required'  => true,
+        ),
+        "{$prefix}displaydate" => array(
+            'required'  => true,
+        ),
+      ),
+    ),
     'fields' => array(
       // HEADING
       array(
@@ -126,28 +181,57 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       array(
         'name'  => __( 'Display Date and Time', 'webinars_' ),
         'id'    => "{$prefix}displaydate",
-        'desc' => __( 'Example: Jan 1st - 2:00pm PST', 'webinars_' ),
+        'desc' => __( 'Example: January 1, 2pm PT', 'webinars_' ),
         'type'  => 'text',
         'clone' => false,
-      ),
+      ),      
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Webinar Location', 'webinars_' ),
+        'name' => __( 'Registration', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
       array(
-        'name'  => __( 'Location Name', 'webinars_' ),
-        'id'    => "{$prefix}location",
-        'desc' => __( 'Example: Hometown Pub', 'webinars_' ),
+        'name'  => __( 'Registration Form ID', 'webinars_' ),
+        'id'    => "{$prefix}marketo",
+        'desc' => __( 'Example: 1234', 'webinars_' ),
         'type'  => 'text',
         'clone' => false,
       ),      
-      // WYSIWYG/RICH TEXT EDITOR
+      // TEXT
       array(
-        'name'    => __( 'Speakers', 'webinars_' ),
-        'id'      => "{$prefix}speakers",
+        'name'  => __( 'On Demand Form ID', 'webinars_' ),
+        'id'    => "{$prefix}marketo",
+        'desc' => __( 'Example: 1234', 'webinars_' ),
+        'type'  => 'text',
+        'clone' => false,
+      ),      
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Additional Options', 'webinars_' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'Additional CTA Button', 'webinars_' ),
+        'id'    => "{$prefix}cta_button",
+        'desc' => __( 'Adds a CTA button to the hero. Keep it short.', 'webinars_' ),
+        'type'  => 'text',
+        'clone' => true,
+      ),    
+    )
+  );
+
+  $meta_boxes[] = array(
+    'title'         => 'Content',   
+    'post_types'    => 'socrata_webinars',
+    'context'       => 'normal',
+    'priority'      => 'high',
+      'fields' => array(
+        array(
+        'id'      => "{$prefix}wysiwyg",
         'type'    => 'wysiwyg',
         // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
         'raw'     => false,
@@ -158,7 +242,74 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
           'media_buttons' => true,
         ),
       ),
-    )
+    ),
+  );
+
+  $meta_boxes[] = array(
+    'title'         => 'Speakers',   
+    'post_types'    => 'socrata_webinars',
+    'context'       => 'normal',
+    'priority'      => 'high',
+      'fields' => array(
+         // HEADING
+        array(
+          'type' => 'heading',
+          'name' => __( 'Speaker Section', 'webinars_' ),
+          'id'   => 'fake_id', // Not used but needed for plugin
+        ),
+        // TEXT
+        array(
+          'name'  => __( 'Custom Section Title', 'webinars_' ),
+          'id'    => "{$prefix}section_title",
+          'desc' => __( 'Optional. The default is Speakers.' ),
+          'type'  => 'text',
+        ),
+        // HEADING
+        array(
+          'type' => 'heading',
+          'name' => __( 'Speaker Info', 'webinars_' ),
+          'id'   => 'fake_id', // Not used but needed for plugin
+        ),
+        array(
+        'id'     => "{$prefix}speakers",
+        'type'   => 'group',
+        'clone'  => true,
+        'sort_clone' => true,
+        // Sub-fields
+        'fields' => array(
+          array(
+            'name' => __( 'Name', 'webinars_' ),
+            'id'   => "{$prefix}speaker_name",
+            'type' => 'text',
+          ),
+          array(
+            'name' => __( 'Title', 'webinars_' ),
+            'id'   => "{$prefix}speaker_title",
+            'type' => 'text',
+          ),
+          // IMAGE ADVANCED (WP 3.5+)
+          array(
+            'name'             => __( 'Headshot', 'webinars_' ),
+            'id'               => "{$prefix}speaker_headshot",
+            'desc' => __( 'Minimum size 300x300 pixels.', 'webinars_' ),
+            'type'             => 'image_advanced',
+            'max_file_uploads' => 1,
+          ),
+          // WYSIWYG/RICH TEXT EDITOR
+          array(
+            'name'    => __( 'Bio', 'webinars_' ),
+            'id'      => "{$prefix}what_the",
+            'type'    => 'wysiwyg',
+            'raw'     => false,
+            'options' => array(
+              'textarea_rows' => 4,
+              'teeny'         => false,
+              'media_buttons' => false,
+            ),
+          ),
+        ),
+      ), 
+    ),
   );
   return $meta_boxes;
 }
