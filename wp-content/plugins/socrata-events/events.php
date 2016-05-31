@@ -477,7 +477,7 @@ function events_posts($atts, $content = null) {
             <?php echo do_shortcode('[facetwp counts="true"]') ;?>
           </div>
           <div class="filter-row float-right no-padding">
-            <label class="hidden-xs hidden-sm">Sort by</label>
+            <label class="hidden-xs hidden-sm">Filter by</label>
             <?php echo do_shortcode('[facetwp facet="event_categories"]') ;?>
           </div>
           <div class="clearfix"></div>
