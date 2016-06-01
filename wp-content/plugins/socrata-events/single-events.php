@@ -88,7 +88,7 @@ foreach ($cta as $text) { ?>
           $bio = isset( $speaker_value['socrata_events_what_the'] ) ? $speaker_value['socrata_events_what_the'] : '';
           $images = isset( $speaker_value['socrata_events_speaker_headshot'] ) ? $speaker_value['socrata_events_speaker_headshot'] : array();
           foreach ( $images as $image ) {
-                $image = RWMB_Image_Field::file_info( $image, array( 'size' => 'meium' ) );
+                $image = RWMB_Image_Field::file_info( $image, array( 'size' => 'medium' ) );
             }
           ?>
 

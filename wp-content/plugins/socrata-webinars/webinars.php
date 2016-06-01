@@ -50,6 +50,14 @@ function add_socrata_webinars_icon() { ?>
   <?php
 }
 
+// TEMPLATES
+// Endpoint Rewrites
+add_action('init', 'socrata_webinars_add_endpoints');
+function socrata_webinars_add_endpoints()
+{
+  add_rewrite_endpoint('webinar-confirmation', EP_PERMALINK);
+  add_rewrite_endpoint('webinar-video', EP_PERMALINK);
+}
 // Template Paths
 add_filter( 'template_include', 'socrata_webinars_single_template', 1 );
 function socrata_webinars_single_template( $template_path ) {
@@ -63,53 +71,25 @@ function socrata_webinars_single_template( $template_path ) {
         $template_path = plugin_dir_path( __FILE__ ) . 'single-webinars.php';
       }
     }
+    if ( get_query_var( 'webinar-confirmation' )  ) {
+      $template_path = plugin_dir_path( __FILE__ ) . 'confirmation.php';
+    }
+    if ( get_query_var( 'webinar-video' )  ) {
+      $template_path = plugin_dir_path( __FILE__ ) . 'video.php';
+    }
   }
   return $template_path;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-function wpd_query_var( $query_vars ){
-$query_vars[] = 'is_abstract';
-return $query_vars;
+// Template Request
+add_filter( 'request', 'socrata_webinars_filter_request' );
+function socrata_webinars_filter_request( $vars )
+{
+  if( isset( $vars['webinar-confirmation'] ) ) $vars['webinar-confirmation'] = true;
+  if( isset( $vars['webinar-video'] ) ) $vars['webinar-video'] = true;
+  return $vars;
 }
-add_filter('query_vars', 'wpd_query_var');
-function wpd_post_rewrite(){
-    add_rewrite_rule(
-        'abstract/([^/]+)/?$',
-        'index.php?post_type=socrata_webinars$name=$matches[1]&is_abstract=1',
-        'top'
-    );
-}
-add_action( 'init', 'wpd_post_rewrite' );
-function wpd_abstract_template( $single_template ){
-    global $wp_query;
-    if ( isset( $wp_query->query_vars['is_abstract'] ) ) {
-        $single_template = locate_template( 'template-webinar-confirmation.php', false );
-    }
-    return $single_template;
-}
-add_filter( 'single_template', 'wpd_abstract_template' );
 
-
-
-
-
-
-
-
-
-
-// Custom Body Class
+// CUSTOM BODY CLASS
 add_action( 'body_class', 'socrata_webinars_body_class');
 function socrata_webinars_body_class( $classes ) {
   if ( get_post_type() == 'socrata_webinars' && is_single() || get_post_type() == 'socrata_webinars' && is_archive() )
