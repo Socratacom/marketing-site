@@ -60,16 +60,6 @@ function WPTime_add_custom_class_to_all_images($content){
 add_filter('the_content', __NAMESPACE__ . '\\WPTime_add_custom_class_to_all_images');
 
 
-
-function my_facetwp_is_main_query( $is_main_query, $query ) {
-    if ( isset( $query->query_vars['facetwp'] ) ) {
-        $is_main_query = true;
-    }
-    return $is_main_query;
-}
-add_filter( 'facetwp_is_main_query', __NAMESPACE__ . '\\my_facetwp_is_main_query', 10, 2 );
-
-
 /**
  * Adds category name to blog
  */
