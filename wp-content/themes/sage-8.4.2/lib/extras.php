@@ -59,6 +59,7 @@ function WPTime_add_custom_class_to_all_images($content){
 }
 add_filter('the_content', __NAMESPACE__ . '\\WPTime_add_custom_class_to_all_images');
 
+
 /**
  * Adds category name to blog
  */

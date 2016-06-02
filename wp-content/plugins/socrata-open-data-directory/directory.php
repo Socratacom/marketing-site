@@ -653,11 +653,19 @@ function op_directory($atts, $content = null) {
 
           </div>
           <div class="col-sm-9 right">
-            <ul class="sort">
-              <li>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></li>             
-              <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li> 
-              <li><?php echo do_shortcode('[facetwp sort="true"]') ;?></li> 
-            </ul>
+            <div class="filterbar margin-bottom-15">              
+              <div class="filter-row float-left hidden-xs">
+                <label>Showing</label>
+                <?php echo do_shortcode('[facetwp counts="true"]') ;?>
+              </div>              
+              <div class="filter-row float-right no-padding">
+                <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
+                <?php echo do_shortcode('[facetwp sort="true"]') ;?>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+
             <div class="directory-results">
               <?php echo do_shortcode('[facetwp template="directory"]') ;?>
             </div>

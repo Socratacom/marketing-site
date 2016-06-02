@@ -1,7 +1,7 @@
 <footer role="contentinfo" class="section-padding">
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-4 col-md-3 margin-bottom-30">
+			<div class="col-sm-4 col-md-3">
 				<ul class="social-icons clearfix">
 					<li class="facebook"><a href="https://www.facebook.com/socrata" target="_blank">facebook</a></li>
 					<li class="twitter"><a href="https://twitter.com/socrata" class="" target="_blank">twitter</a></li>
@@ -16,12 +16,12 @@
 					<li>Support: <a href="tel://1-888-997-6762">+1 (888) 997-6762</a></li>
 					<li><a href="/privacy/">Privacy Policy</a> | <a href="/terms-of-service/">Terms of Service</a></li>
 				</ul>
-				<div class="footer-form">
+				<div class="footer-form hidden-xs hidden-sm">
 					<h4>Subscribe to the Socrata newsletter</h4>
 					<?php echo do_shortcode('[marketo-form id="2745"]'); ?>
 				</div>
 			</div>
-			<div class="col-sm-8 col-md-9">
+			<div class="col-md-9 hidden-xs hidden-sm">
 				<div class="row">
 					<div class="col-sm-4 col-md-2 col-md-offset-1">
 						<h4>Products</h4>

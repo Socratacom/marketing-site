@@ -46,7 +46,8 @@ function setup() {
   // http://codex.wordpress.org/Function_Reference/add_image_size
   add_theme_support('post-thumbnails', array('post','socrata_events','case_study','news'));
   set_post_thumbnail_size( 360, 180, array( 'center', 'center')  );
-  add_image_size( 'post-image', 850, 400, array( 'center', 'center'));
+  add_image_size( 'post-image', 850, 400, array( 'center', 'center'));  
+  add_image_size( 'post-image-small', 356, 200, array( 'center', 'center'));
   add_image_size( 'feature-image', 1600, 400, array( 'center', 'center'));
   add_image_size( 'full-width-ratio', 9999, 100 );
 
@@ -113,7 +114,7 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css?v=2.2.2'), false, null);
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css?v=2nTPzR4y'), false, null);
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
 
