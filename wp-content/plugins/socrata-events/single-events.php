@@ -9,7 +9,7 @@ $zip = rwmb_meta( 'socrata_events_zip' );
 $today = strtotime('today UTC');
 $date = rwmb_meta( 'socrata_events_endtime' );
 
-$speakers = rwmb_meta( 'socrata_events_speakers' );
+$speakers = rwmb_meta( 'socrata_events_speaker_name' );
 $section_title = rwmb_meta( 'socrata_events_section_title' );
 $marketo = rwmb_meta( 'socrata_events_marketo' );
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' );
