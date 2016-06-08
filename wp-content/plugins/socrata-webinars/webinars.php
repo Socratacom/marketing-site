@@ -103,7 +103,7 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
 {
   $prefix = 'webinars_';
   $meta_boxes[] = array(
-    'title'  => __( 'Webinar Details', 'webinars_' ),
+    'title'  => __( 'Webinar Meta', 'webinars_' ),
     'post_types' => 'socrata_webinars',
     'context'    => 'normal',
     'priority'   => 'high',
@@ -118,6 +118,15 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
         "{$prefix}displaydate" => array(
             'required'  => true,
         ),
+        "{$prefix}marketo_registration" => array(
+            'required'  => true,
+        ),
+        "{$prefix}marketo_on_demand" => array(
+            'required'  => true,
+        ),
+        "{$prefix}starttime" => array(
+            'required'  => true,
+        ),
       ),
     ),
     'fields' => array(
@@ -129,52 +138,36 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       ),
       // DATETIME
       array(
-        'name'        => __( 'Start Date and Time', 'webinars_' ),
+        'name'        => __( 'Date', 'webinars_' ),
         'id'          => $prefix . 'starttime',
-        'type'        => 'datetime',
+        'type'        => 'date',
         'timestamp'   => false,
         // jQuery datetime picker options.
         // For date options, see here http://api.jqueryui.com/datepicker
         // For time options, see here http://trentrichardson.com/examples/timepicker/
-        'js_options'  => array(
-          'timeFormat'      => 'hh:mm TT',
-          'stepMinute'      => 15,
-          'showTimepicker'  => true,
-        ),
-      ),
-      // DATETIME
-      array(
-        'name'        => __( 'End Date and Time', 'webinars_' ),
-        'id'          => $prefix . 'endtime',
-        'type'        => 'datetime',
-        'timestamp'   => true,
-        // jQuery datetime picker options.
-        // For date options, see here http://api.jqueryui.com/datepicker
-        // For time options, see here http://trentrichardson.com/examples/timepicker/
-        'js_options'  => array(
-          'timeFormat'      => 'hh:mm TT',
-          'stepMinute'      => 15,
-          'showTimepicker'  => true,
+        'js_options' => array(
+          'numberOfMonths'  => 2,
+          'showButtonPanel' => true,
         ),
       ),      
       // TEXT
       array(
         'name'  => __( 'Display Date and Time', 'webinars_' ),
         'id'    => "{$prefix}displaydate",
-        'desc' => __( 'Example: January 1, 2pm PT', 'webinars_' ),
+        'desc' => __( 'Example: Monday, January 1, 1:00 pm - 2:00 pm PT', 'webinars_' ),
         'type'  => 'text',
         'clone' => false,
       ),      
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Registration', 'webinars_' ),
+        'name' => __( 'Marketo Forms', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
       array(
         'name'  => __( 'Registration Form ID', 'webinars_' ),
-        'id'    => "{$prefix}marketo",
+        'id'    => "{$prefix}marketo_registration",
         'desc' => __( 'Example: 1234', 'webinars_' ),
         'type'  => 'text',
         'clone' => false,
@@ -182,25 +175,67 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       // TEXT
       array(
         'name'  => __( 'On Demand Form ID', 'webinars_' ),
-        'id'    => "{$prefix}marketo",
+        'id'    => "{$prefix}marketo_on_demand",
         'desc' => __( 'Example: 1234', 'webinars_' ),
         'type'  => 'text',
         'clone' => false,
-      ),      
+      ),
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Additional Options', 'webinars_' ),
+        'name' => __( 'Downloadable Assets', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
       array(
-        'name'  => __( 'Additional CTA Button', 'webinars_' ),
-        'id'    => "{$prefix}cta_button",
-        'desc' => __( 'Adds a CTA button to the hero. Keep it short.', 'webinars_' ),
+        'name'  => __( 'Asset Title', 'webinars_' ),
+        'id'    => "{$prefix}asset_title",
         'type'  => 'text',
-        'clone' => true,
-      ),    
+        'clone' => false,
+      ),      
+      // TEXTAREA
+      array(
+        'name' => esc_html__( 'Asset Description', 'webinars_' ),
+        'id'   => "{$prefix}asset_description",
+        'type' => 'textarea',
+        'cols' => 20,
+        'rows' => 3,
+      ),
+      // IMAGE ADVANCED (WP 3.5+)
+      array(
+        'name'             => __( 'Asset Image', 'webinars_' ),
+        'id'               => "{$prefix}asset_image",
+        'type'             => 'image_advanced',
+        'max_file_uploads' => 1,
+      ),
+      // URL
+      array(
+        'name' => esc_html__( 'Asset Link', 'webinars_' ),
+        'id'   => "{$prefix}asset_link",
+        'desc' => esc_html__( 'Include http:// or https://', 'webinars_' ),
+        'type' => 'url',
+      ),
+      // URL
+      array(
+        'name' => esc_html__( 'Slide Deck Link', 'webinars_' ),
+        'id'   => "{$prefix}asset_slide_deck",
+        'desc' => esc_html__( 'Include http:// or https://', 'webinars_' ),
+        'type' => 'url',
+      ),      
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Webinar Video', 'webinars_' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'YouTube ID', 'webinars_' ),
+        'id'    => "{$prefix}video",
+        'desc' => __( 'DO NOT INCLUDE THE https://youtu.be/', 'webinars_' ),
+        'type'  => 'text',
+        'clone' => false,
+      ),   
     )
   );
 

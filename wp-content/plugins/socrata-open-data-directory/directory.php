@@ -632,7 +632,7 @@ function op_directory($atts, $content = null) {
         <div class="directory">
           <div class="col-sm-3 left">
 
-            <button onclick="FWP.reset()" class="btn btn-primary">Clear All Filters</button>
+            <button onclick="FWP.reset()" class="btn btn-primary btn-block">Clear All Filters</button>
             <div class="filters margin-bottom-15">
               <button type="button" data-toggle="collapse" data-target="#segments">Segment</button> 
               <div id="segments" class="collapse in">
@@ -649,7 +649,7 @@ function op_directory($atts, $content = null) {
                 <?php echo do_shortcode('[facetwp facet="directory_population"]') ;?>
               </div>
             </div>
-            <p><a data-toggle="modal" data-target="#suggest" class="btn btn-primary">Suggest a Site</a></p>
+            <p><a data-toggle="modal" data-target="#suggest" class="btn btn-primary btn-block">Suggest a Site</a></p>
 
           </div>
           <div class="col-sm-9 right">
