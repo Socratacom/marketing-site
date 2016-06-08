@@ -43,18 +43,27 @@ $asset_image = rwmb_meta( 'webinars_asset_image', 'size=medium' );
 						<div class="col-sm-12">							
 							<h2 class="text-center margin-bottom-60">You may also like this additional download</h2>
 						</div>
-						<div class="col-sm-5 col-md-4 col-sm-offset-2 col-md-offset-3">
-							<h4 class="margin-bottom-15"><?php echo $asset_title;?></h4>
-							<div class="margin-bottom-30"><?php echo $asset_description;?></div>
-							<p><a href="<?php echo $asset_link;?>" target="_blank" class="btn btn-primary btn-lg">Download</a></p>
-						</div>
-						<div class="col-sm-3 col-md-2 hidden-xs text-center">
-						<?php if ( !empty( $asset_image ) ) {
-							foreach ( $asset_image as $image ) {
-							echo "<img src='{$image['url']}' class='img-responsive' />";
-							}
-						} ;?>
-						</div>
+						<?php if ( !empty( $asset_image ) ) { ?>
+							<div class="col-sm-5 col-md-4 col-sm-offset-2 col-md-offset-3">
+								<h4 class="margin-bottom-15"><?php echo $asset_title;?></h4>
+								<div class="margin-bottom-30"><?php echo $asset_description;?></div>
+								<p><a href="<?php echo $asset_link;?>" target="_blank" class="btn btn-primary btn-lg">Download</a></p>
+							</div>
+							<div class="col-sm-3 col-md-2 hidden-xs text-center">
+							<?php foreach ( $asset_image as $image ) {
+								echo "<img src='{$image['url']}' class='img-responsive' />"; 
+							} ;?>
+							</div>
+							<?php }
+							else { ?>
+								<div class="col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+									<h4 class="margin-bottom-15"><?php echo $asset_title;?></h4>
+									<div class="margin-bottom-30"><?php echo $asset_description;?></div>
+									<p><a href="<?php echo $asset_link;?>" target="_blank" class="btn btn-primary btn-lg">Download</a></p>
+								</div>
+							<?php } 
+						;?>
+						
 					</div>
 				</div>
 			</section>
