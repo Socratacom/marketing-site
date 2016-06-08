@@ -1,25 +1,14 @@
-<div class="container page-padding">
-  <div class="row">   
-    <div class="col-sm-12">
-      <?php while (have_posts()) : the_post(); ?>
-      <article <?php post_class(); ?>>
-        <div class="video-container">
-          <div id="ytplayer"></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-10 col-sm-offset-1">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            <div class="marketo-share">
-              <?php echo do_shortcode( '[marketo-share]' ); ?>
-            </div>
-            <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
-          </div>
-        </div>
-      </article>      
-      <?php endwhile; ?>
+<section class="background-black">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+    <div class="embed-responsive embed-responsive-16by9">
+      <div id="ytplayer"></div>
+    </div>        
+      </div>
     </div>
-  </div>    
-</div>  
+  </div>
+</section>
 <script>
  // Load the IFrame Player API code asynchronously.
     setTimeout(function() {
@@ -45,3 +34,19 @@
         }); 
     }
 </script>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="padding-bottom-30 margin-bottom-30" style="border-bottom:#ebebeb solid 1px;">
+          <div class="social-sharing-mini"><?php echo do_shortcode('[marketo-share]');?></div>
+        </div>
+        <h1><?php the_title(); ?></h1>
+        <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+      </div>
+      <div class="col-sm-4 hidden-xs">
+        <?php echo do_shortcode('[newsletter-sidebar]'); ?>   
+      </div>
+    </div>
+  </div>
+</section>

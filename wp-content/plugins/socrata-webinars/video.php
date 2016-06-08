@@ -29,12 +29,37 @@ $speakers = rwmb_meta( 'webinars_speakers' );
 				    <div class="row">
 				      <div class="col-sm-12">
 						<div class="embed-responsive embed-responsive-16by9">
-						  <iframe src="https://www.youtube.com/embed/<?php echo $video;?>? rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+						  <div id="ytplayer"></div>
 						</div>        
 				      </div>
 				    </div>
 				  </div>
 				</section>
+				<script>
+				 // Load the IFrame Player API code asynchronously.
+				    setTimeout(function() {
+				        player.playVideo();
+				    }, 3000);
+				      var tag = document.createElement('script');
+				      tag.src = "https://www.youtube.com/player_api";
+				      var firstScriptTag = document.getElementsByTagName('script')[0];
+				      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+				  // Replace the 'ytplayer' element with an <iframe> and
+				  // YouTube player after the API code downloads.
+				    var player;
+				    function onYouTubePlayerAPIReady() {    
+				        player = new YT.Player('ytplayer', {
+				          height: '480',
+				          width: '853',
+				          videoId: <?php echo "'$video'"; ?>,
+				          playerVars: {
+				                 'rel' : 0,
+				                 'showinfo' : 0,
+				          }
+				        }); 
+				    }
+				</script>
 				<section class="section-padding">
 					<div class="container">
 						<div class="row">

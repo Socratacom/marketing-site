@@ -185,6 +185,9 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         "{$prefix}endtime" => array(
             'required'  => true,
         ),
+        "{$prefix}starttime" => array(
+            'required'  => true,
+        ),
       ),
     ),
     'fields' => array(
@@ -322,6 +325,12 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type'  => 'text',
         'clone' => false,
       ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Event Website', 'socrata-events' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
       // URL
       array(
         'name' => __( 'Event URL', 'socrata-events' ),
@@ -339,7 +348,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Registration', 'socrata-events' ),
+        'name' => __( 'Registration Form', 'socrata-events' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
