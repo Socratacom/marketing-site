@@ -191,41 +191,33 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'name' => __( 'Event Date and Time', 'socrata-events' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
-      // DATETIME
+      // DATE
       array(
-        'name'        => __( 'Start Date and Time', 'socrata-events' ),
+        'name'        => __( 'Start Date', 'socrata-events' ),
         'id'          => $prefix . 'starttime',
-        'type'        => 'datetime',
-        'timestamp'   => true,
-        // jQuery datetime picker options.
-        // For date options, see here http://api.jqueryui.com/datepicker
-        // For time options, see here http://trentrichardson.com/examples/timepicker/
-        'js_options'  => array(
-          'timeFormat'      => 'hh:mm TT',
-          'stepMinute'      => 15,
-          'showTimepicker'  => true,
+        'type'        => 'date',
+        'timestamp'   => true,        
+        'js_options' => array(
+          'numberOfMonths'  => 2,
+          'showButtonPanel' => false,
         ),
       ),
-      // DATETIME
+      // DATE
       array(
-        'name'        => __( 'End Date and Time', 'socrata-events' ),
+        'name'        => __( 'End Date', 'socrata-events' ),
         'id'          => $prefix . 'endtime',
-        'type'        => 'datetime',
-        'timestamp'   => true,
-        // jQuery datetime picker options.
-        // For date options, see here http://api.jqueryui.com/datepicker
-        // For time options, see here http://trentrichardson.com/examples/timepicker/
-        'js_options'  => array(
-          'timeFormat'      => 'hh:mm TT',
-          'stepMinute'      => 15,
-          'showTimepicker'  => true,
+        'type'        => 'date',
+        'timestamp'   => true,        
+        'js_options' => array(
+          'numberOfMonths'  => 2,
+          'showButtonPanel' => true,
         ),
       ),      
       // TEXT
       array(
         'name'  => __( 'Display Date and Time', 'socrata-events' ),
         'id'    => "{$prefix}displaydate",
-        'desc' => __( 'Example: January 1, 2pm PT', 'socrata-events' ),
+        'desc' => __( 'Example: January 1, 1:00 pm - 2:00 pm PT', 'socrata-events' ),
         'type'  => 'text',
         'clone' => false,
       ),

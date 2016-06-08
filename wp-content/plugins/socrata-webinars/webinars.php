@@ -142,9 +142,6 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
         'id'          => $prefix . 'starttime',
         'type'        => 'date',
         'timestamp'   => false,
-        // jQuery datetime picker options.
-        // For date options, see here http://api.jqueryui.com/datepicker
-        // For time options, see here http://trentrichardson.com/examples/timepicker/
         'js_options' => array(
           'numberOfMonths'  => 2,
           'showButtonPanel' => true,
