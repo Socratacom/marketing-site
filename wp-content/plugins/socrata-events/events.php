@@ -182,6 +182,9 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         "{$prefix}displaydate" => array(
             'required'  => true,
         ),
+        "{$prefix}endtime" => array(
+            'required'  => true,
+        ),
       ),
     ),
     'fields' => array(
