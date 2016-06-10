@@ -1125,37 +1125,6 @@ body {
             margin-right:-4px;
         }
     }
-
-
-
-    .filterbar {
-        width:100%;
-        .filter-row {
-            display: block;
-            padding:5px 0;
-        }
-        .no-padding {
-            padding:0;
-        }
-    }
-
-    ul.settings-bar {
-        list-style-type: none;
-        margin:15px 0;
-        padding:15px 0;
-        display: table;
-        width:100%;
-        border-top:$light-grey-4 solid 1px;
-        li {
-            display: table-cell;
-            vertical-align: middle;
-            font-size: 14px;
-
-        }
-        li:last-child {
-            text-align: right;
-        }
-    }
 }
 
 /* Extra Small Devices, Phones */ 

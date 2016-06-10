@@ -472,31 +472,23 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 function events_posts($atts, $content = null) {
   ob_start();
   ?>
+<section class="filter-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <ul>
+          <li><?php echo do_shortcode('[facetwp facet="event_categories"]') ;?></li>
+          <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="top" class="section-padding">
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
-        <div class="filterbar margin-bottom-30">
-          <div class="filter-row float-left hidden-xs">
-            
-          </div>
-          <div class="filter-row float-right no-padding">
-            <label class="hidden-xs hidden-sm">Filter by</label>
-            <?php echo do_shortcode('[facetwp facet="event_categories"]') ;?>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <?php echo do_shortcode('[facetwp template="events"]') ;?>
-        <ul class="settings-bar">
-          <li>
-            <label class="hidden-xs">Display settings</label>
-            <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
-          </li>
-          <li>
-            <label class="hidden-xs">Showing</label>
-            <?php echo do_shortcode('[facetwp counts="true"]') ;?>
-          </li>
-        </ul>
+        <?php echo do_shortcode('[facetwp template="events"]') ;?>        
       </div>
       <div class="col-sm-4 hidden-xs events-sidebar">
         <div class="alert alert-info margin-bottom-30">
@@ -580,6 +572,25 @@ function events_posts($atts, $content = null) {
       </div>
     </div>
   </div>
+</section>
+<section class="settings-bar">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <ul>
+          <li>
+            <label>Display settings</label>
+            <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
+          </li>
+          <li>
+            <label>Showing</label>
+            <?php echo do_shortcode('[facetwp counts="true"]') ;?>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 </section>
 <script>
 (function($) {
