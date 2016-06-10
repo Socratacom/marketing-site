@@ -618,3 +618,55 @@ function hero_zoom ($atts, $content = null) {
   return $content;
 }
 add_shortcode('hero-zoom', __NAMESPACE__ . '\\hero_zoom');
+
+
+
+
+/**
+ * Add Load more results pagination to FacetWP
+ */
+function fwp_load_more() {
+?>
+<script>
+(function($) {
+    $(function() {
+        if ('object' != typeof FWP) {
+            return;
+        }
+
+        wp.hooks.addFilter('facetwp/template_html', function(resp, params) {
+            if (FWP.is_load_more) {
+                FWP.is_load_more = false;
+                $('.facetwp-template').append(params.html);
+                return true;
+            }
+            return resp;
+        });
+
+        $(document).on('click', '.fwp-load-more', function() {
+            $('.fwp-load-more').html('Loading...');
+            FWP.is_load_more = true;
+            FWP.paged = parseInt(FWP.settings.pager.page) + 1;
+            FWP.soft_refresh = true;
+            FWP.refresh();
+        });
+
+        $(document).on('facetwp-loaded', function() {
+            if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
+                if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
+                    $('.facetwp-template').after('<div class="text-center padding-30"><button class="fwp-load-more btn btn-default">Show more results</button></div>');
+                }
+                else {
+                    $('.fwp-load-more').html('Show more results').show();
+                }
+            }
+            else {
+                $('.fwp-load-more').hide();
+            }
+        });
+    });
+})(jQuery);
+</script>
+<?php
+}
+add_action( 'wp_head', __NAMESPACE__ . '\\fwp_load_more', 99 );
