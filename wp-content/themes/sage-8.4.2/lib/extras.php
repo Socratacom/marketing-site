@@ -151,11 +151,7 @@ function product_the_categories() {
   for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
 
-/**
- * Remove FacetWP dropdown counts
- */
 
-add_filter( 'facetwp_facet_dropdown_show_counts', __NAMESPACE__ . '\\__return_false' );
 
 /** SHORTCODES **/
 
