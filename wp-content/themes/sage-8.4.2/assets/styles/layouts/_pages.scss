@@ -1103,7 +1103,6 @@
 
 .sixteen-nine {
   @include aspect-ratio(16, 9);
-  margin-bottom:15px;
   .link {
   	position: absolute;
   	top:0;

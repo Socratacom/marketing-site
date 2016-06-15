@@ -71,7 +71,13 @@ function create_news_taxonomies() {
     'hierarchical' => true,
     'sort' => true,      
     'args' => array( 'orderby' => 'term_order' ),
-    'show_admin_column' => true,
+    'show_admin_column' => true,    
+    'capabilities'=>array(
+      'manage_terms' => 'manage_options',//or some other capability your clients don't have
+      'edit_terms' => 'manage_options',
+      'delete_terms' => 'manage_options',
+      'assign_terms' =>'edit_posts'
+    ),
     'rewrite' => array('with_front' => false, 'slug' => 'newsroom')
     )
   );
@@ -208,79 +214,183 @@ function news_register_meta_boxes( $meta_boxes )
 function newsroom_posts($atts, $content = null) {
   ob_start();
   ?>
-  <section class="section-padding">
+
+<?php
+  $args = array(
+  'post_type'             => 'news',
+  'meta_query' => array(
+    array(
+        'key' => 'news_featured',
+        'value' => '1'
+    )
+  ),
+  'posts_per_page'        => 3,
+  'post_status'           => 'publish',
+  );
+
+  // The Query
+  $the_query = new WP_Query( $args );
+
+// The Loop
+if ( $the_query->have_posts() ) { ?>
+  <section class="section-padding hidden-xs">
     <div class="container">
       <div class="row">
-        <div class="col-sm-8">
-          <h3>Featured Articles</h3>
-          <div class="row">
-          <?php
-          $args1 = array(
-            'post_type' => 'news',
-            'meta_query' => array(
-              array(
-                  'key' => 'news_featured',
-                  'value' => '1'
-              )
-            ),
-            'posts_per_page' => 3
-          );
-          $query1 = new WP_Query( $args1 );
+        <div class="col-sm-12">
+          <h2 class="text-center margin-bottom-60">Featured articles</h2>
+        </div>
+      </div>
+    <div class="row row-centered">
+    <?php
+    while ( $the_query->have_posts() ) {
+      $the_query->the_post();
+      $logo = rwmb_meta( 'news_logo', 'size=medium' );
+      $link = rwmb_meta( 'news_url' );
+      $source = rwmb_meta( 'news_source' );
+      $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
+      $url = $thumb['0']; { ?>
 
-          // The Loop
-          while ( $query1->have_posts() ) {
-            $query1->the_post();
-            $logo = rwmb_meta( 'news_logo', 'size=medium' );
-            $link = rwmb_meta( 'news_url' );
-            $source = rwmb_meta( 'news_source' );
-            $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail-small' ); $url = $thumb['0'];
-            $do_not_duplicate[] = get_the_ID(); { ?>
-
-          <?php if ( ! empty( $logo ) ) { ?>
-            <div class="col-sm-4">      
+        <?php if ( ! empty( $logo ) ) { ?> 
+          <div class="col-sm-4 col-centered">
+            <div class="thumbnail">
               <div class="sixteen-nine">
                 <div class="aspect-content logo-background" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>);"></div>
                 <a href="<?php echo $link;?>" target="_blank" class="link"></a>
               </div>
-              <p class="margin-bottom-0 color-secondary text-uppercase text-semi-bold"><small><?php news_the_categories(); ?></small></p>
-              <h4 class="margin-bottom-5"><a href="<?php echo $link;?>" target="_blank" class="color-black"><?php the_title(); ?></a></h4>
-              <p class="margin-bottom-0"><small><?php echo $source;?> | <?php the_time('F j, Y') ?></small></p>      
-            </div>
-            <?php
-            }
-          else { ?>
-            <div class="col-sm-4">
-              <div class="sixteen-nine">
-                <div class="aspect-content post-background" style="background-image:url(<?php echo $url;?>);"></div>
-                <a href="<?php the_permalink() ?>" class="link"></a>
+              <div class="caption">
+                <p class="margin-bottom-0 color-secondary text-uppercase text-semi-bold"><small><?php news_the_categories(); ?></small></p>
+                <h4 class="margin-bottom-5"><a href="<?php echo $link;?>" target="_blank" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
+                <p class="margin-bottom-5"><small><?php echo $source;?> | <?php the_time('F j, Y') ?></small></p>
+                <p class="margin-bottom-0"><a href="<?php echo $link;?>" target="_blank">Read article <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
               </div>
-              <p class="margin-bottom-0 color-secondary text-uppercase text-semi-bold"><small><?php news_the_categories(); ?></small></p>
-              <h4 class="margin-bottom-5"><a href="<?php the_permalink() ?>" class="color-black"><?php the_title(); ?></a></h4>
-              <p class="margin-bottom-0"><small><?php the_time('F j, Y') ?></small></p>
             </div>
-          <?php
-            
-          } ?>
-          <?php
-          };
-        }
-        wp_reset_postdata();
+          </div>
+
+          <?php } else { ?> 
+
+          <div class="col-sm-4 col-centered">
+            <div class="thumbnail">
+              <?php
+                if ( ! empty( $thumb ) ) { ?>
+                  <a href="<?php the_permalink() ?>"><img src="<?php echo $url;?>" class="img-responsive" /></a>
+                  <?php
+                }     
+                else { ?>
+                  <a href="<?php the_permalink() ?>"><img src="/wp-content/uploads/no-image.png" class="img-responsive" /></a>
+                  <?php
+                }
+              ?>
+              <div class="caption">
+                <p class="margin-bottom-0 color-secondary text-uppercase text-semi-bold"><small><?php news_the_categories(); ?></small></p>
+                <h4 class="margin-bottom-5"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
+                <p class="margin-bottom-5"><small><?php the_time('F j, Y') ?></small></p>
+                <p class="margin-bottom-0"><a href="<?php the_permalink(); ?>">Learn more <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
+              </div>
+            </div>
+          </div>
+
+          <?php } 
         ?>
+      <?php }
+    } ?>
+    
+    </div>
+    </div>
+    </section>
+
+    <?php
+  } 
+  else {
+  // no posts found
+  }
+  /* Restore original Post Data */
+  wp_reset_postdata(); 
+?>
+  <section class="filter-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul>
+            <li><?php echo do_shortcode('[facetwp facet="newsroom_categories"]') ;?></li>
+            <li class="hidden-xs"><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
+          </ul>
+        </div>
       </div>
-      <hr>
-      <h3>Recent Articles</h3>
-      <?php echo do_shortcode('[facetwp template="newsroom"]') ;?>
-      <?php echo do_shortcode('[facetwp pager="true"]') ;?>
+    </div>
+  </section>
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <?php echo do_shortcode('[facetwp template="newsroom"]') ;?>
         </div>
         <div class="col-sm-4">
           <div class="alert alert-info margin-bottom-30">
             <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a>
           </div>            
           <?php echo do_shortcode('[newsletter-sidebar]'); ?>
+
+          <?php
+          $args = array(
+          'post_type'         => 'post',
+          'order'             => 'desc',
+          'posts_per_page'    => 3,
+          'post_status'       => 'publish',
+          );
+
+          // The Query
+          $the_query = new WP_Query( $args );
+
+          // The Loop
+          if ( $the_query->have_posts() ) {
+          echo '<ul class="no-bullets sidebar-list">';
+          echo '<li><h5>Recent Articles</h5></li>';
+          while ( $the_query->have_posts() ) {
+          $the_query->the_post(); { ?> 
+
+          <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
+          <li>
+            <div class="article-img-container">
+              <img src="<?=$url?>" class="img-responsive">
+            </div>
+            <div class="article-title-container">
+              <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+            </div>
+          </li>
+
+          <?php }
+          }
+          echo '<li><a href="/blog">View Blog <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+          echo '</ul>';
+          } else {
+          // no posts found
+          }
+          /* Restore original Post Data */
+          wp_reset_postdata(); ?>
+
         </div>
       </div>
     </div>
   </section>
+  <section class="settings-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ul>
+            <li>
+              <label>Display settings</label>
+              <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
+            </li>
+            <li>
+              <label>Showing</label>
+              <?php echo do_shortcode('[facetwp counts="true"]') ;?>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
 
 
   <?php
