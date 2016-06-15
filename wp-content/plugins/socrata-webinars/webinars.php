@@ -459,8 +459,15 @@ wp_reset_postdata(); ?>
 
 
 
-
-
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+<h2 class="text-center margin-bottom-0">All Webinars</h2>
+</div>
+</div>
+</div>
+</section>
   <section class="filter-bar">
     <div class="container">
       <div class="row">
