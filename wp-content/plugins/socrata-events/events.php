@@ -206,7 +206,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'timestamp'   => true,        
         'js_options' => array(
           'numberOfMonths'  => 2,
-          'showButtonPanel' => false,
+          'showButtonPanel' => true,
         ),
       ),
       // DATE
@@ -233,21 +233,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type' => 'heading',
         'name' => __( 'Event Location', 'socrata-events' ),
         'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Location Name', 'socrata-events' ),
-        'id'    => "{$prefix}location",
-        'desc' => __( 'Example: Hometown Pub', 'socrata-events' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Street Address', 'socrata-events' ),
-        'id'    => "{$prefix}address",
-        'type'  => 'text',
-        'clone' => false,
       ),
       // TEXT
       array(
@@ -319,13 +304,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'placeholder' => __( 'Select a State', 'socrata-events' ),
         'desc' => __( 'Required', 'socrata-events' ),
       ),
-      // TEXT
-      array(
-        'name'  => __( 'Zip', 'socrata-events' ),
-        'id'    => "{$prefix}zip",
-        'type'  => 'text',
-        'clone' => false,
-      ),
       // HEADING
       array(
         'type' => 'heading',
@@ -339,13 +317,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'desc' => __( 'For non-Socrata events. Example: http://somesite.com', 'socrata-events' ),
         'type' => 'url',
       ),
-      // URL
-      /*array(
-        'name'  => __( 'Google Map Link', 'socrata-events' ),
-        'id'    => "{$prefix}directions",
-        'desc' => __( 'Link for Directions', 'socrata-events' ),
-        'type'  => 'url',
-      ),*/
       // HEADING
       array(
         'type' => 'heading',
@@ -359,20 +330,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'desc' => __( 'Example: 1234', 'socrata-events' ),
         'type'  => 'text',
         'clone' => false,
-      ),      
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Additional Options', 'webinars_' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Additional CTA Button', 'socrata-events' ),
-        'id'    => "{$prefix}cta_button",
-        'desc' => __( 'Adds a CTA button to the hero. Keep it short.', 'socrata-events' ),
-        'type'  => 'text',
-        'clone' => true,
       ),
     )
   );
@@ -405,19 +362,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
     'context'       => 'normal',
     'priority'      => 'high',
       'fields' => array(
-         // HEADING
-        array(
-          'type' => 'heading',
-          'name' => __( 'Speaker Section', 'socrata-events' ),
-          'id'   => 'fake_id', // Not used but needed for plugin
-        ),
-        // TEXT
-        array(
-          'name'  => __( 'Custom Section Title', 'socrata-events' ),
-          'id'    => "{$prefix}section_title",
-          'desc' => __( 'Optional. The default is Speakers.' ),
-          'type'  => 'text',
-        ),
         // HEADING
         array(
           'type' => 'heading',

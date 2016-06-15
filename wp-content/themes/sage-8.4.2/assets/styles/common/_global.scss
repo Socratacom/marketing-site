@@ -21,11 +21,11 @@ body {
 // Custom Icons
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?d87r12');
-    src:    url('../fonts/icomoon.eot?d87r12#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?d87r12') format('truetype'),
-        url('../fonts/icomoon.woff?d87r12') format('woff'),
-        url('../fonts/icomoon.svg?d87r12#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?le1n1t');
+    src:    url('../fonts/icomoon.eot?le1n1t#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?le1n1t') format('truetype'),
+        url('../fonts/icomoon.woff?le1n1t') format('woff'),
+        url('../fonts/icomoon.svg?le1n1t#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -45,6 +45,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-calendar:before {
+    content: "\e91b";
+}
 .icon-webinar:before {
     content: "\e91a";
 }

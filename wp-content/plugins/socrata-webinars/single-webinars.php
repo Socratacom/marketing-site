@@ -204,7 +204,7 @@ $video = rwmb_meta( 'webinars_video' );
 	if($date <= $today) { ?>
 		<?php
 			if ( ! empty( $video ) ) { ?>
-				<section class="section-padding background-light-grey-5">
+				<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5 col-sm-offset-1">
@@ -219,7 +219,7 @@ $video = rwmb_meta( 'webinars_video' );
 				</section>
 			<?php }
 			else { ?> 
-				<section class="section-padding background-light-grey-5">
+				<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5 col-sm-offset-1">
@@ -238,7 +238,7 @@ $video = rwmb_meta( 'webinars_video' );
 ;?>
 <?php 
 	if($date > $today) { ?>
-		<section class="section-padding background-light-grey-5">
+		<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-5 col-sm-offset-1">
