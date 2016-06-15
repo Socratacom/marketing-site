@@ -9,7 +9,7 @@ $asset_image = rwmb_meta( 'webinars_asset_image', 'size=medium' );
 ?>
 
 <?php 
-	if($date <= $today) { ?>
+	if($date < $today) { ?>
 		<section class="section-padding">
 			<div class="container">
 				<div class="row">
@@ -23,7 +23,7 @@ $asset_image = rwmb_meta( 'webinars_asset_image', 'size=medium' );
 ;?>
 
 <?php 
-	if($date > $today) { ?>
+	if($date >= $today) { ?>
 		<section class="section-padding">
 			<div class="container">
 				<div class="row">
@@ -89,11 +89,11 @@ $asset_image = rwmb_meta( 'webinars_asset_image', 'size=medium' );
 		$related_items = new WP_Query( $args );
 		// loop over query
 		if ($related_items->have_posts()) : { ?>
-		<section class="section-padding background-light-grey-5">
+		<section class="section-padding background-light-grey-4">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<h2 class="text-center margin-bottom-60">Other related webinars</h2>
+						<h2 class="text-center margin-bottom-60">Related webinars</h2>
 					</div>
 				</div>
 				<div class="row row-centered">
@@ -107,11 +107,21 @@ $asset_image = rwmb_meta( 'webinars_asset_image', 'size=medium' );
 					?>				   
 					  <div class="col-md-4 col-centered">
 					    <div class="thumbnail">
-					      <a href="<?php the_permalink(); ?>"><img src="<?php echo $url;?>" alt="..."></a>
+				          <?php
+				            if ( ! empty( $thumb ) ) { ?>
+				              <a href="<?php the_permalink() ?>"><img src="<?php echo $url;?>" class="img-responsive" /></a>
+				              <?php
+				            }     
+				            else { ?>
+				              <a href="<?php the_permalink() ?>"><img src="/wp-content/uploads/no-image.png" class="img-responsive" /></a>
+				              <?php
+				            }
+				          ?>
 					      <div class="caption">
 					      	<?php if($date > $today) echo "<p class='margin-bottom-0 color-secondary text-uppercase text-semi-bold'><small>Upcoming Webinar</small></p>" ;?>
 					      	<?php if($date <= $today) echo "<p class='margin-bottom-0 color-secondary text-uppercase text-semi-bold'><small>On Demand Webinar</small></p>" ;?>
-					        <h4 class="margin-bottom-0"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
+					        <h4 class="margin-bottom-15"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
+					        <p class="margin-bottom-0"><a href="<?php the_permalink(); ?>">Learn more <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
 					      </div>
 					    </div>
 					  </div>

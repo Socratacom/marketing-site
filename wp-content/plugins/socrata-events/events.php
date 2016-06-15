@@ -484,7 +484,7 @@ function events_posts($atts, $content = null) {
     </div>
   </div>
 </section>
-<section id="top" class="section-padding">
+<section class="section-padding">
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
@@ -591,14 +591,7 @@ function events_posts($atts, $content = null) {
     </div>
   </div>
 </section>
-</section>
-<script>
-(function($) {
-    $(function() {
-        FWP.loading_handler = function() { }
-    });
-})(jQuery);
-</script>
+<script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
   <?php
   $content = ob_get_contents();
   ob_end_clean();

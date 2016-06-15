@@ -91,7 +91,12 @@ function shared_segment() {
       'hierarchical' => true,
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
+      'show_admin_column' => false,
+      'capabilities'=>array(
+        'manage_terms' => 'manage_options',//or some other capability your clients don't have
+        'edit_terms' => 'manage_options',
+        'delete_terms' => 'manage_options',
+        'assign_terms' =>'edit_posts'),
       'rewrite' => array('with_front' => false, 'slug' => 'segment'),
     )
   );
@@ -114,11 +119,43 @@ function shared_product() {
       'hierarchical' => true,
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
+      'show_admin_column' => false,
+      'capabilities'=>array(
+        'manage_terms' => 'manage_options',//or some other capability your clients don't have
+        'edit_terms' => 'manage_options',
+        'delete_terms' => 'manage_options',
+        'assign_terms' =>'edit_posts'),
       'rewrite' => array('with_front' => false, 'slug' => 'product'),
     )
   );
 }
+
+// PRINT TAXONOMY CATEGORIES
+function segment_the_categories() {
+  // get all categories for this post
+  global $terms;
+  $terms = get_the_terms($post->ID , 'segment');
+  // echo the first category
+  echo $terms[0]->name;
+  // echo the remaining categories, appending separator
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
+function product_the_categories() {
+  // get all categories for this post
+  global $terms;
+  $terms = get_the_terms($post->ID , 'product');
+  // echo the first category
+  echo $terms[0]->name;
+  // echo the remaining categories, appending separator
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
+/**
+ * Remove FacetWP dropdown counts
+ */
+
+add_filter( 'facetwp_facet_dropdown_show_counts', __NAMESPACE__ . '\\__return_false' );
 
 /** SHORTCODES **/
 

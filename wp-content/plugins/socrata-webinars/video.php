@@ -65,6 +65,7 @@ $speakers = rwmb_meta( 'webinars_speakers' );
 						<div class="row">
 							<div class="col-sm-8">
 								<h1><?php the_title(); ?></h1>
+								<?php if ( ! empty( $segments ) ) { ?> fuck <?php } ?>
 								<?php echo rwmb_meta( 'webinars_wysiwyg' );?>
 								<?php if ( ! empty( $speakers ) ) { ?>
 									<hr>
@@ -154,38 +155,48 @@ $speakers = rwmb_meta( 'webinars_speakers' );
 				$related_items = new WP_Query( $args );
 				// loop over query
 				if ($related_items->have_posts()) : { ?>
-				<section class="section-padding background-light-grey-5">
-					<div class="container">
-						<div class="row">
-							<div class="col-sm-12">
-								<h2 class="text-center margin-bottom-60">Other related webinars</h2>
-							</div>
-						</div>
-						<div class="row row-centered">
-							<?php
-							}
-							while ( $related_items->have_posts() ) : $related_items->the_post();
-							$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
-							$url = $thumb['0'];
-							$today = strtotime('today UTC');
-							$date = strtotime(rwmb_meta( 'webinars_starttime' ));
-							?>				   
-							  <div class="col-md-4 col-centered">
-							    <div class="thumbnail">
-							      <a href="<?php the_permalink(); ?>"><img src="<?php echo $url;?>" alt="..."></a>
-							      <div class="caption">
-							      	<?php if($date > $today) echo "<p class='margin-bottom-0 color-secondary text-uppercase text-semi-bold'><small>Upcoming Webinar</small></p>" ;?>
-							      	<?php if($date <= $today) echo "<p class='margin-bottom-0 color-secondary text-uppercase text-semi-bold'><small>On Demand Webinar</small></p>" ;?>
-							        <h4 class="margin-bottom-0"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
-							      </div>
-							    </div>
-							  </div>
-								<?php
-								endwhile; { ?>			
-							</div>
-						</div>
-					</div> 
-				</section>
+				<section class="section-padding background-light-grey-4">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<h2 class="text-center margin-bottom-60">Related webinars</h2>
+					</div>
+				</div>
+				<div class="row row-centered">
+					<?php
+					}
+					while ( $related_items->have_posts() ) : $related_items->the_post();
+					$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
+					$url = $thumb['0'];
+					$today = strtotime('today UTC');
+					$date = strtotime(rwmb_meta( 'webinars_starttime' ));
+					?>				   
+					  <div class="col-md-4 col-centered">
+					    <div class="thumbnail">
+				          <?php
+				            if ( ! empty( $thumb ) ) { ?>
+				              <a href="<?php the_permalink() ?>"><img src="<?php echo $url;?>" class="img-responsive" /></a>
+				              <?php
+				            }     
+				            else { ?>
+				              <a href="<?php the_permalink() ?>"><img src="/wp-content/uploads/no-image.png" class="img-responsive" /></a>
+				              <?php
+				            }
+				          ?>
+					      <div class="caption">
+					      	<?php if($date > $today) echo "<p class='margin-bottom-0 color-secondary text-uppercase text-semi-bold'><small>Upcoming Webinar</small></p>" ;?>
+					      	<?php if($date <= $today) echo "<p class='margin-bottom-0 color-secondary text-uppercase text-semi-bold'><small>On Demand Webinar</small></p>" ;?>
+					        <h4 class="margin-bottom-15"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
+					        <p class="margin-bottom-0"><a href="<?php the_permalink(); ?>">Learn more <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
+					      </div>
+					    </div>
+					  </div>
+						<?php
+						endwhile; { ?>			
+					</div>
+				</div>
+			</div> 
+		</section>
 				<?php 
 				}
 				endif;

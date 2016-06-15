@@ -21,11 +21,11 @@ body {
 // Custom Icons
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?yuzhzd');
-    src:    url('../fonts/icomoon.eot?yuzhzd#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?yuzhzd') format('truetype'),
-        url('../fonts/icomoon.woff?yuzhzd') format('woff'),
-        url('../fonts/icomoon.svg?yuzhzd#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?d87r12');
+    src:    url('../fonts/icomoon.eot?d87r12#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?d87r12') format('truetype'),
+        url('../fonts/icomoon.woff?d87r12') format('woff'),
+        url('../fonts/icomoon.svg?d87r12#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -45,6 +45,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-webinar:before {
+    content: "\e91a";
+}
 .icon-thumb-up:before {
     content: "\e919";
 }
@@ -2580,14 +2583,13 @@ body.lb-disable-scrolling {
 
 .thumbnail {
     padding: 0;
-    border: 1px solid $light-grey-3;
     border-radius: 0;
+    border:none;
+    background:none;
     .caption {
-        padding:15px;
+        padding:15px 0;
     }
 }
-
-
 
 .hero-box-container {
     position:absolute;

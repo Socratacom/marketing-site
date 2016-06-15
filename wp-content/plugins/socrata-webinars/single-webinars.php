@@ -18,10 +18,18 @@ $video = rwmb_meta( 'webinars_video' );
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
 						<h1 class="text-center text-reverse margin-bottom-15"><?php the_title(); ?></h1>
-						<?php if($date > $today) { ?>
+						<?php if($date >= $today) { ?>
 						<h3 class="text-center text-reverse"><?php echo $displaydate;?></h3>
 						<ul class="cta-list">
-						<?php if ( ! empty( $marketo_registration ) ) echo "<li><a data-toggle='modal' data-target='#modal-registration' class='btn btn-warning btn-lg'>Register for Webinar</a></li>";?>
+						<?php if ( ! empty( $video ) ) { ?>	
+								<li><a data-toggle='modal' data-target='#modal-on-demand' class='btn btn-warning btn-lg'>Watch Webinar</a></li>			
+							<?php 
+							}
+							else { ?> 
+								 <li><a data-toggle='modal' data-target='#modal-registration' class='btn btn-warning btn-lg'>Register for Webinar</a></li>
+							<?php
+							}
+						?>						
 						<?php if ( ! empty( $speakers ) ) echo "<li><a href='#speakers' class='btn btn-warning btn-lg'>Speakers</a></li>";?>
 						</ul>
 						<?php
@@ -210,7 +218,21 @@ $video = rwmb_meta( 'webinars_video' );
 					</div>
 				</section>
 			<?php }
-			else { }
+			else { ?> 
+				<section class="section-padding background-light-grey-5">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-5 col-sm-offset-1">
+								<h2 class="margin-bottom-15">Register for this webinar</h2>
+								<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
+							</div>
+							<div class="col-sm-5">
+								<?php echo do_shortcode('[marketo-form id="'.$marketo_registration.'"]');?>
+							</div>
+						</div>
+					</div>
+				</section>
+			<?php }
 		;?>
 	<?php }
 ;?>
