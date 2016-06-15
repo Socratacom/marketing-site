@@ -62,7 +62,8 @@ function socrata_webinars_cat() {
         'manage_terms' => 'manage_options',//or some other capability your clients don't have
         'edit_terms' => 'manage_options',
         'delete_terms' => 'manage_options',
-        'assign_terms' =>'edit_posts'),
+        'assign_terms' =>'edit_posts'
+      ),
       'rewrite' => array('with_front' => false, 'slug' => 'webinars-category'),
     )
   );
@@ -383,7 +384,6 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
   );
   return $meta_boxes;
 }
-
 
 
 // Shortcode [webinars]
