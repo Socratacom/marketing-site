@@ -411,7 +411,7 @@ if ( $the_query->have_posts() ) { ?>
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-        <h2 class="text-center margin-bottom-60">What's next</h2>
+        <h2 class="text-center margin-bottom-60">Upcoming webinars</h2>
       </div>
     </div>
   <div class="row row-centered">
