@@ -272,11 +272,17 @@ if ( $the_query->have_posts() ) { ?>
             <div class="thumbnail">
               <?php
                 if ( ! empty( $thumb ) ) { ?>
-                  <a href="<?php the_permalink() ?>"><img src="<?php echo $url;?>" class="img-responsive" /></a>
+                  <div class="sixteen-nine" style="border:none;">
+                    <div class="aspect-content post-background" style="background-image:url(<?php echo $url;?>);"></div>
+                    <a href="<?php echo $link;?>" target="_blank" class="link"></a>
+                  </div> 
                   <?php
                 }     
                 else { ?>
-                  <a href="<?php the_permalink() ?>"><img src="/wp-content/uploads/no-image.png" class="img-responsive" /></a>
+                  <div class="sixteen-nine" style="border:none;">
+                    <div class="aspect-content post-background" style="background-image:url(/wp-content/uploads/no-image.png);"></div>
+                    <a href="<?php echo $link;?>" target="_blank" class="link"></a>
+                  </div>
                   <?php
                 }
               ?>
