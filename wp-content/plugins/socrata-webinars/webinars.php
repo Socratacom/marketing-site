@@ -279,12 +279,12 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       ),
       // TEXT
       array(
-        'name'  => __( 'YouTube ID', 'webinars_' ),
+        'name'  => __( 'Wistia ID', 'webinars_' ),
         'id'    => "{$prefix}video",
-        'desc' => __( 'DO NOT INCLUDE THE https://youtu.be/', 'webinars_' ),
+        'desc' => __( 'Example: am6nzoa6vv', 'webinars_' ),
         'type'  => 'text',
         'clone' => false,
-      ),   
+      ), 
     )
   );
 

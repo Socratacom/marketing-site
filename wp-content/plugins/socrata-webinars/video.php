@@ -28,44 +28,19 @@ $speakers = rwmb_meta( 'webinars_speakers' );
 				  <div class="container">
 				    <div class="row">
 				      <div class="col-sm-12">
-						<div class="embed-responsive embed-responsive-16by9">
-						  <div id="ytplayer"></div>
+						<div class="embed-responsive embed-responsive-16by9"> 
+						  <iframe src="//fast.wistia.net/embed/iframe/<?php echo $video;?>?seo=false" allowtransparency="true" frameborder="0" scrolling="no" class="wistia_embed" name="wistia_embed" allowfullscreen mozallowfullscreen webkitallowfullscreen oallowfullscreen msallowfullscreen></iframe>
 						</div>        
 				      </div>
 				    </div>
 				  </div>
 				</section>
-				<script>
-				 // Load the IFrame Player API code asynchronously.
-				    setTimeout(function() {
-				        player.playVideo();
-				    }, 3000);
-				      var tag = document.createElement('script');
-				      tag.src = "https://www.youtube.com/player_api";
-				      var firstScriptTag = document.getElementsByTagName('script')[0];
-				      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-				  // Replace the 'ytplayer' element with an <iframe> and
-				  // YouTube player after the API code downloads.
-				    var player;
-				    function onYouTubePlayerAPIReady() {    
-				        player = new YT.Player('ytplayer', {
-				          height: '480',
-				          width: '853',
-				          videoId: <?php echo "'$video'"; ?>,
-				          playerVars: {
-				                 'rel' : 0,
-				                 'showinfo' : 0,
-				          }
-				        }); 
-				    }
-				</script>
+				<script src="//fast.wistia.net/assets/external/E-v1.js" async></script>
 				<section class="section-padding">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-8">
 								<h1><?php the_title(); ?></h1>
-								<?php if ( ! empty( $segments ) ) { ?> fuck <?php } ?>
 								<?php echo rwmb_meta( 'webinars_wysiwyg' );?>
 								<?php if ( ! empty( $speakers ) ) { ?>
 									<hr>
