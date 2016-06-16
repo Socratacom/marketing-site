@@ -10,7 +10,6 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature
 $url = $thumb['0'];
 $video = rwmb_meta( 'webinars_video' );
 ?>
-
 <section class="hero-animated background-primary-alt-2-light overlay overlay-primary-alt-2">
 	<div class="outer">
 		<div class="inner">
@@ -199,9 +198,30 @@ $video = rwmb_meta( 'webinars_video' );
   }
  ?>
 
-
 <?php 
-	if($date <= $today) { ?>
+	if($date < $today) { ?>
+		<?php
+			if ( ! empty( $video ) ) { ?>
+				<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-5 col-sm-offset-1">
+								<h2 class="margin-bottom-15">Register to watch this webinar</h2>
+								<p> Please fill out this form to watch the <i>"<?php the_title(); ?>"</i> webinar.</p>
+							</div>
+							<div class="col-sm-5">
+								<?php echo do_shortcode('[marketo-form id="'.$marketo_on_demand.'"]');?>
+							</div>
+						</div>
+					</div>
+				</section>
+			<?php }
+			else { }
+		;?>
+	<?php }
+;?>
+<?php 
+	if($date == $today) { ?>
 		<?php
 			if ( ! empty( $video ) ) { ?>
 				<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
