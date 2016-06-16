@@ -51,7 +51,7 @@ function socrata_webinars_cat() {
         'add_new_item' => 'Add New Status',
         'new_item_name' => "New Status"
       ),
-      'show_ui' => true,
+      'show_ui' => false,
       'show_in_menu' => true,
       'show_tagcloud' => false,
       'hierarchical' => true,
