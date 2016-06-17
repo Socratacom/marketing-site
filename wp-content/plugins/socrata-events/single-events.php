@@ -35,7 +35,7 @@ $url = $thumb['0'];
                 <h1 class="text-center text-reverse margin-bottom-15"><?php the_title(); ?></h1>
                 <h3 class="text-center text-reverse"><?php echo $displaydate;?> | <?php echo $city;?>, <?php echo $state;?></h3>
                 <ul class="cta-list">
-                <?php if ( ! empty( $marketo ) ) echo "<li><a data-toggle='modal' data-target='#modal-event-register' class='btn btn-warning btn-lg'>Register</a></li>";?>
+                <?php if ( ! empty( $marketo ) ) echo "<li><a href='#registration-form' class='btn btn-warning btn-lg'>Register</a></li>";?>
                 <?php if ( ! empty( $speakers ) ) echo "<li><a href='#speakers' class='btn btn-warning btn-lg'>Speakers</a></li>";?>
                 </ul>
               </div>
@@ -168,7 +168,7 @@ $url = $thumb['0'];
     ?>
     <?php
     if ( ! empty( $marketo ) ) { ?>
-    <section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
+    <section id="registration-form" class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
       <div class="container">
         <div class="row">
           <div class="col-sm-5 col-sm-offset-1">
@@ -184,23 +184,6 @@ $url = $thumb['0'];
     <?php
     }
   ?>
-  <?php if ( ! empty( $marketo ) ) { ?> 
-  <div id="modal-event-register" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-  <div class="modal-content">
-  <div class="modal-header">
-  <div class="close"><button type="button" data-dismiss="modal"><i class="icon-close"></i></button></div>
-  <h4 class="modal-title">Register for this event</h4>
-  </div>
-  <div class="modal-body">
-  <div class="marketo-form">
-  <form id="mktoForm_<?php echo $marketo;?>"></form>
-  </div>
-  </div>
-  </div>
-  </div>
-  </div>
-  <?php } ;?> 
 
   <?php 
   } 

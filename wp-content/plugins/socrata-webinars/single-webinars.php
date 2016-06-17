@@ -21,11 +21,11 @@ $video = rwmb_meta( 'webinars_video' );
 						<h3 class="text-center text-reverse"><?php echo $displaydate;?></h3>
 						<ul class="cta-list">
 						<?php if ( ! empty( $video ) ) { ?>	
-								<li><a data-toggle='modal' data-target='#modal-on-demand' class='btn btn-warning btn-lg'>Watch Webinar</a></li>			
+								<li><a href="#on-demand-form" class='btn btn-warning btn-lg'>Watch Webinar</a></li>			
 							<?php 
 							}
 							else { ?> 
-								 <li><a data-toggle='modal' data-target='#modal-registration' class='btn btn-warning btn-lg'>Register for Webinar</a></li>
+								 <li><a href="#registration-form" class='btn btn-warning btn-lg'>Register for Webinar</a></li>
 							<?php
 							}
 						?>						
@@ -36,7 +36,7 @@ $video = rwmb_meta( 'webinars_video' );
 						else { ?>
 						<ul class="cta-list">
 						<?php if ( ! empty( $video ) ) { ?>
-							<?php if ( ! empty( $marketo_on_demand ) ) echo "<li><a data-toggle='modal' data-target='#modal-on-demand' class='btn btn-warning btn-lg'>Watch Webinar</a></li>";?>
+							<?php if ( ! empty( $marketo_on_demand ) ) echo "<li><a href='#on-demand-form' class='btn btn-warning btn-lg'>Watch Webinar</a></li>";?>
 							<?php 
 						};?>
 						<?php if ( ! empty( $speakers ) ) echo "<li><a href='#speakers' class='btn btn-warning btn-lg'>Speakers</a></li>";?>
@@ -202,7 +202,7 @@ $video = rwmb_meta( 'webinars_video' );
 	if($date < $today) { ?>
 		<?php
 			if ( ! empty( $video ) ) { ?>
-				<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
+				<section id="on-demand-form" class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5 col-sm-offset-1">
@@ -224,7 +224,7 @@ $video = rwmb_meta( 'webinars_video' );
 	if($date == $today) { ?>
 		<?php
 			if ( ! empty( $video ) ) { ?>
-				<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
+				<section id="on-demand-form" class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5 col-sm-offset-1">
@@ -239,7 +239,7 @@ $video = rwmb_meta( 'webinars_video' );
 				</section>
 			<?php }
 			else { ?> 
-				<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
+				<section id="registration-form" class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5 col-sm-offset-1">
@@ -258,7 +258,7 @@ $video = rwmb_meta( 'webinars_video' );
 ;?>
 <?php 
 	if($date > $today) { ?>
-		<section class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
+		<section id="registration-form" class="section-padding background-light-grey-5" style="border-top:#ebebeb solid 1px;">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-5 col-sm-offset-1">
@@ -273,42 +273,3 @@ $video = rwmb_meta( 'webinars_video' );
 		</section>
 	<?php }
 ;?>
-
-<?php if ( ! empty( $marketo_registration ) ) { ?> 
-<div id="modal-registration" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<div class="close"><button type="button" data-dismiss="modal"><i class="icon-close"></i></button></div>
-				<h4 class="modal-title">Register for this webinar</h4>
-			</div>
-			<div class="modal-body">
-				<div class="marketo-form">
-					<form id="mktoForm_<?php echo $marketo_registration;?>"></form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<?php } ;?>
-
-<?php if ( ! empty( $marketo_on_demand ) ) { ?> 
-<div id="modal-on-demand" class="modal fade" role="dialog">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<div class="close"><button type="button" data-dismiss="modal"><i class="icon-close"></i></button></div>
-				<h4 class="modal-title">Watch the webinar</h4>
-			</div>
-			<div class="modal-body">
-				<div class="marketo-form">
-					<form id="mktoForm_<?php echo $marketo_on_demand;?>"></form>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<?php } ;?>
-
-
-
