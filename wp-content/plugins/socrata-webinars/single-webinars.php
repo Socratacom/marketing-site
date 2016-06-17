@@ -18,19 +18,19 @@ $video = rwmb_meta( 'webinars_video' );
 					<div class="col-sm-10 col-sm-offset-1">
 						<h1 class="text-center text-reverse margin-bottom-15"><?php the_title(); ?></h1>
 						<?php if($date >= $today) { ?>
-						<h3 class="text-center text-reverse"><?php echo $displaydate;?></h3>
-						<ul class="cta-list">
-						<?php if ( ! empty( $video ) ) { ?>	
-								<li><a href="#on-demand-form" class='btn btn-warning btn-lg'>Watch Webinar</a></li>			
-							<?php 
-							}
-							else { ?> 
-								 <li><a href="#registration-form" class='btn btn-warning btn-lg'>Register for Webinar</a></li>
-							<?php
-							}
-						?>						
-						<?php if ( ! empty( $speakers ) ) echo "<li><a href='#speakers' class='btn btn-warning btn-lg'>Speakers</a></li>";?>
-						</ul>
+							<h3 class="text-center text-reverse"><?php echo $displaydate;?></h3>
+							<ul class="cta-list">
+							<?php if ( ! empty( $video ) ) { ?>	
+									<li><a href="#on-demand-form" class='btn btn-warning btn-lg'>Watch Webinar</a></li>			
+								<?php 
+								}
+								else { ?> 
+									 <li><a href="#registration-form" class='btn btn-warning btn-lg'>Register for Webinar</a></li>
+								<?php
+								}
+							?>						
+							<?php if ( ! empty( $speakers ) ) echo "<li><a href='#speakers' class='btn btn-warning btn-lg'>Speakers</a></li>";?>
+							</ul>
 						<?php
 						}
 						else { ?>
@@ -206,7 +206,7 @@ $video = rwmb_meta( 'webinars_video' );
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5 col-sm-offset-1">
-								<h2 class="margin-bottom-15">Register to watch this webinar</h2>
+								<h2 class="margin-bottom-15">Watch this webinar</h2>
 								<p> Please fill out this form to watch the <i>"<?php the_title(); ?>"</i> webinar.</p>
 							</div>
 							<div class="col-sm-5">
@@ -228,7 +228,7 @@ $video = rwmb_meta( 'webinars_video' );
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-5 col-sm-offset-1">
-								<h2 class="margin-bottom-15">Register to watch this webinar</h2>
+								<h2 class="margin-bottom-15">Watch this webinar</h2>
 								<p> Please fill out this form to watch the <i>"<?php the_title(); ?>"</i> webinar.</p>
 							</div>
 							<div class="col-sm-5">
