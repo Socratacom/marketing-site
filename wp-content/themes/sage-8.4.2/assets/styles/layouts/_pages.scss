@@ -1103,9 +1103,10 @@
 
 .sixteen-nine {
   @include aspect-ratio(16, 9);
-  border:$light-grey-4 solid 5px;
+  border:darken($light-grey-4, 2%) solid 5px;
   box-sizing:border-box;
   padding:15px;
+  background-color:white;
   .link {
   	position: absolute;
   	top:0;

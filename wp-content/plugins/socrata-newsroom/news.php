@@ -233,7 +233,7 @@ function newsroom_posts($atts, $content = null) {
 
 // The Loop
 if ( $the_query->have_posts() ) { ?>
-  <section class="section-padding hidden-xs">
+  <section class="section-padding background-light-grey-4 hidden-xs">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
