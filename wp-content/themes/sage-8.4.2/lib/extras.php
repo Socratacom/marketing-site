@@ -474,10 +474,21 @@ function newsletter_sidebar ($atts, $content = null) {
   ?>
   <div class="newsletter-sidebar newsletter-form marketo-form">
     <h4 class="margin-bottom-15">Subscribe to our Weekly Newsletter</h4>
-    <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>
-    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
+    <div id="sidebar-subscribe-confirmation" class="alert alert-success" style="display:none; margin-top:30px; font-size:14px;" >
+        <strong>Thank you for subscribing to Socrata Transform!</strong>
+    </div>
+    <script>
+      MktoForms2.whenReady(function (form){
+        form.onSuccess(function(values, followUpUrl){
+         form.getFormElem().hide();
+         document.getElementById('sidebar-subscribe-confirmation').style.display = 'block';
+         return false;
+       });
+      });
+    </script>
   </div>
   <?php
   $content = ob_get_contents();
@@ -491,8 +502,7 @@ function newsletter_footer ($atts, $content = null) {
   ?>
   <div class="marketo-form">
     <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
-    <h4>Subscribe to the Socrata newsletter</h4>
-    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <h4>Subscribe to the Socrata newsletter MOTHER FUCKER</h4>    
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
   </div>
@@ -511,8 +521,7 @@ extract(shortcode_atts(array(
     "id" => '',
   ), $atts));
   return '
-    <div class="marketo-form">
-    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <div class="marketo-form">    
     <form id="mktoForm_'.$id.'"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
     </div>
@@ -529,7 +538,7 @@ extract(shortcode_atts(array(
   ), $atts));
   return '
     <div class="marketo-form-labels">
-    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    
     <form id="mktoForm_'.$id.'"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
     </div>

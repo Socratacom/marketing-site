@@ -114,7 +114,7 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css?v=2.1.6a'), false, null);
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css?v=2.1.6b'), false, null);
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
 
@@ -123,6 +123,8 @@ function assets() {
   }
 
   wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);  
-  wp_enqueue_script('ytplayer', Assets\asset_path('scripts/ytplayer.js'), [], null, true);
+  wp_enqueue_script('ytplayer', Assets\asset_path('scripts/ytplayer.js'), null, true);
+  wp_register_script('marketoforms', '//app-abk.marketo.com/js/forms2/js/forms2.min.js', null, true);
+  wp_enqueue_script('marketoforms');
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
