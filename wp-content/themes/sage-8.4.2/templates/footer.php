@@ -61,7 +61,66 @@
 		</div>
 	</div>
 </footer>
+<div id="popup" class="popup hidden-xs" style="display:none">
+	<div class="popup-modal-canvas">
+		<div class="popup-modal-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="dialog">
+							<button class="close-me"><i class="icon-close"></i></button>
+							<h3 class="margin-bottom-5">Socrata Transform</h3>
+							<p>Join government leaders sharing best practices on open data and more. Get weekly updates on top trends and success stories in digital government.</p>
+							<?php echo do_shortcode('[marketo-form id="3130"]');?>
+							<div id="popup-confirmation" class="alert alert-success" style="display:none; margin-top:30px; font-size:14px;" >
+							    <strong>Thank you for subscribing to Socrata Transform!</strong>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+  jQuery(function($) {
+  	setTimeout(function () {
+	    $('#popup').delay(60000).fadeIn(500);
+	});
+	$('.modal').on('shown.bs.modal', function() {
+	    $(document).off('focusin.modal');
+	});
+  });
+</script>
+<script>
+	MktoForms2.whenReady(function (form){
+	  form.onSuccess(function(values, followUpUrl){
+	   form.getFormElem().hide();
+	   document.getElementById('popup-confirmation').style.display = 'block';
+	   return false;
+	 });
+	});
+</script>
+<script type="text/JavaScript">
+  jQuery(function($) {
+    // COOKIES
+    // if the cookie is true, hide the initial message and show the other one
+    if (Cookies.set('popup_1') == 'yes') {
+      $('#popup').addClass('hide-me');
+    }
+    // when clicked on “X” icon do something
+    $('.close-me').click(function() {
+      // check that “X” icon was not cliked before (hidden)
+      if (!$('#popup').is('hide-me')) {
+        $('#popup').addClass('hide-me');
 
+        // add cookie setting that user has clicked
+        Cookies.set('popup_1', 'yes', {expires: 1 });
+      }
+      return false;
+    })
+  });
+</script>
 
 
 
