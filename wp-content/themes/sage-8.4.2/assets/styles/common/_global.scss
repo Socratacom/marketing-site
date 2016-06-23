@@ -1491,6 +1491,38 @@ dl.quote-author {
         padding:0;
     }
 }
+
+.popup {
+    position: fixed;
+    bottom:0;
+    left:0;
+    z-index: 9999;
+    width:300px;
+    .dialog {
+        padding:30px;
+        border:$primary solid 5px;
+        position: relative;
+        background-color:white;
+        button.close-me {
+            position: absolute;
+            top:15px;
+            right:15px;
+            z-index: 10;
+            color:black;
+            background: transparent;
+            border: none;
+            font-size: 16px;
+            padding:0;
+            outline:none;
+            cursor:pointer;
+        }
+        .close-me:hover {
+            color:$primary;
+        }
+    }
+}
+
+/*
 .popup {
     position: fixed;
     top:0;
@@ -1533,7 +1565,7 @@ dl.quote-author {
         }
     }
 }
-
+*/
 .hide-me, .hide-me[style] {
     display: none !important;
 }

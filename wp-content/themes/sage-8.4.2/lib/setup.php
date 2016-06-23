@@ -114,7 +114,7 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css?ver=3.0'), false, null);
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '2.2.1');
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
 

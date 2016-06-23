@@ -61,27 +61,19 @@
 		</div>
 	</div>
 </footer>
-<div id="popup" class="popup hidden-xs" style="display:none">
-	<div class="popup-modal-canvas">
-		<div class="popup-modal-content">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3">
-						<div class="dialog">
-							<button class="close-me"><i class="icon-close"></i></button>
-							<h3 class="margin-bottom-5">Socrata Transform</h3>
-							<p>Join government leaders sharing best practices on open data and more. Get weekly updates on top trends and success stories in digital government.</p>
-							<?php echo do_shortcode('[marketo-form id="3130"]');?>
-							<div id="popup-confirmation" class="alert alert-success" style="display:none; margin-top:30px; font-size:14px;" >
-							    <strong>Thank you for subscribing to Socrata Transform!</strong>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+
+<div id="popup" class="popup hidden-xs" style="display:none;">
+	<div class="dialog">
+		<button class="close-me"><i class="icon-close"></i></button>
+		<h5 class="margin-bottom-5">Socrata Transform</h5>
+		<p style="font-size:14px;">Join government leaders sharing best practices on open data and more. Get weekly updates on top trends and success stories in digital government.</p>
+		<?php echo do_shortcode('[marketo-form id="3130"]');?>
+		<div id="popup-confirmation" class="alert alert-success" style="display:none; margin-top:30px; font-size:14px;" >
+		    <strong>Thank you for subscribing to Socrata Transform!</strong>
 		</div>
 	</div>
 </div>
+				
 <script type="text/javascript">
   jQuery(function($) {
   	setTimeout(function () {
@@ -105,7 +97,7 @@
   jQuery(function($) {
     // COOKIES
     // if the cookie is true, hide the initial message and show the other one
-    if (Cookies.set('popup_1') == 'yes') {
+    if (Cookies.set('popup_v2') == 'yes') {
       $('#popup').addClass('hide-me');
     }
     // when clicked on “X” icon do something
@@ -115,7 +107,7 @@
         $('#popup').addClass('hide-me');
 
         // add cookie setting that user has clicked
-        Cookies.set('popup_1', 'yes', {expires: 1 });
+        Cookies.set('popup_v2', 'yes', {expires: 1 });
       }
       return false;
     })
