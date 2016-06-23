@@ -1522,50 +1522,6 @@ dl.quote-author {
     }
 }
 
-/*
-.popup {
-    position: fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height: 100%;
-    z-index: 9000;
-}
-.popup-modal-canvas {
-    position: absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    display: table;
-    background-color:rgba(white, .9);
-    z-index: 9999;
-    .popup-modal-content {
-        position: relative;
-        display:table-cell;
-        vertical-align:middle;
-        .dialog {
-            padding:30px;
-            border:$light-grey-4 solid 5px;
-            position: relative;
-            background-color:white;
-            button.close-me {
-                position: absolute;
-                top:15px;
-                right:15px;
-                z-index: 10;
-                color:black;
-                background: transparent;
-                border: none;
-                font-size: 32px;
-                padding:0;
-                outline:none;
-                cursor:pointer;
-            }
-        }
-    }
-}
-*/
 .hide-me, .hide-me[style] {
     display: none !important;
 }
@@ -2705,24 +2661,6 @@ body.lb-disable-scrolling {
 
 
 
-// Testing cookies
-.hide--first > *:first-child {
-  display: none;
-}
-.hide--second > *:last-child {
-  display: none;
-}
-.message {
-    position: relative
-}
 
-.close-me {
-  color: #000;
-  position: absolute;
-  text-transform: lowercase;
-  right: 20px;
-  font-size: 1.5em;
-  top: 10px;
-  line-height: 1;
-  border: none !important;
-}
+
+

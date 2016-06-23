@@ -1,6 +1,6 @@
 @media only screen and (min-width : 320px) {
 	header.banner {
-		height:65px;
+		height:60px;
 		background-color:rgba($primary, 0.3);
 		position:fixed;
 		top:0;
@@ -31,7 +31,7 @@
 				padding:10px 15px;
 			}
 			.navbar-nav>li:hover, .navbar-nav>li>.dropdown-menu, .navbar-nav>li>.btn:hover, .dropdown-menu>li>a:hover, .navbar-nav>.open>a, .navbar-nav>.open>a:focus, .navbar-nav>.open>a:hover, .navbar-collapse {
-			    background-color: $primary-light;			    
+			    background-color: white;			    
 			}
 			.navbar-nav>li:hover * {
 			    color:$primary;    
@@ -42,9 +42,9 @@
 				border-bottom-right-radius:1px;
 				border-bottom-left-radius:1px;
 				border:none;
-				box-shadow: 0 2px 2px $light-grey-1;
+				box-shadow: 0 2px 5px $light-grey-3;
 				.divider {
-					background-color: $primary;
+					background-color: $light-grey-4;
 					a {
 						display:none;
 					}

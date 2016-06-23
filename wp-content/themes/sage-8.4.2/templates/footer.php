@@ -19,18 +19,6 @@
 				<div class="footer-form hidden-xs hidden-sm">
 					<h4>Subscribe to the Socrata newsletter</h4>
 					<?php echo do_shortcode('[marketo-form id="2745"]'); ?>
-					<div id="footer-subscribe-confirmation" class="alert alert-success" style="display:none; margin-top:30px; font-size:14px;" >
-					    <strong>Thank you for subscribing to Socrata Transform!</strong>
-					</div>
-					<script>
-						MktoForms2.whenReady(function (form){
-						  form.onSuccess(function(values, followUpUrl){
-						   form.getFormElem().hide();
-						   document.getElementById('footer-subscribe-confirmation').style.display = 'block';
-						   return false;
-						 });
-						});
-					</script>
 				</div>
 			</div>
 			<div class="col-md-9 hidden-xs hidden-sm">
