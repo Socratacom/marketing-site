@@ -477,18 +477,6 @@ function newsletter_sidebar ($atts, $content = null) {
     <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
-    <div id="sidebar-subscribe-confirmation" class="alert alert-success" style="display:none; margin-top:30px; font-size:14px;" >
-        <strong>Thank you for subscribing to Socrata Transform!</strong>
-    </div>
-    <script>
-      MktoForms2.whenReady(function (form){
-        form.onSuccess(function(values, followUpUrl){
-         form.getFormElem().hide();
-         document.getElementById('sidebar-subscribe-confirmation').style.display = 'block';
-         return false;
-       });
-      });
-    </script>
   </div>
   <?php
   $content = ob_get_contents();
