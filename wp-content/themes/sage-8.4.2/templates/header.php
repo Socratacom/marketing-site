@@ -19,7 +19,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
             <a href="/products" class="hidden-xs hidden-sm">Products</a>
-            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_products',
               'container'       => '',
@@ -28,7 +28,7 @@
           </li>
           <li class="dropdown">
             <a href="/solutions" class="hidden-xs hidden-sm">Solutions</a>
-            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_solutions',
               'container'       => '',
@@ -37,7 +37,7 @@
           </li>          
           <li class="dropdown">
             <a href="/services" class="hidden-xs hidden-sm">Services</a>
-            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_services',
               'container'       => '',
@@ -45,8 +45,8 @@
             ) ); ?>
           </li>
           <li class="dropdown hidden-xs hidden-sm">
-            <a href="#" class="hidden-xs hidden-sm">Resources</a>
-            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <a href="/resources" class="hidden-xs hidden-sm">Resources</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources',
               'container'       => '',
@@ -55,7 +55,7 @@
           </li>
           <li class="dropdown hidden-md hidden-lg">
             <a href="#" class="hidden-xs hidden-sm">Resources</a>
-            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources_mobile',
               'container'       => '',
@@ -64,7 +64,7 @@
           </li>
           <li class="dropdown hidden-xs hidden-sm">
             <a href="#" class="hidden-xs hidden-sm">Community</a>
-            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_community',
               'container'       => '',
@@ -73,7 +73,7 @@
           </li>
           <li class="dropdown">
             <a href="#" class="hidden-xs hidden-sm">About</a>
-            <a href="#" class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_about',
               'container'       => '',
