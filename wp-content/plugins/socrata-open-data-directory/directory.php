@@ -131,11 +131,11 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
   $prefix = 'directory_';
 
   $meta_boxes[] = array(
-    'title'  => __( 'Listing Details', 'directory' ),
-    'post_types' => array( 'od_directory' ),
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields' => array(
+    'title'       => 'Listing Details', 'directory',
+    'post_types'  => 'od_directory',
+    'context'     => 'normal',
+    'priority'    => 'high',
+      'fields' => array(
 
 
       // RADIO BUTTONS
@@ -165,35 +165,15 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Geo Location', 'directory' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Latitude', 'directory' ),
-        'id'    => "{$prefix}latitude",
-        'desc' => __( 'Eample: 38.5111', 'directory' ),
-        'type'  => 'text',
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Longitude', 'directory' ),
-        'id'    => "{$prefix}longitude",
-        'desc' => __( 'Eample: -96.8005', 'directory' ),
-        'type'  => 'text',
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
         'name' => __( 'Profile', 'directory' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
-      // PLUPLOAD IMAGE UPLOAD (WP 3.3+)
+      // IMAGE ADVANCED (WP 3.5+)
       array(
-        'name'             => __( 'Logo', 'your-prefix' ),
+        'name'             => __( 'Logo', 'directory' ),
         'id'               => "{$prefix}logo",
-        'desc' => __( 'Only for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
-        'type'             => 'plupload_image',
+        'desc' => __( 'ONLY for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
+        'type'             => 'image_advanced',
         'max_file_uploads' => 1,
       ),
       // NUMBER
@@ -209,10 +189,120 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
   );
 
   $meta_boxes[] = array(
-    'title'  => __( 'Site(s) Information' ),   
-      'post_types' => 'od_directory',
-      'context'    => 'normal',
-      'priority'   => 'high',
+    'id'          => 'geolocation',
+    'title'       => 'GeoLocation',
+    'post_types'  => 'od_directory',
+    'context'     => 'normal',
+    'priority'    => 'high',
+    // Tell WP this Meta Box is GeoLocation
+    'geo'         => true,
+    // Or you can set advanced settings for Geo, like this example:
+    // Restrict results to Australia only.
+
+      'geo' => array(
+           'componentRestrictions' => array(
+               'country' => 'us'
+           )
+        ),
+      'fields' => array(
+          // Set the ID to `address` or `address_something` to make Auto Complete field
+          array(
+              'type' => 'text',
+              'name' => 'Address',
+              'id'    => 'address'
+          ),
+          // Auto populate `postal_code` to this field
+          array(
+              'type' => 'number',
+              'name' => 'Postcode',
+              'id'    => 'postal_code'
+          ),
+          // In case you want to limit your result like this example.
+          // Auto populate short name of `administrative_area_level_1`. For example: QLD
+          array(
+              'type' => 'select',
+              'name' => 'State',
+              'placeholder' => 'Select a State',
+              'options' => array(
+                  'AL' => 'AL',
+                  'AK' => 'AK',
+                  'AZ' => 'AZ',
+                  'AR' => 'AR',
+                  'CA' => 'CA',
+                  'CO' => 'CO',
+                  'CT' => 'CT',
+                  'DE' => 'DE',
+                  'DC' => 'DC',
+                  'FL' => 'FL',
+                  'GA' => 'GA',
+                  'HI' => 'HI',
+                  'ID' => 'ID',
+                  'IL' => 'IL',
+                  'IN' => 'IN',
+                  'IA' => 'IA',
+                  'KS' => 'KS',
+                  'KY' => 'KY',
+                  'LA' => 'LA',
+                  'ME' => 'ME',
+                  'MD' => 'MD',
+                  'MA' => 'MA',
+                  'MI' => 'MI',
+                  'MN' => 'MN',
+                  'MS' => 'MS',
+                  'MO' => 'MO',
+                  'MT' => 'MT',
+                  'NE' => 'NE',
+                  'NV' => 'NV',
+                  'NH' => 'NH',
+                  'NJ' => 'NJ',
+                  'NM' => 'NM',
+                  'NY' => 'NY',
+                  'NC' => 'NC',
+                  'ND' => 'ND',
+                  'OH' => 'OH',
+                  'OK' => 'OK',
+                  'OR' => 'OR',
+                  'PA' => 'PA',
+                  'RI' => 'RI',
+                  'SC' => 'SC',
+                  'SD' => 'SD',
+                  'TN' => 'TN',
+                  'TX' => 'TX',
+                  'UT' => 'UT',
+                  'VT' => 'VT',
+                  'VA' => 'VA',
+                  'WA' => 'WA',
+                  'WV' => 'WV',
+                  'WI' => 'WI',
+                  'WY' => 'WY'
+              ),
+              'id'    => 'administrative_area_level_1_short'
+          ),
+
+          // We have custom `geometry` address component. Which is `lat + ',' + lng`
+          array(
+              'type' => 'text',
+              'name' => 'Geometry',
+              'id'    => 'geometry'
+          ),
+          // Here is the advanced usage of Binding Template.
+          // Put any address component + anything you want
+          array(
+              'type' => 'text',
+              'name' => 'State + Country',
+              'id'    => 'state_country',
+              // Example Output: QLD AU
+              'binding' => 'short:administrative_area_level_1 + " " + country'
+          ),
+      )
+  );
+
+
+  $meta_boxes[] = array(
+    'title'         => 'Site(s) Information',   
+    'post_types'    => 'od_directory',
+    'context'       => 'normal',
+    'priority'      => 'high',
       'fields' => array(
         array(
         'id'     => "{$prefix}sites",
@@ -244,7 +334,6 @@ function od_directory_group_register_meta_boxes( $meta_boxes )
       array(
         'name'             => __( 'Add up to 4 screen shots.', 'your-prefix' ),
         'id'               => "{$prefix}screen",
-        'desc' => __( 'Only for Socrata customers. Minimum size 300x300 pixels.', 'directory' ),
         'type'             => 'plupload_image',
         'max_file_uploads' => 4,
       ),
@@ -280,94 +369,103 @@ function op_directory_stats($atts, $content = null) {
   ob_start();
   ?>
 
-  <section id="directory-stats" class="section-padding">
-    <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2 class="text-center">How many have open data sites?</h2>
-      </div>
-      <div class="col-sm-3">
-        <div class="stat">
-            <?php
-              $args = array(
-                'post_type' => 'od_directory',
-                'segment' => 'city',
-                'meta_query' => array(
-                  array(
-                      'key' => 'directory_open_data_site',
-                      'value' => 'Yes'
-                  )
-                )
-              );
-              $myquery = new WP_Query($args);
-              echo "<div class='number'>$myquery->found_posts</div>";
-              wp_reset_postdata();
-            ?>
-            <div class="stat-label">Cities</div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="stat">
-            <?php
-              $args = array(
-                'post_type' => 'od_directory',
-                'segment' => 'county',
-                'meta_query' => array(
-                  array(
-                      'key' => 'directory_open_data_site',
-                      'value' => 'Yes'
-                  )
-                )
-              );
-              $myquery = new WP_Query($args);
-              echo "<div class='number'>$myquery->found_posts</div>";
-              wp_reset_postdata();
-            ?>
-            <div class="stat-label">Counties</div>
-          </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="stat">
-            <?php
-              $args = array(
-                'post_type' => 'od_directory',
-                'segment' => 'state',
-                'meta_query' => array(
-                  array(
-                      'key' => 'directory_open_data_site',
-                      'value' => 'Yes'
-                  )
-                )
-              );
-              $myquery = new WP_Query($args);
-              echo "<div class='number'>$myquery->found_posts</div>";
-              wp_reset_postdata();
-            ?>
-            <div class="stat-label">States</div>
-          </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="stat">
-            <?php
-              $args = array(
-                'post_type' => 'od_directory',
-                'segment' => 'federal',
-                'meta_query' => array(
-                  array(
-                      'key' => 'directory_open_data_site',
-                      'value' => 'Yes'
-                  )
-                )
-              );
-              $myquery = new WP_Query($args);
-              echo "<div class='number'>$myquery->found_posts</div>";
-              wp_reset_postdata();
-            ?>
-            <div class="stat-label">Federal Agencies</div>
-          </div>
-      </div>
-    </div>
-  </div>
+  <section id="directory-stats" class="hero-animated background-primary-alt-2-light overlay overlay-primary-alt-2">
+    <div class="outer">
+      <div class="inner">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <h1 class="text-center text-reverse margin-bottom-15">Open Data Directory</h1>
+              <h3 class="text-center text-reverse">Who has an open data site?</h3>
+            </div>
+
+            <div class="col-sm-3 hidden-xs">
+              <div class="stat">
+                  <?php
+                    $args = array(
+                      'post_type' => 'od_directory',
+                      'segment' => 'city',
+                      'meta_query' => array(
+                        array(
+                            'key' => 'directory_open_data_site',
+                            'value' => 'Yes'
+                        )
+                      )
+                    );
+                    $myquery = new WP_Query($args);
+                    echo "<div class='number text-reverse'>$myquery->found_posts</div>";
+                    wp_reset_postdata();
+                  ?>
+                  <div class="stat-label text-reverse">Cities</div>
+              </div>
+            </div>
+            <div class="col-sm-3 hidden-xs">
+              <div class="stat">
+                  <?php
+                    $args = array(
+                      'post_type' => 'od_directory',
+                      'segment' => 'county',
+                      'meta_query' => array(
+                        array(
+                            'key' => 'directory_open_data_site',
+                            'value' => 'Yes'
+                        )
+                      )
+                    );
+                    $myquery = new WP_Query($args);
+                    echo "<div class='number text-reverse'>$myquery->found_posts</div>";
+                    wp_reset_postdata();
+                  ?>
+                  <div class="stat-label text-reverse">Counties</div>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden-xs">
+              <div class="stat">
+                  <?php
+                    $args = array(
+                      'post_type' => 'od_directory',
+                      'segment' => 'state',
+                      'meta_query' => array(
+                        array(
+                            'key' => 'directory_open_data_site',
+                            'value' => 'Yes'
+                        )
+                      )
+                    );
+                    $myquery = new WP_Query($args);
+                    echo "<div class='number text-reverse'>$myquery->found_posts</div>";
+                    wp_reset_postdata();
+                  ?>
+                  <div class="stat-label text-reverse">States</div>
+                </div>
+            </div>
+            <div class="col-sm-3 hidden-xs">
+              <div class="stat">
+                  <?php
+                    $args = array(
+                      'post_type' => 'od_directory',
+                      'segment' => 'federal',
+                      'meta_query' => array(
+                        array(
+                            'key' => 'directory_open_data_site',
+                            'value' => 'Yes'
+                        )
+                      )
+                    );
+                    $myquery = new WP_Query($args);
+                    echo "<div class='number text-reverse'>$myquery->found_posts</div>";
+                    wp_reset_postdata();
+                  ?>
+                  <div class="stat-label text-reverse">Federal Agencies</div>
+                </div>
+            </div>
+
+
+          </div><!-- row -->
+        </div><!-- container -->
+      </div><!-- inner -->
+    </div><!-- outer -->
+    <div class="image" style="background-image:url(/wp-content/uploads/directory-hero.jpg);"></div>
   </section>
   <?php
   $content = ob_get_contents();
@@ -393,20 +491,13 @@ function op_directory_map($atts, $content = null) {
           // Basic options for a simple Google Map
           // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
           var mapOptions = {
-              // How zoomed in you want the map to start at (always required)
               zoom: 5,
-
-              // The latitude and longitude to center the map (always required)
               center: new google.maps.LatLng(38.5111,-96.8005),
               scrollwheel: false,
-
-              // How you would like to style the map. 
-              // This is where you would paste any style found on Snazzy Maps.
               styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}]
           };
 
           // Get the HTML DOM element that will contain your map 
-          // We are using a div with id="map" seen below in the <body>
           var mapElement = document.getElementById('directory-map');
 
           // Create the Google Map using our element and options defined above
@@ -414,11 +505,29 @@ function op_directory_map($atts, $content = null) {
           setMarkers(map);
       }
       var beaches = [
-  ['Bondi Beach', -33.890542, 151.274856, 4],
-  ['Coogee Beach', -33.923036, 151.259052, 5],
-  ['Cronulla Beach', -34.028249, 151.157507, 3],
-  ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-  ['Maroubra Beach', -33.950198, 151.259302, 1]
+
+
+<?php
+$args = array(
+  'post_type' => 'od_directory',
+  'posts_per_page' => 10
+);
+$query = new WP_Query( $args );
+
+// The Loop
+while ( $query->have_posts() ) {
+  $query->the_post();
+  $pin = rwmb_meta( 'geometry' ); { ?>
+
+  ['<?php the_title();?>',<?php echo $pin;?>],
+
+  <?php
+  };
+}
+wp_reset_postdata();
+
+?>
+
 ];
 
 function setMarkers(map) {
@@ -462,6 +571,39 @@ function setMarkers(map) {
   </script>
 
 </section>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+
+
+
+<?php
+$args = array(
+  'post_type' => 'od_directory',
+  'posts_per_page' => 10
+);
+$query = new WP_Query( $args );
+
+// The Loop
+while ( $query->have_posts() ) {
+  $query->the_post();
+  $pin = rwmb_meta( 'geometry' ); { ?>
+
+  ['<?php the_title();?>',<?php echo $pin;?>],
+
+  <?php
+  };
+}
+wp_reset_postdata();
+
+?>
+
+
+      </div>
+    </div>
+  </div>
+</section>
 
   <?php
   $content = ob_get_contents();
@@ -484,13 +626,14 @@ function op_directory($atts, $content = null) {
   ob_start();
   ?>
 
-  <section id="directory" class="background-clouds background-half-white">
+  <section id="directory" class="background-light-grey-5">
     <div class="container">
       <div class="row">
         <div class="directory">
           <div class="col-sm-3 left">
-            <button onclick="FWP.reset()" class="btn btn-primary">Clear All Filters</button>
-            <div class="filters">
+
+            <button onclick="FWP.reset()" class="btn btn-primary btn-block">Clear All Filters</button>
+            <div class="filters margin-bottom-15">
               <button type="button" data-toggle="collapse" data-target="#segments">Segment</button> 
               <div id="segments" class="collapse in">
                 <?php echo do_shortcode('[facetwp facet="segment"]') ;?>
@@ -501,24 +644,28 @@ function op_directory($atts, $content = null) {
                 <?php echo do_shortcode('[facetwp facet="directory_data_type"]') ;?>
               </div>
 
-              <button type="button" data-toggle="collapse" data-target="#customer">Socrata Customer</button> 
-              <div id="customer" class="collapse in">
-                <?php echo do_shortcode('[facetwp facet="socrata_customer"]') ;?>
-              </div>
-
               <button type="button" data-toggle="collapse" data-target="#population">Population</button> 
               <div id="population" class="collapse in">
                 <?php echo do_shortcode('[facetwp facet="directory_population"]') ;?>
               </div>
             </div>
-            
+            <p><a data-toggle="modal" data-target="#suggest" class="btn btn-primary btn-block">Suggest a Site</a></p>
+
           </div>
           <div class="col-sm-9 right">
-            <ul class="sort">
-              <li>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></li>             
-              <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li> 
-              <li><?php echo do_shortcode('[facetwp sort="true"]') ;?></li> 
-            </ul>
+            <div class="filterbar margin-bottom-15">              
+              <div class="filter-row float-left hidden-xs">
+                <label>Showing</label>
+                <?php echo do_shortcode('[facetwp counts="true"]') ;?>
+              </div>              
+              <div class="filter-row float-right no-padding">
+                <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
+                <?php echo do_shortcode('[facetwp sort="true"]') ;?>
+              </div>
+              <div class="clearfix"></div>
+            </div>
+
+
             <div class="directory-results">
               <?php echo do_shortcode('[facetwp template="directory"]') ;?>
             </div>
@@ -528,6 +675,21 @@ function op_directory($atts, $content = null) {
       </div>
     </div>
   </section>
+
+<div id="suggest" class="modal fade" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<div class="close"><button type="button" data-dismiss="modal"><i class="icon-close"></i></button></div>
+<h4 class="modal-title">Suggest a Site</h4>
+</div>
+<div class="modal-body">
+<p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Sed posuere consectetur est at lobortis. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+<?php echo do_shortcode('[marketo-form id="2710"]');?>
+</div>
+</div>
+</div>
+</div>
 
   <?php
   $content = ob_get_contents();

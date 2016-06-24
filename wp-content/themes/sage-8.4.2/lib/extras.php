@@ -59,6 +59,7 @@ function WPTime_add_custom_class_to_all_images($content){
 }
 add_filter('the_content', __NAMESPACE__ . '\\WPTime_add_custom_class_to_all_images');
 
+
 /**
  * Adds category name to blog
  */
@@ -77,7 +78,7 @@ add_action( 'init', __NAMESPACE__ . '\\shared_segment', 0 );
 function shared_segment() {
   register_taxonomy(
     'segment',
-    array('od_directory','case_study','socrata_videos','socrata_downloads'),
+    array('od_directory','case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news'),
     array(
       'labels' => array(
         'name' => 'Segment',
@@ -90,7 +91,12 @@ function shared_segment() {
       'hierarchical' => true,
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
+      'show_admin_column' => false,
+      'capabilities'=>array(
+        'manage_terms' => 'manage_options',//or some other capability your clients don't have
+        'edit_terms' => 'manage_options',
+        'delete_terms' => 'manage_options',
+        'assign_terms' =>'edit_posts'),
       'rewrite' => array('with_front' => false, 'slug' => 'segment'),
     )
   );
@@ -100,7 +106,7 @@ add_action( 'init', __NAMESPACE__ . '\\shared_product', 0 );
 function shared_product() {
   register_taxonomy(
     'product',
-    array('case_study','socrata_videos','socrata_downloads'),
+    array('case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news'),
     array(
       'labels' => array(
         'name' => 'Product',
@@ -113,11 +119,39 @@ function shared_product() {
       'hierarchical' => true,
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
+      'show_admin_column' => false,
+      'capabilities'=>array(
+        'manage_terms' => 'manage_options',//or some other capability your clients don't have
+        'edit_terms' => 'manage_options',
+        'delete_terms' => 'manage_options',
+        'assign_terms' =>'edit_posts'),
       'rewrite' => array('with_front' => false, 'slug' => 'product'),
     )
   );
 }
+
+// PRINT TAXONOMY CATEGORIES
+function segment_the_categories() {
+  // get all categories for this post
+  global $terms;
+  $terms = get_the_terms($post->ID , 'segment');
+  // echo the first category
+  echo $terms[0]->name;
+  // echo the remaining categories, appending separator
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
+function product_the_categories() {
+  // get all categories for this post
+  global $terms;
+  $terms = get_the_terms($post->ID , 'product');
+  // echo the first category
+  echo $terms[0]->name;
+  // echo the remaining categories, appending separator
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+}
+
+
 
 /** SHORTCODES **/
 
@@ -440,8 +474,7 @@ function newsletter_sidebar ($atts, $content = null) {
   ?>
   <div class="newsletter-sidebar newsletter-form marketo-form">
     <h4 class="margin-bottom-15">Subscribe to our Weekly Newsletter</h4>
-    <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>
-    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
   </div>
@@ -457,8 +490,7 @@ function newsletter_footer ($atts, $content = null) {
   ?>
   <div class="marketo-form">
     <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
-    <h4>Subscribe to the Socrata newsletter</h4>
-    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <h4>Subscribe to the Socrata newsletter MOTHER FUCKER</h4>    
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
   </div>
@@ -477,8 +509,7 @@ extract(shortcode_atts(array(
     "id" => '',
   ), $atts));
   return '
-    <div class="marketo-form">
-    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    <div class="marketo-form">    
     <form id="mktoForm_'.$id.'"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
     </div>
@@ -495,7 +526,7 @@ extract(shortcode_atts(array(
   ), $atts));
   return '
     <div class="marketo-form-labels">
-    <script src="//app-abk.marketo.com/js/forms2/js/forms2.min.js"></script>
+    
     <form id="mktoForm_'.$id.'"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
     </div>
@@ -617,3 +648,55 @@ function hero_zoom ($atts, $content = null) {
   return $content;
 }
 add_shortcode('hero-zoom', __NAMESPACE__ . '\\hero_zoom');
+
+
+
+
+/**
+ * Add Load more results pagination to FacetWP
+ */
+function fwp_load_more() {
+?>
+<script>
+(function($) {
+    $(function() {
+        if ('object' != typeof FWP) {
+            return;
+        }
+
+        wp.hooks.addFilter('facetwp/template_html', function(resp, params) {
+            if (FWP.is_load_more) {
+                FWP.is_load_more = false;
+                $('.facetwp-template').append(params.html);
+                return true;
+            }
+            return resp;
+        });
+
+        $(document).on('click', '.fwp-load-more', function() {
+            $('.fwp-load-more').html('Loading...');
+            FWP.is_load_more = true;
+            FWP.paged = parseInt(FWP.settings.pager.page) + 1;
+            FWP.soft_refresh = true;
+            FWP.refresh();
+        });
+
+        $(document).on('facetwp-loaded', function() {
+            if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
+                if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
+                    $('.facetwp-template').after('<div class="text-center padding-30"><button class="fwp-load-more btn btn-default">Show more results</button></div>');
+                }
+                else {
+                    $('.fwp-load-more').html('Show more results').show();
+                }
+            }
+            else {
+                $('.fwp-load-more').hide();
+            }
+        });
+    });
+})(jQuery);
+</script>
+<?php
+}
+add_action( 'wp_head', __NAMESPACE__ . '\\fwp_load_more', 99 );
