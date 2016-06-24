@@ -296,7 +296,7 @@ body {
 .color-black {color:$black;}
 
 .overlay:before {content:'';position:absolute;top:0;left:0;height:100%;width:100%;z-index:1;}
-.overlay-primary:before {background-color: rgba($primary, 0.5);}
+.overlay-primary:before {background-color: rgba($primary, 0.8);}
 .overlay-primary-dark:before {background-color: rgba($primary-dark, 0.8);}
 .overlay-primary-alt-1:before {background-color: rgba($primary-alt-1, 0.8);}
 .overlay-primary-alt-1-dark:before {background-color: rgba($primary-alt-1-dark, 0.8);}
