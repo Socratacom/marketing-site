@@ -4,19 +4,23 @@ This is the main marketing site for Socrata. Only the Theme and custom Socrata p
 Additional Plugins Used
 ---
 - BugMeBar
-- Disqus Comment System
 - Co-Authors Plus
 - TineMCE Advanced
 - Yoast SEO
 - WP Google Tag Manager
 - WP HTML Author Bio
-- WP Migrate DB Pro
-- WP Migrate DB Pro Media Files
 - WP Security Audit Log
 - WP User Avatar
 
 Change History
 ---
+- V2.1.6 - Site Updates
+  * CSS updates
+  * Added Webinars plugin
+  * Updated Events plugin
+  * Updated Newsroom
+  * Added shared taxonomies
+  * Added faceted filtering to Events, Newsroom, and Webinars
 - V2.1.5 - Updates to CSS, added icons, and updated footer layout.
 - V2.1.4 - Standardize CSS for speakers and leadership modal UX.
 - V2.1.3 - This update includes the redesign of the Blog templates.
