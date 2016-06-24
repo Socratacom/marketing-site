@@ -226,11 +226,7 @@ class WPSEO_JSON_LD {
 			 *
 			 * @api string $search_url The search URL for this site with a `{search_term_string}` variable.
 			 */
-<<<<<<< HEAD
-			$search_url = apply_filters( 'wpseo_json_ld_search_url', $this->get_home_url() . '?q={search_term_string}' );
-=======
 			$search_url = apply_filters( 'wpseo_json_ld_search_url', $this->get_home_url() . '?s={search_term_string}' );
->>>>>>> mikes-sage
 
 			$this->data['potentialAction'] = array(
 				'@type'       => 'SearchAction',
