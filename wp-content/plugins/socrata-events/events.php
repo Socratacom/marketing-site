@@ -167,19 +167,14 @@ add_filter( 'rwmb_meta_boxes', 'socrata_events_register_meta_boxes' );
 function socrata_events_register_meta_boxes( $meta_boxes )
 {
   $prefix = 'socrata_events_';
+
   $meta_boxes[] = array(
-    'title'  => __( 'Event Details', 'socrata-events' ),
+    'title'  => __( 'Event Date', 'socrata-events' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
     'validation' => array(
       'rules'    => array(
-        "{$prefix}city" => array(
-            'required'  => true,
-        ),
-        "{$prefix}state" => array(
-            'required'  => true,
-        ),
         "{$prefix}displaydate" => array(
             'required'  => true,
         ),
@@ -192,12 +187,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       ),
     ),
     'fields' => array(
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Event Date and Time', 'socrata-events' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
       // DATE
       array(
         'name'        => __( 'Start Date', 'socrata-events' ),
@@ -228,106 +217,141 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type'  => 'text',
         'clone' => false,
       ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Event Location', 'socrata-events' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'City', 'socrata-events' ),
-        'id'    => "{$prefix}city",
-        'desc' => __( 'Required', 'socrata-events' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // SELECT BOX
-      array(
-        'name'        => __( 'State', 'socrata-events' ),
-        'id'          => "{$prefix}state",
-        'type'        => 'select',
-        // Array of 'value' => 'Label' pairs for select box
-        'options'     => array(
-          'AL' => __( 'Alabama', 'socrata-events' ),
-          'AK' => __( 'Alaska', 'socrata-events' ),
-          'AZ' => __( 'Arizona', 'socrata-events' ),
-          'AR' => __( 'Arkansas', 'socrata-events' ),
-          'CA' => __( 'California', 'socrata-events' ),
-          'CO' => __( 'Colorado', 'socrata-events' ),
-          'CT' => __( 'Connecticut', 'socrata-events' ),
-          'DE' => __( 'Delaware', 'socrata-events' ),
-          'DC' => __( 'District of Columbia', 'socrata-events' ),
-          'FL' => __( 'Florida', 'socrata-events' ),
-          'GA' => __( 'Georgia', 'socrata-events' ),
-          'HI' => __( 'Hawaii', 'socrata-events' ),
-          'ID' => __( 'Idaho', 'socrata-events' ),
-          'IL' => __( 'Illinois', 'socrata-events' ),
-          'IN' => __( 'Indiana', 'socrata-events' ),
-          'IA' => __( 'Iowa', 'socrata-events' ),
-          'KS' => __( 'Kansas', 'socrata-events' ),
-          'KY' => __( 'Kentucky', 'socrata-events' ),
-          'LA' => __( 'Louisiana', 'socrata-events' ),
-          'ME' => __( 'Maine', 'socrata-events' ),
-          'MD' => __( 'Maryland', 'socrata-events' ),
-          'MA' => __( 'Massachusetts', 'socrata-events' ),
-          'MI' => __( 'Michigan', 'socrata-events' ),
-          'MN' => __( 'Minnesota', 'socrata-events' ),
-          'MS' => __( 'Mississippi', 'socrata-events' ),
-          'MO' => __( 'Missouri', 'socrata-events' ),
-          'MT' => __( 'Montana', 'socrata-events' ),
-          'NE' => __( 'Nebraska', 'socrata-events' ),
-          'NV' => __( 'Nevada', 'socrata-events' ),
-          'NH' => __( 'New Hampshire', 'socrata-events' ),
-          'NJ' => __( 'New Jersey', 'socrata-events' ),
-          'NM' => __( 'New Mexico', 'socrata-events' ),
-          'NY' => __( 'New York', 'socrata-events' ),
-          'NC' => __( 'North Carolina', 'socrata-events' ),
-          'ND' => __( 'North Dakota', 'socrata-events' ),
-          'OH' => __( 'Ohio', 'socrata-events' ),
-          'OK' => __( 'Oklahoma', 'socrata-events' ),
-          'OR' => __( 'Oregon', 'socrata-events' ),
-          'PA' => __( 'Pennsylvania', 'socrata-events' ),
-          'RI' => __( 'Rhode Island', 'socrata-events' ),
-          'SC' => __( 'South Carolina', 'socrata-events' ),
-          'SD' => __( 'South Dakota', 'socrata-events' ),
-          'TN' => __( 'Tennessee  ', 'socrata-events' ),
-          'TX' => __( 'Texas', 'socrata-events' ),
-          'UT' => __( 'Utah', 'socrata-events' ),
-          'VT' => __( 'Vermont', 'socrata-events' ),
-          'VA' => __( 'Virginia', 'socrata-events' ),
-          'WA' => __( 'Washington', 'socrata-events' ),
-          'WV' => __( 'West Virginia', 'socrata-events' ),
-          'WI' => __( 'Wisconsin', 'socrata-events' ),
-          'WY' => __( 'Wyoming', 'socrata-events' ),
+    )
+  );
+
+  $meta_boxes[] = array(
+    'id'          => 'geolocation',
+    'title'       => 'Event Location',
+    'post_types'  => 'socrata_events',
+    'context'     => 'normal',
+    'priority'    => 'high',
+    'validation' => array(
+      'rules'    => array(
+        "{$prefix}address" => array(
+            'required'  => true,
         ),
-        'placeholder' => __( 'Select a State', 'socrata-events' ),
-        'desc' => __( 'Required', 'socrata-events' ),
+        "{$prefix}locality" => array(
+            'required'  => true,
+        ),
+        "{$prefix}administrative_area_level_1_short" => array(
+            'required'  => true,
+        ),
+        "{$prefix}geometry" => array(
+            'required'  => true,
+        ),
       ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Event Website', 'socrata-events' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
+    ),
+    // Tell WP this Meta Box is GeoLocation
+    'geo'         => true,
+    // Or you can set advanced settings for Geo, like this example:
+    // Restrict results to Australia only.
+
+      'geo' => array(
+           'componentRestrictions' => array(
+               'country' => 'us'
+           )
+        ),
+      'fields' => array(
+          // Set the ID to `address` or `address_something` to make Auto Complete field
+          array(
+              'type' => 'text',
+              'name' => 'Address',
+              'id'    => "{$prefix}address"
+          ),
+          array(
+                'type' => 'text',
+                'name' => 'City',
+                'id'    => "{$prefix}locality"
+            ),
+          // In case you want to limit your result like this example.
+          // Auto populate short name of `administrative_area_level_1`. For example: QLD
+          array(
+              'type' => 'select',
+              'name' => 'State',
+              'placeholder' => 'Select a State',
+              'options' => array(
+                  'AL' => 'AL',
+                  'AK' => 'AK',
+                  'AZ' => 'AZ',
+                  'AR' => 'AR',
+                  'CA' => 'CA',
+                  'CO' => 'CO',
+                  'CT' => 'CT',
+                  'DE' => 'DE',
+                  'DC' => 'DC',
+                  'FL' => 'FL',
+                  'GA' => 'GA',
+                  'HI' => 'HI',
+                  'ID' => 'ID',
+                  'IL' => 'IL',
+                  'IN' => 'IN',
+                  'IA' => 'IA',
+                  'KS' => 'KS',
+                  'KY' => 'KY',
+                  'LA' => 'LA',
+                  'ME' => 'ME',
+                  'MD' => 'MD',
+                  'MA' => 'MA',
+                  'MI' => 'MI',
+                  'MN' => 'MN',
+                  'MS' => 'MS',
+                  'MO' => 'MO',
+                  'MT' => 'MT',
+                  'NE' => 'NE',
+                  'NV' => 'NV',
+                  'NH' => 'NH',
+                  'NJ' => 'NJ',
+                  'NM' => 'NM',
+                  'NY' => 'NY',
+                  'NC' => 'NC',
+                  'ND' => 'ND',
+                  'OH' => 'OH',
+                  'OK' => 'OK',
+                  'OR' => 'OR',
+                  'PA' => 'PA',
+                  'RI' => 'RI',
+                  'SC' => 'SC',
+                  'SD' => 'SD',
+                  'TN' => 'TN',
+                  'TX' => 'TX',
+                  'UT' => 'UT',
+                  'VT' => 'VT',
+                  'VA' => 'VA',
+                  'WA' => 'WA',
+                  'WV' => 'WV',
+                  'WI' => 'WI',
+                  'WY' => 'WY'
+              ),
+              'id'    => "{$prefix}administrative_area_level_1_short"
+          ),
+          // We have custom `geometry` address component. Which is `lat + ',' + lng`
+          array(
+              'type' => 'text',
+              'name' => 'Geometry',
+              'id'    => "{$prefix}geometry"
+          ),          
+      )
+  );
+
+  $meta_boxes[] = array(
+    'title'  => __( 'Site and Registration', 'socrata-events' ),
+    'post_types' => 'socrata_events',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(
       // URL
       array(
-        'name' => __( 'Event URL', 'socrata-events' ),
+        'name' => __( 'Event Website', 'socrata-events' ),
         'id'   => "{$prefix}url",
         'desc' => __( 'For non-Socrata events. Example: http://somesite.com', 'socrata-events' ),
         'type' => 'url',
-      ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Registration Form', 'socrata-events' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
       array(
         'name'  => __( 'Marketo Form ID', 'socrata-events' ),
         'id'    => "{$prefix}marketo",
-        'desc' => __( 'Example: 1234', 'socrata-events' ),
+        'desc' => __( 'For Socrata events. Example: 1234', 'socrata-events' ),
         'type'  => 'text',
         'clone' => false,
       ),
@@ -335,7 +359,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   );
 
   $meta_boxes[] = array(
-    'title'         => 'Content',   
+    'title'         => 'Socrata Event Content',   
     'post_types'    => 'socrata_events',
     'context'       => 'normal',
     'priority'      => 'high',
@@ -354,7 +378,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       ),
     ),
   );
-
 
   $meta_boxes[] = array(
     'title'         => 'Speakers',   
@@ -542,3 +565,164 @@ function events_posts($atts, $content = null) {
   return $content;
 }
 add_shortcode('current-events', 'events_posts');
+
+
+// Shortcode [events-map]
+function events_map($atts, $content = null) {
+  ob_start();
+  ?>
+
+  <section id="map" class="hidden-xs">
+    <div class="overlay overlay-primary">
+      <div class="outer">
+        <div class="inner">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12">
+                <h2 class="text-center text-reverse margin-bottom-15">Join us at these events</h2>
+                <p class="lead text-reverse text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-center margin-bottom-0"><button class="btn btn-warning map-button">View Map</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="events-map" class="map"></div>
+    <script>jQuery(function(n){n(".map-button").click(function(){n(".overlay").hide()})});</script>
+    <script>
+    jQuery(function($) {
+        // Asynchronously Load the map API 
+        var script = document.createElement('script');
+        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw&callback=initialize";
+        document.body.appendChild(script);
+    });
+
+    function initialize() {
+        var map;
+        var bounds = new google.maps.LatLngBounds();
+        var mapOptions = {
+          scrollwheel: false,
+          styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}]
+        };
+                        
+        // Display a map on the page
+        map = new google.maps.Map(document.getElementById("events-map"), mapOptions);
+        map.setTilt(45);
+            
+        // Multiple Markers
+        var markers = [
+          <?php
+            $today = strtotime('today UTC');
+            $args = array(
+              'post_type' => 'socrata_events',
+              'post_status' => 'publish',
+              'ignore_sticky_posts' => true,
+              'meta_key' => 'socrata_events_starttime',
+              'orderby' => 'meta_value_num',
+              'order' => 'asc',
+              "posts_per_page" => 100,
+              "meta_query" => array(
+                'relation' => 'AND',
+                array(
+                  "key" => "socrata_events_endtime",
+                  "value" => "$today",
+                  "compare" => ">="
+                )
+              )
+            );
+            $query = new WP_Query( $args );
+
+            // The Loop
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              $pin = rwmb_meta( 'socrata_events_geometry' ); { ?>
+              ['<?php the_title();?>',<?php echo $pin;?>],
+              <?php
+              };
+            }
+            wp_reset_postdata();
+          ?>
+        ];
+                            
+        // Info Window Content
+        var infoWindowContent = [
+        <?php
+            $today = strtotime('today UTC');
+            $args = array(
+              'post_type' => 'socrata_events',
+              'post_status' => 'publish',
+              'ignore_sticky_posts' => true,
+              'meta_key' => 'socrata_events_starttime',
+              'orderby' => 'meta_value_num',
+              'order' => 'asc',
+              "posts_per_page" => 100,
+              "meta_query" => array(
+                'relation' => 'AND',
+                array(
+                  "key" => "socrata_events_endtime",
+                  "value" => "$today",
+                  "compare" => ">="
+                )
+              )
+            );
+            $query = new WP_Query( $args );
+
+            // The Loop
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              $displaydate = rwmb_meta( 'socrata_events_displaydate' );
+              $eventsurl = rwmb_meta( 'socrata_events_url' ); { ?>                
+                <?php if ( has_term( 'socrata-event','socrata_events_cat' ) ) { ?>
+                  ['<small style="text-transform:uppercase;"><?php events_the_categories(); ?></small><br><strong><a href="<?php the_permalink() ?>"><?php the_title();?></a></strong><br><?php echo $displaydate;?>'],<?php }
+                  else { ?>
+                  ['<small style="text-transform:uppercase;"><?php events_the_categories(); ?></small><br><?php if ( ! empty( $eventsurl ) ) { ?><strong><a href="<?php echo $eventsurl;?>" target="_blank"><?php the_title();?></a></strong> <?php } else { ?><strong><?php the_title();?></strong><?php } ?><br><?php echo $displaydate;?>'],<?php }
+                ?>
+              <?php
+              };
+            }
+            wp_reset_postdata();
+          ?>
+        ];
+            
+        // Display multiple markers on a map
+        var infoWindow = new google.maps.InfoWindow(), marker, i;
+        
+        // Loop through our array of markers & place each one on the map  
+        for( i = 0; i < markers.length; i++ ) {
+            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+            bounds.extend(position);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: markers[i][0]
+            });
+            
+            // Allow each marker to have an info window    
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infoWindow.setContent(infoWindowContent[i][0]);
+                    infoWindow.open(map, marker);
+                }
+            })(marker, i));
+
+            // Automatically center the map fitting all markers on the screen
+            map.fitBounds(bounds);
+        }
+
+        // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+            this.setZoom(5);
+            google.maps.event.removeListener(boundsListener);
+        });
+        
+    }
+    </script>
+  </section>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('events-map', 'events_map');
