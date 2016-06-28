@@ -1,7 +1,7 @@
 <?php 
 $displaydate = rwmb_meta( 'socrata_events_displaydate' );
-$city = rwmb_meta( 'socrata_events_city' );  
-$state = rwmb_meta( 'socrata_events_state' );  
+$city = rwmb_meta( 'socrata_events_locality' );  
+$state = rwmb_meta( 'socrata_events_administrative_area_level_1_short' );  
 $today = strtotime('today UTC');
 $date = rwmb_meta( 'socrata_events_endtime' );
 $speakers = rwmb_meta( 'socrata_events_speakers' );
