@@ -571,24 +571,6 @@ add_shortcode('current-events', 'events_posts');
 function events_map($atts, $content = null) {
   ob_start();
   ?>
-
-  <section id="map" class="hidden-xs">
-    <div class="overlay overlay-primary">
-      <div class="outer">
-        <div class="inner">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-12">
-                <h2 class="text-center text-reverse margin-bottom-15">Join us at these events</h2>
-                <p class="lead text-reverse text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <p class="text-center margin-bottom-0"><button class="btn btn-lg btn-warning map-button">Explore Map</button></p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div id="events-map" class="map"></div>
     <script>jQuery(function(n){n(".map-button").click(function(){n(".overlay").hide()})});</script>
     <script>
     jQuery(function($) {
@@ -718,7 +700,6 @@ function events_map($atts, $content = null) {
         
     }
     </script>
-  </section>
 
   <?php
   $content = ob_get_contents();
