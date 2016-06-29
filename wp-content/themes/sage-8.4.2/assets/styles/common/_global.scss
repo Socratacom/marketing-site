@@ -294,6 +294,7 @@ body {
 .color-success-light {color:$success-light;}
 .color-success-dark {color:$success-dark;}
 .color-black {color:$black;}
+.color-grey {color:$grey;}
 
 .overlay:before {content:'';position:absolute;top:0;left:0;height:100%;width:100%;z-index:1;}
 .overlay-primary:before {background-color: rgba($primary, 0.8);}

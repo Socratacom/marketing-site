@@ -29,7 +29,7 @@ function create_socrata_webinars() {
       ),
       'public' => true,
       'menu_position' => 5,
-      'supports' => array( 'title', 'thumbnail' ),
+      'supports' => array( 'title','thumbnail'),
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => false,
@@ -147,6 +147,21 @@ function socrata_webinars_body_class( $classes ) {
   if ( get_post_type() == 'socrata_webinars' && is_single() || get_post_type() == 'socrata_webinars' && is_archive() )
     $classes[] = 'socrata-webinars';
   return $classes;
+}
+
+// CUSTOM EXCERPT
+function webinars_excerpt() {
+  global $post;
+  $text = rwmb_meta( 'webinars_wysiwyg' );
+  if ( '' != $text ) {
+    $text = strip_shortcodes( $text );
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]>', $text);
+    $excerpt_length = 20; // 20 words
+    $excerpt_more = apply_filters('excerpt_more', ' ' . ' ...');
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+  return apply_filters('the_excerpt', $text);
 }
 
 // Metabox

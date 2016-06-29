@@ -65,6 +65,9 @@
 					margin-bottom:10px;
 				}
 			}
+			.dropdown-menu>li.text-bold>a {
+				font-weight: $font-bold;
+			}
 			.navbar-right {
 				margin-right:-15px;
 			}

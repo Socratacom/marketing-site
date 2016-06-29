@@ -59,6 +59,16 @@ function WPTime_add_custom_class_to_all_images($content){
 }
 add_filter('the_content', __NAMESPACE__ . '\\WPTime_add_custom_class_to_all_images');
 
+/**
+ * Shorten excerpt length and truncate
+ */
+add_filter('excerpt_length', __NAMESPACE__ . '\\my_excerpt_length');
+function my_excerpt_length($length) {
+return 20; }
+add_filter( 'excerpt_more', __NAMESPACE__ . '\\wpdocs_excerpt_more' );
+function wpdocs_excerpt_more( $more ) {
+return ' ...';
+}
 
 /**
  * Adds category name to blog
@@ -700,3 +710,9 @@ function fwp_load_more() {
 <?php
 }
 add_action( 'wp_head', __NAMESPACE__ . '\\fwp_load_more', 99 );
+
+
+
+
+
+
