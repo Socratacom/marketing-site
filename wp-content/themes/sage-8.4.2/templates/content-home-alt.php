@@ -70,7 +70,7 @@
 	<script>jQuery(function(e){e("#video").YTPlayer()});</script>
 	<?php echo do_shortcode('[youtube-modal]');?>
 </section>
-<section class="section-padding background-light-grey-4">
+<section class="section-padding">
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
