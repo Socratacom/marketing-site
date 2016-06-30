@@ -1,5 +1,5 @@
-<section class="section-padding home-hero" style="background-image: url(/wp-content/uploads/home-hero-default.jpg);">
-	<div class="container" style="padding-top:100px;">
+<section class="home-hero" style="background-image: url(/wp-content/uploads/home-hero-default.jpg);">
+	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
 				<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
@@ -84,7 +84,7 @@
 				    'post_type'         => 'od_directory',
 				    'order'             => 'desc',
 				    'orderby'			=> 'rand',
-				    'posts_per_page'    => 15,
+				    'posts_per_page'    => 18,
 				    'post_status'       => 'publish',
 				    );
 
