@@ -15,9 +15,18 @@ function content_discovery_list($atts, $content = null) {
   ?>
   <section class="section-padding background-light-grey-4">
     <div class="container">
-      <div class="row">
+      <div class="row margin-bottom-30">
         <div class="col-sm-3">
-          <button onclick="FWP.reset()" class="btn btn-primary btn-block">Clear All Filters</button>
+          <button onclick="FWP.reset()" class="btn btn-default btn-block">Reset Filters</button>          
+        </div>
+        <div class="col-sm-9">
+          <?php echo do_shortcode('[facetwp counts="true"]') ;?>
+          <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
+          <?php echo do_shortcode('[facetwp sort="true"]') ;?>          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">          
           <button type="button" data-toggle="collapse" data-target="#type">Content Type</button>
           <div id="type" class="collapse in">
             <?php echo do_shortcode('[facetwp facet="post_types"]') ;?>
@@ -31,7 +40,7 @@ function content_discovery_list($atts, $content = null) {
             <?php echo do_shortcode('[facetwp facet="products"]') ;?>
           </div>              
         </div>
-        <div class="col-sm-9">
+        <div class="col-sm-9">          
           <?php echo do_shortcode('[facetwp template="content_discovery_tool"]') ;?>
         </div>
       </div>
