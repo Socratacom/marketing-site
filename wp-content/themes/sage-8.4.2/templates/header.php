@@ -45,7 +45,7 @@
             ) ); ?>
           </li>
           <li class="dropdown hidden-xs hidden-sm">
-            <a href="/resources" class="hidden-xs hidden-sm">Resources</a>
+            <a href="#" class="hidden-xs hidden-sm">Resources</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources',
@@ -54,7 +54,7 @@
             ) ); ?>
           </li>
           <li class="dropdown hidden-md hidden-lg">
-            <a href="/resources" class="hidden-xs hidden-sm">Resources</a>
+            <a href="#" class="hidden-xs hidden-sm">Resources</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources_mobile',
@@ -63,7 +63,7 @@
             ) ); ?>
           </li>
           <li class="dropdown hidden-xs hidden-sm">
-            <a href="/community" class="hidden-xs hidden-sm">Community</a>
+            <a href="#" class="hidden-xs hidden-sm">Community</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_community',
