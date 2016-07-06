@@ -163,6 +163,41 @@ function product_the_categories() {
 
 
 
+
+// Function to change "posts" to "blog" in the admin side menu
+function change_post_menu_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Blog';
+    $submenu['edit.php'][5][0] = 'Blog';
+    $submenu['edit.php'][10][0] = 'Add Post';
+    $submenu['edit.php'][16][0] = 'Tags';
+    echo '';
+}
+add_action( 'admin_menu', __NAMESPACE__ . '\\change_post_menu_label' );
+// Function to change post object labels to "blog"
+function change_post_object_label() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Blog';
+    $labels->singular_name = 'Blog';
+    $labels->add_new = 'Add Post';
+    $labels->add_new_item = 'Add Post';
+    $labels->edit_item = 'Edit Post';
+    $labels->new_item = 'Post';
+    $labels->view_item = 'View Post';
+    $labels->search_items = 'Search Posts';
+    $labels->not_found = 'No Posts found';
+    $labels->not_found_in_trash = 'No Posts found in Trash';
+}
+add_action( 'init', __NAMESPACE__ . '\\change_post_object_label' );
+
+
+
+
+
+
+
 /** SHORTCODES **/
 
 /**
@@ -694,7 +729,7 @@ function fwp_load_more() {
         $(document).on('facetwp-loaded', function() {
             if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
                 if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
-                    $('.facetwp-template').after('<div class="text-center padding-30"><button class="fwp-load-more btn btn-default">Show more results</button></div>');
+                    $('.facetwp-template').after('<div class="text-center padding-30"><button class="fwp-load-more btn btn-primary">Show more results</button></div>');
                 }
                 else {
                     $('.fwp-load-more').html('Show more results').show();

@@ -83,7 +83,7 @@
         $('#popup').addClass('hide-me');
 
         // add cookie setting that user has clicked
-        Cookies.set('popup_v2', 'yes', {expires: 1 });
+        Cookies.set('popup_v2', 'yes', {expires: 30 });
       }
       return false;
     })

@@ -17,8 +17,8 @@ function news_post_type() {
   register_post_type( 'news',
     array(
       'labels' => array(
-        'name' => 'Socrata News',
-        'singular_name' => 'Socrata News',
+        'name' => 'Newsroom',
+        'singular_name' => 'Newsroom',
         'add_new' => 'Add New Post',
         'add_new_item' => 'Add New Post',
         'edit' => 'Edit Post',
