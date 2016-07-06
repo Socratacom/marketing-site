@@ -16,7 +16,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<h2 class="text-center">What We Do</h2>
+				<h2 class="text-center">Who we serve</h2>
 				<p class="lead text-center margin-bottom-60">Socrata provides cloud solutions for federal, state, and local governments to transform data into actionable insights for public and government use.</p>
 			</div>
 			<div class="col-sm-3">
@@ -74,7 +74,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<h2 class="text-center">Our Customers</h2>
+				<h2 class="text-center">Our customers</h2>
 				<p class="lead text-center margin-bottom-60">Over 1,400 cities, counties, states, and federal government agencies are successfully maximizing the value of their data with Socrata.</p>				
 			</div>
 			<div class="col-sm-12 margin-bottom-60">

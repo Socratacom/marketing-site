@@ -21,11 +21,11 @@ body {
 // Custom Icons
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?yegb5h');
-    src:    url('../fonts/icomoon.eot?yegb5h#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?yegb5h') format('truetype'),
-        url('../fonts/icomoon.woff?yegb5h') format('woff'),
-        url('../fonts/icomoon.svg?yegb5h#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?vu134v');
+    src:    url('../fonts/icomoon.eot?vu134v#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?vu134v') format('truetype'),
+        url('../fonts/icomoon.woff?vu134v') format('woff'),
+        url('../fonts/icomoon.svg?vu134v#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -45,6 +45,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow-down:before {
+    content: "\e91d";
+}
+.icon-arrow-up:before {
+    content: "\e91e";
+}
 .icon-transform:before {
     content: "\e91c";
 }
@@ -237,8 +243,6 @@ body {
 .icon-manager:before {
     content: "\e600";
 }
-
-
 
 .background-primary {background-color:$primary;}
 .background-primary-light {background-color:$primary-light;}
@@ -859,6 +863,17 @@ body {
 	figure[style] {
 		max-width:100% !important;
 	}
+    .breadcrumb {
+        padding: 8px 0;
+        margin-bottom: 0;
+        list-style: none;
+        background-color: transparent;
+        border-radius: 0;
+        li {
+            font-size: 13px;
+            font-weight: $font-semi-bold;
+        }
+    }
     .bugme {
         display:none !important;
     }
