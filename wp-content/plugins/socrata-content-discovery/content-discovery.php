@@ -27,7 +27,7 @@ function content_discovery_list($atts, $content = null) {
       </div>
     </div>
   </section>
-  <section class="section-padding background-light-grey-5">
+  <section class="section-padding">
     <div class="container">
       <div class="row margin-bottom-30 results-bar">
         <div class="col-sm-4 col-md-3 hidden-xs">
