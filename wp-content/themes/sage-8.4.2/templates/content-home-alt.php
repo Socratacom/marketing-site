@@ -2,8 +2,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-6">
-				<h1 class="margin-bottom-15">The Data Platform for 21st Century Digital Government</h1>
-				<p class="lead color-black">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
+				<h1 class="margin-bottom-15 color-primary-dark">The Data Platform for 21st Century Digital Government</h1>
+				<p class="lead color-primary-dark">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
 				<p class="margin-bottom-0"><a href="/request-a-demo" class="btn btn-lg btn-primary">Schedule a Meeting</a></p>
 			</div>
 		</div>
