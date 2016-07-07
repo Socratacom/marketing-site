@@ -238,6 +238,9 @@
 		background-position: center center;
 		background-size: cover;
 	}
+	.hero-header * {
+		text-shadow: 0 0 15px white;
+	}
 	.hero-header {		
 		padding:0;
 		position: relative;
