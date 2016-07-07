@@ -1607,7 +1607,7 @@ dl.quote-author {
 
 .carousel {
     .slide {
-        min-height:500px;        
+        min-height:600px;        
         background-repeat:no-repeat;
         background-size:cover;
         background-position:center center;
@@ -1615,7 +1615,7 @@ dl.quote-author {
         .row {
             & > [class^="col-"],
             & > [class*=" col-"] {
-                min-height:500px;
+                min-height:600px;
             }
         }
     }

@@ -35,14 +35,14 @@
 						<h4>Resources</h4>				
 						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_resources' ) ); ?>	
 					</div>
-					<div class="clearfix visible-sm-block"></div>				
-					<div class="col-sm-4 col-md-2">
-						<h4>About</h4>				
-						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_about' ) ); ?>						
-					</div>					
+					<div class="clearfix visible-sm-block"></div>					
 					<div class="col-sm-4 col-md-2">
 						<h4>Community</h4>				
 						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_community' ) ); ?>
+					</div>	
+					<div class="col-sm-4 col-md-2">
+						<h4>About</h4>				
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_about' ) ); ?>						
 					</div>
 				</div>
 			</div>
