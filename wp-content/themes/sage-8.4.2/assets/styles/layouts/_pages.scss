@@ -510,9 +510,10 @@
 	.solutions-logos {
 		.logo-frame {
 			padding:15px;
-			border:$clouds solid 5px;
+			border:$light-grey-4 solid 5px;
 			height:140px;
 			margin-bottom:15px;
+			background-color:white;
 			img {
 				display:inline-block;
 				position: relative;
