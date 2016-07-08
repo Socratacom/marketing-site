@@ -128,6 +128,21 @@ function news_body_class( $classes ) {
   return $classes;
 }
 
+// CUSTOM EXCERPT
+function news_excerpt() {
+  global $post;
+  $text = rwmb_meta( 'news_wysiwyg' );
+  if ( '' != $text ) {
+    $text = strip_shortcodes( $text );
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]>', $text);
+    $excerpt_length = 20; // 20 words
+    $excerpt_more = apply_filters('excerpt_more', ' ' . ' ...');
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+  return apply_filters('get_the_excerpt', $text);
+}
+
 
 // Metabox
 

@@ -232,7 +232,7 @@ function videos_excerpt() {
     $excerpt_more = apply_filters('excerpt_more', ' ' . ' ...');
     $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
   }
-  return apply_filters('the_excerpt', $text);
+  return apply_filters('get_the_excerpt', $text);
 }
 
 // ENQEUE SCRIPTS
