@@ -21,11 +21,11 @@ body {
 // Custom Icons
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?vu134v');
-    src:    url('../fonts/icomoon.eot?vu134v#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?vu134v') format('truetype'),
-        url('../fonts/icomoon.woff?vu134v') format('woff'),
-        url('../fonts/icomoon.svg?vu134v#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?52ck8n');
+    src:    url('../fonts/icomoon.eot?52ck8n#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?52ck8n') format('truetype'),
+        url('../fonts/icomoon.woff?52ck8n') format('woff'),
+        url('../fonts/icomoon.svg?52ck8n#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -45,6 +45,9 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-books:before {
+    content: "\e91f";
+}
 .icon-arrow-down:before {
     content: "\e91d";
 }

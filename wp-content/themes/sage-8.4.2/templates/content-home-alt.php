@@ -1,14 +1,17 @@
 <section class="home-hero" style="background-image: url(/wp-content/uploads/home-hero-default.jpg);">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-6">
-				<h1 class="margin-bottom-15 color-primary-dark">The Data Platform for 21st Century Digital Government</h1>
-				<p class="lead color-primary-dark">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-				<p class="margin-bottom-0"><a href="/request-a-demo" class="btn btn-lg btn-primary">Schedule a Meeting</a></p>
+	<div class="inner">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6">
+					<h1 class="margin-bottom-15 color-dark-grey-3">The Data Platform for 21st Century Digital Government</h1>
+					<p class="lead color-primary-dark">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
+					<p class="margin-bottom-0"><a href="/request-a-demo" class="btn btn-lg btn-primary">Schedule a Meeting</a></p>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="scroll">
+	<div class="scrim"></div>
+	<div class="scroll hidden-xs">
 		<div class="mouse"><a href="#start"></a></div>
 	</div>
 </section>
