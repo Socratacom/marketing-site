@@ -307,6 +307,12 @@ body {
 .color-success-dark {color:$success-dark;}
 .color-black {color:$black;}
 .color-grey {color:$grey;}
+.color-light-grey-1 {color:$light-grey-1;}
+.color-light-grey-2 {color:$light-grey-2;}
+.color-light-grey-3 {color:$light-grey-3;}
+.color-dark-grey-1 {color:$dark-grey-1;}
+.color-dark-grey-2 {color:$dark-grey-2;}
+.color-dark-grey-3 {color:$dark-grey-3;}
 
 .overlay:before {content:'';position:absolute;top:0;left:0;height:100%;width:100%;z-index:1;}
 .overlay-primary:before {background-color: rgba($primary, 0.8);}
