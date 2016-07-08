@@ -758,9 +758,10 @@ body {
 	a.link-reverse {
 		color:white;
 		border-bottom:white dotted 1px;
+        cursor: pointer;
 	}
 	a.link-reverse:hover {
-		color:$primary;
+		color:$primary-dark;
 	}
     a.link-black {
         color:$black;
