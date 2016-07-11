@@ -386,22 +386,12 @@ if ( $the_query->have_posts() ) { ?>
 
         </div>
       </div>
-    </div>
-  </section>
-  <section class="settings-bar">
-    <div class="container">
-      <div class="row">
+      <div class="row display-settings-bar">
         <div class="col-sm-12">
-          <ul>
-            <li>
-              <label>Display settings</label>
-              <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
-            </li>
-            <li>
-              <label>Showing</label>
-              <?php echo do_shortcode('[facetwp counts="true"]') ;?>
-            </li>
-          </ul>
+          <ul class="list-table">
+            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+          </ul>          
         </div>
       </div>
     </div>
