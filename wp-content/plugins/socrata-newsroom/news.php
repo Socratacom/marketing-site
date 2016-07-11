@@ -248,13 +248,8 @@ function newsroom_posts($atts, $content = null) {
 
 // The Loop
 if ( $the_query->have_posts() ) { ?>
-  <section class="section-padding background-light-grey-4 hidden-xs">
+  <section class="section-padding hidden-xs">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h2 class="text-center margin-bottom-60">Featured articles</h2>
-        </div>
-      </div>
     <div class="row row-centered">
     <?php
     while ( $the_query->have_posts() ) {
