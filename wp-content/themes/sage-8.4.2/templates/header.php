@@ -72,7 +72,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="#" class="hidden-xs hidden-sm">About</a>
+            <a href="/company-info" class="hidden-xs hidden-sm">About</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_about',
@@ -82,7 +82,7 @@
           </li>
           <li class="hidden-xs hidden-sm"><a href="/blog">Blog</a></li>
           <li class="dropdown site-search">            
-            <a href="/company-info" class="hidden-xs hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>            
+            <a href="#" class="hidden-xs hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>            
             <a href="/search" class="hidden-lg"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
             <ul class="dropdown-menu">
               <li><gcse:searchbox-only resultsUrl="/search" newWindow="false"></li>
