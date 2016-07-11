@@ -328,7 +328,7 @@ if ( $the_query->have_posts() ) { ?>
         <div class="col-sm-12">
           <ul>
             <li><?php echo do_shortcode('[facetwp facet="newsroom_categories"]') ;?></li>
-            <li class="hidden-xs"><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
+            <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
           </ul>
         </div>
       </div>

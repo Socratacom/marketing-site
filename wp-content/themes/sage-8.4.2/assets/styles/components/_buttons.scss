@@ -188,27 +188,30 @@
             .fs-wrap {
                 outline: none;
                 line-height: normal;
-                width:110px;
+                width:60px;
                 .fs-label-wrap {
                     border: none;
                     cursor: pointer;
                     .fs-label {
                         font-size:14px;
                         padding:20px 30px 0 15px;
-                    }
-                    .fs-label:before {
-                        font-family: fontawesome;
-                        content:"\f0d7"; 
-                        position: absolute;
-                        top:23px;
-                        right:15px;
-                        color:$dark-grey-2;
-                        font-size: 14px;
+                        overflow: hidden;
+                        text-indent: -9999px;
                     }
                     .fs-arrow {
                         display: none;
                     }
                 }
+                .fs-label-wrap:before {
+                    font-family: fontawesome;
+                    content:"\f0d7"; 
+                    position: absolute;
+                    top:23px;
+                    right:15px;
+                    color:$dark-grey-2;
+                    font-size: 14px;
+                    pointer-events: none;
+                }                
                 .fs-dropdown {
                     border:$light-grey-3 solid 1px;
                     box-shadow: 0 3px 5px $light-grey-2;
@@ -224,6 +227,51 @@
                             background-color:$light-grey-5;
                         }
                     }
+                }
+            }
+        }
+        .facetwp-facet-event_categories, .facetwp-facet-post_type_dropdown, .facetwp-facet-webinar_status, .facetwp-facet-newsroom_categories  {
+            .fs-wrap {
+                .fs-label-wrap:after {
+                    font-family: fontawesome;
+                    content:"\f016"; 
+                    position: absolute;
+                    top:22px;
+                    left:15px;
+                    color:$dark-grey-2;
+                    font-size: 16px;
+                    pointer-events: none;
+                    visibility: visible;
+                }
+            }
+        }
+        .facetwp-facet-segment_dropdown  {
+            .fs-wrap {
+                .fs-label-wrap:after {
+                    font-family: fontawesome;
+                    content:"\f278"; 
+                    position: absolute;
+                    top:22px;
+                    left:15px;
+                    color:$dark-grey-2;
+                    font-size: 16px;
+                    pointer-events: none;
+                    visibility: visible;
+                }
+            }
+        }
+        .facetwp-facet-product_dropdown  {
+            .fs-wrap {
+                .fs-label-wrap:after {
+                    font-family: fontawesome;
+                    content:"\f108"; 
+                    position: absolute;
+                    top:22px;
+                    left:15px;
+                    color:$dark-grey-2;
+                    font-size: 16px;
+                    pointer-events: none;
+                    visibility: visible;
                 }
             }
         }
@@ -346,7 +394,34 @@
 
 
 
-@media only screen and (min-width : 480px) {}
+@media only screen and (min-width : 480px) {
+    .filter-bar {
+        .facetwp-type-fselect {
+            .fs-wrap {
+                width:110px;
+                .fs-label-wrap {
+                    .fs-label {
+                        overflow: visible;
+                        text-indent: 0px;
+                    }
+                }
+            }
+        }
+        .facetwp-facet-event_categories, .facetwp-facet-post_type_dropdown, .facetwp-facet-webinar_status, .facetwp-facet-segment_dropdown, .facetwp-facet-product_dropdown, .facetwp-facet-newsroom_categories  {
+            .fs-wrap {
+                .fs-label-wrap:after {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
 @media only screen and (min-width : 768px) {}
 @media only screen and (min-width : 992px) {
     .filter-bar {

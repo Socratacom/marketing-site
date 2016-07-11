@@ -413,7 +413,7 @@ function webinars_posts($atts, $content = null) {
             <li><?php echo do_shortcode('[facetwp facet="webinar_status"]') ;?></li>
             <li class="hidden-xs"><?php echo do_shortcode('[facetwp facet="segment_dropdown"]') ;?></li>
             <li class="hidden-xs"><?php echo do_shortcode('[facetwp facet="product_dropdown"]') ;?></li>
-            <li class="hidden-xs"><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
+            <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
           </ul>
         </div>
       </div>
