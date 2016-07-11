@@ -5,7 +5,10 @@
 				<div class="col-sm-6">
 					<h1 class="margin-bottom-15 color-primary-dark">The Data Platform for 21st Century Digital Government</h1>
 					<p class="lead color-primary-dark">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-					<p class="margin-bottom-0"><a href="/request-a-demo" class="btn btn-lg btn-primary">Schedule a Meeting</a></p>
+					<ul class="cta-list" style="text-align:left;">
+						<li><a href="https://www.youtube.com/watch?v=IICDU-UKrZQ" class="btn btn-primary btn-lg margin-bottom-15">Why Socrata</a></li>
+						<li><a href="/request-a-demo" class="btn btn-lg btn-primary margin-bottom-15">Schedule a Meeting</a></li>
+					</ul>
 				</div>
 			</div>
 		</div>
