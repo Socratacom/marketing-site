@@ -538,24 +538,14 @@ function events_posts($atts, $content = null) {
         wp_reset_postdata(); ?>
       </div>
     </div>
-  </div>
-</section>
-<section class="settings-bar">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <ul>
-          <li>
-            <label>Display settings</label>
-            <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
-          </li>
-          <li>
-            <label>Showing</label>
-            <?php echo do_shortcode('[facetwp counts="true"]') ;?>
-          </li>
-        </ul>
+    <div class="row display-settings-bar">
+        <div class="col-sm-12">
+          <ul class="list-table">
+            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+          </ul>          
+        </div>
       </div>
-    </div>
   </div>
 </section>
 <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>

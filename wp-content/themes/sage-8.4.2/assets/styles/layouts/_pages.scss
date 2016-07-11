@@ -713,24 +713,7 @@
 		}
 	}
 	#map {
-		display:none;
-	}
-}
-
-
-/* Small Devices, Tablets */
-@media only screen and (min-width : 768px) {
-	.hero, .hero-animated {
-		min-height: 500px;
-	}
-	.industries {
-		.what-we-do * {
-			text-align: left;
-			margin-left:-30px;
-		}
-	}
-	#map {
-		height:600px;
+		height:400px;
 		width:100%;
 		position: relative;
 		display:block;
@@ -750,6 +733,23 @@
 			width:100%;
 			z-index: 2; 
 		}
+	}
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+	.hero, .hero-animated {
+		min-height: 500px;
+	}
+	.industries {
+		.what-we-do * {
+			text-align: left;
+			margin-left:-30px;
+		}
+	}
+	#map {
+		height:600px;
 	}
 }
 
