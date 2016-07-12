@@ -138,7 +138,7 @@ $the_query->the_post(); { ?>
 </li>
 <?php }
 }
-echo '<li><a href="/digital-government-transformation">View All Articles <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+echo '<li><a href="/blog">View All Articles <i class="fa fa-arrow-circle-o-right"></i></a></li>';
 echo '</ul>';
 } else {
 // no posts found
