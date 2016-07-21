@@ -26,7 +26,20 @@ $url = $thumb['0'];
 
 <?php 
   if($date >= $today) { ?>
-    <section class="hero-animated background-primary-alt-2-light overlay overlay-primary-alt-2">
+  <section class="background-primary-light hidden-xs hidden-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ol class="breadcrumb">
+            <li>COMMUNITY</li>
+            <li><a href="/community">Community</a></li>
+            <li><?php the_title(); ?></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="hero-animated background-primary-alt-2-light overlay overlay-black">
       <div class="outer">
         <div class="inner">
           <div class="container">

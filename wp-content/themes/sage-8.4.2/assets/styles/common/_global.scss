@@ -2,6 +2,8 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	color:$default-text-color;
     letter-spacing: -0.3px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .main {
 	padding:60px 0 0 0 !important;

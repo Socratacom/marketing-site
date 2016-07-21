@@ -14,7 +14,8 @@
 		</div>
 	</div>
 	<div class="scrim"></div>
-	<div class="scroll hidden-xs">
+	<div class="scroll hidden-xs text-center">
+		<small>SCROLL</small>
 		<div class="mouse"><a href="#start"></a></div>
 	</div>
 </section>
