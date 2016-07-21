@@ -58,13 +58,15 @@ $headshot = rwmb_meta( 'case_study_headshot', 'size=thumbnail' );
 
         <?php if ( ! empty( $quote ) ) { ?>
           <p class="lead">"<?php echo $quote;?>"</p>
-          <dl class="quote-author">
-            <dt><?php echo $name;?><span><?php echo $title;?></span></dt>
-            <?php foreach ( $headshot as $image ) {
-            echo "<dd><img src='{$image['url']}' width='{$image['width']}' height='{$image['height']}' alt='{$image['alt']}' class='img-circle' /></dd>";
-            } ?>
-            <?php if ( ! empty( $headshot ) ) { ?> <?php } else { ?> <dd><img src="/wp-content/uploads/no-picture-100x100.png" class="img-circle"></dd><?php } ?>
-          </dl>
+          <?php if ( ! empty( $name ) ) { ?>
+            <dl class="quote-author">
+              <dt><?php echo $name;?><span><?php echo $title;?></span></dt>
+              <?php foreach ( $headshot as $image ) {
+              echo "<dd><img src='{$image['url']}' width='{$image['width']}' height='{$image['height']}' alt='{$image['alt']}' class='img-circle' /></dd>";
+              } ?>
+              <?php if ( ! empty( $headshot ) ) { ?> <?php } else { ?> <dd><img src="/wp-content/uploads/no-picture-100x100.png" class="img-circle"></dd><?php } ?>
+            </dl>
+            <?php } ?>
           <hr>
         <?php } ?>
 
