@@ -190,10 +190,14 @@ $url = $thumb['0'];
           </div>
           <div class="col-sm-5">
             <?php echo do_shortcode('[marketo-form id="'.$marketo.'"]');?>
+            <div id="confirmform" class="alert alert-success" style="visibility:hidden;">
+              <strong>Success!</strong> You are registered.
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <script>MktoForms2.whenReady(function(e){e.onSuccess(function(i,n){return e.getFormElem().hide(),document.getElementById("confirmform").style.visibility="visible",!1})});</script>
     <?php
     }
   ?>
