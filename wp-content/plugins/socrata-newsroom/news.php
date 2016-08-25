@@ -17,8 +17,8 @@ function news_post_type() {
   register_post_type( 'news',
     array(
       'labels' => array(
-        'name' => 'Socrata News',
-        'singular_name' => 'Socrata News',
+        'name' => 'Newsroom',
+        'singular_name' => 'Newsroom',
         'add_new' => 'Add New Post',
         'add_new_item' => 'Add New Post',
         'edit' => 'Edit Post',
@@ -128,6 +128,21 @@ function news_body_class( $classes ) {
   return $classes;
 }
 
+// CUSTOM EXCERPT
+function news_excerpt() {
+  global $post;
+  $text = rwmb_meta( 'news_wysiwyg' );
+  if ( '' != $text ) {
+    $text = strip_shortcodes( $text );
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]>', $text);
+    $excerpt_length = 20; // 20 words
+    $excerpt_more = apply_filters('excerpt_more', ' ' . ' ...');
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+  return apply_filters('get_the_excerpt', $text);
+}
+
 
 // Metabox
 
@@ -233,13 +248,8 @@ function newsroom_posts($atts, $content = null) {
 
 // The Loop
 if ( $the_query->have_posts() ) { ?>
-  <section class="section-padding background-light-grey-4 hidden-xs">
+  <section class="section-padding hidden-xs">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h2 class="text-center margin-bottom-60">Featured articles</h2>
-        </div>
-      </div>
     <div class="row row-centered">
     <?php
     while ( $the_query->have_posts() ) {
@@ -274,14 +284,14 @@ if ( $the_query->have_posts() ) { ?>
                 if ( ! empty( $thumb ) ) { ?>
                   <div class="sixteen-nine" style="border:none;">
                     <div class="aspect-content post-background" style="background-image:url(<?php echo $url;?>);"></div>
-                    <a href="<?php echo $link;?>" target="_blank" class="link"></a>
+                    <a href="<?php the_permalink(); ?>" class="link"></a>
                   </div> 
                   <?php
                 }     
                 else { ?>
                   <div class="sixteen-nine" style="border:none;">
                     <div class="aspect-content post-background" style="background-image:url(/wp-content/uploads/no-image.png);"></div>
-                    <a href="<?php echo $link;?>" target="_blank" class="link"></a>
+                    <a href="<?php the_permalink(); ?>" class="link"></a>
                   </div>
                   <?php
                 }
@@ -318,7 +328,7 @@ if ( $the_query->have_posts() ) { ?>
         <div class="col-sm-12">
           <ul>
             <li><?php echo do_shortcode('[facetwp facet="newsroom_categories"]') ;?></li>
-            <li class="hidden-xs"><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
+            <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
           </ul>
         </div>
       </div>
@@ -330,7 +340,7 @@ if ( $the_query->have_posts() ) { ?>
         <div class="col-sm-8">
           <?php echo do_shortcode('[facetwp template="newsroom"]') ;?>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-4 hidden-xs">
           <div class="alert alert-info margin-bottom-30">
             <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a>
           </div>            
@@ -340,7 +350,7 @@ if ( $the_query->have_posts() ) { ?>
           $args = array(
           'post_type'         => 'post',
           'order'             => 'desc',
-          'posts_per_page'    => 3,
+          'posts_per_page'    => 5,
           'post_status'       => 'publish',
           );
 
@@ -357,16 +367,16 @@ if ( $the_query->have_posts() ) { ?>
           <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
           <li>
             <div class="article-img-container">
-              <img src="<?=$url?>" class="img-responsive">
+              <a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
             </div>
             <div class="article-title-container">
-              <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+              <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php the_time('F j, Y') ?></small>
             </div>
           </li>
 
           <?php }
           }
-          echo '<li><a href="/blog">View Blog <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+          echo '<li><a href="/blog">View blog <i class="fa fa-arrow-circle-o-right"></i></a></li>';
           echo '</ul>';
           } else {
           // no posts found
@@ -375,23 +385,17 @@ if ( $the_query->have_posts() ) { ?>
           wp_reset_postdata(); ?>
 
         </div>
-      </div>
+      </div>      
     </div>
   </section>
-  <section class="settings-bar">
+  <section>
     <div class="container">
-      <div class="row">
+      <div class="row display-settings-bar">
         <div class="col-sm-12">
-          <ul>
-            <li>
-              <label>Display settings</label>
-              <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
-            </li>
-            <li>
-              <label>Showing</label>
-              <?php echo do_shortcode('[facetwp counts="true"]') ;?>
-            </li>
-          </ul>
+          <ul class="list-table">
+            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+          </ul>          
         </div>
       </div>
     </div>

@@ -10,7 +10,21 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature
 $url = $thumb['0'];
 $video = rwmb_meta( 'webinars_video' );
 ?>
-<section class="hero-animated background-primary-alt-2-light overlay overlay-primary-alt-2">
+<section class="background-primary-light hidden-xs hidden-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <ol class="breadcrumb">
+          <li>RESOURCES</li>
+          <li><a href="/resources">Resources Home</a></li>
+          <li><a href="/webinars">Webinars</a></li>
+          <li><?php the_title(); ?></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="hero-animated background-primary-alt-2-light overlay overlay-black">
 	<div class="outer">
 		<div class="inner">
 			<div class="container">

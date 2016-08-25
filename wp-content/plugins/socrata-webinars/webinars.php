@@ -29,7 +29,7 @@ function create_socrata_webinars() {
       ),
       'public' => true,
       'menu_position' => 5,
-      'supports' => array( 'title', 'thumbnail' ),
+      'supports' => array( 'title','thumbnail'),
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => false,
@@ -147,6 +147,21 @@ function socrata_webinars_body_class( $classes ) {
   if ( get_post_type() == 'socrata_webinars' && is_single() || get_post_type() == 'socrata_webinars' && is_archive() )
     $classes[] = 'socrata-webinars';
   return $classes;
+}
+
+// CUSTOM EXCERPT
+function webinars_excerpt() {
+  global $post;
+  $text = rwmb_meta( 'webinars_wysiwyg' );
+  if ( '' != $text ) {
+    $text = strip_shortcodes( $text );
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]>', $text);
+    $excerpt_length = 20; // 20 words
+    $excerpt_more = apply_filters('excerpt_more', ' ' . ' ...');
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+  return apply_filters('get_the_excerpt', $text);
 }
 
 // Metabox
@@ -390,81 +405,15 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
 function webinars_posts($atts, $content = null) {
   ob_start();
   ?>
-
-<?php
-  $args = array(
-  'post_type'             => 'socrata_webinars',
-  'socrata_webinars_cat'  => 'upcoming',
-  'orderby'               => 'meta_value',
-  'meta_key'              => 'webinars_starttime',
-  'order'                 => 'asc',
-  'posts_per_page'        => 3,
-  'post_status'           => 'publish',
-  );
-
-  // The Query
-  $the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) { ?>
-  <section class="section-padding background-light-grey-4 hidden-xs">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <h2 class="text-center margin-bottom-60">Upcoming webinars</h2>
-      </div>
-    </div>
-  <div class="row row-centered">
-  <?php
-
-  while ( $the_query->have_posts() ) {
-    $the_query->the_post();
-    $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
-    $url = $thumb['0'];
-    $displaydate = rwmb_meta( 'webinars_displaydate' ); { ?>
-      <div class="col-sm-4 col-centered">
-        <div class="thumbnail">
-          <?php
-            if ( ! empty( $thumb ) ) { ?>
-              <a href="<?php the_permalink() ?>"><img src="<?php echo $url;?>" class="img-responsive" /></a>
-              <?php
-            }     
-            else { ?>
-              <a href="<?php the_permalink() ?>"><img src="/wp-content/uploads/no-image.png" class="img-responsive" /></a>
-              <?php
-            }
-          ?>
-          <div class="caption">
-            <h4 class="margin-bottom-5"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
-            <p class="margin-bottom-5"><small><?php echo $displaydate;?></small></p>
-            <p class="margin-bottom-0"><a href="<?php the_permalink(); ?>">Learn more <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
-          </div>
-        </div>
-      </div>
-    <?php }
-  } ?>
-  
-  </div>
-  </div>
-  </section>
-
-  <?php
-} 
-else {
-// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata(); ?>
-
   <section class="filter-bar">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <ul>
             <li><?php echo do_shortcode('[facetwp facet="webinar_status"]') ;?></li>
-            <li class="hidden-xs"><?php echo do_shortcode('[facetwp facet="segment_dropdown"]') ;?></li>
-            <li class="hidden-xs"><?php echo do_shortcode('[facetwp facet="product_dropdown"]') ;?></li>
-            <li class="hidden-xs"><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
+            <li><?php echo do_shortcode('[facetwp facet="segment_dropdown"]') ;?></li>
+            <li><?php echo do_shortcode('[facetwp facet="product_dropdown"]') ;?></li>
+            <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
           </ul>
         </div>
       </div>
@@ -554,22 +503,12 @@ wp_reset_postdata(); ?>
           wp_reset_postdata(); ?>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="settings-bar">
-    <div class="container">
-      <div class="row">
+      <div class="row display-settings-bar">
         <div class="col-sm-12">
-          <ul>
-            <li>
-              <label>Display settings</label>
-              <?php echo do_shortcode('[facetwp per_page="true"]') ;?>
-            </li>
-            <li>
-              <label>Showing</label>
-              <?php echo do_shortcode('[facetwp counts="true"]') ;?>
-            </li>
-          </ul>
+          <ul class="list-table">
+            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+          </ul>          
         </div>
       </div>
     </div>

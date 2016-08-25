@@ -59,6 +59,16 @@ function WPTime_add_custom_class_to_all_images($content){
 }
 add_filter('the_content', __NAMESPACE__ . '\\WPTime_add_custom_class_to_all_images');
 
+/**
+ * Shorten excerpt length and truncate
+ */
+add_filter('excerpt_length', __NAMESPACE__ . '\\my_excerpt_length');
+function my_excerpt_length($length) {
+return 20; }
+add_filter( 'excerpt_more', __NAMESPACE__ . '\\wpdocs_excerpt_more' );
+function wpdocs_excerpt_more( $more ) {
+return ' ...';
+}
 
 /**
  * Adds category name to blog
@@ -150,6 +160,41 @@ function product_the_categories() {
   // echo the remaining categories, appending separator
   for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
+
+
+
+
+// Function to change "posts" to "blog" in the admin side menu
+function change_post_menu_label() {
+    global $menu;
+    global $submenu;
+    $menu[5][0] = 'Blog';
+    $submenu['edit.php'][5][0] = 'Blog';
+    $submenu['edit.php'][10][0] = 'Add Post';
+    $submenu['edit.php'][16][0] = 'Tags';
+    echo '';
+}
+add_action( 'admin_menu', __NAMESPACE__ . '\\change_post_menu_label' );
+// Function to change post object labels to "blog"
+function change_post_object_label() {
+    global $wp_post_types;
+    $labels = &$wp_post_types['post']->labels;
+    $labels->name = 'Blog';
+    $labels->singular_name = 'Blog';
+    $labels->add_new = 'Add Post';
+    $labels->add_new_item = 'Add Post';
+    $labels->edit_item = 'Edit Post';
+    $labels->new_item = 'Post';
+    $labels->view_item = 'View Post';
+    $labels->search_items = 'Search Posts';
+    $labels->not_found = 'No Posts found';
+    $labels->not_found_in_trash = 'No Posts found in Trash';
+}
+add_action( 'init', __NAMESPACE__ . '\\change_post_object_label' );
+
+
+
+
 
 
 
@@ -684,7 +729,7 @@ function fwp_load_more() {
         $(document).on('facetwp-loaded', function() {
             if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
                 if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
-                    $('.facetwp-template').after('<div class="text-center padding-30"><button class="fwp-load-more btn btn-default">Show more results</button></div>');
+                    $('.facetwp-template').after('<div class="text-center padding-30"><button class="fwp-load-more btn btn-primary">Show more results</button></div>');
                 }
                 else {
                     $('.fwp-load-more').html('Show more results').show();
@@ -700,3 +745,10 @@ function fwp_load_more() {
 <?php
 }
 add_action( 'wp_head', __NAMESPACE__ . '\\fwp_load_more', 99 );
+
+
+
+
+
+
+

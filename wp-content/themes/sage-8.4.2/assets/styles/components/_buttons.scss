@@ -4,7 +4,7 @@
 }
 
 .btn-default {
-	background:$clouds;
+	background:$light-grey-5;
 }
 .facetwp-per-page, .facetwp-sort {
 	position: relative;
@@ -15,6 +15,7 @@
     -webkit-border-radius: 1px;
     -moz-border-radius: 1px;
     min-width: 100px;
+    background-color:white;
 	select {
 		height: 34px;
         padding: 2px 30px 5px 15px;
@@ -69,6 +70,37 @@
         }
     }
 }
+.list-table {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    display: table;
+    width:100%;
+    li {
+        display:table-cell;
+    }
+}
+.results-bar {    
+    button, button:active {
+        outline: none !important;
+        background:white !important;
+        border: $light-grey-3 solid 1px !important;
+        text-transform:none !important;
+        color:$dark-grey-2 !important;
+
+    }
+    button:hover {
+        background:$light-grey-4 !important;
+    }
+    button:focus {
+        outline: 0;
+        box-shadow: none;
+    }
+}
+.display-settings-bar {
+    border-top:$light-grey-3 solid 1px;
+    padding:15px 0;
+}
 
 @media only screen and (min-width : 320px) {
     .filter-bar {
@@ -92,6 +124,9 @@
                 float:right;
                 border-left:$light-grey-3 solid 1px;
                 border-right:$light-grey-3 solid 1px;
+            }
+            .border-right {
+                border-right:$light-grey-3 solid 1px !important;
             }
         }
         .facetwp-type-dropdown {
@@ -156,27 +191,30 @@
             .fs-wrap {
                 outline: none;
                 line-height: normal;
-                width:110px;
+                width:60px;
                 .fs-label-wrap {
                     border: none;
                     cursor: pointer;
                     .fs-label {
                         font-size:14px;
                         padding:20px 30px 0 15px;
-                    }
-                    .fs-label:before {
-                        font-family: fontawesome;
-                        content:"\f0d7"; 
-                        position: absolute;
-                        top:23px;
-                        right:15px;
-                        color:$dark-grey-2;
-                        font-size: 14px;
+                        overflow: hidden;
+                        text-indent: -9999px;
                     }
                     .fs-arrow {
                         display: none;
                     }
                 }
+                .fs-label-wrap:before {
+                    font-family: fontawesome;
+                    content:"\f0d7"; 
+                    position: absolute;
+                    top:23px;
+                    right:15px;
+                    color:$dark-grey-2;
+                    font-size: 14px;
+                    pointer-events: none;
+                }                
                 .fs-dropdown {
                     border:$light-grey-3 solid 1px;
                     box-shadow: 0 3px 5px $light-grey-2;
@@ -195,9 +233,198 @@
                 }
             }
         }
+        .facetwp-facet-event_categories, .facetwp-facet-post_type_dropdown, .facetwp-facet-webinar_status, .facetwp-facet-newsroom_categories  {
+            .fs-wrap {
+                .fs-label-wrap:after {
+                    font-family: fontawesome;
+                    content:"\f016"; 
+                    position: absolute;
+                    top:22px;
+                    left:15px;
+                    color:$dark-grey-2;
+                    font-size: 16px;
+                    pointer-events: none;
+                    visibility: visible;
+                }
+            }
+        }
+        .facetwp-facet-segment_dropdown  {
+            .fs-wrap {
+                .fs-label-wrap:after {
+                    font-family: fontawesome;
+                    content:"\f278"; 
+                    position: absolute;
+                    top:22px;
+                    left:15px;
+                    color:$dark-grey-2;
+                    font-size: 16px;
+                    pointer-events: none;
+                    visibility: visible;
+                }
+            }
+        }
+        .facetwp-facet-product_dropdown  {
+            .fs-wrap {
+                .fs-label-wrap:after {
+                    font-family: fontawesome;
+                    content:"\f108"; 
+                    position: absolute;
+                    top:22px;
+                    left:15px;
+                    color:$dark-grey-2;
+                    font-size: 16px;
+                    pointer-events: none;
+                    visibility: visible;
+                }
+            }
+        }
     }
 }
-@media only screen and (min-width : 480px) {}
+
+.facet-sidebar {
+    margin-bottom:30px;
+    .filter-list {
+        border-left:$light-grey-4 solid 1px;
+        border-right:$light-grey-4 solid 1px;
+        border-bottom:$light-grey-4 solid 1px;
+        background:white;
+        .in {
+            border-top:$light-grey-4 solid 1px;
+        }
+        button {
+            width:100%;
+            text-align: left;
+            border-top:$light-grey-4 solid 1px;
+            border-left:$primary solid 5px;
+            border-right:none;
+            border-bottom:none;
+            padding:10px 30px 10px 15px;
+            background-color:white;
+            outline:none;
+            position: relative;
+            font-weight: $font-semi-bold;
+            color:$dark-grey-2;
+            line-height: normal;
+        }
+        button:before {
+            font-family: icomoon;
+            content:"\e91d"; 
+            position: absolute;
+            top:10px;
+            right:14px;
+            color:$dark-grey-2;
+        }
+        button.collapsed {
+            border-left:$light-grey-4 solid 5px;
+        }
+        button.collapsed:before {
+            font-family: icomoon;
+            content:"\e91e"; 
+            position: absolute;
+            top:10px;
+            right:14px;
+            color:$dark-grey-2;               
+        }
+        .facetwp-toggle {
+            padding:10px 30px;
+            height: 40px;
+        }
+        .facetwp-facet {
+            margin-bottom: 0;
+            .facetwp-checkbox {
+                background:none;
+                margin-bottom: 0;
+                padding:10px 30px;
+                cursor: pointer;
+                border-left:$light-grey-4 solid 5px;
+                color:$dark-grey-1;
+                position: relative;
+                line-height: normal;
+                height: 40px;
+                .facetwp-counter {
+                    display: none;
+                }
+            }
+            .facetwp-checkbox:hover {
+                border-left:$light-grey-3 solid 5px;
+            }
+            .checked, .checked:hover {
+                border-left:$primary-alt-3 solid 5px;
+            }
+            .checked:before {
+                font-family: icomoon;
+                content:"\e90d"; 
+                position: absolute;
+                top:10px;
+                right:15px;
+                color:$grey;
+                font-size: 16px;
+            }
+        }     
+        .facetwp-type-checkboxes {
+            overflow: auto;
+            max-height: 600px;
+        }
+        .facetwp-loading {
+            margin:15px auto;
+        }
+        .facetwp-type-slider {
+            padding: 20px 15px 15px 15px;
+            border-left:$light-grey-4 solid 5px;
+            .facetwp-slider-label {
+                font-size: 12px;
+                font-weight: $font-semi-bold;
+                color:$dark-grey-1;
+            }
+            .facetwp-slider-reset {
+                border:$light-grey-3 solid 1px;
+                background-color:$light-grey-5;
+                border-radius: 1px;
+                box-shadow: none;
+                padding: 4px 8px;
+                cursor: pointer;
+            }
+            .facetwp-slider-reset:hover {
+                background-color:$light-grey-4;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+
+@media only screen and (min-width : 480px) {
+    .filter-bar {
+        .facetwp-type-fselect {
+            .fs-wrap {
+                width:110px;
+                .fs-label-wrap {
+                    .fs-label {
+                        overflow: visible;
+                        text-indent: 0px;
+                    }
+                }
+            }
+        }
+        .facetwp-facet-event_categories, .facetwp-facet-post_type_dropdown, .facetwp-facet-webinar_status, .facetwp-facet-segment_dropdown, .facetwp-facet-product_dropdown, .facetwp-facet-newsroom_categories  {
+            .fs-wrap {
+                .fs-label-wrap:after {
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
 @media only screen and (min-width : 768px) {}
 @media only screen and (min-width : 992px) {
     .filter-bar {

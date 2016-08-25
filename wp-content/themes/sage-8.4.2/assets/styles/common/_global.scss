@@ -2,6 +2,8 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	color:$default-text-color;
     letter-spacing: -0.3px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 .main {
 	padding:60px 0 0 0 !important;
@@ -21,11 +23,11 @@ body {
 // Custom Icons
 @font-face {
     font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?le1n1t');
-    src:    url('../fonts/icomoon.eot?le1n1t#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?le1n1t') format('truetype'),
-        url('../fonts/icomoon.woff?le1n1t') format('woff'),
-        url('../fonts/icomoon.svg?le1n1t#icomoon') format('svg');
+    src:    url('../fonts/icomoon.eot?52ck8n');
+    src:    url('../fonts/icomoon.eot?52ck8n#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?52ck8n') format('truetype'),
+        url('../fonts/icomoon.woff?52ck8n') format('woff'),
+        url('../fonts/icomoon.svg?52ck8n#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -45,6 +47,18 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-books:before {
+    content: "\e91f";
+}
+.icon-arrow-down:before {
+    content: "\e91d";
+}
+.icon-arrow-up:before {
+    content: "\e91e";
+}
+.icon-transform:before {
+    content: "\e91c";
+}
 .icon-calendar:before {
     content: "\e91b";
 }
@@ -294,6 +308,13 @@ body {
 .color-success-light {color:$success-light;}
 .color-success-dark {color:$success-dark;}
 .color-black {color:$black;}
+.color-grey {color:$grey;}
+.color-light-grey-1 {color:$light-grey-1;}
+.color-light-grey-2 {color:$light-grey-2;}
+.color-light-grey-3 {color:$light-grey-3;}
+.color-dark-grey-1 {color:$dark-grey-1;}
+.color-dark-grey-2 {color:$dark-grey-2;}
+.color-dark-grey-3 {color:$dark-grey-3;}
 
 .overlay:before {content:'';position:absolute;top:0;left:0;height:100%;width:100%;z-index:1;}
 .overlay-primary:before {background-color: rgba($primary, 0.8);}
@@ -739,9 +760,10 @@ body {
 	a.link-reverse {
 		color:white;
 		border-bottom:white dotted 1px;
+        cursor: pointer;
 	}
 	a.link-reverse:hover {
-		color:$primary;
+		color:$primary-dark;
 	}
     a.link-black {
         color:$black;
@@ -853,6 +875,17 @@ body {
 	figure[style] {
 		max-width:100% !important;
 	}
+    .breadcrumb {
+        padding: 8px 0;
+        margin-bottom: 0;
+        list-style: none;
+        background-color: transparent;
+        border-radius: 0;
+        li {
+            font-size: 13px;
+            font-weight: $font-semi-bold;
+        }
+    }
     .bugme {
         display:none !important;
     }
@@ -1586,7 +1619,7 @@ dl.quote-author {
 
 .carousel {
     .slide {
-        min-height:500px;        
+        min-height:600px;        
         background-repeat:no-repeat;
         background-size:cover;
         background-position:center center;
@@ -1594,7 +1627,7 @@ dl.quote-author {
         .row {
             & > [class^="col-"],
             & > [class*=" col-"] {
-                min-height:500px;
+                min-height:600px;
             }
         }
     }
@@ -2629,31 +2662,6 @@ body.lb-disable-scrolling {
     }
 }
 
-.hero-box-container {
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height: 100%;
-    z-index: 2;
-    padding:30px 15px;
-    .container {
-        height:100%;
-        .hero-box {
-            height:100%;
-            width:100%;
-            background:rgba($primary,.9%);
-            .row {
-                position: relative; 
-                top: 50%; transform: 
-                translateY(-50%);
-            }
-        }
-        .hero-box * {
-            color:white;
-        }
-    }
-}
 
 
 

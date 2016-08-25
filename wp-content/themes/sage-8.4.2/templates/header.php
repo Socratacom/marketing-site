@@ -45,7 +45,7 @@
             ) ); ?>
           </li>
           <li class="dropdown hidden-xs hidden-sm">
-            <a href="#" class="hidden-xs hidden-sm">Resources</a>
+            <a href="/resources" class="hidden-xs hidden-sm">Resources</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources',
@@ -54,7 +54,7 @@
             ) ); ?>
           </li>
           <li class="dropdown hidden-md hidden-lg">
-            <a href="#" class="hidden-xs hidden-sm">Resources</a>
+            <a href="/resources" class="hidden-xs hidden-sm">Resources</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources_mobile',
@@ -62,8 +62,8 @@
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li class="dropdown hidden-xs hidden-sm">
-            <a href="#" class="hidden-xs hidden-sm">Community</a>
+          <li class="dropdown">
+            <a href="/community" class="hidden-xs hidden-sm">Community</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_community',
@@ -72,7 +72,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="#" class="hidden-xs hidden-sm">About</a>
+            <a href="/company-info" class="hidden-xs hidden-sm">About</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_about',
@@ -81,7 +81,7 @@
             ) ); ?>
           </li>
           <li class="hidden-xs hidden-sm"><a href="/blog">Blog</a></li>
-          <li class="dropdown site-search">            
+          <li class="dropdown site-search hidden-sm">            
             <a href="#" class="hidden-xs hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>            
             <a href="/search" class="hidden-lg"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
             <ul class="dropdown-menu">

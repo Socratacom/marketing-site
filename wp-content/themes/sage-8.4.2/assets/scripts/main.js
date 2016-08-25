@@ -98,6 +98,7 @@
             return;
           }
         });
+
       }
     },
     // Home page
@@ -109,7 +110,7 @@
         // JavaScript to be fired after the init JS        
 
         // Animate Clock
-        setInterval(function() {
+ /*       setInterval(function() {
           function r(el, deg) {
             el.setAttribute('transform', 'rotate('+ deg +' 50 50)');
           }
@@ -117,7 +118,7 @@
           r(sec, 6*d.getSeconds());
           r(min, 6*d.getMinutes());
           r(hour, 30*(d.getHours()%12) + d.getMinutes()/2);
-        }, 1000);
+        }, 1000); */
 
       }
     },

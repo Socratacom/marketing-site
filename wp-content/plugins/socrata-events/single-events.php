@@ -1,7 +1,7 @@
 <?php 
 $displaydate = rwmb_meta( 'socrata_events_displaydate' );
-$city = rwmb_meta( 'socrata_events_city' );  
-$state = rwmb_meta( 'socrata_events_state' );  
+$city = rwmb_meta( 'socrata_events_locality' );  
+$state = rwmb_meta( 'socrata_events_administrative_area_level_1_short' );  
 $today = strtotime('today UTC');
 $date = rwmb_meta( 'socrata_events_endtime' );
 $speakers = rwmb_meta( 'socrata_events_speakers' );
@@ -26,7 +26,20 @@ $url = $thumb['0'];
 
 <?php 
   if($date >= $today) { ?>
-    <section class="hero-animated background-primary-alt-2-light overlay overlay-primary-alt-2">
+  <section class="background-primary-light hidden-xs hidden-sm">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <ol class="breadcrumb">
+            <li>COMMUNITY</li>
+            <li><a href="/community">Community</a></li>
+            <li><?php the_title(); ?></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+    <section class="hero-animated background-primary-alt-2-light overlay overlay-black">
       <div class="outer">
         <div class="inner">
           <div class="container">
@@ -49,7 +62,7 @@ $url = $thumb['0'];
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1">
-            <div class="padding-bottom-30 margin-bottom-30" style="border-bottom:#ebebeb solid 1px;">
+            <div class="padding-bottom-30 margin-bottom-30 sharing-container" style="border-bottom:#ebebeb solid 1px;">
               <div class="social-sharing-mini"><?php echo do_shortcode('[marketo-share]');?></div>
             </div>
             <?php echo rwmb_meta( 'socrata_events_wysiwyg' );?>
@@ -177,10 +190,14 @@ $url = $thumb['0'];
           </div>
           <div class="col-sm-5">
             <?php echo do_shortcode('[marketo-form id="'.$marketo.'"]');?>
+            <div id="confirmform" class="alert alert-success" style="visibility:hidden;">
+              <strong>Success!</strong> You are registered.
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <script>MktoForms2.whenReady(function(e){e.onSuccess(function(i,n){return e.getFormElem().hide(),document.getElementById("confirmform").style.visibility="visible",!1})});</script>
     <?php
     }
   ?>
