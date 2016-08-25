@@ -648,7 +648,7 @@ function events_map($atts, $content = null) {
 
         // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
         var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-            this.setZoom(5);
+            this.setZoom(3);
             google.maps.event.removeListener(boundsListener);
         });
         
