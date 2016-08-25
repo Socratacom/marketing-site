@@ -13,7 +13,8 @@
     "font-awesome": "fontawesome#^4.6.1",
     "jquery.countdown": "^2.1.0",
     "lightbox2": "^2.8.2",
-    "js-cookie": "^2.1.2"
+    "js-cookie": "^2.1.2",
+    "matchHeight": "^0.7.0"
   },
   "overrides": {
     "slick-carousel": {
@@ -27,6 +28,9 @@
     },
     "js-cookie": {
       "main": "./src/js.cookie.js"
+    },    
+    "matchHeight": {
+      "main": "./dist/jquery.matchHeight-min.js"
     },
     "bootstrap-sass": {
       "main": [

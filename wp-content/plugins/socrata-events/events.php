@@ -235,7 +235,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
             'required'  => true,
         ),
         "{$prefix}administrative_area_level_1_short" => array(
-            'required'  => true,
+            'required'  => false,
         ),
         "{$prefix}geometry" => array(
             'required'  => true,
