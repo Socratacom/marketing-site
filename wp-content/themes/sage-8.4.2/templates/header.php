@@ -18,19 +18,19 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="/products" class="hidden-xs hidden-sm">Products</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Products</a>
+            <a href="/solutions" class="hidden-xs hidden-sm">Solutions</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
             <?php wp_nav_menu( array( 
-              'theme_location' => 'site_nav_products',
+              'theme_location' => 'site_nav_solutions',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="/solutions" class="hidden-xs hidden-sm">Solutions</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
+            <a href="/segments" class="hidden-xs hidden-sm">Segments</a>
+            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Segments</a>
             <?php wp_nav_menu( array( 
-              'theme_location' => 'site_nav_solutions',
+              'theme_location' => 'site_nav_segments',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>

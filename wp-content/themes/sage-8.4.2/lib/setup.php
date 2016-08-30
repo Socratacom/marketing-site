@@ -26,9 +26,9 @@ function setup() {
 
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
-  register_nav_menus([
-    'site_nav_products' => __('Site Nav Products', 'sage'),
+  register_nav_menus([    
     'site_nav_solutions' => __('Site Nav Solutions', 'sage'),
+    'site_nav_segments' => __('Site Nav Segments', 'sage'),
     'site_nav_why_socrata' => __('Site Nav Why Socrata', 'sage'),
     'site_nav_services' => __('Site Nav Services', 'sage'),
     'site_nav_resources' => __('Site Nav Resources', 'sage'),      
