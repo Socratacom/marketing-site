@@ -859,13 +859,6 @@
 		}
 		.text {
 			padding:15px;
-			background-color:rgba($secondary-light,0);
-			-moz-transition: all .5s;
-			-webkit-transition: all .5s;
-			transition: all .5s;
-			h3, p, li {
-				color:white;
-			}
 		}
 	}
 }
@@ -937,15 +930,6 @@
 			-ms-transform: scale(1.1, 1.1); /* IE 9 */
 			-webkit-transform: scale(1.1, 1.1); /* Safari */
 			transform: scale(1.1, 1.1);
-		}
-		.text {
-			background-color:rgba($secondary-light,1);
-			h3 {
-				color:$primary-dark;
-			}
-			p, li {
-				color:$black;
-			}
 		}
 	}
 }
