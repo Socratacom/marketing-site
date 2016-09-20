@@ -39,6 +39,7 @@ wp-content/plugins/*
 !wp-content/plugins/socrata-open-data-directory/
 !wp-content/plugins/socrata-webinars/
 !wp-content/plugins/socrata-content-discovery/
+!wp-content/plugins/socrata-leadership/
 
 # Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
