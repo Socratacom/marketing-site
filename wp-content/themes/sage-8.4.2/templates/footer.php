@@ -24,12 +24,12 @@
 			<div class="col-sm-8 col-md-9 hidden-xs">
 				<div class="row margin-bottom-30">
 					<div class="col-sm-4">
-						<h4>Products</h4>
-						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_products' ) ); ?>						
+						<h4>Solutions</h4>
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_solutions' ) ); ?>						
 					</div>
 					<div class="col-sm-4">
-						<h4>Solutions</h4>				
-						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_solutions' ) ); ?>						
+						<h4>Segments</h4>				
+						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_segments' ) ); ?>						
 					</div>
 					<div class="col-sm-4">
 						<h4>Services</h4>				
