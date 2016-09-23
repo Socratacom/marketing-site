@@ -1,30 +1,50 @@
 <section class="home-masthead">
-<div class="slider" style="height:720px; width:100%;">
-	<div class="slide" style="height:720px; width:100%; background-repeat:no-repeat; background-size:cover; background-position:center center; background-image:url(http://placehold.it/560x315?text=slideOne)"></div>
-	<div class="slide" style="height:720px; width:100%; background-repeat:no-repeat; background-size:cover; background-position:center center; background-image:url(http://placehold.it/560x315?text=slideTwo)"></div>
+<div class="slider">
+	<div class="slide" style="background-image:url(/wp-content/uploads/solutions-hero.jpg)">
+		<div class="text">
+			<div class="vertical-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<h1 class="text-center color-white">Data Democratization in the Cloud</h1>
+							<p class="text-center lead color-white">Socrata is the #1 solution for more than 1000 federal and local government agencies who want to improve community engagement, operational efficiency, and economic growth through the utilization of data they already own.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="slide" style="background-image:url(/wp-content/uploads/segments-hero.jpg)">
+		<div class="text">
+			<div class="vertical-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<h1 class="text-center color-white">Something else</h1>
+							<p class="text-center lead color-white">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 </section>
-
-	<script>
-	jQuery(function ($){
-          $('.slider').slick({
-            arrows: false,
-            dots: true,
-            autoplay: true,
-            autoplaySpeed: 5000,
-            infinite:true,
-            fade:true,
-            cssEase: 'linear',
-            pauseOnHover:false,
-            pauseOnDotsHover:true,
-          });
-          $('.slider').show();
-        });
-	</script>
-
-
-
-
+<script>
+jQuery(function ($){
+      $('.slider').slick({
+        arrows: false,
+        dots: true,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        infinite:true,
+        fade:true,
+        pauseOnHover:true,
+        pauseOnDotsHover:true,
+      });
+      $('.slider').show();
+    });
+</script>
 <section class="section-padding">
 	<div class="container">
 		<div class="row margin-bottom-30">
