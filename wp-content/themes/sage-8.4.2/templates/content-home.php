@@ -1,27 +1,35 @@
 <section class="home-masthead">
 <div class="slider">
-	<div class="slide" style="background-image:url(/wp-content/uploads/solutions-hero.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/data-democratization-home-hero.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<h1 class="text-center color-white">Data Democratization in the Cloud</h1>
-							<p class="text-center lead color-white">Socrata is the #1 solution for more than 1000 federal and local government agencies who want to improve community engagement, operational efficiency, and economic growth through the utilization of data they already own.</p>
+							<h1 class="text-center color-white margin-bottom-15">Data Democratization in the Cloud</h1>
+							<p class="text-center lead color-white hidden-xs margin-bottom-30">Serving more than 1000 federal and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</p>
+							<ul class="cta-list">
+								<li><a href="/solutions" class="btn btn-default">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/segments-hero.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/segments-home-hero.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<h1 class="text-center color-white">Something else</h1>
-							<p class="text-center lead color-white">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum.</p>
+							<h1 class="text-center color-white margin-bottom-15">Over 1,000 served</h1>
+							<p class="text-center lead color-white hidden-xs margin-bottom-30">See why Socrata is trusted by government organizations of all sizes to make their data more accessible.</p>
+							<ul class="cta-list">
+								<li><a href="/segments" class="btn btn-default">View our Segments <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+							</ul>
 						</div>
 					</div>
 				</div>
@@ -36,9 +44,11 @@ jQuery(function ($){
         arrows: false,
         dots: true,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed:5000,
+        speed: 500,
         infinite:true,
         fade:true,
+        cssEase: 'linear',
         pauseOnHover:true,
         pauseOnDotsHover:true,
       });
@@ -52,19 +62,19 @@ jQuery(function ($){
 				<h2 class="text-center section-title">Trusted by over 1,000 government organizations</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="http://placehold.it/560x315" class="img-responsive"></a></p>
+				<p><a href="#"><img src="/wp-content/uploads/federal-government-segments-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center">Federal Governmentt</h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="http://placehold.it/560x315" class="img-responsive"></a></p>
+				<p><a href="#"><img src="/wp-content/uploads/state-government-segments-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center">State Government</h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="http://placehold.it/560x315" class="img-responsive"></a></p>
+				<p><a href="#"><img src="/wp-content/uploads/county-government-segments-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center">County Government</h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="http://placehold.it/560x315" class="img-responsive"></a></p>
+				<p><a href="#"><img src="/wp-content/uploads/city-government-segments-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center">City Government</h5>
 			</div>
 		</div>
@@ -100,25 +110,25 @@ jQuery(function ($){
 				<h2 class="text-center section-title">A proven solution for data democratization</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="http://placehold.it/560x315" class="img-responsive"></a></p>
+				<p><a href="#"><img src="/wp-content/uploads/publica-open-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Publica Open Data Cloud</h5>
 				<p class="text-center">Provide public access to government data that can spur innovation and insight</p>
 				
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="http://placehold.it/560x315" class="img-responsive"></a></p>
+				<p><a href="#"><img src="/wp-content/uploads/performance-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Performance Data Cloud</h5>
 				<p class="text-center">Monitor government performance and track progress towards operational goals</p>
 				
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="http://placehold.it/560x315" class="img-responsive"></a></p>
+				<p><a href="#"><img src="/wp-content/uploads/public-finance-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Public Finance Data Cloud</h5>
 				<p class="text-center">Communicate clearly and interactively around fiscal priorities, income, and spending</p>
 				
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="http://placehold.it/560x315" class="img-responsive"></a></p>
+				<p><a href="#"><img src="/wp-content/uploads/public-safety-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Public Safety Data Cloud</h5>
 				<p class="text-center">Provide transparency into policing statistics and public safety using data as an objective foundation</p>
 				

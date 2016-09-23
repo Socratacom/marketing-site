@@ -15,7 +15,23 @@
 			h1 {
 				text-transform: uppercase;
 			}
+			.lead {
+				font-weight: $font-semi-bold;
+			}
+			.btn { 
+				border:none;
+			}
 		}
+	}
+	.slide:after {
+		content: '';
+		height: 100%;
+		width: 100%;
+		top: 0;
+		left: 0;
+		position: absolute;
+		z-index: 3;
+		background: rgba($primary-dark, 0.3);
 	}
 }
 
@@ -105,9 +121,7 @@
 } 
 .masthead:after {
   z-index: 3;
-  mix-blend-mode: hard-light;
-  box-shadow: 0 0 150px $primary-dark inset;
-  background: rgba($primary, 0.3);
+  background: rgba($primary-dark, 0.3);
 }
 .section-title {
 	margin-bottom:60px;
