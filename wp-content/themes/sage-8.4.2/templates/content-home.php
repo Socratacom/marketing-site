@@ -7,7 +7,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<h1 class="text-center color-white margin-bottom-15">Data Democratization in the Cloud</h1>
-							<p class="text-center lead color-white hidden-xs margin-bottom-30">Serving more than 1000 federal and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</p>
+							<p class="text-center lead color-white hidden-xs margin-bottom-30">Serving more than 1,000 federal and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</p>
 							<ul class="cta-list">
 								<li><a href="/solutions" class="btn btn-default">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
@@ -62,19 +62,19 @@ jQuery(function ($){
 				<h2 class="text-center section-title">Trusted by over 1,000 government organizations</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="/wp-content/uploads/federal-government-segments-thumb.jpg" class="img-responsive"></a></p>
+				<p><a href="/segments/federal-government"><img src="/wp-content/uploads/federal-government-segments-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center">Federal Governmentt</h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="/wp-content/uploads/state-government-segments-thumb.jpg" class="img-responsive"></a></p>
+				<p><a href="/segments/state-government"><img src="/wp-content/uploads/state-government-segments-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center">State Government</h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="/wp-content/uploads/county-government-segments-thumb.jpg" class="img-responsive"></a></p>
+				<p><a href="/segments/county-government"><img src="/wp-content/uploads/county-government-segments-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center">County Government</h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="/wp-content/uploads/city-government-segments-thumb.jpg" class="img-responsive"></a></p>
+				<p><a href="/segments/city-government"><img src="/wp-content/uploads/city-government-segments-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center">City Government</h5>
 			</div>
 		</div>
@@ -110,25 +110,25 @@ jQuery(function ($){
 				<h2 class="text-center section-title">A proven solution for data democratization</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="/wp-content/uploads/publica-open-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
+				<p><a href="/solutions/publica-open-data-cloud"><img src="/wp-content/uploads/publica-open-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Publica Open Data Cloud</h5>
 				<p class="text-center">Provide public access to government data that can spur innovation and insight</p>
 				
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="/wp-content/uploads/performance-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
+				<p><a href="/solutions/performance-data-cloud"><img src="/wp-content/uploads/performance-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Performance Data Cloud</h5>
 				<p class="text-center">Monitor government performance and track progress towards operational goals</p>
 				
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="/wp-content/uploads/public-finance-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
+				<p><a href="/solutions/public-finance-data-cloud"><img src="/wp-content/uploads/public-finance-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Public Finance Data Cloud</h5>
 				<p class="text-center">Communicate clearly and interactively around fiscal priorities, income, and spending</p>
 				
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="#"><img src="/wp-content/uploads/public-safety-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
+				<p><a href="/solutions/public-safety-data-cloud"><img src="/wp-content/uploads/public-safety-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Public Safety Data Cloud</h5>
 				<p class="text-center">Provide transparency into policing statistics and public safety using data as an objective foundation</p>
 				
