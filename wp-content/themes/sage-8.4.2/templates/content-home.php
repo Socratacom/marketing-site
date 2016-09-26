@@ -63,7 +63,7 @@ jQuery(function ($){
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
 				<p><a href="/segments/federal-government"><img src="/wp-content/uploads/federal-government-segments-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">Federal Governmentt</h5>
+				<h5 class="text-center">Federal Government</h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
 				<p><a href="/segments/state-government"><img src="/wp-content/uploads/state-government-segments-thumb.jpg" class="img-responsive"></a></p>
@@ -92,7 +92,7 @@ jQuery(function ($){
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
 						<h2 class="section-title color-white">Why Socrata</h2>
-						<p class="lead color-white">Socrata's cloud-based solution allows government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
+						<p class="lead color-white">Socrata's cloud-based solutions allow government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
 						<p><a href="https://www.youtube.com/watch?v=IICDU-UKrZQ" role="button"><i class="fa fa-play-circle-o"></i></a></p>
 					</div>
 				</div>
@@ -107,7 +107,7 @@ jQuery(function ($){
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h2 class="text-center section-title">A proven solution for data democratization</h2>
+				<h2 class="text-center section-title">Proven solution for data democratization</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
 				<p><a href="/solutions/publica-open-data-cloud"><img src="/wp-content/uploads/publica-open-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
