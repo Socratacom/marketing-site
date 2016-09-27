@@ -107,7 +107,7 @@ jQuery(function ($){
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h2 class="text-center section-title">Proven solution for data democratization</h2>
+				<h2 class="text-center section-title">Proven solutions for data democratization</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
 				<p><a href="/solutions/publica-open-data-cloud"><img src="/wp-content/uploads/publica-open-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>

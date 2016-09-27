@@ -1,5 +1,5 @@
 .home-masthead {
-	.slide {
+	.slide, .single-slide {
 		width:100%;
 		background-repeat:no-repeat;
 		background-size:cover;
@@ -23,7 +23,7 @@
 			}
 		}
 	}
-	.slide:after {
+	.slide:after, .single-slide:after {
 		content: '';
 		height: 100%;
 		width: 100%;
@@ -36,37 +36,37 @@
 }
 
 @media only screen and (min-width : 320px) {
-	.home-masthead .slide .text h1 {
+	.home-masthead .slide .text h1, .home-masthead .single-slide .text h1 {
 		font-size:32px;
 	}
 }
 
 @media only screen and (min-width : 480px) {
-	.home-masthead .slide .text h1 {
+	.home-masthead .slide .text h1, .home-masthead .single-slide .text h1 {
 		font-size:40px;
 	}
 }
 
 @media only screen and (min-width : 992px) {
-	.home-masthead .slide .text h1 {
+	.home-masthead .slide .text h1, .home-masthead .single-slide .text h1 {
 		font-size:50px;
 	}
 }
 
 @media screen and ( min-height: 300px ){
-    .home-masthead, .home-masthead .slide {
+    .home-masthead, .home-masthead .slide, .home-masthead .single-slide {
     	height:400px;
     }
 }
 
 @media screen and ( min-height: 600px ){
-    .home-masthead, .home-masthead .slide {
+    .home-masthead, .home-masthead .slide, .home-masthead .single-slide {
     	height:600px;
     }
 }
 
 @media screen and ( min-height: 900px ){
-    .home-masthead, .home-masthead .slide {
+    .home-masthead, .home-masthead .slide, .home-masthead .single-slide {
     	height:720px;
     }
 }
