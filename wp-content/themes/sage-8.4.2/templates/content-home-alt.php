@@ -1,15 +1,13 @@
 <section class="home-masthead">
-	<div class="single-slide" style="background-image:url(/wp-content/uploads/data-democratization-home-hero.jpg)">
+	<div class="single-slide" style="background-image:url(/wp-content/uploads/dtc-hero.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<h1 class="text-center color-white margin-bottom-15">Data Democratization in the Cloud</h1>
-							<p class="text-center lead color-white hidden-xs margin-bottom-30">Serving more than 1,000 federal, state, and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</p>
+							<div class="text-center margin-bottom-30"><img src="/wp-content/uploads/dt2016logo.png" class="img-responsive"></div>
 							<ul class="cta-list">
-								<li><a href="/solutions" class="btn btn-default">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/open-data" class="btn btn-lg btn-warning">Watch the Live Webcast <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
