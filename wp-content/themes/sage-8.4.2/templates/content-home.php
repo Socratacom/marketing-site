@@ -100,7 +100,7 @@ jQuery(function ($){
 		</div>
 	</div>
 	<div id="myvideo" class="image" style="background-image:url(https://img.youtube.com/vi/trUHJfAnNxI/maxresdefault.jpg)"></div>
-	<div id="video" class="player" data-property="{videoURL:'trUHJfAnNxI',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:9, stopAt:23, opacity:1, addRaster:true, quality:'default'}"></div>
+	<div id="video" class="player" data-property="{videoURL:'trUHJfAnNxI',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:47, stopAt:54, opacity:1, addRaster:true, quality:'default'}"></div>
 	<script>jQuery(function(e){e("#video").YTPlayer()});</script>
 </section>
 <section class="section-padding">
