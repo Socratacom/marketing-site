@@ -123,7 +123,7 @@
       }
     },
     // About us page, note the change from about-us to about_us.
-    'consulting': {
+    'services': {
       init: function() {
         jQuery(document).ready(function($){
           var $timeline_block = $('.timeline-block');
