@@ -34,16 +34,8 @@
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
-          </li>          
-          <li class="dropdown">
-            <a href="/services" class="hidden-xs hidden-sm">Services</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-            <?php wp_nav_menu( array( 
-              'theme_location' => 'site_nav_services',
-              'container'       => '',
-              'menu_class' => 'dropdown-menu' 
-            ) ); ?>
           </li>
+          <li><a href="/services">Services</a></li>
           <li class="dropdown hidden-xs hidden-sm">
             <a href="/resources" class="hidden-xs hidden-sm">Resources</a>
             <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
