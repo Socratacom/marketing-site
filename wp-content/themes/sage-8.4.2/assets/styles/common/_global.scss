@@ -1,5 +1,5 @@
 body {
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans', sans-serif !important;
 	color:$default-text-color;
     letter-spacing: -0.3px;
     -webkit-font-smoothing: antialiased;
@@ -309,6 +309,7 @@ body {
 .color-success-dark {color:$success-dark;}
 .color-black {color:$black;}
 .color-grey {color:$grey;}
+.color-white {color:white;}
 .color-light-grey-1 {color:$light-grey-1;}
 .color-light-grey-2 {color:$light-grey-2;}
 .color-light-grey-3 {color:$light-grey-3;}
@@ -712,11 +713,11 @@ body {
 	    line-height: 1.2em;
 	    margin-bottom:30px;
 	}
-	h1, h2 {
+	h1 {
 		font-weight: $font-bold;
 	}
-	h3 {
-		font-weight: $font-normal;
+	h2, h3 {
+		font-weight: $font-light;
 		line-height: 1.25em;
 	}
 
@@ -747,6 +748,11 @@ body {
 		font-weight:$font-light;
 		line-height: 1.5em;
 	}
+    .lead-lg {
+        font-weight: $font-light;
+        font-size:24px;
+        color:$primary-alt-1;
+    }
 	ul, p, blockquote {
 		margin-bottom:1.5em;
 	}
@@ -960,15 +966,15 @@ body {
 	//title borders
 	.title-border {
 		padding:15px 0;
-		border-top: dotted 1px;
-		border-bottom: dotted  1px;
+		border-top:$light-grey-3 solid 1px;
+		border-bottom:$light-grey-3 solid 1px;
 	}
 	.title-border-bottom {
 		padding-bottom:15px;
-		border-bottom: dotted  1px;
+		border-bottom:$light-grey-3 solid 1px;
 	}.title-border-top {
 		padding-top:15px;
-		border-top: dotted 1px;
+		border-top:$light-grey-3 solid 1px;
 	}
 	//box
 	.box-black {
@@ -1223,6 +1229,9 @@ body {
 	.lead {
 		font-size: 18px;
 	}
+    .lead-lg {
+        font-size:28px;
+    }
 	.page-banner {
 		h1 {
 			font-size: 24px;
@@ -1255,6 +1264,9 @@ body {
 	.lead {
 		font-size: 20px;
 	}
+    .lead-lg {
+        font-size:30px;
+    }
 }
 
 
@@ -1498,7 +1510,7 @@ dl.quote-author {
         display: table;
         box-shadow:none;
         border:none;
-        background-color:rgba(white, 0);
+        background-color:$black;
         .modal-body {
             display:table-cell;
             vertical-align:middle;
@@ -1508,16 +1520,19 @@ dl.quote-author {
         }
         button {
             position: absolute;
-            top:15px;
-            right:15px;
+            top:30px;
+            right:30px;
+            height:60px;
+            width:60px;
             z-index: 10;
-            color:black;
-            background: transparent;
+            color:white;
+            background-color: $primary;
             border: none;
             font-size: 50px;
             padding:0;
             outline:none;
             cursor:pointer;
+            line-height: normal;
         }
     }    
     .modal-body {

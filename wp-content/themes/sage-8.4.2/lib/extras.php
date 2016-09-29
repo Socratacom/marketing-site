@@ -406,6 +406,21 @@ $(<?php echo "'#$id'"; ?>).show();
 add_shortcode('partner-logos-carousel-js', __NAMESPACE__ . '\\partner_logos_carousel_js');
 
 /**
+ * Match Height
+ */
+function match_height( $atts ) {
+  ob_start(); 
+  ?>
+  <script>jQuery(function(a){a(".match-height").matchHeight({byRow:!0})});</script>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('match-height', __NAMESPACE__ . '\\match_height');
+
+
+/**
  * YouTube Modal
  */
 function youtube_modal( $atts ) {
@@ -451,7 +466,7 @@ $('a[href^="https://www.youtube.com"]').on('click', function(e){
     var vidHeight = 720; // default
     if ( $(this).attr('data-width') ) { vidWidth = parseInt($(this).attr('data-width')); }
     if ( $(this).attr('data-height') ) { vidHeight =  parseInt($(this).attr('data-height')); }
-    var iFrameCode = '<div class="container"><div class="row"><div class="col-sm-10 col-sm-offset-1"><div class="frame"><div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe></div></div></div></div></div>';
+    var iFrameCode = '<div class="container"><div class="row"><div class="col-sm-10 col-sm-offset-1"><div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe></div></div></div></div>';
  
     // Replace Modal HTML with iFrame Embed
     $('#mediaModal .modal-body').html(iFrameCode);
