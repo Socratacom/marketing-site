@@ -57,6 +57,9 @@
 	div.mktoCheckboxList[style] {
 		width:100% !important;
 	}
+	label.mktoLabel[style] {
+		width:auto !important;
+	}
 	div.mktoCheckboxList {
 		position: relative !important;
 		margin-bottom:15px !important;
@@ -106,6 +109,14 @@
 .marketo-form {
 	.mktoFormRow .mktoOffset, .mktoFormRow .mktoAsterix, .mktoFormRow label, .mktoFormRow .mktoGutter {
 	  display: none !important;
+	}
+}
+.marketo-form-labels {
+	.mktoFormRow .mktoOffset {
+	  display: none !important;
+	}
+	div.mktoCheckboxList[style] {
+		width:auto !important;
 	}
 }
 
