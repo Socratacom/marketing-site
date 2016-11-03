@@ -714,7 +714,7 @@ body {
 	    margin-bottom:30px;
 	}
 	h1 {
-		font-weight: $font-bold;
+		font-weight: $font-semi-bold;
 	}
 	h2, h3 {
 		font-weight: $font-light;
@@ -1027,6 +1027,18 @@ body {
 	.padding-bottom-60 {
 		padding-bottom:60px;
 	}
+    .font-bold {
+        font-weight:$font-bold;
+    }
+    .font-semi-bold {
+        font-weight:$font-semi-bold;
+    }
+    .font-normal {
+        font-weight:$font-normal;
+    }
+    .font-light {
+        font-weight:$font-light;
+    }
 
 	.subscribe {
 		margin-top:30px;
@@ -1174,17 +1186,6 @@ body {
 
 /* Extra Small Devices, Phones */ 
 @media only screen and (min-width : 480px) {
-    .filterbar {
-        .filter-row {
-            display: inline-block;
-        }
-        .float-left {
-            float: left;
-        }
-        .float-right {
-            float: right;
-        }
-    }
 
 	ul.cta-list {
 		li {
@@ -2526,12 +2527,100 @@ body.lb-disable-scrolling {
   opacity: 1;
 }
 
-
-
-
+/* Dialog */
+.dialog {
+    background-color:white;
+    border:$light-grey-3 solid 1px;
+    .dialog-header {
+        padding:30px;
+        border-bottom:$light-grey-3 solid 1px;
+        h2,h3,h4,h5,h6 {
+            margin:0;
+        }
+    }
+    .dialog-body {
+        padding:30px;
+    }
+}
 
 /* Cards */
-    .card {
+.card {
+    position: relative;
+    border:$light-grey-4 solid 1px;
+    padding-bottom:20px;
+    background-color:white;
+    .card-header {
+        position: relative;
+        border-bottom:$light-grey-4 solid 1px;
+        label {
+            font-size: 11px;
+            font-weight: $font-bold;
+            text-transform: uppercase;
+            color:white;
+            display: inline-block;
+            position: absolute;
+            top:10px;
+            left:10px;
+            padding:3px 5px;
+            background-color:$primary-alt-2;
+            letter-spacing: 1px;
+        }
+    }
+    .card-body {
+        padding:20px;
+        h5 {
+            margin-bottom:15px;
+        }
+        p {
+            font-size: 14px;
+        }
+    }
+    .card-footer {
+        position: absolute;
+        bottom:0;
+        left:0;
+        width:100%;
+        border-top:$light-grey-4 solid 1px;
+        font-size: 11px;
+        color:$grey;
+        font-weight: $font-normal;
+        .btn {
+            border-radius:0;
+        }
+        .author {
+            list-style-type: none;
+            margin:0;
+            padding:0;
+            display: table;
+            li {
+                display: table-cell;
+                vertical-align: middle;
+                line-height:normal;
+                font-size: 11px;
+                color:$grey;
+                font-weight: $font-normal;
+            }
+            li:first-child {
+                padding-right:5px;
+            }
+        }
+    }
+}
+.card.no-footer {
+    padding:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+    .card-depriciated {
         position: relative;
         border:#e3e3e3 solid 1px;
         background-color:white;

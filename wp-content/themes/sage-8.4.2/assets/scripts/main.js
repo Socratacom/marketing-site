@@ -22,6 +22,17 @@
       },
       finalize: function() {
         // JavaScript to be fired after the init JS
+        jQuery(function($) {
+          $(function() {
+            $.fn.matchHeight._throttle = 80;
+              $('.match-height').matchHeight();
+          });
+          $( document ).ajaxComplete(function() {
+            $('.match-height')
+            .matchHeight('remove')
+            .matchHeight();
+          });
+        });
 
         // Google Site Search
         (function() {

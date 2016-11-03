@@ -29,13 +29,55 @@ function create_socrata_downloads() {
       ),
       'public' => true,
       'menu_position' => 5,
-      'supports' => array( 'title', 'thumbnail' ),
+      'supports' => array( 'title','thumbnail'),
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => false,
-      'rewrite' => array('with_front' => false, 'slug' => 'event')
+      'rewrite' => array('with_front' => false, 'slug' => 'downloads')
     )
   );
+}
+
+// TAXONOMIES
+add_action( 'init', 'socrata_downloads_cat', 0 );
+function socrata_downloads_cat() {
+  register_taxonomy(
+    'socrata_downloads_cat',
+    'socrata_downloads',
+    array(
+      'labels' => array(
+        'name' => 'Asset Type',
+        'menu_name' => 'Asset Type',
+        'add_new_item' => 'Add New Type',
+        'new_item_name' => "New Type"
+      ),
+      'show_ui' => true,
+      'show_in_menu' => true,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => true,
+      'capabilities'=>array(
+        'manage_terms' => 'manage_options',//or some other capability your clients don't have
+        'edit_terms' => 'manage_options',
+        'delete_terms' => 'manage_options',
+        'assign_terms' =>'edit_posts'
+      ),
+      'rewrite' => array('with_front' => false, 'slug' => 'downloads-category'),
+    )
+  );
+}
+
+// PRINT TAXONOMY CATEGORIES
+function downloads_the_categories() {
+  // get all categories for this post
+  global $terms;
+  $terms = get_the_terms($post->ID , 'socrata_downloads_cat');
+  // echo the first category
+  echo $terms[0]->name;
+  // echo the remaining categories, appending separator
+  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
 
 // MENU ICON
@@ -44,12 +86,19 @@ add_action( 'admin_head', 'add_socrata_downloads_icon' );
 function add_socrata_downloads_icon() { ?>
   <style>
     #adminmenu .menu-icon-socrata_downloads div.wp-menu-image:before {
-      content: '\f123';
+      content: '\f105';
     }
   </style>
   <?php
 }
 
+// TEMPLATES
+// Endpoint Rewrites
+add_action('init', 'socrata_downloads_add_endpoints');
+function socrata_downloads_add_endpoints()
+{
+  add_rewrite_endpoint('asset', EP_PERMALINK);
+}
 // Template Paths
 add_filter( 'template_include', 'socrata_downloads_single_template', 1 );
 function socrata_downloads_single_template( $template_path ) {
@@ -63,65 +112,126 @@ function socrata_downloads_single_template( $template_path ) {
         $template_path = plugin_dir_path( __FILE__ ) . 'single-downloads.php';
       }
     }
+    if ( get_query_var( 'asset' )  ) {
+      $template_path = plugin_dir_path( __FILE__ ) . 'asset.php';
+    }
   }
   return $template_path;
 }
-
-// Print Taxonomy Categories
-function downloads_the_categories() {
-  // get all categories for this post
-  global $terms;
-  $terms = get_the_terms($post->ID , 'socrata_downloads_cat');
-  // echo the first category
-  echo $terms[0]->name;
-  // echo the remaining categories, appending separator
-  for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
+// Template Request
+add_filter( 'request', 'socrata_downloads_filter_request' );
+function socrata_downloads_filter_request( $vars )
+{
+  if( isset( $vars['asset'] ) ) $vars['asset'] = true;
+  return $vars;
 }
 
-// Custom Body Class
+// CUSTOM BODY CLASS
 add_action( 'body_class', 'socrata_downloads_body_class');
 function socrata_downloads_body_class( $classes ) {
   if ( get_post_type() == 'socrata_downloads' && is_single() || get_post_type() == 'socrata_downloads' && is_archive() )
-    $classes[] = 'socrata-events';
+    $classes[] = 'socrata-downloads';
   return $classes;
 }
 
-// Fixes JS when Yoast enabled and thumbnail disabled
-add_action( 'admin_enqueue_scripts', 'socrata_downloads_box_scripts' );
-function socrata_downloads_box_scripts() {
-
-    global $post;
-    wp_enqueue_media( array( 
-        'post' => $post->ID, 
-    ) );
-
+// CUSTOM EXCERPT
+function downloads_excerpt() {
+  global $post;
+  $text = rwmb_meta( 'downloads_wysiwyg' );
+  if ( '' != $text ) {
+    $text = strip_shortcodes( $text );
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]>', $text);
+    $excerpt_length = 20; // 20 words
+    $excerpt_more = apply_filters('excerpt_more', ' ' . ' ...');
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+  return apply_filters('get_the_excerpt', $text);
 }
 
 // Metabox
 add_filter( 'rwmb_meta_boxes', 'socrata_downloads_register_meta_boxes' );
 function socrata_downloads_register_meta_boxes( $meta_boxes )
 {
-  $prefix = 'socrata_downloads_';
+  $prefix = 'downloads_';
   $meta_boxes[] = array(
-    'title'  => __( 'Download Details', 'socrata-downloads' ),
-    'post_types' => array( 'socrata_downloads' ),
+    'title'  => __( 'Asset Details', 'downloads_' ),
+    'post_types' => 'socrata_downloads',
     'context'    => 'normal',
     'priority'   => 'high',
-    'fields' => array(
-       // TEXT
-      array(
-        // Field name - Will be used as label
-        'name'  => __( 'Marketo ID', 'socrata-downloads' ),
-        // Field ID, i.e. the meta key
-        'id'    => "{$prefix}marketo",
-        'type'  => 'text',
-        // CLONES: Add to make the field cloneable (i.e. have multiple value)
-        'clone' => false,
+    'validation' => array(
+      'rules'    => array(
+        "{$prefix}city" => array(
+            'required'  => true,
+        ),
       ),
-      // WYSIWYG/RICH TEXT EDITOR
+    ),
+    'fields' => array(
+      // HEADING
       array(
-        'name'    => __( 'Content', 'socrata-downloads' ),
-        'id'      => "{$prefix}speakers",
+        'type' => 'heading',
+        'name' => __( 'Gated Content ?', 'downloads_' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // CHECKBOX
+      array(
+        'name'  => __( 'Is this gated?', 'downloads_' ),
+        'id'   => "{$prefix}gated",
+        'desc' => __( 'Yes', 'downloads_' ),
+        'type' => 'checkbox',
+        // Value can be 0 or 1
+        'std'  => 0,
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'Marketo Form ID', 'downloads_' ),
+        'id'    => "{$prefix}marketo_form",
+        'desc' => __( 'Example: 1234', 'downloads_' ),
+        'type'  => 'text',
+        'clone' => false,
+      ), 
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Asset Meta', 'downloads_' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+      ),
+      // FILE ADVANCED (WP 3.5+)
+      array(
+        'name'             => esc_html__( 'Asset File', 'downloads_' ),
+        'id'               => "{$prefix}asset",
+        'type'             => 'file_advanced',
+        'max_file_uploads' => 1,
+        'mime_type'        => 'application', // Leave blank for all file types
+        'desc' => __( 'Downloadable file (ie. PDF)', 'downloads_' ),
+      ),
+      // IMAGE ADVANCED (WP 3.5+)
+      array(
+        'name'             => __( 'Asset Image', 'downloads_' ),
+        'id'               => "{$prefix}asset_image",
+        'type'             => 'image_advanced',
+        'max_file_uploads' => 1,
+        'desc' => __( 'Thumbnail of the asset', 'downloads_' ),
+      ),
+       // TEXTAREA
+      array(
+        'name' => esc_html__( 'Asset Description', 'downloads_' ),
+        'id'   => "{$prefix}asset_description",
+        'type' => 'textarea',
+        'cols' => 20,
+        'rows' => 3,
+      ),
+    )
+  );
+
+  $meta_boxes[] = array(
+    'title'         => 'Gated Asset Content',   
+    'post_types'    => 'socrata_downloads',
+    'context'       => 'normal',
+    'priority'      => 'high',
+      'fields' => array(
+        array(
+        'id'      => "{$prefix}wysiwyg",
         'type'    => 'wysiwyg',
         // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
         'raw'     => false,
@@ -132,233 +242,66 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
           'media_buttons' => true,
         ),
       ),
-    )
+    ),
   );
+
   return $meta_boxes;
 }
-
-
 
 // Shortcode [downloads]
 function downloads_posts($atts, $content = null) {
   ob_start();
   ?>
-<section class="section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="padding-15 background-clouds">
-          Filter Bar
+
+  <section class="section-padding background-light-grey-5">
+    <div class="container">
+      <div class="row hidden-lg">
+        <div class="col-sm-12 margin-bottom-30">
+          <div class="padding-15 background-light-grey-4">
+            <ul class="filter-bar">
+              <li><?php echo facetwp_display( 'facet', 'asset_type_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
+              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+            </ul>
+          </div>          
         </div>
-
-
-
-
-
-
-<?php
-$args = array(
-'post_type' => 'socrata_downloads',
-'order' => 'asc'
-);
-
-// The Query
-$the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) {
-echo '<ul>';
-while ( $the_query->have_posts() ) {
-$the_query->the_post(); { ?> 
-
-<li><?php the_title(); ?></li>
-
-<?php }
-}
-echo '</ul>';
-} else {
-// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata(); ?>
-
-</div>
-
-<div class="col-sm-3">
-
-<?php
-$args = array(
-'post_type'         => 'post',
-'order'             => 'asc',
-'posts_per_page'    => 3,
-'post_status'       => 'publish',
-);
-
-// The Query
-$the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) {
-echo '<ul class="no-bullets sidebar-list">';
-echo '<li><h5>Recent Articles</h5></li>';
-while ( $the_query->have_posts() ) {
-$the_query->the_post(); { ?> 
-<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
-<li>
-  <div class="article-img-container">
-    <img src="<?=$url?>" class="img-responsive">
-  </div>
-  <div class="article-title-container">
-    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php the_time('F j, Y') ?></small>
-  </div>
-</li>
-<?php }
-}
-echo '<li><a href="/blog">View All Articles <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-echo '</ul>';
-} else {
-// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata(); ?>
-
-<?php
-$args = array(
-'post_type'         => 'socrata_videos',
-'order'             => 'asc',
-'posts_per_page'    => 3,
-'post_status'       => 'publish',
-);
-
-// The Query
-$the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) {
-echo '<ul class="no-bullets sidebar-list">';
-echo '<li><h5>Recent Videos</h5></li>';
-while ( $the_query->have_posts() ) {
-$the_query->the_post(); { ?> 
-
-<li>
-  <div class="article-img-container">
-    <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/default.jpg" class="img-responsive">
-  </div>
-  <div class="article-title-container">
-    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-  </div>
-</li>
-
-<?php }
-}
-echo '<li><a href="/videos">View All Videos <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-echo '</ul>';
-} else {
-// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata(); ?>
-
-<?php
-$args = array(
-'post_type'         => 'case_study',
-'order'             => 'asc',
-'posts_per_page'    => 3,
-'post_status'       => 'publish',
-);
-
-// The Query
-$the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) {
-echo '<ul class="no-bullets sidebar-list">';
-echo '<li><h5>Recent Case Studies</h5></li>';
-while ( $the_query->have_posts() ) {
-$the_query->the_post(); { ?> 
-
-<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
-<li>
-  <div class="article-img-container">
-    <img src="<?=$url?>" class="img-responsive">
-  </div>
-  <div class="article-title-container">
-    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-  </div>
-</li>
-
-<?php }
-}
-echo '<li><a href="/case-studies">View All Case Studies <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-echo '</ul>';
-} else {
-// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata(); ?>
-
-<?php
-
-$today = strtotime('today UTC');        
-
-$event_meta_query = array( 
-  'relation' => 'AND',
-  array( 
-    'key' => 'socrata_events_endtime', 
-    'value' => $today, 
-    'compare' => '>=', 
-  ) 
-); 
-
-$args = array(
-'post_type'         => 'socrata_events',
-'posts_per_page'    => 3,
-'post_status' => 'publish',
-'ignore_sticky_posts' => true,  
-'meta_key' => 'socrata_events_endtime',
-'orderby' => 'meta_value_num',
-'order' => 'asc',
-'meta_query' => $event_meta_query
-);
-
-// The Query
-$the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) {
-echo '<ul class="no-bullets sidebar-list">';
-echo '<li><h5>Upcoming Events</h5></li>';
-while ( $the_query->have_posts() ) {
-$the_query->the_post(); { ?> 
-
-<li><?php the_title(); ?></li>
-
-<?php }
-}
-echo '<li><a href="/events">View All Events <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-echo '</ul>';
-} else { ?>
-<ul class="no-bullets sidebar-list">
-<li><h5>Upcoming Events</h5></li>
-<li>No Events</li>
-</ul>
-<?php
-}
-/* Restore original Post Data */
-wp_reset_postdata(); ?>
-
-
-
- 
-</div>
-
-<div class="col-sm-3 hidden-xs">
-<?php echo do_shortcode('[newsletter-sidebar]'); ?> 
-</div>
-
+      </div>
+      <div class="row">
+        <div class="col-lg-3 hidden-xs hidden-sm hidden-md facet-sidebar">
+          <button onclick="FWP.reset()" class="btn btn-primary btn-block margin-bottom-30"><i class="fa fa-undo" aria-hidden="true"></i> Reset Filters</button>
+          <div class="filter-list">
+            <button type="button" data-toggle="collapse" data-target="#type">Type</button>
+            <div id="type" class="collapse in"><?php echo facetwp_display( 'facet', 'asset_type' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#segment">Segment</button>
+            <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#product">Product</button>
+            <div id="product" class="collapse in"><?php echo facetwp_display( 'facet', 'products' ); ?></div>
+          </div>            
+        </div>
+        <div class="col-sm-12 col-lg-9">
+          <div class="row">
+            <div class="col-sm-12 margin-bottom-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp sort="true"]') ;?></li>
+              </ul>
+            </div>
+            <?php echo facetwp_display( 'template', 'downloads' ); ?>
+            <div class="col-sm-12 margin-top-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+  <?php echo do_shortcode('[match-height]');?>
+  <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
+
   <?php
   $content = ob_get_contents();
   ob_end_clean();
