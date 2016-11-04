@@ -33,7 +33,7 @@ function create_socrata_downloads() {
       'taxonomies' => array( '' ),
       'menu_icon' => '',
       'has_archive' => false,
-      'rewrite' => array('with_front' => false, 'slug' => 'downloads')
+      'rewrite' => array('with_front' => false, 'slug' => 'papers-and-guides')
     )
   );
 }
@@ -204,6 +204,13 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
         'max_file_uploads' => 1,
         'mime_type'        => 'application', // Leave blank for all file types
         'desc' => __( 'Downloadable file (ie. PDF)', 'downloads_' ),
+      ),
+      // URL
+      array(
+        'name' => esc_html__( 'Asset Link', 'downloads_' ),
+        'id'   => "{$prefix}link",
+        'desc' => __( 'Used for external assets like Open Data Field Guide', 'downloads_' ),
+        'type' => 'url',
       ),
       // IMAGE ADVANCED (WP 3.5+)
       array(

@@ -1,5 +1,7 @@
 <?php
 $content = rwmb_meta( 'downloads_wysiwyg' );
+$description = rwmb_meta( 'downloads_asset_description' );
+$link = rwmb_meta( 'downloads_link' );
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); 
 $cover = rwmb_meta( 'downloads_asset_image', 'size=medium' );
 $gated = rwmb_meta( 'downloads_gated' );
@@ -30,11 +32,16 @@ $marketo = rwmb_meta( 'downloads_marketo_form' );
 <section class="section-padding">
   <div class="container">
     <div class="row">
-      <div class="col-md-3 col-lg-3 text-center hidden-xs hidden-sm">
-        <img src="<?php foreach ( $cover as $image ) { echo $image['url']; } ?>" class="img-responsive" style="box-shadow: 0px 0px 15px #ccc">
-      </div>
-      <div class="col-sm-7 col-md-5 col-lg-6 margin-bottom-60">
-        <?php echo $content;?>
+      
+      <?php if ( ! empty( $cover) ) { ?>
+        <div class="col-md-3 col-lg-3 text-center hidden-xs hidden-sm">
+          <img src="<?php foreach ( $cover as $image ) { echo $image['url']; } ?>" class="img-responsive" style="box-shadow: 0px 0px 15px #ccc">
+        </div>
+        <div class="col-sm-7 col-md-5 col-lg-6 margin-bottom-60">
+      <?php } else { ?>
+        <div class="col-sm-7 col-md-6 col-md-offset-1 col-lg-5 col-lg-offset-2 margin-bottom-60">
+      <?php } ?> 
+        <?php if ( ! empty( $content) ) { ?> <?php echo $content;?> <?php } else { ?> <?php echo $description;?> <?php } ?>        
       </div>
       <div class="col-sm-5 col-md-4 col-lg-3">
         <?php if ( ! empty( $gated ) ) { ?>
@@ -42,7 +49,9 @@ $marketo = rwmb_meta( 'downloads_marketo_form' );
             <form id="mktoForm_<?php echo $marketo;?>"></form>
             <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '<?php echo $marketo;?>');</script>
           </div>
-        <?php } else { ?>
+        <?php } elseif ( ! empty( $link ) ) { ?>
+          <a href="<?php echo $link;?>" class="btn btn-primary btn-lg btn-block">View</a>
+        <?php } else { ?> 
           <a href="<?php foreach ( $asset_url as $asset ) { echo $asset['url']; } ?>" target="_blank" class="btn btn-primary btn-lg btn-block">Download</a>
         <?php } ?>
       </div>
