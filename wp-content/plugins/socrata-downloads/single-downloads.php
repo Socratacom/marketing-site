@@ -31,7 +31,7 @@ $marketo = rwmb_meta( 'downloads_marketo_form' );
   <div class="container">
     <div class="row">
       <div class="col-md-3 col-lg-3 text-center hidden-xs hidden-sm">
-        <img src="<?php foreach ( $cover as $image ) { echo $image['url']; } ?>" class="img-responsive">
+        <img src="<?php foreach ( $cover as $image ) { echo $image['url']; } ?>" class="img-responsive" style="box-shadow: 0px 0px 15px #ccc">
       </div>
       <div class="col-sm-7 col-md-5 col-lg-6 margin-bottom-60">
         <?php echo $content;?>
