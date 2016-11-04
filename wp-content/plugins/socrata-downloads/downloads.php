@@ -14,8 +14,8 @@ function create_socrata_downloads() {
   register_post_type( 'socrata_downloads',
     array(
       'labels' => array(
-        'name' => 'Downloads',
-        'singular_name' => 'Downloads',
+        'name' => 'Papers and Guides',
+        'singular_name' => 'Papers and Guides',
         'add_new' => 'Add New Asset',
         'add_new_item' => 'Add New Asset',
         'edit' => 'Edit Asset',
@@ -23,7 +23,7 @@ function create_socrata_downloads() {
         'new_item' => 'New Asset',
         'view' => 'View',
         'view_item' => 'View Asset',
-        'search_items' => 'Search Downloads',
+        'search_items' => 'Search Assets',
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash'
       ),
