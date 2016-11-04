@@ -45,10 +45,14 @@ $marketo = rwmb_meta( 'downloads_marketo_form' );
       </div>
       <div class="col-sm-5 col-md-4 col-lg-3">
         <?php if ( ! empty( $gated ) ) { ?>
-          <div class="marketo-form-labels padding-30 background-light-grey-4">    
-            <form id="mktoForm_<?php echo $marketo;?>"></form>
-            <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '<?php echo $marketo;?>');</script>
-          </div>
+          <?php if ( ! empty( $marketo ) ) { ?>
+            <div class="marketo-form-labels padding-30 background-light-grey-4">    
+              <form id="mktoForm_<?php echo $marketo;?>"></form>
+              <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '<?php echo $marketo;?>');</script>
+            </div>
+          <?php } else { ?>
+            <a href="<?php foreach ( $asset_url as $asset ) { echo $asset['url']; } ?>" target="_blank" class="btn btn-primary btn-lg btn-block">Download</a>
+          <?php } ?>   
         <?php } elseif ( ! empty( $link ) ) { ?>
           <a href="<?php echo $link;?>" class="btn btn-primary btn-lg btn-block">View</a>
         <?php } else { ?> 
