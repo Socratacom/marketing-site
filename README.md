@@ -14,7 +14,10 @@ Additional Plugins Used
 
 Change History
 ---
-- V2.1.7 - Site Updates
+- V3.1 - Site Updates
+  * CSS updates
+  * Added Downloads plugin
+- V3.0 - Site Rebrand
   * Site rebrand in accordance with the CDDG project.
 - V2.1.7 - Site Updates
   * CSS updates
