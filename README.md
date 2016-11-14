@@ -1,17 +1,6 @@
 # Socrata Marketing Site
 This is the main marketing site for Socrata. Only the Theme and custom Socrata plugins are in this repository.
 
-Additional Plugins Used
----
-- BugMeBar
-- Co-Authors Plus
-- TineMCE Advanced
-- Yoast SEO
-- WP Google Tag Manager
-- WP HTML Author Bio
-- WP Security Audit Log
-- WP User Avatar
-
 Change History
 ---
 - V3.1 - Site Updates
