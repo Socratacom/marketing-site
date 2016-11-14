@@ -93,14 +93,14 @@ jQuery(function ($){
 					<div class="col-sm-10 col-sm-offset-1">
 						<h2 class="section-title color-white">Why Socrata</h2>
 						<p class="lead color-white">Socrata's cloud-based solutions allow government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-						<p><a href="https://www.youtube.com/watch?v=trUHJfAnNxI" role="button"><i class="fa fa-play-circle-o"></i></a></p>
+						<p><a href="https://www.youtube.com/watch?v=yH4RnuPijZA" role="button"><i class="fa fa-play-circle-o"></i></a></p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div id="myvideo" class="image" style="background-image:url(https://img.youtube.com/vi/trUHJfAnNxI/maxresdefault.jpg)"></div>
-	<div id="video" class="player" data-property="{videoURL:'trUHJfAnNxI',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:47, stopAt:54, opacity:1, addRaster:true, quality:'default'}"></div>
+	<div id="myvideo" class="image" style="background-image:url(https://img.youtube.com/vi/yH4RnuPijZA/maxresdefault.jpg)"></div>
+	<div id="video" class="player" data-property="{videoURL:'yH4RnuPijZA',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:9, stopAt:19, opacity:1, addRaster:true, quality:'default'}"></div>
 	<script>jQuery(function(e){e("#video").YTPlayer()});</script>
 </section>
 <section class="section-padding">

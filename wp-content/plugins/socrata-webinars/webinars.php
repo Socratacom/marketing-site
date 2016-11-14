@@ -405,115 +405,57 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
 function webinars_posts($atts, $content = null) {
   ob_start();
   ?>
-  <section class="filter-bar">
+
+
+  <section class="section-padding background-light-grey-5">
     <div class="container">
+      <div class="row hidden-lg">
+        <div class="col-sm-12 margin-bottom-30">
+          <div class="padding-15 background-light-grey-4">
+            <ul class="filter-bar">
+              <li><?php echo facetwp_display( 'facet', 'webinar_status_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
+              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+            </ul>
+          </div>          
+        </div>
+      </div>
       <div class="row">
-        <div class="col-sm-12">
-          <ul>
-            <li><?php echo do_shortcode('[facetwp facet="webinar_status"]') ;?></li>
-            <li><?php echo do_shortcode('[facetwp facet="segment_dropdown"]') ;?></li>
-            <li><?php echo do_shortcode('[facetwp facet="product_dropdown"]') ;?></li>
-            <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
-          </ul>
+        <div class="col-lg-3 hidden-xs hidden-sm hidden-md facet-sidebar">
+          <button onclick="FWP.reset()" class="btn btn-primary btn-block margin-bottom-30"><i class="fa fa-undo" aria-hidden="true"></i> Reset Filters</button>
+          <div class="filter-list margin-bottom-30">
+            <button type="button" data-toggle="collapse" data-target="#type">Status</button>
+            <div id="type" class="collapse in"><?php echo facetwp_display( 'facet', 'webinar_status' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#segment">Segment</button>
+            <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#product">Product</button>
+            <div id="product" class="collapse in"><?php echo facetwp_display( 'facet', 'products' ); ?></div>
+          </div>              
+        </div>
+        <div class="col-sm-12 col-lg-9">
+          <div class="row">
+            <div class="col-sm-12 margin-bottom-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp sort="true"]') ;?></li>
+              </ul>
+            </div>
+            <?php echo facetwp_display( 'template', 'webinars' ); ?>
+            <div class="col-sm-12 margin-top-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="section-padding">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8">
-          <?php echo do_shortcode('[facetwp template="webinars"]') ;?>        
-        </div>
-        <div class="col-sm-4 hidden-xs events-sidebar">
-          <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
-          <?php
-          $args = array(
-          'post_type'         => 'socrata_videos',
-          'order'             => 'desc',
-          'posts_per_page'    => 3,
-          'post_status'       => 'publish',
-          );
-
-          // The Query
-          $the_query = new WP_Query( $args );
-
-          // The Loop
-          if ( $the_query->have_posts() ) {
-          echo '<ul class="no-bullets sidebar-list">';
-          echo '<li><h5>Recent Videos</h5></li>';
-          while ( $the_query->have_posts() ) {
-          $the_query->the_post(); { ?> 
-
-          <li>
-          <div class="article-img-container">
-          <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/default.jpg" class="img-responsive">
-          </div>
-          <div class="article-title-container">
-          <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-          </div>
-          </li>
-
-          <?php }
-          }
-          echo '<li><a href="/videos">View All Videos <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-          echo '</ul>';
-          } else {
-          // no posts found
-          }
-          /* Restore original Post Data */
-          wp_reset_postdata(); ?>
-
-          <?php
-          $args = array(
-          'post_type'         => 'case_study',
-          'order'             => 'desc',
-          'posts_per_page'    => 3,
-          'post_status'       => 'publish',
-          );
-
-          // The Query
-          $the_query = new WP_Query( $args );
-
-          // The Loop
-          if ( $the_query->have_posts() ) {
-          echo '<ul class="no-bullets sidebar-list">';
-          echo '<li><h5>Recent Case Studies</h5></li>';
-          while ( $the_query->have_posts() ) {
-          $the_query->the_post(); { ?> 
-
-          <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
-          <li>
-            <div class="article-img-container">
-              <img src="<?=$url?>" class="img-responsive">
-            </div>
-            <div class="article-title-container">
-              <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-            </div>
-          </li>
-
-          <?php }
-          }
-          echo '<li><a href="/case-studies">View All Case Studies <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-          echo '</ul>';
-          } else {
-          // no posts found
-          }
-          /* Restore original Post Data */
-          wp_reset_postdata(); ?>
-        </div>
-      </div>
-      <div class="row display-settings-bar">
-        <div class="col-sm-12">
-          <ul class="list-table">
-            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
-            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
-          </ul>          
-        </div>
-      </div>
-    </div>
-  </section>
+  <?php echo do_shortcode('[match-height]');?>
   <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
+
 
   <?php
   $content = ob_get_contents();

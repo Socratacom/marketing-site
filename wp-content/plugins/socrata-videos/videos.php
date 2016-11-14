@@ -285,7 +285,7 @@ function video_cards( $atts ) {
   while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
   <div class="<?php echo $class; ?>">
-    <article class="card card-video">
+    <article class="card-depriciated card-video">
       <div class="card-image">
         <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
         <a class="link" href="<?php the_permalink() ?>"></a>
@@ -323,7 +323,7 @@ function video_slider( $atts ) {
         while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
 
         <div class="col-sm-6 col-md-3 slide">
-        <article class="card card-video">
+        <article class="card-depriciated card-video">
         <div class="card-image">
         <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
         <a class="link" href="<?php the_permalink() ?>"></a>
@@ -451,7 +451,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
         $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8&offset=1');
         while ($query->have_posts()) : $query->the_post(); ?>
         <div class="col-sm-6 col-md-3 slide">
-          <article class="card card-video">
+          <article class="card-depriciated card-video">
             <div class="card-image">
               <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
               <a class="link" href="<?php the_permalink() ?>"></a>

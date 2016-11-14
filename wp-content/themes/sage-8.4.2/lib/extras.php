@@ -97,6 +97,7 @@ function shared_segment() {
         'new_item_name' => "New Segment"
       ),
       'show_ui' => true,
+      'show_in_menu' => false,
       'show_tagcloud' => false,
       'hierarchical' => true,
       'sort' => true,      
@@ -125,6 +126,7 @@ function shared_product() {
         'new_item_name' => "New Product"
       ),
       'show_ui' => true,
+      'show_in_menu' => false,
       'show_tagcloud' => false,
       'hierarchical' => true,
       'sort' => true,      
@@ -585,8 +587,7 @@ extract(shortcode_atts(array(
     "id" => '',
   ), $atts));
   return '
-    <div class="marketo-form-labels">
-    
+    <div class="marketo-form-labels">    
     <form id="mktoForm_'.$id.'"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
     </div>
@@ -744,7 +745,7 @@ function fwp_load_more() {
         $(document).on('facetwp-loaded', function() {
             if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
                 if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
-                    $('.facetwp-template').after('<div class="text-center padding-30"><button class="fwp-load-more btn btn-primary">Show more results</button></div>');
+                    $('.facetwp-template').after('<div class="col-sm-12 text-center padding-30"><button class="fwp-load-more btn btn-primary">Show more results</button></div>');
                 }
                 else {
                     $('.fwp-load-more').html('Show more results').show();
@@ -761,7 +762,31 @@ function fwp_load_more() {
 }
 add_action( 'wp_head', __NAMESPACE__ . '\\fwp_load_more', 99 );
 
+/**
+ * Adjust default per-page results
+ */
+add_filter( 'facetwp_per_page_options', function( $options ) {
+    return array( 12, 24, 48, 100 );
+});
 
+
+/**
+ * Modify Media Mime Types
+ */
+function modify_post_mime_types( $post_mime_types ) {
+ 
+    // select the mime type, here: 'application/pdf'
+    // then we define an array with the label values
+ 
+    $post_mime_types['application/pdf'] = array( __( 'PDFs' ), __( 'Manage PDFs' ), _n_noop( 'PDF <span class="count">(%s)</span>', 'PDFs <span class="count">(%s)</span>' ) );
+ 
+    // then we return the $post_mime_types variable
+    return $post_mime_types;
+ 
+}
+ 
+// Add Filter Hook
+add_filter( 'post_mime_types', __NAMESPACE__ . '\\modify_post_mime_types' );
 
 
 

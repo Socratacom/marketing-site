@@ -9,62 +9,60 @@ Author URI: http://socrata.com/
 License: GPLv2
 */
 
-// Shortcode [events-map]
+// Shortcode [content-discovery]
 function content_discovery_list($atts, $content = null) {
   ob_start();
   ?>
-    <section class="filter-bar hidden-sm hidden-md hidden-lg">
+
+
+
+  <section class="section-padding background-light-grey-5">
     <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <ul>
-            <li><?php echo do_shortcode('[facetwp facet="post_type_dropdown"]') ;?></li>
-            <li><?php echo do_shortcode('[facetwp facet="segment_dropdown"]') ;?></li>
-            <li><?php echo do_shortcode('[facetwp facet="product_dropdown"]') ;?></li>
-            <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <section class="section-padding">
-    <div class="container">
-      <div class="row margin-bottom-30 results-bar">
-        <div class="col-sm-4 col-md-3 hidden-xs">
-          <button onclick="FWP.reset()" class="btn btn-default btn-block"><i class="fa fa-undo" aria-hidden="true"></i> Reset Filters</button>          
-        </div>
-        <div class="col-sm-8 col-md-9">
-          <ul class="list-table">
-            <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
-            <li class="text-right"><?php echo do_shortcode('[facetwp sort="true"]') ;?></li>
-          </ul>        
+      <div class="row hidden-lg">
+        <div class="col-sm-12 margin-bottom-30">
+          <div class="padding-15 background-light-grey-4">
+            <ul class="filter-bar">
+              <li><?php echo facetwp_display( 'facet', 'post_type_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
+              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+            </ul>
+          </div>          
         </div>
       </div>
       <div class="row">
-        <div class="col-sm-4 col-md-3 hidden-xs facet-sidebar">
+        <div class="col-lg-3 hidden-xs hidden-sm hidden-md facet-sidebar">
+          <button onclick="FWP.reset()" class="btn btn-primary btn-block margin-bottom-30"><i class="fa fa-undo" aria-hidden="true"></i> Reset Filters</button>
           <div class="filter-list">
-            <button type="button" data-toggle="collapse" data-target="#type">Resource</button>
-            <div id="type" class="collapse in"><?php echo do_shortcode('[facetwp facet="post_types"]') ;?></div>
+            <button type="button" data-toggle="collapse" data-target="#resource">Resource</button>
+            <div id="resource" class="collapse in"><?php echo facetwp_display( 'facet', 'post_types' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#segment">Segment</button>
-            <div id="segment" class="collapse in"><?php echo do_shortcode('[facetwp facet="segment"]') ;?></div>
+            <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#product">Product</button>
-            <div id="product" class="collapse in"><?php echo do_shortcode('[facetwp facet="products"]') ;?></div>  
+            <div id="product" class="collapse in"><?php echo facetwp_display( 'facet', 'products' ); ?></div>
           </div>            
         </div>
-        <div class="col-sm-8 col-md-9">          
-          <?php echo do_shortcode('[facetwp template="content_discovery_tool"]') ;?>
-        </div>
-      </div>
-      <div class="row display-settings-bar">
-        <div class="col-sm-12">
-          <ul class="list-table">
-            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
-            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
-          </ul>          
+        <div class="col-sm-12 col-lg-9">
+          <div class="row">
+            <div class="col-sm-12 margin-bottom-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp sort="true"]') ;?></li>
+              </ul>
+            </div>
+            <?php echo facetwp_display( 'template', 'content_discovery_tool' ); ?>
+            <div class="col-sm-12 margin-top-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
+  <?php echo do_shortcode('[match-height]');?>
   <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
 
   <?php

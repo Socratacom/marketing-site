@@ -439,21 +439,18 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 function events_posts($atts, $content = null) {
   ob_start();
   ?>
-<section class="filter-bar">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12">
-        <ul>
-          <li><?php echo do_shortcode('[facetwp facet="event_categories"]') ;?></li>
-          <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
 <section class="section-padding">
   <div class="container">
     <div class="row">
+      <div class="col-sm-12 margin-bottom-30">
+        <div class="padding-15 background-light-grey-4">
+          <ul class="filter-bar">
+            <li><?php echo facetwp_display( 'facet', 'event_categories_dropdown' ); ?></li>
+            <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+          </ul>
+        </div>          
+      </div>
+
       <div class="col-sm-8">
         <?php echo do_shortcode('[facetwp template="events"]') ;?>        
       </div>

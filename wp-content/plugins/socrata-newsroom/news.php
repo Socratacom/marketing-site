@@ -230,178 +230,57 @@ function newsroom_posts($atts, $content = null) {
   ob_start();
   ?>
 
-<?php
-  $args = array(
-  'post_type'             => 'news',
-  'meta_query' => array(
-    array(
-        'key' => 'news_featured',
-        'value' => '1'
-    )
-  ),
-  'posts_per_page'        => 3,
-  'post_status'           => 'publish',
-  );
-
-  // The Query
-  $the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) { ?>
-  <section class="section-padding hidden-xs">
+  <section class="section-padding background-light-grey-5">
     <div class="container">
-    <div class="row row-centered">
-    <?php
-    while ( $the_query->have_posts() ) {
-      $the_query->the_post();
-      $logo = rwmb_meta( 'news_logo', 'size=medium' );
-      $link = rwmb_meta( 'news_url' );
-      $source = rwmb_meta( 'news_source' );
-      $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
-      $url = $thumb['0']; { ?>
-
-        <?php if ( ! empty( $logo ) ) { ?> 
-          <div class="col-sm-4 col-centered">
-            <div class="thumbnail">
-              <div class="sixteen-nine">
-                <div class="aspect-content logo-background" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>);"></div>
-                <a href="<?php echo $link;?>" target="_blank" class="link"></a>
-              </div>
-              <div class="caption">
-                <p class="margin-bottom-0 color-secondary text-uppercase text-semi-bold"><small><?php news_the_categories(); ?></small></p>
-                <h4 class="margin-bottom-5"><a href="<?php echo $link;?>" target="_blank" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
-                <p class="margin-bottom-5"><small><?php echo $source;?> | <?php the_time('F j, Y') ?></small></p>
-                <p class="margin-bottom-0"><a href="<?php echo $link;?>" target="_blank">Read article <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
-              </div>
-            </div>
-          </div>
-
-          <?php } else { ?> 
-
-          <div class="col-sm-4 col-centered">
-            <div class="thumbnail">
-              <?php
-                if ( ! empty( $thumb ) ) { ?>
-                  <div class="sixteen-nine" style="border:none;">
-                    <div class="aspect-content post-background" style="background-image:url(<?php echo $url;?>);"></div>
-                    <a href="<?php the_permalink(); ?>" class="link"></a>
-                  </div> 
-                  <?php
-                }     
-                else { ?>
-                  <div class="sixteen-nine" style="border:none;">
-                    <div class="aspect-content post-background" style="background-image:url(/wp-content/uploads/no-image.png);"></div>
-                    <a href="<?php the_permalink(); ?>" class="link"></a>
-                  </div>
-                  <?php
-                }
-              ?>
-              <div class="caption">
-                <p class="margin-bottom-0 color-secondary text-uppercase text-semi-bold"><small><?php news_the_categories(); ?></small></p>
-                <h4 class="margin-bottom-5"><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="link-black"><?php the_title(); ?></a></h4>
-                <p class="margin-bottom-5"><small><?php the_time('F j, Y') ?></small></p>
-                <p class="margin-bottom-0"><a href="<?php the_permalink(); ?>">Learn more <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
-              </div>
-            </div>
-          </div>
-
-          <?php } 
-        ?>
-      <?php }
-    } ?>
-    
-    </div>
-    </div>
-    </section>
-
-    <?php
-  } 
-  else {
-  // no posts found
-  }
-  /* Restore original Post Data */
-  wp_reset_postdata(); 
-?>
-  <section class="filter-bar">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <ul>
-            <li><?php echo do_shortcode('[facetwp facet="newsroom_categories"]') ;?></li>
-            <li><button onclick="FWP.reset()" class="facetwp-reset">Reset</button></li>
-          </ul>
+      <div class="row hidden-lg">
+        <div class="col-sm-12 margin-bottom-30">
+          <div class="padding-15 background-light-grey-4">
+            <ul class="filter-bar">
+              <li><?php echo facetwp_display( 'facet', 'newsroom_categories_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
+              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+            </ul>
+          </div>          
         </div>
       </div>
-    </div>
-  </section>
-  <section class="section-padding">
-    <div class="container">
       <div class="row">
-        <div class="col-sm-8">
-          <?php echo do_shortcode('[facetwp template="newsroom"]') ;?>
-        </div>
-        <div class="col-sm-4 hidden-xs">
+        <div class="col-lg-3 hidden-xs hidden-sm hidden-md facet-sidebar">
+          <button onclick="FWP.reset()" class="btn btn-primary btn-block margin-bottom-30"><i class="fa fa-undo" aria-hidden="true"></i> Reset Filters</button>
+          <div class="filter-list margin-bottom-30">
+            <button type="button" data-toggle="collapse" data-target="#type">Category</button>
+            <div id="type" class="collapse in"><?php echo facetwp_display( 'facet', 'newsroom_categories' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#segment">Segment</button>
+            <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#product">Product</button>
+            <div id="product" class="collapse in"><?php echo facetwp_display( 'facet', 'products' ); ?></div>
+          </div>
           <div class="alert alert-info margin-bottom-30">
             <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a>
-          </div>            
-          <?php echo do_shortcode('[newsletter-sidebar]'); ?>
-
-          <?php
-          $args = array(
-          'post_type'         => 'post',
-          'order'             => 'desc',
-          'posts_per_page'    => 5,
-          'post_status'       => 'publish',
-          );
-
-          // The Query
-          $the_query = new WP_Query( $args );
-
-          // The Loop
-          if ( $the_query->have_posts() ) {
-          echo '<ul class="no-bullets sidebar-list">';
-          echo '<li><h5>Recent Articles</h5></li>';
-          while ( $the_query->have_posts() ) {
-          $the_query->the_post(); { ?> 
-
-          <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
-          <li>
-            <div class="article-img-container">
-              <a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
-            </div>
-            <div class="article-title-container">
-              <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php the_time('F j, Y') ?></small>
-            </div>
-          </li>
-
-          <?php }
-          }
-          echo '<li><a href="/blog">View blog <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-          echo '</ul>';
-          } else {
-          // no posts found
-          }
-          /* Restore original Post Data */
-          wp_reset_postdata(); ?>
-
+          </div>               
         </div>
-      </div>      
-    </div>
-  </section>
-  <section>
-    <div class="container">
-      <div class="row display-settings-bar">
-        <div class="col-sm-12">
-          <ul class="list-table">
-            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
-            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
-          </ul>          
+        <div class="col-sm-12 col-lg-9">
+          <div class="row">
+            <div class="col-sm-12 margin-bottom-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp sort="true"]') ;?></li>
+              </ul>
+            </div>
+            <?php echo facetwp_display( 'template', 'newsroom' ); ?>
+            <div class="col-sm-12 margin-top-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
+  <?php echo do_shortcode('[match-height]');?>
   <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
-
 
   <?php
   $content = ob_get_contents();

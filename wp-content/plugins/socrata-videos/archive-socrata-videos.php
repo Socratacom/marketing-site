@@ -10,7 +10,7 @@
         <?php while ( have_posts() ) : the_post();  ?>
 
         <div class="col-sm-6 col-lg-3">
-        <article class="card card-video">
+        <article class="card-depriciated card-video">
         <div class="card-image">
         <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
         <a class="link" href="<?php the_permalink() ?>"></a>
