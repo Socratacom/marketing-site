@@ -14,6 +14,11 @@ Additional Plugins Used
 
 Change History
 ---
+- V2.1.7 - Site Updates
+  * Site rebrand in accordance with the CDDG project.
+- V2.1.7 - Site Updates
+  * CSS updates
+  * Updated Events plugin to accommodate international events
 - V2.1.6 - Site Updates
   * CSS updates
   * Added Webinars plugin
