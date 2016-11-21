@@ -126,7 +126,5 @@ function assets() {
   wp_enqueue_script('ytplayer', Assets\asset_path('scripts/ytplayer.js'), null, true);
   wp_register_script('marketoforms', '//app-abk.marketo.com/js/forms2/js/forms2.min.js', null, true);
   wp_enqueue_script('marketoforms');
-  wp_register_script('addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-553f9bc9354d386b', null, true);
-  wp_enqueue_script('addthis');
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);
