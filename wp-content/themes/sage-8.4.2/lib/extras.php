@@ -563,6 +563,21 @@ function newsletter_footer ($atts, $content = null) {
 }
 add_shortcode('newsletter-footer', __NAMESPACE__ . '\\newsletter_footer');
 
+
+/**
+ * Addthis Sharing
+ */
+function addthis_sharing ($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="addthis_inline_share_toolbox"></div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('addthis', __NAMESPACE__ . '\\addthis_sharing');
+
 /**
  * Marketo Form
  */
