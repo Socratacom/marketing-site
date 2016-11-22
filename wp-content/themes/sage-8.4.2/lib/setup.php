@@ -35,9 +35,8 @@ function setup() {
     'site_nav_resources_mobile' => __('Site Nav Resources Mobile', 'sage'),
     'site_nav_about' => __('Site Nav About', 'sage'),
     'site_nav_community' => __('Site Nav Community', 'sage'),
-    'site_nav_additional_links' => __('Site Nav Additional Links', 'sage'),
-    'product_nav_open_data' => __('Product Nav Open Data', 'sage'),    
-    'events_filter' => __('Events Filter', 'sage')
+    'site_nav_popular_links' => __('Site Nav Popular Links', 'sage'),
+    'product_nav_open_data' => __('Product Nav Open Data', 'sage'),
   ]);
 
   // Enable post thumbnails
