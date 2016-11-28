@@ -55,7 +55,7 @@
   jQuery(function($) {
     // COOKIES
     // if the cookie is true, hide the initial message and show the other one
-    if (Cookies.set('popup_v2') == 'yes') {
+    if (Cookies.set('popup_v3') == 'yes') {
       $('#popup').addClass('hide-me');
     }
     // when clicked on “X” icon do something
@@ -65,7 +65,7 @@
         $('#popup').addClass('hide-me');
 
         // add cookie setting that user has clicked
-        Cookies.set('popup_v2', 'yes', {expires: 30 });
+        Cookies.set('popup_v3', 'yes', {expires: 30 });
       }
       return false;
     })
