@@ -535,8 +535,8 @@ function newsletter_sidebar ($atts, $content = null) {
   ob_start();
   ?>
   <div class="background-light-grey-4 padding-30 margin-bottom-30 newsletter-form marketo-form">
-    <h4 class="margin-bottom-15">Subscribe to our Weekly Newsletter</h4>
-    <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
+    <h4 class="margin-bottom-15">Subscribe to our Newsletter</h4>
+    <p>"Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
   </div>

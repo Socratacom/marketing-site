@@ -1,3 +1,19 @@
+<section class="background-light-grey-4 masthead">
+	<div class="text">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12">
+					<h1 class="text-reverse margin-bottom-0 text-uppercase"><?php single_cat_title(); ?></h1>	
+				</div>
+			</div>		
+		</div>
+	</div>
+	<div class="img img-background" style="background-image:url(/wp-content/uploads/newsroom-hero.jpg);"></div>
+</section>
+
+
+
+
 <?php $post_counter = 0; // start a counter before the loop ?>
 <?php if ( have_posts() ) : ?>
 <?php while ( have_posts() ) : the_post(); ?>
