@@ -2,43 +2,6 @@
   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' );
   $url = $thumb['0'];
 ?>
-
-
-
-<!--<section class="background-light-grey-4 single-masthead" >
-  <div class="img img-background" style="background-image:url(<?=$url?>);"></div>
-</section>-->
-
-
-
-
-
-
-<!--<div class="feature-image overlay-black" style="background-image: url(<?=$url?>);">
-  <div class="page-banner">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <h1 class="text-reverse text-uppercase" style="margin:0;">Digital Government Transformation</h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="vertical-center">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-10 col-sm-offset-1">
-          <h1 class="entry-title text-reverse text-center"><?php the_title(); ?></h1>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-
-
-
--->
-
 <section class="section-padding">
   <div class="container">
     <div class="row">
@@ -62,7 +25,7 @@
                 <?php  global $post;
                 $author_id=$post->post_author;
                 foreach( get_coauthors() as $coauthor ): ?>
-                <div class="col-sm-4">
+                <div class="col-sm-6 col-md-4">
                   <ul>
                     <li><?php echo get_avatar( $coauthor->user_email, '50' ); ?></li>
                     <li><?php echo $coauthor->display_name; ?></li>
@@ -70,16 +33,6 @@
                 </div>
                 <?php endforeach; ?>
               </div>
-
-
-
-
-
-
-
-
-
-
             </div>
             <div class="margin-bottom-30"><img src="<?php echo $url;?>" class="img-responsive"><?php echo do_shortcode('[image-attribution]'); ?></div>
             <?php the_content(); ?>
@@ -135,6 +88,9 @@
 
 
 <div class="col-sm-4 hidden-xs">
+  <div class="margin-bottom-30">
+    <a href="https://socrata.com/feed/" title="Digital Government Transformation" target="_blank" class="btn btn-warning btn-block"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to our blog</a>
+  </div>
 
 <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
 
@@ -176,7 +132,7 @@ wp_reset_postdata(); ?>
 
 <?php
 $args = array(
-'post_type'         => 'socrata_videos',
+'post_type'         => 'socrata_webinars',
 'order'             => 'desc',
 'posts_per_page'    => 3,
 'post_status'       => 'publish',
@@ -188,44 +144,7 @@ $the_query = new WP_Query( $args );
 // The Loop
 if ( $the_query->have_posts() ) {
 echo '<ul class="no-bullets sidebar-list">';
-echo '<li><h5>Recent Videos</h5></li>';
-while ( $the_query->have_posts() ) {
-$the_query->the_post(); { ?> 
-
-<li>
-  <div class="article-img-container">
-    <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/default.jpg" class="img-responsive">
-  </div>
-  <div class="article-title-container">
-    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-  </div>
-</li>
-
-<?php }
-}
-echo '<li><a href="/videos">View All Videos <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-echo '</ul>';
-} else {
-// no posts found
-}
-/* Restore original Post Data */
-wp_reset_postdata(); ?>
-
-<?php
-$args = array(
-'post_type'         => 'case_study',
-'order'             => 'desc',
-'posts_per_page'    => 3,
-'post_status'       => 'publish',
-);
-
-// The Query
-$the_query = new WP_Query( $args );
-
-// The Loop
-if ( $the_query->have_posts() ) {
-echo '<ul class="no-bullets sidebar-list">';
-echo '<li><h5>Recent Case Studies</h5></li>';
+echo '<li><h5>Webinars</h5></li>';
 while ( $the_query->have_posts() ) {
 $the_query->the_post(); { ?> 
 
@@ -250,27 +169,11 @@ echo '</ul>';
 wp_reset_postdata(); ?>
 
 <?php
-
-$today = strtotime('today UTC');        
-
-$event_meta_query = array( 
-  'relation' => 'AND',
-  array( 
-    'key' => 'socrata_events_endtime', 
-    'value' => $today, 
-    'compare' => '>=', 
-  ) 
-); 
-
 $args = array(
-'post_type'           => 'socrata_events',
-'posts_per_page'      => 3,
-'post_status'         => 'publish',
-'ignore_sticky_posts' => true,  
-'meta_key'            => 'socrata_events_endtime',
-'orderby'             => 'meta_value_num',
-'order'               => 'asc',
-'meta_query'          => $event_meta_query
+'post_type'         => 'case_study',
+'order'             => 'desc',
+'posts_per_page'    => 3,
+'post_status'       => 'publish',
 );
 
 // The Query
@@ -279,46 +182,31 @@ $the_query = new WP_Query( $args );
 // The Loop
 if ( $the_query->have_posts() ) {
 echo '<ul class="no-bullets sidebar-list">';
-echo '<li><h5>Upcoming Events</h5></li>';
+echo '<li><h5>Case Studies</h5></li>';
 while ( $the_query->have_posts() ) {
 $the_query->the_post(); { ?> 
 
-  <?php if ( has_term( 'socrata-event','socrata_events_cat' ) ) { ?>
-  <li><small style="text-transform: uppercase;"><?php events_the_categories(); ?></small><br><a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php echo rwmb_meta( 'socrata_events_displaydate' );?></small></li>
-  <?php }
-  else { ?>
-  <li><small style="text-transform: uppercase;"><?php events_the_categories(); ?></small><br>
-
-  <?php 
-    $url = rwmb_meta( 'socrata_events_url' ); 
-    if ($url) { ?>
-      <a href="<?php echo $url;?>" target="_blank"><?php the_title(); ?></a>
-      <?php 
-    }
-    else { ?>
-      <?php the_title(); ?>
-      <?php
-    }
-  ?>
-  <br><small><?php echo rwmb_meta( 'socrata_events_displaydate' );?></small>
-
-  </li>
-  <?php
-  } ?>
+<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
+<li>
+  <div class="article-img-container">
+    <img src="<?=$url?>" class="img-responsive">
+  </div>
+  <div class="article-title-container">
+    <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+  </div>
+</li>
 
 <?php }
 }
-echo '<li><a href="/events">View All Events <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+echo '<li><a href="/case-studies">View All Case Studies <i class="fa fa-arrow-circle-o-right"></i></a></li>';
 echo '</ul>';
-} else { ?>
-<ul class="no-bullets sidebar-list">
-<li><h5>Upcoming Events</h5></li>
-<li>No events at this time.</li>
-</ul>
-<?php
+} else {
+// no posts found
 }
 /* Restore original Post Data */
 wp_reset_postdata(); ?>
+
+
 
 
 

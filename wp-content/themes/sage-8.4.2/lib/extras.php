@@ -534,7 +534,7 @@ add_shortcode('author-description', __NAMESPACE__ . '\\author_description');
 function newsletter_sidebar ($atts, $content = null) {
   ob_start();
   ?>
-  <div class="newsletter-sidebar newsletter-form marketo-form">
+  <div class="background-light-grey-4 padding-30 margin-bottom-30 newsletter-form marketo-form">
     <h4 class="margin-bottom-15">Subscribe to our Weekly Newsletter</h4>
     <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
     <form id="mktoForm_2306"></form>
