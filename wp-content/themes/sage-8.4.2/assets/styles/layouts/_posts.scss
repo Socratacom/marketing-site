@@ -1,80 +1,32 @@
 @media only screen and (min-width : 320px) {
-	.content {
-		padding:30px 0;
-	}
-	.col-padding {
-		padding:30px 15px;
-	}
-	.archive-title {
-		margin-top:0;
-	}
-	.article-content {
-		margin-top:15px;
-		margin-bottom:50px;
-		box-sizing:border-box;
-		.wrapper {
-			position: relative;
-			background:#fff;
-			padding:60px 30px;
-			box-shadow: 0 0 15px rgba(0,0,0,0.20);
-		}
-		.category-name {
-			text-transform: uppercase;
-		}
-		.entry-title {
-			margin:10px 0;
+	article {
+		.date {
+			color:$grey;
+			font-size:14px;
 		}
 		.byline {
-			padding: 0 0 30px 0;
-			margin: 1.63em 0;		
-			border-bottom:$clouds solid 5px;
-		}	
-	}
-
-	/* By Line */
-	.byline {
-		list-style-type: none;
-		margin:0;
-		padding:0;
-		li {
-			display: inline-block;
-			margin:0;
-			vertical-align: middle;
-		}
-		img {
-			-moz-border-radius:50%;
-		 	-webkit-border-radius:50%;
-		 	border-radius:50%;
-		 	margin-right: 10px !important;
-		}
-	}
-
-	.entry-meta {
-		width:100%;
-		padding:15px 0 0 0 ;
-		margin:0 0 30px 0;
-		border-bottom:$clouds solid 5px;
-		border-top:$peter-river solid 5px;
-
-		ul {
-			list-style-type: none;
-			padding:0;
-			li {
-				font-size: 12px;
-				text-align: left;
-				margin-bottom:0;
-				line-height: normal;
-				font-weight: $font-normal;
-			}
-		}
-		p {
-			margin-bottom:15px;
-			font-size:12px;
-			span {
-				font-weight: $font-semi-bold !important;
+			border-top:$grey dotted 1px;
+			margin-bottom:30px;
+			padding:15px 0 0 0;
+			ul {
+				list-style-type: none;
+				margin:0;
+				padding:0;
+				display: table;
+				li {
+					display: table-cell;
+					vertical-align: middle;
+					font-size: 14px;
+					font-weight: $font-normal;
+					padding-right:5px;
+					color:$grey;
+				}
 			}
 		}
 	}
+
+
+
 
 	/* Marketo Sharing Icons */
 	.marketo-share {
@@ -747,27 +699,6 @@
 		}
 		.cf_facebook:before {
 			left: 52px;
-		}
-	}
-	.entry-meta {
-		float:left;
-		width:170px;
-		margin:0 15px 15px 0;
-		padding:15px 0 0 0 ;
-		ul {
-			li {
-				text-align: center;
-				margin-bottom:10px;
-			}			
-			.categories {
-				font-weight: $font-semi-bold;
-			}
-			.headshot {
-				margin-bottom:5px;
-			}
-			.author {
-				font-style: italic;				
-			}
 		}
 	}
 }

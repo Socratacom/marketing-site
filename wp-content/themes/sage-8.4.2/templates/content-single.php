@@ -1,5 +1,20 @@
-<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' ); $url = $thumb['0']; ?>
-<div class="feature-image overlay-black" style="background-image: url(<?=$url?>);">
+<?php 
+  $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' );
+  $url = $thumb['0'];
+?>
+
+
+
+<!--<section class="background-light-grey-4 single-masthead" >
+  <div class="img img-background" style="background-image:url(<?=$url?>);"></div>
+</section>-->
+
+
+
+
+
+
+<!--<div class="feature-image overlay-black" style="background-image: url(<?=$url?>);">
   <div class="page-banner">
     <div class="container">
       <div class="row">
@@ -18,25 +33,21 @@
       </div>
     </div>
   </div>
-  <?php echo do_shortcode('[image-attribution]'); ?>
-</div>
-<section class="content">
+  
+
+
+
+-->
+
+<section class="section-padding">
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
         <?php while (have_posts()) : the_post(); ?>
           <article <?php post_class(); ?>>
-            <div class="social-sharing">
-              <?php echo do_shortcode('[marketo-share-custom]');?>
-            </div> 
-            <div class="entry-meta">
-              <p class="hidden-sm hidden-md hidden-lg">By <span><?php if(function_exists('coauthors')) coauthors();?></span> / <?php the_time('F j, Y') ?> / <?php Roots\Sage\Extras\blog_the_categories(); ?></p>
-              <ul class="hidden-xs">
-                <li class="categories">
-                <?php
-                $categories = get_the_category();
-                $separator = ', ';
-                $output = '';
+
+            <h1 class="margin-bottom-15"><?php the_title(); ?></h1>
+            <div class="date margin-bottom-15"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php the_time('F j, Y g:i a T') ?> | <?php $categories = get_the_category(); $separator = ', '; $output = '';
                 if ( ! empty( $categories ) ) {
                     foreach( $categories as $category ) {
                         $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'textdomain' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
@@ -44,16 +55,33 @@
                     echo trim( $output, $separator );
                 }
                 ?>
-                </li>
-                <li class="date"><?php the_time('F j, Y') ?></li>
+            </div>
+            <div class="margin-bottom-15"><?php echo do_shortcode('[addthis]');?></div>
+            <div class="byline">
+              <div class="row">
                 <?php  global $post;
                 $author_id=$post->post_author;
                 foreach( get_coauthors() as $coauthor ): ?>
-                <li class="headshot"><?php echo get_avatar( $coauthor->user_email, '50' ); ?></li>
-                <li class="author">By <?php echo $coauthor->display_name; ?></li>
+                <div class="col-sm-4">
+                  <ul>
+                    <li><?php echo get_avatar( $coauthor->user_email, '50' ); ?></li>
+                    <li><?php echo $coauthor->display_name; ?></li>
+                  </ul>
+                </div>
                 <?php endforeach; ?>
-              </ul>
+              </div>
+
+
+
+
+
+
+
+
+
+
             </div>
+            <div class="margin-bottom-30"><img src="<?php echo $url;?>" class="img-responsive"><?php echo do_shortcode('[image-attribution]'); ?></div>
             <?php the_content(); ?>
             <hr/>
             <div class="row next-prev-posts">
