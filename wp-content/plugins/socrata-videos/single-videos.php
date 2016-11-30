@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
-    <div class="embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive embed-responsive-16by9">
       <div id="ytplayer"></div>
     </div>        
       </div>
@@ -38,10 +38,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-8">
-        <div class="padding-bottom-30 margin-bottom-30" style="border-bottom:#ebebeb solid 1px;">
-          <div class="social-sharing-mini"><?php echo do_shortcode('[marketo-share]');?></div>
-        </div>
-        <h1><?php the_title(); ?></h1>
+        <h1 class="margin-bottom-15"><?php the_title(); ?></h1>
+        <div class="margin-bottom-30"><?php echo do_shortcode('[addthis]');?></div>
         <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
       </div>
       <div class="col-sm-4 hidden-xs">
