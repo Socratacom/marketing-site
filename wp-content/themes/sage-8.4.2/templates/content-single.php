@@ -1,6 +1,8 @@
 <?php 
   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' );
   $url = $thumb['0'];
+  $img_id = get_post_thumbnail_id(get_the_ID());
+  $alt_text = get_post_meta($img_id , '_wp_attachment_image_alt', true);
 ?>
 <section class="section-padding">
   <div class="container">
@@ -34,8 +36,12 @@
                 <?php endforeach; ?>
               </div>
             </div>
-            <div class="margin-bottom-30"><img src="<?php echo $url;?>" class="img-responsive"><?php echo do_shortcode('[image-attribution]'); ?></div>
+            <div class="margin-bottom-30"><img src="<?php echo $url;?>" <?php if ( ! empty($alt_text) ) { ?> alt="<?php echo $alt_text;?>" <?php } ;?> class="img-responsive"><?php echo do_shortcode('[image-attribution]'); ?></div>
+
             <?php the_content(); ?>
+
+            </article>
+
             <hr/>
             
             <div class="row next-prev-posts">
@@ -75,16 +81,11 @@
             </div>
 
 
-
-
-
-            <!-- Begin Outbrain -->
-            <div class="OUTBRAIN hidden-xs" data-widget-id="NA"></div> 
-            <script type="text/javascript" async="async" src="https://widgets.outbrain.com/outbrain.js"></script>
+            <div class="addthis_relatedposts_inline"></div>
             
             
 
-          </article>
+          
           <?php endwhile; ?>                 
       </div>
 
