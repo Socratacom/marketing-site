@@ -164,6 +164,29 @@ function webinars_excerpt() {
   return apply_filters('get_the_excerpt', $text);
 }
 
+// DASHBOARD WIDGET
+require_once( plugin_dir_path( __FILE__ ) . '/widget.php' );
+class Socrata_Webinars_Widget {
+ 
+  function __construct() {
+      add_action( 'wp_dashboard_setup', array( $this, 'add_socrata_webinars_dashboard_widget' ) );
+  }
+
+  function add_socrata_webinars_dashboard_widget() {
+    global $custom_socrata_webinars_dashboard_widget;
+ 
+    foreach ( $custom_socrata_webinars_dashboard_widget as $widget_id => $options ) {
+      wp_add_dashboard_widget(
+          $widget_id,
+          $options['title'],
+          $options['callback']
+      );
+    }
+  } 
+}
+ 
+$wdw = new Socrata_Webinars_Widget();
+
 // Metabox
 add_filter( 'rwmb_meta_boxes', 'socrata_webinars_register_meta_boxes' );
 function socrata_webinars_register_meta_boxes( $meta_boxes )
