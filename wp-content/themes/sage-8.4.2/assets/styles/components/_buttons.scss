@@ -10,7 +10,7 @@
 .facetwp-per-page, .facetwp-sort {
 	position: relative;
 	display:inline-block;
-	height:34px;
+	height:42px;
 	border: $light-grey-3 solid 1px;
 	border-radius: 1px;
     -webkit-border-radius: 1px;
@@ -18,7 +18,7 @@
     min-width: 100px;
     background-color:white;
 	select {
-		height: 34px;
+		height: 42px;
         padding: 2px 30px 5px 15px;
         line-height: 1.4em;
         font-size: 14px;
@@ -42,7 +42,7 @@
     font-family: fontawesome;
     content:"\f0d7"; 
     position: absolute;
-    top:5px;
+    top:8px;
     right:15px;
     color:$dark-grey-2;
     font-size: 14px;
@@ -231,14 +231,15 @@
     .facetwp-facet {
         position: relative;
         display:inline-block;
-        height:34px;
+        height:42px;
         border: $light-grey-3 solid 1px;
         border-radius: 1px;
         -webkit-border-radius: 1px;
         -moz-border-radius: 1px;
         background-color:white;
         select {
-            height: 34px;
+            height: 42px;
+            max-width:150px;
             line-height: 1.4em;
             font-size: 14px;
             font-weight: $font-normal;
@@ -261,7 +262,7 @@
         font-family: fontawesome;
         content:"\f0d7"; 
         position: absolute;
-        top:5px;
+        top:8px;
         color:$dark-grey-2;
         font-size: 14px;
         pointer-events: none;
@@ -283,9 +284,9 @@
         .facetwp-facet-categories_dropdown:after, .facetwp-facet-product_dropdown:after, .facetwp-facet-segment_dropdown:after, .facetwp-facet-asset_type_dropdown:after, .facetwp-facet-post_type_dropdown:after, .facetwp-facet-newsroom_categories_dropdown:after, .facetwp-facet-event_categories_dropdown:after {
             font-family: fontawesome;            
             position: absolute;
-            top:5px;
+            top:10px;
             left:15px;
-            color:$black;
+            color:$grey;
             font-size: 16px;
             pointer-events: none;
             visibility: visible;
