@@ -35,9 +35,8 @@ function setup() {
     'site_nav_resources_mobile' => __('Site Nav Resources Mobile', 'sage'),
     'site_nav_about' => __('Site Nav About', 'sage'),
     'site_nav_community' => __('Site Nav Community', 'sage'),
-    'site_nav_additional_links' => __('Site Nav Additional Links', 'sage'),
-    'product_nav_open_data' => __('Product Nav Open Data', 'sage'),    
-    'events_filter' => __('Events Filter', 'sage')
+    'site_nav_popular_links' => __('Site Nav Popular Links', 'sage'),
+    'product_nav_open_data' => __('Product Nav Open Data', 'sage'),
   ]);
 
   // Enable post thumbnails
@@ -114,7 +113,7 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '3.1');
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '3.2');
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
 
@@ -126,5 +125,7 @@ function assets() {
   wp_enqueue_script('ytplayer', Assets\asset_path('scripts/ytplayer.js'), null, true);
   wp_register_script('marketoforms', '//app-abk.marketo.com/js/forms2/js/forms2.min.js', null, true);
   wp_enqueue_script('marketoforms');
+  wp_register_script('addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-553f9bc9354d386b', null, true);
+  wp_enqueue_script('addthis');
 }
 add_action('wp_enqueue_scripts', __NAMESPACE__ . '\\assets', 100);

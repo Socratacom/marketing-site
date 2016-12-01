@@ -2,6 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-md-7 col-md-offset-1">
+        <h1 class="margin-bottom-15"><?php the_title(); ?></h1>
+        <div class="margin-bottom-30"><?php echo do_shortcode('[addthis]');?></div>
         <?php the_content(); ?>
         <hr/>
         <div><?php next_post_link( '%link', 'PREVIOUS CHAPTER: %title', TRUE, '1283,1282,1562,1563', 'guide_category' ); ?></div>

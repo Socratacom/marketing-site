@@ -1,6 +1,7 @@
 .btn {
 	text-transform:uppercase;
 	border-radius:1px;
+    padding:10px 12px;
 }
 
 .btn-default {
@@ -279,7 +280,7 @@
         .facetwp-facet:before {
             right:10px;
         }
-        .facetwp-facet-product_dropdown:after, .facetwp-facet-segment_dropdown:after, .facetwp-facet-asset_type_dropdown:after, .facetwp-facet-post_type_dropdown:after, .facetwp-facet-newsroom_categories_dropdown:after, .facetwp-facet-event_categories_dropdown:after {
+        .facetwp-facet-categories_dropdown:after, .facetwp-facet-product_dropdown:after, .facetwp-facet-segment_dropdown:after, .facetwp-facet-asset_type_dropdown:after, .facetwp-facet-post_type_dropdown:after, .facetwp-facet-newsroom_categories_dropdown:after, .facetwp-facet-event_categories_dropdown:after {
             font-family: fontawesome;            
             position: absolute;
             top:5px;
@@ -290,13 +291,13 @@
             visibility: visible;
         }
         .facetwp-facet-product_dropdown:after {
-            content:"\f108"; 
+            content:"\f0c2"; 
         }
         .facetwp-facet-segment_dropdown:after {
-            content:"\f278"; 
+            content:"\f19c"; 
         }
-        .facetwp-facet-asset_type_dropdown:after, .facetwp-facet-post_type_dropdown:after, .facetwp-facet-newsroom_categories_dropdown:after, .facetwp-facet-event_categories_dropdown:after {
-            content:"\f016"; 
+        .facetwp-facet-categories_dropdown:after, .facetwp-facet-asset_type_dropdown:after, .facetwp-facet-post_type_dropdown:after, .facetwp-facet-newsroom_categories_dropdown:after, .facetwp-facet-event_categories_dropdown:after {
+            content:"\f03a"; 
         }
     }
 }
@@ -314,7 +315,7 @@
         .facetwp-facet:before {
             right:15px;
         }
-        .facetwp-facet-product_dropdown:after, .facetwp-facet-segment_dropdown:after, .facetwp-facet-asset_type_dropdown:after, .facetwp-facet-post_type_dropdown:after, .facetwp-facet-newsroom_categories_dropdown:after, .facetwp-facet-event_categories_dropdown:after {
+        .facetwp-facet-categories_dropdown:after, .facetwp-facet-product_dropdown:after, .facetwp-facet-segment_dropdown:after, .facetwp-facet-asset_type_dropdown:after, .facetwp-facet-post_type_dropdown:after, .facetwp-facet-newsroom_categories_dropdown:after, .facetwp-facet-event_categories_dropdown:after {
             visibility: hidden;
         }
     }

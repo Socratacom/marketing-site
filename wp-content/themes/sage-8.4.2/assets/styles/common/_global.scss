@@ -881,6 +881,40 @@ body {
 	figure[style] {
 		max-width:100% !important;
 	}
+    .section-padding {
+        padding:50px 0;
+    }
+    .page-padding {
+        padding-top:90px;
+        padding-bottom:60px;
+    }
+    .padding-15 {
+        padding:15px;
+    }
+    .padding-30 {
+        padding:30px;
+    }
+    .padding-60 {
+        padding:60px;
+    }
+    .padding-top-15 {
+        padding-top:15px;
+    }
+    .padding-top-30 {
+        padding-top:30px
+    }
+    .padding-top-60 {
+        padding-top:60px;
+    }
+    .padding-bottom-15 {
+        padding-bottom:15px;
+    }
+    .padding-bottom-30 {
+        padding-bottom:30px;
+    }
+    .padding-bottom-60 {
+        padding-bottom:60px;
+    }
     .breadcrumb {
         padding: 8px 0;
         margin-bottom: 0;
@@ -891,9 +925,6 @@ body {
             font-size: 13px;
             font-weight: $font-semi-bold;
         }
-    }
-    .bugme {
-        display:none !important;
     }
 	.modal-content {
 		border-radius:0;
@@ -985,48 +1016,7 @@ body {
 	}
 	.box-text-reverse * {
 		color:white;
-	}
-	.content h1:first-of-type {
-		margin-top:0;
-	}
-	.section-padding h2:first-of-type {
-		margin-top:0;
-	}
-	// Padding
-	.section-padding {
-		padding:80px 0;
-	}
-	.page-padding {
-		padding-top:90px;
-		padding-bottom:60px;
-	}
-	.padding-15 {
-		padding:15px;
-	}
-	.padding-30 {
-		padding:30px;
-	}
-	.padding-60 {
-		padding:60px;
-	}
-	.padding-top-15 {
-		padding-top:15px;
-	}
-	.padding-top-30 {
-		padding-top:30px
-	}
-	.padding-top-60 {
-		padding-top:60px;
-	}
-	.padding-bottom-15 {
-		padding-bottom:15px;
-	}
-	.padding-bottom-30 {
-		padding-bottom:30px;
-	}
-	.padding-bottom-60 {
-		padding-bottom:60px;
-	}
+	}	
     .font-bold {
         font-weight:$font-bold;
     }
@@ -1226,7 +1216,10 @@ body {
 	}
 	p, li {		
 		font-size:16px;
-	}
+	}    
+    .section-padding {
+        padding:80px 0;
+    }
 	.lead {
 		font-size: 18px;
 	}
@@ -1376,45 +1369,6 @@ body {
     }
 }
 
-
-
-
-/* Speech Bubble */
-.speech-bubble {
-    .bubble {
-        position: relative;
-        width: 100%;
-        height: auto;
-        padding: 15px;
-        background: $clouds;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        border-radius: 0px;
-        p:last-of-type {
-            margin:0;
-        }
-    }
-    .bubble:after {
-        content: '';
-        position: absolute;
-        border-style: solid;
-        border-width: 20px 20px 0px 0px;
-        border-color: darken($clouds, 15%) transparent;
-        display: block;
-        width: 0;
-        z-index: 1;
-        bottom: -20px;
-        left: 0px;
-    }
-    .author {
-        list-style-type: none;
-        margin:25px 0 0 0;
-        padding:0;
-        li {
-            font-size:14px;
-        }
-    }
-}
 
 dl.quote-author {
     height: 60px;

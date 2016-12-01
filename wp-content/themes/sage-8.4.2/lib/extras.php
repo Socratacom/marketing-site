@@ -232,17 +232,7 @@ add_shortcode('open-data-subnav', __NAMESPACE__ . '\\open_data_subnav');
 /**
  * Marketo Social Sharing
  */
-function marketo_share($atts, $content = null) {
-  ob_start();
-  ?>
-  <div class="cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397"></div>
-  <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('marketo-share', __NAMESPACE__ . '\\marketo_share');
+
 
 function marketo_share_custom($atts, $content = null) {
   ob_start();
@@ -468,7 +458,7 @@ $('a[href^="https://www.youtube.com"]').on('click', function(e){
     var vidHeight = 720; // default
     if ( $(this).attr('data-width') ) { vidWidth = parseInt($(this).attr('data-width')); }
     if ( $(this).attr('data-height') ) { vidHeight =  parseInt($(this).attr('data-height')); }
-    var iFrameCode = '<div class="container"><div class="row"><div class="col-sm-10 col-sm-offset-1"><div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=1" frameborder="0"></iframe></div></div></div></div>';
+    var iFrameCode = '<div class="container"><div class="row"><div class="col-sm-10 col-sm-offset-1"><div class="video-container"><iframe width="' + vidWidth + '" height="'+ vidHeight +'" scrolling="no" allowtransparency="true" allowfullscreen="true" src="https://www.youtube.com/embed/'+  queryVars['v'] +'?rel=0&wmode=transparent&showinfo=0&autoplay=0" frameborder="0"></iframe></div></div></div></div>';
  
     // Replace Modal HTML with iFrame Embed
     $('#mediaModal .modal-body').html(iFrameCode);
@@ -534,9 +524,9 @@ add_shortcode('author-description', __NAMESPACE__ . '\\author_description');
 function newsletter_sidebar ($atts, $content = null) {
   ob_start();
   ?>
-  <div class="newsletter-sidebar newsletter-form marketo-form">
-    <h4 class="margin-bottom-15">Subscribe to our Weekly Newsletter</h4>
-    <p>Each week "Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
+  <div class="background-light-grey-4 padding-30 margin-bottom-30 newsletter-form marketo-form">
+    <h4 class="margin-bottom-15">Subscribe to our Newsletter</h4>
+    <p>"Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
     <form id="mktoForm_2306"></form>
     <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
   </div>
@@ -562,6 +552,21 @@ function newsletter_footer ($atts, $content = null) {
   return $content;
 }
 add_shortcode('newsletter-footer', __NAMESPACE__ . '\\newsletter_footer');
+
+
+/**
+ * Addthis Sharing
+ */
+function addthis_sharing ($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="addthis_inline_share_toolbox"></div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('addthis', __NAMESPACE__ . '\\addthis_sharing');
 
 /**
  * Marketo Form
