@@ -238,8 +238,7 @@
         -moz-border-radius: 1px;
         background-color:white;
         select {
-            height: 42px;
-            max-width:150px;
+            height:42px;
             line-height: 1.4em;
             font-size: 14px;
             font-weight: $font-normal;
@@ -276,6 +275,7 @@
             select {
                 padding:0;
                 text-indent:-9999px;
+                max-width:60px;
             }
         }
         .facetwp-facet:before {
@@ -311,6 +311,7 @@
             select {
                 padding:0 40px 0 15px;
                 text-indent:0;
+                max-width:150px;
             }
         }
         .facetwp-facet:before {
