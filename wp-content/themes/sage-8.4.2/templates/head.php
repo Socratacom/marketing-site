@@ -9,5 +9,6 @@
 	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-TT7CHX');</script>
 	<!-- End Google Tag Manager -->
+	<link rel="alternate" type="application/rss+xml" title="Socrata Blog" href="/feed/" />
 	<?php wp_head(); ?>
 </head>
