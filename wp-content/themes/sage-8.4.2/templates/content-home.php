@@ -1,14 +1,32 @@
 <section class="home-masthead">
 <div class="slider">
+	<div class="slide" style="background-image:url(/wp-content/uploads/connect-hero.jpg)">
+		<div class="text">
+			<div class="vertical-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-12">
+							<h2 class="text-center color-white text-uppercase text-normal margin-bottom-0">Socrata Connect 2017</h2>
+							<h1 class="text-center color-white text-uppercase margin-bottom-0">Registration is now open</h1>
+							<h4 class="text-center color-white text-normal margin-bottom-0 hidden-xs">Join us March 6-8, 2017 at the Gaylord National Resort &amp; Conference Center, Washington, DC</h4>
+							<ul class="cta-list" style="margin-top:30px;">
+								<li><a href="https://socrata-connect.com" target="_blank" class="btn btn-default">Register Today <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="slide" style="background-image:url(/wp-content/uploads/data-democratization-home-hero.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<h1 class="text-center color-white margin-bottom-15">Data Democratization in the Cloud</h1>
-							<p class="text-center lead color-white hidden-xs margin-bottom-30">Serving more than 1,000 federal, state, and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</p>
-							<ul class="cta-list">
+							<h1 class="text-center color-white text-uppercase margin-bottom-0">Data Democratization in the Cloud</h1>
+							<h4 class="text-center color-white text-normal hidden-xs">Serving more than 1,000 federal, state, and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</h4>
+							<ul class="cta-list" style="margin-top:30px;">
 								<li><a href="/solutions" class="btn btn-default">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
@@ -24,9 +42,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<h1 class="text-center color-white margin-bottom-15">Over 1,000 served</h1>
-							<p class="text-center lead color-white hidden-xs margin-bottom-30">See why Socrata is trusted by government organizations of all sizes to make their data more accessible.</p>
-							<ul class="cta-list">
+							<h1 class="text-center color-white text-uppercase margin-bottom-0">Over 1,000 served</h1>
+							<h4 class="text-center color-white text-normal hidden-xs">See why Socrata is trusted by government organizations of all sizes to make their data more accessible.</h4>
+							<ul class="cta-list" style="margin-top:30px;">
 								<li><a href="/segments" class="btn btn-default">View our Segments <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
