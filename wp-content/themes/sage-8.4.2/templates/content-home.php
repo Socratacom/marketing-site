@@ -6,9 +6,10 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							<h2 class="text-center color-white text-uppercase text-normal margin-bottom-0">Socrata Connect 2017</h2>
-							<h1 class="text-center color-white text-uppercase margin-bottom-0">Registration is now open</h1>
-							<h4 class="text-center color-white text-normal margin-bottom-0 hidden-xs">Join us March 6-8, 2017 at the Gaylord National Resort &amp; Conference Center, Washington, DC</h4>
+							<h3 class="text-center color-white text-uppercase text-normal margin-bottom-15">March 6-8, Washington DC</h3>
+							<p class="text-center"><img src="/wp-content/uploads/hero-connect-logo.png" class="img-responsive" style="display:inline-block;"></p>
+							<!--<h1 class="text-center color-white text-uppercase margin-bottom-0">Socrata Connect 2017</h1>-->
+							<h4 class="text-center color-white text-normal margin-bottom-0 hidden-xs">The inspiration, community, and know-how to make 2017 the year you Lead with Data. Don't miss this year's Socrata's customer summit.</h4>
 							<ul class="cta-list" style="margin-top:30px;">
 								<li><a href="https://socrata-connect.com" target="_blank" class="btn btn-default">Register Today <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
