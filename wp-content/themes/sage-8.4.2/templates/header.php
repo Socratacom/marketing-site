@@ -77,7 +77,7 @@
             <a href="/search" class="hidden-xs hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>            
             <a href="/search" class="hidden-lg"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
           </li>
-          <li class="hidden-xs hidden-sm"><a href="/pricing/" class="btn btn-warning">Get Pricing</a></li>
+          <li class="hidden-xs hidden-sm hidden-md"><a href="/pricing/" class="btn btn-warning">Request a Meeting</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
