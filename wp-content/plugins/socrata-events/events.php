@@ -555,7 +555,11 @@ function events_map($atts, $content = null) {
               'orderby' => 'meta_value_num',
               'order' => 'asc',
               "posts_per_page" => 100,
-              "meta_query" => array(
+              "meta_query" => array(    
+                array(
+                  'key'     => 'socrata_hidden_hide',
+                  'value' => '0',
+                ),
                 'relation' => 'AND',
                 array(
                   "key" => "socrata_events_endtime",
@@ -590,7 +594,11 @@ function events_map($atts, $content = null) {
               'orderby' => 'meta_value_num',
               'order' => 'asc',
               "posts_per_page" => 100,
-              "meta_query" => array(
+              "meta_query" => array(    
+                array(
+                  'key'     => 'socrata_hidden_hide',
+                  'value' => '0',
+                ),
                 'relation' => 'AND',
                 array(
                   "key" => "socrata_events_endtime",
