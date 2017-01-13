@@ -3,6 +3,8 @@ This is the main marketing site for Socrata. Only the Theme and custom Socrata p
 
 Change History
 ---
+- V3.3 - Site Updates
+  * Added Hide Post Functionality
 - V3.1 - Site Updates
   * CSS updates
   * Added Downloads plugin
