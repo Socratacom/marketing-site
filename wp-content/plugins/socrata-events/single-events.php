@@ -26,45 +26,43 @@ $url = $thumb['0'];
 
 <?php 
   if($date >= $today) { ?>
-  <section class="background-primary-light hidden-xs hidden-sm">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <ol class="breadcrumb">
-            <li>COMMUNITY</li>
-            <li><a href="/community">Community</a></li>
-            <li><?php the_title(); ?></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </section>
-    <section class="hero-animated background-primary-alt-2-light overlay overlay-black">
-      <div class="outer">
-        <div class="inner">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-10 col-sm-offset-1">
-                <h1 class="text-center text-reverse margin-bottom-15"><?php the_title(); ?></h1>
-                <h3 class="text-center text-reverse"><?php echo $displaydate;?> | <?php echo $city;?>, <?php echo $state;?></h3>
-                <ul class="cta-list">
-                <?php if ( ! empty( $marketo ) ) echo "<li><a href='#registration-form' class='btn btn-warning btn-lg'>Register</a></li>";?>
-                <?php if ( ! empty( $speakers ) ) echo "<li><a href='#speakers' class='btn btn-warning btn-lg'>Speakers</a></li>";?>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="image animate" style="background-image:url(<?php echo $url;?>);"></div>
-    </section>
+
+<section class="background-light-grey-4 masthead">
+<div class="text">
+<div class="container">
+<div class="row">
+<div class="col-sm-10 col-sm-offset-1">
+<h1 class="text-reverse margin-bottom-0 text-uppercase"><?php the_title(); ?></h1>
+<h3 class="text-reverse margin-bottom-0 text-uppercase"><?php echo $displaydate;?></h3>
+</div>
+</div>    
+</div>
+</div>
+<div class="img img-background" style="background-image:url(<?php echo $url;?>);"></div>
+</section>
+
+<section class="cta-bar hidden-xs">
+<div class="container">
+<div class="row">
+<div class="col-sm-10 col-sm-offset-1">
+<ul>
+<li>
+  <?php if ( ! empty( $speakers ) ) { ?>
+    <a href='#registration-form' class='btn btn-primary'>Register</a> <a href='#speakers' class='btn btn-primary'>Speakers</a>
+  <?php } else { ?> 
+    <a href='#registration-form' class='btn btn-primary'>Register</a>
+  <?php } ;?>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
     <section class="section-padding">
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1">
-            <div class="padding-bottom-30 margin-bottom-30 sharing-container" style="border-bottom:#ebebeb solid 1px;">
-              <div class="social-sharing-mini"><?php echo do_shortcode('[marketo-share]');?></div>
-            </div>
             <?php echo rwmb_meta( 'socrata_events_wysiwyg' );?>
           </div>
         </div>
