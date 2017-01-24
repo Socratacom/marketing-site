@@ -26,12 +26,11 @@
 			.nav>li>a {
 				font-size: 16px;
 				font-weight: $font-normal;
-				color:$primary;
 				height:auto;
-				padding:10px 15px;
 			}
 			.navbar-nav>li:hover, .navbar-nav>li>.dropdown-menu, .navbar-nav>li>.btn:hover, .dropdown-menu>li>a:hover, .navbar-nav>.open>a, .navbar-nav>.open>a:focus, .navbar-nav>.open>a:hover, .navbar-collapse {
-			    background-color: white;			    
+			    background-color: white;
+			    color:$primary;		    
 			}
 			.navbar-nav>li:hover * {
 			    color:$primary;    
@@ -53,6 +52,7 @@
 			.dropdown-menu>li>a {
 				font-size:14px;
 				font-weight: $font-normal;
+				color:$primary;
 			}
 			.dropdown-menu>li>a:hover {
 				color:$primary-dark;
@@ -216,10 +216,17 @@
 	table.gsc-table-result {
 		border-collapse:inherit !important;
 	}
+	.banner .navbar .container {
+		width:100%;
+	}
+
 }
 
+
+
+
 /* Medium Devices, Desktops */
-@media only screen and (min-width : 768px) {
+@media only screen and (min-width : 992px) {
 	header.banner {
 		.navbar-default .navbar-collapse {
 			background-color:$primary;
@@ -228,13 +235,26 @@
 		  left:0;
 		}
 		.navbar-default {
+			.nav>li {
+				border:none;
+			}
 			.nav>li>a {
 				height:60px;
 				padding:20px 15px 0 15px;
 				color:white;
 			}
-			.nav>li {
-				border:none;
+			.nav>li.dropdown>a {
+				display:block;
+				padding:20px 30px 0 15px;
+			}
+			.nav>li.dropdown>a:before {				
+				font-family: fontawesome;
+				content:"\f078";
+				position: absolute;
+				top:20px;
+				right:15px;
+				font-style: normal;
+				font-size: 8px;
 			}
 			.navbar-collapse {
 				border:none;
@@ -246,18 +266,15 @@
 			padding:0 15px;
 			width:500px;
 		}
+	}	
+	.banner .navbar .container {
+		width:970px;
 	}
 }
 
 /* Medium Devices, Desktops */
-@media only screen and (min-width : 992px) {
-	header.banner {
-		
-		.dropdown-menu li:hover .sub-menu {
-		    visibility: visible;
-		}
-		.dropdown:hover .dropdown-menu {
-		    display: block;
-		}
+@media only screen and (min-width : 1200px) {
+	.banner .navbar .container {
+		width:1170px;
 	}
 }

@@ -355,6 +355,23 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type'  => 'text',
         'clone' => false,
       ),
+      // TEXT
+      array(
+        'name'  => __( 'Custom Registration Title', 'socrata-events' ),
+        'id'    => "{$prefix}custom_title",
+        'desc' => __( '(Optional) For Socrata events. Example: Please RSVP for this event', 'socrata-events' ),
+        'type'  => 'text',
+        'clone' => false,
+      ),
+      // TEXTAREA
+      array(
+        'name' => esc_html__( 'Custom Registration Copy', 'socrata-events' ),
+        'desc' => esc_html__( '(Optional) For Socrata events', 'socrata-events' ),
+        'id'   => "{$prefix}custom_copy",
+        'type' => 'textarea',
+        'cols' => 20,
+        'rows' => 3,
+      ),
     )
   );
 

@@ -18,8 +18,7 @@
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown">
-            <a href="/solutions" class="hidden-xs hidden-sm">Solutions</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Solutions</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_solutions',
               'container'       => '',
@@ -27,8 +26,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="/segments" class="hidden-xs hidden-sm">Segments</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Segments</a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Segments</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_segments',
               'container'       => '',
@@ -36,18 +34,16 @@
             ) ); ?>
           </li>
           <li><a href="/services">Services</a></li>
-          <li class="dropdown hidden-xs hidden-sm">
-            <a href="/resources" class="hidden-xs hidden-sm">Resources</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+          <li class="dropdown hidden-xs hidden-sm hidden-md ">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li class="dropdown hidden-md hidden-lg">
-            <a href="/resources" class="hidden-xs hidden-sm">Resources</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
+          <li class="dropdown hidden-lg">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_resources_mobile',
               'container'       => '',
@@ -55,8 +51,7 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="/community" class="hidden-xs hidden-sm">Community</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_community',
               'container'       => '',
@@ -64,20 +59,19 @@
             ) ); ?>
           </li>
           <li class="dropdown">
-            <a href="/company-info" class="hidden-xs hidden-sm">About</a>
-            <a class="dropdown-toggle hidden-md hidden-lg" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About</a>
             <?php wp_nav_menu( array( 
               'theme_location' => 'site_nav_about',
               'container'       => '',
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
           </li>
-          <li class="hidden-xs hidden-sm"><a href="/blog">Blog</a></li>
-          <li class="site-search hidden-sm">            
+          <li class="hidden-xs hidden-sm hidden-md"><a href="/blog">Blog</a></li>
+          <li class="site-search hidden-sm hidden-md">            
             <a href="/search" class="hidden-xs hidden-sm hidden-md"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>            
             <a href="/search" class="hidden-lg"><i class="fa fa-search hidden-xs"></i> <span class="hidden-sm hidden-md hidden-lg">Search</span></a>
           </li>
-          <li class="hidden-xs hidden-sm"><a href="/pricing/" class="btn btn-warning">Get Pricing</a></li>
+          <li class="hidden-xs hidden-sm"><a href="/contact-us/" class="btn btn-warning">Contact Us</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

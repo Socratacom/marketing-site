@@ -88,7 +88,7 @@ add_action( 'init', __NAMESPACE__ . '\\shared_segment', 0 );
 function shared_segment() {
   register_taxonomy(
     'segment',
-    array('od_directory','case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news'),
+    array('od_directory','case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos'),
     array(
       'labels' => array(
         'name' => 'Segment',

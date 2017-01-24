@@ -6,6 +6,8 @@ $today = strtotime('today UTC');
 $date = rwmb_meta( 'socrata_events_endtime' );
 $speakers = rwmb_meta( 'socrata_events_speakers' );
 $marketo = rwmb_meta( 'socrata_events_marketo' );
+$customtitle = rwmb_meta( 'socrata_events_custom_title' );
+$customcopy = rwmb_meta( 'socrata_events_custom_copy' );
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' );
 $url = $thumb['0'];
 ?>
@@ -183,8 +185,16 @@ $url = $thumb['0'];
       <div class="container">
         <div class="row">
           <div class="col-sm-5 col-sm-offset-1">
+          <?php if ( ! empty( $customtitle ) ) { ?>
+            <h2><?php echo $customtitle;?></h2>
+          <?php } else { ?> 
             <h2 class="margin-bottom-15">Register for this event</h2>
-            <p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> event happening, <i><?php echo $displaydate;?></i>.</p>
+          <?php } ;?>
+          <?php if ( ! empty( $customcopy ) ) { ?>
+            <p><?php echo $customcopy;?></p>
+          <?php } else { ?> 
+            <p>Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> event happening, <i><?php echo $displaydate;?></i>.</p>
+          <?php } ;?>
           </div>
           <div class="col-sm-5">
             <?php echo do_shortcode('[marketo-form id="'.$marketo.'"]');?>
