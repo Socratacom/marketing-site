@@ -8,6 +8,7 @@ $speakers = rwmb_meta( 'socrata_events_speakers' );
 $marketo = rwmb_meta( 'socrata_events_marketo' );
 $customtitle = rwmb_meta( 'socrata_events_custom_title' );
 $customcopy = rwmb_meta( 'socrata_events_custom_copy' );
+$customcta = rwmb_meta( 'socrata_events_custom_cta' );
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' );
 $url = $thumb['0'];
 ?>
@@ -50,9 +51,9 @@ $url = $thumb['0'];
 <ul>
 <li>
   <?php if ( ! empty( $speakers ) ) { ?>
-    <a href='#registration-form' class='btn btn-primary'>Register</a> <a href='#speakers' class='btn btn-primary'>Speakers</a>
-  <?php } else { ?> 
-    <a href='#registration-form' class='btn btn-primary'>Register</a>
+    <?php if ( ! empty( $customcta ) ) { ?> <a href='#registration-form' class='btn btn-primary'><?php echo $customcta;?></a> <?php } else { ?> <a href='#registration-form' class='btn btn-primary'>Register</a> <?php } ;?> <a href='#speakers' class='btn btn-primary'>Speakers</a>    
+  <?php } else { ?>
+    <?php if ( ! empty( $customcta ) ) { ?> <a href='#registration-form' class='btn btn-primary'><?php echo $customcta;?></a> <?php } else { ?> <a href='#registration-form' class='btn btn-primary'>Register</a> <?php } ;?>
   <?php } ;?>
 </li>
 </ul>

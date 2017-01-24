@@ -372,6 +372,14 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'cols' => 20,
         'rows' => 3,
       ),
+      // TEXT
+      array(
+        'name'  => __( 'Custom CTA Button Text', 'socrata-events' ),
+        'id'    => "{$prefix}custom_cta",
+        'desc' => __( '(Optional) For Socrata events. Example: RSVP', 'socrata-events' ),
+        'type'  => 'text',
+        'clone' => false,
+      ),
     )
   );
 
