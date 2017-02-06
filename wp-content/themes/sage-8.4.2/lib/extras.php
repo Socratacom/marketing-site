@@ -168,37 +168,31 @@ function product_the_categories() {
 
 // Function to change "posts" to "blog" in the admin side menu
 function change_post_menu_label() {
-    global $menu;
-    global $submenu;
-    $menu[5][0] = 'Blog';
-    $submenu['edit.php'][5][0] = 'Blog';
-    $submenu['edit.php'][10][0] = 'Add Post';
-    $submenu['edit.php'][16][0] = 'Tags';
-    echo '';
+  global $menu;
+  global $submenu;
+  $menu[5][0] = 'Blog';
+  $submenu['edit.php'][5][0] = 'Blog';
+  $submenu['edit.php'][10][0] = 'Add Post';
+  $submenu['edit.php'][16][0] = 'Tags';
+  echo '';
 }
 add_action( 'admin_menu', __NAMESPACE__ . '\\change_post_menu_label' );
 // Function to change post object labels to "blog"
 function change_post_object_label() {
-    global $wp_post_types;
-    $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Blog';
-    $labels->singular_name = 'Blog';
-    $labels->add_new = 'Add Post';
-    $labels->add_new_item = 'Add Post';
-    $labels->edit_item = 'Edit Post';
-    $labels->new_item = 'Post';
-    $labels->view_item = 'View Post';
-    $labels->search_items = 'Search Posts';
-    $labels->not_found = 'No Posts found';
-    $labels->not_found_in_trash = 'No Posts found in Trash';
+  global $wp_post_types;
+  $labels = &$wp_post_types['post']->labels;
+  $labels->name = 'Blog';
+  $labels->singular_name = 'Blog';
+  $labels->add_new = 'Add Post';
+  $labels->add_new_item = 'Add Post';
+  $labels->edit_item = 'Edit Post';
+  $labels->new_item = 'Post';
+  $labels->view_item = 'View Post';
+  $labels->search_items = 'Search Posts';
+  $labels->not_found = 'No Posts found';
+  $labels->not_found_in_trash = 'No Posts found in Trash';
 }
 add_action( 'init', __NAMESPACE__ . '\\change_post_object_label' );
-
-
-
-
-
-
 
 /** SHORTCODES **/
 
@@ -232,7 +226,6 @@ add_shortcode('open-data-subnav', __NAMESPACE__ . '\\open_data_subnav');
 /**
  * Marketo Social Sharing
  */
-
 
 function marketo_share_custom($atts, $content = null) {
   ob_start();
@@ -536,23 +529,6 @@ function newsletter_sidebar ($atts, $content = null) {
   return $content;
 }
 add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
-
-function newsletter_footer ($atts, $content = null) {
-  ob_start();
-  ?>
-  <div class="marketo-form">
-    <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
-    <h4>Subscribe to the Socrata newsletter MOTHER FUCKER</h4>    
-    <form id="mktoForm_2306"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
-  </div>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('newsletter-footer', __NAMESPACE__ . '\\newsletter_footer');
-
 
 /**
  * Addthis Sharing

@@ -29,7 +29,6 @@
 							<h4 class="text-center color-white text-normal hidden-xs">Serving more than 1,000 federal, state, and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</h4>
 							<ul class="cta-list" style="margin-top:30px;">
 								<li><a href="/solutions" class="btn btn-default">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -47,7 +46,6 @@
 							<h4 class="text-center color-white text-normal hidden-xs">See why Socrata is trusted by government organizations of all sizes to make their data more accessible.</h4>
 							<ul class="cta-list" style="margin-top:30px;">
 								<li><a href="/segments" class="btn btn-default">View our Segments <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
