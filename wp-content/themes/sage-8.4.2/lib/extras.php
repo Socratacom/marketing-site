@@ -590,20 +590,6 @@ extract(shortcode_atts(array(
 add_shortcode('contact-form-1', __NAMESPACE__ . '\\contact_form_1');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /**
  * Newsletter Signup Forms
  */
@@ -613,8 +599,28 @@ function newsletter_sidebar ($atts, $content = null) {
   <div class="background-light-grey-4 padding-30 margin-bottom-30 newsletter-form marketo-form">
     <h4 class="margin-bottom-15">Subscribe to our Newsletter</h4>
     <p>"Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
-    <form id="mktoForm_2306"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
+
+  <form action="https://go.pardot.com/l/303201/2017-02-22/8vs" method="post">
+
+  <div class="form-group">
+  <label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+  </div> 
+  <div class="form-group">
+  <label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
+  </div>
+  <div class="form-group">
+  <label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+  </div>
+  <div class="checkbox">
+  <label><input type="checkbox" name="opt_in" value="">I would like a demo of Socrata solutions for my government organization.</label>
+  </div>
+  <div style="position:absolute; left:-9999px; top: -9999px;">
+  <label for="pardot_extra_field">Comments</label>
+  <input type="text" id="pardot_extra_field" name="pardot_extra_field">
+  </div>
+  <button type="submit" class="btn btn-primary" value="submit" required="required" />Request a Meeting</button>
+  </form>
+
   </div>
   <?php
   $content = ob_get_contents();
