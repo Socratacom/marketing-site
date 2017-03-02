@@ -273,10 +273,16 @@ body {
 .background-success {background-color:$success;}
 .background-success-light {background-color:$success-light;}
 .background-success-dark {background-color:$success-dark;}
+.background-light-grey-1 {background-color:$light-grey-1;}
+.background-light-grey-2 {background-color:$light-grey-2;}
+.background-light-grey-3 {background-color:$light-grey-3;}
 .background-light-grey-4 {background-color:$light-grey-4;}
 .background-light-grey-5 {background-color:$light-grey-5;}
 .background-white {background-color:white;}
 .background-black {background-color:$black;}
+.background-black-transparent {background-color:rgba($black,.5);}
+
+.background-multiply {background-blend-mode: multiply;}
 
 /* Depreciated */
 .background-clouds {background-color:$light-grey-4;}
@@ -690,7 +696,8 @@ body {
 	left:0;
 	height:100%;
 	width:100%;
-	background-color: rgba(black, 0.35);
+	background-color: red;
+    background-blend-mode: multiply;
 }
 .overlay-black-stripes:before {
 	content:'';
@@ -881,6 +888,22 @@ body {
 	figure[style] {
 		max-width:100% !important;
 	}
+
+    .section-full {
+        padding:60px 0;
+         @include media(">=tablet") {
+            height:100vh;
+            .middle {                
+                position: absolute;
+                top:50%;
+                left: 0%;
+                transform:translate(0%, -50%);
+                -webkit-transform:translate(0%, -50%);
+                width:100%;
+            }
+        }
+    }
+
     .section-padding {
         padding:50px 0;
     }

@@ -30,7 +30,7 @@ function socrata_banners_post_type() {
         'not_found_in_trash' => 'Not found in Trash'
       ),
       'public' => true,
-      'menu_position' => 5,
+      'menu_position' => 100,
       'supports' => array( 'title' ),
       'taxonomies' => array( '' ),
       'menu_icon' => '',

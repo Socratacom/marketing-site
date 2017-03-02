@@ -168,37 +168,31 @@ function product_the_categories() {
 
 // Function to change "posts" to "blog" in the admin side menu
 function change_post_menu_label() {
-    global $menu;
-    global $submenu;
-    $menu[5][0] = 'Blog';
-    $submenu['edit.php'][5][0] = 'Blog';
-    $submenu['edit.php'][10][0] = 'Add Post';
-    $submenu['edit.php'][16][0] = 'Tags';
-    echo '';
+  global $menu;
+  global $submenu;
+  $menu[5][0] = 'Blog';
+  $submenu['edit.php'][5][0] = 'Blog';
+  $submenu['edit.php'][10][0] = 'Add Post';
+  $submenu['edit.php'][16][0] = 'Tags';
+  echo '';
 }
 add_action( 'admin_menu', __NAMESPACE__ . '\\change_post_menu_label' );
 // Function to change post object labels to "blog"
 function change_post_object_label() {
-    global $wp_post_types;
-    $labels = &$wp_post_types['post']->labels;
-    $labels->name = 'Blog';
-    $labels->singular_name = 'Blog';
-    $labels->add_new = 'Add Post';
-    $labels->add_new_item = 'Add Post';
-    $labels->edit_item = 'Edit Post';
-    $labels->new_item = 'Post';
-    $labels->view_item = 'View Post';
-    $labels->search_items = 'Search Posts';
-    $labels->not_found = 'No Posts found';
-    $labels->not_found_in_trash = 'No Posts found in Trash';
+  global $wp_post_types;
+  $labels = &$wp_post_types['post']->labels;
+  $labels->name = 'Blog';
+  $labels->singular_name = 'Blog';
+  $labels->add_new = 'Add Post';
+  $labels->add_new_item = 'Add Post';
+  $labels->edit_item = 'Edit Post';
+  $labels->new_item = 'Post';
+  $labels->view_item = 'View Post';
+  $labels->search_items = 'Search Posts';
+  $labels->not_found = 'No Posts found';
+  $labels->not_found_in_trash = 'No Posts found in Trash';
 }
 add_action( 'init', __NAMESPACE__ . '\\change_post_object_label' );
-
-
-
-
-
-
 
 /** SHORTCODES **/
 
@@ -228,27 +222,6 @@ function open_data_subnav ($atts, $content = null) {
   return $content;
 }
 add_shortcode('open-data-subnav', __NAMESPACE__ . '\\open_data_subnav');
-
-/**
- * Marketo Social Sharing
- */
-
-
-function marketo_share_custom($atts, $content = null) {
-  ob_start();
-  ?>
-  <div class="cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397"></div>
-  <div class="rss-button"><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS'); ?>" target="_blank"></a></div>
-  <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>
-  
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('marketo-share-custom', __NAMESPACE__ . '\\marketo_share_custom');
-
-
 
 /**
  * Carousel Script. This temporary till I can figure out the frick'n plugin
@@ -487,74 +460,6 @@ $('#mediaModal').on('hidden.bs.modal', function () {
 add_shortcode('youtube-modal', __NAMESPACE__ . '\\youtube_modal');
 
 /**
- * Author Description
- */
-function author_description($atts, $content = null) {
-  ob_start();
-  ?>
-
-
-
-
-<?php  global $post;
-$author_id=$post->post_author;
-foreach( get_coauthors() as $coauthor ): ?>
-<div class="author-description">
-  <div class="headshot">
-    <?php echo get_avatar( $coauthor->user_email, '70' ); ?>
-    <h5><?php echo $coauthor->display_name; ?></h5>
-  </div>
-  <div class="box-white">
-    <p><strong>About <?php echo $coauthor->display_name; ?></strong> - <?php echo $coauthor->description; ?></p>
-  </div>
-</div>
-<?php endforeach; ?>
-
-
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('author-description', __NAMESPACE__ . '\\author_description');
-
-/**
- * Newsletter Signup Forms
- */
-function newsletter_sidebar ($atts, $content = null) {
-  ob_start();
-  ?>
-  <div class="background-light-grey-4 padding-30 margin-bottom-30 newsletter-form marketo-form">
-    <h4 class="margin-bottom-15">Subscribe to our Newsletter</h4>
-    <p>"Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
-    <form id="mktoForm_2306"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
-  </div>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
-
-function newsletter_footer ($atts, $content = null) {
-  ob_start();
-  ?>
-  <div class="marketo-form">
-    <p><img src="/wp-content/themes/sage/dist/images/transform.jpg" class="img-responsive"></p>
-    <h4>Subscribe to the Socrata newsletter MOTHER FUCKER</h4>    
-    <form id="mktoForm_2306"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
-  </div>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('newsletter-footer', __NAMESPACE__ . '\\newsletter_footer');
-
-
-/**
  * Addthis Sharing
  */
 function addthis_sharing ($atts, $content = null) {
@@ -567,156 +472,6 @@ function addthis_sharing ($atts, $content = null) {
   return $content;
 }
 add_shortcode('addthis', __NAMESPACE__ . '\\addthis_sharing');
-
-/**
- * Marketo Form
- */
-function marketo_form($atts) {
-extract(shortcode_atts(array(
-    "id" => '',
-  ), $atts));
-  return '
-    <div class="marketo-form">    
-    <form id="mktoForm_'.$id.'"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
-    </div>
-  ';
-}
-add_shortcode('marketo-form', __NAMESPACE__ . '\\marketo_form');
-
-/**
- * Marketo Form with Labels
- */
-function marketo_form_labels($atts) {
-extract(shortcode_atts(array(
-    "id" => '',
-  ), $atts));
-  return '
-    <div class="marketo-form-labels">    
-    <form id="mktoForm_'.$id.'"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
-    </div>
-  ';
-}
-add_shortcode('marketo-form-labels', __NAMESPACE__ . '\\marketo_form_labels');
-
-/**
- * Query for logos on Solutions Pages
- */
-function solutions_logos( $atts ) {
-  extract( shortcode_atts( array(
-    'query' => ''
-  ), $atts ) );
-  $query = html_entity_decode( $query );
-  ob_start(); 
-  $the_query = new \WP_Query( $query );
-  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-  <?php 
-    $meta = get_socrata_stories_meta(); 
-    $thumb = wp_get_attachment_image_src( $meta[6], 'full' ); 
-    $url = $thumb['0']; ?>
-  <div class="col-sm-2 solutions-logos">
-    <div class="logo-frame text-center">
-    <?php $meta = get_socrata_stories_meta(); 
-      if ($meta[2]) { ?>      
-        <a href="<?php echo $meta[2]; ?>" target="_blank"><img src="<?=$url?>" class="img-responsive" style="max-height:100px;"></a>
-      <?php
-      }
-      else { ?>
-        <img src="<?=$url?>" class="img-responsive ">
-      <?php
-      }
-    ?>
-    </div>
-    <?php $meta = get_socrata_stories_meta(); 
-      if ($meta[2]) { ?>
-        <p class="text-center"><a href="<?php echo $meta[2]; ?>" target="_blank"><small><?php the_title();?></small></a></p>
-      <?php
-      }
-      else { ?>
-        <p class="text-center"><small><?php the_title();?></small></p>
-      <?php
-      }
-    ?>    
-  </div>
-  <?php
-  endwhile;
-  wp_reset_postdata();
-  $list = ob_get_clean();
-  return $list;
-}
-
-add_shortcode( 'solutions-logos', __NAMESPACE__ . '\\solutions_logos' );
-
-/**
- * Query for logos and abstract. Used on the homepage and product pages
- */
-function customer_logos_abstract( $atts ) {
-  extract( shortcode_atts( array(
-    'query' => '',
-    'class' => '',
-  ), $atts ) );
-  $query = html_entity_decode( $query );
-  ob_start(); 
-  $the_query = new \WP_Query( $query );
-  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-  <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>
-
-  <div class="<?php echo $class; ?>">
-    <article>
-      <p><img src="<?=$url?>" class="img-responsive"></p>
-      <div class="customer-text truncate">
-        <h5><?php the_title(); ?></h5>
-        <?php the_excerpt(); ?>
-      </div>
-      <ul>
-        <li><a href="<?php the_permalink() ?>">Read More</a></li>
-        <?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<li><a href='$meta[2]' target='_blank'>Visit Site</a></li>";} ?>
-      </ul>
-    </article>
-  </div>
-
-  <?php
-  endwhile;
-  wp_reset_postdata();
-  $list = ob_get_clean();
-  return $list;
-}
-
-add_shortcode( 'customer-logos-abstract', __NAMESPACE__ . '\\customer_logos_abstract' );
-
-/**
- * Countdown Timer [countdown-timer id="CONTAINER ID" date="YYYY/MM/DD"]
- */
-function countdown_timer( $atts ) {
-  extract( shortcode_atts( array(
-    'id' => '',
-    'date' => '',
-  ), $atts ) );
-  ob_start(); 
-  ?>
-  <script type="text/javascript">jQuery(document).ready(function(t){t("#<?php echo $id; ?>").countdown("<?php echo $date; ?>").on("update.countdown",function(n){var o="%H:%M:%S";n.offset.days>0&&(o="%-d day%!d "+o),n.offset.weeks>0&&(o="%-w week%!w "+o),t(this).html(n.strftime(o))}).on("finish.countdown",function(n){t(this).html("This event has started!").parent().addClass("disabled")})});</script>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('countdown-timer', __NAMESPACE__ . '\\countdown_timer');
-
-/* Animated Hero Image Script */
-function hero_zoom ($atts, $content = null) {
-  ob_start();
-  ?>
-  <script>jQuery(document).ready(function(e){setTimeout(function(){e(".image").addClass("animate")},500)});</script>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('hero-zoom', __NAMESPACE__ . '\\hero_zoom');
-
-
-
 
 /**
  * Add Load more results pagination to FacetWP
@@ -794,6 +549,122 @@ function modify_post_mime_types( $post_mime_types ) {
 add_filter( 'post_mime_types', __NAMESPACE__ . '\\modify_post_mime_types' );
 
 
+/**
+ * Contact Form 1 (Request a Meeting)
+ */
+function contact_form_1($atts) {
+extract(shortcode_atts(array(
+    "url" => '',
+  ), $atts));
+  return '
+  <form action="'.$url.'" method="post">
+  <div class="row">
+  <div class="col-sm-6">
+  <div class="form-group">
+  <label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+  </div>      
+  </div>
+  <div class="col-sm-6">
+  <div class="form-group">
+  <label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
+  </div>      
+  </div>
+  </div>
+  <div class="form-group">
+  <label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+  </div>
+  <div class="form-group">
+  <label class="sr-only">Company</label><input class="form-control" type="text" name="company" required="required" placeholder="Company" />
+  </div>
+  <div class="form-group">
+  <label class="sr-only">Job Title</label><input class="form-control" type="text" name="jobtitle" required="required" placeholder="Job Title" />
+  </div>
+  <div style="position:absolute; left:-9999px; top: -9999px;">
+  <label for="pardot_extra_field">Comments</label>
+  <input type="text" id="pardot_extra_field" name="pardot_extra_field">
+  </div>
+  <button type="submit" class="btn btn-primary" value="submit" required="required" />Request a Meeting</button>
+  </form>
+  ';
+}
+add_shortcode('contact-form-1', __NAMESPACE__ . '\\contact_form_1');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Newsletter Signup Forms
+ */
+function newsletter_sidebar ($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="background-light-grey-4 padding-30 margin-bottom-30 newsletter-form marketo-form">
+    <h4 class="margin-bottom-15">Subscribe to our Newsletter</h4>
+    <p>"Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
+    <form id="mktoForm_2306"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
+  </div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Marketo Form
+ */
+function marketo_form($atts) {
+extract(shortcode_atts(array(
+    "id" => '',
+  ), $atts));
+  return '
+    <div class="marketo-form">    
+    <form id="mktoForm_'.$id.'"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
+    </div>
+  ';
+}
+add_shortcode('marketo-form', __NAMESPACE__ . '\\marketo_form');
+
+/**
+ * Marketo Form with Labels
+ */
+function marketo_form_labels($atts) {
+extract(shortcode_atts(array(
+    "id" => '',
+  ), $atts));
+  return '
+    <div class="marketo-form-labels">    
+    <form id="mktoForm_'.$id.'"></form>
+    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
+    </div>
+  ';
+}
+add_shortcode('marketo-form-labels', __NAMESPACE__ . '\\marketo_form_labels');

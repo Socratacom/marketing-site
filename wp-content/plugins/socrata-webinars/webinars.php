@@ -228,12 +228,23 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       ),
       // DATETIME
       array(
-        'name'        => __( 'Date', 'webinars_' ),
+        'name'        => __( 'Start date', 'webinars_' ),
+        'id'          => $prefix . 'startdate',
+        'type'        => 'date',
+        'timestamp'   => false,
+        'js_options' => array(
+          'numberOfMonths'  => 1,
+          'showButtonPanel' => true,
+        ),
+      ),
+      // DATETIME
+      array(
+        'name'        => __( 'End date', 'webinars_' ),
         'id'          => $prefix . 'starttime',
         'type'        => 'date',
         'timestamp'   => false,
         'js_options' => array(
-          'numberOfMonths'  => 2,
+          'numberOfMonths'  => 1,
           'showButtonPanel' => true,
         ),
       ),      
