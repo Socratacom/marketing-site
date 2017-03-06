@@ -618,7 +618,7 @@ function newsletter_sidebar ($atts, $content = null) {
   <label for="pardot_extra_field">Comments</label>
   <input type="text" id="pardot_extra_field" name="pardot_extra_field">
   </div>
-  <button type="submit" class="btn btn-primary" value="submit" required="required" />Request a Meeting</button>
+  <button type="submit" class="btn btn-primary" value="submit" required="required" />Subscribe</button>
   </form>
 
   </div>
