@@ -7,7 +7,7 @@
 				<div class="col-sm-6 col-sm-offset-3">
 					<div class="margin-bottom-30"><img src="/wp-content/uploads/homepage-connect-logo.png" class="img-responsive"></div>
 					<h3 class="color-white">Watch the livestream March 6 and 7.</h3>
-					<form action="https://go.socrata.com/l/303201/2017-02-23/998i" method="post" class="margin-bottom-60">
+					<form action="https://go.pardot.com/l/303201/2017-02-23/998i" method="post" class="margin-bottom-60">
 						<div class="row">
 							<div class="coln-sm-12 col-md-6">
 								<div class="form-group">
