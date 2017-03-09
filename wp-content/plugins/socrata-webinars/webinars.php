@@ -259,24 +259,24 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Marketo Forms', 'webinars_' ),
+        'name' => __( 'Forms', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
-      // TEXT
+      // URL
       array(
-        'name'  => __( 'Registration Form ID', 'webinars_' ),
-        'id'    => "{$prefix}marketo_registration",
-        'desc' => __( 'Example: 1234', 'webinars_' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),      
-      // TEXT
+        'name' => esc_html__( 'Registration Form', 'webinars_' ),
+        'id'   => "{$prefix}form_registration",
+        'desc' => esc_html__( 'Must include https://', 'webinars_' ),
+        'type' => 'url',
+        'std'  => 'https://go.pardot.com/...',
+      ),
+      // URL
       array(
-        'name'  => __( 'On Demand Form ID', 'webinars_' ),
-        'id'    => "{$prefix}marketo_on_demand",
-        'desc' => __( 'Example: 1234', 'webinars_' ),
-        'type'  => 'text',
-        'clone' => false,
+        'name' => esc_html__( 'On-Demand Form', 'webinars_' ),
+        'id'   => "{$prefix}form_on_demand",
+        'desc' => esc_html__( 'Must include https://', 'webinars_' ),
+        'type' => 'url',
+        'std'  => 'https://go.pardot.com/...',
       ),
       // HEADING
       array(
