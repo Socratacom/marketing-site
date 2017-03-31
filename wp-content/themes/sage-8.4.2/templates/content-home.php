@@ -6,7 +6,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white text-uppercase margin-bottom-0">Lead with Data</h1>
+							<h1 class="color-white margin-bottom-15">Lead with Data</h1>
 							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Socrata's data-as-a-service platform empowers the most innovative governments make data-driven decisions, operate more efficiently, and share insights with citizens.</h4>
 							<ul class="cta-list">
 								<li><a href="/solutions" class="btn btn-default outline">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
@@ -24,11 +24,11 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white text-uppercase margin-bottom-0">Baton Rouge Launches Citizen Connect</h1>
+							<h1 class="color-white margin-bottom-15" style="line-height:1.1em;">Baton Rouge Launches Citizen Connect</h1>
 							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Citizen Connect automates the information needs of a City Council and their constituents by surfacing high-value citizen inquiries in a user-friendly format.</h4>
 							<ul class="cta-list">
+								<li><a href="/solutions/publica-open-data-cloud/#features" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li><a href="https://my.brla.gov" target="_blank" class="btn btn-default outline">See it Live <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="/solutions/state-government/#citizen-connect" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
