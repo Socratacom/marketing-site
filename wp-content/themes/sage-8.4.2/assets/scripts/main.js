@@ -49,25 +49,7 @@
         setTimeout( function(){ 
           jQuery(".gsc-input").attr("placeholder", "Search this site");
         }, 1000 );
-        
-        // Truncate script
-        $(document).ready(function() {
-          $(".truncate").dotdotdot({
-            ellipsis  : '... ',
-            wrap    : 'word',
-            fallbackToLetter: true,
-            after   : null,
-            watch   : window,
-            height    : null,
-            tolerance : 0,
-            callback  : function( isTruncated, orgContent ) {}, 
-            lastCharacter : {
-            remove    : [ ' ', ',', ';', '.', '!', '?' ],
-            noEllipsis  : []
-            }
-          });
-        });
-        
+               
         //Smooth Jumplink Scrolling
         var target, scroll;
 
@@ -119,18 +101,6 @@
       },
       finalize: function() {
         // JavaScript to be fired after the init JS        
-
-        // Animate Clock
- /*       setInterval(function() {
-          function r(el, deg) {
-            el.setAttribute('transform', 'rotate('+ deg +' 50 50)');
-          }
-          var d = new Date();
-          r(sec, 6*d.getSeconds());
-          r(min, 6*d.getMinutes());
-          r(hour, 30*(d.getHours()%12) + d.getMinutes()/2);
-        }, 1000); */
-
       }
     },
     // About us page, note the change from about-us to about_us.

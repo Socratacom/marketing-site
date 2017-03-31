@@ -376,7 +376,12 @@ add_shortcode('partner-logos-carousel-js', __NAMESPACE__ . '\\partner_logos_caro
 function match_height( $atts ) {
   ob_start(); 
   ?>
-  <script>jQuery(function(a){a(".match-height").matchHeight({byRow:!0})});</script>
+
+  <script type="text/javascript">
+    $(function() {
+      $('.match-height').matchHeight([{byRow:true}]);
+    });
+  </script>
   <?php
   $content = ob_get_contents();
   ob_end_clean();

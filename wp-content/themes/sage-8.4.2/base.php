@@ -21,15 +21,59 @@ use Roots\Sage\Wrapper;
       do_action('get_header');
       get_template_part('templates/header');
     ?>
+    <main class="main" role="main" canvas="container">
+      <?php include Wrapper\template_path(); ?>
+      <?php
+        do_action('get_footer');
+        get_template_part('templates/footer');
+        wp_footer();
+      ?>
+    </main>
+    <script type="text/javascript">
+          // Slidebars
 
-        <main class="main" role="main">
-          <?php include Wrapper\template_path(); ?>
-        </main>
+      ( function ( $ ) {
+        // Initialize Slidebars
+        var controller = new slidebars();
+        controller.init();
 
-    <?php
-      do_action('get_footer');
-      get_template_part('templates/footer');
-      wp_footer();
-    ?>
+        // Toggle Slidebars
+        $( '.toggle-id-1' ).on( 'click', function ( event ) {
+          // Stop default action and bubbling
+          event.stopPropagation();
+          event.preventDefault();
+
+          // Toggle the Slidebar with id 'id-1'
+          controller.toggle( 'id-1' );
+        } );
+
+        $( '.toggle-id-2' ).on( 'click', function ( event ) {
+          // Stop default action and bubbling
+          event.stopPropagation();
+          event.preventDefault();
+
+          // Toggle the Slidebar with id 'id-2'
+          controller.toggle( 'id-2' );
+        } );
+
+        $( '.toggle-id-3' ).on( 'click', function ( event ) {
+          // Stop default action and bubbling
+          event.stopPropagation();
+          event.preventDefault();
+
+          // Toggle the Slidebar with id 'id-3'
+          controller.toggle( 'id-3' );
+        } );
+
+        $( '.toggle-id-4' ).on( 'click', function ( event ) {
+          // Stop default action and bubbling
+          event.stopPropagation();
+          event.preventDefault();
+
+          // Toggle the Slidebar with id 'id-4'
+          controller.toggle( 'id-4' );
+        } );
+      } ) ( jQuery );
+    </script>
   </body>  
 </html>
