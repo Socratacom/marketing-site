@@ -11,19 +11,12 @@
     "slick-carousel": "^1.6.0",
     "jQuery.dotdotdot": "^1.8.1",
     "font-awesome": "^4.7.0",
-    "jquery.countdown": "^2.1.0",
-    "js-cookie": "^2.1.2",
-    "matchHeight": "^0.7.0"
+    "matchHeight": "^0.7.0",
+    "include-media": "^1.4.9"
   },
   "overrides": {
     "slick-carousel": {
       "main": "./slick/slick.min.js"
-    },
-    "jquery.countdown": {
-      "main": "./dist/jquery.countdown.min.js"
-    },
-    "js-cookie": {
-      "main": "./src/js.cookie.js"
     },
     "matchHeight": {
       "main": "./dist/jquery.matchHeight-min.js"

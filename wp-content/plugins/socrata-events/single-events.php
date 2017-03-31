@@ -6,6 +6,9 @@ $today = strtotime('today UTC');
 $date = rwmb_meta( 'socrata_events_endtime' );
 $speakers = rwmb_meta( 'socrata_events_speakers' );
 $marketo = rwmb_meta( 'socrata_events_marketo' );
+$customtitle = rwmb_meta( 'socrata_events_custom_title' );
+$customcopy = rwmb_meta( 'socrata_events_custom_copy' );
+$customcta = rwmb_meta( 'socrata_events_custom_cta' );
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' );
 $url = $thumb['0'];
 ?>
@@ -26,45 +29,43 @@ $url = $thumb['0'];
 
 <?php 
   if($date >= $today) { ?>
-  <section class="background-primary-light hidden-xs hidden-sm">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <ol class="breadcrumb">
-            <li>COMMUNITY</li>
-            <li><a href="/community">Community</a></li>
-            <li><?php the_title(); ?></li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </section>
-    <section class="hero-animated background-primary-alt-2-light overlay overlay-black">
-      <div class="outer">
-        <div class="inner">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-10 col-sm-offset-1">
-                <h1 class="text-center text-reverse margin-bottom-15"><?php the_title(); ?></h1>
-                <h3 class="text-center text-reverse"><?php echo $displaydate;?> | <?php echo $city;?>, <?php echo $state;?></h3>
-                <ul class="cta-list">
-                <?php if ( ! empty( $marketo ) ) echo "<li><a href='#registration-form' class='btn btn-warning btn-lg'>Register</a></li>";?>
-                <?php if ( ! empty( $speakers ) ) echo "<li><a href='#speakers' class='btn btn-warning btn-lg'>Speakers</a></li>";?>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="image animate" style="background-image:url(<?php echo $url;?>);"></div>
-    </section>
+
+<section class="background-light-grey-4 masthead">
+<div class="text">
+<div class="container">
+<div class="row">
+<div class="col-sm-10 col-sm-offset-1">
+<h1 class="text-reverse margin-bottom-0 text-uppercase"><?php the_title(); ?></h1>
+<h3 class="text-reverse margin-bottom-0 text-uppercase"><?php echo $displaydate;?></h3>
+</div>
+</div>    
+</div>
+</div>
+<div class="img img-background" style="background-image:url(<?php echo $url;?>);"></div>
+</section>
+
+<section class="cta-bar hidden-xs">
+<div class="container">
+<div class="row">
+<div class="col-sm-10 col-sm-offset-1">
+<ul>
+<li>
+  <?php if ( ! empty( $speakers ) ) { ?>
+    <?php if ( ! empty( $customcta ) ) { ?> <a href='#registration-form' class='btn btn-primary'><?php echo $customcta;?></a> <?php } else { ?> <a href='#registration-form' class='btn btn-primary'>Register</a> <?php } ;?> <a href='#speakers' class='btn btn-primary'>Speakers</a>    
+  <?php } else { ?>
+    <?php if ( ! empty( $customcta ) ) { ?> <a href='#registration-form' class='btn btn-primary'><?php echo $customcta;?></a> <?php } else { ?> <a href='#registration-form' class='btn btn-primary'>Register</a> <?php } ;?>
+  <?php } ;?>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
     <section class="section-padding">
       <div class="container">
         <div class="row">
           <div class="col-sm-10 col-sm-offset-1">
-            <div class="padding-bottom-30 margin-bottom-30 sharing-container" style="border-bottom:#ebebeb solid 1px;">
-              <div class="social-sharing-mini"><?php echo do_shortcode('[marketo-share]');?></div>
-            </div>
             <?php echo rwmb_meta( 'socrata_events_wysiwyg' );?>
           </div>
         </div>
@@ -185,8 +186,16 @@ $url = $thumb['0'];
       <div class="container">
         <div class="row">
           <div class="col-sm-5 col-sm-offset-1">
+          <?php if ( ! empty( $customtitle ) ) { ?>
+            <h2><?php echo $customtitle;?></h2>
+          <?php } else { ?> 
             <h2 class="margin-bottom-15">Register for this event</h2>
-            <p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> event happening, <i><?php echo $displaydate;?></i>.</p>
+          <?php } ;?>
+          <?php if ( ! empty( $customcopy ) ) { ?>
+            <p><?php echo $customcopy;?></p>
+          <?php } else { ?> 
+            <p>Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> event happening, <i><?php echo $displaydate;?></i>.</p>
+          <?php } ;?>
           </div>
           <div class="col-sm-5">
             <?php echo do_shortcode('[marketo-form id="'.$marketo.'"]');?>

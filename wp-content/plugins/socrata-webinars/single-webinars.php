@@ -4,8 +4,8 @@ $today = strtotime('today UTC');
 $date = strtotime(rwmb_meta( 'webinars_starttime' ));
 $speakers = rwmb_meta( 'webinars_speakers' );
 $section_title = rwmb_meta( 'webinars_section_title' );
-$marketo_registration = rwmb_meta( 'webinars_marketo_registration' );
-$marketo_on_demand = rwmb_meta( 'webinars_marketo_on_demand' );
+$form_registration = rwmb_meta( 'webinars_form_registration' );
+$form_on_demand = rwmb_meta( 'webinars_form_on_demand' );
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' );
 $url = $thumb['0'];
 $img_id = get_post_thumbnail_id(get_the_ID());
@@ -129,7 +129,26 @@ $content = rwmb_meta( 'webinars_wysiwyg' );
 				<div class="background-light-grey-4 padding-30">
 				<h4 class="margin-bottom-15">Watch this webinar</h4>
 				<p> Please fill out this form to watch the <i>"<?php the_title(); ?>"</i> webinar.</p>
-				<?php echo do_shortcode('[marketo-form-labels id="'.$marketo_on_demand.'"]');?>
+
+
+				
+<form action="<?php echo $form_on_demand ;?>" method="post">
+<div class="form-group">
+<label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+</div> 
+<div class="form-group">
+<label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
+</div>
+<div class="form-group">
+<label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+</div>
+<div style="position:absolute; left:-9999px; top: -9999px;">
+<label for="pardot_extra_field">Comments</label>
+<input type="text" id="pardot_extra_field" name="pardot_extra_field">
+</div>
+<button type="submit" class="btn btn-primary" value="submit" required="required" />Watch</button>
+</form>
+
 				</div>
 				<?php }
 				else { }
@@ -143,14 +162,48 @@ $content = rwmb_meta( 'webinars_wysiwyg' );
 				<div class="background-light-grey-4 padding-30">
 				<h4 class="margin-bottom-15">Watch this webinar</h4>
 				<p> Please fill out this form to watch the <i>"<?php the_title(); ?>"</i> webinar.</p>
-				<?php echo do_shortcode('[marketo-form-labels id="'.$marketo_on_demand.'"]');?>
+
+<form action="<?php echo $form_on_demand ;?>" method="post">
+<div class="form-group">
+<label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+</div> 
+<div class="form-group">
+<label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
+</div>
+<div class="form-group">
+<label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+</div>
+<div style="position:absolute; left:-9999px; top: -9999px;">
+<label for="pardot_extra_field">Comments</label>
+<input type="text" id="pardot_extra_field" name="pardot_extra_field">
+</div>
+<button type="submit" class="btn btn-primary" value="submit" required="required" />Watch</button>
+</form>
+
 				</div>
 				<?php }
 				else { ?> 
 				<div class="background-light-grey-4 padding-30">
 				<h4 class="margin-bottom-15">Register for this webinar</h4>
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
-				<?php echo do_shortcode('[marketo-form-labels id="'.$marketo_registration.'"]');?>
+
+<form action="<?php echo $form_registration ;?>" method="post">
+<div class="form-group">
+<label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+</div> 
+<div class="form-group">
+<label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
+</div>
+<div class="form-group">
+<label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+</div>
+<div style="position:absolute; left:-9999px; top: -9999px;">
+<label for="pardot_extra_field">Comments</label>
+<input type="text" id="pardot_extra_field" name="pardot_extra_field">
+</div>
+<button type="submit" class="btn btn-primary" value="submit" required="required" />Register</button>
+</form>
+
 				</div>
 				<?php }
 				;?>
@@ -161,7 +214,24 @@ $content = rwmb_meta( 'webinars_wysiwyg' );
 				<div class="background-light-grey-4 padding-30">
 				<h4 class="margin-bottom-15">Register for this webinar</h4>
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
-				<?php echo do_shortcode('[marketo-form-labels id="'.$marketo_registration.'"]');?>
+
+<form action="<?php echo $form_registration ;?>" method="post">
+<div class="form-group">
+<label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+</div> 
+<div class="form-group">
+<label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
+</div>
+<div class="form-group">
+<label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+</div>
+<div style="position:absolute; left:-9999px; top: -9999px;">
+<label for="pardot_extra_field">Comments</label>
+<input type="text" id="pardot_extra_field" name="pardot_extra_field">
+</div>
+<button type="submit" class="btn btn-primary" value="submit" required="required" />Register</button>
+</form>
+
 				</div>
 				<?php }
 				;?>

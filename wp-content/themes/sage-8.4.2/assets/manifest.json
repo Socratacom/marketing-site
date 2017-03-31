@@ -11,8 +11,6 @@
         "styles/main.scss"
       ],
       "vendor": [
-        "../../plugins/socrata-stories/css/styles.scss",
-        "../../plugins/socrata-events/css/styles.scss",
         "../../plugins/socrata-videos/css/styles.scss",
         "../../plugins/socrata-open-performance-guide/css/styles.scss"
       ],
