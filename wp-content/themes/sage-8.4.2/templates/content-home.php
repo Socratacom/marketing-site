@@ -1,16 +1,16 @@
 <section class="home-masthead">
 <div class="slider">
-	<div class="slide" style="background-image:url(/wp-content/uploads/data-democratization-home-hero.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/april-hero-1.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-12">
-							<h1 class="text-center color-white text-uppercase margin-bottom-0">Data Democratization in the Cloud</h1>
-							<h4 class="text-center color-white text-normal hidden-xs">Serving more than 1,000 federal, state, and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</h4>
-							<ul class="cta-list" style="margin-top:30px;">
-								<li><a href="/solutions" class="btn btn-default">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+						<div class="col-sm-8 col-md-6">
+							<h1 class="color-white margin-bottom-15">Lead with Data</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Socrata's data-as-a-service platform empowers the most innovative governments make data-driven decisions, operate more efficiently, and share insights with citizens.</h4>
+							<ul class="cta-list">
+								<li><a href="/solutions" class="btn btn-default outline">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/contact-us" class="btn btn-default outline">Contact Sales <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -18,17 +18,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/segments-home-hero.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/april-hero-2.jpg">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-12">
-							<h1 class="text-center color-white text-uppercase margin-bottom-0">Over 1,000 served</h1>
-							<h4 class="text-center color-white text-normal hidden-xs">See why Socrata is trusted by government organizations of all sizes to make their data more accessible.</h4>
-							<ul class="cta-list" style="margin-top:30px;">
-								<li><a href="/segments" class="btn btn-default">View our Segments <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="/pricing" class="btn btn-default">Get Pricing <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+						<div class="col-sm-8 col-md-6">
+							<h1 class="color-white margin-bottom-15" style="line-height:1.1em;">Baton Rouge Launches Citizen Connect</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Citizen Connect automates the information needs of a City Council and their constituents by surfacing high-value citizen inquiries in a user-friendly format.</h4>
+							<ul class="cta-list">
+								<li><a href="/solutions/publica-open-data-cloud/#features" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://my.brla.gov" target="_blank" class="btn btn-default outline">See it Live <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -130,8 +130,7 @@ jQuery(function ($){
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
 				<p><a href="/solutions/public-safety-data-cloud"><img src="/wp-content/uploads/public-safety-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
 				<h5 class="text-center margin-bottom-15">Public Safety Data Cloud</h5>
-				<p class="text-center">Provide transparency into policing statistics and public safety using data as an objective foundation</p>
-				
+				<p class="text-center">Provide transparency into policing statistics and public safety using data as an objective foundation</p>				
 			</div>
 		</div>
 	</div>

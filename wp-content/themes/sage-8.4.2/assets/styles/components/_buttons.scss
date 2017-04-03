@@ -7,6 +7,21 @@
 .btn-default {
 	background:$light-grey-5;
 }
+
+.btn.outline {
+    background:none;
+}
+
+.btn-default.outline {
+    border:2px solid white !important;
+    color:white;
+    font-weight:$font-semi-bold;
+}
+
+.btn-default.outline:hover {
+    background:rgba(white, .5);
+}
+
 .facetwp-per-page, .facetwp-sort {
 	position: relative;
 	display:inline-block;

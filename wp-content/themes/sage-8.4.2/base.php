@@ -22,7 +22,7 @@ use Roots\Sage\Wrapper;
       get_template_part('templates/header');
     ?>
     <main class="main" role="main" canvas="container">
-      <?php include Wrapper\template_path(); ?>
+      <?php include Wrapper\template_path(); ?>      
       <?php
         do_action('get_footer');
         get_template_part('templates/footer');
