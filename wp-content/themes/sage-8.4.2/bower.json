@@ -14,7 +14,8 @@
     "matchHeight": "^0.7.2",
     "include-media": "^1.4.9",
     "jquery.mb.ytplayer": "^3.0.12",
-    "slidebars": "^2.0.2"
+    "slidebars": "^2.0.2",
+    "bootstrap-submenu": "^2.0.4"
   },
   "overrides": {
     "slick-carousel": {
@@ -25,6 +26,9 @@
     },
     "matchHeight": {
       "main": "./dist/jquery.matchHeight-min.js"
+    },
+    "bootstrap-submenu": {
+      "main": "./dist/js/bootstrap-submenu.min.js"
     },
     "slidebars": {
       "main": "./dist/slidebars.min.js"

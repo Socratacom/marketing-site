@@ -1,7 +1,9 @@
 .btn {
 	text-transform:uppercase;
+    font-weight:$font-semi-bold;
 	border-radius:1px;
     padding:10px 12px;
+    outline:none !important;
 }
 
 .btn-default {
@@ -19,7 +21,7 @@
 }
 
 .btn-default.outline:hover {
-    background:rgba(white, .5);
+    background:tint($primary, 10%);
 }
 
 .facetwp-per-page, .facetwp-sort {
@@ -338,4 +340,5 @@
     }
 }
 
-@media only screen and (min-width : 1200px) {}
+
+

@@ -32,6 +32,29 @@ function excerpt_more() {
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
+
+//Prevent Empty Search Results
+add_filter( 'posts_search', function( $search, \WP_Query $q )
+{
+    if( ! is_admin() && empty( $search ) && $q->is_search() && $q->is_main_query() )
+        $search .=" AND 0=1 ";
+
+    return $search;
+}, 10, 2 );
+
+//Bold Search Terms
+function highlight_results($text){
+    if(is_search()){
+    $keys = implode('|', explode(' ', get_search_query()));
+    $text = preg_replace('/(' . $keys .')/iu', '<span class="search-highlight">\0</span>', $text);
+    }
+    return $text;
+}
+add_filter('the_content', __NAMESPACE__ . '\\highlight_results');
+add_filter('the_excerpt', __NAMESPACE__ . '\\highlight_results');
+add_filter('the_title', __NAMESPACE__ . '\\highlight_results');
+add_filter('get_the_excerpt', __NAMESPACE__ . '\\highlight_results');
+
 /**
  * Next Previous nav
  */

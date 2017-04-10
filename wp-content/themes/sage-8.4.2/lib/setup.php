@@ -34,6 +34,7 @@ function setup() {
     'site_nav_resources' => __('Site Nav Resources', 'sage'),      
     'site_nav_resources_mobile' => __('Site Nav Resources Mobile', 'sage'),
     'site_nav_about' => __('Site Nav About', 'sage'),
+    'site_nav_company' => __('Site Nav Company', 'sage'),
     'site_nav_community' => __('Site Nav Community', 'sage'),
     'site_nav_popular_links' => __('Site Nav Popular Links', 'sage'),
     'product_nav_open_data' => __('Product Nav Open Data', 'sage'),
@@ -113,7 +114,7 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '3.7.1');
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '3.7.2');
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
 
