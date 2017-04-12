@@ -92,6 +92,7 @@
           event.preventDefault();
           controller.toggle( 'id-1' );
         } );
+
       }
     },
     // Home page
@@ -104,7 +105,7 @@
       }
     },
     // About us page, note the change from about-us to about_us.
-    'fuck': {
+    'no_page': {
       init: function() {
         jQuery(document).ready(function($){
           var $timeline_block = $('.timeline-block');

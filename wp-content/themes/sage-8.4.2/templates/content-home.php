@@ -121,3 +121,4 @@ jQuery(function ($){
 	<div id="video" class="player" data-property="{videoURL:'yH4RnuPijZA',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:9, stopAt:19, opacity:1, addRaster:true, quality:'default'}"></div>
 	<script>jQuery(function(e){e("#video").YTPlayer()});</script>
 </section>
+<?php echo do_shortcode("[youtube-modal]"); ?>
