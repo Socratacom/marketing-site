@@ -106,27 +106,45 @@ header.banner {
 		margin-top:8px;
 		li {
 			display:inline-block;
+			position: relative;
 			.search-form {
-				background-color:green;
 				border:$grey solid 1px;
 				position: relative;
 				height:42px;
+				width:210px;
 				margin-right: 15px;
+				position: relative;
 				input {
 					border:none;
 					outline:none;
 					height:40px;
-					float:left;
+					width:208px;
 					padding-left:15px;
 					font-size: 14px;
 					font-weight:$font-normal;
+					position: absolute;
+					top:0;
+					left:0;
+					z-index: 1;
 				}
 				.btn-default {
 					border:none;
 					outline:none;
 					border-radius: 0;
 					color:$primary;
-				}    
+					background-color:$white;
+					position: absolute;
+					top:0;
+					right:0;
+					z-index: 2;
+				}
+				.btn-default:hover {					
+					background-color:$primary;
+					color:$white;
+				}   
+			}
+			.btn-primary {
+				float:right;
 			}
 		}
 
@@ -204,3 +222,23 @@ header.banner {
 	}
 }
 
+.searchwp-live-search-results-showing {
+	width:203px;
+	border:$grey solid 1px;
+	border-radius:0;
+	.searchwp-live-search-result p {
+		border:none;
+		font-size: 14px;
+		padding:5px 15px;
+		font-weight: $font-normal;
+		a {
+			color:$dark-grey-3;
+			.searchwp-highlight {
+
+			}
+		}
+		a:hover {
+			color:$primary-dark;
+		}
+	}
+}

@@ -56,7 +56,7 @@
         <li>
           <form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>" >
             <label class="sr-only">Search for:</label>
-            <input type="search" class="search-field" placeholder="Search Socrata" value="" name="s" title="Search for:" />
+            <input type="search" class="search-field" placeholder="Search Socrata" value="" name="s" title="Search for:" data-swplive="true" data-swpconfig />
             <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
           </form>
         </li>

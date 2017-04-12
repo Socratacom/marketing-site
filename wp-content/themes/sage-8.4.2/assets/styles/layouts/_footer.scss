@@ -1,58 +1,39 @@
 @media only screen and (min-width : 320px) {
-	footer * {
-		color:$dark-grey-1;
-		font-size:13px;
-	}
+
 	footer {
 		background-color:$light-grey-5;
 		border-top:$light-grey-4 solid 1px;
 		a:hover {
 			color:$primary;
 		}
-		h4 {
-			text-transform: uppercase;
-			color:$dark-grey-1;
-			margin:0 0 10px 0;
-			padding-bottom:10px;
-			border-bottom:$light-grey-1 solid 1px;
-		}
 		ul {
 			list-style-type:none;
 			margin:0;
 			padding:0;
 		}
-		.copyright { 
-			margin-bottom:30px;
-			li {
-				margin:0;
-				font-size: 12px;
-			}
-			li:first-child {
-				margin-bottom:15px;
-			}
-			li:last-child {
-				margin-top:15px;
-			}
-		}
 		.social-icons {
+			display:inline-block;
 			margin-bottom:30px;
 			li {
 				display:inline-block;
-				height:32px;
-				width:32px;
+				height:24px;
+				width:24px;
 				position: relative;
-				margin-left:5px;
+				margin:0 10px;
 				float:left;
 			}
 			li:first-child {
 				margin-left:0;
 			}
+			li:last-child {
+				margin-right:0;
+			}
 			a {
 				position: absolute;
 				top:0;
 				left:0;
-				width:32px;
-				height: 32px;
+				width:24px;
+				height: 24px;
 				overflow: hidden;
 				text-indent: -9999px;
 			}
@@ -60,79 +41,66 @@
 				position: absolute;
 				font-family: 'FontAwesome';
 				color:#fff;
-				font-size: 16px;
-				top:6px;
+				font-size: 14px;
 			}
 			.facebook:before {
-				left:11px;
+				top:0;
+				left:8px;
 				content: "\f09a";
 			}
 			.twitter:before {
-				left:9px;
+				top:0;
+				left:6px;
 				content: "\f099";
 			}
 			.linkedin:before {
-				left:10px;
+				top:0;
+				left:7px;
 				content: "\f0e1";
 			}
-			.google:before {
-				left:10px;
-				content: "\f0d5";
-			}
 			.youtube:before {
-				left:8px;
+				top:0;
+				left:6px;
 				content: "\f16a";
 			}
-			.facebook {
-				background-color:#3b5998;
+			.facebook, .twitter, .linkedin, .youtube {
+				background-color:$grey;
+				border-radius:50%;
 			}
-			.twitter {
-				background-color:#4099ff;
-			}
-			.linkedin {
-				background-color:#0e76a8;
-			}
-			.google {
-				background-color:#D84B37;
-			}
-			.youtube {
-				background-color:#e52d27;
+			.facebook:hover, .twitter:hover, .linkedin:hover, .youtube:hover {
+				background-color:$primary;
 			}
 		}
-		.footer-logo {
-			width:90px;
-			height:24px;
-			margin-bottom:15px;
-		}
-		.menu {
-			margin-bottom:2em;
-			.divider {
-				display:none;
-			}
-		}
-		.menu-item a {
-			display: block;
-			padding:5px 0;
-		}
-
-		.footer-form {
-			h4 {
-				border:none;
-				padding:0;
-			}
-			.marketo-form {
-				input {
-					background-color:white;
-					border:$light-grey-3 solid 1px !important;
-					outline: none;
-					color: $black;
+		.copyright-container {
+			text-align: left;
+			.menu {
+				li { 
+					display:inline-block;
+					padding-right:20px;
+					a {
+						font-weight: $font-normal;
+					}
+				}
+				li:last-child {
+					padding:0;
 				}
 			}
+			p, a {
+				font-size:13px;
+			}			
+			.footer-logo {
+				display:inline-block;
+				width:90px;
+				height:24px;
+				margin-bottom:15px;
+			}
 		}
+	}
+}
 
-
-
-
+@media (min-width: 768px) {
+	footer .copyright-container {
+		text-align: right;
 	}
 }
 
