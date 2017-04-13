@@ -230,8 +230,14 @@ function newsroom_posts($atts, $content = null) {
   ob_start();
   ?>
 
-  <section class="section-padding background-light-grey-5">
+  <section class="section-padding">
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-0 font-light">Newsroom</h1>
+          <h3 class="margin-bottom-60">Press releases, articles, and more</h3>
+        </div>
+      </div>
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
