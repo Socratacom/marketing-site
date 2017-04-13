@@ -241,8 +241,14 @@ function case_study_register_meta_boxes( $meta_boxes )
 function case_study_posts($atts, $content = null) {
   ob_start();
   ?>
-  <section class="section-padding background-light-grey-5">
+  <section class="section-padding">
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-0 font-light">Case Studies</h1>
+          <h3 class="margin-bottom-60">Celebrating customer success</h3>
+        </div>
+      </div>
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
