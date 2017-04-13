@@ -2,7 +2,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3">
-				<div class="text-uppercase margin-bottom-0 font-normal">Got questions?</div>
+				<div class="text-uppercase margin-bottom-0 font-normal">Have questions?</div>
 				<h4 class="font-normal margin-bottom-30">1-206-340-8008</h4>
 				<ul class="social-icons clearfix hidden-xs">
 					<li class="facebook"><a href="https://www.facebook.com/socrata" target="_blank">facebook</a></li>
