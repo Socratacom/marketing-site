@@ -1,19 +1,11 @@
-<section class="background-light-grey-4 masthead">
-	<div class="text">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h1 class="text-reverse margin-bottom-0 text-uppercase">Socrata Blog</h1>
-					<h3 class="text-reverse margin-bottom-0 text-uppercase">Digital Government Transformation</h3>
-				</div>
-			</div>		
-		</div>
-	</div>
-	<div class="img img-background" style="background-image:url(/wp-content/uploads/blog-hero.jpg);"></div>
-</section>
-
-<section class="section-padding background-light-grey-5">
+<section class="section-padding">
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-0 font-light">Socrata Blog</h1>
+          <h3 class="margin-bottom-60">Digital Government Transformation</h3>
+        </div>
+      </div>
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">

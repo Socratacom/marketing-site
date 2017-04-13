@@ -16,8 +16,14 @@ function content_discovery_list($atts, $content = null) {
 
 
 
-  <section class="section-padding background-light-grey-5">
+  <section class="section-padding">
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-0 font-light">Resources</h1>
+          <h3 class="margin-bottom-60">Browse content from our Blog, Case Studies, Newsroom, and more</h3>
+        </div>
+      </div>
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
@@ -62,7 +68,6 @@ function content_discovery_list($atts, $content = null) {
       </div>
     </div>
   </section>
-  <?php echo do_shortcode('[match-height]');?>
   <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
 
   <?php

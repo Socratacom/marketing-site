@@ -939,21 +939,7 @@ html, body, [canvas=container], [off-canvas] {
     }
     .padding-bottom-60 {
         padding-bottom:60px;
-    }
-    .breadcrumb {
-        padding: 8px 0;
-        margin-bottom: 0;
-        list-style: none;
-        background-color: transparent;
-        border-radius: 0;
-        li {
-            font-size: 13px;
-            font-weight: $font-semi-bold;
-        }
-    }
-    .modal-content {
-        border-radius:0;
-    }
+    }  
     .text-reverse {
         color:white;
     }
@@ -1347,41 +1333,7 @@ html, body, [canvas=container], [off-canvas] {
             font-style: italic;
         }
     }
-    .modal {
-        text-align: left;
-        .modal-body {
-            padding: 30px;
-        }
-        .modal-header {
-            position: absolute;
-            top:0;
-            left:0;
-            height: 70px;
-            width:100%;
-            background-color:$clouds;
-        }
-        .profile {
-            li {
-                .headshot {
-                    height:80px;
-                    width:80px;
-                }
-            }
-            .social a {
-                display: inline-block;
-                background-color:$peter-river;
-                height: 32px;
-                width:32px;
-                border-radius:50%;
-                text-align: center;
-                margin:5px;
-                i {
-                    color:white;
-                    margin-top: 7px;
-                }
-            }
-        }
-    }
+
     .no-gutters {
         & > [class^="col-"],
         & > [class*=" col-"] {
@@ -1441,111 +1393,7 @@ dl.quote-author {
     }
 
 }
-.video-modal[style] {
-    padding:0 !important;
-}
-.modal {
-    .modal-content {
-        box-shadow:0 0 15px $light-grey-3;
-        border:$light-grey-4 solid 1px;
-        .modal-header, .modal-body, .modal-footer {
-            padding:30px;
-        }
-        .modal-header {
-            h4 {
-                font-weight:$font-light;
-            }
-        }
-    }
-    .close {        
-        z-index: 100;
-        position: absolute;
-        top:15px;
-        right:15px;
-        button {
-            background: transparent;
-            border: none;
-            font-size: 32px;
-            padding:0;
-            outline:none;
-            cursor:pointer;
-        }
-    }
-}
 
-.video-modal {
-    .modal-dialog {
-        margin:0;
-        padding:0;
-        width:100%;
-        height:100vh;
-    }
-    .modal-content {
-        position: relative;
-        width:100%;
-        height:100vh;
-        display: table;
-        box-shadow:none;
-        border:none;
-        background-color:$black;
-        .modal-body {
-            display:table-cell;
-            vertical-align:middle;
-            .frame {
-                border:white solid 10px;
-            }
-        }
-        button {
-            position: absolute;
-            top:30px;
-            right:30px;
-            height:60px;
-            width:60px;
-            z-index: 10;
-            color:white;
-            background-color: $primary;
-            border: none;
-            font-size: 50px;
-            padding:0;
-            outline:none;
-            cursor:pointer;
-            line-height: normal;
-        }
-    }    
-    .modal-body {
-        padding:0;
-    }
-}
-
-.popup {
-    position: fixed;
-    bottom:0;
-    left:0;
-    z-index: 9999;
-    width:300px;
-    .dialog {
-        padding:30px;
-        border:$primary solid 5px;
-        position: relative;
-        background-color:white;
-        button.close-me {
-            position: absolute;
-            top:15px;
-            right:15px;
-            z-index: 10;
-            color:black;
-            background: transparent;
-            border: none;
-            font-size: 16px;
-            padding:0;
-            outline:none;
-            cursor:pointer;
-        }
-        .close-me:hover {
-            color:$primary;
-        }
-    }
-}
 
 .hide-me, .hide-me[style] {
     display: none !important;
@@ -1987,9 +1835,6 @@ dl.quote-author {
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 992px) {
 
-        .modal-lg {
-            width:960px;
-        }
 
 
 }
@@ -2027,8 +1872,8 @@ dl.quote-author {
 /* Cards */
 .card {
     position: relative;
-    border:$light-grey-4 solid 1px;
-    padding-bottom:20px;
+    border:$light-grey-3 solid 1px;
+    padding-bottom:30px;
     background-color:white;
     .card-header {
         position: relative;
@@ -2048,7 +1893,7 @@ dl.quote-author {
         }
     }
     .card-body {
-        padding:20px;
+        padding:30px;
         h5 {
             margin-bottom:15px;
         }
@@ -2061,12 +1906,16 @@ dl.quote-author {
         bottom:0;
         left:0;
         width:100%;
-        border-top:$light-grey-4 solid 1px;
         font-size: 11px;
         color:$grey;
         font-weight: $font-normal;
         .btn {
             border-radius:0;
+        }
+        .btn-default {
+            background:none;
+            border:none;
+            color:$primary;
         }
         .author {
             list-style-type: none;
@@ -2299,23 +2148,58 @@ dl.quote-author {
 
 }
 
-
-
-
- .modal {
-        position: absolute !important;
-        top:0 !important;
-        left:0 !important;
-        bottom:0 !important;
-        right:0 !important;
-        z-index: 2000 !important;
-        height:100vh !important;
-        width:100% !important;
-    }
 .modal-backdrop {
     display:none;
 }
+.modal.video-modal {
+    position: absolute !important;
+    top:0 !important;
+    left:0 !important;
+    bottom:0 !important;
+    right:0 !important;
+    z-index: 2000 !important;
+    height:100vh !important;
+    width:100% !important;
+    .modal-dialog {
+        margin:0;
+        padding:0;
+        width:100%;
+        height:100vh;
+        background:$white;
+    }
+    .modal-content {
+        position: relative;
+        width:100%;
+        height:100vh;
+        display: table;
+        box-shadow:none;
+        border:none;
+        background:transparent;
+        padding-top:60px;
+        .modal-body {
+            display:table-cell;
+            vertical-align:middle;
+        }        
+        button {
+            position: absolute;
+            top:90px;
+            right:30px;
+            height:60px;
+            width:60px;
+            z-index: 10;
+            color:$black;
+            background-color: $white;
+            border: none;
+            font-size: 50px;
+            padding:0;
+            outline:none;
+            cursor:pointer;
+            line-height: normal;
+        }
 
+    }
 
-
-
+}
+.modal.video-modal[style] {
+    padding:0 !important;
+}
