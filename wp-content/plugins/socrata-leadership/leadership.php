@@ -74,6 +74,21 @@ function socrata_leadership_taxonomie() {
   );
 }
 
+// CUSTOM EXCERPT
+function leadership_excerpt() {
+  global $post;
+  $text = rwmb_meta( 'leadership_wysiwyg' );
+  if ( '' != $text ) {
+    $text = strip_shortcodes( $text );
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]>', ']]>', $text);
+    $excerpt_length = 20; // 20 words
+    $excerpt_more = apply_filters('excerpt_more', ' ' . ' ...');
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+  return apply_filters('get_the_excerpt', $text);
+}
+
 // METABOXES
 add_filter( 'rwmb_meta_boxes', 'socrata_leadership_register_meta_boxes' );
 function socrata_leadership_register_meta_boxes( $meta_boxes )
@@ -177,33 +192,53 @@ function leadership_executive_bios($atts, $content = null) {
   $id = get_the_ID();
   ?>
 
-  <div class="col-sm-6 col-md-4 col-lg-3 match-height">
-    <ul class="profile">
-      <li><a class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);" data-toggle="modal" data-target="#<?php echo $id;?>"></a></li>
-      <li><?php the_title(); ?></li>
-      <li><?php echo $title; ?></li>
-    </ul>
-    <div class="modal fade" id="<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="close"><button type="button" data-dismiss="modal"><i class="icon-close"></i></button></div>
-          </div>
-          <div class="modal-body">
-            <ul class="profile">
-              <li><div class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>)"></div></li>
-              <li><?php the_title(); ?></li>
-              <li><?php echo $title; ?></li>
-              <li class="social">
-                <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank"><i class="fa fa-twitter"></i></a> <?php }; ?>
-              </li>
-            </ul>
-            <?php echo $bio; ?>
-          </div>
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card margin-bottom-30 match-height">
+      <div class="card-header">
+        <div class="sixteen-nine img-background" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
+          <a href="javascript:;" class="link" data-toggle="modal" data-target="#<?php echo $id;?>"></a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 style="margin-bottom:0;"><a href="#" class="link-black"><?php the_title(); ?></a></h5>
+        <p class="margin-bottom-15 font-normal" style="line-height:normal;"><small><?php echo $title; ?></small></p>
+        <p><?php echo leadership_excerpt(); ?></p>
+      </div>
+      <div class="card-footer padding-15">
+        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default">Read More</a>
+        <div style="position:absolute; right:25px; bottom:25px;">
+          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px;"><i class="fa fa-twitter"></i></a> <?php }; ?>
         </div>
       </div>
     </div>
   </div>
+
+  <div class="modal leadership-modal" id="<?php echo $id;?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="bio-dialog">
+      <div class="bio-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <div class="box">
+                <div class="bio-header">
+                  <div class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>)"></div>
+                  <h5 class="margin-bottom-0 title"><?php the_title(); ?></h5>
+                  <button type="button" data-dismiss="modal"><i class="icon-close"></i></button>
+                </div>              
+                <div class="bio-body">
+                  <div class="padding-30">
+                    <?php echo $bio; ?>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
 
   <?php
   }
@@ -241,30 +276,49 @@ function leadership_advisor_bios($atts, $content = null) {
   $id = get_the_ID();
   ?>
 
-  <div class="col-sm-6 col-md-4 col-lg-3 match-height">
-    <ul class="profile">
-      <li><a class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);" data-toggle="modal" data-target="#<?php echo $id;?>"></a></li>
-      <li><?php the_title(); ?></li>
-      <li><?php echo $title; ?></li>
-    </ul>
-    <div class="modal fade" id="<?php echo $id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <div class="close"><button type="button" data-dismiss="modal"><i class="icon-close"></i></button></div>
-          </div>
-          <div class="modal-body">
-            <ul class="profile">
-              <li><div class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>)"></div></li>
-              <li><?php the_title(); ?></li>
-              <li><?php echo $title; ?></li>
-              <li class="social">
-                <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank"><i class="fa fa-twitter"></i></a> <?php }; ?>
-              </li>
-            </ul>
-            <?php echo $bio; ?>
+  <div class="col-sm-6 col-md-4 col-lg-3">
+    <div class="card margin-bottom-30 match-height">
+      <div class="card-header">
+        <div class="sixteen-nine img-background" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
+          <a href="javascript:;" class="link" data-toggle="modal" data-target="#<?php echo $id;?>"></a>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 style="margin-bottom:0;"><a href="#" class="link-black"><?php the_title(); ?></a></h5>
+        <p class="margin-bottom-15 font-normal" style="line-height:normal;"><small><?php echo $title; ?></small></p>
+        <p><?php echo leadership_excerpt(); ?></p>
+      </div>
+      <div class="card-footer padding-15">
+        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default">Read More</a>
+        <div style="position:absolute; right:25px; bottom:25px;">
+          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px;"><i class="fa fa-twitter"></i></a> <?php }; ?>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal leadership-modal" id="<?php echo $id;?>" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="bio-dialog">
+      <div class="bio-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-sm-offset-2">
+              <div class="box">
+                <div class="bio-header">
+                  <div class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>)"></div>
+                  <h5 class="margin-bottom-0 title"><?php the_title(); ?></h5>
+                  <button type="button" data-dismiss="modal"><i class="icon-close"></i></button>
+                </div>              
+                <div class="bio-body">
+                  <div class="padding-30">
+                    <?php echo $bio; ?>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </div>

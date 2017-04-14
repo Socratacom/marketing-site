@@ -10,6 +10,9 @@ html, body, [canvas=container], [off-canvas] {
        -moz-box-sizing: border-box;
             box-sizing: border-box;
 }
+body.modal-open {
+    overflow: hidden;
+}
 .main {
     padding-top:0 !important;
     width:100% !important;
@@ -2201,6 +2204,87 @@ dl.quote-author {
     }
 
 }
-.modal.video-modal[style] {
+.modal.leadership-modal {
+    position: absolute !important;
+    top:0 !important;
+    left:0 !important;
+    bottom:0 !important;
+    right:0 !important;
+    z-index: 2000 !important;
+    height:100vh !important;
+    width:100% !important;
+    @media only screen and (min-width : 320px) {
+        .bio-content {        
+            vertical-align:top;
+            padding-top:80px;
+        }
+    }
+    @media only screen and (min-width : 480px) {
+        .bio-content {
+            vertical-align:middle;
+            padding-top:0;
+        }
+    }
+    .bio-dialog {
+        margin:0;
+        padding:0;
+        width:100%;
+        height:100vh;
+        background:$white;
+        display: table;
+    }
+    .bio-content {        
+        display:table-cell;
+        .box {
+            background-color:$white;
+            border:$grey solid 1px;
+            position: relative;
+            .bio-header {
+                height: 80px;
+                border-bottom:$light-grey-4 solid 1px;
+                background-color:$light-grey-5;
+                .headshot {
+                    height: 50px;
+                    width:50px;
+                    border-radius:50%;
+                    background-size:cover;
+                    background-position:center center;
+                    background-repeat:no-repeat;
+                    position:absolute;
+                    top:15px;
+                    left:30px;
+                }
+                .title {
+                    position: absolute;
+                    top:34px;
+                    left:100px;
+                }                            
+                button {
+                    position: absolute;
+                    top:15px;
+                    right:15px;
+                    height:32px;
+                    width:32px;
+                    z-index: 10;
+                    color:$black;
+                    background-color: $white;
+                    border: none;
+                    font-size: 32px;
+                    padding:0;
+                    outline:none;
+                    cursor:pointer;
+                    line-height: normal;
+                }
+            }
+            .bio-body {
+                max-height: 300px;
+                overflow:auto;
+            }
+        }
+    }
+}
+.modal.video-modal[style], .modal.leadership-modal[style] {
     padding:0 !important;
 }
+
+
