@@ -18,7 +18,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/San-Bernardino-Walking-to-School.png">
+	<div class="slide" style="background-image:url(/wp-content/uploads/april-hero-2.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/nascio-hero-background.jpg">
+	<div class="slide" style="background-image:url(/wp-content/uploads/nascio-hero-background.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
