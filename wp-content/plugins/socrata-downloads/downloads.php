@@ -262,6 +262,11 @@ function downloads_posts($atts, $content = null) {
 
   <section class="section-padding background-light-grey-5">
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-60 font-light">Papers and Guides</h1>
+        </div>
+      </div>
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
