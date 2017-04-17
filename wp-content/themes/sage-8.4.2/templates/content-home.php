@@ -1,5 +1,23 @@
 <section class="home-masthead">
 <div class="slider">
+	<div class="slide" style="background-image:url(/wp-content/uploads/nascio-hero-background-1.jpg)">
+		<div class="text">
+			<div class="vertical-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-md-6">
+							<h1 class="color-white margin-bottom-15" style="line-height:1.1em;">Join us at ...</h1>
+							<p><img src="/wp-content/uploads/home-nascio-logo-1.png" class="img-responsive"></p>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Join us at NASCIO Midyear 2017. April 23-25.</h4>
+							<ul class="cta-list">
+								<li><a href="http://www.nascio.org/Events/2017-Midyear" target="_blank" class="btn btn-default outline">Join Us <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="slide" style="background-image:url(/wp-content/uploads/april-hero-1.jpg)">
 		<div class="text">
 			<div class="vertical-center">
@@ -29,24 +47,6 @@
 							<ul class="cta-list">
 								<li><a href="/solutions/publica-open-data-cloud/#features" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li><a href="https://my.brla.gov" target="_blank" class="btn btn-default outline">See it Live <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/nascio-hero-background.jpg)">
-		<div class="text">
-			<div class="vertical-center">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-8 col-md-6">
-							<h1 class="color-primary-dark margin-bottom-15" style="line-height:1.1em;">Join us at ...</h1>
-							<p><img src="/wp-content/uploads/home-nascio-logo.png" class="img-responsive"></p>
-							<h4 class="color-primary-dark text-normal hidden-xs margin-bottom-0">Join us at NASCIO Midyear 2017. April 23-25.</h4>
-							<ul class="cta-list">
-								<li><a href="http://www.nascio.org/Events/2017-Midyear" target="_blank" class="btn btn-primary">Join Us <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
