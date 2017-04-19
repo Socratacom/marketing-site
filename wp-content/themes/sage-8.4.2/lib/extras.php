@@ -139,6 +139,35 @@ function blog_the_categories() {
 }
 
 // SHARED TAXONOMIES
+add_action( 'init', __NAMESPACE__ . '\\shared_solution', 0 );
+function shared_solution() {
+  register_taxonomy(
+    'solution',
+    array('case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos'),
+    array(
+      'labels' => array(
+        'name' => 'Solution',
+        'menu_name' => 'Solution',
+        'add_new_item' => 'Add New Solution',
+        'new_item_name' => "New Solution"
+      ),
+      'show_ui' => true,
+      'show_in_menu' => true,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => false,
+      'capabilities'=>array(
+        'manage_terms' => 'manage_options',//or some other capability your clients don't have
+        'edit_terms' => 'manage_options',
+        'delete_terms' => 'manage_options',
+        'assign_terms' =>'edit_posts'),
+      'rewrite' => array('with_front' => false, 'slug' => 'solution'),
+    )
+  );
+}
+
 add_action( 'init', __NAMESPACE__ . '\\shared_segment', 0 );
 function shared_segment() {
   register_taxonomy(
