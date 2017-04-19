@@ -247,9 +247,6 @@ function product_the_categories() {
   for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
 
-
-
-
 // Function to change "posts" to "blog" in the admin side menu
 function change_post_menu_label() {
   global $menu;
@@ -261,6 +258,7 @@ function change_post_menu_label() {
   echo '';
 }
 add_action( 'admin_menu', __NAMESPACE__ . '\\change_post_menu_label' );
+
 // Function to change post object labels to "blog"
 function change_post_object_label() {
   global $wp_post_types;
@@ -277,6 +275,13 @@ function change_post_object_label() {
   $labels->not_found_in_trash = 'No Posts found in Trash';
 }
 add_action( 'init', __NAMESPACE__ . '\\change_post_object_label' );
+
+// Remove metaboxes from the blog
+function remove_blog_meta_boxes() {
+  remove_meta_box( 'tagsdiv-post_tag', 'post', 'normal' );
+  remove_meta_box( 'formatdiv', 'post', 'normal' );
+}
+add_action( 'admin_menu', __NAMESPACE__ . '\\remove_blog_meta_boxes' );
 
 /** SHORTCODES **/
 
