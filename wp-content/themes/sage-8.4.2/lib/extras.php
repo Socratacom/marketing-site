@@ -151,8 +151,8 @@ function shared_solution() {
         'add_new_item' => 'Add New Solution',
         'new_item_name' => "New Solution"
       ),
-      'show_ui' => false,
-      'show_in_menu' => true,
+      'show_ui' => true,
+      'show_in_menu' => false,
       'show_tagcloud' => false,
       'hierarchical' => true,
       'sort' => true,      
