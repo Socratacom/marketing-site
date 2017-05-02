@@ -18,17 +18,16 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/april-hero-2.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/hero-virginia-beach.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15" style="line-height:1.1em;">Baton Rouge Launches Citizen Connect</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Citizen Connect automates the information needs of a City Council and their constituents by surfacing high-value citizen inquiries in a user-friendly format.</h4>
+							<h1 class="color-white margin-bottom-15" style="line-height:1.1em;">A Future Fueled by Data</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">What Works City Virginia Beach has set a new standard for transparency and performance measurement with open data</h4>
 							<ul class="cta-list">
-								<li><a href="/solutions/publica-open-data-cloud/#features" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://my.brla.gov" target="_blank" class="btn btn-default outline">See it Live <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/case-study/future-fueled-data-virginia-beach/" class="btn btn-default outline">Read More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
