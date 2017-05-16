@@ -2287,4 +2287,98 @@ dl.quote-author {
     padding:0 !important;
 }
 
+.quotes-carousel {
+    position: relative;
+    .slick-arrow[style] {
+        display:inline-block !important;
+    }
+    .toggle-left, .toggle-right {
+        position: absolute;
+        top:50%;
+        transform:translate(0%, -50%);
+        -webkit-transform:translate(0%, -50%);
+        z-index: 100;
+        height:50px;
+        width:50px;
+        border-radius:50%;
+        cursor:pointer;
+        background-color:rgba($white, .50);
+        .fa {
+            position: absolute;
+            top:16px;
+            left:16px;
+            font-size:18px;
+            color:$black;
+        }
+    }
+    .toggle-left {
+        left:15px;
+    }
+    .toggle-right {
+        right:15px;
+    }
+    .toggle-left:hover, .toggle-right:hover {
+        background-color:rgba($primary-dark, 1);
+        .fa {
+            color:$white;
+        }
+    }
+}
 
+.bubble {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    background: #FFFFFF;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: $light-grey-3 solid 3px;
+    margin-bottom:30px;
+    p {
+        font-size: 14px;
+        font-weight: $font-normal;
+        line-height: normal;
+    }
+    p:last-of-type {
+        margin:0;
+    }
+}
+
+.bubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 15px 0;
+    border-color: $white transparent;
+    display: block;
+    width: 0;
+    z-index: 1;
+    bottom: -15px;
+    left: 25px;
+}
+
+.bubble:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 17px 17px 0;
+    border-color: $light-grey-3 transparent;
+    display: block;
+    width: 0;
+    z-index: 0;
+    bottom: -20px;
+    left: 23px;
+}
+
+.quote {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    li:last-child {
+        font-size: 12px;
+        font-style: italic;
+        font-weight: $font-normal;
+    }
+}

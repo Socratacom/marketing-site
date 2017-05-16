@@ -346,9 +346,8 @@ function carousel_script( $atts ) {
 }
 add_shortcode('carousel-script', __NAMESPACE__ . '\\carousel_script');
 
-/**
- * Responsive Carousel [responsive-carousel id="" slide_id=""]
- */
+// Responsive Carousel [responsive-carousel id="" slide_id=""]
+
 function carousel_script_responsive( $atts ) {
   extract( shortcode_atts( array(
     'id' => '',
@@ -357,33 +356,32 @@ function carousel_script_responsive( $atts ) {
   ob_start(); 
   ?>
   <script>
-  jQuery(function ($){
+  $(document).ready(function(){
     $(<?php echo "'#$slide_id'"; ?>).slick({
     arrows: true,
     appendArrows: $(<?php echo "'#$id'"; ?>),
-    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-long-arrow-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-long-arrow-right"></i></div>',
     autoplay: false,
     autoplaySpeed: 8000,
     speed: 800,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     accessibility:false,
     dots:false,
-
       responsive: [
         {
           breakpoint: 992,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToScroll: 1
           }
         },
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2
+            slidesToScroll: 1
           }
         },
         {
@@ -399,13 +397,70 @@ function carousel_script_responsive( $atts ) {
   });
   </script>
 
-
   <?php
   $content = ob_get_contents();
   ob_end_clean();
   return $content;
 }
 add_shortcode('responsive-carousel', __NAMESPACE__ . '\\carousel_script_responsive');
+
+// Quotes Carousel [quotes-carousel id="" slide_id=""]
+
+function quotes_carousel( $atts ) {
+  extract( shortcode_atts( array(
+    'id' => '',
+    'slide_id' => '',
+  ), $atts ) );
+  ob_start(); 
+  ?>
+  <script>
+  $(document).ready(function(){
+    $(<?php echo "'#$slide_id'"; ?>).slick({
+    arrows: true,
+    appendArrows: $(<?php echo "'#$id'"; ?>),
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-long-arrow-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-long-arrow-right"></i></div>',
+    autoplay: true,
+    autoplaySpeed: 8000,
+    speed: 800,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    accessibility:false,
+    dots:false,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+    $(<?php echo "'#$slide_id'"; ?>).show();
+  });
+  </script>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('quotes-carousel', __NAMESPACE__ . '\\quotes_carousel');
 
 /**
  * Responsive Carousel [partner-logos-carousel-js id=""]
