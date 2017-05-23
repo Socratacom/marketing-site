@@ -138,7 +138,7 @@ $font-bold:						700;
 // Slick Carousel 
 $slick-dot-character: "\f111" !default;
 $slick-dot-size: 15px !default;
-$slick-dot-color: white !default;
+$slick-dot-color: $primary !default;
 $slick-dot-color-active: $slick-dot-color !default;
 $slick-opacity-default: 1 !default;
 $slick-opacity-on-hover: 0.75 !default;
