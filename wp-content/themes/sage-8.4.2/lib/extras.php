@@ -794,7 +794,7 @@ function content_query($atts, $content = null) {
   'segment' => $segment,
   'posts_per_page' => 4,
   'orderby' => 'date',
-  'order'   => 'asc',
+  'order'   => 'desc',
   );
   $myquery = new \WP_Query($args);
   // The Loop
