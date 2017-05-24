@@ -371,44 +371,7 @@
 			}
 		}
 	}
-	//Customers
-	.customer-logos {
-		display:none;
-		padding:0 50px;
-		position: relative;
-		font-size: 12px;
-		font-weight: $font-semi-bold;
-		color:$grey;
-		.slick-list {
-			text-align:center;
-			.slick-track {
-				display:inline-block;
-			}
-		}
-		.toggle-left {
-			display: inline-block;
-			position: absolute;
-			padding:5px;
-			top:35px;
-			left:15px;
-			font-size: 16px;
-			color:$black;
-			cursor: pointer;
-		}
-		.toggle-right {
-			display: inline-block;
-			position: absolute;
-			padding:5px;
-			top:35px;
-			right:15px;
-			font-size: 16px;
-			color:$black;
-			cursor: pointer;
-		}
-		.toggle-left:hover, .toggle-right:hover {
-			color:$primary;
-		}
-	}
+
 	.customer-story {
 		height:100vh;
 		position: relative;

@@ -961,6 +961,12 @@ body.modal-open {
     .text-bold {
         font-weight: $font-bold;
     }
+    .text-expanded {
+        letter-spacing: 5px;
+    }
+    .text-small {
+        font-size:.963em;
+    }
     //margins
     .margin-bottom-0 {
         margin-bottom:0;
@@ -2287,7 +2293,27 @@ dl.quote-author {
     padding:0 !important;
 }
 
-.quotes-carousel {
+
+//Customers
+.customer-logos {
+    display:none;
+    padding:0 50px;
+    font-size: 12px;
+    font-weight: $font-semi-bold;
+    color:$grey;
+    .slick-list {
+        text-align:center;
+        .slick-track {
+            display:inline-block;
+        }
+    }
+}
+
+
+
+
+
+.quotes-carousel, #logos {
     position: relative;
     .slick-arrow[style] {
         display:inline-block !important;
