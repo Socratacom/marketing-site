@@ -807,7 +807,7 @@ function content_query($atts, $content = null) {
   <?php if ( get_post_type() == 'socrata_webinars' ) { ?>
 
     <div class="col-sm-6 col-md-3">
-      <div class="card no-footer margin-bottom-30 match-height">
+      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
         <div class="card-header">
           <?php if ( ! empty( $thumb ) ) { ?>
             <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
@@ -833,7 +833,7 @@ function content_query($atts, $content = null) {
     elseif ( get_post_type() == 'case_study' ) { ?>
 
     <div class="col-sm-6 col-md-3">
-      <div class="card no-footer margin-bottom-30 match-height">
+      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
         <div class="card-header">
           <?php if ( ! empty( $thumb ) ) { ?>
             <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
@@ -859,7 +859,7 @@ function content_query($atts, $content = null) {
     elseif ( get_post_type() == 'socrata_videos' ) { ?>
 
     <div class="col-sm-6 col-md-3">
-      <div class="card no-footer margin-bottom-30 match-height">
+      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
          <div class="card-header">
             <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg);">
               <label>Video</label>
@@ -878,7 +878,7 @@ function content_query($atts, $content = null) {
     else { ?>
 
     <div class="col-sm-6 col-md-3">
-      <div class="card margin-bottom-30 match-height">
+      <div class="card margin-bottom-30 match-height" style="padding:0;">
         <div class="card-header">
           <?php if ( ! empty( $thumb ) ) { ?>
             <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
