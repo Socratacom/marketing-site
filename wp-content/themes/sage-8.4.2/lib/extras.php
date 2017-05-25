@@ -181,7 +181,7 @@ function shared_segment() {
         'new_item_name' => "New Segment"
       ),
       'show_ui' => true,
-      'show_in_menu' => false,
+      'show_in_menu' => true,
       'show_tagcloud' => false,
       'hierarchical' => true,
       'sort' => true,      
@@ -783,6 +783,7 @@ add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
 // Content Query [content-query post-type="'POST TYPE','POST TYPE'" segment="SEGMENT SLUG"]
 function content_query($atts, $content = null) {
   extract( shortcode_atts( array(
+    'solution' => '',
     'segment' => '',
   ), $atts ) );
   ob_start();
@@ -791,6 +792,7 @@ function content_query($atts, $content = null) {
   <?php
   $args = array(
   'post_type' => array('post','case_study','socrata_videos','socrata_webinars'),
+  'solution' => $solution,
   'segment' => $segment,
   'posts_per_page' => 4,
   'orderby' => 'date',
