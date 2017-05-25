@@ -79,6 +79,7 @@ function socrata_logos_register_meta_boxes( $meta_boxes )
 // Shortcode [logo-slider segment="SEGMENT SLUG"]
 function socrata_logo_slider($atts, $content = null) {
   extract( shortcode_atts( array(
+    'solution' => '',
     'segment' => '',
   ), $atts ) );
   ob_start();
@@ -89,7 +90,8 @@ function socrata_logo_slider($atts, $content = null) {
    
   <?php
   $args = array(
-  'post_type' => 'socrata_logos',
+  'post_type' => 'socrata_logos',  
+  'solution' => $solution,
   'segment' => $segment,
   'posts_per_page' => 100,
   'orderby' => 'date',
