@@ -152,7 +152,7 @@ function shared_solution() {
         'new_item_name' => "New Solution"
       ),
       'show_ui' => true,
-      'show_in_menu' => false,
+      'show_in_menu' => true,
       'show_tagcloud' => false,
       'hierarchical' => true,
       'sort' => true,      
@@ -181,7 +181,7 @@ function shared_segment() {
         'new_item_name' => "New Segment"
       ),
       'show_ui' => true,
-      'show_in_menu' => true,
+      'show_in_menu' => false,
       'show_tagcloud' => false,
       'hierarchical' => true,
       'sort' => true,      
