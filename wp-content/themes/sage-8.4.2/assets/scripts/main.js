@@ -91,8 +91,7 @@
           event.stopPropagation();
           event.preventDefault();
           controller.toggle( 'id-1' );
-        } );
-
+        });
       }
     },
     // Home page

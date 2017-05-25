@@ -15,9 +15,13 @@
     "include-media": "^1.4.9",
     "jquery.mb.ytplayer": "^3.0.12",
     "slidebars": "^2.0.2",
-    "bootstrap-submenu": "^2.0.4"
+    "bootstrap-submenu": "^2.0.4",
+    "iframe-resizer": "^3.5.14"
   },
   "overrides": {
+    "iframe-resizer": {
+      "main": "./js/iframeResizer.min.js"
+    },
     "slick-carousel": {
       "main": "./slick/slick.min.js"
     },
