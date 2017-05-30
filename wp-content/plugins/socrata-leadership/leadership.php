@@ -100,19 +100,7 @@ function socrata_leadership_register_meta_boxes( $meta_boxes )
     'post_types'    => 'socrata_leadership',
     'context'       => 'normal',
     'priority'      => 'high',
-    'validation' => array(
-      'rules'    => array(
-        "{$prefix}title" => array(
-            'required'  => true,
-        ),
-        "{$prefix}headshot" => array(
-            'required'  => true,
-        ),
-        "{$prefix}wysiwyg" => array(
-            'required'  => true,
-        ),
-      ),
-    ),
+
     'fields' => array(
       // TEXT
       array(
