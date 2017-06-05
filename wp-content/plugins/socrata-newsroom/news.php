@@ -262,8 +262,12 @@ function newsroom_posts($atts, $content = null) {
             <div id="type" class="collapse in"><?php echo facetwp_display( 'facet', 'newsroom_categories' ); ?></div>
           </div>
           <div class="alert alert-info margin-bottom-30">
-            <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a>
-          </div>               
+            <p><i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a></p>
+          </div> 
+          <div class="alert alert-info margin-bottom-30">
+            <p><strong>Media professionals:</strong> get brand assets, executive headshots and bios, and company background.</p>
+            <p class="margin-bottom-0"><a href="/wp-content/uploads/Press-Kit.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download Press Kit</a></p>
+          </div>                
         </div>
         <div class="col-sm-12 col-lg-9">
           <div class="row">
