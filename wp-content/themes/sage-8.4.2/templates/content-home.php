@@ -42,7 +42,7 @@
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
 							<h1 class="color-white margin-bottom-15">Lead with Data</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Socrata's data-as-a-service platform empowers the most innovative governments make data-driven decisions, operate more efficiently, and share insights with citizens</h4>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Socrata's data-as-a-service platform empowers the most innovative governments to make data-driven decisions, operate more efficiently, and share insights with citizens</h4>
 							<ul class="cta-list">
 								<li><a href="/solutions" class="btn btn-default outline">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li><a href="/contact-us" class="btn btn-default outline">Contact Sales <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
