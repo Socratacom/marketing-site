@@ -76,23 +76,23 @@ jQuery(function ($){
 	<div class="container">
 		<div class="row margin-bottom-30">
 			<div class="col-sm-12">
-				<h2 class="text-center section-title">Trusted by over 1,000 government organizations</h2>
+				<h2 class="text-center section-title">Data-driven innovation of government programs</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/solutions/socrata-for-federal-government"><img src="/wp-content/uploads/thumb-federal.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">Federal Government</h5>
+				<p class="text-center"><a href="/solutions/socrata-for-federal-government"><i class="icon-80 icon-capital color-primary"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/socrata-for-federal-government" class="link-black">Federal Government</a></h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/solutions/state-government"><img src="/wp-content/uploads/thumb-state.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">State Government</h5>
+				<p class="text-center"><a href="/solutions/financial-transparency/"><i class="icon-80 icon-dollar color-primary-alt-1"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/financial-transparency/" class="link-black">Financial Transparency</a></h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/solutions/county-government"><img src="/wp-content/uploads/thumb-county.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">County Government</h5>
+				<p class="text-center"><a href="/solutions/open-data-citizen-engagement/"><i class="icon-80 icon-handshake color-primary-alt-2"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/open-data-citizen-engagement/" class="link-black">Open Data &amp; Citizen Engagement</a></h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/solutions/city-government"><img src="/wp-content/uploads/thumb-city.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">City Government</h5>
+				<p class="text-center"><a href="/solutions/performance-improvement-accountability/"><i class="icon-80 icon-statistics color-primary-alt-3"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/performance-improvement-accountability/" class="link-black">Performance Improvement &amp; Accountability</a></h5>
 			</div>
 		</div>
 		<div class="row">
