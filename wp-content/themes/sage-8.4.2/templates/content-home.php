@@ -80,10 +80,6 @@ jQuery(function ($){
 				<h2 class="text-center section-title">Data-driven innovation of government programs</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p class="text-center"><a href="/solutions/socrata-for-federal-government"><i class="icon-80 icon-capital color-primary"></i></a></p>
-				<h5 class="text-center"><a href="/solutions/socrata-for-federal-government" class="link-black">Federal Government</a></h5>
-			</div>
-			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
 				<p class="text-center"><a href="/solutions/financial-transparency/"><i class="icon-80 icon-dollar color-primary-alt-1"></i></a></p>
 				<h5 class="text-center"><a href="/solutions/financial-transparency/" class="link-black">Financial Transparency</a></h5>
 			</div>
@@ -94,6 +90,10 @@ jQuery(function ($){
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
 				<p class="text-center"><a href="/solutions/performance-improvement-accountability/"><i class="icon-80 icon-statistics color-primary-alt-3"></i></a></p>
 				<h5 class="text-center"><a href="/solutions/performance-improvement-accountability/" class="link-black">Performance Improvement &amp; Accountability</a></h5>
+			</div>
+			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
+				<p class="text-center"><a href="/solutions/socrata-for-federal-government"><i class="icon-80 icon-capital color-primary"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/socrata-for-federal-government" class="link-black">Federal Government</a></h5>
 			</div>
 		</div>
 		<div class="row">
