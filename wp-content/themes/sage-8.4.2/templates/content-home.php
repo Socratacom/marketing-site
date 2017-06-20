@@ -1,16 +1,16 @@
 <section class="home-masthead">
 <div class="slider">
-	<div class="slide" style="background-image:url(/wp-content/uploads/hero-fedramp.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-santa-rosa.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-8">
-							<h1 class="color-white margin-bottom-15">Socrata's Government Data Platform Achieves FedRAMP<sup><small class="font-normal color-white">SM</small></sup> Authorization</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Our new FedRAMP-accredited data platform provides agencies with an enterprise-ready environment to securely collect, manage, and analyze data to support delivery of mission-critical programs.</h4>
+						<div class="col-sm-8 col-md-6">
+							<h1 class="color-white margin-bottom-15">Tackling Homelessness with Data</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">in 2016, Santa Rosa city council declared an official homeless emergency, a move they hoped would enable the city to remove barriers to and gather public support for long-term solutions to the crisis.</h4>
 							<ul class="cta-list">
-								<li><a href="/newsroom-article/socrata-announces-fedramp-authorized-government-data-platform/" class="btn btn-default outline">Press Release <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li class="hidden-xs"><a href="/fedramp" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/webinar/tackling-homelessness-data/" class="btn btn-default outline">Watch Webinar <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="http://citizenconnect.srcity.org/" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -18,16 +18,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/hero-blueprint.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-jackson.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Socrata Blueprint</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Socrata Blueprint is a roadmap for governments to create a sustainable data program. Blueprint offers best practices for cross-collaboration and better decision-making based on data, all designed to improve citizen’s lives</h4>
+						<div class="col-sm-8">
+							<h1 class="color-white margin-bottom-15">Like many American cities, Jackson, Mississippi's aging infrastructure requires expensive, significant updates</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Before developing a data-driven strategy, Jackson would pave a street one year, only to dig it up the following year, after discovering that pipes needed replacing.</h4>
 							<ul class="cta-list">
-								<li><a href="/blueprint" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/case-study/jackson-mississippi-uses-data-manage-millions-infrastructure-improvements/" class="btn btn-default outline">Case Study <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li class="hidden-xs"><a href="https://data.jacksonms.gov/" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
