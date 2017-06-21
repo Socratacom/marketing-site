@@ -276,8 +276,6 @@ function change_post_object_label() {
 }
 add_action( 'init', __NAMESPACE__ . '\\change_post_object_label' );
 
-<<<<<<< HEAD
-=======
 // Remove metaboxes from the blog
 function remove_blog_meta_boxes() {
   remove_meta_box( 'tagsdiv-post_tag', 'post', 'normal' );
@@ -285,7 +283,6 @@ function remove_blog_meta_boxes() {
 }
 add_action( 'admin_menu', __NAMESPACE__ . '\\remove_blog_meta_boxes' );
 
->>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
 /** SHORTCODES **/
 
 /**
@@ -316,29 +313,6 @@ function open_data_subnav ($atts, $content = null) {
 add_shortcode('open-data-subnav', __NAMESPACE__ . '\\open_data_subnav');
 
 /**
-<<<<<<< HEAD
- * Marketo Social Sharing
- */
-
-function marketo_share_custom($atts, $content = null) {
-  ob_start();
-  ?>
-  <div class="cf_widgetLoader cf_w_e136d060830c4c6c86672c9eb0182397"></div>
-  <div class="rss-button"><a href="<?php bloginfo('rss2_url'); ?>" title="<?php _e('Syndicate this site using RSS'); ?>" target="_blank"></a></div>
-  <script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/54782eb9-758c-41a0-baac-4a7ead980cba/loader.php.js"></script>
-  
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('marketo-share-custom', __NAMESPACE__ . '\\marketo_share_custom');
-
-
-
-/**
-=======
->>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
  * Carousel Script. This temporary till I can figure out the frick'n plugin
  */
 function carousel_script( $atts ) {
@@ -635,60 +609,6 @@ $('#mediaModal').on('hidden.bs.modal', function () {
 add_shortcode('youtube-modal', __NAMESPACE__ . '\\youtube_modal');
 
 /**
-<<<<<<< HEAD
- * Author Description
- */
-function author_description($atts, $content = null) {
-  ob_start();
-  ?>
-
-
-
-
-<?php  global $post;
-$author_id=$post->post_author;
-foreach( get_coauthors() as $coauthor ): ?>
-<div class="author-description">
-  <div class="headshot">
-    <?php echo get_avatar( $coauthor->user_email, '70' ); ?>
-    <h5><?php echo $coauthor->display_name; ?></h5>
-  </div>
-  <div class="box-white">
-    <p><strong>About <?php echo $coauthor->display_name; ?></strong> - <?php echo $coauthor->description; ?></p>
-  </div>
-</div>
-<?php endforeach; ?>
-
-
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('author-description', __NAMESPACE__ . '\\author_description');
-
-/**
- * Newsletter Signup Forms
- */
-function newsletter_sidebar ($atts, $content = null) {
-  ob_start();
-  ?>
-  <div class="background-light-grey-4 padding-30 margin-bottom-30 newsletter-form marketo-form">
-    <h4 class="margin-bottom-15">Subscribe to our Newsletter</h4>
-    <p>"Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
-    <form id="mktoForm_2306"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", 2306);</script>
-  </div>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
-
-/**
-=======
->>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
  * Addthis Sharing
  */
 function addthis_sharing ($atts, $content = null) {

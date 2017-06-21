@@ -23,20 +23,12 @@
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
-<<<<<<< HEAD
-						<div class="col-sm-12">
-							<h1 class="text-center color-white text-uppercase margin-bottom-0">Data Democratization in the Cloud</h1>
-							<h4 class="text-center color-white text-normal hidden-xs">Serving more than 1,000 federal, state, and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</h4>
-							<ul class="cta-list" style="margin-top:30px;">
-								<li><a href="/solutions" class="btn btn-default">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-=======
 						<div class="col-sm-8">
 							<h1 class="color-white margin-bottom-15">Like many American cities, Jackson, Mississippi's aging infrastructure requires expensive, significant updates</h1>
 							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Before developing a data-driven strategy, Jackson would pave a street one year, only to dig it up the following year, after discovering that pipes needed replacing.</h4>
 							<ul class="cta-list">
 								<li><a href="/case-study/jackson-mississippi-uses-data-manage-millions-infrastructure-improvements/" class="btn btn-default outline">Case Study <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li class="hidden-xs"><a href="https://data.jacksonms.gov/" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
->>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
 							</ul>
 						</div>
 					</div>
@@ -49,20 +41,12 @@
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
-<<<<<<< HEAD
-						<div class="col-sm-12">
-							<h1 class="text-center color-white text-uppercase margin-bottom-0">Over 1,000 served</h1>
-							<h4 class="text-center color-white text-normal hidden-xs">See why Socrata is trusted by government organizations of all sizes to make their data more accessible.</h4>
-							<ul class="cta-list" style="margin-top:30px;">
-								<li><a href="/segments" class="btn btn-default">View our Segments <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-=======
 						<div class="col-sm-8 col-md-6">
 							<h1 class="color-white margin-bottom-15">Lead with Data</h1>
 							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Socrata's data-as-a-service platform empowers the most innovative governments to make data-driven decisions, operate more efficiently, and share insights with citizens</h4>
 							<ul class="cta-list">
 								<li><a href="/solutions" class="btn btn-default outline">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li><a href="/contact-us" class="btn btn-default outline">Contact Sales <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
->>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
 							</ul>
 						</div>
 					</div>
