@@ -1,19 +1,10 @@
-<section class="background-light-grey-4 masthead">
-	<div class="text">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-12">
-					<h1 class="text-reverse margin-bottom-0 text-uppercase"><?php single_cat_title(); ?></h1>	
-				</div>
-			</div>		
-		</div>
-	</div>
-	<div class="img img-background" style="background-image:url(/wp-content/uploads/blog-hero.jpg);"></div>
-</section>
-
-
 <section class="section-padding background-light-grey-5">
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-60 font-light"><?php single_cat_title(); ?></h1>
+        </div>
+      </div>
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
@@ -43,7 +34,45 @@
                 <li class="text-right"><?php echo do_shortcode('[facetwp sort="true"]') ;?></li>
               </ul>
             </div>
-            <?php echo facetwp_display( 'template', 'blog' ); ?>
+            <div class="facetwp-template">
+<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+  $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
+    $url = $thumb['0'];
+?>
+
+    <div class="col-sm-6 col-md-4">
+      <div class="card margin-bottom-30 match-height">
+        <div class="card-header">
+          <?php if ( ! empty( $thumb ) ) { ?>
+            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+          <?php } else { ?>
+            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
+              <label>Blog</label>
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+          <?php } ?>
+        </div>
+        <div class="card-body">
+          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <p><?php echo (get_the_excerpt()); ?></p>
+        </div>
+        <div class="card-footer" style="padding:10px 20px;">
+          <ul class="author">
+            <li><?php  global $post; $author_id=$post->post_author; foreach( get_coauthors() as $coauthor ): echo get_avatar( $coauthor->user_email, '32' ); endforeach; ?></li>
+            <li><?php if(function_exists('coauthors')) coauthors();?><br><?php the_time('F j, Y') ?></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+ <?php endwhile; else : ?>
+
+  <p><?php _e( 'Sorry, no posts matched your criteria.' ); ?></p>
+
+ <?php endif; ?>
+ </div>
             <div class="col-sm-12 margin-top-30">
               <ul class="list-table">
                 <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>

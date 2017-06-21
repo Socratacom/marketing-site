@@ -228,12 +228,23 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       ),
       // DATETIME
       array(
-        'name'        => __( 'Date', 'webinars_' ),
+        'name'        => __( 'Start date', 'webinars_' ),
+        'id'          => $prefix . 'startdate',
+        'type'        => 'date',
+        'timestamp'   => false,
+        'js_options' => array(
+          'numberOfMonths'  => 1,
+          'showButtonPanel' => true,
+        ),
+      ),
+      // DATETIME
+      array(
+        'name'        => __( 'End date', 'webinars_' ),
         'id'          => $prefix . 'starttime',
         'type'        => 'date',
         'timestamp'   => false,
         'js_options' => array(
-          'numberOfMonths'  => 2,
+          'numberOfMonths'  => 1,
           'showButtonPanel' => true,
         ),
       ),      
@@ -248,24 +259,24 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Marketo Forms', 'webinars_' ),
+        'name' => __( 'Forms', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
-      // TEXT
+      // URL
       array(
-        'name'  => __( 'Registration Form ID', 'webinars_' ),
-        'id'    => "{$prefix}marketo_registration",
-        'desc' => __( 'Example: 1234', 'webinars_' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),      
-      // TEXT
+        'name' => esc_html__( 'Registration Form', 'webinars_' ),
+        'id'   => "{$prefix}form_registration",
+        'desc' => esc_html__( 'Must include https://', 'webinars_' ),
+        'type' => 'url',
+        'std'  => 'https://go.pardot.com/...',
+      ),
+      // URL
       array(
-        'name'  => __( 'On Demand Form ID', 'webinars_' ),
-        'id'    => "{$prefix}marketo_on_demand",
-        'desc' => __( 'Example: 1234', 'webinars_' ),
-        'type'  => 'text',
-        'clone' => false,
+        'name' => esc_html__( 'On-Demand Form', 'webinars_' ),
+        'id'   => "{$prefix}form_on_demand",
+        'desc' => esc_html__( 'Must include https://', 'webinars_' ),
+        'type' => 'url',
+        'std'  => 'https://go.pardot.com/...',
       ),
       // HEADING
       array(
@@ -430,8 +441,14 @@ function webinars_posts($atts, $content = null) {
   ?>
 
 
-  <section class="section-padding background-light-grey-5">
+  <section class="section-padding">
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-0 font-light">Webinars</h1>
+          <h3 class="margin-bottom-60">Learn from leading experts</h3>
+        </div>
+      </div>
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
@@ -476,7 +493,6 @@ function webinars_posts($atts, $content = null) {
       </div>
     </div>
   </section>
-  <?php echo do_shortcode('[match-height]');?>
   <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
 
 

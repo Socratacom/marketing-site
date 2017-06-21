@@ -230,8 +230,14 @@ function newsroom_posts($atts, $content = null) {
   ob_start();
   ?>
 
-  <section class="section-padding background-light-grey-5">
+  <section class="section-padding">
     <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-0 font-light">Newsroom</h1>
+          <h3 class="margin-bottom-60">Press releases, articles, and more</h3>
+        </div>
+      </div>
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
@@ -256,8 +262,12 @@ function newsroom_posts($atts, $content = null) {
             <div id="type" class="collapse in"><?php echo facetwp_display( 'facet', 'newsroom_categories' ); ?></div>
           </div>
           <div class="alert alert-info margin-bottom-30">
-            <i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a>
-          </div>               
+            <p><i class="fa fa-info-circle" aria-hidden="true"></i> <strong>Media Contact:</strong> <a href="mailto:press@socrata.com">press@socrata.com</a></p>
+          </div> 
+          <div class="alert alert-info margin-bottom-30">
+            <p><strong>Media professionals:</strong> get brand assets, executive headshots and bios, and company background.</p>
+            <p class="margin-bottom-0"><a href="/wp-content/uploads/Press-Kit-1.1.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download Press Kit</a></p>
+          </div>                
         </div>
         <div class="col-sm-12 col-lg-9">
           <div class="row">

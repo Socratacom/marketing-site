@@ -435,7 +435,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
   </div>
 </section>
 
-<section class="section-padding background-clouds">
+<section class="section-padding background-light-grey-4">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
@@ -450,18 +450,21 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
         <?php $query = new WP_Query();
         $query->query('post_type=socrata_videos&meta_key=socrata_videos_featured&orderby=desc&showposts=8&offset=1');
         while ($query->have_posts()) : $query->the_post(); ?>
-        <div class="col-sm-6 col-md-3 slide">
-          <article class="card-depriciated card-video">
-            <div class="card-image">
-              <img src="https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg" class="img-responsive">
-              <a class="link" href="<?php the_permalink() ?>"></a>
-            </div>
-            <div class="card-text truncate">
-              <h4><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h4>
-              <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
-            </div>      
-          </article>
-        </div>
+
+          <div class="col-sm-6 col-md-3 slide">
+          <div class="card margin-bottom-30 match-height">
+          <div class="card-header">
+          <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg);">
+          <a href="<?php the_permalink() ?>" class="link"></a>
+          </div>
+          </div>
+          <div class="card-body">
+          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <?php echo videos_excerpt(); ?>
+          </div>
+          </div>
+          </div>
+
         <?php endwhile; ?>
         <?php wp_reset_query(); ?>
 
@@ -484,7 +487,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
       <div id="segment-slides" class="row">
 
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile background-peter-river">
+          <div class="segment-tile background-primary">
             <div class="vertical-center">
               <div class="text-center text-reverse margin-bottom-15"><i class="icon-capital icon-50"></i><br>FEDERAL</div>
             </div>
@@ -492,7 +495,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile background-green-sea">
+          <div class="segment-tile background-primary">
             <div class="vertical-center">
               <div class="text-center text-reverse margin-bottom-15"><i class="icon-state icon-50"></i><br>STATE</div>
             </div>
@@ -500,7 +503,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile background-pumpkin">
+          <div class="segment-tile background-primary">
             <div class="vertical-center">
               <div class="text-center text-reverse margin-bottom-15"><i class="icon-city icon-50"></i><br>CITY</div>
             </div>
@@ -508,7 +511,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile background-amethyst">
+          <div class="segment-tile background-primary">
             <div class="vertical-center">
               <div class="text-center text-reverse margin-bottom-15"><i class="icon-map icon-50"></i><br>COUNTY</div>
             </div>
@@ -516,7 +519,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile background-orange">
+          <div class="segment-tile background-primary">
             <div class="vertical-center">
               <div class="text-center text-reverse margin-bottom-15"><i class="icon-people icon-50"></i><br>NON-PROFIT</div>
             </div>
@@ -524,7 +527,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile background-nephritis">
+          <div class="segment-tile background-primary">
             <div class="vertical-center">
               <div class="text-center text-reverse margin-bottom-15"><i class="icon-geography icon-50"></i><br>INTERNATIONAL</div>
             </div>
@@ -538,7 +541,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
 </section>
 <?php echo do_shortcode('[responsive-carousel id="segments" slide_id="segment-slides"]'); ?>
 
-<section id="videos-product" class="section-padding background-clouds">
+<section id="videos-product" class="section-padding background-light-grey-4">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
@@ -550,7 +553,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
     <div class="container">
       <div id="product-slides" class="row">
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile img-background channel-open-data overlay-black">
+          <div class="segment-tile background-primary-dark">
             <div class="vertical-center padding-30">
               <div class="text-center text-reverse margin-bottom-15">OPEN DATA</div>
             </div>
@@ -558,7 +561,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile img-background channel-open-performance  overlay-black">
+          <div class="segment-tile background-primary-dark">
             <div class="vertical-center padding-30">
               <div class="text-center text-reverse margin-bottom-15">OPEN PERFORMANCE</div>
             </div>
@@ -566,7 +569,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile img-background channel-socrata-for-finance overlay-black">
+          <div class="segment-tile background-primary-dark">
             <div class="vertical-center padding-30">
               <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR FINANCE</div>
             </div>
@@ -574,7 +577,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3 slide">
-          <div class="segment-tile img-background channel-socrata-for-public-safety overlay-black">
+          <div class="segment-tile background-primary-dark">
             <div class="vertical-center padding-30">
               <div class="text-center text-reverse margin-bottom-15">SOCRATA FOR PUBLIC SAFETY</div>
             </div>
@@ -599,7 +602,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
     <div class="container">
       <div id="series-slides" class="row">              
         <div class="col-sm-6 col-md-3">
-          <div class="segment-tile img-background channel-odtv overlay-black">
+          <div class="segment-tile background-primary-dark">
             <div class="vertical-center padding-30">
               <div class="text-center text-reverse margin-bottom-15">OPEN DATA TV</div>
             </div>
@@ -607,7 +610,7 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
           </div>
         </div>
         <div class="col-sm-6 col-md-3">
-          <div class="segment-tile img-background channel-customer-summit overlay-black">
+          <div class="segment-tile background-primary-dark">
             <div class="vertical-center padding-30">
               <div class="text-center text-reverse margin-bottom-15">SOCRATA CUSTOMER SUMMIT</div>
             </div>

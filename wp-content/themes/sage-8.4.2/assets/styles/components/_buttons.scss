@@ -1,12 +1,29 @@
 .btn {
 	text-transform:uppercase;
+    font-weight:$font-semi-bold;
 	border-radius:1px;
     padding:10px 12px;
+    outline:none !important;
 }
 
 .btn-default {
 	background:$light-grey-5;
 }
+
+.btn.outline {
+    background:none;
+}
+
+.btn-default.outline {
+    border:2px solid white !important;
+    color:white;
+    font-weight:$font-semi-bold;
+}
+
+.btn-default.outline:hover {
+    background:tint($primary, 10%);
+}
+
 .facetwp-per-page, .facetwp-sort {
 	position: relative;
 	display:inline-block;
@@ -323,4 +340,5 @@
     }
 }
 
-@media only screen and (min-width : 1200px) {}
+
+

@@ -32,6 +32,61 @@ function excerpt_more() {
 }
 add_filter('excerpt_more', __NAMESPACE__ . '\\excerpt_more');
 
+
+//Prevent Empty Search Results
+add_filter( 'posts_search', function( $search, \WP_Query $q )
+{
+    if( ! is_admin() && empty( $search ) && $q->is_search() && $q->is_main_query() )
+        $search .=" AND 0=1 ";
+
+    return $search;
+}, 10, 2 );
+
+
+
+//Live Search Config
+function my_searchwp_live_search_configs( $configs ) {
+  // override some defaults
+  $configs['default'] = array(
+    'engine' => 'default',                      // search engine to use (if SearchWP is available)
+    'input' => array(
+      'delay'     => 500,                 // wait 500ms before triggering a search
+      'min_chars' => 3,                   // wait for at least 3 characters before triggering a search
+    ),
+    'results' => array(
+      'position'  => 'bottom',            // where to position the results (bottom|top)
+      'width'     => 'auto',              // whether the width should automatically match the input (auto|css)
+      'offset'    => array(
+        'x' => 0,                   // x offset (in pixels)
+        'y' => 5                    // y offset (in pixels)
+      ),
+    ),
+    'spinner' => array(                   // powered by http://fgnass.github.io/spin.js/
+      'lines'         => 10,              // number of lines in the spinner
+      'length'        => 8,               // length of each line
+      'width'         => 4,               // line thickness
+      'radius'        => 8,               // radius of inner circle
+      'corners'       => 1,               // corner roundness (0..1)
+      'rotate'        => 0,               // rotation offset
+      'direction'     => 1,               // 1: clockwise, -1: counterclockwise
+      'color'         => '#000',          // #rgb or #rrggbb or array of colors
+      'speed'         => 1,               // rounds per second
+      'trail'         => 60,              // afterglow percentage
+      'shadow'        => false,           // whether to render a shadow
+      'hwaccel'       => false,           // whether to use hardware acceleration
+      'className'     => 'spinner',       // CSS class assigned to spinner
+      'zIndex'        => 2000000000,      // z-index of spinner
+      'top'           => '50%',           // top position (relative to parent)
+      'left'          => '50%',           // left position (relative to parent)
+    ),
+  );
+
+  
+  return $configs;
+}
+add_filter( 'searchwp_live_search_configs', __NAMESPACE__ . '\\my_searchwp_live_search_configs' );
+
+
 /**
  * Next Previous nav
  */
@@ -84,6 +139,35 @@ function blog_the_categories() {
 }
 
 // SHARED TAXONOMIES
+add_action( 'init', __NAMESPACE__ . '\\shared_solution', 0 );
+function shared_solution() {
+  register_taxonomy(
+    'solution',
+    array('case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos'),
+    array(
+      'labels' => array(
+        'name' => 'Solution',
+        'menu_name' => 'Solution',
+        'add_new_item' => 'Add New Solution',
+        'new_item_name' => "New Solution"
+      ),
+      'show_ui' => true,
+      'show_in_menu' => true,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => false,
+      'capabilities'=>array(
+        'manage_terms' => 'manage_options',//or some other capability your clients don't have
+        'edit_terms' => 'manage_options',
+        'delete_terms' => 'manage_options',
+        'assign_terms' =>'edit_posts'),
+      'rewrite' => array('with_front' => false, 'slug' => 'solution'),
+    )
+  );
+}
+
 add_action( 'init', __NAMESPACE__ . '\\shared_segment', 0 );
 function shared_segment() {
   register_taxonomy(
@@ -163,9 +247,6 @@ function product_the_categories() {
   for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
 }
 
-
-
-
 // Function to change "posts" to "blog" in the admin side menu
 function change_post_menu_label() {
   global $menu;
@@ -177,6 +258,7 @@ function change_post_menu_label() {
   echo '';
 }
 add_action( 'admin_menu', __NAMESPACE__ . '\\change_post_menu_label' );
+
 // Function to change post object labels to "blog"
 function change_post_object_label() {
   global $wp_post_types;
@@ -194,6 +276,16 @@ function change_post_object_label() {
 }
 add_action( 'init', __NAMESPACE__ . '\\change_post_object_label' );
 
+<<<<<<< HEAD
+=======
+// Remove metaboxes from the blog
+function remove_blog_meta_boxes() {
+  remove_meta_box( 'tagsdiv-post_tag', 'post', 'normal' );
+  remove_meta_box( 'formatdiv', 'post', 'normal' );
+}
+add_action( 'admin_menu', __NAMESPACE__ . '\\remove_blog_meta_boxes' );
+
+>>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
 /** SHORTCODES **/
 
 /**
@@ -224,6 +316,7 @@ function open_data_subnav ($atts, $content = null) {
 add_shortcode('open-data-subnav', __NAMESPACE__ . '\\open_data_subnav');
 
 /**
+<<<<<<< HEAD
  * Marketo Social Sharing
  */
 
@@ -244,6 +337,8 @@ add_shortcode('marketo-share-custom', __NAMESPACE__ . '\\marketo_share_custom');
 
 
 /**
+=======
+>>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
  * Carousel Script. This temporary till I can figure out the frick'n plugin
  */
 function carousel_script( $atts ) {
@@ -277,9 +372,8 @@ function carousel_script( $atts ) {
 }
 add_shortcode('carousel-script', __NAMESPACE__ . '\\carousel_script');
 
-/**
- * Responsive Carousel [responsive-carousel id="" slide_id=""]
- */
+// Responsive Carousel [responsive-carousel id="" slide_id=""]
+
 function carousel_script_responsive( $atts ) {
   extract( shortcode_atts( array(
     'id' => '',
@@ -288,33 +382,32 @@ function carousel_script_responsive( $atts ) {
   ob_start(); 
   ?>
   <script>
-  jQuery(function ($){
+  $(document).ready(function(){
     $(<?php echo "'#$slide_id'"; ?>).slick({
     arrows: true,
     appendArrows: $(<?php echo "'#$id'"; ?>),
-    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-long-arrow-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-long-arrow-right"></i></div>',
     autoplay: false,
     autoplaySpeed: 8000,
     speed: 800,
     slidesToShow: 4,
-    slidesToScroll: 4,
+    slidesToScroll: 1,
     accessibility:false,
     dots:false,
-
       responsive: [
         {
           breakpoint: 992,
           settings: {
             slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToScroll: 1
           }
         },
         {
           breakpoint: 768,
           settings: {
             slidesToShow: 2,
-            slidesToScroll: 2
+            slidesToScroll: 1
           }
         },
         {
@@ -330,13 +423,70 @@ function carousel_script_responsive( $atts ) {
   });
   </script>
 
-
   <?php
   $content = ob_get_contents();
   ob_end_clean();
   return $content;
 }
 add_shortcode('responsive-carousel', __NAMESPACE__ . '\\carousel_script_responsive');
+
+// Quotes Carousel [quotes-carousel id="" slide_id=""]
+
+function quotes_carousel( $atts ) {
+  extract( shortcode_atts( array(
+    'id' => '',
+    'slide_id' => '',
+  ), $atts ) );
+  ob_start(); 
+  ?>
+  <script>
+  $(document).ready(function(){
+    $(<?php echo "'#$slide_id'"; ?>).slick({
+    arrows: true,
+    appendArrows: $(<?php echo "'#$id'"; ?>),
+    prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-long-arrow-left"></i></div>',
+    nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-long-arrow-right"></i></div>',
+    autoplay: true,
+    autoplaySpeed: 8000,
+    speed: 800,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    accessibility:false,
+    dots:false,
+      responsive: [
+        {
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 1
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
+    });
+    $(<?php echo "'#$slide_id'"; ?>).show();
+  });
+  </script>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('quotes-carousel', __NAMESPACE__ . '\\quotes_carousel');
 
 /**
  * Responsive Carousel [partner-logos-carousel-js id=""]
@@ -396,7 +546,12 @@ add_shortcode('partner-logos-carousel-js', __NAMESPACE__ . '\\partner_logos_caro
 function match_height( $atts ) {
   ob_start(); 
   ?>
-  <script>jQuery(function(a){a(".match-height").matchHeight({byRow:!0})});</script>
+
+  <script type="text/javascript">
+    $(function() {
+      $('.match-height').matchHeight([{byRow:true}]);
+    });
+  </script>
   <?php
   $content = ob_get_contents();
   ob_end_clean();
@@ -480,6 +635,7 @@ $('#mediaModal').on('hidden.bs.modal', function () {
 add_shortcode('youtube-modal', __NAMESPACE__ . '\\youtube_modal');
 
 /**
+<<<<<<< HEAD
  * Author Description
  */
 function author_description($atts, $content = null) {
@@ -531,6 +687,8 @@ function newsletter_sidebar ($atts, $content = null) {
 add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
 
 /**
+=======
+>>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
  * Addthis Sharing
  */
 function addthis_sharing ($atts, $content = null) {
@@ -543,156 +701,6 @@ function addthis_sharing ($atts, $content = null) {
   return $content;
 }
 add_shortcode('addthis', __NAMESPACE__ . '\\addthis_sharing');
-
-/**
- * Marketo Form
- */
-function marketo_form($atts) {
-extract(shortcode_atts(array(
-    "id" => '',
-  ), $atts));
-  return '
-    <div class="marketo-form">    
-    <form id="mktoForm_'.$id.'"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
-    </div>
-  ';
-}
-add_shortcode('marketo-form', __NAMESPACE__ . '\\marketo_form');
-
-/**
- * Marketo Form with Labels
- */
-function marketo_form_labels($atts) {
-extract(shortcode_atts(array(
-    "id" => '',
-  ), $atts));
-  return '
-    <div class="marketo-form-labels">    
-    <form id="mktoForm_'.$id.'"></form>
-    <script>MktoForms2.loadForm("//app-abk.marketo.com", "851-SII-641", '.$id.');</script>
-    </div>
-  ';
-}
-add_shortcode('marketo-form-labels', __NAMESPACE__ . '\\marketo_form_labels');
-
-/**
- * Query for logos on Solutions Pages
- */
-function solutions_logos( $atts ) {
-  extract( shortcode_atts( array(
-    'query' => ''
-  ), $atts ) );
-  $query = html_entity_decode( $query );
-  ob_start(); 
-  $the_query = new \WP_Query( $query );
-  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-  <?php 
-    $meta = get_socrata_stories_meta(); 
-    $thumb = wp_get_attachment_image_src( $meta[6], 'full' ); 
-    $url = $thumb['0']; ?>
-  <div class="col-sm-2 solutions-logos">
-    <div class="logo-frame text-center">
-    <?php $meta = get_socrata_stories_meta(); 
-      if ($meta[2]) { ?>      
-        <a href="<?php echo $meta[2]; ?>" target="_blank"><img src="<?=$url?>" class="img-responsive" style="max-height:100px;"></a>
-      <?php
-      }
-      else { ?>
-        <img src="<?=$url?>" class="img-responsive ">
-      <?php
-      }
-    ?>
-    </div>
-    <?php $meta = get_socrata_stories_meta(); 
-      if ($meta[2]) { ?>
-        <p class="text-center"><a href="<?php echo $meta[2]; ?>" target="_blank"><small><?php the_title();?></small></a></p>
-      <?php
-      }
-      else { ?>
-        <p class="text-center"><small><?php the_title();?></small></p>
-      <?php
-      }
-    ?>    
-  </div>
-  <?php
-  endwhile;
-  wp_reset_postdata();
-  $list = ob_get_clean();
-  return $list;
-}
-
-add_shortcode( 'solutions-logos', __NAMESPACE__ . '\\solutions_logos' );
-
-/**
- * Query for logos and abstract. Used on the homepage and product pages
- */
-function customer_logos_abstract( $atts ) {
-  extract( shortcode_atts( array(
-    'query' => '',
-    'class' => '',
-  ), $atts ) );
-  $query = html_entity_decode( $query );
-  ob_start(); 
-  $the_query = new \WP_Query( $query );
-  while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
-  <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-thumbnail' ); $url = $thumb['0']; ?>
-
-  <div class="<?php echo $class; ?>">
-    <article>
-      <p><img src="<?=$url?>" class="img-responsive"></p>
-      <div class="customer-text truncate">
-        <h5><?php the_title(); ?></h5>
-        <?php the_excerpt(); ?>
-      </div>
-      <ul>
-        <li><a href="<?php the_permalink() ?>">Read More</a></li>
-        <?php $meta = get_socrata_stories_meta(); if ($meta[2]) {echo "<li><a href='$meta[2]' target='_blank'>Visit Site</a></li>";} ?>
-      </ul>
-    </article>
-  </div>
-
-  <?php
-  endwhile;
-  wp_reset_postdata();
-  $list = ob_get_clean();
-  return $list;
-}
-
-add_shortcode( 'customer-logos-abstract', __NAMESPACE__ . '\\customer_logos_abstract' );
-
-/**
- * Countdown Timer [countdown-timer id="CONTAINER ID" date="YYYY/MM/DD"]
- */
-function countdown_timer( $atts ) {
-  extract( shortcode_atts( array(
-    'id' => '',
-    'date' => '',
-  ), $atts ) );
-  ob_start(); 
-  ?>
-  <script type="text/javascript">jQuery(document).ready(function(t){t("#<?php echo $id; ?>").countdown("<?php echo $date; ?>").on("update.countdown",function(n){var o="%H:%M:%S";n.offset.days>0&&(o="%-d day%!d "+o),n.offset.weeks>0&&(o="%-w week%!w "+o),t(this).html(n.strftime(o))}).on("finish.countdown",function(n){t(this).html("This event has started!").parent().addClass("disabled")})});</script>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('countdown-timer', __NAMESPACE__ . '\\countdown_timer');
-
-/* Animated Hero Image Script */
-function hero_zoom ($atts, $content = null) {
-  ob_start();
-  ?>
-  <script>jQuery(document).ready(function(e){setTimeout(function(){e(".image").addClass("animate")},500)});</script>
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('hero-zoom', __NAMESPACE__ . '\\hero_zoom');
-
-
-
 
 /**
  * Add Load more results pagination to FacetWP
@@ -770,6 +778,227 @@ function modify_post_mime_types( $post_mime_types ) {
 add_filter( 'post_mime_types', __NAMESPACE__ . '\\modify_post_mime_types' );
 
 
+/**
+ * Contact Form 1 (Request a Meeting)
+ */
+function contact_form_1($atts) {
+extract(shortcode_atts(array(
+    "url" => '',
+  ), $atts));
+  return '
+  <form action="'.$url.'" method="post">
+  <div class="row">
+  <div class="col-sm-6">
+  <div class="form-group">
+  <label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+  </div>      
+  </div>
+  <div class="col-sm-6">
+  <div class="form-group">
+  <label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
+  </div>      
+  </div>
+  </div>
+  <div class="form-group">
+  <label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+  </div>
+  <div class="form-group">
+  <label class="sr-only">Company</label><input class="form-control" type="text" name="company" required="required" placeholder="Company" />
+  </div>
+  <div class="form-group">
+  <label class="sr-only">Job Title</label><input class="form-control" type="text" name="jobtitle" required="required" placeholder="Job Title" />
+  </div>
+  <div style="position:absolute; left:-9999px; top: -9999px;">
+  <label for="pardot_extra_field">Comments</label>
+  <input type="text" id="pardot_extra_field" name="pardot_extra_field">
+  </div>
+  <button type="submit" class="btn btn-primary" value="submit" required="required" />Request a Meeting</button>
+  </form>
+  ';
+}
+add_shortcode('contact-form-1', __NAMESPACE__ . '\\contact_form_1');
+
+
+/**
+ * Newsletter Signup Forms
+ */
+function newsletter_sidebar ($atts, $content = null) {
+  ob_start();
+  ?>
+  <div class="background-light-grey-4 padding-30 margin-bottom-30 newsletter-form marketo-form">
+    <h4 class="margin-bottom-15">Subscribe to our Newsletter</h4>
+    <p>"Transform" delivers essential news from open data events, best practices for data-driven governing, and resources to support digital government innovation.</p>    
+
+  <form action="https://go.pardot.com/l/303201/2017-02-22/8vs" method="post">
+
+  <div class="form-group">
+  <label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+  </div> 
+  <div class="form-group">
+  <label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
+  </div>
+  <div class="form-group">
+  <label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+  </div>
+  <div class="checkbox">
+  <label><input type="checkbox" name="opt_in" value="">I would like a demo of Socrata solutions for my government organization.</label>
+  </div>
+  <div style="position:absolute; left:-9999px; top: -9999px;">
+  <label for="pardot_extra_field">Comments</label>
+  <input type="text" id="pardot_extra_field" name="pardot_extra_field">
+  </div>
+  <button type="submit" class="btn btn-primary" value="submit" required="required" />Subscribe</button>
+  </form>
+
+  </div>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
+
+
+
+// Content Query [content-query post-type="'POST TYPE','POST TYPE'" segment="SEGMENT SLUG"]
+function content_query($atts, $content = null) {
+  extract( shortcode_atts( array(
+    'solution' => '',
+    'segment' => '',
+  ), $atts ) );
+  ob_start();
+  ?>
+   
+  <?php
+  $args = array(
+  'post_type' => array('post','case_study','socrata_videos','socrata_webinars'),
+  'solution' => $solution,
+  'segment' => $segment,
+  'posts_per_page' => 4,
+  'orderby' => 'date',
+  'order'   => 'desc',
+  );
+  $myquery = new \WP_Query($args);
+  // The Loop
+  while ( $myquery->have_posts() ) { $myquery->the_post();
+  $customer = rwmb_meta( 'case_study_customer' );
+  $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
+  $url = $thumb['0'];
+  ?>
+
+  <?php if ( get_post_type() == 'socrata_webinars' ) { ?>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
+        <div class="card-header">
+          <?php if ( ! empty( $thumb ) ) { ?>
+            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
+              <label>Webinar</label>
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+          <?php } else { ?>
+            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
+              <label>Webinar</label>
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+          <?php } ?>
+        </div>
+        <div class="card-body">
+          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <p class="margin-bottom-0"><?php echo webinars_excerpt(); ?></p>
+        </div>
+      </div>
+    </div>
+
+  <?php } 
+
+    elseif ( get_post_type() == 'case_study' ) { ?>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
+        <div class="card-header">
+          <?php if ( ! empty( $thumb ) ) { ?>
+            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
+              <label>Case Study</label>
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+          <?php } else { ?>
+            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
+              <label>Case Study</label>
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+          <?php } ?>
+        </div>
+        <div class="card-body">
+          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <p class="margin-bottom-0"><?php echo case_studies_excerpt(); ?></p>
+        </div>
+      </div>
+    </div>
+
+  <?php }
+
+    elseif ( get_post_type() == 'socrata_videos' ) { ?>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
+         <div class="card-header">
+            <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg);">
+              <label>Video</label>
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+        </div>
+        <div class="card-body">
+          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <p><?php echo videos_excerpt(); ?></p>         
+        </div>
+      </div>
+    </div>
+
+  <?php }
+
+    else { ?>
+
+    <div class="col-sm-6 col-md-3">
+      <div class="card margin-bottom-30 match-height" style="padding:0;">
+        <div class="card-header">
+          <?php if ( ! empty( $thumb ) ) { ?>
+            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
+              <label>Blog</label>
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+          <?php } else { ?>
+            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
+              <label>Blog</label>
+              <a href="<?php the_permalink(); ?>" class="link"></a>
+            </div>
+          <?php } ?>
+        </div>
+        <div class="card-body">
+          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <p><?php echo (get_the_excerpt()); ?></p>
+        </div>
+      </div>
+    </div>
+
+  <?php } 
+
+  ?>
+
+
+  <?php
+  }
+  wp_reset_postdata();
+  ?>
+
+
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('content-query', __NAMESPACE__ . '\\content_query');
 
 
 

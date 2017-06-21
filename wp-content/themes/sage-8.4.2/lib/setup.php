@@ -34,6 +34,7 @@ function setup() {
     'site_nav_resources' => __('Site Nav Resources', 'sage'),      
     'site_nav_resources_mobile' => __('Site Nav Resources Mobile', 'sage'),
     'site_nav_about' => __('Site Nav About', 'sage'),
+    'site_nav_company' => __('Site Nav Company', 'sage'),
     'site_nav_community' => __('Site Nav Community', 'sage'),
     'site_nav_popular_links' => __('Site Nav Popular Links', 'sage'),
     'product_nav_open_data' => __('Product Nav Open Data', 'sage'),
@@ -113,18 +114,18 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '3.4.1');
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '3.7.17');
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
+
+  wp_deregister_script('jquery');
+  wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js', array(), null, true);
 
   if (is_single() && comments_open() && get_option('thread_comments')) {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], null, true);  
-  wp_enqueue_script('ytplayer', Assets\asset_path('scripts/ytplayer.js'), null, true);
-  wp_register_script('marketoforms', '//app-abk.marketo.com/js/forms2/js/forms2.min.js', null, true);
-  wp_enqueue_script('marketoforms');
+  wp_enqueue_script('sage/js', Assets\asset_path('scripts/main.js'), ['jquery'], '1.4', false);
   wp_register_script('addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-553f9bc9354d386b', null, true);
   wp_enqueue_script('addthis');
 }

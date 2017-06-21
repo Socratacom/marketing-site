@@ -1,17 +1,16 @@
 <section class="home-masthead">
 <div class="slider">
-	<div class="slide" style="background-image:url(/wp-content/uploads/connect-hero.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-santa-rosa.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
-						<div class="col-sm-12">
-							<h3 class="text-center color-white text-uppercase text-normal margin-bottom-15">March 6-8, Washington DC</h3>
-							<p class="text-center"><img src="/wp-content/uploads/hero-connect-logo.png" class="img-responsive" style="display:inline-block;"></p>
-							<!--<h1 class="text-center color-white text-uppercase margin-bottom-0">Socrata Connect 2017</h1>-->
-							<h4 class="text-center color-white text-normal margin-bottom-0 hidden-xs">The inspiration, community, and know-how to make 2017 the year you Lead with Data. Don't miss this year's Socrata's customer summit.</h4>
-							<ul class="cta-list" style="margin-top:30px;">
-								<li><a href="https://socrata-connect.com" target="_blank" class="btn btn-default">Register Today <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+						<div class="col-sm-8 col-md-6">
+							<h1 class="color-white margin-bottom-15">Tackling Homelessness with Data</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">in 2016, Santa Rosa city council declared an official homeless emergency, a move they hoped would enable the city to remove barriers to and gather public support for long-term solutions to the crisis.</h4>
+							<ul class="cta-list">
+								<li><a href="/webinar/tackling-homelessness-data/" class="btn btn-default outline">Watch Webinar <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="http://citizenconnect.srcity.org/" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -19,16 +18,25 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/data-democratization-home-hero.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-jackson.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
+<<<<<<< HEAD
 						<div class="col-sm-12">
 							<h1 class="text-center color-white text-uppercase margin-bottom-0">Data Democratization in the Cloud</h1>
 							<h4 class="text-center color-white text-normal hidden-xs">Serving more than 1,000 federal, state, and local governments who want to improve community engagement, operational efficiency, and economic growth with data they already own.</h4>
 							<ul class="cta-list" style="margin-top:30px;">
 								<li><a href="/solutions" class="btn btn-default">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+=======
+						<div class="col-sm-8">
+							<h1 class="color-white margin-bottom-15">Like many American cities, Jackson, Mississippi's aging infrastructure requires expensive, significant updates</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Before developing a data-driven strategy, Jackson would pave a street one year, only to dig it up the following year, after discovering that pipes needed replacing.</h4>
+							<ul class="cta-list">
+								<li><a href="/case-study/jackson-mississippi-uses-data-manage-millions-infrastructure-improvements/" class="btn btn-default outline">Case Study <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li class="hidden-xs"><a href="https://data.jacksonms.gov/" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+>>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
 							</ul>
 						</div>
 					</div>
@@ -36,16 +44,25 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/segments-home-hero.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/april-hero-1.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
+<<<<<<< HEAD
 						<div class="col-sm-12">
 							<h1 class="text-center color-white text-uppercase margin-bottom-0">Over 1,000 served</h1>
 							<h4 class="text-center color-white text-normal hidden-xs">See why Socrata is trusted by government organizations of all sizes to make their data more accessible.</h4>
 							<ul class="cta-list" style="margin-top:30px;">
 								<li><a href="/segments" class="btn btn-default">View our Segments <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+=======
+						<div class="col-sm-8 col-md-6">
+							<h1 class="color-white margin-bottom-15">Lead with Data</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Socrata's data-as-a-service platform empowers the most innovative governments to make data-driven decisions, operate more efficiently, and share insights with citizens</h4>
+							<ul class="cta-list">
+								<li><a href="/solutions" class="btn btn-default outline">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/contact-us" class="btn btn-default outline">Contact Sales <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+>>>>>>> ba52c8052f9503184aac3e4fbb9c345591668324
 							</ul>
 						</div>
 					</div>
@@ -76,23 +93,23 @@ jQuery(function ($){
 	<div class="container">
 		<div class="row margin-bottom-30">
 			<div class="col-sm-12">
-				<h2 class="text-center section-title">Trusted by over 1,000 government organizations</h2>
+				<h2 class="text-center section-title">Data-driven innovation of government programs</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/segments/federal-government"><img src="/wp-content/uploads/federal-government-segments-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">Federal Government</h5>
+				<p class="text-center"><a href="/solutions/financial-transparency/"><i class="icon-80 icon-dollar color-primary-alt-1"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/financial-transparency/" class="link-black">Financial Transparency</a></h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/segments/state-government"><img src="/wp-content/uploads/state-government-segments-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">State Government</h5>
+				<p class="text-center"><a href="/solutions/open-data-citizen-engagement/"><i class="icon-80 icon-handshake color-primary-alt-2"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/open-data-citizen-engagement/" class="link-black">Open Data &amp; Citizen Engagement</a></h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/segments/county-government"><img src="/wp-content/uploads/county-government-segments-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">County Government</h5>
+				<p class="text-center"><a href="/solutions/performance-improvement-accountability/"><i class="icon-80 icon-statistics color-primary-alt-3"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/performance-improvement-accountability/" class="link-black">Performance Improvement &amp; Accountability</a></h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/segments/city-government"><img src="/wp-content/uploads/city-government-segments-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center">City Government</h5>
+				<p class="text-center"><a href="/solutions/socrata-for-federal-government"><i class="icon-80 icon-capital color-primary"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/socrata-for-federal-government" class="link-black">Federal Government</a></h5>
 			</div>
 		</div>
 		<div class="row">
@@ -120,38 +137,4 @@ jQuery(function ($){
 	<div id="video" class="player" data-property="{videoURL:'yH4RnuPijZA',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:9, stopAt:19, opacity:1, addRaster:true, quality:'default'}"></div>
 	<script>jQuery(function(e){e("#video").YTPlayer()});</script>
 </section>
-<section class="section-padding">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<h2 class="text-center section-title">Proven solutions for data democratization</h2>
-			</div>
-			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/solutions/publica-open-data-cloud"><img src="/wp-content/uploads/publica-open-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center margin-bottom-15">Publica Open Data Cloud</h5>
-				<p class="text-center">Provide public access to government data that can spur innovation and insight</p>
-				
-			</div>
-			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/solutions/performance-data-cloud"><img src="/wp-content/uploads/performance-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center margin-bottom-15">Performance Data Cloud</h5>
-				<p class="text-center">Monitor government performance and track progress towards operational goals</p>
-				
-			</div>
-			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/solutions/public-finance-data-cloud"><img src="/wp-content/uploads/public-finance-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center margin-bottom-15">Public Finance Data Cloud</h5>
-				<p class="text-center">Communicate clearly and interactively around fiscal priorities, income, and spending</p>
-				
-			</div>
-			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p><a href="/solutions/public-safety-data-cloud"><img src="/wp-content/uploads/public-safety-data-cloud-solutions-thumb.jpg" class="img-responsive"></a></p>
-				<h5 class="text-center margin-bottom-15">Public Safety Data Cloud</h5>
-				<p class="text-center">Provide transparency into policing statistics and public safety using data as an objective foundation</p>
-				
-			</div>
-		</div>
-	</div>
-</section>
-<?php echo do_shortcode("[match-height]"); ?>
 <?php echo do_shortcode("[youtube-modal]"); ?>

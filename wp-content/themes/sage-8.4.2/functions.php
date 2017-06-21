@@ -95,3 +95,9 @@ add_filter( 'found_posts', 'homepage_offset_pagination', 10, 2 );
 
 
 add_filter( 'wpseo_metabox_prio', function() { return 'low';});
+
+
+
+
+
+
