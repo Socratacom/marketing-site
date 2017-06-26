@@ -1,5 +1,23 @@
 <section class="home-masthead">
 <div class="slider">
+    <div class="slide" style="background-image:url(/wp-content/uploads/home-hero-opioid.jpg)">
+        <div class="text">
+            <div class="vertical-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-md-6">
+                            <h1 class="color-white margin-bottom-15">Data’s Critical Role in Addressing the Opioid Epidemic</h1>
+                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Cincinnati's "Heroin Tracker" helps officials target the city's limited resources to save lives.</h4>
+                            <ul class="cta-list">
+                                <li><a href="/blog/gathering-insights-cincinnati-heroin-tracker/" class="btn btn-default outline">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="https://insights.cincinnati-oh.gov/stories/s/Heroin/dm3s-ep3u" target="_blank" class="btn btn-default outline">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-santa-rosa.jpg)">
 		<div class="text">
 			<div class="vertical-center">
@@ -29,24 +47,6 @@
 							<ul class="cta-list">
 								<li><a href="/case-study/jackson-mississippi-uses-data-manage-millions-infrastructure-improvements/" class="btn btn-default outline">Case Study <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li class="hidden-xs"><a href="https://data.jacksonms.gov/" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/april-hero-1.jpg)">
-		<div class="text">
-			<div class="vertical-center">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Lead with Data</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Socrata's data-as-a-service platform empowers the most innovative governments to make data-driven decisions, operate more efficiently, and share insights with citizens</h4>
-							<ul class="cta-list">
-								<li><a href="/solutions" class="btn btn-default outline">View our Solutions <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="/contact-us" class="btn btn-default outline">Contact Sales <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
