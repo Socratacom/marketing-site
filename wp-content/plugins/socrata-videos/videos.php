@@ -8,8 +8,6 @@ Author: Michael Church
 Author URI: http://socrata.com/
 License: GPLv2
 */
-include_once('metaboxes/meta_box.php');
-include_once('inc/fields.php');
 
 
 // REGISTER POST TYPE
@@ -126,54 +124,6 @@ function socrata_videos_categories() {
   );
 }
 
-
-// CUSTOM COLUMS FOR ADMIN
-add_filter( 'manage_edit-socrata_videos_columns', 'socrata_videos_edit_columns' ) ;
-function socrata_videos_edit_columns( $columns ) {
-  $columns = array(
-    'cb'              => '<input type="checkbox" />',    
-    'title'           => __( 'Name' ),
-    'segment'         => __( 'Segment' ),
-    'product'         => __( 'Product' ),
-    'featured'        => __( 'Featured' ),
-    'date'            => __( 'Date' ),
-    'wpseo-score'     => __( 'SEO' ),
-
-  );
-  return $columns;
-}
-// Get Content for Custom Colums
-add_action("manage_socrata_videos_posts_custom_column",  "socrata_videos_columns");
-function socrata_videos_columns($column){
-  global $post;
-
-  switch ($column) {    
-    case 'featured':
-      $meta = get_socrata_videos_meta(); if ($meta[0]) echo "Yes";
-      break;
-    case 'segment':
-      $segment = get_the_terms($post->ID , 'socrata_videos_segment');
-      echo $segment[0]->name;
-      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
-      break;
-    case 'product':
-      $product = get_the_terms($post->ID , 'socrata_videos_product');
-      echo $product[0]->name;
-      for ($i = 1; $i < count($product); $i++) {echo ', ' . $product[$i]->name ;}
-      break;
-  }
-}
-// Make these columns sortable
-add_filter( "manage_edit-socrata_videos_sortable_columns", "socrata_videos_sortable_columns" );
-function socrata_videos_sortable_columns() {
-  return array(
-    'title'       => 'title',
-    'segment'     => 'segment',
-    'product'     => 'product',
-    'featured'    => 'featured'
-  );
-}
-
 // Template Paths
 add_filter( 'template_include', 'socrata_videos_single_template', 1 );
 function socrata_videos_single_template( $template_path ) {
@@ -268,9 +218,197 @@ function register_youtube_button($buttons) {
 
 function add_youtube_plugin($plugin_array) {
    $plugin_array['youtube'] = plugins_url( '/js/youtube.js' , __FILE__ );
-   return $plugin_array;
+       return $plugin_array;
+    }
 }
+
+// Metabox
+add_filter( 'rwmb_meta_boxes', 'socrata_videos_register_meta_boxes' );
+function socrata_videos_register_meta_boxes( $meta_boxes )
+{
+  $prefix = 'socrata_videos_';
+  $meta_boxes[] = array(
+    'title'  => __( 'Webinar Meta', 'webinars_' ),
+    'post_types' => 'socrata_videos',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'validation' => array(
+      'rules'    => array(
+        "{$prefix}starttime" => array(
+            'required'  => true,
+        ),
+      ),
+    ),
+    'fields' => array(
+        // HEADING
+        array(
+            'type' => 'heading',
+            'name' => __( 'Video Details', 'webinars_' ),
+            'id'   => 'fake_id', // Not used but needed for plugin
+        ),
+        // CHECKBOX
+        array(
+            'name' => esc_html__( 'Featured Video', 'socrata_videos_' ),
+            'id'   => "{$prefix}featured",
+            'type' => 'checkbox',
+            // Value can be 0 or 1
+            'std'  => 0,
+        ),
+        // TEXT
+        array(
+            'name'  => __( 'YouTube ID', 'webinars_' ),
+            'id'    => "{$prefix}id",
+            'desc' => __( 'Exclude the "https://youtu.be/"', 'socrata_videos_' ),
+            'type'  => 'text',
+            'clone' => false,
+        ),
+        // WYSIWYG/RICH TEXT EDITOR
+        array(
+            'name'    => esc_html__( 'Video Description', 'socrata_videos_' ),
+            'id'      => "editorField",
+            'type'    => 'wysiwyg',
+            // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+            'raw'     => false,
+            // Editor settings, see wp_editor() function: look4wp.com/wp_editor
+            'options' => array(
+                'textarea_rows' => 4,
+                'teeny'         => true,
+                'media_buttons' => false,
+            ),
+        ),
+    ),
+);
+return $meta_boxes;
 }
+
+// Shortcode [videos]
+function video_posts($atts, $content = null) {
+  ob_start();
+  ?>
+
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="margin-bottom-0 font-light">Videos</h1>
+          <h3 class="margin-bottom-60">Watch blah </h3>
+        </div>
+      </div>
+      <div class="row hidden-lg">
+        <div class="col-sm-12 margin-bottom-30">
+          <div class="padding-15 background-light-grey-4">
+            <ul class="filter-bar">
+              <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
+              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+            </ul>
+          </div>          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 hidden-xs hidden-sm hidden-md facet-sidebar">
+          <button onclick="FWP.reset()" class="btn btn-primary btn-block margin-bottom-30"><i class="fa fa-undo" aria-hidden="true"></i> Reset Filters</button>
+          <div class="filter-list margin-bottom-30">
+            <button type="button" data-toggle="collapse" data-target="#segment">Segment</button>
+            <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#product">Product</button>
+            <div id="product" class="collapse in"><?php echo facetwp_display( 'facet', 'products' ); ?></div>
+          </div>              
+        </div>
+        <div class="col-sm-12 col-lg-9">
+          <div class="row">
+            <div class="col-sm-12 margin-bottom-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp sort="true"]') ;?></li>
+              </ul>
+            </div>
+            <?php echo facetwp_display( 'template', 'videos' ); ?>
+            <div class="col-sm-12 margin-top-30">
+              <ul class="list-table">
+                <li><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
+                <li class="text-right"><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('videos', 'video_posts');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Shortcode [video-cards]
@@ -631,6 +769,11 @@ style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata
   return $content;
 }
 add_shortcode('socrata-videos-posts', 'socrata_videos_posts');
+
+
+
+
+
 
 
 
