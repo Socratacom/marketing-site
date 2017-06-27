@@ -26,7 +26,7 @@
         player = new YT.Player('ytplayer', {
           height: '480',
           width: '853',
-          videoId: <?php $meta = get_socrata_videos_meta(); echo "'$meta[1]'"; ?>,
+          videoId: <?php echo rwmb_meta( 'socrata_videos_id' ); ?>,
           playerVars: {
                  'rel' : 0,
                  'showinfo' : 0,
@@ -40,7 +40,7 @@
       <div class="col-sm-8">
         <h1 class="margin-bottom-15"><?php the_title(); ?></h1>
         <div class="margin-bottom-30"><?php echo do_shortcode('[addthis]');?></div>
-        <?php $meta = get_socrata_videos_meta(); if ($meta[2]) {echo "$meta[2]";} ?>
+        <?php echo rwmb_meta( 'editorField' ); ?>
       </div>
       <div class="col-sm-4 hidden-xs">
         <?php echo do_shortcode('[newsletter-sidebar]'); ?>   
