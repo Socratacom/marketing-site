@@ -271,6 +271,7 @@ function downloads_posts($atts, $content = null) {
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
             <ul class="filter-bar">
+                <li><?php echo facetwp_display( 'facet', 'solution_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'asset_type_dropdown' ); ?></li>
@@ -283,6 +284,8 @@ function downloads_posts($atts, $content = null) {
         <div class="col-lg-3 hidden-xs hidden-sm hidden-md facet-sidebar">
           <button onclick="FWP.reset()" class="btn btn-primary btn-block margin-bottom-30"><i class="fa fa-undo" aria-hidden="true"></i> Reset Filters</button>
           <div class="filter-list">
+            <button type="button" data-toggle="collapse" data-target="#solution">Solution</button>
+            <div id="solution" class="collapse in"><?php echo facetwp_display( 'facet', 'solution' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#segment">Segment</button>
             <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#product">Product</button>

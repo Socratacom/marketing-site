@@ -29,6 +29,7 @@ function content_discovery_list($atts, $content = null) {
           <div class="padding-15 background-light-grey-4">
             <ul class="filter-bar">
               <li><?php echo facetwp_display( 'facet', 'post_type_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'solution_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
               <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
@@ -42,6 +43,8 @@ function content_discovery_list($atts, $content = null) {
           <div class="filter-list">
             <button type="button" data-toggle="collapse" data-target="#resource">Resource</button>
             <div id="resource" class="collapse in"><?php echo facetwp_display( 'facet', 'post_types' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#solution">Solution</button>
+            <div id="solution" class="collapse in"><?php echo facetwp_display( 'facet', 'solution' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#segment">Segment</button>
             <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#product">Product</button>
