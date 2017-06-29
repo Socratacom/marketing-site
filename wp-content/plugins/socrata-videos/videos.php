@@ -108,8 +108,8 @@ function socrata_videos_categories() {
     'socrata_videos',
     array(
       'labels' => array(
-        'name' => 'Category',
-        'menu_name' => 'Category',
+        'name' => 'Videos Category',
+        'menu_name' => 'Videos Category',
         'add_new_item' => 'Add New Category',
         'new_item_name' => "New Category"
       ),
