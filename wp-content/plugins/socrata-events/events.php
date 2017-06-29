@@ -471,7 +471,7 @@ function events_posts($atts, $content = null) {
         <div class="padding-15 background-light-grey-4">
           <ul class="filter-bar">
             <li><?php echo facetwp_display( 'facet', 'event_categories_dropdown' ); ?></li>
-            <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+            <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i></button></li>
           </ul>
         </div>          
       </div>

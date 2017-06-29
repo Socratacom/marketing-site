@@ -256,7 +256,7 @@ function case_study_posts($atts, $content = null) {
                 <li><?php echo facetwp_display( 'facet', 'solution_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
-              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i></button></li>
             </ul>
           </div>          
         </div>

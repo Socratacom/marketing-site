@@ -213,6 +213,29 @@ function add_youtube_plugin($plugin_array) {
     }
 }
 
+// DASHBOARD WIDGET
+require_once( plugin_dir_path( __FILE__ ) . '/widget.php' );
+class Socrata_Videos_Widget {
+ 
+  function __construct() {
+      add_action( 'wp_dashboard_setup', array( $this, 'add_socrata_videos_dashboard_widget' ) );
+  }
+
+  function add_socrata_videos_dashboard_widget() {
+    global $custom_socrata_videos_dashboard_widget;
+ 
+    foreach ( $custom_socrata_videos_dashboard_widget as $widget_id => $options ) {
+      wp_add_dashboard_widget(
+          $widget_id,
+          $options['title'],
+          $options['callback']
+      );
+    }
+  } 
+}
+ 
+$wdw = new Socrata_Videos_Widget();
+
 // Metabox
 add_filter( 'rwmb_meta_boxes', 'socrata_videos_register_meta_boxes' );
 function socrata_videos_register_meta_boxes( $meta_boxes )
@@ -292,7 +315,7 @@ function video_posts($atts, $content = null) {
               <li><?php echo facetwp_display( 'facet', 'solution_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
-              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+              <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i></button></li>
             </ul>
           </div>          
         </div>

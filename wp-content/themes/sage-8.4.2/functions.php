@@ -97,7 +97,43 @@ add_filter( 'found_posts', 'homepage_offset_pagination', 10, 2 );
 add_filter( 'wpseo_metabox_prio', function() { return 'low';});
 
 
+// BLOG DASHBOARD WIDGET
+class Socrata_Blog_Widget {
 
+  function __construct() {
+      add_action( 'wp_dashboard_setup', array( $this, 'add_socrata_blog_dashboard_widget' ) );
+  }
+
+  function add_socrata_blog_dashboard_widget() {
+    global $custom_socrata_blog_dashboard_widget;
+    foreach ( $custom_socrata_blog_dashboard_widget as $widget_id => $options ) {
+      wp_add_dashboard_widget(
+          $widget_id,
+          $options['title'],
+          $options['callback']
+      );
+    }
+  } 
+}
+ 
+$wdw = new Socrata_Blog_Widget();
+
+$custom_socrata_blog_dashboard_widget = array(
+    'socrata_blog_dashboard_widget' => array(
+    'title' => 'Blog',
+    'callback' => 'socrata_blog_dashboardWidgetContent'
+    )
+);
+
+ function socrata_blog_dashboardWidgetContent() {
+    $args = array(
+      'post_type' => 'post',
+    );
+    $myquery = new WP_Query($args);
+    echo "<div style='text-align:center; padding:30px;'><p style='font-size:50px; margin:0;'>$myquery->found_posts <span style='font-size:14px;'>Articles</span></p></div>";
+    echo "<a href='/wp-admin/post-new.php?post_type=post' style='background-color:#3498db; padding:5px 10px; color:#ffffff; border-radius:2px;'>Add New</a>";
+    wp_reset_postdata();
+}
 
 
 

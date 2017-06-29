@@ -921,4 +921,3 @@ function content_query($atts, $content = null) {
 add_shortcode('content-query', __NAMESPACE__ . '\\content_query');
 
 
-
