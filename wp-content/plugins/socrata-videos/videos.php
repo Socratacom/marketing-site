@@ -315,6 +315,7 @@ function video_posts($atts, $content = null) {
               <li><?php echo facetwp_display( 'facet', 'solution_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'video_categories_dropdown' ); ?></li>
               <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i></button></li>
             </ul>
           </div>          
@@ -330,6 +331,8 @@ function video_posts($atts, $content = null) {
             <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#product">Product</button>
             <div id="product" class="collapse in"><?php echo facetwp_display( 'facet', 'products' ); ?></div>
+            <button type="button" data-toggle="collapse" data-target="#category">Category</button>
+            <div id="category" class="collapse in"><?php echo facetwp_display( 'facet', 'video_categories' ); ?></div>
           </div>              
         </div>
         <div class="col-sm-12 col-lg-9">
