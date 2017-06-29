@@ -29,14 +29,13 @@ function create_socrata_videos() {
         'search_items' => 'Search Videos',
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash',
-        'parent' => 'Socrata'
       ),
       'public' => true,
       'menu_position' => 5,
       'supports' => array( 'title', 'revisions' ),
-      'taxonomies' => array( 'post_tag' ),
+      'taxonomies' => array( '' ),
       'menu_icon' => '',
-      'has_archive' => true,
+      'has_archive' => false,
       'rewrite' => array('with_front' => false, 'slug' => 'video')
     )
   );
