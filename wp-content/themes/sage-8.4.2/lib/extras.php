@@ -778,143 +778,140 @@ function newsletter_sidebar ($atts, $content = null) {
 }
 add_shortcode('newsletter-sidebar', __NAMESPACE__ . '\\newsletter_sidebar');
 
-
-
 // Content Query [content-query post-type="'POST TYPE','POST TYPE'" segment="SEGMENT SLUG"]
 function content_query($atts, $content = null) {
-  extract( shortcode_atts( array(
+    extract( shortcode_atts( array(
     'solution' => '',
     'segment' => '',
-  ), $atts ) );
-  ob_start();
-  ?>
-   
-  <?php
-  $args = array(
-  'post_type' => array('post','case_study','socrata_videos','socrata_webinars'),
-  'solution' => $solution,
-  'segment' => $segment,
-  'posts_per_page' => 4,
-  'orderby' => 'date',
-  'order'   => 'desc',
-  );
-  $myquery = new \WP_Query($args);
-  // The Loop
-  while ( $myquery->have_posts() ) { $myquery->the_post();
-  $customer = rwmb_meta( 'case_study_customer' );
-  $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
-  $url = $thumb['0'];
-  ?>
+    ), $atts ) );
+    ob_start();
+    $args = array(
+    'post_type' => array('post','case_study','socrata_videos','socrata_webinars'),
+    'solution' => $solution,
+    'segment' => $segment,
+    'posts_per_page' => 4,
+    'orderby' => 'date',
+    'order'   => 'desc',
+    );
+    $myquery = new \WP_Query($args);
+    // The Loop
+    while ( $myquery->have_posts() ) {
+        $myquery->the_post();
+        $customer = rwmb_meta( 'case_study_customer' );
+        $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
+        $url = $thumb['0'];
+        $youtube_id= rwmb_meta( 'socrata_videos_id' );
 
-  <?php if ( get_post_type() == 'socrata_webinars' ) { ?>
+        if ( get_post_type() == 'socrata_webinars' ) { ?>
 
-    <div class="col-sm-6 col-md-3">
-      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
-        <div class="card-header">
-          <?php if ( ! empty( $thumb ) ) { ?>
-            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
-              <label>Webinar</label>
+            <div class="col-sm-6 col-md-3">
+
+                <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
+                    <div class="card-header">
+                    <?php if ( ! empty( $thumb ) ) { ?>
+                        <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
+                            <label>Webinar</label>
+                        </div>
+                    <?php } else { ?>
+                        <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
+                            <label>Webinar</label>
+                        </div>
+                    <?php } ?>
+                    </div>
+                    <div class="card-body">
+                        <h5><?php the_title(); ?></h5>
+                        <p class="margin-bottom-0"><?php echo webinars_excerpt(); ?></p>
+                    </div>
+                    <a href="<?php the_permalink(); ?>"></a>
+                </div>
+
             </div>
-          <?php } else { ?>
-            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
-              <label>Webinar</label>
+
+        <?php } 
+
+        elseif ( get_post_type() == 'case_study' ) { ?>
+
+            <div class="col-sm-6 col-md-3">
+
+                <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
+                    <div class="card-header">
+                    <?php if ( ! empty( $thumb ) ) { ?>
+                        <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
+                            <label>Case Study</label>
+                        </div>
+                    <?php } else { ?>
+                        <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
+                            <label>Case Study</label>
+                        </div>
+                    <?php } ?>
+                    </div>
+                    <div class="card-body">
+                        <h5><?php the_title(); ?></h5>
+                        <p class="margin-bottom-0"><?php echo case_studies_excerpt(); ?></p>
+                    </div>
+                    <a href="<?php the_permalink(); ?>"></a>
+                </div>
+
             </div>
-          <?php } ?>
-        </div>
-        <div class="card-body">
-          <h5><?php the_title(); ?></h5>
-          <p class="margin-bottom-0"><?php echo webinars_excerpt(); ?></p>
-        </div>
-        <a href="<?php the_permalink(); ?>"></a>
-      </div>
-    </div>
 
-  <?php } 
+        <?php }
 
-    elseif ( get_post_type() == 'case_study' ) { ?>
+        elseif ( get_post_type() == 'socrata_videos' ) { ?>
 
-    <div class="col-sm-6 col-md-3">
-      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
-        <div class="card-header">
-          <?php if ( ! empty( $thumb ) ) { ?>
-            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
-              <label>Case Study</label>
+            <div class="col-sm-6 col-md-3">
+
+                <div class="card no-footer margin-bottom-30 match-height">
+                    <div class="card-header">
+                        <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php echo $youtube_id; ?>/mqdefault.jpg);">
+                            <label>Video</label>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5><?php the_title(); ?></h5>
+                        <p><?php echo videos_excerpt(); ?></p>         
+                    </div>
+                    <a href="<?php the_permalink(); ?>" class="link"></a>
+                </div>
+
             </div>
-          <?php } else { ?>
-            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
-              <label>Case Study</label>
+
+        <?php }
+
+        else { ?>
+
+            <div class="col-sm-6 col-md-3">
+
+                <div class="card margin-bottom-30 match-height" style="padding:0;">
+                    <div class="card-header">
+                    <?php if ( ! empty( $thumb ) ) { ?>
+                        <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
+                            <label>Blog</label>
+                        </div>
+                    <?php } else { ?>
+                        <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
+                            <label>Blog</label>
+                        </div>
+                    <?php } ?>
+                    </div>
+                    <div class="card-body">
+                        <h5><?php the_title(); ?></h5>
+                        <p><?php echo (get_the_excerpt()); ?></p>
+                    </div>
+                    <a href="<?php the_permalink(); ?>" class="link"></a>
+                </div>
+
             </div>
-          <?php } ?>
-        </div>
-        <div class="card-body">
-          <h5><?php the_title(); ?></h5>
-          <p class="margin-bottom-0"><?php echo case_studies_excerpt(); ?></p>
-        </div>
-        <a href="<?php the_permalink(); ?>"></a>
-      </div>
-    </div>
 
-  <?php }
+        <?php } 
 
-    elseif ( get_post_type() == 'socrata_videos' ) { ?>
-
-    <div class="col-sm-6 col-md-3">
-      <div class="card no-footer margin-bottom-30 match-height" style="padding:0;">
-         <div class="card-header">
-            <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg);">
-              <label>Video</label>
-            </div>
-        </div>
-        <div class="card-body">
-          <h5><?php the_title(); ?></h5>
-          <p><?php echo videos_excerpt(); ?></p>         
-        </div>
-        <a href="<?php the_permalink(); ?>"></a>
-      </div>
-    </div>
-
-  <?php }
-
-    else { ?>
-
-    <div class="col-sm-6 col-md-3">
-      <div class="card margin-bottom-30 match-height" style="padding:0;">
-        <div class="card-header">
-          <?php if ( ! empty( $thumb ) ) { ?>
-            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
-              <label>Blog</label>
-            </div>
-          <?php } else { ?>
-            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
-              <label>Blog</label>
-            </div>
-          <?php } ?>
-        </div>
-        <div class="card-body">
-          <h5><?php the_title(); ?></h5>
-          <p><?php echo (get_the_excerpt()); ?></p>
-        </div>
-        <a href="<?php the_permalink(); ?>" class="link"></a>
-      </div>
-    </div>
-
-  <?php } 
-
-  ?>
-
-
-  <?php
-  }
-  wp_reset_postdata();
-  ?>
-
-
-
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
+    }
+    wp_reset_postdata();
+    $content = ob_get_contents();
+    ob_end_clean();
+    return $content;
 }
 add_shortcode('content-query', __NAMESPACE__ . '\\content_query');
+
+
 
 
