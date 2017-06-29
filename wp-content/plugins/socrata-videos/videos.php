@@ -260,14 +260,6 @@ function socrata_videos_register_meta_boxes( $meta_boxes )
             'name' => __( 'Video Details', 'webinars_' ),
             'id'   => 'fake_id', // Not used but needed for plugin
         ),
-        // CHECKBOX
-        array(
-            'name' => esc_html__( 'Featured Video', 'socrata_videos_' ),
-            'id'   => "{$prefix}featured",
-            'type' => 'checkbox',
-            // Value can be 0 or 1
-            'std'  => 0,
-        ),
         // TEXT
         array(
             'name'  => __( 'YouTube ID', 'webinars_' ),
