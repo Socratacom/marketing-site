@@ -814,19 +814,18 @@ function content_query($atts, $content = null) {
           <?php if ( ! empty( $thumb ) ) { ?>
             <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
               <label>Webinar</label>
-              <a href="<?php the_permalink(); ?>" class="link"></a>
             </div>
           <?php } else { ?>
             <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
               <label>Webinar</label>
-              <a href="<?php the_permalink(); ?>" class="link"></a>
             </div>
           <?php } ?>
         </div>
         <div class="card-body">
-          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <h5><?php the_title(); ?></h5>
           <p class="margin-bottom-0"><?php echo webinars_excerpt(); ?></p>
         </div>
+        <a href="<?php the_permalink(); ?>"></a>
       </div>
     </div>
 
@@ -840,19 +839,18 @@ function content_query($atts, $content = null) {
           <?php if ( ! empty( $thumb ) ) { ?>
             <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
               <label>Case Study</label>
-              <a href="<?php the_permalink(); ?>" class="link"></a>
             </div>
           <?php } else { ?>
             <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
               <label>Case Study</label>
-              <a href="<?php the_permalink(); ?>" class="link"></a>
             </div>
           <?php } ?>
         </div>
         <div class="card-body">
-          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <h5><?php the_title(); ?></h5>
           <p class="margin-bottom-0"><?php echo case_studies_excerpt(); ?></p>
         </div>
+        <a href="<?php the_permalink(); ?>"></a>
       </div>
     </div>
 
@@ -865,13 +863,13 @@ function content_query($atts, $content = null) {
          <div class="card-header">
             <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php $meta = get_socrata_videos_meta(); echo $meta[1]; ?>/mqdefault.jpg);">
               <label>Video</label>
-              <a href="<?php the_permalink(); ?>" class="link"></a>
             </div>
         </div>
         <div class="card-body">
-          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <h5><?php the_title(); ?></h5>
           <p><?php echo videos_excerpt(); ?></p>         
         </div>
+        <a href="<?php the_permalink(); ?>"></a>
       </div>
     </div>
 
@@ -885,19 +883,18 @@ function content_query($atts, $content = null) {
           <?php if ( ! empty( $thumb ) ) { ?>
             <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
               <label>Blog</label>
-              <a href="<?php the_permalink(); ?>" class="link"></a>
             </div>
           <?php } else { ?>
             <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
               <label>Blog</label>
-              <a href="<?php the_permalink(); ?>" class="link"></a>
             </div>
           <?php } ?>
         </div>
         <div class="card-body">
-          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <h5><?php the_title(); ?></h5>
           <p><?php echo (get_the_excerpt()); ?></p>
         </div>
+        <a href="<?php the_permalink(); ?>" class="link"></a>
       </div>
     </div>
 
