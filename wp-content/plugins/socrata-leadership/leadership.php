@@ -180,22 +180,22 @@ function leadership_executive_bios($atts, $content = null) {
   $id = get_the_ID();
   ?>
 
+
   <div class="col-sm-6 col-md-4 col-lg-3">
     <div class="card margin-bottom-30 match-height">
       <div class="card-header">
         <div class="sixteen-nine img-background" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
-          <a href="javascript:;" class="link" data-toggle="modal" data-target="#<?php echo $id;?>"></a>
         </div>
       </div>
       <div class="card-body">
-        <h5 style="margin-bottom:0;"><a href="#" class="link-black"><?php the_title(); ?></a></h5>
+        <h5 style="margin-bottom:0;"><?php the_title(); ?></h5>
         <p class="margin-bottom-15 font-normal" style="line-height:normal;"><small><?php echo $title; ?></small></p>
         <p><?php echo leadership_excerpt(); ?></p>
       </div>
       <div class="card-footer padding-15">
-        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default">Read More</a>
+        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default" style="position:relative; height:auto; width:auto;">Read More</a>
         <div style="position:absolute; right:25px; bottom:25px;">
-          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px;"><i class="fa fa-twitter"></i></a> <?php }; ?>
+          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-twitter"></i></a> <?php }; ?>
         </div>
       </div>
     </div>
@@ -268,18 +268,17 @@ function leadership_advisor_bios($atts, $content = null) {
     <div class="card margin-bottom-30 match-height">
       <div class="card-header">
         <div class="sixteen-nine img-background" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
-          <a href="javascript:;" class="link" data-toggle="modal" data-target="#<?php echo $id;?>"></a>
         </div>
       </div>
       <div class="card-body">
-        <h5 style="margin-bottom:0;"><a href="#" class="link-black"><?php the_title(); ?></a></h5>
+        <h5 style="margin-bottom:0;"><?php the_title(); ?></h5>
         <p class="margin-bottom-15 font-normal" style="line-height:normal;"><small><?php echo $title; ?></small></p>
         <p><?php echo leadership_excerpt(); ?></p>
       </div>
       <div class="card-footer padding-15">
-        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default">Read More</a>
+        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default" style="position:relative; height:auto; width:auto;">Read More</a>
         <div style="position:absolute; right:25px; bottom:25px;">
-          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px;"><i class="fa fa-twitter"></i></a> <?php }; ?>
+          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-twitter"></i></a> <?php }; ?>
         </div>
       </div>
     </div>
