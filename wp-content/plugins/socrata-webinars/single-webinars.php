@@ -232,11 +232,11 @@ function OnButton2()
 				<?php 
 				if($date > $today) { ?>
 				<div class="background-light-grey-4 padding-30">
-				<h4 class="margin-bottom-15">Register for this webinar</h4>
+				<h4 class="margin-bottom-15">Register for this webinar bub</h4>
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
-<form name="Form1" method="post">
 
+<form name="myform" action="https://event.on24.com/utilApp/r" method="POST">
 <input type="hidden" name="eventid" value="<?php echo $on24_event_id ;?>"> 
 <input type="hidden" name="sessionid" value="1">
 <input type="hidden" name="key" value="<?php echo $on24_key ;?>"> 
@@ -254,25 +254,8 @@ function OnButton2()
 <label for="pardot_extra_field">Comments</label>
 <input type="text" id="pardot_extra_field" name="pardot_extra_field">
 </div>
-<button type="submit" class="btn btn-primary" value="submit" required="required" onclick="OnButton1(); OnButton2();" />Register</button>
+<button type="submit" class="btn btn-primary" value="submit" required="required" />Register</button>
 </form>
-
-<script language="Javascript">
-function OnButton1()
-{
-    document.Form1.action = "<?php echo $form_registration ;?>"
-    document.Form1.submit();
-    return true;
-}
-
-function OnButton2()
-{
-    document.Form1.action = "https://event.on24.com/utilApp/r"
-    document.Form1.submit();
-    return true;
-}
-</script>
-<noscript>You need Javascript enabled for this to work</noscript>
 
 				</div>
 				<?php }
