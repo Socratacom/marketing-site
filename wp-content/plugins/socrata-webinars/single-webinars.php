@@ -12,6 +12,8 @@ $img_id = get_post_thumbnail_id(get_the_ID());
 $alt_text = get_post_meta($img_id , '_wp_attachment_image_alt', true);
 $video = rwmb_meta( 'webinars_video' );
 $content = rwmb_meta( 'webinars_wysiwyg' );
+$on24_event_id = rwmb_meta( 'webinars_on24_event_id' );
+$on42_key = rwmb_meta( 'webinars_on24_key' );
 ?>
 
 
@@ -20,20 +22,14 @@ $content = rwmb_meta( 'webinars_wysiwyg' );
 		<div class="row">
 			<div class="col-sm-8">
 				<h1 class="margin-bottom-15"><?php the_title(); ?></h1>
-
 				<?php if($date >= $today) { ?><h3><?php echo $displaydate;?></h3> <?php } ?>
-
-
-
-
-
 				<div class="margin-bottom-30"><?php echo do_shortcode('[addthis]');?></div>
 				<div class="margin-bottom-30"><img src="<?php echo $url;?>" <?php if ( ! empty($alt_text) ) { ?> alt="<?php echo $alt_text;?>" <?php } ;?> class="img-responsive"><?php echo do_shortcode('[image-attribution]'); ?></div>
 				<?php echo $content;?>
 
 
 
-												<?php if ( ! empty( $speakers ) ) { ?>
+									<?php if ( ! empty( $speakers ) ) { ?>
 									<hr>
 									<?php foreach ( $speakers as $speaker_value ) {
 										$id = uniqid();
@@ -187,7 +183,12 @@ $content = rwmb_meta( 'webinars_wysiwyg' );
 				<h4 class="margin-bottom-15">Register for this webinar</h4>
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
-<form action="<?php echo $form_registration ;?>" method="post">
+<form name="Form1" method="post">
+
+<input type="hidden" name="eventid" value="<?php echo $on24_event_id ;?>"> 
+<input type="hidden" name="sessionid" value="1">
+<input type="hidden" name="key" value="<?php echo $on24_key ;?>"> 
+
 <div class="form-group">
 <label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
 </div> 
@@ -203,6 +204,25 @@ $content = rwmb_meta( 'webinars_wysiwyg' );
 </div>
 <button type="submit" class="btn btn-primary" value="submit" required="required" />Register</button>
 </form>
+
+<script language="Javascript">
+function OnButton1()
+{
+    document.Form1.action = "<?php echo $form_registration ;?>"
+    document.Form1.submit();
+    return true;
+}
+
+function OnButton2()
+{
+    document.Form1.action = "https://event.on24.com/utilApp/r"
+    document.Form1.submit();
+    return true;
+}
+</script>
+<noscript>You need Javascript enabled for this to work</noscript>
+
+
 
 				</div>
 				<?php }
