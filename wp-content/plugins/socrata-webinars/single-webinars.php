@@ -236,7 +236,7 @@ function OnButton2()
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
 
-<form name="myform" action="https://event.on24.com/utilApp/r" method="POST">
+<form name="myform" action="https://event.on24.com/utilApp/r?eventid=<?php echo $on24_event_id;?>&sessionid=1&key=<?php echo $on24_key;?>" method="POST">
 <input type="hidden" name="eventid" value="<?php echo $on24_event_id ;?>"> 
 <input type="hidden" name="sessionid" value="1">
 <input type="hidden" name="key" value="<?php echo $on24_key ;?>"> 
