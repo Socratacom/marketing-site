@@ -256,7 +256,7 @@ function OnButton2()
 <label for="pardot_extra_field">Comments</label>
 <input type="text" id="pardot_extra_field" name="pardot_extra_field">
 </div>
-<button type="submit" class="btn btn-primary" value="submit" />Register</button>
+<button type="submit" class="btn btn-primary" value="submit" onclick="OnButton2();" />Register</button>
 </form>
 
 <script language="Javascript">
