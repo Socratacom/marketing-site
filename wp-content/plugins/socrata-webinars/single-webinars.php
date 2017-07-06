@@ -242,15 +242,15 @@ function OnButton2()
 <input type="hidden" name="key" value="<?php echo $on24_key ;?>">
 <div class="form-group">
 <label class="sr-only">First Name</label>
-<input type="text" name="firstname" placeholder="First Name" value="john">
+<input type="text" name="firstname" placeholder="First Name">
 </div>
 <div class="form-group">
 <label class="sr-only">Last Name</label>
-<input type="text" name="lastname" placeholder="Last Name" value="smith">
+<input type="text" name="lastname" placeholder="Last Name">
 </div>
 <div class="form-group">
 <label class="sr-only">Email Address</label>
-<input type="text" name="email" placeholder="Email Address" value="john.smith@abc.com">
+<input type="text" name="email" placeholder="Email Address">
 </div>
 <button type="submit" class="btn btn-primary" value="submit" />Register</button>
 </form> 
