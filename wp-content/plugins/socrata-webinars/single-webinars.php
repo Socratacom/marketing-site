@@ -236,24 +236,37 @@ function OnButton2()
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
 
-<form name="myform" action="https://event.on24.com/utilApp/r" method="POST">
+<form name="myform" method="POST">
 <input type="hidden" name="eventid" value="<?php echo $on24_event_id ;?>">
 <input type="hidden" name="sessionid" value="1">
 <input type="hidden" name="key" value="<?php echo $on24_key ;?>">
 <div class="form-group">
 <label class="sr-only">First Name</label>
-<input type="text" name="firstname" placeholder="First Name">
+<input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
 </div>
 <div class="form-group">
 <label class="sr-only">Last Name</label>
-<input type="text" name="lastname" placeholder="Last Name">
+<input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
 </div>
 <div class="form-group">
 <label class="sr-only">Email Address</label>
-<input type="text" name="email" placeholder="Email Address">
+<input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+</div>
+<div style="position:absolute; left:-9999px; top: -9999px;">
+<label for="pardot_extra_field">Comments</label>
+<input type="text" id="pardot_extra_field" name="pardot_extra_field">
 </div>
 <button type="submit" class="btn btn-primary" value="submit" />Register</button>
-</form> 
+</form>
+
+<script language="Javascript">
+function OnButton2()
+{
+    document.myform.action = "https://event.on24.com/utilApp/r"
+    document.myform.submit();
+    return true;
+}
+</script>
 
 
 				</div>
