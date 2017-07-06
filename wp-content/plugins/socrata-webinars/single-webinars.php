@@ -256,19 +256,13 @@ function OnButton2()
 <label for="pardot_extra_field">Comments</label>
 <input type="text" id="pardot_extra_field" name="pardot_extra_field">
 </div>
-<button type="submit" class="btn btn-primary" value="submit" onclick="OnButton1(); OnButton2();" />Register</button>
+<button type="submit" class="btn btn-primary" value="submit" onclick="OnButton1();" />Register</button>
 </form>
 
 <script language="Javascript">
 function OnButton1()
 {
     document.myform.action = "<?php echo $form_registration ;?>"
-    document.myform.submit();
-    return true;
-}
-function OnButton2()
-{
-    document.myform.action = "https://event.on24.com/utilApp/r"
     document.myform.submit();
     return true;
 }
