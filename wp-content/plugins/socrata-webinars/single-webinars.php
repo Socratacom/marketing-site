@@ -236,7 +236,7 @@ function OnButton2()
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
 
-<form name="myform" method="POST">
+<form name="myForm" method="POST">
 <input type="hidden" name="eventid" value="<?php echo $on24_event_id ;?>">
 <input type="hidden" name="sessionid" value="1">
 <input type="hidden" name="key" value="<?php echo $on24_key ;?>">
@@ -258,14 +258,14 @@ function OnButton2()
 </div>
 <button type="submit" class="btn btn-primary" value="submit" onclick="PardotSubmission();" />Register</button>
 </form>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
 <script language="Javascript">
 
  $(document).ready(function()
  { 
     function PardotSubmission()
     {
-       $("#myform").ajaxSubmit({
+       $("#myForm").ajaxSubmit({
        	url: '<?php echo $form_registration ;?>',
        	type: 'post'
        })
