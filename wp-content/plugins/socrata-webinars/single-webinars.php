@@ -263,7 +263,7 @@ function OnButton2()
 $(document).on('click','input[type=submit]',function(e){
     e.preventDefault();
 
-$("#myform").ajaxSubmit({url: 'https://someAddress.salesforce.com/', type: 'post'})
+$("#myform").ajaxSubmit({url: '<?php echo $form_registration ;?>', type: 'post'})
 
 
 });
