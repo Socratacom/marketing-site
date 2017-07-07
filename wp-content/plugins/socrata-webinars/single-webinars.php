@@ -235,47 +235,23 @@ function OnButton2()
 				<h4 class="margin-bottom-15">Register for this webinar bub</h4>
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
-
-<form name="myForm" method="POST">
-<input type="hidden" name="eventid" value="<?php echo $on24_event_id ;?>">
-<input type="hidden" name="sessionid" value="1">
-<input type="hidden" name="key" value="<?php echo $on24_key ;?>">
-<div class="form-group">
-<label class="sr-only">First Name</label>
-<input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
-</div>
-<div class="form-group">
-<label class="sr-only">Last Name</label>
-<input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
-</div>
-<div class="form-group">
-<label class="sr-only">Email Address</label>
-<input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
-</div>
-<div style="position:absolute; left:-9999px; top: -9999px;">
-<label for="pardot_extra_field">Comments</label>
-<input type="text" id="pardot_extra_field" name="pardot_extra_field">
-</div>
-<button type="submit" class="btn btn-primary" value="submit" onclick="PardotSubmission();" />Register</button>
-</form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
-<script language="Javascript">
+<script>
+     // wait for the DOM to be loaded
+     $(function() {
+       // bind 'myForm' and provide a simple callback function
+       $('#myForm').ajaxForm(function() {
+           alert("Thank you for your comment!");
+       });
+     });
+   </script>
 
- $(document).ready(function()
- { 
-    function PardotSubmission()
-    {
-       $("#myForm").ajaxSubmit({
-       	url: '<?php echo $form_registration ;?>',
-       	type: 'post'
-       })
-    }
+<form id="myForm" action="comment.php" method="post">
+   Name: <input type="text" name="name">
+   Comment: <textarea name="comment"></textarea>
+   <input type="submit" value="Submit Comment">
+ </form>
 
- });
-
-
-
-</script>
 
 
 				</div>
