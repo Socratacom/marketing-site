@@ -237,14 +237,29 @@ function OnButton2()
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
 <script>
-     // wait for the DOM to be loaded
-     $(function() {
-       // bind 'myForm' and provide a simple callback function
-       $('#myForm').ajaxForm(function() {
-			url: '<?php echo $form_registration ;?>',
-			type: 'post';
-       });
-     });
+
+
+$(function() {
+    $("#myForm").on("submit", function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '<?php echo $form_registration ;?>',
+            type: 'POST',
+            data: $(this).serialize(),
+            beforeSend: function() {
+                $("#message").html("sending...");
+            },
+            success: function(data) {
+                $("#message").hide();
+                $("#response").html(data);
+            }
+        });
+    });
+});
+
+
+
+
    </script>
 
 <form name="myForm" method="POST">
