@@ -242,7 +242,7 @@ function OnButton2()
        // bind 'myForm' and provide a simple callback function
        $('#myForm').ajaxForm(function() {
 			url: '<?php echo $form_registration ;?>',
-			type: 'post'
+			type: 'post';
        });
      });
    </script>
