@@ -262,28 +262,10 @@ function OnButton2()
 <script language="Javascript">
 $(document).on('click','input[type=submit]',function(e){
     e.preventDefault();
-    $.ajax({
-        type:'post',
-        url:"<?php echo $form_registration ;?>",
-        data:$('form:eq(0)').serialize(),
-        success:function(resp){
-            alert('first sent');
-        },
-        fail:function(resp){
-            alert('couldn\'t send the first');
-        }
-    });
-    $.ajax({
-        type:'post',
-        url:"https://event.on24.com/utilApp/r",
-        data:$('form:eq(0)').serialize(),
-        success:function(resp){
-            alert('second sent');
-        },
-        fail:function(resp){
-            alert('couldn\'t send the second');
-        }
-    });
+
+$("#myform").ajaxSubmit({url: 'https://someAddress.salesforce.com/', type: 'post'})
+
+
 });
 </script>
 
