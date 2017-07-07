@@ -256,17 +256,25 @@ function OnButton2()
 <label for="pardot_extra_field">Comments</label>
 <input type="text" id="pardot_extra_field" name="pardot_extra_field">
 </div>
-<button type="submit" class="btn btn-primary" value="submit" />Register</button>
+<button type="submit" class="btn btn-primary" value="submit" onclick="PardotSubmission();" />Register</button>
 </form>
 
 <script language="Javascript">
-$(document).on('click','input[type=submit]',function(e){
-    e.preventDefault();
 
-$("#myform").ajaxSubmit({url: '<?php echo $form_registration ;?>', type: 'post'})
+ $(document).ready(function()
+ { 
+    function PardotSubmission()
+    {
+       $("#myform").ajaxSubmit({
+       	url: '<?php echo $form_registration ;?>',
+       	type: 'post'
+       })
+    }
+
+ });
 
 
-});
+
 </script>
 
 
