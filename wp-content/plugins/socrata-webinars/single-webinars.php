@@ -12,8 +12,6 @@ $img_id = get_post_thumbnail_id(get_the_ID());
 $alt_text = get_post_meta($img_id , '_wp_attachment_image_alt', true);
 $video = rwmb_meta( 'webinars_video' );
 $content = rwmb_meta( 'webinars_wysiwyg' );
-$on24_event_id = rwmb_meta( 'webinars_on24_event_id' );
-$on24_key = rwmb_meta( 'webinars_on24_key' );
 ?>
 
 
@@ -22,14 +20,20 @@ $on24_key = rwmb_meta( 'webinars_on24_key' );
 		<div class="row">
 			<div class="col-sm-8">
 				<h1 class="margin-bottom-15"><?php the_title(); ?></h1>
+
 				<?php if($date >= $today) { ?><h3><?php echo $displaydate;?></h3> <?php } ?>
+
+
+
+
+
 				<div class="margin-bottom-30"><?php echo do_shortcode('[addthis]');?></div>
 				<div class="margin-bottom-30"><img src="<?php echo $url;?>" <?php if ( ! empty($alt_text) ) { ?> alt="<?php echo $alt_text;?>" <?php } ;?> class="img-responsive"><?php echo do_shortcode('[image-attribution]'); ?></div>
 				<?php echo $content;?>
 
 
 
-									<?php if ( ! empty( $speakers ) ) { ?>
+												<?php if ( ! empty( $speakers ) ) { ?>
 									<hr>
 									<?php foreach ( $speakers as $speaker_value ) {
 										$id = uniqid();
@@ -183,12 +187,7 @@ $on24_key = rwmb_meta( 'webinars_on24_key' );
 				<h4 class="margin-bottom-15">Register for this webinar</h4>
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
-<form name="Form1" method="post">
-
-<input type="hidden" name="eventid" value="<?php echo $on24_event_id ;?>"> 
-<input type="hidden" name="sessionid" value="1">
-<input type="hidden" name="key" value="<?php echo $on24_key ;?>"> 
-
+<form action="<?php echo $form_registration ;?>" method="post">
 <div class="form-group">
 <label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
 </div> 
@@ -202,27 +201,8 @@ $on24_key = rwmb_meta( 'webinars_on24_key' );
 <label for="pardot_extra_field">Comments</label>
 <input type="text" id="pardot_extra_field" name="pardot_extra_field">
 </div>
-<button type="submit" class="btn btn-primary" value="submit" required="required" onclick="OnButton1(); OnButton2();" />Register</button>
+<button type="submit" class="btn btn-primary" value="submit" required="required" />Register</button>
 </form>
-
-<script language="Javascript">
-function OnButton1()
-{
-    document.Form1.action = "<?php echo $form_registration ;?>"
-    document.Form1.submit();
-    return true;
-}
-
-function OnButton2()
-{
-    document.Form1.action = "https://event.on24.com/utilApp/r"
-    document.Form1.submit();
-    return true;
-}
-</script>
-<noscript>You need Javascript enabled for this to work</noscript>
-
-
 
 				</div>
 				<?php }
@@ -232,60 +212,25 @@ function OnButton2()
 				<?php 
 				if($date > $today) { ?>
 				<div class="background-light-grey-4 padding-30">
-				<h4 class="margin-bottom-15">Register for this webinar bub</h4>
+				<h4 class="margin-bottom-15">Register for this webinar</h4>
 				<p> Please fill out this form to register for the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
-<script>
-
-
-$(function() {
-    $("#myForm").on("submit", function(e) {
-        e.preventDefault();
-        $.ajax({
-            url: '<?php echo $form_registration ;?>',
-            type: 'POST',
-            data: $(this).serialize(),
-            beforeSend: function() {
-                $("#message").html("sending...");
-            },
-            success: function(data) {
-                $("#message").hide();
-                $("#response").html(data);
-            }
-        });
-    });
-});
-
-
-
-
-   </script>
-
-<form name="myForm" method="POST">
-<input type="hidden" name="eventid" value="<?php echo $on24_event_id ;?>">
-<input type="hidden" name="sessionid" value="1">
-<input type="hidden" name="key" value="<?php echo $on24_key ;?>">
+<form action="<?php echo $form_registration ;?>" method="post">
 <div class="form-group">
-<label class="sr-only">First Name</label>
-<input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+<label class="sr-only">First Name</label><input class="form-control" type="text" name="firstname" required="required" placeholder="First Name" />
+</div> 
+<div class="form-group">
+<label class="sr-only">Last Name</label><input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
 </div>
 <div class="form-group">
-<label class="sr-only">Last Name</label>
-<input class="form-control" type="text" name="lastname" required="required" placeholder="Last Name" />
-</div>
-<div class="form-group">
-<label class="sr-only">Email Address</label>
-<input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
+<label class="sr-only">Email Address</label><input class="form-control" type="email" name="email" required="required" placeholder="Email Address" />
 </div>
 <div style="position:absolute; left:-9999px; top: -9999px;">
 <label for="pardot_extra_field">Comments</label>
 <input type="text" id="pardot_extra_field" name="pardot_extra_field">
 </div>
-<button type="submit" class="btn btn-primary" value="submit" />Register</button>
+<button type="submit" class="btn btn-primary" value="submit" required="required" />Register</button>
 </form>
-
-
 
 				</div>
 				<?php }

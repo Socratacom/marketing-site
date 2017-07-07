@@ -264,29 +264,15 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       ),
       // URL
       array(
-        'name' => esc_html__( 'Pardot Registration Form', 'webinars_' ),
+        'name' => esc_html__( 'Registration Form', 'webinars_' ),
         'id'   => "{$prefix}form_registration",
         'desc' => esc_html__( 'Must include https://', 'webinars_' ),
         'type' => 'url',
         'std'  => 'https://go.pardot.com/...',
       ),
-      // TEXT
-      array(
-        'name'  => __( 'ON24 Event ID', 'webinars_' ),
-        'id'    => "{$prefix}on24_event_id",
-        'type'  => 'text',
-        'clone' => false,
-      ),      
-      // TEXT
-      array(
-        'name'  => __( 'ON24 Ley', 'webinars_' ),
-        'id'    => "{$prefix}on24_key",
-        'type'  => 'text',
-        'clone' => false,
-      ),  
       // URL
       array(
-        'name' => esc_html__( 'Pardot On-Demand Form', 'webinars_' ),
+        'name' => esc_html__( 'On-Demand Form', 'webinars_' ),
         'id'   => "{$prefix}form_on_demand",
         'desc' => esc_html__( 'Must include https://', 'webinars_' ),
         'type' => 'url',

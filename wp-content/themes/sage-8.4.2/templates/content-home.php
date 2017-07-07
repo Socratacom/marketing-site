@@ -1,16 +1,16 @@
 <section class="home-masthead">
 <div class="slider">
-    <div class="slide" style="background-image:url(/wp-content/uploads/home-hero-opioid.jpg)">
+    <div class="slide" style="background-image:url(/wp-content/uploads/home-hero-cthru.jpg)">
         <div class="text">
             <div class="vertical-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-md-6">
-                            <h1 class="color-white margin-bottom-15">Data’s Critical Role in Addressing the Opioid Epidemic</h1>
-                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Cincinnati's "Heroin Tracker" helps officials target the city's limited resources to save lives.</h4>
+                            <h1 class="color-white margin-bottom-15">Massachusetts Liberates State Finance Data</h1>
+                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">CTHRU invites citizens to dig into financial facts online through open access to data.</h4>
                             <ul class="cta-list">
-                                <li><a href="/blog/gathering-insights-cincinnati-heroin-tracker/" class="btn btn-default outline">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-                                <li><a href="https://insights.cincinnati-oh.gov/stories/s/Heroin/dm3s-ep3u" target="_blank" class="btn btn-default outline">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="/case-study/massachusetts-cuts-costs-invites-citizens-dig-financial-facts-online/" class="btn btn-default outline">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="http://www.mass.gov/comptroller/cthru/" target="_blank" class="btn btn-default outline">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -18,35 +18,17 @@
             </div>
         </div>
     </div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-santa-rosa.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-douglas.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Tackling Homelessness with Data</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">in 2016, Santa Rosa city council declared an official homeless emergency, a move they hoped would enable the city to remove barriers to and gather public support for long-term solutions to the crisis.</h4>
+							<h1 class="color-white margin-bottom-15">Going Beyond a Hard-Copy Annual Budget</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Douglas County, KS created a valuable source of information for citizens, elected officials, and staff.</h4>
 							<ul class="cta-list">
-								<li><a href="/webinar/tackling-homelessness-data/" class="btn btn-default outline">Watch Webinar <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="http://citizenconnect.srcity.org/" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-jackson.jpg)">
-		<div class="text">
-			<div class="vertical-center">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-8">
-							<h1 class="color-white margin-bottom-15">Like many American cities, Jackson, Mississippi's aging infrastructure requires expensive, significant updates</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Before developing a data-driven strategy, Jackson would pave a street one year, only to dig it up the following year, after discovering that pipes needed replacing.</h4>
-							<ul class="cta-list">
-								<li><a href="/case-study/jackson-mississippi-uses-data-manage-millions-infrastructure-improvements/" class="btn btn-default outline">Case Study <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li class="hidden-xs"><a href="https://data.jacksonms.gov/" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/douglas-county-open-budget-invites-public-explore-annual-budget/" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="http://budget.douglascountyks.org/#!/year/default" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
