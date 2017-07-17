@@ -62,8 +62,8 @@ jQuery(function ($){
 				<h2 class="text-center section-title">Data-driven innovation of government programs</h2>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
-				<p class="text-center"><a href="/solutions/financial-transparency/"><i class="icon-80 icon-dollar color-primary-alt-1"></i></a></p>
-				<h5 class="text-center"><a href="/solutions/financial-transparency/" class="link-black">Financial Transparency</a></h5>
+				<p class="text-center"><a href="/solutions/financial-insights/"><i class="icon-80 icon-dollar color-primary-alt-1"></i></a></p>
+				<h5 class="text-center"><a href="/solutions/financial-insights/" class="link-black">Financial Insights</a></h5>
 			</div>
 			<div class="col-sm-6 col-md-3 match-height margin-bottom-30">
 				<p class="text-center"><a href="/solutions/open-data-citizen-engagement/"><i class="icon-80 icon-handshake color-primary-alt-2"></i></a></p>
