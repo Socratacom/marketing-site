@@ -1,6 +1,43 @@
 <section class="home-masthead">
-<div class="slider">
-    <div class="slide" style="background-image:url(/wp-content/uploads/home-hero-cthru.jpg)">
+<div class="slider">    
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-st-petersburg.jpg)">
+		<div class="text">
+			<div class="vertical-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-md-6">
+							<h1 class="color-white margin-bottom-15">Citizens &amp; Work Crews See 311 Live</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">St. Petersburg, Florida moves its 311 data to an interactive map.</h4>
+							<ul class="cta-list">
+								<li><a href="/blog/st-petersburg-put-city-services-interactive-map/" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="http://stat.stpete.org/#!/dashboard" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-mayor-garcetti.jpg)">
+		<div class="text">
+			<div class="vertical-center">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-8 col-md-6">
+							<h1 class="color-white margin-bottom-15">Los Angeles Tracks Tech Talent Pipeline</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">LA Mayor Eric Garcetti encourages Angelinos to work in tech.</h4>
+							<ul class="cta-list">
+								<li><a href="/blog/los-angeles-data-backed-investment-in-tech-talent/" class="btn btn-default outline">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://data.lacity.org/stories/s/Investing-in-a-thriving-Tech-workforce-pipeline-fo/x899-9vc5" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="position:absolute; bottom:10px; right:10px; z-index: 1000;"><a href="https://www.flickr.com/photos/99292716@N06/9347606464/in/photolist-ff1VJG-q6WhRX-5YHvJE-kFmWbd-ovDjPZ-ek2VPH-ek8FFY-ek2VNZ-ek2VMX-ek8FJb-ek2VF4-ek8FKJ-q6WhWB-q77DTk-ek2VNi-ek8FP5-p5VyBp-ek8FEA-TPmQgG-q77DVz-rdrJgW-q5AszA-TREMFn-TZF2ML-sarGyi-nWSYpK-qccJzm-ek2VMK-pPFAUp-ek2VJx-ek8FHw-ek8FMf-ek8FH5-ek2VKc-7oNCap-nn8rxf-qaXV3g-oiRRnY-5X3wSp-pzg1tL-5fk5CU-rnbjqw-k4A7zv-2N9jjB-k4CwwU-sUuR6K-sSbAFG-p5TsRs-sSccWS-35vkQ3" target="_blank" style="font-size:12px; color:#ffffff;">Photo by: Eric Garcetti</a></div>
+	</div>
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-cthru.jpg)">
         <div class="text">
             <div class="vertical-center">
                 <div class="container">
@@ -18,24 +55,6 @@
             </div>
         </div>
     </div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-douglas.jpg)">
-		<div class="text">
-			<div class="vertical-center">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Going Beyond a Hard-Copy Annual Budget</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Douglas County, KS created a valuable source of information for citizens, elected officials, and staff.</h4>
-							<ul class="cta-list">
-								<li><a href="/blog/douglas-county-open-budget-invites-public-explore-annual-budget/" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="http://budget.douglascountyks.org/#!/year/default" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 </section>
 <script>
