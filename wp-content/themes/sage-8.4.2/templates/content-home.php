@@ -47,7 +47,7 @@
                             <h4 class="color-white text-normal hidden-xs margin-bottom-0">CTHRU invites citizens to dig into financial facts online through open access to data.</h4>
                             <ul class="cta-list">
                                 <li><a href="/case-study/massachusetts-cuts-costs-invites-citizens-dig-financial-facts-online/" class="btn btn-default outline">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-                                <li><a href="http://www.mass.gov/comptroller/cthru/" target="_blank" class="btn btn-default outline">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="http://cthruspending.mass.gov/#!/year/2017/" target="_blank" class="btn btn-default outline">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
