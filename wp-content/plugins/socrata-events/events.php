@@ -169,7 +169,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   $prefix = 'socrata_events_';
 
   $meta_boxes[] = array(
-    'title'  => __( 'Event Date', 'socrata-events' ),
+    'title'  => __( 'Event Date', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
@@ -189,7 +189,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
     'fields' => array(
       // DATE
       array(
-        'name'        => __( 'Start Date', 'socrata-events' ),
+        'name'        => __( 'Start Date', 'socrata_events_' ),
         'id'          => $prefix . 'starttime',
         'type'        => 'date',
         'timestamp'   => true,        
@@ -200,7 +200,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       ),
       // DATE
       array(
-        'name'        => __( 'End Date', 'socrata-events' ),
+        'name'        => __( 'End Date', 'socrata_events_' ),
         'id'          => $prefix . 'endtime',
         'type'        => 'date',
         'timestamp'   => true,        
@@ -211,9 +211,9 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       ),      
       // TEXT
       array(
-        'name'  => __( 'Display Date and Time', 'socrata-events' ),
+        'name'  => __( 'Display Date and Time', 'socrata_events_' ),
         'id'    => "{$prefix}displaydate",
-        'desc' => __( 'Example: January 1, 1:00 pm - 2:00 pm PT', 'socrata-events' ),
+        'desc' => __( 'Example: January 1, 1:00 pm - 2:00 pm PT', 'socrata_events_' ),
         'type'  => 'text',
         'clone' => false,
       ),
@@ -222,7 +222,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 
   $meta_boxes[] = array(
     'id'          => 'geolocation',
-    'title'       => 'Event Location',
+    'title'       => 'Event Meta',
     'post_types'  => 'socrata_events',
     'context'     => 'normal',
     'priority'    => 'high',
@@ -253,6 +253,11 @@ function socrata_events_register_meta_boxes( $meta_boxes )
            )
         ),
       'fields' => array(
+          // HEADING
+          array(
+            'type' => 'heading',
+            'name' => esc_html__( 'Event Location', 'socrata_events_' ),
+          ),
           // Set the ID to `address` or `address_something` to make Auto Complete field
           array(
               'type' => 'text',
@@ -331,65 +336,58 @@ function socrata_events_register_meta_boxes( $meta_boxes )
               'name' => 'Geometry',
               'id'    => "{$prefix}geometry"
           ),          
+          // HEADING
+          array(
+            'type' => 'heading',
+            'name' => esc_html__( 'Event Website', 'socrata_events_' ),
+            'desc' => esc_html__( 'Enter a URL for non-socrata events', 'socrata_events_' ),
+          ),
+          // URL
+          array(
+          'name' => __( 'Event Website', 'socrata_events_' ),
+            'id'   => "{$prefix}url",
+            'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
+            'type' => 'url',
+          ),
       )
   );
 
   $meta_boxes[] = array(
-    'title'  => __( 'Site and Registration', 'socrata-events' ),
+    'title'  => __( 'Socrata Event Meta', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
-    'fields' => array(
+    'fields' => array(          
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => esc_html__( 'Call to action', 'socrata_events_' ),
+      ),
       // URL
       array(
-        'name' => __( 'Event Website', 'socrata-events' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'For non-Socrata events. Example: http://somesite.com', 'socrata-events' ),
+      'name' => __( 'CTA URL', 'socrata_events_' ),
+        'id'   => "{$prefix}cta_url",
+        'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
         'type' => 'url',
       ),
       // TEXT
       array(
-        'name'  => __( 'Marketo Form ID', 'socrata-events' ),
-        'id'    => "{$prefix}marketo",
-        'desc' => __( 'For Socrata events. Example: 1234', 'socrata-events' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Custom Registration Title', 'socrata-events' ),
-        'id'    => "{$prefix}custom_title",
-        'desc' => __( '(Optional) For Socrata events. Example: Please RSVP for this event', 'socrata-events' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // TEXTAREA
-      array(
-        'name' => esc_html__( 'Custom Registration Copy', 'socrata-events' ),
-        'desc' => esc_html__( '(Optional) For Socrata events', 'socrata-events' ),
-        'id'   => "{$prefix}custom_copy",
-        'type' => 'textarea',
-        'cols' => 20,
-        'rows' => 3,
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Custom CTA Button Text', 'socrata-events' ),
+        'name'  => __( 'Custom CTA Button Text', 'socrata_events_' ),
         'id'    => "{$prefix}custom_cta",
-        'desc' => __( '(Optional) For Socrata events. Example: RSVP', 'socrata-events' ),
+        'desc' => __( 'Example: Register', 'socrata_events_' ),
         'type'  => 'text',
         'clone' => false,
+      ),                
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => esc_html__( 'Event Content', 'socrata_events_' ),
+        'desc' => esc_html__( 'Enter a URL for non-socrata events', 'socrata_events_' ),
       ),
-    )
-  );
 
-  $meta_boxes[] = array(
-    'title'         => 'Socrata Event Content',   
-    'post_types'    => 'socrata_events',
-    'context'       => 'normal',
-    'priority'      => 'high',
-      'fields' => array(
-        array(
+      // WYSIWYG/RICH TEXT EDITOR
+      array(
+        'name'    => esc_html__( 'Socrata Event Content', 'socrata_events_' ),
         'id'      => "{$prefix}wysiwyg",
         'type'    => 'wysiwyg',
         // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
@@ -397,66 +395,14 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         // Editor settings, see wp_editor() function: look4wp.com/wp_editor
         'options' => array(
           'textarea_rows' => 15,
-          'teeny'         => false,
-          'media_buttons' => true,
+          'teeny'         => true,
+          'media_buttons' => false,
         ),
       ),
-    ),
+
+    )
   );
 
-  $meta_boxes[] = array(
-    'title'         => 'Speakers',   
-    'post_types'    => 'socrata_events',
-    'context'       => 'normal',
-    'priority'      => 'high',
-      'fields' => array(
-        // HEADING
-        array(
-          'type' => 'heading',
-          'name' => __( 'Speaker Info', 'socrata-events' ),
-          'id'   => 'fake_id', // Not used but needed for plugin
-        ),
-        array(
-        'id'     => "{$prefix}speakers",
-        'type'   => 'group',
-        'clone'  => true,
-        'sort_clone' => true,
-        // Sub-fields
-        'fields' => array(
-          array(
-            'name' => __( 'Name', 'socrata-events' ),
-            'id'   => "{$prefix}speaker_name",
-            'type' => 'text',
-          ),
-          array(
-            'name' => __( 'Title', 'socrata-events' ),
-            'id'   => "{$prefix}speaker_title",
-            'type' => 'text',
-          ),
-          // IMAGE ADVANCED (WP 3.5+)
-          array(
-            'name'             => __( 'Headshot', 'socrata-events' ),
-            'id'               => "{$prefix}speaker_headshot",
-            'desc' => __( 'Minimum size 300x300 pixels.', 'socrata-events' ),
-            'type'             => 'image_advanced',
-            'max_file_uploads' => 1,
-          ),
-          // WYSIWYG/RICH TEXT EDITOR
-          array(
-            'name'    => __( 'Bio', 'socrata-events' ),
-            'id'      => "{$prefix}what_the",
-            'type'    => 'wysiwyg',
-            'raw'     => false,
-            'options' => array(
-              'textarea_rows' => 4,
-              'teeny'         => false,
-              'media_buttons' => false,
-            ),
-          ),
-        ),
-      ), 
-    ),
-  );
   return $meta_boxes;
 }
 
