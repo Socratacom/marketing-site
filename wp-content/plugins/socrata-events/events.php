@@ -169,7 +169,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   $prefix = 'socrata_events_';
 
   $meta_boxes[] = array(
-    'title'  => __( 'Event Date', 'socrata_events_' ),
+    'title'  => __( 'Event Meta', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
@@ -186,7 +186,12 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         ),
       ),
     ),
-    'fields' => array(
+    'fields' => array(      
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => esc_html__( 'Event Date', 'socrata_events_' ),
+      ),
       // DATE
       array(
         'name'        => __( 'Start Date', 'socrata_events_' ),
@@ -217,12 +222,25 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type'  => 'text',
         'clone' => false,
       ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => esc_html__( 'Event Website', 'socrata_events_' ),
+        'desc' => esc_html__( 'Enter a URL for non-socrata events', 'socrata_events_' ),
+      ),
+      // URL
+      array(
+      'name' => __( 'Event URL', 'socrata_events_' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
+        'type' => 'url',
+      ),
     )
   );
 
   $meta_boxes[] = array(
     'id'          => 'geolocation',
-    'title'       => 'Event Meta',
+    'title'       => 'Event Location',
     'post_types'  => 'socrata_events',
     'context'     => 'normal',
     'priority'    => 'high',
@@ -253,11 +271,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
            )
         ),
       'fields' => array(
-          // HEADING
-          array(
-            'type' => 'heading',
-            'name' => esc_html__( 'Event Location', 'socrata_events_' ),
-          ),
           // Set the ID to `address` or `address_something` to make Auto Complete field
           array(
               'type' => 'text',
@@ -336,24 +349,11 @@ function socrata_events_register_meta_boxes( $meta_boxes )
               'name' => 'Geometry',
               'id'    => "{$prefix}geometry"
           ),          
-          // HEADING
-          array(
-            'type' => 'heading',
-            'name' => esc_html__( 'Event Website', 'socrata_events_' ),
-            'desc' => esc_html__( 'Enter a URL for non-socrata events', 'socrata_events_' ),
-          ),
-          // URL
-          array(
-          'name' => __( 'Event Website', 'socrata_events_' ),
-            'id'   => "{$prefix}url",
-            'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
-            'type' => 'url',
-          ),
       )
   );
 
   $meta_boxes[] = array(
-    'title'  => __( 'Socrata Event Meta', 'socrata_events_' ),
+    'title'  => __( 'Socrata Event', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
@@ -362,6 +362,22 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       array(
         'type' => 'heading',
         'name' => esc_html__( 'Call to action', 'socrata_events_' ),
+      ),
+      // TEXT
+      array(
+        'name'  => __( 'CTA Title', 'socrata-events' ),
+        'id'    => "{$prefix}custom_title",
+        'desc' => __( 'Example: Join us after the event', 'socrata-events' ),
+        'type'  => 'text',
+        'clone' => false,
+      ),
+      // TEXTAREA
+      array(
+        'name' => esc_html__( 'CTA Copy', 'socrata-events' ),
+        'id'   => "{$prefix}custom_copy",
+        'type' => 'textarea',
+        'cols' => 20,
+        'rows' => 3,
       ),
       // URL
       array(
@@ -374,7 +390,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       array(
         'name'  => __( 'Custom CTA Button Text', 'socrata_events_' ),
         'id'    => "{$prefix}custom_cta",
-        'desc' => __( 'Example: Register', 'socrata_events_' ),
+        'desc' => __( 'Example: More Information', 'socrata_events_' ),
         'type'  => 'text',
         'clone' => false,
       ),                
