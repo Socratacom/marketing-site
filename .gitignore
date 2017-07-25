@@ -26,6 +26,7 @@ wp-content/*
 # Ignore everything in the "plugins" directory, except the plugins you specify
 wp-content/plugins/*
 # !wp-content/plugins/my-single-file-plugin.php
+!wp-content/plugins/facetwp/
 !wp-content/plugins/socrata-case-studies/
 !wp-content/plugins/socrata-image-attribution/
 !wp-content/plugins/socrata-stories/
