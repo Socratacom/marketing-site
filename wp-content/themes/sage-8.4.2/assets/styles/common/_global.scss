@@ -304,14 +304,12 @@ body.modal-open {
 .background-white {background-color:white;}
 .background-black {background-color:$black;}
 .background-black-transparent {background-color:rgba($black,.5);}
-
 .background-multiply {background-blend-mode: multiply;}
 
 /* Depreciated */
 .background-clouds {background-color:$light-grey-4;}
 .background-clouds-dark {background-color:$light-grey-3;}
 /* End Depreciated */
-
 
 .color-primary {color:$primary;}
 .color-primary-light {color:$primary-light;}
