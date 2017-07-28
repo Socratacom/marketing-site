@@ -17,7 +17,7 @@
 
 
         <li class="dropdown">
-          <a data-toggle="dropdown" data-submenu>Solutions &amp; Apps</a>
+          <a data-toggle="dropdown" data-submenu>Solutions &amp; Products</a>
           <ul class="dropdown-menu">
             <li class="dropdown-submenu">
               <a>Solutions</a>
@@ -28,7 +28,7 @@
                 ) ); ?>
             </li>
             <li class="dropdown-submenu">
-              <a>Apps</a>
+              <a>Products</a>
               <?php wp_nav_menu( array( 
                   'theme_location' => 'site_nav_products',
                   'container'       => '',
@@ -118,6 +118,15 @@
             'theme_location' => 'site_nav_solutions',
             'container'       => '',              
             'menu_id' => 'collapseSolutions', 
+            'menu_class' => 'collapse' 
+          ) ); ?>
+    </li>
+    <li class="submenu">
+      <a data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">Products</a>
+      <?php wp_nav_menu( array( 
+            'theme_location' => 'site_nav_products',
+            'container'       => '',              
+            'menu_id' => 'collapseProducts', 
             'menu_class' => 'collapse' 
           ) ); ?>
     </li>

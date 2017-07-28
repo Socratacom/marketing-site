@@ -9,8 +9,8 @@
 							<h1 class="color-white margin-bottom-15">Citizens &amp; Work Crews See 311 Live</h1>
 							<h4 class="color-white text-normal hidden-xs margin-bottom-0">St. Petersburg, Florida moves its 311 data to an interactive map.</h4>
 							<ul class="cta-list">
-								<li><a href="/blog/st-petersburg-put-city-services-interactive-map/" class="btn btn-default outline">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="http://stat.stpete.org/#!/dashboard" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/st-petersburg-put-city-services-interactive-map/" class="btn btn-primary outline-white">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="http://stat.stpete.org/#!/dashboard" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -27,8 +27,8 @@
 							<h1 class="color-white margin-bottom-15">Los Angeles Tracks Tech Talent Pipeline</h1>
 							<h4 class="color-white text-normal hidden-xs margin-bottom-0">LA Mayor Eric Garcetti encourages Angelinos to work in tech.</h4>
 							<ul class="cta-list">
-								<li><a href="/blog/los-angeles-data-backed-investment-in-tech-talent/" class="btn btn-default outline">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://data.lacity.org/stories/s/Investing-in-a-thriving-Tech-workforce-pipeline-fo/x899-9vc5" class="btn btn-default outline" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/los-angeles-data-backed-investment-in-tech-talent/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://data.lacity.org/stories/s/Investing-in-a-thriving-Tech-workforce-pipeline-fo/x899-9vc5" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -46,8 +46,8 @@
                             <h1 class="color-white margin-bottom-15">Massachusetts Liberates State Finance Data</h1>
                             <h4 class="color-white text-normal hidden-xs margin-bottom-0">CTHRU invites citizens to dig into financial facts online through open access to data.</h4>
                             <ul class="cta-list">
-                                <li><a href="/case-study/massachusetts-cuts-costs-invites-citizens-dig-financial-facts-online/" class="btn btn-default outline">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-                                <li><a href="http://cthruspending.mass.gov/#!/year/2017/" target="_blank" class="btn btn-default outline">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="/case-study/massachusetts-cuts-costs-invites-citizens-dig-financial-facts-online/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="http://cthruspending.mass.gov/#!/year/2017/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>

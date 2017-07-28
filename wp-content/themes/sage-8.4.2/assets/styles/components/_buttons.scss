@@ -5,24 +5,40 @@
     padding:10px 12px;
     outline:none !important;
 }
-
 .btn-default {
 	background:$light-grey-5;
 }
-
-.btn.outline {
+.btn.outline-white, .btn.outline-primary, .btn.outline-warning, .btn.outline-success {
     background:none;
 }
-
-.btn-default.outline {
-    border:2px solid white !important;
-    color:white;
-    font-weight:$font-semi-bold;
+.outline-white {
+    border:2px solid $white !important;
+}
+.outline-white:hover {
+    background-color:rgba($white, .3);
+}
+.outline-primary {
+    border:2px solid $primary !important;
+}
+.outline-primary:hover {
+    background-color:rgba($primary, .3);
+}
+.outline-warning {
+    border:2px solid $warning !important;
+}
+.outline-warning:hover {
+    background-color:rgba($warning, .3);
+}
+.outline-success {
+    border:2px solid $success !important;
+}
+.outline-success:hover {
+    background-color:rgba($success, .3);
 }
 
-.btn-default.outline:hover {
+/*.btn-default.outline:hover {
     background:tint($primary, 10%);
-}
+}*/
 
 .facetwp-per-page, .facetwp-sort {
 	position: relative;
