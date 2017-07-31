@@ -10,7 +10,7 @@
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
             <ul class="filter-bar">
-                <li><?php echo facetwp_display( 'facet', 'solution_dropdown' ); ?></li>
+              <li><?php echo facetwp_display( 'facet', 'solution_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'categories_dropdown' ); ?></li>

@@ -112,17 +112,25 @@
       echo '<ul class="no-bullets sidebar-list">';
       echo '<li><h5>Webinars</h5></li>';
       while ( $the_query->have_posts() ) {
-      $the_query->the_post(); { ?> 
+      $the_query->the_post();
+      $hidden = rwmb_meta( 'socrata_hidden_hide' ); { ?>
 
-      <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
-      <li>
-      <div class="article-img-container">
-      <img src="<?=$url?>" class="img-responsive">
-      </div>
-      <div class="article-title-container">
-      <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
-      </div>
-      </li>
+   
+      <?php if ( ! empty( $hidden ) ) { ?> <?php } else { ?> 
+
+        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
+        <li>
+        <div class="article-img-container">
+        <img src="<?=$url?>" class="img-responsive">
+        </div>
+        <div class="article-title-container">
+        <a href="<?php the_permalink() ?>"><?php the_title(); ?></a>
+        </div>
+        </li>
+
+
+      <?php } ?>
+     
 
       <?php }
       }

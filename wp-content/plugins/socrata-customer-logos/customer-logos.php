@@ -70,6 +70,13 @@ function socrata_logos_register_meta_boxes( $meta_boxes )
         'type'              => 'image_advanced',
         'max_file_uploads'  => 1,
       ),
+      // TEXT
+      array(
+        'name'  => esc_html__( 'Title', 'logos_' ),
+        'id'    => "{$prefix}title",
+        'type'  => 'text',
+        'clone' => false,
+      ),
       // WYSIWYG/RICH TEXT EDITOR
       array(
         'name'    => esc_html__( 'Content', 'logos_' ),
@@ -83,6 +90,12 @@ function socrata_logos_register_meta_boxes( $meta_boxes )
           'teeny'         => false,
           'media_buttons' => false,
         ),
+      ),
+      // URL
+      array(
+        'name' => esc_html__( 'URL', 'logos_' ),
+        'id'   => "{$prefix}url",
+        'type' => 'url',
       ),
     ),
   );
@@ -116,12 +129,20 @@ function socrata_logo_slider($atts, $content = null) {
         // The Loop
         while ( $myquery->have_posts() ) { $myquery->the_post(); 
         $logo = rwmb_meta( 'logos_brand', 'size=medium' );
+        $site = rwmb_meta( 'logos_url' );
+        $title = rwmb_meta( 'logos_title' );
         ?>
 
         <div class="text-center">
           <div class="match-height" style="padding:0 15px;">
-            <div class="sixteen-nine margin-bottom-15" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>); background-size:contain; background-repeat:no-repeat; background-position:center center;"></div>
-            <?php the_title();?>
+            <div class="sixteen-nine margin-bottom-15" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>); background-size:contain; background-repeat:no-repeat; background-position:center center; position:relative;">
+              <?php if ( ! empty( $site ) ) { ?> <a href="<?php echo $site;?>" target="_blank" style="position:absolute; top:0; left:0; width:100%; height:100%;"></a> <?php } else {} ?>
+            </div>
+            <?php if ( ! empty( $title ) ) { ?>
+              <?php echo $title;?>
+            <?php } else { ?>
+              <?php the_title();?>
+            <?php } ?>
           </div>
         </div>
 
@@ -210,20 +231,26 @@ function socrata_logo_slider_content($atts, $content = null) {
           while ( $myquery->have_posts() ) { $myquery->the_post(); 
           $logo = rwmb_meta( 'logos_brand', 'size=medium' );
           $content = rwmb_meta( 'logos_wysiwyg' );
+          $site = rwmb_meta( 'logos_url' );
+          $title = rwmb_meta( 'logos_title' );
           ?>
 
-          
             <div class="match-height" style="padding:0 15px;">
               <div class="padding-30 margin-bottom-15" style="border-bottom:#d6d6d6 solid 1px;">
-                <div class="sixteen-nine" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>); background-size:contain; background-repeat:no-repeat; background-position:center center;"></div>
+                <div class="sixteen-nine" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>); background-size:contain; background-repeat:no-repeat; background-position:center center; position:relative;">
+                  <?php if ( ! empty( $site ) ) { ?> <a href="<?php echo $site;?>" target="_blank" style="position:absolute; top:0; left:0; width:100%; height:100%;"></a> <?php } else {} ?>
+                </div>
               </div>
               <div style="text-align: left;">
-                <h5 class="margin-bottom-15"><?php the_title();?></h5>
+                <?php if ( ! empty( $title ) ) { ?>
+                  <h5 class="margin-bottom-15"><?php echo $title;?></h5>
+                <?php } else { ?>
+                  <h5 class="margin-bottom-15"><?php the_title();?></h5>
+                <?php } ?>                
                 <?php echo $content;?>
+                <?php if ( ! empty( $site ) ) { ?> <p><a href="<?php echo $site;?>" target="_blank">Visit Site</a></p> <?php } else {} ?>
               </div>
             </div>
-          
-          
 
           <?php
           }

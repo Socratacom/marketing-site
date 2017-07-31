@@ -9,6 +9,7 @@
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">
             <ul class="filter-bar">
+              <li><?php echo facetwp_display( 'facet', 'solution_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'segment_dropdown' ); ?></li>
               <li><?php echo facetwp_display( 'facet', 'product_dropdown' ); ?></li>
               <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
@@ -20,6 +21,8 @@
         <div class="col-lg-3 hidden-xs hidden-sm hidden-md facet-sidebar">
           <button onclick="FWP.reset()" class="btn btn-primary btn-block margin-bottom-30"><i class="fa fa-undo" aria-hidden="true"></i> Reset Filters</button>
           <div class="filter-list">
+            <button type="button" data-toggle="collapse" data-target="#solution">Solution</button>
+            <div id="solution" class="collapse in"><?php echo facetwp_display( 'facet', 'solution' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#segment">Segment</button>
             <div id="segment" class="collapse in"><?php echo facetwp_display( 'facet', 'segment' ); ?></div>
             <button type="button" data-toggle="collapse" data-target="#product">Product</button>
@@ -35,27 +38,22 @@
               </ul>
             </div>
             <div class="facetwp-template">
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-  $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
-    $url = $thumb['0'];
-?>
+            <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
+              $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
+                $url = $thumb['0'];
+            ?>
 
-    <div class="col-sm-6 col-md-4">
+ <div class="col-sm-6 col-md-4">
       <div class="card margin-bottom-30 match-height">
         <div class="card-header">
           <?php if ( ! empty( $thumb ) ) { ?>
-            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);">
-              <a href="<?php the_permalink(); ?>" class="link"></a>
-            </div>
+            <div class="sixteen-nine img-background" style="background-image:url(<?php echo $url;?>);"></div>
           <?php } else { ?>
-            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);">
-              <label>Blog</label>
-              <a href="<?php the_permalink(); ?>" class="link"></a>
-            </div>
+            <div class="sixteen-nine img-background" style="background-image:url(/wp-content/uploads/no-image.png);"></div>
           <?php } ?>
         </div>
         <div class="card-body">
-          <h5><a href="<?php the_permalink() ?>" class="link-black"><?php the_title(); ?></a></h5>
+          <h5><?php the_title(); ?></h5>
           <p><?php echo (get_the_excerpt()); ?></p>
         </div>
         <div class="card-footer" style="padding:10px 20px;">
@@ -64,6 +62,7 @@
             <li><?php if(function_exists('coauthors')) coauthors();?><br><?php the_time('F j, Y') ?></li>
           </ul>
         </div>
+        <a href="<?php the_permalink(); ?>"></a>
       </div>
     </div>
 

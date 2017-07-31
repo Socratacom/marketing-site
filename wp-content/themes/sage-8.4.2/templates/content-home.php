@@ -1,16 +1,16 @@
 <section class="home-masthead">
 <div class="slider">    
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-st-petersburg.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-udot.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Citizens &amp; Work Crews See 311 Live</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">St. Petersburg, Florida moves its 311 data to an interactive map.</h4>
+							<h1 class="color-white margin-bottom-15">Budgets and Bridges Go Live for UDOT</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Utah DOT's annual report has moved from an outdated PDF to a statewide resource.</h4>
 							<ul class="cta-list">
-								<li><a href="/blog/st-petersburg-put-city-services-interactive-map/" class="btn btn-primary outline-white">Learn More <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="http://stat.stpete.org/#!/dashboard" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/case-study/utah-dots-data-connects-state-funding-directly-outcomes/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://udot.data.socrata.com/stories/s/Strategic-Direction_Introduction/p8mq-nf7i/" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -18,36 +18,35 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-mayor-garcetti.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-nyc.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Los Angeles Tracks Tech Talent Pipeline</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">LA Mayor Eric Garcetti encourages Angelinos to work in tech.</h4>
+							<h1 class="color-white margin-bottom-15">Big Apple Gives New Yorkers Their Data</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">NYC's Al Webber explains the city's "data for all" strategy and big plans for the future.</h4>
 							<ul class="cta-list">
-								<li><a href="/blog/los-angeles-data-backed-investment-in-tech-talent/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://data.lacity.org/stories/s/Investing-in-a-thriving-Tech-workforce-pipeline-fo/x899-9vc5" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/video/nyc-open-data-engages-new-yorkers-with-data-produced-and-used-by-the-city-government/" class="btn btn-primary outline-white">Watch Video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://opendata.cityofnewyork.us/" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div style="position:absolute; bottom:10px; right:10px; z-index: 1000;"><a href="https://www.flickr.com/photos/99292716@N06/9347606464/in/photolist-ff1VJG-q6WhRX-5YHvJE-kFmWbd-ovDjPZ-ek2VPH-ek8FFY-ek2VNZ-ek2VMX-ek8FJb-ek2VF4-ek8FKJ-q6WhWB-q77DTk-ek2VNi-ek8FP5-p5VyBp-ek8FEA-TPmQgG-q77DVz-rdrJgW-q5AszA-TREMFn-TZF2ML-sarGyi-nWSYpK-qccJzm-ek2VMK-pPFAUp-ek2VJx-ek8FHw-ek8FMf-ek8FH5-ek2VKc-7oNCap-nn8rxf-qaXV3g-oiRRnY-5X3wSp-pzg1tL-5fk5CU-rnbjqw-k4A7zv-2N9jjB-k4CwwU-sUuR6K-sSbAFG-p5TsRs-sSccWS-35vkQ3" target="_blank" style="font-size:12px; color:#ffffff;">Photo by: Eric Garcetti</a></div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-cthru.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-australia.jpg)">
         <div class="text">
             <div class="vertical-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-md-6">
-                            <h1 class="color-white margin-bottom-15">Massachusetts Liberates State Finance Data</h1>
-                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">CTHRU invites citizens to dig into financial facts online through open access to data.</h4>
+                            <h1 class="color-white margin-bottom-15">Aussies Help Staff Access Data Quickly</h1>
+                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">The Australian Capital Territory's data portal relaunch get employees more involved.</h4>
                             <ul class="cta-list">
-                                <li><a href="/case-study/massachusetts-cuts-costs-invites-citizens-dig-financial-facts-online/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-                                <li><a href="http://cthruspending.mass.gov/#!/year/2017/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="/blog/australian-capital-territory-open-data-portal-redesign/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.data.act.gov.au/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
