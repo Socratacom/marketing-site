@@ -13,37 +13,6 @@
         <a href="<?php echo home_url('/'); ?>" class="navbar-brand"></a>
       </div>
       <ul class="nav navbar-nav hidden-xs hidden-sm">
-
-
-
-        <li class="dropdown">
-          <a data-toggle="dropdown" data-submenu>Solutions &amp; Products</a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-submenu">
-              <a>Solutions</a>
-              <?php wp_nav_menu( array( 
-                  'theme_location' => 'site_nav_solutions',
-                  'container'       => '',
-                  'menu_class' => 'dropdown-menu' 
-                ) ); ?>
-            </li>
-            <li class="dropdown-submenu">
-              <a>Products</a>
-              <?php wp_nav_menu( array( 
-                  'theme_location' => 'site_nav_products',
-                  'container'       => '',
-                  'menu_class' => 'dropdown-menu' 
-                ) ); ?>
-            </li>
-          </ul>
-        </li>
-
-
-
-
-
-
-<!--
         <li class="dropdown">
           <a data-toggle="dropdown">Solutions</a>
           <?php wp_nav_menu( array( 
@@ -52,10 +21,6 @@
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
         </li>
-
-
-
--->
         <li class="dropdown">
           <a data-toggle="dropdown">Services</a>
           <?php wp_nav_menu( array( 
@@ -118,15 +83,6 @@
             'theme_location' => 'site_nav_solutions',
             'container'       => '',              
             'menu_id' => 'collapseSolutions', 
-            'menu_class' => 'collapse' 
-          ) ); ?>
-    </li>
-    <li class="submenu">
-      <a data-toggle="collapse" data-target="#collapseProducts" aria-expanded="false" aria-controls="collapseProducts">Products</a>
-      <?php wp_nav_menu( array( 
-            'theme_location' => 'site_nav_products',
-            'container'       => '',              
-            'menu_id' => 'collapseProducts', 
             'menu_class' => 'collapse' 
           ) ); ?>
     </li>
