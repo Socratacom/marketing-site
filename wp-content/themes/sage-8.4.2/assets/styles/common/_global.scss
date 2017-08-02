@@ -1728,8 +1728,10 @@ dl.quote-author {
     }
 }
 
-
-
+/* Scroll Reveal styles */
+.reveal, .reveal-delay, .box-reveal {
+  visibility: hidden;
+}
 
 /* Custom, iPhone Retina */ 
 @media only screen and (min-width : 320px) {        
