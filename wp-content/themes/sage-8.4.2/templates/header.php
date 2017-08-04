@@ -14,7 +14,7 @@
       </div>
       <ul class="nav navbar-nav hidden-xs hidden-sm">
 
-
+<!--
 
         <li class="dropdown">
           <a data-toggle="dropdown" data-submenu>Solutions &amp; Products</a>
@@ -38,12 +38,8 @@
           </ul>
         </li>
 
+-->
 
-
-
-
-
-<!--
         <li class="dropdown">
           <a data-toggle="dropdown">Solutions</a>
           <?php wp_nav_menu( array( 
@@ -52,10 +48,15 @@
               'menu_class' => 'dropdown-menu' 
             ) ); ?>
         </li>
+        <li class="dropdown">
+          <a data-toggle="dropdown">Products</a>
+          <?php wp_nav_menu( array( 
+              'theme_location' => 'site_nav_products',
+              'container'       => '',
+              'menu_class' => 'dropdown-menu' 
+            ) ); ?>
+        </li>
 
-
-
--->
         <li class="dropdown">
           <a data-toggle="dropdown">Services</a>
           <?php wp_nav_menu( array( 
