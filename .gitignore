@@ -29,15 +29,12 @@ wp-content/plugins/*
 !wp-content/plugins/facetwp/
 !wp-content/plugins/socrata-case-studies/
 !wp-content/plugins/socrata-image-attribution/
-!wp-content/plugins/socrata-stories/
-!wp-content/plugins/socrata-tech-blog/
 !wp-content/plugins/socrata-open-data-field-guide/
 !wp-content/plugins/socrata-open-performance-guide/
 !wp-content/plugins/socrata-newsroom/
 !wp-content/plugins/socrata-events/
 !wp-content/plugins/socrata-videos/
 !wp-content/plugins/socrata-downloads/
-!wp-content/plugins/socrata-open-data-directory/
 !wp-content/plugins/socrata-webinars/
 !wp-content/plugins/socrata-content-discovery/
 !wp-content/plugins/socrata-leadership/
