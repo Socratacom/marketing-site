@@ -41,6 +41,7 @@ wp-content/plugins/*
 !wp-content/plugins/socrata-banners/
 !wp-content/plugins/socrata-hide-post/
 !wp-content/plugins/socrata-customer-logos/
+!wp-content/plugins/socrata-media-kit/
 
 # Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
