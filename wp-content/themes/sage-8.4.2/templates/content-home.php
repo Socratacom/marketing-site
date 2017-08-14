@@ -1,16 +1,16 @@
 <section class="home-masthead">
 <div class="slider">    
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-udot.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-deep-dive.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Budgets and Bridges Go Live for UDOT</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Utah DOT's annual report has moved from an outdated PDF to a statewide resource.</h4>
+							<h1 class="color-white margin-bottom-15">Departmental Data Deep-Dives</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Salt Lake County's Beth Mitchell saves thousands by digging into data around "pain points."</h4>
 							<ul class="cta-list">
-								<li><a href="/case-study/utah-dots-data-connects-state-funding-directly-outcomes/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://udot.data.socrata.com/stories/s/Strategic-Direction_Introduction/p8mq-nf7i/" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/salt-lake-countys-beth-mitchells-advice-on-finding-lessons-in-your-data/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://youtu.be/KZnfgFamLpo" class="btn btn-primary outline-white" target="_blank">Watch Video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -18,17 +18,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-nyc.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-10-ways.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Big Apple Gives New Yorkers Their Data</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">NYC's Al Webber explains the city's "data for all" strategy and big plans for the future.</h4>
+							<h1 class="color-white margin-bottom-15">10 Ways to Transform Cities</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">City performance management leaders share advice on improving quality of life.</h4>
 							<ul class="cta-list">
-								<li><a href="/video/nyc-open-data-engages-new-yorkers-with-data-produced-and-used-by-the-city-government/" class="btn btn-primary outline-white">Watch Video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://opendata.cityofnewyork.us/" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/10-ways-to-transform-how-cities-work/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/wp-content/uploads/SocrataCityTransformationTips.pdf" class="btn btn-primary outline-white" target="_blank">See 10 Tips <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -36,17 +36,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-australia.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-finance.jpg)">
         <div class="text">
             <div class="vertical-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-md-6">
-                            <h1 class="color-white margin-bottom-15">Aussies Help Staff Access Data Quickly</h1>
-                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">The Australian Capital Territory's data portal relaunch get employees more involved.</h4>
+                            <h1 class="color-white margin-bottom-15">Opening the Books</h1>
+                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Government finance data is accessible and useful in Massachusetts, Michigan, and Los Angeles.</h4>
                             <ul class="cta-list">
-                                <li><a href="/blog/australian-capital-territory-open-data-portal-redesign/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-                                <li><a href="https://www.data.act.gov.au/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="/wp-content/uploads/Socrata_FinancialTransparencyGuide.pdf" class="btn btn-primary outline-white" target="_blank">Read Guide <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="/solutions/financial-insights/" class="btn btn-primary outline-white">Finance Solution <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>

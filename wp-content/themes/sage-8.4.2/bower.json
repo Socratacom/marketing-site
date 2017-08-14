@@ -17,7 +17,8 @@
     "slidebars": "^2.0.2",
     "bootstrap-submenu": "^2.0.4",
     "iframe-resizer": "^3.5.14",
-    "scrollreveal": "^3.3.6"
+    "scrollreveal": "^3.3.6",
+    "jquery.bootstrap-responsive-tabs": "^2.0.1"
   },
   "overrides": {
     "iframe-resizer": {
@@ -37,9 +38,12 @@
     },
     "slidebars": {
       "main": "./dist/slidebars.min.js"
-    },    
+    },
     "scrollreveal": {
       "main": "./dist/scrollreveal.min.js"
+    },
+    "jquery.bootstrap-responsive-tabs": {
+      "main": "./dist/js/jquery.bootstrap-responsive-tabs.min.js"
     },
     "bootstrap-sass": {
       "main": [
