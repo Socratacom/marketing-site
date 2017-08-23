@@ -117,7 +117,7 @@ function media_kit_register_meta_boxes( $meta_boxes )
       ),
       // GROUP
       array(
-        'id'     => 'standard',
+        'id'     => "{$prefix}_highlight_group",
         'type'   => 'group',
         'clone'  => true,
         'sort_clone' => true,
@@ -172,7 +172,7 @@ function media_kit_register_meta_boxes( $meta_boxes )
       ),
       // GROUP
       array(
-        'id'     => 'standard',
+        'id'     => "{$prefix}_news_group",
         'type'   => 'group',
         'clone'  => true,
         'sort_clone' => true,
@@ -240,7 +240,7 @@ function media_kit_register_meta_boxes( $meta_boxes )
       ),
       // GROUP
       array(
-        'id'     => 'standard',
+        'id'     => "{$prefix}_downloads_group",
         'type'   => 'group',
         'clone'  => true,
         'sort_clone' => true,
