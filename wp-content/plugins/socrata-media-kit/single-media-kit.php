@@ -5,7 +5,11 @@
   
 ?>
 <style>
-.essential-links ul li {font-size:14px; border-bottom:#d1d1d1 solid 1px; margin:0; padding:10px 0;}
+.essential-links ul li {font-size:14px; border-bottom:#d1d1d1 solid 1px; margin:0; padding:10px 0; position:relative; padding-left:30px;}
+.essential-links .message:before {font-family: 'icomoon'; content:"\e938"; position:absolute; top:10px; left:0; font-size: 20px;}
+.essential-links .twitter:before {font-family: 'icomoon'; content:"\e93b"; position:absolute; top:10px; left:0; font-size: 20px;}
+.essential-links .linkedin:before {font-family: 'icomoon'; content:"\e93c"; position:absolute; top:10px; left:0; font-size: 20px;}
+.essential-links .youtube:before {font-family: 'icomoon'; content:"\e93a"; position:absolute; top:10px; left:0; font-size: 20px;}
 </style>
 <div class="container">
   <div class="row">
@@ -34,11 +38,11 @@
             <div class="essential-links">
               <h5 class="text-uppercase">Essential Links</h5>
               <ul class="no-bullets">
-                <li><span class="text-uppercase font-semi-bold">Press Contact</span><br><a href="mailto:press@socrata.com" class="font-normal">press@socrata.com</a></li>
-                <li><span class="text-uppercase font-semi-bold">Twitter</span><br><a href="https://twitter.com/socrata" target="_blank" class="font-normal">@socrata</a></li>
-                <li><span class="text-uppercase font-semi-bold">CEO Twitter</span><br><a href="https://twitter.com/kmerritt" target="_blank" class="font-normal">@kmerritt</a></li>
-                <li><span class="text-uppercase font-semi-bold">Linked In</span><br><a href="https://www.linkedin.com/company-beta/428169/" target="_blank" class="font-normal">View Profile</a></li>
-                <li><span class="text-uppercase font-semi-bold">YouTube</span><br><a href="https://www.youtube.com/user/socratavideos" target="_blank" class="font-normal">Watch Videos</a></li>
+                <li class="message"><span class="text-uppercase font-semi-bold">Press Contact</span><br><a href="mailto:press@socrata.com" class="font-normal">press@socrata.com</a></li>
+                <li class="twitter"><span class="text-uppercase font-semi-bold">Twitter</span><br><a href="https://twitter.com/socrata" target="_blank" class="font-normal">@socrata</a></li>
+                <li class="twitter"><span class="text-uppercase font-semi-bold">CEO Twitter</span><br><a href="https://twitter.com/kmerritt" target="_blank" class="font-normal">@kmerritt</a></li>
+                <li class="linkedin"><span class="text-uppercase font-semi-bold">Linked In</span><br><a href="https://www.linkedin.com/company-beta/428169/" target="_blank" class="font-normal">View Profile</a></li>
+                <li class="youtube"><span class="text-uppercase font-semi-bold">YouTube</span><br><a href="https://www.youtube.com/user/socratavideos" target="_blank" class="font-normal">Watch Videos</a></li>
               </ul>
             </div>
           </div>         
