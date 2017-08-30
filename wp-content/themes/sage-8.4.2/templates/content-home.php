@@ -1,16 +1,16 @@
 <section class="home-masthead">
 <div class="slider">    
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-deep-dive.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-alexa.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Departmental Data Deep-Dives</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Salt Lake County's Beth Mitchell saves thousands by digging into data around "pain points."</h4>
+							<h1 class="color-white margin-bottom-15">Ask Alexa for Open Data</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">In Douglas County, Colorado you can ask Amazon's Alexa for community events.</h4>
 							<ul class="cta-list">
-								<li><a href="/blog/salt-lake-countys-beth-mitchells-advice-on-finding-lessons-in-your-data/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://youtu.be/KZnfgFamLpo" class="btn btn-primary outline-white" target="_blank">Watch Video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/ask-alexa-douglas-county-promote-community-engagement/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://data.douglas.co.us/" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -18,17 +18,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-10-ways.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-states.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">10 Ways to Transform Cities</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">City performance management leaders share advice on improving quality of life.</h4>
+							<h1 class="color-white margin-bottom-15">9 Top States for Data Innovation</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Read about Socrata customers' success in the Center for Data Innovation rankings.</h4>
 							<ul class="cta-list">
-								<li><a href="/blog/10-ways-to-transform-how-cities-work/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="/wp-content/uploads/SocrataCityTransformationTips.pdf" class="btn btn-primary outline-white" target="_blank">See 10 Tips <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/9-top-states-data-innovation/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="http://www2.datainnovation.org/2017-best-states-data.pdf" class="btn btn-primary outline-white" target="_blank">Read Report <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -36,17 +36,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-finance.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-bath.jpg)">
         <div class="text">
             <div class="vertical-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-md-6">
-                            <h1 class="color-white margin-bottom-15">Opening the Books</h1>
-                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Government finance data is accessible and useful in Massachusetts, Michigan, and Los Angeles.</h4>
+                            <h1 class="color-white margin-bottom-15">Bath, UK Conserves Energy in Schools</h1>
+                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Bath:Hacked guides community towards lower energy costs using open data.</h4>
                             <ul class="cta-list">
-                                <li><a href="/wp-content/uploads/Socrata_FinancialTransparencyGuide.pdf" class="btn btn-primary outline-white" target="_blank">Read Guide <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-                                <li><a href="/solutions/financial-insights/" class="btn btn-primary outline-white">Finance Solution <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="/case-study/bath-hacked-draws-community-open-data-conserve-energy-schools/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="http://www.bathhacked.org/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
