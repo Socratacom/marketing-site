@@ -429,11 +429,62 @@ function events_posts($atts, $content = null) {
 <section class="section-padding">
   <div class="container">
     <div class="row">
-      
-      <div class="col-sm-12 col-md-8 col-md-offset-2">
+      <div class="col-sm-12 margin-bottom-30">
+        <div class="padding-15 background-light-grey-4">
+          <ul class="filter-bar">
+            <li><?php echo facetwp_display( 'facet', 'event_categories_dropdown' ); ?></li>
+            <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i></button></li>
+          </ul>
+        </div>          
+      </div>
+
+      <div class="col-sm-8">
         <?php echo do_shortcode('[facetwp template="events"]') ;?>        
       </div>
-     
+      <div class="col-sm-4 hidden-xs events-sidebar">
+        <div class="alert alert-info margin-bottom-30">
+          <strong>Let's meet up!</strong> See an event in your area and want to meet with us? <a href="mailto:events@socrata.com">Send us an email.</a>
+        </div>
+        <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
+       
+        <?php
+        $args = array(
+        'post_type'         => 'post',
+        'order'             => 'desc',
+        'posts_per_page'    => 5,
+        'post_status'       => 'publish',
+        );
+
+        // The Query
+        $the_query = new WP_Query( $args );
+
+        // The Loop
+        if ( $the_query->have_posts() ) {
+        echo '<ul class="no-bullets sidebar-list">';
+        echo '<li><h5>Recent Articles</h5></li>';
+        while ( $the_query->have_posts() ) {
+        $the_query->the_post(); { ?> 
+
+        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
+        <li>
+          <div class="article-img-container">
+            <a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
+          </div>
+          <div class="article-title-container">
+            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php the_time('F j, Y') ?></small>
+          </div>
+        </li>
+
+        <?php }
+        }
+        echo '<li><a href="/blog">View blog <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+        echo '</ul>';
+        } else {
+        // no posts found
+        }
+        /* Restore original Post Data */
+        wp_reset_postdata(); ?>
+      </div>
     </div>
     <div class="row display-settings-bar">
         <div class="col-sm-12">
