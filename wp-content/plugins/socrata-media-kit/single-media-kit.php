@@ -117,7 +117,7 @@
           </div>          
           <div class="col-sm-6 col-md-4">
             <ul class="no-bullets margin-bottom-60">
-              <li><a href="/wp-content/uploads/Socrata-logos-1.zip" target="_blank" class="btn btn-primary btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download Logos</a></li>
+              <li><a href="https://socrata.com/wp-content/uploads/Socrata-Logos-1.zip" target="_blank" class="btn btn-primary btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download Logos</a></li>
               <li><a href="/wp-content/uploads/Socrata_brand_guide_May2016.pdf" target="_blank" class="btn btn-primary btn-block"><i class="fa fa-download" aria-hidden="true"></i> Download Guidelines</a></li>
             </ul>            
           </div>
