@@ -266,6 +266,53 @@ function media_kit_register_meta_boxes( $meta_boxes )
   );
 
   $meta_boxes[] = array(
+    'title'  => __( 'TIMELINE', 'media_kit' ),
+    'post_types' => array( 'media_kit' ),
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => esc_html__( 'Instructions', 'media_kit' ),
+        'desc' => esc_html__( 'Add a significant point in our company timeline', 'media_kit' ),
+      ),
+      // DIVIDER
+      array(
+        'type' => 'divider',
+      ),
+      // GROUP
+      array(
+        'id'     => "{$prefix}_timeline_group",
+        'type'   => 'group',
+        'clone'  => true,
+        'sort_clone' => true,
+        'fields' => array(
+          // NUMBER
+          array(
+            'name' => esc_html__( 'Year', 'media_kit' ),
+            'id'   => "{$prefix}_timeline_year",
+            'type' => 'number',
+            'min'  => 4,
+          ),
+          // WYSIWYG/RICH TEXT EDITOR
+          array(
+            'name'    => esc_html__( 'Content', 'media_kit' ),
+            'id'      => "{$prefix}_timeline_content",
+            'type'    => 'wysiwyg',
+            'raw'     => false,
+            'options' => array(
+              'textarea_rows' => 4,
+              'teeny'         => false,
+              'media_buttons' => false,
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  $meta_boxes[] = array(
     'title'  => __( 'ABOUT SOCRATA', 'media_kit_' ),
     'post_types' => array( 'media_kit' ),
     'context'    => 'normal',
@@ -280,32 +327,6 @@ function media_kit_register_meta_boxes( $meta_boxes )
       // WYSIWYG/RICH TEXT EDITOR
       array(
         'id'      => "{$prefix}_about_socrata_content",
-        'type'    => 'wysiwyg',
-        'raw'     => false,
-        'options' => array(
-          'textarea_rows' => 4,
-          'teeny'         => false,
-          'media_buttons' => true,
-        ),
-      ),
-    ),
-  );
-
-  $meta_boxes[] = array(
-    'title'  => __( 'PROMOTIONAL', 'media_kit_' ),
-    'post_types' => array( 'media_kit' ),
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields' => array(
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => esc_html__( 'Instructions', 'media_kit' ),
-        'desc' => esc_html__( 'This is an optional section used for special promotions like Socrata Connect.', 'media_kit' ),
-      ),
-      // WYSIWYG/RICH TEXT EDITOR
-      array(
-        'id'      => "{$prefix}_promotional_content",
         'type'    => 'wysiwyg',
         'raw'     => false,
         'options' => array(
