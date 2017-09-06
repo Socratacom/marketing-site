@@ -269,7 +269,7 @@ function newsroom_posts($atts, $content = null) {
           </div> 
           <div class="alert alert-info margin-bottom-30">
             <p><strong>Media professionals:</strong> get brand assets, executive headshots and bios, and company background.</p>
-            <p class="margin-bottom-0"><a href="/wp-content/uploads/Press-Kit-1.1.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download Press Kit</a></p>
+            <p class="margin-bottom-0"><a href="/media-kit/2017-media-kit/">View Media Kit</a></p>
           </div>                
         </div>
         <div class="col-sm-12 col-lg-9">
