@@ -1,16 +1,16 @@
 <section class="home-masthead">
 <div class="slider">    
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-alexa.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-smart.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Ask Alexa for Open Data</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">In Douglas County, Colorado you can ask Amazon's Alexa for community events.</h4>
+							<h1 class="color-white margin-bottom-15">5 Smart Habits for Public Data Programs</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">dataMontgomery's Victoria Lewis talks data owners, standards, and more. </h4>
 							<ul class="cta-list">
-								<li><a href="/blog/ask-alexa-douglas-county-promote-community-engagement/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://data.douglas.co.us/" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/5-habits-successful-public-data-programs/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://youtu.be/LmM82_EDXkg" class="btn btn-primary outline-white" target="_blank">Watch Video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -18,17 +18,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-states.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-silicon-valley.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">9 Top States for Data Innovation</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Read about Socrata customers' success in the Center for Data Innovation rankings.</h4>
+							<h1 class="color-white margin-bottom-15">Making Silicon Valley Affordable for All</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Housing needs and food costs take top priority in San Mateo County.</h4>
 							<ul class="cta-list">
-								<li><a href="/blog/9-top-states-data-innovation/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="http://www2.datainnovation.org/2017-best-states-data.pdf" class="btn btn-primary outline-white" target="_blank">Read Report <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/case-study/making-silicon-valley-place-everyone-can-live/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://data.smcgov.org/" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -36,17 +36,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-bath.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-nola.jpg)">
         <div class="text">
             <div class="vertical-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-md-6">
-                            <h1 class="color-white margin-bottom-15">Bath, UK Conserves Energy in Schools</h1>
-                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Bath:Hacked guides community towards lower energy costs using open data.</h4>
+                            <h1 class="color-white margin-bottom-15">NOLAlytics Asks Departments to Suggest Projects</h1>
+                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Oliver Wise and his New Orleans data analytics team request city staffs' best ideas.</h4>
                             <ul class="cta-list">
-                                <li><a href="/case-study/bath-hacked-draws-community-open-data-conserve-energy-schools/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-                                <li><a href="http://www.bathhacked.org/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="/blog/new-orleans-calls-for-data-projects-to-improve-city/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="https://datadriven.nola.gov/nolalytics/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
