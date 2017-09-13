@@ -581,7 +581,8 @@
 		background-position:center center;	
 		position: relative;
 		@include media(">desktop") {
-			background-attachment: fixed;	
+			background-attachment: fixed;
+			will-change: transform;
 		}
 	}
 
