@@ -49,7 +49,7 @@ function setup() {
   set_post_thumbnail_size( 360, 180, array( 'center', 'center')  );
   add_image_size( 'post-image', 850, 400, array( 'center', 'center'));  
   add_image_size( 'post-image-small', 360, 200, array( 'center', 'center'));
-  add_image_size( 'feature-image', 1600, 400, array( 'center', 'center'));
+  add_image_size( 'feature-image', 1140, 650, array( 'center', 'center'));
   add_image_size( 'full-width-ratio', 9999, 100 );
 
   // Enable post formats
@@ -115,7 +115,7 @@ function display_sidebar() {
  * Theme assets
  */
 function assets() {
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '3.8.15');
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '3.8.19');
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
 

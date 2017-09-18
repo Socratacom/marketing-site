@@ -143,7 +143,7 @@ add_action( 'init', __NAMESPACE__ . '\\shared_solution', 0 );
 function shared_solution() {
   register_taxonomy(
     'solution',
-    array('case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos'),
+    array('case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos','socrata_events'),
     array(
       'labels' => array(
         'name' => 'Solution',
@@ -172,7 +172,7 @@ add_action( 'init', __NAMESPACE__ . '\\shared_segment', 0 );
 function shared_segment() {
   register_taxonomy(
     'segment',
-    array('od_directory','case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos'),
+    array('od_directory','case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos','socrata_events'),
     array(
       'labels' => array(
         'name' => 'Segment',
@@ -201,7 +201,7 @@ add_action( 'init', __NAMESPACE__ . '\\shared_product', 0 );
 function shared_product() {
   register_taxonomy(
     'product',
-    array('case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos'),
+    array('case_study','socrata_videos','socrata_downloads','socrata_webinars','post','news','socrata_logos','socrata_events'),
     array(
       'labels' => array(
         'name' => 'Product',

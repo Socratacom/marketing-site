@@ -426,77 +426,142 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 function events_posts($atts, $content = null) {
   ob_start();
   ?>
-<section class="section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 margin-bottom-30">
-        <div class="padding-15 background-light-grey-4">
-          <ul class="filter-bar">
-            <li><?php echo facetwp_display( 'facet', 'event_categories_dropdown' ); ?></li>
-            <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i></button></li>
-          </ul>
-        </div>          
-      </div>
-
-      <div class="col-sm-8">
-        <?php echo do_shortcode('[facetwp template="events"]') ;?>        
-      </div>
-      <div class="col-sm-4 hidden-xs events-sidebar">
-        <div class="alert alert-info margin-bottom-30">
-          <strong>Let's meet up!</strong> See an event in your area and want to meet with us? <a href="mailto:events@socrata.com">Send us an email.</a>
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="font-light margin-bottom-60">Events Calendar</h1>
         </div>
-        <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
-       
+
         <?php
+
+        $today = strtotime('today UTC');
         $args = array(
-        'post_type'         => 'post',
-        'order'             => 'desc',
-        'posts_per_page'    => 5,
-        'post_status'       => 'publish',
+          'post_type' => 'socrata_events',
+          'post_status' => 'publish',
+          'ignore_sticky_posts' => true,
+          'meta_key' => 'socrata_events_starttime',
+          'orderby' => 'meta_value_num',
+          'order' => 'asc',
+          'posts_per_page' => 1,
+          'meta_query' => array(
+              'relation' => 'AND',
+              array(
+                'key' => 'socrata_events_endtime',
+                'value' => $today,
+                'compare' => '>='
+              )
+            )
+        );
+        $args2 = array(
+          'post_type' => 'socrata_events',
+          'post_status' => 'publish',
+          'ignore_sticky_posts' => true,
+          'meta_key' => 'socrata_events_starttime',
+          'orderby' => 'meta_value_num',
+          'order' => 'asc',
+          'posts_per_page' => 100,
+          'offset' => 1,
+          'meta_query' => array(
+              'relation' => 'AND',
+              array(
+                'key' => 'socrata_events_endtime',
+                'value' => $today,
+                'compare' => '>='
+              )
+            )
         );
 
         // The Query
-        $the_query = new WP_Query( $args );
+        $query1 = new WP_Query( $args );
 
-        // The Loop
-        if ( $the_query->have_posts() ) {
-        echo '<ul class="no-bullets sidebar-list">';
-        echo '<li><h5>Recent Articles</h5></li>';
-        while ( $the_query->have_posts() ) {
-        $the_query->the_post(); { ?> 
-
-        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
-        <li>
-          <div class="article-img-container">
-            <a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
-          </div>
-          <div class="article-title-container">
-            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php the_time('F j, Y') ?></small>
-          </div>
-        </li>
-
-        <?php }
+        if ( $query1->have_posts() ) {          
+          echo '<div class="col-sm-12">';
+          // The Loop
+          while ( $query1->have_posts() ) {
+            $query1->the_post();
+            $date = rwmb_meta( 'socrata_events_starttime' );
+            $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' );
+            $url = $thumb['0'];
+            $img_id = get_post_thumbnail_id(get_the_ID());
+            $alt_text = get_post_meta($img_id , '_wp_attachment_image_alt', true);
+            $city = rwmb_meta( 'socrata_events_locality' );
+            $state = rwmb_meta( 'socrata_events_administrative_area_level_1_short' ); ?>
+              <div class="feature-event">
+                <div class="feature-event-image">
+                  <img src="<?php echo $url;?>" <?php if ( ! empty($alt_text) ) { ?> alt="<?php echo $alt_text;?>" <?php } ;?> class="img-responsive">
+                </div>
+                <div class="feature-event-meta">
+                  <div class="date">
+                    <div class="day"><?php echo date('j', $date);?></div>
+                    <div class="month"><?php echo date('M', $date);?></div>
+                  </div>
+                  <div class="meta">
+                    <div class="category"><?php events_the_categories(); ?></div>
+                    <h3 class="title"><?php the_title(); ?></h3>
+                    <div class="location"><?php echo $city;?>, <?php echo $state;?></div>
+                  </div>
+                </div>
+                <a href="<?php the_permalink() ?>" class="link"></a>
+                <?php echo do_shortcode('[image-attribution]'); ?>
+              </div>
+            <?php
+          }
+          wp_reset_postdata();
+          echo '</div>';
+        } else { ?>
+            <div class="col-sm-12">
+              <div class="alert alert-info">
+                <strong>No events are scheduled at this time.</strong> Do you know of an event we should attend? Suggest an event.
+              </div>
+            </div>
+          <?php
         }
-        echo '<li><a href="/blog">View blog <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-        echo '</ul>';
-        } else {
-        // no posts found
-        }
-        /* Restore original Post Data */
-        wp_reset_postdata(); ?>
+
+        /* The 2nd Query */
+        $query2 = new WP_Query( $args2 );
+
+        if ( $query2->have_posts() ) { ?>
+          <div class="col-sm-12 col-md-10 col-md-offset-1">
+          <h2 class="font-light margin-bottom-30 padding-bottom-30" style="border-bottom:#ebebeb solid 1px">Additional Events</h2>
+          <table class="events-list">
+          <?php
+
+          // The 2nd Loop
+          while ( $query2->have_posts() ) {
+            $query2->the_post();
+            $date = rwmb_meta( 'socrata_events_starttime' );
+            $city = rwmb_meta( 'socrata_events_locality' );
+            $state = rwmb_meta( 'socrata_events_administrative_area_level_1_short' ); ?>
+
+            <tr class="event">
+            <td class="date">
+            <div class="day"><?php echo date('j', $date);?></div>
+            <div class="month"><?php echo date('M', $date);?></div>
+            <a href="<?php the_permalink() ?>"></a>
+            </td>
+            <td class="meta">
+            <div class="category"><?php events_the_categories(); ?></div>
+            <h3 class="title"><?php the_title(); ?></h3>
+            <div class="location"><?php echo $city;?>, <?php echo $state;?></div>   
+            <a href="<?php the_permalink() ?>"></a>         
+            </td>
+            </tr>
+
+            <?php
+          }
+          wp_reset_postdata(); ?>
+          </table>
+          </div>
+          <?php
+        } 
+
+        ?>
+
       </div>
     </div>
-    <div class="row display-settings-bar">
-        <div class="col-sm-12">
-          <ul class="list-table">
-            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
-            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
-          </ul>          
-        </div>
-      </div>
-  </div>
-</section>
-<script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
+  </section>
+
   <?php
   $content = ob_get_contents();
   ob_end_clean();
