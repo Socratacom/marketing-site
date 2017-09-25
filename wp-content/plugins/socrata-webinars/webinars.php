@@ -228,18 +228,7 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       ),
       // DATETIME
       array(
-        'name'        => __( 'Start date', 'webinars_' ),
-        'id'          => $prefix . 'startdate',
-        'type'        => 'date',
-        'timestamp'   => false,
-        'js_options' => array(
-          'numberOfMonths'  => 1,
-          'showButtonPanel' => true,
-        ),
-      ),
-      // DATETIME
-      array(
-        'name'        => __( 'End date', 'webinars_' ),
+        'name'        => __( 'Date', 'webinars_' ),
         'id'          => $prefix . 'starttime',
         'type'        => 'date',
         'timestamp'   => false,
@@ -266,52 +255,21 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       array(
         'name' => esc_html__( 'Registration Form', 'webinars_' ),
         'id'   => "{$prefix}form_registration",
-        'desc' => esc_html__( 'Must include https://', 'webinars_' ),
+        'desc' => esc_html__( 'http://go.socrata.com/l/303201/...', 'webinars_' ),
         'type' => 'url',
-        'std'  => 'https://go.pardot.com/...',
       ),
       // URL
       array(
         'name' => esc_html__( 'On-Demand Form', 'webinars_' ),
         'id'   => "{$prefix}form_on_demand",
-        'desc' => esc_html__( 'Must include https://', 'webinars_' ),
+        'desc' => esc_html__( 'http://go.socrata.com/l/303201/...', 'webinars_' ),
         'type' => 'url',
-        'std'  => 'https://go.pardot.com/...',
       ),
       // HEADING
       array(
         'type' => 'heading',
         'name' => __( 'Downloadable Assets', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Asset Title', 'webinars_' ),
-        'id'    => "{$prefix}asset_title",
-        'type'  => 'text',
-        'clone' => false,
-      ),      
-      // TEXTAREA
-      array(
-        'name' => esc_html__( 'Asset Description', 'webinars_' ),
-        'id'   => "{$prefix}asset_description",
-        'type' => 'textarea',
-        'cols' => 20,
-        'rows' => 3,
-      ),
-      // IMAGE ADVANCED (WP 3.5+)
-      array(
-        'name'             => __( 'Asset Image', 'webinars_' ),
-        'id'               => "{$prefix}asset_image",
-        'type'             => 'image_advanced',
-        'max_file_uploads' => 1,
-      ),
-      // URL
-      array(
-        'name' => esc_html__( 'Asset Link', 'webinars_' ),
-        'id'   => "{$prefix}asset_link",
-        'desc' => esc_html__( 'Include http:// or https://', 'webinars_' ),
-        'type' => 'url',
       ),
       // URL
       array(
@@ -323,7 +281,7 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
       // HEADING
       array(
         'type' => 'heading',
-        'name' => __( 'Webinar Video', 'webinars_' ),
+        'name' => __( 'On Demand Webinar Video', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
       ),
       // TEXT
@@ -414,18 +372,6 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
             'desc' => __( 'Minimum size 300x300 pixels.', 'webinars_' ),
             'type'             => 'image_advanced',
             'max_file_uploads' => 1,
-          ),
-          // WYSIWYG/RICH TEXT EDITOR
-          array(
-            'name'    => __( 'Bio', 'webinars_' ),
-            'id'      => "{$prefix}what_the",
-            'type'    => 'wysiwyg',
-            'raw'     => false,
-            'options' => array(
-              'textarea_rows' => 4,
-              'teeny'         => false,
-              'media_buttons' => false,
-            ),
           ),
         ),
       ), 
