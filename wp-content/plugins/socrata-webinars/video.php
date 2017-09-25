@@ -40,58 +40,34 @@ $speakers = rwmb_meta( 'webinars_speakers' );
 					<div class="container">
 						<div class="row">
 							<div class="col-sm-8">
-								<h1><?php the_title(); ?></h1>
+								<h1 class="font-light"><?php the_title(); ?></h1>
 								<?php echo rwmb_meta( 'webinars_wysiwyg' );?>
+
 								<?php if ( ! empty( $speakers ) ) { ?>
-									<hr>
-									<?php foreach ( $speakers as $speaker_value ) {
-										$id = uniqid();
-										$name = isset( $speaker_value['webinars_speaker_name'] ) ? $speaker_value['webinars_speaker_name'] : '';
-										$title = isset( $speaker_value['webinars_speaker_title'] ) ? $speaker_value['webinars_speaker_title'] : '';
-										$bio = isset( $speaker_value['webinars_what_the'] ) ? $speaker_value['webinars_what_the'] : '';
-										$images = isset( $speaker_value['webinars_speaker_headshot'] ) ? $speaker_value['webinars_speaker_headshot'] : array();
-										foreach ( $images as $image ) {
-											$image = RWMB_Image_Field::file_info( $image, array( 'size' => 'thumbnail' ) );
-										} 
-										?>
+								<hr>
+								<h3>Speakers</h3>
+								<?php foreach ( $speakers as $speaker_value ) {
+								$id = uniqid();
+								$name = isset( $speaker_value['webinars_speaker_name'] ) ? $speaker_value['webinars_speaker_name'] : '';
+								$title = isset( $speaker_value['webinars_speaker_title'] ) ? $speaker_value['webinars_speaker_title'] : '';
+								$images = isset( $speaker_value['webinars_speaker_headshot'] ) ? $speaker_value['webinars_speaker_headshot'] : array();
+								foreach ( $images as $image ) {
+									$image = RWMB_Image_Field::file_info( $image, array( 'size' => 'thumbnail' ) );
+								} 
+								?>
 
-										<div class="media">
-											<div class="media-left">
-												<img class="media-object img-circle" src="<?php echo $image['url'];?>">
-											</div>
-											<div class="media-body speakers-list padding-15">
-												<h5 class="media-heading margin-bottom-0"><?php echo $name;?></h5>
-												<p class="margin-bottom-0"><small><i><?php echo $title;?></i></small></p>
-												<?php if ( ! empty( $bio ) ) { ?> 
-													<div class="truncate" style="height:24px;"><?php echo $bio; ?></div>
-													<p class="margin-bottom-0"><a data-toggle="modal" data-target="#<?php echo 'speaker_'.$id;?>">Full Bio</a></p>
-
-													<div class="modal fade" id="<?php echo 'speaker_'.$id;?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								                      <div class="modal-dialog" role="document">
-								                        <div class="modal-content">
-								                          <div class="modal-header">
-								                            <div class="close"><button type="button" data-dismiss="modal"><i class="icon-close"></i></button></div>
-								                          </div>
-								                          <div class="modal-body">
-								                            <ul class="profile margin-bottom-30">
-								                            <li>
-								                            <div class="headshot" style="background-image:url(<?php echo $image['url'];?>)"></div>
-								                            </li>
-								                            <li><?php echo $name;?></li>
-								                            <li><?php echo $title;?></li>
-								                            </ul>
-								                            <?php echo $bio;?>
-								                          </div>
-								                        </div>
-								                      </div>
-								                    </div>
-
-												<?php } ;?>
-											</div>
+								<div class="col-sm-3">
+									<div class="match-height margin-bottom-30">
+										<div class="text-center margin-bottom-15">
+											<?php if (! empty( $images )) echo "<img src='$image[url]' class='img-responsive img-circle'>"; else echo "<img src='/wp-content/uploads/no-picture-100x100.png' class='img-responsive img-circle'>";?>
 										</div>
+										<h5 class="text-center margin-bottom-0"><?php echo $name;?></h5>
+										<div class="text-center margin-bottom-0"><small><i><?php echo $title;?></i></small></div>
+									</div>
+								</div>
 
-										<?php 
-									} ;?>
+
+								<?php } ;?>					
 
 
 
@@ -112,7 +88,7 @@ $speakers = rwmb_meta( 'webinars_speakers' );
 				</section>
 
 				<?php 
-				$custom_taxterms = wp_get_object_terms( $post->ID, 'product', array('fields' => 'ids') );
+				$custom_taxterms = wp_get_object_terms( $post->ID, 'solution', array('fields' => 'ids') );
 				$args = array(
 				'post_type' => 'socrata_webinars',
 				'post_status' => 'publish',
@@ -120,7 +96,7 @@ $speakers = rwmb_meta( 'webinars_speakers' );
 				'orderby' => 'rand',
 				'tax_query' => array(
 				    array(
-				        'taxonomy' => 'product',
+				        'taxonomy' => 'solution',
 				        'field' => 'id',
 				        'terms' => $custom_taxterms
 				    )
