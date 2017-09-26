@@ -28,28 +28,52 @@ $url = $thumb['0'];
 ;?>
 
 <?php if($date >= $today) { ?>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="font-light margin-bottom-15"><?php the_title(); ?></h1>
+        <h3 class="margin-bottom-60 font-light"><?php echo $displaydate;?></h3>        
+      </div>      
+    </div>
+  </div>
+</section>
+<section class="section-padding background-primary-alt-1">
+  <div class="container">
+    <div class="row">
+      
+    </div>
+  </div>
+</section>
+<section class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-8 col-md-offset-2">
+        <h5 class="text-uppercase margin-bottom-0">Venue:</h5>
+        <p>This is the info</p>
+        <h5 class="text-uppercase margin-bottom-0">Address:</h5>
+        <p class="margin-bottom-60">Address stuff</p>
+        <?php echo rwmb_meta( 'socrata_events_wysiwyg' );?>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
   <section class="section-padding">
     <div class="container">
       <div class="row">
-        <!--<div class="col-sm-4 col-sm-push-8">
-          <div class="background-light-grey-4 padding-30 margin-bottom-30">
-            <h4 class="margin-bottom-15"><?php echo $customtitle;?></h4>
-            <p><?php echo $customcopy;?></p>    
-            <p class="margin-bottom-0"><a href="<?php echo $customurl;?>" target="_blank" class="btn btn-primary btn-lg"><?php echo $customcta;?></a></p>
-          </div>
-        </div>-->
+
         <div class="col-sm-8 col-sm-offset-2">
           <h1 class="margin-bottom-15"><?php the_title(); ?></h1>
           <h4 class="margin-bottom-30 font-light"><?php echo $displaydate;?> | <?php echo $city;?>, <?php echo $state;?></h4>
           <div class="margin-bottom-30"><img src="<?php echo $url;?>" <?php if ( ! empty($alt_text) ) { ?> alt="<?php echo $alt_text;?>" <?php } ;?> class="img-responsive"><?php echo do_shortcode('[image-attribution]'); ?></div>
-          <div class="margin-bottom-60">
-            <?php echo rwmb_meta( 'socrata_events_wysiwyg' );?>
-          </div>
-          <div class="background-light-grey-4 padding-30 margin-bottom-30">
-            <h4 class="margin-bottom-15"><?php echo $customtitle;?></h4>
-            <p><?php echo $customcopy;?></p>    
-            <p class="margin-bottom-0"><a href="<?php echo $customurl;?>" target="_blank" class="btn btn-primary btn-lg"><?php echo $customcta;?></a></p>
-          </div>
+
+          
         </div>
       </div>
     </div>
