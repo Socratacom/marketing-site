@@ -234,12 +234,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         "{$prefix}address" => array(
             'required'  => true,
         ),
-        "{$prefix}locality" => array(
-            'required'  => true,
-        ),
-        "{$prefix}administrative_area_level_1_short" => array(
-            'required'  => false,
-        ),
         "{$prefix}geometry" => array(
             'required'  => true,
         ),
@@ -341,16 +335,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
               'name' => 'Postcode',
               'id'    => "{$prefix}postal_code"
           ),
-
-          array(
-                'type' => 'text',
-                'name' => 'State + Country',
-                'id'    => 'state_country',
-                // Example Output: QLD AU
-                'binding' => 'short:administrative_area_level_1 + " " + country'
-            ),
-
-
 
           // We have custom `geometry` address component. Which is `lat + ',' + lng`
           array(
