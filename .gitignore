@@ -31,6 +31,7 @@ wp-content/plugins/*
 !wp-content/plugins/socrata-image-attribution/
 !wp-content/plugins/socrata-open-data-field-guide/
 !wp-content/plugins/socrata-open-performance-guide/
+!wp-content/plugins/socrata-events/
 !wp-content/plugins/socrata-newsroom/
 !wp-content/plugins/socrata-videos/
 !wp-content/plugins/socrata-downloads/
