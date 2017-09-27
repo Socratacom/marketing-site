@@ -28,11 +28,11 @@ body.modal-open {
 // Custom Icons
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?6abxs6');
-  src:  url('../fonts/icomoon.eot?6abxs6#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?6abxs6') format('truetype'),
-    url('../fonts/icomoon.woff?6abxs6') format('woff'),
-    url('../fonts/icomoon.svg?6abxs6#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?p2qecx');
+  src:  url('../fonts/icomoon.eot?p2qecx#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?p2qecx') format('truetype'),
+    url('../fonts/icomoon.woff?p2qecx') format('woff'),
+    url('../fonts/icomoon.svg?p2qecx#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -52,6 +52,18 @@ body.modal-open {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-left-arrow:before {
+  content: "\e93e";
+}
+.icon-up-arrow:before {
+  content: "\e93f";
+}
+.icon-right-arrow:before {
+  content: "\e940";
+}
+.icon-down-arrow:before {
+  content: "\e941";
+}
 .icon-scales:before {
   content: "\e936";
 }
@@ -344,6 +356,21 @@ body.modal-open {
   content: "\e925";
 }
 
+.icon-32 {
+  font-size:32px;
+}
+.icon-50 {
+  font-size:50px;
+}
+.icon-80 {
+  font-size:80px;
+}
+.icon-100 {
+  font-size:100px;
+} 
+.icon-200 {
+  font-size:200px;
+}
 
 .background-primary {background-color:$primary;}
 .background-primary-light {background-color:$primary-light;}

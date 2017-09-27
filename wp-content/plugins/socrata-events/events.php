@@ -169,7 +169,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   $prefix = 'socrata_events_';
 
   $meta_boxes[] = array(
-    'title'  => __( 'Event Meta', 'socrata_events_' ),
+    'title'  => __( 'Event Date', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
@@ -186,12 +186,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         ),
       ),
     ),
-    'fields' => array(      
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => esc_html__( 'Event Date', 'socrata_events_' ),
-      ),
+    'fields' => array(
       // DATE
       array(
         'name'        => __( 'Start Date', 'socrata_events_' ),
@@ -222,19 +217,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'type'  => 'text',
         'clone' => false,
       ),
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => esc_html__( 'Event Website', 'socrata_events_' ),
-        'desc' => esc_html__( 'Enter a URL for non-socrata events', 'socrata_events_' ),
-      ),
-      // URL
-      array(
-      'name' => __( 'Event URL', 'socrata_events_' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
-        'type' => 'url',
-      ),
     )
   );
 
@@ -246,6 +228,9 @@ function socrata_events_register_meta_boxes( $meta_boxes )
     'priority'    => 'high',
     'validation' => array(
       'rules'    => array(
+        "{$prefix}venue" => array(
+            'required'  => true,
+        ),
         "{$prefix}address" => array(
             'required'  => true,
         ),
@@ -265,12 +250,20 @@ function socrata_events_register_meta_boxes( $meta_boxes )
     // Or you can set advanced settings for Geo, like this example:
     // Restrict results to Australia only.
 
-      'geo' => array(
+      /*'geo' => array(
            'componentRestrictions' => array(
                'country' => 'us'
            )
-        ),
-      'fields' => array(
+        ),*/
+      'fields' => array(              
+          // TEXT
+          array(
+            'name'  => __( 'Venue', 'socrata_events_' ),
+            'id'    => "{$prefix}venue",
+            'desc' => __( 'Seattle Convention Center', 'socrata_events_' ),
+            'type'  => 'text',
+            'clone' => false,
+          ),
           // Set the ID to `address` or `address_something` to make Auto Complete field
           array(
               'type' => 'text',
@@ -343,6 +336,22 @@ function socrata_events_register_meta_boxes( $meta_boxes )
               ),
               'id'    => "{$prefix}administrative_area_level_1_short"
           ),
+          array(
+              'type' => 'number',
+              'name' => 'Postcode',
+              'id'    => "{$prefix}postal_code"
+          ),
+
+          array(
+                'type' => 'text',
+                'name' => 'State + Country',
+                'id'    => 'state_country',
+                // Example Output: QLD AU
+                'binding' => 'short:administrative_area_level_1 + " " + country'
+            ),
+
+
+
           // We have custom `geometry` address component. Which is `lat + ',' + lng`
           array(
               'type' => 'text',
@@ -353,57 +362,37 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   );
 
   $meta_boxes[] = array(
-    'title'  => __( 'Socrata Event', 'socrata_events_' ),
+    'title'  => __( 'Event Branding', 'socrata_events_' ),
+    'post_types' => 'socrata_events',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(      
+      // IMAGE ADVANCED (WP 3.5+)
+      array(
+        'name'              => __( 'Event Logo', 'logos_' ),
+        'id'                => "{$prefix}brand",
+        'desc'              => __( 'Minimum size 300x300 pixels.', 'logos_' ),
+        'type'              => 'image_advanced',
+        'max_file_uploads'  => 1,
+      ),
+      // URL
+      array(
+      'name' => __( 'Event URL', 'socrata_events_' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
+        'type' => 'url',
+      ),
+    )
+  );
+
+  $meta_boxes[] = array(
+    'title'  => __( 'Content', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(          
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => esc_html__( 'Call to action', 'socrata_events_' ),
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'CTA Title', 'socrata-events' ),
-        'id'    => "{$prefix}custom_title",
-        'desc' => __( 'Example: Join us after the event', 'socrata-events' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // TEXTAREA
-      array(
-        'name' => esc_html__( 'CTA Copy', 'socrata-events' ),
-        'id'   => "{$prefix}custom_copy",
-        'type' => 'textarea',
-        'cols' => 20,
-        'rows' => 3,
-      ),
-      // URL
-      array(
-      'name' => __( 'CTA URL', 'socrata_events_' ),
-        'id'   => "{$prefix}cta_url",
-        'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
-        'type' => 'url',
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Custom CTA Button Text', 'socrata_events_' ),
-        'id'    => "{$prefix}custom_cta",
-        'desc' => __( 'Example: More Information', 'socrata_events_' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),                
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => esc_html__( 'Event Content', 'socrata_events_' ),
-        'desc' => esc_html__( 'Enter a URL for non-socrata events', 'socrata_events_' ),
-      ),
-
       // WYSIWYG/RICH TEXT EDITOR
       array(
-        'name'    => esc_html__( 'Socrata Event Content', 'socrata_events_' ),
         'id'      => "{$prefix}wysiwyg",
         'type'    => 'wysiwyg',
         // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
@@ -415,7 +404,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
           'media_buttons' => false,
         ),
       ),
-
     )
   );
 
