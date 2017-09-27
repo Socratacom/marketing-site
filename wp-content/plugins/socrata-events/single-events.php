@@ -8,6 +8,7 @@ $today = strtotime('today UTC');
 $date = rwmb_meta( 'socrata_events_endtime' );
 $venue = rwmb_meta( 'socrata_events_venue' );
 $website = rwmb_meta( 'socrata_events_url' );
+$geometry = rwmb_meta( 'socrata_events_geometry' );
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' );
 $url = $thumb['0'];
 ?>
@@ -56,78 +57,36 @@ $url = $thumb['0'];
         <p><?php echo $venue;?></p>
         <h5 class="text-uppercase margin-bottom-0">Address:</h5>
         <div class="margin-bottom-60">
-          <p><?php echo $address;?><?php if ( ! empty($city) ) echo ", "; echo $city;?><?php if ( ! empty($state) ) echo ", "; echo $state;?><?php if ( ! empty($zip) ) echo ", "; echo $zip;?> - <a data-toggle="collapse" data-target="#gmap">View Map</a></p>
-          <div id="gmap" class="collapse">
-
-            
-<div id="map" style="height:400px; width:100%"></div>
-    <script>
-    jQuery(function($) {
-        // Asynchronously Load the map API 
-        var script = document.createElement('script');
-        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw&callback=initialize";
-        document.body.appendChild(script);
+          <p><?php echo $address;?><?php if ( ! empty($city) ) echo ", "; echo $city;?><?php if ( ! empty($state) ) echo ", "; echo $state;?><?php if ( ! empty($zip) ) echo ", "; echo $zip;?> - <a id="test" data-toggle="collapse" data-target="#gmap">View Map</a></p>
+         
+<div id="gmap" class="collapse">            
+  <div id="map" style="height:400px; width:100%;"></div>
+  <script>
+  function initialize() {
+    var mapCanvas = document.getElementById("map");
+    var myCenter = new google.maps.LatLng(<?php echo $geometry;?>); 
+    var mapOptions = {
+      styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}],
+      center: myCenter, 
+      zoom: 14
+    };
+    var map = new google.maps.Map(mapCanvas,mapOptions);
+    var marker = new google.maps.Marker({
+      position: myCenter
     });
-
-    function initialize() {
-        var map;
-        var bounds = new google.maps.LatLngBounds();
-        var mapOptions = {
-          scrollwheel: false,
-          styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}]
-        };
-                        
-        // Display a map on the page
-        map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        map.setTilt(45);
-            
-        // Multiple Markers
-        var markers = [
-
-
-          <?php            
-              $pin = rwmb_meta( 'socrata_events_geometry' ); { ?>
-              ['<?php the_title();?>',<?php echo $pin;?>],
-              <?php
-              };
-          ?>
-
-
-        ];
-
-            
-        // Display multiple markers on a map
-        var infoWindow = new google.maps.InfoWindow(), marker, i;
-        
-        // Loop through our array of markers & place each one on the map  
-        for( i = 0; i < markers.length; i++ ) {
-            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
-            bounds.extend(position);
-            marker = new google.maps.Marker({
-                position: position,
-                map: map,
-                title: markers[i][0]
-            });
-            
-
-
-            // Automatically center the map fitting all markers on the screen
-            map.fitBounds(bounds);
-        }
-
-        // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
-        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
-            this.setZoom(3);
-            google.maps.event.removeListener(boundsListener);
-        });
-        
-    }
-    </script>
+    marker.setMap(map);
+    $('.collapse').on('shown.bs.collapse', function() {
+        google.maps.event.trigger(map, 'resize');
+        map.setCenter(myCenter);
+    });
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw&callback=initialize"></script>
+</div>
 
 
 
-
-          </div>
+     
         </div>
 
 
