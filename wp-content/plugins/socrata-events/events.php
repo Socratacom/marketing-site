@@ -169,7 +169,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   $prefix = 'socrata_events_';
 
   $meta_boxes[] = array(
-    'title'  => __( 'Event Date', 'socrata-events' ),
+    'title'  => __( 'Event Meta', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
@@ -186,10 +186,15 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         ),
       ),
     ),
-    'fields' => array(
+    'fields' => array(      
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => esc_html__( 'Event Date', 'socrata_events_' ),
+      ),
       // DATE
       array(
-        'name'        => __( 'Start Date', 'socrata-events' ),
+        'name'        => __( 'Start Date', 'socrata_events_' ),
         'id'          => $prefix . 'starttime',
         'type'        => 'date',
         'timestamp'   => true,        
@@ -200,7 +205,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       ),
       // DATE
       array(
-        'name'        => __( 'End Date', 'socrata-events' ),
+        'name'        => __( 'End Date', 'socrata_events_' ),
         'id'          => $prefix . 'endtime',
         'type'        => 'date',
         'timestamp'   => true,        
@@ -211,11 +216,24 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       ),      
       // TEXT
       array(
-        'name'  => __( 'Display Date and Time', 'socrata-events' ),
+        'name'  => __( 'Display Date and Time', 'socrata_events_' ),
         'id'    => "{$prefix}displaydate",
-        'desc' => __( 'Example: January 1, 1:00 pm - 2:00 pm PT', 'socrata-events' ),
+        'desc' => __( 'Example: January 1, 1:00 pm - 2:00 pm PT', 'socrata_events_' ),
         'type'  => 'text',
         'clone' => false,
+      ),
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => esc_html__( 'Event Website', 'socrata_events_' ),
+        'desc' => esc_html__( 'Enter a URL for non-socrata events', 'socrata_events_' ),
+      ),
+      // URL
+      array(
+      'name' => __( 'Event URL', 'socrata_events_' ),
+        'id'   => "{$prefix}url",
+        'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
+        'type' => 'url',
       ),
     )
   );
@@ -335,61 +353,57 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   );
 
   $meta_boxes[] = array(
-    'title'  => __( 'Site and Registration', 'socrata-events' ),
+    'title'  => __( 'Socrata Event', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
-    'fields' => array(
-      // URL
+    'fields' => array(          
+      // HEADING
       array(
-        'name' => __( 'Event Website', 'socrata-events' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( 'For non-Socrata events. Example: http://somesite.com', 'socrata-events' ),
-        'type' => 'url',
+        'type' => 'heading',
+        'name' => esc_html__( 'Call to action', 'socrata_events_' ),
       ),
       // TEXT
       array(
-        'name'  => __( 'Marketo Form ID', 'socrata-events' ),
-        'id'    => "{$prefix}marketo",
-        'desc' => __( 'For Socrata events. Example: 1234', 'socrata-events' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Custom Registration Title', 'socrata-events' ),
+        'name'  => __( 'CTA Title', 'socrata-events' ),
         'id'    => "{$prefix}custom_title",
-        'desc' => __( '(Optional) For Socrata events. Example: Please RSVP for this event', 'socrata-events' ),
+        'desc' => __( 'Example: Join us after the event', 'socrata-events' ),
         'type'  => 'text',
         'clone' => false,
       ),
       // TEXTAREA
       array(
-        'name' => esc_html__( 'Custom Registration Copy', 'socrata-events' ),
-        'desc' => esc_html__( '(Optional) For Socrata events', 'socrata-events' ),
+        'name' => esc_html__( 'CTA Copy', 'socrata-events' ),
         'id'   => "{$prefix}custom_copy",
         'type' => 'textarea',
         'cols' => 20,
         'rows' => 3,
       ),
+      // URL
+      array(
+      'name' => __( 'CTA URL', 'socrata_events_' ),
+        'id'   => "{$prefix}cta_url",
+        'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
+        'type' => 'url',
+      ),
       // TEXT
       array(
-        'name'  => __( 'Custom CTA Button Text', 'socrata-events' ),
+        'name'  => __( 'Custom CTA Button Text', 'socrata_events_' ),
         'id'    => "{$prefix}custom_cta",
-        'desc' => __( '(Optional) For Socrata events. Example: RSVP', 'socrata-events' ),
+        'desc' => __( 'Example: More Information', 'socrata_events_' ),
         'type'  => 'text',
         'clone' => false,
+      ),                
+      // HEADING
+      array(
+        'type' => 'heading',
+        'name' => esc_html__( 'Event Content', 'socrata_events_' ),
+        'desc' => esc_html__( 'Enter a URL for non-socrata events', 'socrata_events_' ),
       ),
-    )
-  );
 
-  $meta_boxes[] = array(
-    'title'         => 'Socrata Event Content',   
-    'post_types'    => 'socrata_events',
-    'context'       => 'normal',
-    'priority'      => 'high',
-      'fields' => array(
-        array(
+      // WYSIWYG/RICH TEXT EDITOR
+      array(
+        'name'    => esc_html__( 'Socrata Event Content', 'socrata_events_' ),
         'id'      => "{$prefix}wysiwyg",
         'type'    => 'wysiwyg',
         // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
@@ -397,66 +411,14 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         // Editor settings, see wp_editor() function: look4wp.com/wp_editor
         'options' => array(
           'textarea_rows' => 15,
-          'teeny'         => false,
-          'media_buttons' => true,
+          'teeny'         => true,
+          'media_buttons' => false,
         ),
       ),
-    ),
+
+    )
   );
 
-  $meta_boxes[] = array(
-    'title'         => 'Speakers',   
-    'post_types'    => 'socrata_events',
-    'context'       => 'normal',
-    'priority'      => 'high',
-      'fields' => array(
-        // HEADING
-        array(
-          'type' => 'heading',
-          'name' => __( 'Speaker Info', 'socrata-events' ),
-          'id'   => 'fake_id', // Not used but needed for plugin
-        ),
-        array(
-        'id'     => "{$prefix}speakers",
-        'type'   => 'group',
-        'clone'  => true,
-        'sort_clone' => true,
-        // Sub-fields
-        'fields' => array(
-          array(
-            'name' => __( 'Name', 'socrata-events' ),
-            'id'   => "{$prefix}speaker_name",
-            'type' => 'text',
-          ),
-          array(
-            'name' => __( 'Title', 'socrata-events' ),
-            'id'   => "{$prefix}speaker_title",
-            'type' => 'text',
-          ),
-          // IMAGE ADVANCED (WP 3.5+)
-          array(
-            'name'             => __( 'Headshot', 'socrata-events' ),
-            'id'               => "{$prefix}speaker_headshot",
-            'desc' => __( 'Minimum size 300x300 pixels.', 'socrata-events' ),
-            'type'             => 'image_advanced',
-            'max_file_uploads' => 1,
-          ),
-          // WYSIWYG/RICH TEXT EDITOR
-          array(
-            'name'    => __( 'Bio', 'socrata-events' ),
-            'id'      => "{$prefix}what_the",
-            'type'    => 'wysiwyg',
-            'raw'     => false,
-            'options' => array(
-              'textarea_rows' => 4,
-              'teeny'         => false,
-              'media_buttons' => false,
-            ),
-          ),
-        ),
-      ), 
-    ),
-  );
   return $meta_boxes;
 }
 
@@ -464,77 +426,142 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 function events_posts($atts, $content = null) {
   ob_start();
   ?>
-<section class="section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-12 margin-bottom-30">
-        <div class="padding-15 background-light-grey-4">
-          <ul class="filter-bar">
-            <li><?php echo facetwp_display( 'facet', 'event_categories_dropdown' ); ?></li>
-            <li><button onclick="FWP.reset()" class="btn btn-primary"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
-          </ul>
-        </div>          
-      </div>
-
-      <div class="col-sm-8">
-        <?php echo do_shortcode('[facetwp template="events"]') ;?>        
-      </div>
-      <div class="col-sm-4 hidden-xs events-sidebar">
-        <div class="alert alert-info margin-bottom-30">
-          <strong>Let's meet up!</strong> See an event in your area and want to meet with us? <a href="mailto:events@socrata.com">Send us an email.</a>
+  <section class="section-padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="font-light margin-bottom-60">Events Calendar</h1>
         </div>
-        <?php echo do_shortcode('[newsletter-sidebar]'); ?> 
-       
+
         <?php
+
+        $today = strtotime('today UTC');
         $args = array(
-        'post_type'         => 'post',
-        'order'             => 'desc',
-        'posts_per_page'    => 5,
-        'post_status'       => 'publish',
+          'post_type' => 'socrata_events',
+          'post_status' => 'publish',
+          'ignore_sticky_posts' => true,
+          'meta_key' => 'socrata_events_starttime',
+          'orderby' => 'meta_value_num',
+          'order' => 'asc',
+          'posts_per_page' => 1,
+          'meta_query' => array(
+              'relation' => 'AND',
+              array(
+                'key' => 'socrata_events_endtime',
+                'value' => $today,
+                'compare' => '>='
+              )
+            )
+        );
+        $args2 = array(
+          'post_type' => 'socrata_events',
+          'post_status' => 'publish',
+          'ignore_sticky_posts' => true,
+          'meta_key' => 'socrata_events_starttime',
+          'orderby' => 'meta_value_num',
+          'order' => 'asc',
+          'posts_per_page' => 100,
+          'offset' => 1,
+          'meta_query' => array(
+              'relation' => 'AND',
+              array(
+                'key' => 'socrata_events_endtime',
+                'value' => $today,
+                'compare' => '>='
+              )
+            )
         );
 
         // The Query
-        $the_query = new WP_Query( $args );
+        $query1 = new WP_Query( $args );
 
-        // The Loop
-        if ( $the_query->have_posts() ) {
-        echo '<ul class="no-bullets sidebar-list">';
-        echo '<li><h5>Recent Articles</h5></li>';
-        while ( $the_query->have_posts() ) {
-        $the_query->the_post(); { ?> 
-
-        <?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'thumbnail' ); $url = $thumb['0'];?>
-        <li>
-          <div class="article-img-container">
-            <a href="<?php the_permalink() ?>"><img src="<?=$url?>" class="img-responsive"></a>
-          </div>
-          <div class="article-title-container">
-            <a href="<?php the_permalink() ?>"><?php the_title(); ?></a><br><small><?php the_time('F j, Y') ?></small>
-          </div>
-        </li>
-
-        <?php }
+        if ( $query1->have_posts() ) {          
+          echo '<div class="col-sm-12">';
+          // The Loop
+          while ( $query1->have_posts() ) {
+            $query1->the_post();
+            $date = rwmb_meta( 'socrata_events_starttime' );
+            $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' );
+            $url = $thumb['0'];
+            $img_id = get_post_thumbnail_id(get_the_ID());
+            $alt_text = get_post_meta($img_id , '_wp_attachment_image_alt', true);
+            $city = rwmb_meta( 'socrata_events_locality' );
+            $state = rwmb_meta( 'socrata_events_administrative_area_level_1_short' ); ?>
+              <div class="feature-event">
+                <div class="feature-event-image">
+                  <img src="<?php echo $url;?>" <?php if ( ! empty($alt_text) ) { ?> alt="<?php echo $alt_text;?>" <?php } ;?> class="img-responsive">
+                </div>
+                <div class="feature-event-meta">
+                  <div class="date">
+                    <div class="day"><?php echo date('j', $date);?></div>
+                    <div class="month"><?php echo date('M', $date);?></div>
+                  </div>
+                  <div class="meta">
+                    <div class="category"><?php events_the_categories(); ?></div>
+                    <h3 class="title"><?php the_title(); ?></h3>
+                    <div class="location"><?php echo $city;?>, <?php echo $state;?></div>
+                  </div>
+                </div>
+                <a href="<?php the_permalink() ?>" class="link"></a>
+                <?php echo do_shortcode('[image-attribution]'); ?>
+              </div>
+            <?php
+          }
+          wp_reset_postdata();
+          echo '</div>';
+        } else { ?>
+            <div class="col-sm-12">
+              <div class="alert alert-info">
+                <strong>No events are scheduled at this time.</strong> Do you know of an event we should attend? Suggest an event.
+              </div>
+            </div>
+          <?php
         }
-        echo '<li><a href="/blog">View blog <i class="fa fa-arrow-circle-o-right"></i></a></li>';
-        echo '</ul>';
-        } else {
-        // no posts found
-        }
-        /* Restore original Post Data */
-        wp_reset_postdata(); ?>
+
+        /* The 2nd Query */
+        $query2 = new WP_Query( $args2 );
+
+        if ( $query2->have_posts() ) { ?>
+          <div class="col-sm-12 col-md-10 col-md-offset-1">
+          <h2 class="font-light margin-bottom-30 padding-bottom-30" style="border-bottom:#ebebeb solid 1px">Additional Events</h2>
+          <table class="events-list">
+          <?php
+
+          // The 2nd Loop
+          while ( $query2->have_posts() ) {
+            $query2->the_post();
+            $date = rwmb_meta( 'socrata_events_starttime' );
+            $city = rwmb_meta( 'socrata_events_locality' );
+            $state = rwmb_meta( 'socrata_events_administrative_area_level_1_short' ); ?>
+
+            <tr class="event">
+            <td class="date">
+            <div class="day"><?php echo date('j', $date);?></div>
+            <div class="month"><?php echo date('M', $date);?></div>
+            <a href="<?php the_permalink() ?>"></a>
+            </td>
+            <td class="meta">
+            <div class="category"><?php events_the_categories(); ?></div>
+            <h3 class="title"><?php the_title(); ?></h3>
+            <div class="location"><?php echo $city;?>, <?php echo $state;?></div>   
+            <a href="<?php the_permalink() ?>"></a>         
+            </td>
+            </tr>
+
+            <?php
+          }
+          wp_reset_postdata(); ?>
+          </table>
+          </div>
+          <?php
+        } 
+
+        ?>
+
       </div>
     </div>
-    <div class="row display-settings-bar">
-        <div class="col-sm-12">
-          <ul class="list-table">
-            <li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
-            <li class="text-right"><small>Showing: <?php echo do_shortcode('[facetwp counts="true"]') ;?></small></li>
-          </ul>          
-        </div>
-      </div>
-  </div>
-</section>
-<script>!function(n){n(function(){FWP.loading_handler=function(){}})}(jQuery);</script>
+  </section>
+
   <?php
   $content = ob_get_contents();
   ob_end_clean();
