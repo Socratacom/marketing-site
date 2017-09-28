@@ -9,7 +9,7 @@ $date = rwmb_meta( 'socrata_events_endtime' );
 $venue = rwmb_meta( 'socrata_events_venue' );
 $website = rwmb_meta( 'socrata_events_url' );
 $geometry = rwmb_meta( 'socrata_events_geometry' );
-$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image' );
+$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' );
 $url = $thumb['0'];
 $logo = rwmb_meta( 'socrata_events_brand', 'size=medium' );
 ?>
