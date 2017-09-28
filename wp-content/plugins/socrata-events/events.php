@@ -417,8 +417,8 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         // Editor settings, see wp_editor() function: look4wp.com/wp_editor
         'options' => array(
           'textarea_rows' => 15,
-          'teeny'         => true,
-          'media_buttons' => false,
+          'teeny'         => false,
+          'media_buttons' => true,
         ),
       ),
     )
