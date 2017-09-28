@@ -12,6 +12,7 @@ $geometry = rwmb_meta( 'socrata_events_geometry' );
 $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature-image' );
 $url = $thumb['0'];
 $logo = rwmb_meta( 'socrata_events_brand', 'size=medium' );
+$content = rwmb_meta( 'socrata_events_wysiwyg' );
 ?>
 
 <?php if($date < $today) { ?>
@@ -39,7 +40,9 @@ $logo = rwmb_meta( 'socrata_events_brand', 'size=medium' );
       </div>
     </div>
   </section>
-  <div class="event-feature-image" style="width:100%; background-image:url(<?php echo $url;?>); background-repeat: no-repeat; background-position: center; background-size: cover;"></div>
+  <div class="event-feature-image" style="width:100%; background-image:url(<?php echo $url;?>); background-repeat: no-repeat; background-position: center; background-size: cover; position:relative;">
+    <div style="position:absolute; bottom:5px; right:15px; display:inline-block; color:#fff;"><?php echo do_shortcode('[image-attribution]'); ?></div>
+  </div>
   <section id="meta" class="section-padding">
     <div class="container">
       <div class="row">
@@ -80,7 +83,7 @@ $logo = rwmb_meta( 'socrata_events_brand', 'size=medium' );
               <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw&callback=initialize"></script>
             </div>    
           </div>
-          <?php echo rwmb_meta( 'socrata_events_wysiwyg' );?>
+          <?php if ( ! empty($content) ) echo $content;?>
         </div>
       </div>
     </div>
