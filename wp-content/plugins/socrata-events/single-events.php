@@ -86,9 +86,14 @@ $form_text = rwmb_meta( 'socrata_events_form_text' );
               <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw&callback=initialize"></script>
             </div>    
           </div>
-          <div class="margin-bottom-60">
-            <?php if ( ! empty($content) ) echo $content;?>
-          </div>
+          
+          <?php if ( ! empty($content) ) { ?> 
+            <div class="margin-bottom-60">
+              <hr/>
+              <?php echo $content;?>
+            </div>
+          <?php };?>
+
         </div>
 
         <?php if ( ! empty( $form ) ) { ?>
