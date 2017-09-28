@@ -47,7 +47,7 @@ $logo = rwmb_meta( 'socrata_events_brand', 'size=medium' );
           <?php if ( ! empty( $logo ) ) { ?><div class="sixteen-nine margin-bottom-60" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>); background-size:contain; background-repeat:no-repeat; background-position:left center; position:relative; width:200px;"></div><?php } ?>
           
           <?php if ( ! empty($website) ) 
-            echo '<h5 class="text-uppercase margin-bottom-0">Website</h5>';
+            echo '<h5 class="text-uppercase margin-bottom-0">Website:</h5>';
             echo '<p><a href="' . $website . '" target="_blank">'.$website.'</a></p>';
           ?>
           <h5 class="text-uppercase margin-bottom-0">Venue:</h5>
