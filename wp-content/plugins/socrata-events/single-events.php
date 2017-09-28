@@ -13,6 +13,9 @@ $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'feature
 $url = $thumb['0'];
 $logo = rwmb_meta( 'socrata_events_brand', 'size=medium' );
 $content = rwmb_meta( 'socrata_events_wysiwyg' );
+$form = rwmb_meta( 'socrata_events_form' );
+$form_title = rwmb_meta( 'socrata_events_form_title' );
+$form_text = rwmb_meta( 'socrata_events_form_text' );
 ?>
 
 <?php if($date < $today) { ?>
@@ -46,7 +49,7 @@ $content = rwmb_meta( 'socrata_events_wysiwyg' );
   <section id="meta" class="section-padding">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 col-md-8 col-md-offset-2">
+        <div class="col-sm-12 <?php if ( ! empty( $form ) ) { ?>col-md-8<?php } else { ?>col-md-8 col-md-offset-2<?php };?>">
           <?php if ( ! empty( $logo ) ) { ?><div class="sixteen-nine margin-bottom-60" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>); background-size:contain; background-repeat:no-repeat; background-position:left center; position:relative; width:200px;"></div><?php } ?>
           
           <?php if ( ! empty($website) ) 
@@ -83,8 +86,29 @@ $content = rwmb_meta( 'socrata_events_wysiwyg' );
               <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw&callback=initialize"></script>
             </div>    
           </div>
-          <?php if ( ! empty($content) ) echo $content;?>
+          <div class="margin-bottom-60">
+            <?php if ( ! empty($content) ) echo $content;?>
+          </div>
         </div>
+
+        <?php if ( ! empty( $form ) ) { ?>
+        <div class="col-sm-12 col-md-4">
+          <div class="padding-30 background-light-grey-4">
+            <?php if ( ! empty($form_title) ) echo '<h4 class="margin-bottom-15">'.$form_title.'</h5>';?>
+            <?php if ( ! empty($form_text) ) echo '<p>'.$form_text.'</p>';?>
+            <?php if ( ! empty( $form ) ) { 
+              $str = $form;
+              $str = preg_replace('#^https?://go.socrata.com/l/303201/#', '', $str);
+              ?> 
+              <iframe id="formIframe" style="width: 100%; border: 0;" src="https://go.pardot.com/l/303201/<?php echo $str;?>" scrolling="no"></iframe>
+              <script>iFrameResize({log:true}, '#formIframe')</script>
+              <?php } 
+            ?>
+
+          </div>
+        </div>
+        <?php };?>
+
       </div>
     </div>
   </section>
