@@ -1,6 +1,6 @@
 <?php
 
-class FacetWP_Facet
+class FacetWP_Renderer
 {
 
     /* (array) Data for the currently-selected facets */
@@ -11,6 +11,9 @@ class FacetWP_Facet
 
     /* (array) WP_Query arguments */
     public $query_args;
+
+    /* (string) MySQL WHERE clause passed to each facet */
+    public $where_clause = '';
 
     /* (array) AJAX parameters passed in */
     public $ajax_params;
@@ -41,7 +44,6 @@ class FacetWP_Facet
     function render( $params ) {
         global $wpdb;
 
-
         $output = array(
             'facets'        => array(),
             'template'      => '',
@@ -51,19 +53,33 @@ class FacetWP_Facet
         // Hook params
         $params = apply_filters( 'facetwp_render_params', $params );
 
-        // Validate facets
-        $this->facets = array();
-        foreach ( $params['facets'] as $f ) {
-            $facet = FWP()->helper->get_facet_by_name( $f['facet_name'] );
-            if ( false !== $facet ) {
-                $facet['selected_values'] = esc_sql( $f['selected_values'] );
-                $this->facets[ $f['facet_name'] ] = $facet;
-            }
-        }
+        // First ajax refresh?
+        $first_load = (bool) $params['first_load'];
+        $is_bfcache = (bool) $params['is_bfcache'];
+
+        // Initial pageload?
+        $this->is_preload = isset( $params['is_preload'] );
 
         // Set the AJAX and HTTP params
         $this->ajax_params = $params;
         $this->http_params = $params['http_params'];
+
+        // Validate facets
+        $this->facets = array();
+        foreach ( $params['facets'] as $f ) {
+            $name = $f['facet_name'];
+            $facet = FWP()->helper->get_facet_by_name( $name );
+            if ( $facet ) {
+
+                // Support the "facetwp_preload_url_vars" hook
+                if ( $first_load && empty( $f['selected_values'] ) && ! empty( $this->http_params['url_vars'][ $name ] ) ) {
+                    $f['selected_values'] = $this->http_params['url_vars'][ $name ];
+                }
+
+                $facet['selected_values'] = esc_sql( $f['selected_values'] );
+                $this->facets[ $name ] = $facet;
+            }
+        }
 
         // Get the template from $helper->settings
         if ( 'wp' == $params['template'] ) {
@@ -80,65 +96,66 @@ class FacetWP_Facet
             $this->is_search = true;
         }
 
-        // Get the template "query" field
-        $this->query_args = apply_filters( 'facetwp_query_args', $query_args, $this );
+        // Run the query once (prevent duplicate queries when preloading)
+        if ( empty( $this->query_args ) ) {
 
-        // First load?
-        $first_load = (bool) $params['first_load'];
-        $is_bfcache = (bool) $params['is_bfcache'];
+            // Pagination
+            $page = empty( $params['paged'] ) ? 1 : (int) $params['paged'];
 
-        // Pagination
-        $page = empty( $params['paged'] ) ? 1 : (int) $params['paged'];
+            // Get the template "query" field
+            $this->query_args = apply_filters( 'facetwp_query_args', $query_args, $this );
 
-        $this->query_args['paged'] = $page;
+            $this->query_args['paged'] = $page;
 
-        // Narrow the posts based on the selected facets
-        $post_ids = $this->get_filtered_post_ids();
+            // Narrow the posts based on the selected facets
+            $post_ids = $this->get_filtered_post_ids();
 
-        // Update the SQL query
-        if ( ! empty( $post_ids ) ) {
-            $this->query_args['post__in'] = $post_ids;
-        }
-
-        // Sort handler
-        $sort_value = 'default';
-        if ( ! empty( $params['extras']['sort'] ) ) {
-            $sort_value = $params['extras']['sort'];
-            $this->sort_options = $this->get_sort_options();
-            if ( ! empty( $this->sort_options[ $sort_value ] ) ) {
-                $args = $this->sort_options[ $sort_value ]['query_args'];
-                $this->query_args = array_merge( $this->query_args, $args );
+            // Update the SQL query
+            if ( ! empty( $post_ids ) ) {
+                $this->query_args['post__in'] = $post_ids;
+                $this->where_clause = "AND post_id IN (" . implode( ',', $post_ids ) . ")";
             }
-        }
 
-        // Sort the results by relevancy
-        $use_relevancy = apply_filters( 'facetwp_use_search_relevancy', true, $this );
-        if ( $this->is_search && $use_relevancy && 'default' == $sort_value && empty( $this->http_params['get']['orderby'] ) ) {
-            $this->query_args['orderby'] = 'post__in';
-        }
+            // Sort handler
+            $sort_value = 'default';
+            $this->sort_options = $this->get_sort_options();
+            if ( ! empty( $params['extras']['sort'] ) ) {
+                $sort_value = $params['extras']['sort'];
+                if ( ! empty( $this->sort_options[ $sort_value ] ) ) {
+                    $args = $this->sort_options[ $sort_value ]['query_args'];
+                    $this->query_args = array_merge( $this->query_args, $args );
+                }
+            }
 
-        // Set the default limit
-        if ( empty( $this->query_args['posts_per_page'] ) ) {
-            $this->query_args['posts_per_page'] = (int) get_option( 'posts_per_page' );
-        }
+            // Sort the results by relevancy
+            $use_relevancy = apply_filters( 'facetwp_use_search_relevancy', true, $this );
+            if ( $this->is_search && $use_relevancy && 'default' == $sort_value && empty( $this->http_params['get']['orderby'] ) ) {
+                $this->query_args['orderby'] = 'post__in';
+            }
 
-        // Adhere to the "per page" box
-        $per_page = isset( $params['extras']['per_page'] ) ? $params['extras']['per_page'] : '';
-        if ( ! empty( $per_page ) && 'default' != $per_page ) {
-            $this->query_args['posts_per_page'] = (int) $per_page;
-        }
+            // Set the default limit
+            if ( empty( $this->query_args['posts_per_page'] ) ) {
+                $this->query_args['posts_per_page'] = (int) get_option( 'posts_per_page' );
+            }
 
-        // Run the WP_Query
-        $this->query = new WP_Query( $this->query_args );
+            // Adhere to the "per page" box
+            $per_page = isset( $params['extras']['per_page'] ) ? $params['extras']['per_page'] : '';
+            if ( ! empty( $per_page ) && 'default' != $per_page ) {
+                $this->query_args['posts_per_page'] = (int) $per_page;
+            }
 
-        // Debug
-        if ( 'on' == FWP()->helper->get_setting( 'debug_mode', 'off' ) ) {
-            $output['settings']['debug'] = array(
-                'query_args'    => $this->query_args,
-                'sql'           => $this->query->request,
-                'facets'        => $this->facets,
-                'template'      => $this->template,
-            );
+            // Run the WP_Query
+            $this->query = new WP_Query( $this->query_args );
+
+            // Debug
+            if ( 'on' == FWP()->helper->get_setting( 'debug_mode', 'off' ) ) {
+                $output['settings']['debug'] = array(
+                    'query_args'    => $this->query_args,
+                    'sql'           => $this->query->request,
+                    'facets'        => $this->facets,
+                    'template'      => $this->template,
+                );
+            }
         }
 
         // Generate the template HTML
@@ -155,7 +172,7 @@ class FacetWP_Facet
 
         // Calculate pager args
         $pager_args = array(
-            'page'          => (int) $page,
+            'page'          => (int) $this->query_args['paged'],
             'per_page'      => (int) $this->query_args['posts_per_page'],
             'total_rows'    => (int) $this->query->found_posts,
             'total_pages'   => 1,
@@ -196,8 +213,6 @@ class FacetWP_Facet
             $output['sort'] = $this->get_sort_html();
         }
 
-        $where_clause = empty( $post_ids ) ? '' : "AND post_id IN (" . implode( ',', $post_ids ) . ")";
-
         // Get facet data
         foreach ( $this->facets as $facet_name => $the_facet ) {
             $facet_type = $the_facet['type'];
@@ -221,7 +236,7 @@ class FacetWP_Facet
 
             $args = array(
                 'facet' => $the_facet,
-                'where_clause' => $where_clause,
+                'where_clause' => $this->where_clause,
                 'selected_values' => $the_facet['selected_values'],
             );
 
@@ -331,7 +346,8 @@ class FacetWP_Facet
         // Determine whether we need to store unfiltered post IDs
         $store_ids = apply_filters( 'facetwp_store_unfiltered_post_ids', false );
 
-        if ( $store_ids ) {
+        // Store post IDs on pageload (since we don't know yet which facets to use)
+        if ( $store_ids || $this->is_preload ) {
             FWP()->unfiltered_post_ids = $post_ids;
         }
 

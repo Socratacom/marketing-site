@@ -22,6 +22,7 @@ final class FacetWP_Helper
         $this->settings = $this->load_settings();
 
         // custom facet types
+        include( FACETWP_DIR . '/includes/facets/base.php' );
         include( FACETWP_DIR . '/includes/facets/autocomplete.php' );
         include( FACETWP_DIR . '/includes/facets/checkboxes.php' );
         include( FACETWP_DIR . '/includes/facets/date_range.php' );

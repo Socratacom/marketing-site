@@ -1,16 +1,16 @@
 <section class="home-masthead">
 <div class="slider">    
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-smart.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-hospital.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">5 Smart Habits for Public Data Programs</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">dataMontgomery's Victoria Lewis talks data owners, standards, and more. </h4>
+							<h1 class="color-white margin-bottom-15">17,000 Hours Saved by Hospitals</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Washington State hospitals save FTE hours with open credentials dataset.</h4>
 							<ul class="cta-list">
-								<li><a href="/blog/5-habits-successful-public-data-programs/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://youtu.be/LmM82_EDXkg" class="btn btn-primary outline-white" target="_blank">Watch Video <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="http://statescoop.com/monthly/open-gov-leaders-you-need-to-know" class="btn btn-primary outline-white" target="_blank">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="https://data.wa.gov/Health/Health-Care-Provider-Credential-Data/qxh8-f4bd" class="btn btn-primary outline-white" target="_blank">See Data <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -18,17 +18,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-silicon-valley.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-data-leaders.jpg)">
 		<div class="text">
 			<div class="vertical-center">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-8 col-md-6">
-							<h1 class="color-white margin-bottom-15">Making Silicon Valley Affordable for All</h1>
-							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Housing needs and food costs take top priority in San Mateo County.</h4>
+							<h1 class="color-white margin-bottom-15">Open Government Leaders to Know</h1>
+							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Twelve Socrata customers recognized for open government leadership.</h4>
 							<ul class="cta-list">
-								<li><a href="/case-study/making-silicon-valley-place-everyone-can-live/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-								<li><a href="https://data.smcgov.org/" class="btn btn-primary outline-white" target="_blank">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="http://statescoop.com/monthly/open-gov-leaders-you-need-to-know" class="btn btn-primary outline-white" target="_blank">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/newsroom" class="btn btn-primary outline-white">Visit Newsroom <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -36,17 +36,17 @@
 			</div>
 		</div>
 	</div>
-	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-nola.jpg)">
+	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-info-graphic.jpg)">
         <div class="text">
             <div class="vertical-center">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-8 col-md-6">
-                            <h1 class="color-white margin-bottom-15">NOLAlytics Asks Departments to Suggest Projects</h1>
-                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Oliver Wise and his New Orleans data analytics team request city staffs' best ideas.</h4>
+                            <h1 class="color-white margin-bottom-15">Infographic Showcases Massachusetts' ROI</h1>
+                            <h4 class="color-white text-normal hidden-xs margin-bottom-0">Comptroller Shack's open finance site CTHRU sparks cost savings and public engagement.</h4>
                             <ul class="cta-list">
-                                <li><a href="/blog/new-orleans-calls-for-data-projects-to-improve-city/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-                                <li><a href="https://datadriven.nola.gov/nolalytics/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="/blog/infographic-massachusetts-cost-savings-open-finance/" class="btn btn-primary outline-white">See Infographic <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+                                <li><a href="http://www.mass.gov/comptroller/cthru/" target="_blank" class="btn btn-primary outline-white">Visit Site <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
