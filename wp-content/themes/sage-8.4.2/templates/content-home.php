@@ -9,7 +9,7 @@
 							<h1 class="color-white margin-bottom-15">17,000 Hours Saved by Hospitals</h1>
 							<h4 class="color-white text-normal hidden-xs margin-bottom-0">Washington State hospitals save FTE hours with open credentials dataset.</h4>
 							<ul class="cta-list">
-								<li><a href="http://statescoop.com/monthly/open-gov-leaders-you-need-to-know" class="btn btn-primary outline-white" target="_blank">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
+								<li><a href="/blog/17000-hours-of-hospital-staff-time-saved-per-year-with-credentials-dataset/" class="btn btn-primary outline-white">Read Story <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 								<li><a href="https://data.wa.gov/Health/Health-Care-Provider-Credential-Data/qxh8-f4bd" class="btn btn-primary outline-white" target="_blank">See Data <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
