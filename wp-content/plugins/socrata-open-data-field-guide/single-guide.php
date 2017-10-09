@@ -1,7 +1,7 @@
 <section class="section-padding">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12 col-md-7 col-md-offset-1">
+      <div class="col-sm-8">
         <h1 class="margin-bottom-15"><?php the_title(); ?></h1>
         <div class="margin-bottom-30"><?php echo do_shortcode('[addthis]');?></div>
         <?php the_content(); ?>
@@ -13,7 +13,7 @@
         next_post_link('<p><strong><small>PREVIOUS CHAPTER:</small><br>%link</strong></p>');
         }?>-->
       </div>
-      <div class="col-md-3 hidden-sm hidden-xs">
+      <div class="col-sm-4 hidden-sm hidden-xs">
         <div class="category-nav">
           <h5>Guide Chapters</h5>
           <?php wp_nav_menu( array( 'theme_location' => 'field_guide' ) ); ?>
