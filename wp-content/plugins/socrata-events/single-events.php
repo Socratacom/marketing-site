@@ -16,6 +16,8 @@ $content = rwmb_meta( 'socrata_events_wysiwyg' );
 $form = rwmb_meta( 'socrata_events_form' );
 $form_title = rwmb_meta( 'socrata_events_form_title' );
 $form_text = rwmb_meta( 'socrata_events_form_text' );
+$cta_url = rwmb_meta( 'socrata_events_cta_url' );
+$button_text = rwmb_meta( 'socrata_events_button_text' );
 ?>
 
 <?php if($date < $today) { ?>
@@ -49,7 +51,7 @@ $form_text = rwmb_meta( 'socrata_events_form_text' );
   <section id="meta" class="section-padding">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 <?php if ( ! empty( $form ) ) { ?>col-md-8<?php } else { ?>col-md-8 col-md-offset-2<?php };?>">
+        <div class="col-sm-12 <?php if ( ! empty( $form ) ) { ?>col-md-8<?php } elseif ( ! empty( $cta_url ) ) { ?>col-md-8<?php } else { ?>col-md-8 col-md-offset-2<?php };?>">
           <?php if ( ! empty( $logo ) ) { ?><div class="sixteen-nine margin-bottom-60" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>); background-size:contain; background-repeat:no-repeat; background-position:left center; position:relative; width:200px;"></div><?php } ?>
           
           <?php if ( ! empty($website) ) 
@@ -109,9 +111,17 @@ $form_text = rwmb_meta( 'socrata_events_form_text' );
               <script>iFrameResize({log:true}, '#formIframe')</script>
               <?php } 
             ?>
-
           </div>
         </div>
+        <?php } elseif (! empty( $cta_url ) ) { ?>
+        <div class="col-sm-12 col-md-4">
+          <div class="padding-30 background-light-grey-4">
+            <?php if ( ! empty($form_title) ) echo '<h4 class="margin-bottom-15">'.$form_title.'</h5>';?>
+            <?php if ( ! empty($form_text) ) echo '<p>'.$form_text.'</p>';?>
+            <?php if ( ! empty( $button_text ) )  { ?><p class="margin-bottom-0"><a href="<?php echo $cta_url;?>" target="_blank" class="btn btn-primary"><?php echo $button_text;?></a></p><?php } else { ?><p class="margin-bottom-0"><a href="<?php echo $cta_url;?>" target="_blank" class="btn btn-primary">submit</a></p><?php } ?>
+          </div>
+        </div>
+
         <?php };?>
 
       </div>

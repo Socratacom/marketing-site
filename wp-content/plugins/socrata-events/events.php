@@ -370,14 +370,14 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   );
 
   $meta_boxes[] = array(
-    'title'  => __( 'Event Form', 'socrata_events_' ),
+    'title'  => __( 'Event CTA', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
     'priority'   => 'high',
     'fields' => array(      
       // TEXT
       array(
-        'name'  => __( 'Form Title', 'socrata_events_' ),
+        'name'  => __( 'CTA Title', 'socrata_events_' ),
         'id'    => "{$prefix}form_title",
         'desc' => __( 'Example: RSVP', 'socrata_events_' ),
         'type'  => 'text',
@@ -385,7 +385,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       ),      
       // TEXT
       array(
-        'name'  => __( 'Form Text', 'socrata_events_' ),
+        'name'  => __( 'CTA Text', 'socrata_events_' ),
         'id'    => "{$prefix}form_text",
         'desc' => __( 'Example: Please fill out this form to RSVP.', 'socrata_events_' ),
         'type'  => 'text',
@@ -395,8 +395,23 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       array(
         'name' => esc_html__( 'Pardot Form', 'socrata_events_' ),
         'id'   => "{$prefix}form",
-        'desc' => esc_html__( 'http://go.socrata.com/l/303201/...', 'webinars_' ),
+        'desc' => esc_html__( 'ONLY FOR PARDOT. Example: http://go.socrata.com/l/303201/...', 'webinars_' ),
         'type' => 'url',
+      ),
+      // URL
+      array(
+        'name' => esc_html__( 'CTA URL', 'socrata_events_' ),
+        'id'   => "{$prefix}cta_url",
+        'desc' => esc_html__( 'For other than Pardot forms. Like Eventbrite.', 'webinars_' ),
+        'type' => 'url',
+      ),      
+      // TEXT
+      array(
+        'name'  => __( 'Button Text', 'socrata_events_' ),
+        'id'    => "{$prefix}button_text",
+        'desc' => __( 'Example: Submit', 'socrata_events_' ),
+        'type'  => 'text',
+        'clone' => false,
       ),
       
     )
