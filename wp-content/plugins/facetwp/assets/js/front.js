@@ -131,7 +131,7 @@ var FWP = FWP || {};
         }
 
         // Preload?
-        if (! FWP.loaded && 'undefined' !== typeof FWP_JSON.preload_data) {
+        if (! FWP.loaded && ! FWP.is_bfcache && 'undefined' !== typeof FWP_JSON.preload_data) {
             FWP.render(FWP_JSON.preload_data);
         }
         else {

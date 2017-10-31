@@ -9,6 +9,9 @@ final class FacetWP_Helper
     /* (array) Associative array of facet objects */
     public $facet_types;
 
+    /* (array) Cached data sources */
+    public $data_sources;
+
 
     /**
      * Backwards-compatibility
@@ -364,6 +367,12 @@ final class FacetWP_Helper
      * @since 2.2.1
      */
     function get_data_sources() {
+
+        // Return cached sources
+        if ( ! empty( $this->data_sources ) ) {
+            return $this->data_sources;
+        }
+
         global $wpdb;
 
         // Get excluded meta keys
@@ -416,6 +425,8 @@ final class FacetWP_Helper
         $sources = apply_filters( 'facetwp_facet_sources', $sources );
 
         uasort( $sources, array( $this, 'sort_by_weight' ) );
+
+        $this->data_sources = $sources;
 
         return $sources;
     }
