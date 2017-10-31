@@ -27,18 +27,12 @@ function setup() {
   // Register wp_nav_menu() menus
   // http://codex.wordpress.org/Function_Reference/register_nav_menus
   register_nav_menus([
+  	'site_nav_solutions' => __('Site Nav Solutions', 'sage'),
     'site_nav_products' => __('Site Nav Products', 'sage'), 
-    'site_nav_solutions' => __('Site Nav Solutions', 'sage'),
-    'site_nav_segments' => __('Site Nav Segments', 'sage'),
-    'site_nav_why_socrata' => __('Site Nav Why Socrata', 'sage'),
     'site_nav_services' => __('Site Nav Services', 'sage'),
-    'site_nav_resources' => __('Site Nav Resources', 'sage'),      
-    'site_nav_resources_mobile' => __('Site Nav Resources Mobile', 'sage'),
-    'site_nav_about' => __('Site Nav About', 'sage'),
-    'site_nav_company' => __('Site Nav Company', 'sage'),
+    'site_nav_resources' => __('Site Nav Resources', 'sage'),
     'site_nav_community' => __('Site Nav Community', 'sage'),
-    'site_nav_popular_links' => __('Site Nav Popular Links', 'sage'),
-    'product_nav_open_data' => __('Product Nav Open Data', 'sage'),
+    'site_nav_company' => __('Site Nav Company', 'sage'),
   ]);
 
   // Enable post thumbnails
