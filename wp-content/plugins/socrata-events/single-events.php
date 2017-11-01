@@ -99,8 +99,7 @@ $eventbrite = rwmb_meta( 'socrata_events_eventbrite' );
 
           <?php if ( ! empty($eventbrite) ) { ?> 
             <div class="margin-bottom-60">
-            	<iframe id="formIframe" style="width: 100%; border: 0;" src="//eventbrite.com/tickets-external?eid=<?php echo $eventbrite;?>&ref=etckt"></iframe>
-            	<script>iFrameResize({log:true}, '#formIframe')</script>
+            	<iframe id="formIframe" src="//eventbrite.com/tickets-external?eid=<?php echo $eventbrite;?>&ref=etckt" frameborder="0" height="308" width="100%" vspace="0" hspace="0" marginheight="5" marginwidth="5" scrolling="auto" allowtransparency="true"></iframe>
             </div>
           <?php };?>
 
