@@ -52,7 +52,7 @@ $eventbrite = rwmb_meta( 'socrata_events_eventbrite' );
   <section id="meta" class="section-padding">
     <div class="container">
       <div class="row">
-        <div class="col-sm-12 <?php if ( !empty ( $eventbrite ) ) { ?>col-md-12<?php } elseif ( ! empty( $form ) ) { ?>col-md-8<?php } elseif ( ! empty( $cta_url ) ) { ?>col-md-8<?php } else { ?>col-md-8 col-md-offset-2<?php };?>">
+        <div class="col-sm-12 <?php if ( !empty ( $eventbrite ) ) { ?>col-md-8 col-md-offset-2<?php } elseif ( ! empty( $form ) ) { ?>col-md-8<?php } elseif ( ! empty( $cta_url ) ) { ?>col-md-8<?php } else { ?>col-md-8 col-md-offset-2<?php };?>">
           <?php if ( ! empty( $logo ) ) { ?><div class="sixteen-nine margin-bottom-60" style="background-image:url(<?php foreach ( $logo as $image ) { echo $image['url']; } ?>); background-size:contain; background-repeat:no-repeat; background-position:left center; position:relative; width:200px;"></div><?php } ?>
           
           <?php if ( ! empty($website) ) 
