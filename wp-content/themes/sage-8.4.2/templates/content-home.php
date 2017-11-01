@@ -1,3 +1,4 @@
+<!--<?php echo do_shortcode('[homepage-features]');?>-->
 <section class="home-masthead">
 <div class="slider">    
 	<div class="slide" style="background-image:url(/wp-content/uploads/home-hero-hospital.jpg)">
