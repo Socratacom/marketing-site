@@ -369,7 +369,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
     )
   );
 
-  $meta_boxes[] = array(
+  /*$meta_boxes[] = array(
     'title'  => __( 'Event CTA', 'socrata_events_' ),
     'post_types' => 'socrata_events',
     'context'    => 'normal',
@@ -393,13 +393,6 @@ function socrata_events_register_meta_boxes( $meta_boxes )
       ),
       // URL
       array(
-        'name' => esc_html__( 'Pardot Form', 'socrata_events_' ),
-        'id'   => "{$prefix}form",
-        'desc' => esc_html__( 'ONLY FOR PARDOT. Example: http://go.socrata.com/l/303201/...', 'webinars_' ),
-        'type' => 'url',
-      ),
-      // URL
-      array(
         'name' => esc_html__( 'CTA URL', 'socrata_events_' ),
         'id'   => "{$prefix}cta_url",
         'desc' => esc_html__( 'For other than Pardot forms. Like Eventbrite.', 'webinars_' ),
@@ -414,6 +407,48 @@ function socrata_events_register_meta_boxes( $meta_boxes )
         'clone' => false,
       ),
       
+    )
+  );*/
+
+  $meta_boxes[] = array(
+    'title'  => __( 'Eventbrite', 'socrata_events_' ),
+    'post_types' => 'socrata_events',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(     
+    	// HEADING
+			array(
+				'type' => 'heading',
+				'name' => esc_html__( 'Eventbrite ID', 'socrata_events_' ),
+				'desc' => esc_html__( 'Use this option for Eventbrite registration forms. Enter the ID number ONLY from the "Your Event URL". Example: https://www.eventbrite.com/e/some-event-01234567890, enter only the "01234567890" ', 'socrata_events_' ),
+			),     
+      // NUMBER
+			array(
+				'name' => esc_html__( 'ID', 'socrata_events_' ),
+				'id'   => "{$prefix}eventbrite",
+				'type' => 'number',
+			),
+    )
+  );
+
+  $meta_boxes[] = array(
+    'title'  => __( 'Pardot', 'socrata_events_' ),
+    'post_types' => 'socrata_events',
+    'context'    => 'normal',
+    'priority'   => 'high',
+    'fields' => array(     
+    	// HEADING
+			array(
+				'type' => 'heading',
+				'name' => esc_html__( 'Pardot Form URL', 'socrata_events_' ),
+				'desc' => esc_html__( 'Use this option for Pardot forms. Enter the form url. Example: http://go.socrata.com/l/303201/...', 'socrata_events_' ),
+			),     
+      // URL
+      array(
+        'name' => esc_html__( 'URL', 'socrata_events_' ),
+        'id'   => "{$prefix}form",
+        'type' => 'url',
+      ),
     )
   );
 
