@@ -103,12 +103,37 @@ function socrata_events_cat() {
         'new_item_name' => "New Category"
       ),
       'show_ui' => true,
+      'show_in_menu' => false,
       'show_tagcloud' => false,
       'hierarchical' => true,
       'sort' => true,      
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'events-category'),
+    )
+  );
+}
+
+add_action( 'init', 'socrata_events_region', 0 );
+function socrata_events_region() {
+  register_taxonomy(
+    'socrata_events_region',
+    'socrata_events',
+    array(
+      'labels' => array(
+        'name' => 'Region',
+        'menu_name' => 'Region',
+        'add_new_item' => 'Add New Region',
+        'new_item_name' => "New Region"
+      ),
+      'show_ui' => true,
+      'show_in_menu' => false,
+      'show_tagcloud' => false,
+      'hierarchical' => true,
+      'sort' => true,      
+      'args' => array( 'orderby' => 'term_order' ),
+      'show_admin_column' => true,
+      'rewrite' => array('with_front' => false, 'slug' => 'events-region'),
     )
   );
 }
@@ -130,7 +155,7 @@ function socrata_events_single_template( $template_path ) {
   return $template_path;
 }
 
-// Print Taxonomy Categories
+// Print Taxonomy Names
 function events_the_categories() {
   // get all categories for this post
   global $terms;
@@ -625,6 +650,152 @@ function events_posts($atts, $content = null) {
 add_shortcode('current-events', 'events_posts');
 
 
+// Shortcode [cop-map]
+function cop_map($atts, $content = null) {
+  ob_start();
+  ?>
+    <script>jQuery(function(n){n(".map-button").click(function(){n(".overlay").hide()})});</script>
+    <script>
+    jQuery(function($) {
+        // Asynchronously Load the map API 
+        var script = document.createElement('script');
+        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw&callback=initialize";
+        document.body.appendChild(script);
+    });
+
+    function initialize() {
+        var map;
+        var bounds = new google.maps.LatLngBounds();
+        var mapOptions = {
+          scrollwheel: false,
+          styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}]
+        };
+                        
+        // Display a map on the page
+        map = new google.maps.Map(document.getElementById("events-map"), mapOptions);
+        map.setTilt(45);
+            
+        // Multiple Markers
+        var markers = [
+          <?php
+            $today = strtotime('today UTC');
+            $args = array(
+              'post_type' => 'socrata_events',
+              'socrata_events_cat' => 'community-of-practice',
+              'post_status' => 'publish',
+              'ignore_sticky_posts' => true,
+              'meta_key' => 'socrata_events_starttime',
+              'orderby' => 'meta_value_num',
+              'order' => 'asc',
+              "posts_per_page" => 100,
+              "meta_query" => array(    
+                array(
+                  'key'     => 'socrata_hidden_hide',
+                  'value' => '0',
+                ),
+                'relation' => 'AND',
+                array(
+                  "key" => "socrata_events_endtime",
+                  "value" => "$today",
+                  "compare" => ">="
+                )
+              )
+            );
+            $query = new WP_Query( $args );
+
+            // The Loop
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              $pin = rwmb_meta( 'socrata_events_geometry' ); { ?>
+              ['<?php the_title();?>',<?php echo $pin;?>],
+              <?php
+              };
+            }
+            wp_reset_postdata();
+          ?>
+        ];
+                            
+        // Info Window Content
+        var infoWindowContent = [
+        <?php
+            $today = strtotime('today UTC');
+            $args = array(
+              'post_type' => 'socrata_events',
+              'socrata_events_cat' => 'community-of-practice',
+              'post_status' => 'publish',
+              'ignore_sticky_posts' => true,
+              'meta_key' => 'socrata_events_starttime',
+              'orderby' => 'meta_value_num',
+              'order' => 'asc',
+              "posts_per_page" => 100,
+              "meta_query" => array(    
+                array(
+                  'key'     => 'socrata_hidden_hide',
+                  'value' => '0',
+                ),
+                'relation' => 'AND',
+                array(
+                  "key" => "socrata_events_endtime",
+                  "value" => "$today",
+                  "compare" => ">="
+                )
+              )
+            );
+            $query = new WP_Query( $args );
+
+            // The Loop
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              $displaydate = rwmb_meta( 'socrata_events_displaydate' );
+              ?>
+              ['<small style="text-transform:uppercase;"><?php events_the_categories(); ?></small><br><strong><a href="<?php the_permalink() ?>"><?php the_title();?></a></strong><br><?php echo $displaydate;?>']
+
+              <?php }
+            wp_reset_postdata();
+          ?>
+        ];
+            
+        // Display multiple markers on a map
+        var infoWindow = new google.maps.InfoWindow(), marker, i;
+        
+        // Loop through our array of markers & place each one on the map  
+        for( i = 0; i < markers.length; i++ ) {
+            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+            bounds.extend(position);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: markers[i][0]
+            });
+            
+            // Allow each marker to have an info window    
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infoWindow.setContent(infoWindowContent[i][0]);
+                    infoWindow.open(map, marker);
+                }
+            })(marker, i));
+
+            // Automatically center the map fitting all markers on the screen
+            map.fitBounds(bounds);
+        }
+
+        // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+            this.setZoom(4);
+            google.maps.event.removeListener(boundsListener);
+        });
+        
+    }
+    </script>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('events-map', 'events_map');
+
 // Shortcode [events-map]
 function events_map($atts, $content = null) {
   ob_start();
@@ -772,4 +943,94 @@ function events_map($atts, $content = null) {
   ob_end_clean();
   return $content;
 }
-add_shortcode('events-map', 'events_map');
+add_shortcode('cop-map', 'cop_map');
+
+
+
+
+
+// COP Query [ ]
+function cop_query($atts, $content = null) {
+  extract( shortcode_atts( array(
+    'region' => '',
+    ), $atts ) );
+    ob_start();
+    $today = strtotime('today UTC');
+    $args = array(
+    'post_type' => 'socrata_events',
+    'socrata_events_cat' => 'community-of-practice',
+    'socrata_events_region' => $region,
+		'post_status' => 'publish',
+    'ignore_sticky_posts' => true,
+    'meta_key' => 'socrata_events_starttime',
+    'orderby' => 'meta_value_num',
+    'order' => 'asc',
+    'posts_per_page' => 1,
+    'meta_query' => array(
+			'relation' => 'AND',
+			array(
+				'key' => 'socrata_events_endtime',
+				'value' => $today,
+				'compare' => '>='
+			)
+		)
+  );
+  
+$myquery = new WP_Query( $args );
+
+?>
+<div id="<?php echo $region;?>" class="col-sm-12 col-md-10 col-md-offset-1">
+<h3 class="margin-bottom-30"><?php $term = get_term_by( 'slug', $region, 'socrata_events_region' ); $name = $term->name; echo $name; ?></h3>
+<table class="events-list">
+<?php
+
+
+if($myquery->have_posts()) : 
+while($myquery->have_posts()) : 
+$myquery->the_post();
+$date = rwmb_meta( 'socrata_events_starttime' );
+$city = rwmb_meta( 'socrata_events_locality' );
+$state = rwmb_meta( 'socrata_events_administrative_area_level_1_short' );
+?>
+
+<tr class="event">
+<td class="date">
+<div class="day"><?php echo date('j', $date);?></div>
+<div class="month"><?php echo date('M', $date);?></div>
+<a href="<?php the_permalink() ?>"></a>
+</td>
+<td class="meta" style="border:none;">
+<div class="category"><?php events_the_categories(); ?></div>
+<h3 class="title"><?php the_title(); ?></h3>
+<div class="location"><?php echo $city;?>, <?php echo $state;?></div>   
+<a href="<?php the_permalink() ?>"></a>         
+</td>
+</tr>   
+
+<?php
+endwhile;
+else: 
+?>
+
+<div class="alert alert-info">
+No events are scheduled for <strong><?php echo $name;?></strong> at this time.
+</div>
+
+<?php
+endif;
+wp_reset_postdata();
+
+?>
+</table>
+<hr/>
+</div>
+
+<?php
+
+
+
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('cop-query', 'cop_query');

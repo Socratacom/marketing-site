@@ -43,7 +43,7 @@ function setup() {
   set_post_thumbnail_size( 360, 180, array( 'center', 'center')  );
   add_image_size( 'post-image', 850, 400, array( 'center', 'center'));  
   add_image_size( 'post-image-small', 360, 200, array( 'center', 'center'));
-  add_image_size( 'feature-image', 1140, 650, array( 'center', 'center'));
+  add_image_size( 'feature-image', 1600, 912, array( 'center', 'center'));
   add_image_size( 'full-width-ratio', 9999, 100 );
 
   // Enable post formats
