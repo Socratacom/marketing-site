@@ -799,6 +799,46 @@ function cop_map($atts, $content = null) {
             wp_reset_postdata();
           ?>
         ];
+
+        // Info Window Content
+        var infoWindowContent = [
+        <?php
+            $today = strtotime('today UTC');
+            $args = array(
+              'post_type' => 'socrata_events',
+              'socrata_events_cat' => 'community-of-practice',
+              'post_status' => 'publish',
+              'ignore_sticky_posts' => true,
+              'meta_key' => 'socrata_events_starttime',
+              'orderby' => 'meta_value_num',
+              'order' => 'asc',
+              "posts_per_page" => 100,
+              "meta_query" => array(    
+                array(
+                  'key'     => 'socrata_hidden_hide',
+                  'value' => '0',
+                ),
+                'relation' => 'AND',
+                array(
+                  "key" => "socrata_events_endtime",
+                  "value" => "$today",
+                  "compare" => ">="
+                )
+              )
+            );
+            $query = new WP_Query( $args );
+
+            // The Loop
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              $displaydate = rwmb_meta( 'socrata_events_displaydate' ); { ?>
+              ['<small style="text-transform:uppercase;"><?php events_the_categories(); ?></small><br><strong><a href="<?php the_permalink() ?>"><?php the_title();?></a></strong><br><?php echo $displaydate;?>'],
+              <?php 
+	            };
+	          }
+            wp_reset_postdata();
+          ?>
+        ];
                             
 
             
