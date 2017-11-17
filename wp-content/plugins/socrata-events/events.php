@@ -650,6 +650,157 @@ function events_posts($atts, $content = null) {
 add_shortcode('current-events', 'events_posts');
 
 
+
+// Shortcode [events-map]
+function events_map($atts, $content = null) {
+  ob_start();
+  ?>
+    <script>jQuery(function(n){n(".map-button").click(function(){n(".overlay").hide()})});</script>
+    <script>
+    jQuery(function($) {
+        // Asynchronously Load the map API 
+        var script = document.createElement('script');
+        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyD_STOs8I4L5GTLlDIu5aZ-pLs2L69wHMw&callback=initialize";
+        document.body.appendChild(script);
+    });
+
+    function initialize() {
+        var map;
+        var bounds = new google.maps.LatLngBounds();
+        var mapOptions = {
+          scrollwheel: false,
+          styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#93d2ec"},{"visibility":"on"}]}]
+        };
+                        
+        // Display a map on the page
+        map = new google.maps.Map(document.getElementById("events-map"), mapOptions);
+        map.setTilt(45);
+            
+        // Multiple Markers
+        var markers = [
+          <?php
+            $today = strtotime('today UTC');
+            $args = array(
+              'post_type' => 'socrata_events',
+              'post_status' => 'publish',
+              'ignore_sticky_posts' => true,
+              'meta_key' => 'socrata_events_starttime',
+              'orderby' => 'meta_value_num',
+              'order' => 'asc',
+              "posts_per_page" => 100,
+              "meta_query" => array(    
+                array(
+                  'key'     => 'socrata_hidden_hide',
+                  'value' => '0',
+                ),
+                'relation' => 'AND',
+                array(
+                  "key" => "socrata_events_endtime",
+                  "value" => "$today",
+                  "compare" => ">="
+                )
+              )
+            );
+            $query = new WP_Query( $args );
+
+            // The Loop
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              $pin = rwmb_meta( 'socrata_events_geometry' ); { ?>
+              ['<?php the_title();?>',<?php echo $pin;?>],
+              <?php
+              };
+            }
+            wp_reset_postdata();
+          ?>
+        ];
+                            
+        // Info Window Content
+        var infoWindowContent = [
+        <?php
+            $today = strtotime('today UTC');
+            $args = array(
+              'post_type' => 'socrata_events',
+              'post_status' => 'publish',
+              'ignore_sticky_posts' => true,
+              'meta_key' => 'socrata_events_starttime',
+              'orderby' => 'meta_value_num',
+              'order' => 'asc',
+              "posts_per_page" => 100,
+              "meta_query" => array(    
+                array(
+                  'key'     => 'socrata_hidden_hide',
+                  'value' => '0',
+                ),
+                'relation' => 'AND',
+                array(
+                  "key" => "socrata_events_endtime",
+                  "value" => "$today",
+                  "compare" => ">="
+                )
+              )
+            );
+            $query = new WP_Query( $args );
+
+            // The Loop
+            while ( $query->have_posts() ) {
+              $query->the_post();
+              $displaydate = rwmb_meta( 'socrata_events_displaydate' );
+              $eventsurl = rwmb_meta( 'socrata_events_url' ); { ?>                
+                <?php if ( has_term( 'socrata-event','socrata_events_cat' ) ) { ?>
+                  ['<small style="text-transform:uppercase;"><?php events_the_categories(); ?></small><br><strong><a href="<?php the_permalink() ?>"><?php the_title();?></a></strong><br><?php echo $displaydate;?>'],<?php }
+                  else { ?>
+                  ['<small style="text-transform:uppercase;"><?php events_the_categories(); ?></small><br><?php if ( ! empty( $eventsurl ) ) { ?><strong><a href="<?php echo $eventsurl;?>" target="_blank"><?php the_title();?></a></strong> <?php } else { ?><strong><?php the_title();?></strong><?php } ?><br><?php echo $displaydate;?>'],<?php }
+                ?>
+              <?php
+              };
+            }
+            wp_reset_postdata();
+          ?>
+        ];
+            
+        // Display multiple markers on a map
+        var infoWindow = new google.maps.InfoWindow(), marker, i;
+        
+        // Loop through our array of markers & place each one on the map  
+        for( i = 0; i < markers.length; i++ ) {
+            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+            bounds.extend(position);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: markers[i][0]
+            });
+            
+            // Allow each marker to have an info window    
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infoWindow.setContent(infoWindowContent[i][0]);
+                    infoWindow.open(map, marker);
+                }
+            })(marker, i));
+
+            // Automatically center the map fitting all markers on the screen
+            map.fitBounds(bounds);
+        }
+
+        // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+            this.setZoom(3);
+            google.maps.event.removeListener(boundsListener);
+        });
+        
+    }
+    </script>
+
+  <?php
+  $content = ob_get_contents();
+  ob_end_clean();
+  return $content;
+}
+add_shortcode('events-map', 'events_map');
+
+
 // COP Query [ ]
 function cop_query($atts, $content = null) {
   extract( shortcode_atts( array(
@@ -839,9 +990,7 @@ function cop_map($atts, $content = null) {
             wp_reset_postdata();
           ?>
         ];
-                            
 
-            
         // Display multiple markers on a map
         var infoWindow = new google.maps.InfoWindow(), marker, i;
         
