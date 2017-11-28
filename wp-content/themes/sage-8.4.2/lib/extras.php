@@ -315,13 +315,61 @@ add_action( 'admin_menu', __NAMESPACE__ . '\\socrata_widget_menu' );
 
 // Add a custom user role
 
-remove_role('client');
-remove_role('super_duper');
-remove_role('marketing');
-remove_role('test_one');
-remove_role('test_two');
-remove_role('moderator');
-remove_role('basic_contributor');
+add_role( 'marketing', __( 'Marketing' ),
+	array(
+		'delete_others_pages' => false,
+		'delete_others_posts' => true,
+		'delete_pages' => false,
+		'delete_posts' => true,
+		'delete_private_pages' => false,
+		'delete_private_posts' => true,
+		'delete_published_pages' => false,
+		'delete_published_posts' => true,
+		'edit_others_pages' => false,
+		'edit_others_posts' => true,
+		'edit_pages' => false,
+		'edit_posts' => true,
+		'edit_private_pages' => false,
+		'edit_private_posts' => true,
+		'edit_published_pages' => false,
+		'edit_published_posts' => true,
+		'manage_categories' => true,
+		'manage_links' => true,
+		'moderate_comments' => true,
+		'publish_pages' => false,
+		'publish_posts' => true,
+		'read' => true,
+		'read_private_pages' => false,
+		'read_private_posts' => true,
+		'upload_files' => true,
+	)
+);
+
+/*
+* Remove Menu Selections for Marketing Role
+*/
+
+function remove_admin_bar_links() {
+	global $wp_admin_bar, $current_user;
+	$user = wp_get_current_user();
+	if ( in_array( 'marketing', (array) $user->roles ) ) {
+		$wp_admin_bar->remove_menu('updates');          // Remove the updates link
+		$wp_admin_bar->remove_menu('comments');         // Remove the comments link
+		$wp_admin_bar->remove_menu('new-content');      // Remove the content link
+		$wp_admin_bar->remove_menu('wp-logo');          // Remove the WP Logo link
+		$wp_admin_bar->remove_menu('wpseo-menu');       // Remove the Yoast SEO menu
+	}
+}
+add_action( 'wp_before_admin_bar_render', __NAMESPACE__ . '\\remove_admin_bar_links' );
+
+function remove_admin_menu() {
+	$user = wp_get_current_user();
+		if ( in_array( 'marketing', (array) $user->roles ) ) {
+		remove_menu_page( 'edit-comments.php' );        // Comments
+		remove_menu_page('tools.php');                  // Tools
+	}
+}
+add_action( 'admin_menu', __NAMESPACE__ . '\\remove_admin_menu', 999 );
 
 
 /** SHORTCODES **/
