@@ -9,13 +9,15 @@ Author URI: http://socrata.com/
 License: GPLv2
 */
 
+// REGISTER POST TYPE
 add_action( 'init', 'create_socrata_downloads' );
+
 function create_socrata_downloads() {
   register_post_type( 'socrata_downloads',
     array(
       'labels' => array(
-        'name' => 'Papers and Guides',
-        'singular_name' => 'Papers and Guides',
+        'name' => 'Downloads',
+        'singular_name' => 'Downloads',
         'add_new' => 'Add New Asset',
         'add_new_item' => 'Add New Asset',
         'edit' => 'Edit Asset',
@@ -27,12 +29,11 @@ function create_socrata_downloads() {
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash'
       ),
-      'public' => true,
-      'menu_position' => 5,
+      'description' => 'Add downloadable gated content',
       'supports' => array( 'title','thumbnail'),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => false,
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'editorial-content',
       'rewrite' => array('with_front' => false, 'slug' => 'papers-and-guides')
     )
   );
@@ -78,18 +79,6 @@ function downloads_the_categories() {
   echo $terms[0]->name;
   // echo the remaining categories, appending separator
   for ($i = 1; $i < count($terms); $i++) {echo ', ' . $terms[$i]->name ;}
-}
-
-// MENU ICON
-//Using Dashicon Font https://developer.wordpress.org/resource/dashicons
-add_action( 'admin_head', 'add_socrata_downloads_icon' );
-function add_socrata_downloads_icon() { ?>
-  <style>
-    #adminmenu .menu-icon-socrata_downloads div.wp-menu-image:before {
-      content: '\f105';
-    }
-  </style>
-  <?php
 }
 
 // TEMPLATES

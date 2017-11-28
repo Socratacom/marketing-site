@@ -31,24 +31,14 @@ function create_socrata_events() {
       'menu_position' => 5,
       'supports' => array( 'title', 'thumbnail' ),
       'taxonomies' => array( '' ),
-      'menu_icon' => '',
+      'menu_icon' => 'dashicons-calendar',
       'has_archive' => false,
-      'rewrite' => array('with_front' => false, 'slug' => 'event')
+      'rewrite' => array('with_front' => false, 'slug' => 'event'),
     )
   );
 }
 
-// MENU ICON
-//Using Dashicon Font https://developer.wordpress.org/resource/dashicons
-add_action( 'admin_head', 'add_socrata_events_icon' );
-function add_socrata_events_icon() { ?>
-  <style>
-    #adminmenu .menu-icon-socrata_events div.wp-menu-image:before {
-      content: '\f508';
-    }
-  </style>
-  <?php
-}
+
 
 // CUSTOM COLUMS FOR ADMIN
 add_filter( 'manage_edit-socrata_events_columns', 'socrata_events_edit_columns' ) ;
@@ -817,7 +807,7 @@ function cop_query($atts, $content = null) {
     'meta_key' => 'socrata_events_starttime',
     'orderby' => 'meta_value_num',
     'order' => 'asc',
-    'posts_per_page' => 1,
+    'posts_per_page' => 10,
     'meta_query' => array(
 			'relation' => 'AND',
 			array(

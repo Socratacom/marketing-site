@@ -26,13 +26,12 @@ function create_socrata_webinars() {
         'search_items' => 'Search Webinars',
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash'
-      ),
-      'public' => true,
-      'menu_position' => 5,
+      ),            
+      'description' => 'Manages upcoming and on demand webinars',
       'supports' => array( 'title','thumbnail'),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => false,
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'editorial-content',
       'rewrite' => array('with_front' => false, 'slug' => 'webinar')
     )
   );

@@ -9,7 +9,6 @@ Author URI: http://Socrata.com/
 License: GPLv2
 */
 
-
 // REGISTER POST TYPE
 add_action( 'init', 'homepage_feature_post_type' );
 
@@ -31,12 +30,21 @@ function homepage_feature_post_type() {
         'not_found_in_trash' => 'Not found in Trash',
         'parent' => 'Parent Homepage Feature'
       ),
-      'public' => true,
-      'menu_position' => 100,
+      'description' => 'Adds hero banner images to the homepage',
       'supports' => array( 'title' ),
-      'taxonomies' => array( '' ),
-      'menu_icon' => 'dashicons-star-empty',
-      'has_archive' => false,
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'socrata-widgets',
+      'capabilities' => array(
+				'edit_post'          => 'update_core',
+				'read_post'          => 'update_core',
+				'delete_post'        => 'update_core',
+				'edit_posts'         => 'update_core',
+				'edit_others_posts'  => 'update_core',
+				'delete_posts'       => 'update_core',
+				'publish_posts'      => 'update_core',
+				'read_private_posts' => 'update_core'
+			),
     )
   );
 }

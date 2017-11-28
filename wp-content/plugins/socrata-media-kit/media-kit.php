@@ -29,28 +29,15 @@ function media_kit_post_type() {
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash',
         'parent' => 'Parent Media Kit'
-      ),
-      'public' => true,
-      'menu_position' => 100,
+      ),      
+      'description' => 'Manages the media kit page',
       'supports' => array( 'title' ),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => false,
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'socrata-widgets',
       'rewrite' => array('with_front' => false, 'slug' => 'media-kit'),
     )
   );
-}
-
-// MENU ICON
-//Using Dashicon Font https://developer.wordpress.org/resource/dashicons/
-add_action( 'admin_head', 'add_media_kit_icon' );
-function add_media_kit_icon() { ?>
-  <style>
-    #adminmenu .menu-icon-media_kit div.wp-menu-image:before {
-      content: '\f497';
-    }
-  </style>
-  <?php
 }
 
 // Template Paths

@@ -31,13 +31,12 @@ function case_study_post_type() {
         'not_found_in_trash' => 'Not found in Trash',
         'parent' => 'Parent Case Study'
       ),
-      'public' => true,
-      'menu_position' => 5,
-      'supports' => array( 'title', 'thumbnail' ),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'case-study'),
+      'description' => 'Add customer case study content',
+      'supports' => array( 'title','thumbnail'),
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'editorial-content',
+      'rewrite' => array('with_front' => false, 'slug' => 'case-study')
     )
   );
 }

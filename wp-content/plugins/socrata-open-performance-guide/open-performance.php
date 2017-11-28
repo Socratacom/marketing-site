@@ -14,8 +14,8 @@ function create_socrata_opg() {
   register_post_type( 'socrata_opg',
     array(
       'labels' => array(
-        'name' => 'OPG',
-        'singular_name' => 'OPG',
+        'name' => 'Open Performance Guide',
+        'singular_name' => 'Open Performance Guide',
         'add_new' => 'Add New',
         'add_new_item' => 'Add New',
         'edit' => 'Edit',
@@ -27,27 +27,14 @@ function create_socrata_opg() {
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash'
       ),
-      'public' => true,
-      'menu_position' => 100,
-      'supports' => array( 'title', 'editor', 'revisions' ),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => false,
+      'description' => 'Manages the Open Performance Guide',
+      'supports' => array( 'title', 'editor' ),
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'socrata-widgets',
       'rewrite' => array('with_front' => false, 'slug' => 'open-performance-guide')
     )
   );
-}
-
-// MENU ICON
-//Using Dashicon Font https://developer.wordpress.org/resource/dashicons
-add_action( 'admin_head', 'add_socrata_opg_icon' );
-function add_socrata_opg_icon() { ?>
-  <style>
-    #adminmenu .menu-icon-socrata_opg div.wp-menu-image:before {
-      content: '\f331';
-    }
-  </style>
-  <?php
 }
 
 // TAXONOMIES

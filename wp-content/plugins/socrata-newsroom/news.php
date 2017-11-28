@@ -30,28 +30,15 @@ function news_post_type() {
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash',
         'parent' => 'Parent Socrata News'
-      ),
-      'public' => true,
-      'menu_position' => 5,
-      'supports' => array( 'title','thumbnail' ),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => true,
+      ),      
+      'description' => 'Add press releases and customer news',
+      'supports' => array( 'title','thumbnail'),
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'editorial-content',
       'rewrite' => array('with_front' => false, 'slug' => 'newsroom-article')
     )
   );
-}
-
-// MENU ICON
-//Using Dashicon Font http://melchoyce.github.io/dashicons/
-add_action( 'admin_head', 'add_news_icon' );
-function add_news_icon() { ?>
-  <style>
-    #adminmenu .menu-icon-news div.wp-menu-image:before {
-      content: '\f123';
-    }
-  </style>
-  <?php
 }
 
 // TAXONOMIES

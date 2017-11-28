@@ -28,28 +28,24 @@ function socrata_banners_post_type() {
         'search_items' => 'Search',
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash'
-      ),
-      'public' => true,
-      'menu_position' => 100,
+      ),      
+      'description' => 'Adds banner ads to the blog',
       'supports' => array( 'title' ),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'socrata-banners'),
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'socrata-widgets',
+      'capabilities' => array(
+				'edit_post'          => 'update_core',
+				'read_post'          => 'update_core',
+				'delete_post'        => 'update_core',
+				'edit_posts'         => 'update_core',
+				'edit_others_posts'  => 'update_core',
+				'delete_posts'       => 'update_core',
+				'publish_posts'      => 'update_core',
+				'read_private_posts' => 'update_core'
+			),
     )
   );
-}
-
-// MENU ICON
-//Using Dashicon Font https://developer.wordpress.org/resource/dashicons
-add_action( 'admin_head', 'add_socrata_banners_icon' );
-function add_socrata_banners_icon() { ?>
-  <style>
-    #adminmenu .menu-icon-socrata_banners div.wp-menu-image:before {
-      content: '\f128';
-    }
-  </style>
-  <?php
 }
 
 // Metabox

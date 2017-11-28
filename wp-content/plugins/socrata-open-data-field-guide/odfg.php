@@ -14,8 +14,8 @@ function create_guide() {
   register_post_type( 'guide',
     array(
       'labels' => array(
-        'name' => 'ODFG',
-        'singular_name' => 'ODFG',
+        'name' => 'Open Data Field Guide',
+        'singular_name' => 'Open Data Field Guide',
         'add_new' => 'Add New',
         'add_new_item' => 'Add New',
         'edit' => 'Edit',
@@ -27,27 +27,14 @@ function create_guide() {
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash'
       ),
-      'public' => true,
-      'menu_position' => 100,
-      'supports' => array( 'title', 'editor', 'revisions' ),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => false,
+      'description' => 'Manages the Open Data Field Guide',
+      'supports' => array( 'title', 'editor' ),
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'socrata-widgets',
       'rewrite' => array('with_front' => false, 'slug' => 'open-data-field-guide')
     )
   );
-}
-
-// MENU ICON
-//Using Dashicon Font http://melchoyce.github.io/dashicons/
-add_action( 'admin_head', 'add_guide_icon' );
-function add_guide_icon(){ ?>
-  <style>
-    #adminmenu .menu-icon-guide div.wp-menu-image:before {
-      content: '\f331';
-    }
-  </style>
-<?php
 }
 
 // TAXONOMIES

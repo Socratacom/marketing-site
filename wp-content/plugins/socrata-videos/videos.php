@@ -9,7 +9,6 @@ Author URI: http://socrata.com/
 License: GPLv2
 */
 
-
 // REGISTER POST TYPE
 add_action( 'init', 'create_socrata_videos' );
 
@@ -29,28 +28,15 @@ function create_socrata_videos() {
         'search_items' => 'Search Videos',
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash',
-      ),
-      'public' => true,
-      'menu_position' => 5,
-      'supports' => array( 'title', 'revisions' ),
-      'taxonomies' => array( '' ),
-      'menu_icon' => '',
-      'has_archive' => false,
+      ),      
+      'description' => 'Add videos',
+      'supports' => array( 'title' ),
+      'public' => false,
+      'show_ui' => true,
+      'show_in_menu' => 'editorial-content',
       'rewrite' => array('with_front' => false, 'slug' => 'video')
     )
   );
-}
-
-// MENU ICON
-//Using Dashicon Font http://melchoyce.github.io/dashicons/
-add_action( 'admin_head', 'add_socrata_videos_icon' );
-function add_socrata_videos_icon() { ?>
-  <style>
-    #adminmenu .menu-icon-socrata_videos div.wp-menu-image:before {
-      content: '\f236';
-    }
-  </style>
-  <?php
 }
 
 // TAXONOMIES
