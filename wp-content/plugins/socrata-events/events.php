@@ -34,6 +34,7 @@ function create_socrata_events() {
       'menu_icon' => 'dashicons-calendar',
       'has_archive' => false,
       'rewrite' => array('with_front' => false, 'slug' => 'event'),
+      'capability_type' => 'post',
     )
   );
 }
