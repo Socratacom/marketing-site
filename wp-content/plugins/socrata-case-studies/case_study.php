@@ -33,7 +33,7 @@ function case_study_post_type() {
       ),
       'description' => 'Add customer case study content',
       'supports' => array( 'title','thumbnail'),
-      'public' => false,
+      'public' => true,
       'show_ui' => true,
       'show_in_menu' => 'editorial-content',
       'rewrite' => array('with_front' => false, 'slug' => 'case-study')
