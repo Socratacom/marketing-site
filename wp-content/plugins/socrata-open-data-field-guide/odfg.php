@@ -29,7 +29,7 @@ function create_guide() {
       ),
       'description' => 'Manages the Open Data Field Guide',
       'supports' => array( 'title', 'editor' ),
-      'public' => false,
+      'public' => true,
       'show_ui' => true,
       'show_in_menu' => 'socrata-widgets',
       'rewrite' => array('with_front' => false, 'slug' => 'open-data-field-guide')

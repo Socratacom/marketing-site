@@ -29,7 +29,7 @@ function create_socrata_leadership() {
       ),      
       'description' => 'Manages the leadership team',
       'supports' => array( 'title', 'thumbnail' ),
-      'public' => false,
+      'public' => true,
       'show_ui' => true,
       'show_in_menu' => 'socrata-widgets',
       'capabilities' => array(

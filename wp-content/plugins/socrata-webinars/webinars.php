@@ -29,7 +29,7 @@ function create_socrata_webinars() {
       ),            
       'description' => 'Manages upcoming and on demand webinars',
       'supports' => array( 'title','thumbnail'),
-      'public' => false,
+      'public' => true,
       'show_ui' => true,
       'show_in_menu' => 'editorial-content',
       'rewrite' => array('with_front' => false, 'slug' => 'webinar')

@@ -32,7 +32,7 @@ function media_kit_post_type() {
       ),      
       'description' => 'Manages the media kit page',
       'supports' => array( 'title' ),
-      'public' => false,
+      'public' => true,
       'show_ui' => true,
       'show_in_menu' => 'socrata-widgets',
       'rewrite' => array('with_front' => false, 'slug' => 'media-kit'),
