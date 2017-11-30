@@ -60,7 +60,7 @@ function socrata_downloads_cat() {
       'args' => array( 'orderby' => 'term_order' ),
       'show_admin_column' => true,
       'capabilities'=>array(
-        'manage_terms' => 'manage_options',//or some other capability your clients don't have
+        'manage_terms' => 'manage_options',
         'edit_terms' => 'manage_options',
         'delete_terms' => 'manage_options',
         'assign_terms' =>'edit_posts'
@@ -86,7 +86,7 @@ function downloads_the_categories() {
 add_action('init', 'socrata_downloads_add_endpoints');
 function socrata_downloads_add_endpoints()
 {
-  add_rewrite_endpoint('asset', EP_PERMALINK);
+  add_rewrite_endpoint('thank-you', EP_PERMALINK);
 }
 // Template Paths
 add_filter( 'template_include', 'socrata_downloads_single_template', 1 );
@@ -101,8 +101,8 @@ function socrata_downloads_single_template( $template_path ) {
         $template_path = plugin_dir_path( __FILE__ ) . 'single-downloads.php';
       }
     }
-    if ( get_query_var( 'asset' )  ) {
-      $template_path = plugin_dir_path( __FILE__ ) . 'asset.php';
+    if ( get_query_var( 'thank-you' )  ) {
+      $template_path = plugin_dir_path( __FILE__ ) . 'thank-you.php';
     }
   }
   return $template_path;
@@ -111,7 +111,7 @@ function socrata_downloads_single_template( $template_path ) {
 add_filter( 'request', 'socrata_downloads_filter_request' );
 function socrata_downloads_filter_request( $vars )
 {
-  if( isset( $vars['asset'] ) ) $vars['asset'] = true;
+  if( isset( $vars['thank-you'] ) ) $vars['thank-you'] = true;
   return $vars;
 }
 
@@ -144,7 +144,7 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
 {
   $prefix = 'downloads_';
   $meta_boxes[] = array(
-    'title'  => __( 'Asset Details', 'downloads_' ),
+    'title'  => __( 'Downloads', 'downloads_' ),
     'post_types' => 'socrata_downloads',
     'context'    => 'normal',
     'priority'   => 'high',
@@ -155,90 +155,89 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
         ),
       ),
     ),
+
+    'tabs' => array(
+			'content' => 'Landing Page Content',
+			'asset' => 'Asset Meta',
+			'redirect' => 'Thank You Page',
+		),
+
+		// Tab style: 'default', 'box' or 'left'. Optional
+		'tab_style' => 'box',
+
     'fields' => array(
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Gated Content ?', 'downloads_' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // CHECKBOX
-      array(
-        'name'  => __( 'Is this gated?', 'downloads_' ),
-        'id'   => "{$prefix}gated",
+
+    	// HEADING
+			array(
+				'type' => 'heading',
+				'name' => esc_html__( 'Landing Page Content', 'downloads_' ),
+				'desc' => esc_html__( 'Add your content for the downloadable asset.', 'downloads_' ),
+				'tab'  => 'content',
+			),
+
+			// CHECKBOX
+			array(
+				'name' => esc_html__( 'Is this content gated?', 'downloads_' ),
+				'id'   => "{$prefix}gated",
+				'type' => 'checkbox',
+
         'desc' => __( 'Yes', 'downloads_' ),
-        'type' => 'checkbox',
-        // Value can be 0 or 1
-        'std'  => 0,
-      ),
-      // TEXT
-      array(
-        'name'  => __( 'Marketo Form ID', 'downloads_' ),
-        'id'    => "{$prefix}marketo_form",
-        'desc' => __( 'Example: 1234', 'downloads_' ),
-        'type'  => 'text',
-        'clone' => false,
-      ), 
-      // HEADING
-      array(
-        'type' => 'heading',
-        'name' => __( 'Asset Meta', 'downloads_' ),
-        'id'   => 'fake_id', // Not used but needed for plugin
-      ),
-      // FILE ADVANCED (WP 3.5+)
-      array(
-        'name'             => esc_html__( 'Asset File', 'downloads_' ),
-        'id'               => "{$prefix}asset",
-        'type'             => 'file_advanced',
-        'max_file_uploads' => 1,
-        'mime_type'        => 'application', // Leave blank for all file types
-        'desc' => __( 'Downloadable file (ie. PDF)', 'downloads_' ),
-      ),
-      // URL
-      array(
-        'name' => esc_html__( 'Asset Link', 'downloads_' ),
-        'id'   => "{$prefix}link",
-        'desc' => __( 'Used for external assets like Open Data Field Guide', 'downloads_' ),
-        'type' => 'url',
-      ),
+				// Value can be 0 or 1
+				'std'  => 0,
+				'tab'  => 'content',
+			),
+
+      // WYSIWYG/RICH TEXT EDITOR
+			array(
+				'id'      => "{$prefix}wysiwyg",
+				'type'    => 'wysiwyg',
+				// Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+				'raw'     => false,
+				// Editor settings, see wp_editor() function: look4wp.com/wp_editor
+				'options' => array(
+					'textarea_rows' => 15,
+					'teeny'         => true,
+					'media_buttons' => false,
+				),
+				'tab'  => 'content',
+			),
+
+    	// HEADING
+			array(
+				'type' => 'heading',
+				'name' => esc_html__( 'Asset Meta', 'downloads_' ),
+				'desc' => esc_html__( 'Add your asset cover image and link to download.', 'downloads_' ),				
+        'tab'  => 'asset',
+			),
+
       // IMAGE ADVANCED (WP 3.5+)
       array(
         'name'             => __( 'Asset Image', 'downloads_' ),
         'id'               => "{$prefix}asset_image",
         'type'             => 'image_advanced',
         'max_file_uploads' => 1,
-        'desc' => __( 'Thumbnail of the asset', 'downloads_' ),
+        'desc' => __( 'Asset thumbnail image', 'downloads_' ),
+        'tab'  => 'asset',
       ),
-       // TEXTAREA
-      array(
-        'name' => esc_html__( 'Asset Description', 'downloads_' ),
-        'id'   => "{$prefix}asset_description",
-        'type' => 'textarea',
-        'cols' => 20,
-        'rows' => 3,
-      ),
-    )
-  );
 
-  $meta_boxes[] = array(
-    'title'         => 'Gated Asset Content',   
-    'post_types'    => 'socrata_downloads',
-    'context'       => 'normal',
-    'priority'      => 'high',
-      'fields' => array(
-        array(
-        'id'      => "{$prefix}wysiwyg",
-        'type'    => 'wysiwyg',
-        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
-        'raw'     => false,
-        // Editor settings, see wp_editor() function: look4wp.com/wp_editor
-        'options' => array(
-          'textarea_rows' => 15,
-          'teeny'         => false,
-          'media_buttons' => true,
-        ),
+      // URL
+      array(
+        'name' => esc_html__( 'Pardot Link', 'downloads_' ),
+        'id'   => "{$prefix}link",
+        'desc' => __( 'This is a Pardot URL. EX: http://go.socrata.com/l/303201/...', 'downloads_' ),
+        'type' => 'url',
+        'tab'  => 'asset',
       ),
-    ),
+
+    	// HEADING
+			array(
+				'type' => 'heading',
+				'name' => esc_html__( 'Thank You Page', 'downloads_' ),
+				'desc' => esc_html__( 'Add additional resource content to the thank you page. This is optional.', 'downloads_' ),				
+        'tab'  => 'redirect',
+			),
+
+    )
   );
 
   return $meta_boxes;
