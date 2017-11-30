@@ -31,38 +31,30 @@
 				<div class="padding-30 background-light-grey-4">
 					<h4>Get the <?php downloads_the_categories(); ?></h4>
 
-<?php if ( ! empty( $gated ) ) { ?>
-	<div class="media margin-bottom-30">
-		<div class="media-left">
-			<img src="<?php foreach ( $cover as $image ) { echo $image['url']; } ?>" style="box-shadow: 3px 3px 5px #999; width:60px;">
-		</div>
-		<div class="media-body">
-			<p>Download <i><?php the_title(); ?></i> on the next page by filling out the form below.</p>
-		</div>
-	</div>
-
-	<iframe id="formIframe" style="width: 100%; border: 0;" src="https://go.pardot.com/l/303201/2017-11-30/tgvg?Hidden_Redirect_Field=<?php echo get_permalink( $post->ID ); ?>thank-you" scrolling="no"></iframe>
-
-
-
-	<script>iFrameResize({log:true}, '#formIframe')</script>
-
-
-
-
-<?php } else { ?>
-	<div class="media margin-bottom-30">
-		<div class="media-left">
-			<img src="<?php foreach ( $cover as $image ) { echo $image['url']; } ?>" style="box-shadow: 3px 3px 5px #999; width:60px;">
-		</div>
-		<div class="media-body">
-			<p>Download <i><?php the_title(); ?></i> on the next page by clicking the button below.</p>
-		</div>
-	</div>
-	<div>
-		<a href="<?php echo get_permalink( $post->ID ); ?>/thank-you" class="btn btn-primary btn-block">Get the <?php downloads_the_categories(); ?></a>
-	</div>
-<?php } ?>
+					<?php if ( ! empty( $gated ) ) { ?>
+						<div class="media margin-bottom-30">
+							<div class="media-left">
+								<img src="<?php foreach ( $cover as $image ) { echo $image['url']; } ?>" style="box-shadow: 3px 3px 5px #999; width:60px;">
+							</div>
+							<div class="media-body">
+								<p>Download <i><?php the_title(); ?></i> on the next page by filling out the form below.</p>
+							</div>
+						</div>
+						<iframe id="formIframe" style="width: 100%; border: 0;" src="https://go.pardot.com/l/303201/2017-11-30/tgyl?Hidden_Redirect_Field=<?php echo get_permalink( $post->ID ); ?>thank-you" scrolling="no"></iframe>
+						<script>iFrameResize({log:true}, '#formIframe')</script>
+					<?php } else { ?>
+						<div class="media margin-bottom-30">
+							<div class="media-left">
+								<img src="<?php foreach ( $cover as $image ) { echo $image['url']; } ?>" style="box-shadow: 3px 3px 5px #999; width:60px;">
+							</div>
+							<div class="media-body">
+								<p>Download <i><?php the_title(); ?></i> on the next page by clicking the button below.</p>
+							</div>
+						</div>
+						<div>
+							<a href="<?php echo get_permalink( $post->ID ); ?>/thank-you" class="btn btn-primary btn-block">Get the <?php downloads_the_categories(); ?></a>
+						</div>
+					<?php } ?>
 
 				</div>				
 			</div>
