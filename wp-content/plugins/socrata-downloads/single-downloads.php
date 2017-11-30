@@ -41,7 +41,7 @@
 		</div>
 	</div>
 
-	<iframe id="formIframe" style="width: 100%; border: 0;" src="https://go.pardot.com/l/303201/2017-11-30/tgvg?Hidden_Redirect_Field=<?php echo get_permalink( $post->ID ); ?>/thank-you" scrolling="no"></iframe>
+	<iframe id="formIframe" style="width: 100%; border: 0;" src="https://go.pardot.com/l/303201/2017-11-30/tgvg?Hidden_Redirect_Field=<?php echo get_permalink( $post->ID ); ?>thank-you" scrolling="no"></iframe>
 
 
 
