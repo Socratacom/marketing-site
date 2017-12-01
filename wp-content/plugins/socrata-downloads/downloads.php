@@ -305,7 +305,7 @@ function downloads_posts($atts, $content = null) {
   ob_start();
   ?>
 
-  <section class="section-padding background-light-grey-5">
+  <section class="section-padding">
     <div class="container">
       <div class="row">
         <div class="col-sm-12">

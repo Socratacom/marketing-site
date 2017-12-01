@@ -2005,11 +2005,11 @@ dl.quote-author {
 	border:$light-grey-3 solid 1px;
 	padding-bottom:30px;
 	background-color:white;
-	-o-transition:.5s;
-	-ms-transition:.5s;
-	-moz-transition:.5s;
-	-webkit-transition:.5s;
-	transition:.5s;
+	-o-transition:.25s;
+	-ms-transition:.25s;
+	-moz-transition:.25s;
+	-webkit-transition:.25s;
+	transition:.25s;
 	a {
 		position: absolute;
 		top:0;
@@ -2088,7 +2088,7 @@ dl.quote-author {
 	padding:0;
 }
 .card:hover {
-	box-shadow: 0 0 15px $light-grey-3;
+	box-shadow: 0 5px 15px $light-grey-2;
 }
 
 
