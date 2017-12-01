@@ -144,13 +144,13 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
 {
   $prefix = 'downloads_';
   $meta_boxes[] = array(
-    'title'  => __( 'Downloads', 'downloads_' ),
+    'title'  => __( 'Asset Details', 'downloads_' ),
     'post_types' => 'socrata_downloads',
     'context'    => 'normal',
     'priority'   => 'high',
     'validation' => array(
       'rules'    => array(
-        "{$prefix}city" => array(
+        "{$prefix}link" => array(
             'required'  => true,
         ),
       ),
@@ -233,9 +233,66 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
 			array(
 				'type' => 'heading',
 				'name' => esc_html__( 'Thank You Page', 'downloads_' ),
-				'desc' => esc_html__( 'Add additional resource content to the thank you page. This is optional.', 'downloads_' ),				
+				'desc' => esc_html__( 'Add additional resource content to the thank you page. This is optional.', 'downloads_' ),		
         'tab'  => 'redirect',
 			),
+
+
+
+      // GROUP
+      array(
+        'id'     => "{$prefix}resource_group",
+        'type'   => 'group',
+        'clone'  => true,
+        'sort_clone' => true,
+        'tab'  => 'redirect',
+        'fields' => array(
+
+          // TEXT
+          array(
+            'name'  => __( 'Resource Title', 'downloads_' ),
+            'id'    => "{$prefix}resource_title",
+            'type'  => 'text',
+          ),
+
+          // TEXTAREA
+					array(
+						'name' => esc_html__( 'Description', 'downloads_' ),
+						'id'   => "{$prefix}resource_description",
+						'type' => 'textarea',
+						'cols' => 20,
+						'rows' => 3,
+					),
+
+          // URL
+		      array(
+		        'name' => esc_html__( 'Resource Link', 'downloads_' ),
+		        'id'   => "{$prefix}resource_link",
+		        'desc' => __( 'Link to webinar, blog article, etc.', 'downloads_' ),
+		        'type' => 'url',
+		      ),
+
+		      // TEXT
+          array(
+            'name'  => __( 'Button Text', 'downloads_' ),
+            'id'    => "{$prefix}resource_button_text",
+		        'desc' => __( 'EX: Read Article', 'downloads_' ),
+            'type'  => 'text',
+          ),
+
+        ),
+      ),
+
+
+
+
+
+
+
+
+
+
+
 
     )
   );

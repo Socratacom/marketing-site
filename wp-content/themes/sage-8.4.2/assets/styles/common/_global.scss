@@ -2009,9 +2009,7 @@ dl.quote-author {
 	-ms-transition:.5s;
 	-moz-transition:.5s;
 	-webkit-transition:.5s;
-	-webkit-transform:scale(1);
 	transition:.5s;
-	transform:scale(1);
 	a {
 		position: absolute;
 		top:0;
@@ -2064,6 +2062,9 @@ dl.quote-author {
 			padding-right:15px;
 			background:none;
 		}
+		.btn-default:hover {
+			color:$primary-dark;
+		}
 		.author {
 			list-style-type: none;
 			margin:0;
@@ -2088,8 +2089,6 @@ dl.quote-author {
 }
 .card:hover {
 	box-shadow: 0 0 15px $light-grey-3;
-	-webkit-transform:scale(1.01);
-	transform:scale(1.01);
 }
 
 
