@@ -18,7 +18,7 @@
   </div>
 </section>
 <div class="event-feature-image" style="width:100%; background-image:url(<?php echo $url;?>); background-repeat: no-repeat; background-position: center; background-size: cover; position:relative;">
-	<div style="position:absolute; bottom:0px; right:0px; display:inline-block; color:#fff; padding:2px 10px; background-color:rgba(0,0,0,.75); font-size:13px;"><?php echo do_shortcode('[image-attribution]'); ?></div>
+	<div style="position:absolute; bottom:0px; right:0px; display:inline-block; color:#fff; padding:2px 10px; font-size:13px;"><?php echo do_shortcode('[image-attribution]'); ?></div>
 </div>
 <section id="meta" class="section-padding">
 	<div class="container">
@@ -62,7 +62,7 @@
 						<?php } else { ?> 
 							<p>Download <i><?php the_title(); ?></i> on the next page by clicking the button below.</p>
 						<?php } ?>	
-						
+
 						<div>
 							<a href="<?php echo get_permalink( $post->ID ); ?>/thank-you" class="btn btn-primary btn-block">Get the <?php downloads_the_categories(); ?></a>
 						</div>
