@@ -35,7 +35,7 @@
     <div class="card margin-bottom-30 match-height">
       <div class="card-body text-left">
       	<h5><?php echo $title; ?></h5>
-        <p class="margin-bottom-15 font-normal" style="line-height:normal;"><?php echo $description; ?></p>
+      	<?php if ( !empty( $description ) ) { ?><p class="margin-bottom-15 font-normal" style="line-height:normal;"><?php echo $description; ?></p><?php } ?>
       </div>
       <div class="card-footer padding-15 text-left">
       	<?php if ( !empty( $btn_txt ) ) { ?> 
