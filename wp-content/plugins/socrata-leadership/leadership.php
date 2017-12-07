@@ -153,6 +153,7 @@ function socrata_leadership_register_meta_boxes( $meta_boxes )
 }
 
 
+// Shortcode [leadership type=”SLUG”]
 
 function leadership_profiles($atts, $content = null) {
   extract( shortcode_atts( array(
@@ -179,57 +180,45 @@ function leadership_profiles($atts, $content = null) {
   $id = get_the_ID();
   ?>
 
-    <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card margin-bottom-30 match-height">
-      <div class="card-header">
-        <div class="sixteen-nine img-background" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
+  <div class="col-xs-6 col-sm-3 col-md-2">
+  	<div class="profile text-center margin-bottom-30 match-height">
+  		<div class="headshot margin-bottom-15" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
+  			<a data-toggle="modal" data-target="#<?php echo $id;?>" class="link"></a>
         </div>
-      </div>
-      <div class="card-body">
-        <h5 style="margin-bottom:0;"><?php the_title(); ?></h5>
-        <p class="margin-bottom-15 font-normal" style="line-height:normal;"><small><?php echo $title; ?></small></p>
-        <p><?php echo leadership_excerpt(); ?></p>
-      </div>
-      <div class="card-footer padding-15">
-        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default" style="position:relative; height:auto; width:auto;">Read More</a>
-        <div style="position:absolute; right:25px; bottom:25px;">
-          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-twitter"></i></a> <?php }; ?>
-        </div>
-      </div>
-    </div>
+       <h6 class="name margin-bottom-5"><?php the_title(); ?></h6>
+       <div class="title"><?php echo $title; ?></div>
+       <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-twitter"></i></a> <?php }; ?>
+  	</div>
   </div>
 
-  <div class="modal leadership-modal" id="<?php echo $id;?>" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="bio-dialog">
-      <div class="bio-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-              <div class="box">
-                <div class="bio-header">
-                  <div class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>)"></div>
-                  <h5 class="margin-bottom-0 title"><?php the_title(); ?></h5>
-                  <button type="button" data-dismiss="modal"><i class="icon-close"></i></button>
-                </div>              
-                <div class="bio-body">
-                  <div class="padding-30">
-                    <?php echo $bio; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
+	<div id="<?php echo $id;?>" class="modal leadership-modal" tabindex="-1" role="dialog" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	    	<button type="button" data-dismiss="modal"><i class="icon-close"></i></button>
+	      <div class="modal-body">
+	      	<div class="padding-30 bio">
+	      		<div class="text-center margin-bottom-30">
+		      		<div class="headshot margin-bottom-15" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>)"></div>
+		      		<h5 class="margin-bottom-5"><?php the_title(); ?></h5>
+		      		<div class="margin-bottom-5"><?php echo $title; ?></div>
+		      		<?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto; font-size:16px;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto; font-size:16px;"><i class="fa fa-twitter"></i></a> <?php }; ?>
+		      		</div>
+	        	<?php echo $bio; ?>
+	      	</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
 
-  <?php
-  }
-  wp_reset_postdata();
-  ?>
+
+
+
+
+
+
+
+  <?php } wp_reset_postdata(); ?>
 
   <?php
   $content = ob_get_contents();
@@ -237,183 +226,5 @@ function leadership_profiles($atts, $content = null) {
   return $content;
 }
 add_shortcode('leadership', 'leadership_profiles');
-
-
-
-
-
-
-
-
-
-// Shortcode [directory-stats]
-function leadership_executive_bios($atts, $content = null) {
-  ob_start();
-  ?>
-
-  <?php
-  $args = array(
-  'post_type' => 'socrata_leadership',
-  'socrata_leadership_type' => 'executive',
-  'posts_per_page' => 100,
-  'orderby' => 'date',
-  'order'   => 'asc',
-  );
-  $myquery = new WP_Query($args);
-  // The Loop
-  while ( $myquery->have_posts() ) { $myquery->the_post(); 
-  $title = rwmb_meta( 'leadership_title' );
-  $twitter = rwmb_meta( 'leadership_twitter' );
-  $linkedin = rwmb_meta( 'leadership_linkedin' );
-  $headshot = rwmb_meta( 'leadership_headshot', 'size=medium' );
-  $bio = rwmb_meta( 'leadership_wysiwyg' );
-  $id = get_the_ID();
-  ?>
-
-
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card margin-bottom-30 match-height">
-      <div class="card-header">
-        <div class="sixteen-nine img-background" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
-        </div>
-      </div>
-      <div class="card-body">
-        <h5 style="margin-bottom:0;"><?php the_title(); ?></h5>
-        <p class="margin-bottom-15 font-normal" style="line-height:normal;"><small><?php echo $title; ?></small></p>
-        <p><?php echo leadership_excerpt(); ?></p>
-      </div>
-      <div class="card-footer padding-15">
-        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default" style="position:relative; height:auto; width:auto;">Read More</a>
-        <div style="position:absolute; right:25px; bottom:25px;">
-          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-twitter"></i></a> <?php }; ?>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal leadership-modal" id="<?php echo $id;?>" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="bio-dialog">
-      <div class="bio-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-              <div class="box">
-                <div class="bio-header">
-                  <div class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>)"></div>
-                  <h5 class="margin-bottom-0 title"><?php the_title(); ?></h5>
-                  <button type="button" data-dismiss="modal"><i class="icon-close"></i></button>
-                </div>              
-                <div class="bio-body">
-                  <div class="padding-30">
-                    <?php echo $bio; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-
-  <?php
-  }
-  wp_reset_postdata();
-  ?>
-
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('executive_bios', 'leadership_executive_bios');
-
-// Shortcode [directory-stats]
-function leadership_advisor_bios($atts, $content = null) {
-  ob_start();
-  ?>
-
-  <?php
-  $args = array(
-  'post_type' => 'socrata_leadership',
-  'socrata_leadership_type' => 'advisor',
-  'posts_per_page' => 100,
-  'orderby' => 'date',
-  'order'   => 'asc',
-  );
-  $myquery = new WP_Query($args);
-  // The Loop
-  while ( $myquery->have_posts() ) { $myquery->the_post(); 
-  $title = rwmb_meta( 'leadership_title' );
-  $twitter = rwmb_meta( 'leadership_twitter' );
-  $linkedin = rwmb_meta( 'leadership_linkedin' );
-  $headshot = rwmb_meta( 'leadership_headshot', 'size=medium' );
-  $bio = rwmb_meta( 'leadership_wysiwyg' );
-  $id = get_the_ID();
-  ?>
-
-  <div class="col-sm-6 col-md-4 col-lg-3">
-    <div class="card margin-bottom-30 match-height">
-      <div class="card-header">
-        <div class="sixteen-nine img-background" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
-        </div>
-      </div>
-      <div class="card-body">
-        <h5 style="margin-bottom:0;"><?php the_title(); ?></h5>
-        <p class="margin-bottom-15 font-normal" style="line-height:normal;"><small><?php echo $title; ?></small></p>
-        <p><?php echo leadership_excerpt(); ?></p>
-      </div>
-      <div class="card-footer padding-15">
-        <a href="javascript:;" data-toggle="modal" data-target="#<?php echo $id;?>" class="btn btn-default" style="position:relative; height:auto; width:auto;">Read More</a>
-        <div style="position:absolute; right:25px; bottom:25px;">
-          <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-twitter"></i></a> <?php }; ?>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal leadership-modal" id="<?php echo $id;?>" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="bio-dialog">
-      <div class="bio-content">
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-              <div class="box">
-                <div class="bio-header">
-                  <div class="headshot" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>)"></div>
-                  <h5 class="margin-bottom-0 title"><?php the_title(); ?></h5>
-                  <button type="button" data-dismiss="modal"><i class="icon-close"></i></button>
-                </div>              
-                <div class="bio-body">
-                  <div class="padding-30">
-                    <?php echo $bio; ?>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <?php
-  }
-
-  wp_reset_postdata();
-  ?>                 
- 
-  <?php
-  $content = ob_get_contents();
-  ob_end_clean();
-  return $content;
-}
-add_shortcode('advisor_bios', 'leadership_advisor_bios');
-
-
-
 
 
