@@ -5,7 +5,7 @@
 
 				<?php if ( have_posts() ) : ?>
 					
-				<h3 class="margin-bottom-15">Search Results for <?php $allsearch = &new WP_Query("s=$s&showposts=-1"); $key = wp_specialchars($s, 1); $count = $allsearch->post_count; _e('<strong>'); echo $key; _e('</strong>'); ?></h3>
+				<h3 class="margin-bottom-15">Search Results for <?php $allsearch = new WP_Query("s=$s&showposts=-1"); $key = wp_specialchars($s, 1); $count = $allsearch->post_count; _e('<strong>'); echo $key; _e('</strong>'); ?></h3>
 				<p class="font-semi-bold color-grey" style="font-size: 14px;"><?php echo $count . ' '; _e('results'); wp_reset_query(); ?></p>
 				<?php get_search_form(); ?>
 
