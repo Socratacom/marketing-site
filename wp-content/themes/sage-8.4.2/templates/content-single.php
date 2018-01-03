@@ -90,9 +90,9 @@
       </div>
 
       <div class="col-sm-4 hidden-xs">
-      <div class="margin-bottom-30">
+      <!--<div class="margin-bottom-30">
       <a href="https://socrata.com/feed/" title="Digital Government Transformation" target="_blank" class="btn btn-warning btn-block"><i class="fa fa-rss" aria-hidden="true"></i> Subscribe to our blog</a>
-      </div>
+      </div>-->
       <?php if( post_type_exists('socrata_banners') ) echo do_shortcode('[socrata-banners]');?>      
       <?php echo do_shortcode('[newsletter-sidebar]'); ?>
 
