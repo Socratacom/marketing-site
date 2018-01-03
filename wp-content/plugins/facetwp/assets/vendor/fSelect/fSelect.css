@@ -80,6 +80,7 @@
 
 .fs-option {
     cursor: pointer;
+    word-break: break-all;
 }
 
 .fs-option.disabled {

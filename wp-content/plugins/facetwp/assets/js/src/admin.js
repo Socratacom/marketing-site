@@ -1,4 +1,4 @@
-var FWP = {
+window.FWP = {
     is_indexing: false,
     is_name_editable: false
 };
@@ -328,6 +328,31 @@ var FWP = {
         });
 
 
+        // Copy to clipboard
+        $(document).on('click', '.copy-shortcode', function() {
+            var $this = $(this);
+            var orig_text = $this.text();
+            var $el = $('.facetwp-clipboard');
+            var name = $(this).closest('.facetwp-row').find('.facet-name').text();
+
+            try {
+                $el.removeClass('hidden');
+                $el.val('[facetwp facet="' + name + '"]');
+                $el.select();
+                document.execCommand('copy');
+                $el.addClass('hidden');
+                $this.text('Copied!');
+            }
+            catch(err) {
+                $this.text('Press CTRL+C to copy');
+            }
+
+            window.setTimeout(function() {
+                $this.text(orig_text);
+            }, 2000);
+        });
+
+
         // Code unlock
         $(document).on('click', '.code-unlock .unlock', function() {
             $(this).closest('.facetwp-row').removeClass('in-code');
@@ -405,8 +430,9 @@ var FWP = {
                 nonce: FWP.nonce,
                 data: JSON.stringify(data)
             }, function(response) {
-                $('.facetwp-response').html(response);
-            });
+                $('.facetwp-response').html(response.message);
+                $('.facetwp-rebuild').toggleClass('flux', response.reindex);
+            }, 'json');
         });
 
 
@@ -447,6 +473,8 @@ var FWP = {
 
         // Rebuild index
         $(document).on('click', '.facetwp-rebuild', function() {
+            $(this).removeClass('flux');
+
             if (FWP.is_indexing) {
                 return;
             }

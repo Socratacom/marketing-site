@@ -1,4 +1,4 @@
-var FWP = FWP || {};
+window.FWP = window.FWP || {};
 
 (function($) {
 
