@@ -29,11 +29,11 @@ body.modal-open {
 // Custom Icons
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?9nqnt');
-  src:  url('../fonts/icomoon.eot?9nqnt#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?9nqnt') format('truetype'),
-    url('../fonts/icomoon.woff?9nqnt') format('woff'),
-    url('../fonts/icomoon.svg?9nqnt#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?1m0v0z');
+  src:  url('../fonts/icomoon.eot?1m0v0z#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?1m0v0z') format('truetype'),
+    url('../fonts/icomoon.woff?1m0v0z') format('woff'),
+    url('../fonts/icomoon.svg?1m0v0z#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -53,6 +53,24 @@ body.modal-open {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-blueprint:before {
+  content: "\e946";
+}
+.icon-performance-optimization-cloud:before {
+  content: "\e947";
+}
+.icon-operational-intelligence-cloud:before {
+  content: "\e948";
+}
+.icon-financial-insights-cloud:before {
+  content: "\e949";
+}
+.icon-data-as-a-service-platform:before {
+  content: "\e94a";
+}
+.icon-citizen-engagement-cloud:before {
+  content: "\e94b";
+}
 .icon-management:before {
   content: "\e944";
 }
