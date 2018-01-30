@@ -18,7 +18,8 @@
     "bootstrap-submenu": "^2.0.4",
     "iframe-resizer": "^3.5.14",
     "scrollreveal": "^3.3.6",
-    "jquery.bootstrap-responsive-tabs": "^2.0.1"
+    "jquery.bootstrap-responsive-tabs": "^2.0.1",
+    "material-design-color-palette": "^1.1.0"
   },
   "overrides": {
     "iframe-resizer": {

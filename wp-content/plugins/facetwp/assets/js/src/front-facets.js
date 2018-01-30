@@ -1,5 +1,7 @@
 (function($) {
 
+    FWP.logic = FWP.logic || {};
+
     /* ======== IE11 .val() fix ======== */
 
     $.fn.pVal = function() {
@@ -18,7 +20,7 @@
         $('.facetwp-autocomplete').each(function() {
             var $this = $(this);
             $this.autocomplete({
-                serviceUrl: FWP_JSON.ajaxurl,
+                serviceUrl: ('wp' === FWP.template) ? document.URL : FWP_JSON.ajaxurl,
                 type: 'POST',
                 minChars: 3,
                 deferRequestBy: 200,
@@ -26,7 +28,8 @@
                 noSuggestionNotice: FWP_JSON['no_results'],
                 params: {
                     action: 'facetwp_autocomplete_load',
-                    facet_name: $this.closest('.facetwp-facet').attr('data-name')
+                    facet_name: $this.closest('.facetwp-facet').attr('data-name'),
+                    data: FWP.build_post_data()
                 }
             });
         });
@@ -67,7 +70,7 @@
     });
 
     $(document).on('click', '.facetwp-type-checkboxes .facetwp-expand', function(e) {
-        $wrap = $(this).parent('.facetwp-checkbox').next('.facetwp-depth');
+        var $wrap = $(this).parent('.facetwp-checkbox').next('.facetwp-depth');
         $wrap.toggleClass('visible');
         var content = $wrap.hasClass('visible') ? FWP_JSON['collapse'] : FWP_JSON['expand'];
         $(this).text(content);
@@ -119,6 +122,9 @@
                         $(this).prev('.facetwp-checkbox').find('.facetwp-expand').text(FWP_JSON['collapse']);
                         $(this).addClass('visible');
                     });
+
+                    // show children of selected items
+                    $(this).find('.facetwp-expand').trigger('click');
                 });
             }
         });
@@ -180,6 +186,7 @@
 
     $(document).on('facetwp-loaded', function() {
         var $dates = $('.facetwp-type-date_range .facetwp-date:not(".ready, .flatpickr-alt")');
+
         if (0 === $dates.length) {
             return;
         }
@@ -194,14 +201,12 @@
                 FWP.autoload();
             },
             onReady: function(dateObj, dateStr, instance) {
-                var $cal = $(instance.calendarContainer);
-                if ($cal.find('.flatpickr-clear').length < 1) {
-                    $cal.append('<div class="flatpickr-clear">' + FWP_JSON.datepicker.clearText + '</div>');
-                    $cal.find('.flatpickr-clear').on('click', function() {
+                var clearBtn = '<div class="flatpickr-clear">' + FWP_JSON.datepicker.clearText + '</div>';
+                $(clearBtn).on('click', function() {
                         instance.clear();
                         instance.close();
-                    });
-                }
+                })
+                .appendTo($(instance.calendarContainer));
             }
         };
 
@@ -252,7 +257,15 @@
     });
 
     wp.hooks.addFilter('facetwp/selections/fselect', function(output, params) {
-        return params.el.find('.fs-label').text();
+        var choices = [];
+        $.each(params.selected_values, function(idx, val) {
+            var choice = params.el.find('.facetwp-dropdown option[value="' + val + '"]').text();
+            choices.push({
+                value: val,
+                label: choice.replace(/{{(.*?)}}/, '')
+            });
+        });
+        return choices;
     });
 
     $(document).on('facetwp-loaded', function() {
@@ -273,12 +286,22 @@
             $(this).fSelect(opts);
             $(this).addClass('ready');
         });
+
+        // unfreeze choices
+        $('.fs-wrap.fs-disabled').removeClass('fs-disabled');
     });
 
     $(document).on('fs:changed', function(e, wrap) {
         if (wrap.classList.contains('multiple')) {
             var facet_name = wrap.parentNode.getAttribute('data-name');
-            FWP.static_facet = facet_name;
+
+            if ('or' === FWP.settings[facet_name]['operator']) {
+                FWP.static_facet = facet_name;
+
+                // freeze choices
+                $(wrap).addClass('fs-disabled');
+            }
+
             FWP.autoload();
         }
     });
@@ -447,6 +470,10 @@
         }
     });
 
+    $(document).on('input', '.facetwp-radius-slider', function(e) {
+        $('.facetwp-radius-dist').text(e.target.value);
+    });
+
     wp.hooks.addAction('facetwp/refresh/proximity', function($this, facet_name) {
         var lat = $this.find('.facetwp-lat').val();
         var lng = $this.find('.facetwp-lng').val();
@@ -462,23 +489,43 @@
 
     /* ======== Search ======== */
 
+    FWP.logic.search = {
+        set_button: function($facet) {
+            if ('' === $facet.find('.facetwp-search').val()) {
+                $facet.find('.facetwp-btn').removeClass('f-reset');
+            }
+            else {
+                $facet.find('.facetwp-btn').addClass('f-reset');
+            }
+        },
+        delay_refresh: FWP.helper.debounce(function(facet_name) {
+            FWP.static_facet = facet_name;
+            FWP.autoload();
+        }, 250)
+    };
+
     wp.hooks.addAction('facetwp/refresh/search', function($this, facet_name) {
         var val = $this.find('.facetwp-search').val() || '';
         FWP.facets[facet_name] = val;
     });
 
     $(document).on('facetwp-loaded', function() {
-        $('.facetwp-search').trigger('keyup');
+        $('.facetwp-facet .facetwp-search').each(function() {
+            var $facet = $(this).closest('.facetwp-facet');
+            FWP.logic.search['set_button']($facet);
+        });
     });
 
     $(document).on('keyup', '.facetwp-facet .facetwp-search', function(e) {
         var $facet = $(this).closest('.facetwp-facet');
+        var facet_name = $facet.attr('data-name');
 
-        if ('' === $(this).val()) {
-            $facet.find('.facetwp-btn').removeClass('f-reset');
-        }
-        else {
-            $facet.find('.facetwp-btn').addClass('f-reset');
+        FWP.logic.search['set_button']($facet);
+
+        if ('undefined' !== typeof FWP.settings[facet_name]) {
+            if ('yes' === FWP.settings[facet_name]['auto_refresh']) {
+                FWP.logic.search['delay_refresh'](facet_name);
+            }
         }
 
         if (13 === e.keyCode) {

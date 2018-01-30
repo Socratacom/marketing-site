@@ -282,8 +282,11 @@ class FacetWP_Facet_Checkboxes extends FacetWP_Facet
 
     $(document).on('change', '.facet-hierarchical', function() {
         var $facet = $(this).closest('.facetwp-row');
-        var display = ('yes' == $(this).val()) ? 'table-row' : 'none';
-        $facet.find('.facet-show-expanded').closest('tr').css({ 'display' : display });
+        var hierarchical = ('yes' == $(this).val());
+        var show_expanded = hierarchical ? 'table-row' : 'none';
+        var soft_limit = hierarchical ? 'none' : 'table-row';
+        $facet.find('.facet-show-expanded').closest('tr').css({ 'display' : show_expanded });
+        $facet.find('.facet-soft-limit').closest('tr').css({ 'display' : soft_limit });
     });
 })(jQuery);
 </script>

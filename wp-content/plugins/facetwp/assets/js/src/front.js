@@ -61,6 +61,21 @@ window.FWP = window.FWP || {};
     }
 
 
+    FWP.helper.debounce = function(func, wait) {
+        var timeout;
+        return function() {
+            var context = this;
+            var args = arguments;
+            var later = function() {
+                timeout = null;
+                func.apply(context, args);
+            }
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        }
+    }
+
+
     FWP.helper.serialize = function(obj, prefix) {
         var str = [];
         var prefix = ('undefined' !== typeof prefix) ? prefix : '';
@@ -86,6 +101,7 @@ window.FWP = window.FWP || {};
 
 
     FWP.helper.detect_loop = function(node) {
+        var curNode = null;
         var iterator = document.createNodeIterator(node, NodeFilter.SHOW_COMMENT, FWP.helper.node_filter, false);
         while (curNode = iterator.nextNode()) {
             if (8 === curNode.nodeType && 'fwp-loop' === curNode.nodeValue) {
@@ -315,6 +331,22 @@ window.FWP = window.FWP || {};
     }
 
 
+    FWP.build_post_data = function() {
+        return {
+            'facets': JSON.stringify(FWP.facets),
+            'static_facet': FWP.static_facet,
+            'used_facets': FWP.used_facets,
+            'http_params': FWP_HTTP,
+            'template': FWP.template,
+            'extras': FWP.extras,
+            'soft_refresh': FWP.soft_refresh ? 1 : 0,
+            'is_bfcache': FWP.is_bfcache ? 1 : 0,
+            'first_load': FWP.loaded ? 0 : 1,
+            'paged': FWP.paged
+        };
+    }
+
+
     FWP.fetch_data = function() {
         // Abort pending requests
         if (FWP.jqXHR && FWP.jqXHR.readyState !== 4) {
@@ -329,18 +361,7 @@ window.FWP = window.FWP || {};
             dataType: 'text',
             data: {
                 action: 'facetwp_refresh',
-                data: {
-                    'facets': JSON.stringify(FWP.facets),
-                    'static_facet': FWP.static_facet,
-                    'used_facets': FWP.used_facets,
-                    'http_params': FWP_HTTP,
-                    'template': FWP.template,
-                    'extras': FWP.extras,
-                    'soft_refresh': FWP.soft_refresh ? 1 : 0,
-                    'is_bfcache': FWP.is_bfcache ? 1 : 0,
-                    'first_load': FWP.loaded ? 0 : 1,
-                    'paged': FWP.paged
-                }
+                data: FWP.build_post_data()
             },
             success: function(response) {
                 try {

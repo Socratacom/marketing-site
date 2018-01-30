@@ -96,6 +96,11 @@
     width: 220px;
 }
 
+.facetwp-type-fselect .fs-wrap.fs-disabled .fs-option {
+    opacity: 0.4;
+    cursor: default;
+}
+
 /* Hierarchy */
 
 .facetwp-depth {

@@ -221,16 +221,6 @@
 		.feature-event-image {
 			position: relative;
 		}
-		.feature-event-image:after {
-			content: "";
-		    height: 100%;
-		    width: 100%;
-		    top: 0;
-		    left: 0;
-		    position: absolute;
-		    z-index: 1;
-		    background: rgba($primary-alt-2-dark,.5);
-		}
 		.feature-event-meta {
 			display:table;
 			width:100%;
@@ -338,6 +328,18 @@
 	.event-feature-image {
 		height:300px;
 	}
+	.event-venue-address {
+		padding:60px 15px;
+		.address {
+			font-size:18px;
+			font-weight:$font-normal;
+			color:$white;
+		}
+		.helpful-links {
+			border-top:$mdc-blue-grey-400 dotted 1px;
+			padding-top:30px;
+		}
+	}
 }
 
 @media only screen and (min-width : 768px) {
@@ -377,12 +379,29 @@
 	}
 	.event-feature-image {
 		height:500px;
+	}	
+	.event-venue-address {
+		padding:60px 30px;
+		.address {
+			font-size:24px;
+		}
 	}
 }
 
 @media only screen and (min-width : 992px) {
 	.feature-event {
 		border: none;
+
+		.feature-event-image:after {
+			content: "";
+		    height: 100%;
+		    width: 100%;
+		    top: 0;
+		    left: 0;
+		    position: absolute;
+		    z-index: 1;
+		    background: rgba($mdc-light-blue-900,.75);
+		}
 		.feature-event-meta {
 			padding:30px;
 			position: absolute;
@@ -462,6 +481,13 @@
 	}
 	.event-feature-image {
 		height:600px;
+	}		
+	.event-venue-address {
+		padding:60px;
+		.address {
+			font-size:32px;
+			font-weight:$font-light;
+		}
 	}
 }
 

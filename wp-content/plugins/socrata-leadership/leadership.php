@@ -183,7 +183,7 @@ function leadership_profiles($atts, $content = null) {
   <div class="col-xs-6 col-sm-3 col-md-2">
   	<div class="profile text-center margin-bottom-30 match-height">
   		<div class="headshot margin-bottom-15" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
-  			<a data-toggle="modal" data-target="#<?php echo $id;?>" class="link"></a>
+  			<a href="#" data-toggle="modal" data-target="#<?php echo $id;?>" class="link"></a>
         </div>
        <h6 class="name margin-bottom-5"><?php the_title(); ?></h6>
        <div class="title"><?php echo $title; ?></div>

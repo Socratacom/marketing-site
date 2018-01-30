@@ -125,6 +125,9 @@ class FacetWP_Ajax
             // Store the default WP query vars
             $this->query_vars = $query->query_vars;
 
+            // Notify
+            do_action( 'facetwp_found_main_query' );
+
             // No URL variables
             if ( $this->is_preload && empty( $this->url_vars ) ) {
                 return;
@@ -225,8 +228,7 @@ class FacetWP_Ajax
 
         $this->output['template'] = $html;
         do_action( 'facetwp_inject_template', $this->output );
-        echo json_encode( $this->output );
-        exit;
+        wp_send_json( $this->output );
     }
 
 
@@ -253,9 +255,7 @@ class FacetWP_Ajax
             );
         }
 
-        echo json_encode( $response );
-
-        exit;
+        wp_send_json( $response );
     }
 
 

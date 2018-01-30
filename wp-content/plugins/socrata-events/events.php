@@ -39,47 +39,6 @@ function create_socrata_events() {
   );
 }
 
-
-
-// CUSTOM COLUMS FOR ADMIN
-add_filter( 'manage_edit-socrata_events_columns', 'socrata_events_edit_columns' ) ;
-function socrata_events_edit_columns( $columns ) {
-  $columns = array(
-    'cb'          => '<input type="checkbox" />',    
-    'title'       => __( 'Name' ),
-    'category'    => __( 'Category' ),
-    'eventdate'   => __( 'Event Date' ),
-
-  );
-  return $columns;
-}
-// Get Content for Custom Colums
-add_action("manage_socrata_events_posts_custom_column",  "socrata_events_columns");
-function socrata_events_columns($column){
-  global $post;
-
-  switch ($column) {    
-    case 'eventdate':
-      $timestamp = rwmb_meta( 'socrata_events_starttime' ); echo date("F j, Y, g:i a", $timestamp);
-      break;
-    case 'category':
-      $segment = get_the_terms($post->ID , 'socrata_events_cat');
-      echo $segment[0]->name;
-      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
-      break;
-  }
-}
-
-// Make these columns sortable
-add_filter( "manage_edit-socrata_events_sortable_columns", "socrata_events_sortable_columns" );
-function socrata_events_sortable_columns() {
-  return array(
-    'title'       => 'title',
-    'category'    => 'category',
-    'eventdate'   => 'eventdate',
-  );
-}
-
 // TAXONOMIES
 add_action( 'init', 'socrata_events_cat', 0 );
 function socrata_events_cat() {
@@ -117,7 +76,7 @@ function socrata_events_region() {
         'add_new_item' => 'Add New Region',
         'new_item_name' => "New Region"
       ),
-      'show_ui' => true,
+      'show_ui' => false,
       'show_in_menu' => false,
       'show_tagcloud' => false,
       'hierarchical' => true,
@@ -126,6 +85,45 @@ function socrata_events_region() {
       'show_admin_column' => true,
       'rewrite' => array('with_front' => false, 'slug' => 'events-region'),
     )
+  );
+}
+
+// CUSTOM COLUMS FOR ADMIN
+add_filter( 'manage_edit-socrata_events_columns', 'socrata_events_edit_columns' ) ;
+function socrata_events_edit_columns( $columns ) {
+  $columns = array(
+    'cb'          => '<input type="checkbox" />',    
+    'title'       => __( 'Name' ),
+    'category'    => __( 'Category' ),
+    'eventdate'   => __( 'Event Date' ),
+
+  );
+  return $columns;
+}
+// Get Content for Custom Colums
+add_action("manage_socrata_events_posts_custom_column",  "socrata_events_columns");
+function socrata_events_columns($column){
+  global $post;
+
+  switch ($column) {    
+    case 'eventdate':
+      $timestamp = rwmb_meta( 'socrata_events_starttime' ); echo date("F j, Y, g:i a", $timestamp);
+      break;
+    case 'category':
+      $segment = get_the_terms($post->ID , 'socrata_events_cat');
+      echo $segment[0]->name;
+      for ($i = 1; $i < count($segment); $i++) {echo ', ' . $segment[$i]->name ;}
+      break;
+  }
+}
+
+// Make these columns sortable
+add_filter( "manage_edit-socrata_events_sortable_columns", "socrata_events_sortable_columns" );
+function socrata_events_sortable_columns() {
+  return array(
+    'title'       => 'title',
+    'category'    => 'category',
+    'eventdate'   => 'eventdate',
   );
 }
 
@@ -185,307 +183,418 @@ function socrata_events_register_meta_boxes( $meta_boxes )
   $prefix = 'socrata_events_';
 
   $meta_boxes[] = array(
-    'title'  => __( 'Event Date', 'socrata_events_' ),
-    'post_types' => 'socrata_events',
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'validation' => array(
-      'rules'    => array(
-        "{$prefix}displaydate" => array(
-            'required'  => true,
-        ),
+    'title'				=> 'EVENT DETAILS',
+    'post_types'	=> 'socrata_events',
+    'context'			=> 'normal',
+    'priority'		=> 'high',
+    'validation'	=> array(
+      'rules'			=> array(
         "{$prefix}endtime" => array(
             'required'  => true,
         ),
-        "{$prefix}starttime" => array(
-            'required'  => true,
-        ),
       ),
     ),
+
+    'tabs' => array(
+			'overview' 			=> 'Overview',
+			'speakers' 			=> 'Speakers',
+			'agenda' 				=> 'Agenda',
+			'venue' 				=> 'Venue',			
+			'registration' 	=> 'Registration',
+		),
+
+		// Tab style: 'default', 'box' or 'left'. Optional
+		'tab_style' => 'box',
+		'geo' => true,
     'fields' => array(
-      // DATE
-      array(
-        'name'        => __( 'Start Date', 'socrata_events_' ),
-        'id'          => $prefix . 'starttime',
-        'type'        => 'date',
-        'timestamp'   => true,        
-        'js_options' => array(
-          'numberOfMonths'  => 2,
-          'showButtonPanel' => true,
-        ),
-      ),
-      // DATE
-      array(
-        'name'        => __( 'End Date', 'socrata_events_' ),
-        'id'          => $prefix . 'endtime',
-        'type'        => 'date',
-        'timestamp'   => true,        
-        'js_options' => array(
-          'numberOfMonths'  => 2,
-          'showButtonPanel' => true,
-        ),
-      ),      
-      // TEXT
-      array(
-        'name'  => __( 'Display Date and Time', 'socrata_events_' ),
-        'id'    => "{$prefix}displaydate",
-        'desc' => __( 'Example: January 1, 1:00 pm - 2:00 pm PT', 'socrata_events_' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-    )
-  );
 
-  $meta_boxes[] = array(
-    'id'          => 'geolocation',
-    'title'       => 'Event Location',
-    'post_types'  => 'socrata_events',
-    'context'     => 'normal',
-    'priority'    => 'high',
-    'validation' => array(
-      'rules'    => array(
-        "{$prefix}venue" => array(
-            'required'  => true,
-        ),
-        "{$prefix}address" => array(
-            'required'  => true,
-        ),
-        "{$prefix}geometry" => array(
-            'required'  => true,
-        ),
-      ),
-    ),
-    // Tell WP this Meta Box is GeoLocation
-    'geo'         => true,
-    // Or you can set advanced settings for Geo, like this example:
-    // Restrict results to Australia only.
-
-      /*'geo' => array(
-           'componentRestrictions' => array(
-               'country' => 'us'
-           )
-        ),*/
-      'fields' => array(              
-          // TEXT
-          array(
-            'name'  => __( 'Venue', 'socrata_events_' ),
-            'id'    => "{$prefix}venue",
-            'desc' => __( 'Seattle Convention Center', 'socrata_events_' ),
-            'type'  => 'text',
-            'clone' => false,
-          ),
-          // Set the ID to `address` or `address_something` to make Auto Complete field
-          array(
-              'type' => 'text',
-              'name' => 'Address',
-              'id'    => "{$prefix}address"
-          ),
-          array(
-                'type' => 'text',
-                'name' => 'City',
-                'id'    => "{$prefix}locality"
-            ),
-          // In case you want to limit your result like this example.
-          // Auto populate short name of `administrative_area_level_1`. For example: QLD
-          array(
-              'type' => 'select',
-              'name' => 'State',
-              'placeholder' => 'Select a State',
-              'options' => array(
-                  'AL' => 'AL',
-                  'AK' => 'AK',
-                  'AZ' => 'AZ',
-                  'AR' => 'AR',
-                  'CA' => 'CA',
-                  'CO' => 'CO',
-                  'CT' => 'CT',
-                  'DE' => 'DE',
-                  'DC' => 'DC',
-                  'FL' => 'FL',
-                  'GA' => 'GA',
-                  'HI' => 'HI',
-                  'ID' => 'ID',
-                  'IL' => 'IL',
-                  'IN' => 'IN',
-                  'IA' => 'IA',
-                  'KS' => 'KS',
-                  'KY' => 'KY',
-                  'LA' => 'LA',
-                  'ME' => 'ME',
-                  'MD' => 'MD',
-                  'MA' => 'MA',
-                  'MI' => 'MI',
-                  'MN' => 'MN',
-                  'MS' => 'MS',
-                  'MO' => 'MO',
-                  'MT' => 'MT',
-                  'NE' => 'NE',
-                  'NV' => 'NV',
-                  'NH' => 'NH',
-                  'NJ' => 'NJ',
-                  'NM' => 'NM',
-                  'NY' => 'NY',
-                  'NC' => 'NC',
-                  'ND' => 'ND',
-                  'OH' => 'OH',
-                  'OK' => 'OK',
-                  'OR' => 'OR',
-                  'PA' => 'PA',
-                  'RI' => 'RI',
-                  'SC' => 'SC',
-                  'SD' => 'SD',
-                  'TN' => 'TN',
-                  'TX' => 'TX',
-                  'UT' => 'UT',
-                  'VT' => 'VT',
-                  'VA' => 'VA',
-                  'WA' => 'WA',
-                  'WV' => 'WV',
-                  'WI' => 'WI',
-                  'WY' => 'WY'
-              ),
-              'id'    => "{$prefix}administrative_area_level_1_short"
-          ),
-          array(
-              'type' => 'number',
-              'name' => 'Postcode',
-              'id'    => "{$prefix}postal_code"
-          ),
-
-          // We have custom `geometry` address component. Which is `lat + ',' + lng`
-          array(
-              'type' => 'text',
-              'name' => 'Geometry',
-              'id'    => "{$prefix}geometry"
-          ),          
-      )
-  );
-
-  $meta_boxes[] = array(
-    'title'  => __( 'Event Branding', 'socrata_events_' ),
-    'post_types' => 'socrata_events',
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields' => array(      
-      // IMAGE ADVANCED (WP 3.5+)
-      array(
-        'name'              => __( 'Event Logo', 'logos_' ),
-        'id'                => "{$prefix}brand",
-        'desc'              => __( 'Minimum size 300x300 pixels.', 'logos_' ),
-        'type'              => 'image_advanced',
-        'max_file_uploads'  => 1,
-      ),
-      // URL
-      array(
-      'name' => __( 'Event URL', 'socrata_events_' ),
-        'id'   => "{$prefix}url",
-        'desc' => __( ' Example: http://somesite.com', 'socrata_events_' ),
-        'type' => 'url',
-      ),
-    )
-  );
-
-  /*$meta_boxes[] = array(
-    'title'  => __( 'Event CTA', 'socrata_events_' ),
-    'post_types' => 'socrata_events',
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields' => array(      
-      // TEXT
-      array(
-        'name'  => __( 'CTA Title', 'socrata_events_' ),
-        'id'    => "{$prefix}form_title",
-        'desc' => __( 'Example: RSVP', 'socrata_events_' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),      
-      // TEXT
-      array(
-        'name'  => __( 'CTA Text', 'socrata_events_' ),
-        'id'    => "{$prefix}form_text",
-        'desc' => __( 'Example: Please fill out this form to RSVP.', 'socrata_events_' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      // URL
-      array(
-        'name' => esc_html__( 'CTA URL', 'socrata_events_' ),
-        'id'   => "{$prefix}cta_url",
-        'desc' => esc_html__( 'For other than Pardot forms. Like Eventbrite.', 'webinars_' ),
-        'type' => 'url',
-      ),      
-      // TEXT
-      array(
-        'name'  => __( 'Button Text', 'socrata_events_' ),
-        'id'    => "{$prefix}button_text",
-        'desc' => __( 'Example: Submit', 'socrata_events_' ),
-        'type'  => 'text',
-        'clone' => false,
-      ),
-      
-    )
-  );*/
-
-  $meta_boxes[] = array(
-    'title'  => __( 'Eventbrite', 'socrata_events_' ),
-    'post_types' => 'socrata_events',
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields' => array(     
-    	// HEADING
+			// HEADING
 			array(
 				'type' => 'heading',
-				'name' => esc_html__( 'Eventbrite ID', 'socrata_events_' ),
-				'desc' => esc_html__( 'Use this option for Eventbrite registration forms. Enter the ID number ONLY from the "Your Event URL". Example: https://www.eventbrite.com/e/some-event-01234567890, enter only the "01234567890" ', 'socrata_events_' ),
-			),     
-      // NUMBER
+				'name' => 'Event date and time',
+				'tab'  => 'overview',
+			),			
+			// DATE
 			array(
-				'name' => esc_html__( 'ID', 'socrata_events_' ),
-				'id'   => "{$prefix}eventbrite",
-				'type' => 'number',
+				'name'       => 'Start Date',
+				'id'         => "{$prefix}starttime",
+				'type'       => 'date',
+				'timestamp'  => true,
+				'js_options' => array(
+					'numberOfMonths'  => 2,
+          'showButtonPanel' => true,
+				),
+				'tab'  => 'overview',
 			),
-    )
-  );
-
-  $meta_boxes[] = array(
-    'title'  => __( 'Pardot', 'socrata_events_' ),
-    'post_types' => 'socrata_events',
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields' => array(     
-    	// HEADING
+			// DATE
+			array(
+				'name'       => 'End Date',
+				'id'         => "{$prefix}endtime",
+				'type'       => 'date',
+				'timestamp'  => true,
+				'js_options' => array(
+					'numberOfMonths'  => 2,
+          'showButtonPanel' => true,
+				),
+				'tab'  => 'overview',
+			),
+			// TIME
+			array(
+				'name'       => 'Start Time',
+				'id'         => "{$prefix}starttime_1",
+				'type'       => 'time',
+				'js_options' => array(
+					'stepMinute'     => 5,
+					'showTimepicker' => true,
+					'controlType'    => 'select',
+				),
+				'tab'  => 'overview',
+			),	
+			// TIME
+			array(
+				'name'       => 'End Time',
+				'id'         => "{$prefix}endtime_1",
+				'type'       => 'time',
+				'js_options' => array(
+					'stepMinute'     => 5,
+					'showTimepicker' => true,
+					'controlType'    => 'select',
+				),
+				'tab'  => 'overview',
+			),
+			// SELECT
+			array(
+				'name'	=> 'Time Zone',
+				'id'	=> "{$prefix}timezone",
+				'type'	=> 'select',
+				'options'	=> array(
+					'PT' => 'PST',
+					'CT' => 'CST',
+					'ET' => 'EST',
+				),
+				'multiple'	=> false,
+				'placeholder'	=> 'Select a time zone',
+				'select_all_none'	=> false,
+				'tab'	=> 'overview',
+			),
+			// TEXT
+      array(
+        'name'  => 'Display Date and Time',
+        'id'    => "{$prefix}displaydate",
+        'desc' 	=> 'OBSOLETE. NO LONGER USED.',
+        'type'  => 'text',
+        'clone' => false,
+				'tab'  	=> 'overview',
+      ),
+			// HEADING
 			array(
 				'type' => 'heading',
-				'name' => esc_html__( 'Pardot Form URL', 'socrata_events_' ),
-				'desc' => esc_html__( 'Use this option for Pardot forms. Enter the form url. Example: http://go.socrata.com/l/303201/...', 'socrata_events_' ),
-			),     
+				'name' => 'Overview Content',
+				'tab'  => 'overview',
+			),
+			// WYSIWYG/RICH TEXT EDITOR
+			array(
+				'id'      => "{$prefix}wysiwyg",
+				'type'    => 'wysiwyg',
+				'raw'     => false,
+				'options' => array(
+					'textarea_rows' => 10,
+					'teeny'         => false,
+					'media_buttons' => false,
+				),
+				'tab'  => 'overview',
+			),
+			// HEADING
+			array(
+				'type' => 'heading',
+				'name' => 'Speaker Content',
+				'tab'  => 'speakers',
+			),
+			// GROUP
+			array(
+				'id'     => "{$prefix}speakers",
+				'type'   => 'group',
+				'clone'  => true,
+				'sort_clone' => true,
+				// Sub-fields
+				'fields' => array(
+					array(
+						'name' => 'Name',
+						'id'   => "{$prefix}speaker_name",
+						'type' => 'text',
+					),
+					array(
+						'name' => 'Title',
+						'id'   => "{$prefix}speaker_title",
+						'type' => 'text',
+					),
+					array(
+						'name' => 'Headshot',
+						'id'   => "{$prefix}speaker_headshot",
+						'desc' => 'Minimum size 300x300 pixels.',
+						'type' => 'image_advanced',
+						'max_file_uploads' => 1,
+					),
+					array(
+						'name'		=> 'Short Bio',
+						'id'      => "{$prefix}speaker_bio",
+						'type'    => 'wysiwyg',
+						'raw'     => false,
+						'options' => array(
+							'textarea_rows' => 10,
+							'teeny'         => false,
+							'media_buttons' => false,
+						),
+					),
+				),
+				'tab'  => 'speakers',
+			),
+			// HEADING
+			array(
+				'type' => 'heading',
+				'name' => 'Agenda Content',
+				'tab'  => 'agenda',
+			),
+			// GROUP
+			array(
+				'id'     => "{$prefix}agenda",
+				'type'   => 'group',
+				'clone'  => true,
+				'sort_clone' => true,
+				// Sub-fields
+				'fields' => array(					
+					array(
+						'name'       => 'Time',
+						'id'         => "{$prefix}agenda_time",
+						'type'       => 'time',
+						'js_options' => array(
+							'stepMinute' => 5,
+							'controlType'     => 'select',
+						),
+					),
+					array(
+						'name'  => 'Title',
+						'id'    => "{$prefix}agenda_title",
+						'type'  => 'text',
+					),
+					array(
+						'name'  => 'Speaker(s)',
+						'id'    => "{$prefix}agenda_speakers",
+						'desc'  => 'ie. John Doe, Jane Doe, etc.',
+						'type'  => 'text',
+						'clone' => true,
+					),
+					array(
+						'name' => 'Description',
+						'id'   => "{$prefix}agenda_description",
+						'type' => 'textarea',
+						'cols' => 20,
+						'rows' => 5,
+					),					
+				),
+				'tab'  => 'agenda',
+			),
+			// HEADING
+			array(
+				'type' => 'heading',
+				'name' => 'Venue Address',
+				'desc' => 'As you enter an address, be sure to select an address from the dropdown in order to auto-populate all the address fields.',
+				'tab'  => 'venue',
+			),
+			// TEXT
+			array(
+				'type' => 'text',
+				'name' => 'Venue Name',
+				'id'   => "{$prefix}venue",
+				'desc' => 'ie. Seattle Convention Center',
+				'tab'  => 'venue',
+			),
+			// TEXT
+			array(
+				'type' => 'text',
+				'name' => 'Booth Number',
+				'id'   => "{$prefix}booth",
+				'tab'  => 'venue',
+			),
+			// TEXT
+			array(
+				'type' => 'text',
+				'name' => 'Address',
+				'id'   => "{$prefix}address",
+				'tab'  => 'venue',
+			),
+			// TEXT
+			array(
+				'type' => 'text',
+				'name' => 'Street Number',
+				'id'   => "{$prefix}street_number",
+				'binding' => 'street_number',
+				'tab'  => 'venue',
+			),
+			// TEXT
+			array(
+				'type' => 'text',
+				'name' => 'Route',
+				'id'   => "{$prefix}route",
+				'binding' => 'route',
+				'tab'  => 'venue',
+			),
+			// TEXT
+			array(
+				'type' => 'text',
+				'name' => 'City',
+				'id'   => "{$prefix}locality",
+				'binding' => 'locality',
+				'tab'  => 'venue',
+			),
+			// SELECT
+			array(
+				'type' => 'select',
+				'name' => 'State',
+				'id'   => "{$prefix}administrative_area_level_1_short",
+				'placeholder' => 'Select a State',
+				'options' => array(
+					'AL' => 'AL',
+					'AK' => 'AK',
+					'AZ' => 'AZ',
+					'AR' => 'AR',
+					'CA' => 'CA',
+					'CO' => 'CO',
+					'CT' => 'CT',
+					'DE' => 'DE',
+					'DC' => 'DC',
+					'FL' => 'FL',
+					'GA' => 'GA',
+					'HI' => 'HI',
+					'ID' => 'ID',
+					'IL' => 'IL',
+					'IN' => 'IN',
+					'IA' => 'IA',
+					'KS' => 'KS',
+					'KY' => 'KY',
+					'LA' => 'LA',
+					'ME' => 'ME',
+					'MD' => 'MD',
+					'MA' => 'MA',
+					'MI' => 'MI',
+					'MN' => 'MN',
+					'MS' => 'MS',
+					'MO' => 'MO',
+					'MT' => 'MT',
+					'NE' => 'NE',
+					'NV' => 'NV',
+					'NH' => 'NH',
+					'NJ' => 'NJ',
+					'NM' => 'NM',
+					'NY' => 'NY',
+					'NC' => 'NC',
+					'ND' => 'ND',
+					'OH' => 'OH',
+					'OK' => 'OK',
+					'OR' => 'OR',
+					'PA' => 'PA',
+					'RI' => 'RI',
+					'SC' => 'SC',
+					'SD' => 'SD',
+					'TN' => 'TN',
+					'TX' => 'TX',
+					'UT' => 'UT',
+					'VT' => 'VT',
+					'VA' => 'VA',
+					'WA' => 'WA',
+					'WV' => 'WV',
+					'WI' => 'WI',
+					'WY' => 'WY'
+				),
+				'binding' => 'short:administrative_area_level_1',
+				'tab'  => 'venue',
+			),
+			// NUMBER
+			array(
+				'type' => 'number',
+				'name' => 'Post Code',
+				'id'   => "{$prefix}postal_code",
+				'binding' => 'postal_code',
+				'tab'  => 'venue',
+			),
+			// TEXT
+			array(
+				'type' => 'text',
+				'name' => 'Geometry',
+				'id'   => "{$prefix}geometry",
+				'binding' => 'lat + "," + lng',
+				'tab'  => 'venue',
+			),
+			//HEADING
+			array(
+				'type' => 'heading',
+				'name' => 'Event Links',
+				'tab'  => 'venue',
+			),
+			// URL
+      array(
+      	'name' => 'Venue URL',
+        'id'   => "{$prefix}venue_url",
+        'desc' => 'Example: http://some-event-site.com',
+        'type' => 'url',
+				'tab'  => 'venue',
+      ),
       // URL
       array(
-        'name' => esc_html__( 'URL', 'socrata_events_' ),
-        'id'   => "{$prefix}form",
+      	'name' => 'Event URL',
+        'id'   => "{$prefix}url",
+        'desc' => 'Example: http://some-event-site.com',
         'type' => 'url',
+				'tab'  => 'venue',
       ),
-    )
-  );
-
-  $meta_boxes[] = array(
-    'title'  => __( 'Content', 'socrata_events_' ),
-    'post_types' => 'socrata_events',
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'fields' => array(          
-      // WYSIWYG/RICH TEXT EDITOR
+			//HEADING
+			array(
+				'type' => 'heading',
+				'name' => 'Community of Practice Region',
+				'tab'  => 'venue',
+			),
+			// TAXONOMY
+			array(
+				'name'       => 'Region',
+				'id'         => "{$prefix}region_taxonomy",
+				'type'       => 'taxonomy_advanced',
+				'clone'      => false,
+				'taxonomy'   => 'socrata_events_region',
+				'field_type' => 'select_tree',
+				'query_args' => array(),
+				'tab'  => 'venue',
+			),
+			//HEADING
+			array(
+				'type' => 'heading',
+				'name' => 'Eventbrite Information',
+				'tab'  => 'registration',
+			),
+			// URL
+			array(
+				'name' => 'Eventbrite URL', 'socrata_events_',
+				'id'   => "{$prefix}eventbrite_url",
+				'desc' => 'ie. https://www.eventbrite.com/e/some-event-1234567890',
+				'type' => 'url',
+				'tab'  => 'registration',
+			),
+			// NUMBER
+			array(
+				'name' => 'Eventbrite ID',
+				'id'   => "{$prefix}eventbrite_id",
+				'desc' => 'Copy/paste the ID number at the end of the Eventbrite URL. ie. 1234567890',
+				'type' => 'number',
+				'min'  => 0,
+				'tab'  => 'registration',
+			),
+			// TEXT
       array(
-        'id'      => "{$prefix}wysiwyg",
-        'type'    => 'wysiwyg',
-        // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
-        'raw'     => false,
-        // Editor settings, see wp_editor() function: look4wp.com/wp_editor
-        'options' => array(
-          'textarea_rows' => 15,
-          'teeny'         => false,
-          'media_buttons' => true,
-        ),
+        'name'  => 'CTA Button Text',
+        'id'    => "{$prefix}button_text",
+        'desc' 	=> 'Example: Get Tickets',
+        'type'  => 'text',
+        'clone' => false,
+				'tab'  => 'registration',
       ),
     )
   );
@@ -559,9 +668,7 @@ function events_posts($atts, $content = null) {
             $city = rwmb_meta( 'socrata_events_locality' );
             $state = rwmb_meta( 'socrata_events_administrative_area_level_1_short' ); ?>
               <div class="feature-event">
-                <div class="feature-event-image">
-                  <img src="<?php echo $url;?>" <?php if ( ! empty($alt_text) ) { ?> alt="<?php echo $alt_text;?>" <?php } ;?> class="img-responsive">
-                </div>
+                <div class="feature-event-image sixteen-nine img-background" style="background-image:url('<?php echo $url;?>')"></div>
                 <div class="feature-event-meta">
                   <div class="date">
                     <div class="day"><?php echo date('j', $date);?></div>

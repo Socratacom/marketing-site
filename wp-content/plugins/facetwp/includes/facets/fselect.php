@@ -163,7 +163,8 @@ class FacetWP_Facet_fSelect extends FacetWP_Facet
         return array(
             'placeholder'   => $label_any,
             'overflowText'  => __( '{n} selected', 'fwp' ),
-            'searchText'    => __( 'Search', 'fwp' )
+            'searchText'    => __( 'Search', 'fwp' ),
+            'operator'      => $facet['operator']
         );
     }
 
