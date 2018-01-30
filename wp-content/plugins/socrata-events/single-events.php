@@ -164,7 +164,7 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
   					<div class="helpful-links">
   						<h5 class="text-uppercase color-white margin-bottom-15">Helpful Links</h5>
 	  					<ul class="no-bullets" style="margin:0 0 30px 0;">
-	  						<li style="margin-bottom:5px;"><a href="<?php echo $website;?>" target="_blank" rel="noopener noreferrer" class="mdc-text-light-blue-400 font-normal">Visit Venue Website</a></li>
+	  						<li style="margin-bottom:5px;"><a href="<?php echo $website;?>" target="_blank" rel="noopener noreferrer" class="mdc-text-light-blue-400 font-normal">Visit Event Website</a></li>
 	  					</ul>
 	  				</div>
   					<?php } ?>
