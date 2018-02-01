@@ -557,10 +557,10 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 			array(
 				'name'       => 'Region',
 				'id'         => "{$prefix}region_taxonomy",
-				'type'       => 'taxonomy_advanced',
+				'type'       => 'taxonomy',
 				'clone'      => false,
 				'taxonomy'   => 'socrata_events_region',
-				'field_type' => 'select_tree',
+				'field_type' => 'select_advanced',
 				'query_args' => array(),
 				'tab'  => 'venue',
 			),

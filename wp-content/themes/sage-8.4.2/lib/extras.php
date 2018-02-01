@@ -402,7 +402,7 @@ function open_data_subnav ($atts, $content = null) {
 add_shortcode('open-data-subnav', __NAMESPACE__ . '\\open_data_subnav');
 
 /**
- * Carousel Script. This temporary till I can figure out the frick'n plugin
+ * Carousel Script. This temporary till I can figure out the frick'n plugin [carousel-script id="NAME"]
  */
 function carousel_script( $atts ) {
   extract( shortcode_atts( array(
@@ -412,12 +412,12 @@ function carousel_script( $atts ) {
   ?>
   <script>
   jQuery(function ($){
-          $(<?php echo $id; ?>).slick({
+          $(<?php echo "'.$id'"; ?>).slick({
             arrows: true,
             dots: true,
-            appendArrows: $('.carousel'),
-            prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',
-            nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',
+            appendArrows: $(<?php echo "'#$id'"; ?>),
+            prevArrow: '<div class="toggle-left"><i class="fa slick-prev fa-long-arrow-left"></div>',
+            nextArrow: '<div class="toggle-right"><i class="fa slick-next fa-long-arrow-right"></i></div>',
             autoplay: true,
             autoplaySpeed: 8000,
             speed: 800,
@@ -425,7 +425,7 @@ function carousel_script( $atts ) {
             slidesToScroll: 1,
             accessibility:false
           });
-          $(<?php echo $id; ?>).show();
+          $(<?php echo "'.$id'"; ?>).show();
         });
   </script>
   <?php
