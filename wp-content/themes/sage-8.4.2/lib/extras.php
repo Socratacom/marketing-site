@@ -423,7 +423,9 @@ function carousel_script( $atts ) {
             speed: 800,
             slidesToShow: 1,
             slidesToScroll: 1,
-            accessibility:false
+            accessibility:false,
+            adaptiveHeight: true,
+            infinite: true
           });
           $(<?php echo "'.$id'"; ?>).show();
         });
