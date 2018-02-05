@@ -574,7 +574,7 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 			array(
 				'name' => 'Eventbrite URL', 'socrata_events_',
 				'id'   => "{$prefix}eventbrite_url",
-				'desc' => 'ie. https://www.eventbrite.com/e/some-event-1234567890',
+				'desc' => 'ie. https://YOUR-EVENT-URL',
 				'type' => 'url',
 				'tab'  => 'registration',
 			),
