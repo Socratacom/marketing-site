@@ -53,7 +53,29 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
           	<?php } 
           ?>
           <div class="margin-bottom-60"><?php echo do_shortcode('[addthis]');?></div>
-          <?php if ( !empty ( $eventbrite ) ) { ?><div><noscript><a href="<?php echo $eventbrite;?>" rel="noopener noreferrer" target="_blank" class="btn btn-lg btn-primary"></noscript><button id="eventbrite-widget-modal-trigger-1" class="btn btn-lg btn-primary" type="button"><?php if ( !empty ( $eventbrite_btn ) ) echo $eventbrite_btn; else echo "Register" ?></button><noscript><?php if ( !empty ( $eventbrite_btn ) ) echo $eventbrite_btn; else echo "Register" ?></a></noscript><script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script><script type="text/javascript">var exampleCallback=function(){console.log("Order complete!")};window.EBWidgets.createWidget({widgetType:"checkout",eventId:"<?php echo $eventbrite_id;?>",modal:!0,modalTriggerElementId:"eventbrite-widget-modal-trigger-1",onOrderComplete:exampleCallback});</script></div><?php } else { ?><div><a href="#meta" class="reveal-delay"><i class="icon-32 icon-down-arrow color-primary" aria-hidden="true"></i></a></div><?php } ?>          
+					<?php if ( !empty ( $eventbrite ) ) { ?>
+					<div>
+					<!-- Noscript content for added SEO -->
+					<noscript><a href="<?php echo $eventbrite;?>" rel="noopener noreferrer" target="_blank"></noscript>
+					<!-- You can customize this button any way you like -->
+					<button id="eventbrite-widget-modal-trigger-1" class="btn btn-lg btn-primary" type="button"><?php if ( !empty ( $eventbrite_btn ) ) echo $eventbrite_btn; else echo "Register" ?></button>
+					<noscript></a><?php if ( !empty ( $eventbrite_btn ) ) echo $eventbrite_btn; else echo "Register" ?></noscript>
+					<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+					<script type="text/javascript">
+					    var exampleCallback = function() {
+					        console.log('Order complete!');
+					    };
+					    window.EBWidgets.createWidget({
+					        widgetType: 'checkout',
+					        eventId: '<?php echo $eventbrite_id;?>',
+					        modal: true,
+					        modalTriggerElementId: 'eventbrite-widget-modal-trigger-1',
+					        onOrderComplete: exampleCallback
+					    });
+					</script>
+					<?php } else { ?>
+					<div><a href="#meta" class="reveal-delay"><i class="icon-32 icon-down-arrow color-primary" aria-hidden="true"></i></a></div>
+					<?php } ?>
         </div>      
       </div>
     </div>
@@ -168,7 +190,29 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
 	  					</ul>
 	  				</div>
   					<?php } ?>
-  					<?php if ( !empty ( $eventbrite ) ) { ?><div><noscript><a href="<?php echo $eventbrite;?>" rel="noopener noreferrer" target="_blank" class="btn btn-lg btn-light mdc-text-blue-grey-500"></noscript><button id="eventbrite-widget-modal-trigger-2" class="btn btn-lg btn-light mdc-text-blue-grey-500" type="button"><?php if ( !empty ( $eventbrite_btn ) ) echo $eventbrite_btn; else echo "Register" ?></button><noscript><?php if ( !empty ( $eventbrite_btn ) ) echo $eventbrite_btn; else echo "Register" ?></a></noscript><script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script><script type="text/javascript">var exampleCallback=function(){console.log("Order complete!")};window.EBWidgets.createWidget({widgetType:"checkout",eventId:"<?php echo $eventbrite_id;?>",modal:!0,modalTriggerElementId:"eventbrite-widget-modal-trigger-2",onOrderComplete:exampleCallback});</script></div><?php } ?>
+  					<?php if ( !empty ( $eventbrite ) ) { ?>
+						<div>
+						<!-- Noscript content for added SEO -->
+						<noscript><a href="<?php echo $eventbrite;?>" rel="noopener noreferrer" target="_blank"></noscript>
+						<!-- You can customize this button any way you like -->
+						<button id="eventbrite-widget-modal-trigger-2" class="btn btn-lg btn-light mdc-text-blue-grey-500" type="button"><?php if ( !empty ( $eventbrite_btn ) ) echo $eventbrite_btn; else echo "Register" ?></button>
+						<noscript></a><?php if ( !empty ( $eventbrite_btn ) ) echo $eventbrite_btn; else echo "Register" ?></noscript>
+						<script src="https://www.eventbrite.com/static/widgets/eb_widgets.js"></script>
+						<script type="text/javascript">
+						    var exampleCallback = function() {
+						        console.log('Order complete!');
+						    };
+						    window.EBWidgets.createWidget({
+						        widgetType: 'checkout',
+						        eventId: '<?php echo $eventbrite_id;?>',
+						        modal: true,
+						        modalTriggerElementId: 'eventbrite-widget-modal-trigger-2',
+						        onOrderComplete: exampleCallback
+						    });
+						</script>
+						<?php } else { ?>
+						<div><a href="#meta" class="reveal-delay"><i class="icon-32 icon-down-arrow color-primary" aria-hidden="true"></i></a></div>
+						<?php } ?>
   				</div>
   			</div>
   		</div>
