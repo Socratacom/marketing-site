@@ -125,7 +125,7 @@ class FacetWP_Facet_Autocomplete extends FacetWP_Facet
         $facet_name = FWP()->helper->sanitize( $_POST['facet_name'] );
         $output = array();
 
-        if ( ! empty( $query ) && ! empty( $facet_name ) ) {
+        if ( ! empty( $query ) && ! empty( $facet_name ) && ! empty( $post_ids ) ) {
             $sql = "
             SELECT DISTINCT facet_display_value
             FROM {$wpdb->prefix}facetwp_index

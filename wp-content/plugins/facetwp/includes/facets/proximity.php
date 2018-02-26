@@ -60,11 +60,11 @@ class FacetWP_Facet_Proximity_Core extends FacetWP_Facet
 
         ob_start();
 ?>
-        <input type="text" id="facetwp-location" value="<?php echo esc_attr( $location_name ); ?>" placeholder="<?php _e( 'Enter location', 'fwp' ); ?>" />
+        <input type="text" class="facetwp-location" value="<?php echo esc_attr( $location_name ); ?>" placeholder="<?php _e( 'Enter location', 'fwp' ); ?>" />
 
         <?php if ( 'dropdown' == $radius_ui ) : ?>
 
-        <select id="facetwp-radius">
+        <select class="facetwp-radius facetwp-radius-dropdown">
             <?php foreach ( $radius_options as $radius ) : ?>
             <?php $selected = ( $chosen_radius == $radius ) ? ' selected' : ''; ?>
             <option value="<?php echo $radius; ?>"<?php echo $selected; ?>><?php echo "$radius $unit"; ?></option>
@@ -74,7 +74,7 @@ class FacetWP_Facet_Proximity_Core extends FacetWP_Facet
         <?php elseif ( 'slider' == $radius_ui ) : ?>
 
         <div class="facetwp-radius-wrap">
-            <input id="facetwp-radius" class="facetwp-radius-slider" type="range"
+            <input class="facetwp-radius facetwp-radius-slider" type="range"
                 min="<?php echo $facet['radius_min']; ?>"
                 max="<?php echo $facet['radius_max']; ?>"
                 value="<?php echo $chosen_radius; ?>"
@@ -87,7 +87,7 @@ class FacetWP_Facet_Proximity_Core extends FacetWP_Facet
 
         <?php elseif ( 'none' == $radius_ui ) : ?>
 
-        <input id="facetwp-radius" class="facetwp-hidden" value="<?php echo $chosen_radius; ?>" />
+        <input class="facetwp-radius facetwp-hidden" value="<?php echo $chosen_radius; ?>" />
 
         <?php endif; ?>
 

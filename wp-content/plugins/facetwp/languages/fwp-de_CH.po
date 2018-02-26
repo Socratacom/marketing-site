@@ -1,47 +1,48 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FacetWP\n"
-"POT-Creation-Date: 2018-01-03 15:23-0500\n"
-"PO-Revision-Date: 2018-01-03 15:23-0500\n"
+"POT-Creation-Date: 2018-02-09 08:52-0500\n"
+"PO-Revision-Date: 2018-02-09 08:52-0500\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: Matt Gibbs <hello@facetwp.com>\n"
 "Language: de_CH\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: includes/class-ajax.php:218
+#: includes/class-ajax.php:217
 #, fuzzy
 msgid "FacetWP was unable to auto-detect the post listing"
 msgstr "FacetWP war nicht imstande, die Post-Liste automatisch erkennen"
 
-#: includes/class-ajax.php:248
+#: includes/class-ajax.php:246
 msgid "Settings saved"
 msgstr "Einstellungen wurden gespeichert"
 
-#: includes/class-ajax.php:255
+#: includes/class-ajax.php:253
 msgid "Error: invalid JSON"
 msgstr "Fehler: Ungültiges JSON"
 
-#: includes/class-ajax.php:378
+#: includes/class-ajax.php:373
 msgid "Nothing to import"
 msgstr "Nichts zum Importieren"
 
-#: includes/class-ajax.php:414
+#: includes/class-ajax.php:409
 msgid "Imported"
 msgstr "Importiert"
 
-#: includes/class-ajax.php:417
+#: includes/class-ajax.php:412
 msgid "Skipped"
 msgstr "Übersprungen"
 
-#: includes/class-ajax.php:448
+#: includes/class-ajax.php:443
 msgid "Error"
 msgstr "Fehler"
 
@@ -49,37 +50,37 @@ msgstr "Fehler"
 #, fuzzy
 #| msgid "No results"
 msgid "No results found"
-msgstr "Leine Ergebnisse"
+msgstr "Keine Ergebnisse gefunden"
 
-#: includes/class-helper.php:421
+#: includes/class-helper.php:434
 msgid "Posts"
 msgstr "Beiträge"
 
-#: includes/class-helper.php:423
+#: includes/class-helper.php:436
 msgid "Post Type"
 msgstr "Beitragsart"
 
-#: includes/class-helper.php:424
+#: includes/class-helper.php:437
 msgid "Post Date"
 msgstr "Beitragsdatum"
 
-#: includes/class-helper.php:425
+#: includes/class-helper.php:438
 msgid "Post Modified"
 msgstr "Bearbeitet"
 
-#: includes/class-helper.php:426
+#: includes/class-helper.php:439
 msgid "Post Title"
 msgstr "Titel"
 
-#: includes/class-helper.php:427
+#: includes/class-helper.php:440
 msgid "Post Author"
 msgstr "Autor"
 
-#: includes/class-helper.php:432
+#: includes/class-helper.php:445
 msgid "Taxonomies"
 msgstr "Taxonomien"
 
-#: includes/class-helper.php:437
+#: includes/class-helper.php:450
 msgid "Custom Fields"
 msgstr "Benutzerdefinierte Felder"
 
@@ -98,43 +99,44 @@ msgid "To use FacetWP with %s, please install the %s, then re-index."
 msgstr ""
 "Zur Verwendung von FacetWP mit %s %s zu installieren, dann neu indizieren."
 
-#: includes/class-renderer.php:500 includes/class-renderer.php:617
+#: includes/class-renderer.php:494 includes/class-renderer.php:611
 msgid "of"
 msgstr "von"
 
-#: includes/class-renderer.php:534 includes/facets/checkboxes.php:327
-#: includes/facets/dropdown.php:191 includes/facets/fselect.php:264
+#: includes/class-renderer.php:528 includes/facets/checkboxes.php:327
+#: includes/facets/dropdown.php:191 includes/facets/fselect.php:318
 #: includes/facets/hierarchy.php:212 includes/facets/radio.php:206
 msgid "Sort by"
 msgstr "Sortieren nach"
 
-#: includes/class-renderer.php:538
+#: includes/class-renderer.php:532
 msgid "Title (A-Z)"
 msgstr "Titel (A-Z)"
 
-#: includes/class-renderer.php:545
+#: includes/class-renderer.php:539
 msgid "Title (Z-A)"
 msgstr "Titel (Z-A)"
 
-#: includes/class-renderer.php:552
+#: includes/class-renderer.php:546
 msgid "Date (Newest)"
 msgstr "Datum (neuste zuerst)"
 
-#: includes/class-renderer.php:559
+#: includes/class-renderer.php:553
 msgid "Date (Oldest)"
 msgstr "Datum (älteste zuerst)"
 
-#: includes/class-renderer.php:616
+#: includes/class-renderer.php:610
 msgid "Page"
 msgstr "Seite"
 
-#: includes/class-renderer.php:667
+#: includes/class-renderer.php:661
 msgid "Per page"
 msgstr "Pro Seite"
 
 #: includes/class-settings-admin.php:14
+#, fuzzy
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
 #: includes/class-settings-admin.php:17
 msgid "License Key"
@@ -143,7 +145,7 @@ msgstr "Lizenzschlüssel"
 #: includes/class-settings-admin.php:21
 #, fuzzy
 msgid "Google Maps API Key"
-msgstr "Google Maps API-Schlüssel"
+msgstr "Google Maps API Schlüssel"
 
 #: includes/class-settings-admin.php:25
 msgid "Separators"
@@ -162,7 +164,7 @@ msgstr "Drehen"
 #: includes/class-settings-admin.php:31
 #, fuzzy
 msgid "Fade"
-msgstr "Langsam ein-/ausblenden"
+msgstr "Überblenden"
 
 #: includes/class-settings-admin.php:31 includes/facets/date_range.php:181
 #: includes/facets/number_range.php:116 includes/facets/proximity.php:247
@@ -189,7 +191,7 @@ msgstr "Aus"
 #: includes/class-settings-admin.php:43
 #, fuzzy
 msgid "On"
-msgstr "Ein"
+msgstr "An"
 
 #: includes/class-settings-admin.php:49
 #: includes/integrations/woocommerce/woocommerce.php:48
@@ -208,8 +210,9 @@ msgstr ""
 #: includes/class-settings-admin.php:55 includes/class-settings-admin.php:62
 #: includes/facets/checkboxes.php:362 includes/facets/checkboxes.php:377
 #: includes/facets/checkboxes.php:392 includes/facets/checkboxes.php:407
-#: includes/facets/dropdown.php:211 includes/facets/fselect.php:237
-#: includes/facets/fselect.php:284 includes/facets/radio.php:226
+#: includes/facets/dropdown.php:211 includes/facets/fselect.php:291
+#: includes/facets/fselect.php:338 includes/facets/fselect.php:368
+#: includes/facets/fselect.php:383 includes/facets/radio.php:226
 #: includes/facets/radio.php:241 includes/facets/search.php:117
 #: includes/integrations/acf/acf.php:247
 msgid "No"
@@ -218,8 +221,9 @@ msgstr "Nein"
 #: includes/class-settings-admin.php:55 includes/class-settings-admin.php:62
 #: includes/facets/checkboxes.php:363 includes/facets/checkboxes.php:378
 #: includes/facets/checkboxes.php:393 includes/facets/checkboxes.php:408
-#: includes/facets/dropdown.php:212 includes/facets/fselect.php:238
-#: includes/facets/fselect.php:285 includes/facets/radio.php:227
+#: includes/facets/dropdown.php:212 includes/facets/fselect.php:292
+#: includes/facets/fselect.php:339 includes/facets/fselect.php:369
+#: includes/facets/fselect.php:384 includes/facets/radio.php:227
 #: includes/facets/radio.php:242 includes/facets/search.php:118
 #: includes/integrations/acf/acf.php:247
 msgid "Yes"
@@ -238,7 +242,7 @@ msgstr ""
 #, fuzzy
 #| msgid "Back"
 msgid "Backup"
-msgstr "Zurück"
+msgstr "Backup"
 
 #: includes/class-settings-admin.php:71 includes/class-settings-admin.php:123
 msgid "Export"
@@ -292,7 +296,7 @@ msgstr "Aktualisieren"
 msgid "No results"
 msgstr "Leine Ergebnisse"
 
-#: includes/facets/autocomplete.php:160 includes/facets/search.php:104
+#: includes/facets/autocomplete.php:159 includes/facets/search.php:104
 msgid "Placeholder text"
 msgstr "Platzhalter-Text"
 
@@ -309,57 +313,58 @@ msgid "See less"
 msgstr "Weniger sehen"
 
 #: includes/facets/checkboxes.php:313 includes/facets/dropdown.php:177
-#: includes/facets/fselect.php:250 includes/facets/radio.php:192
+#: includes/facets/fselect.php:304 includes/facets/radio.php:192
 msgid "Parent term"
 msgstr "Übergeordneter Term"
 
 #: includes/facets/checkboxes.php:330 includes/facets/dropdown.php:194
-#: includes/facets/fselect.php:267 includes/facets/hierarchy.php:215
+#: includes/facets/fselect.php:321 includes/facets/hierarchy.php:215
 #: includes/facets/radio.php:209
 msgid "Highest Count"
 msgstr "Höchste Anzahl"
 
 #: includes/facets/checkboxes.php:331 includes/facets/dropdown.php:195
-#: includes/facets/fselect.php:268 includes/facets/hierarchy.php:216
+#: includes/facets/fselect.php:322 includes/facets/hierarchy.php:216
 #: includes/facets/radio.php:210
 msgid "Display Value"
 msgstr "Angezeigter Wert"
 
 #: includes/facets/checkboxes.php:332 includes/facets/dropdown.php:196
-#: includes/facets/fselect.php:269 includes/facets/hierarchy.php:217
+#: includes/facets/fselect.php:323 includes/facets/hierarchy.php:217
 #: includes/facets/radio.php:211
 msgid "Raw Value"
 msgstr "Rohdaten"
 
 #: includes/facets/checkboxes.php:333 includes/facets/dropdown.php:197
-#: includes/facets/fselect.php:270 includes/facets/hierarchy.php:218
+#: includes/facets/fselect.php:324 includes/facets/hierarchy.php:218
 #: includes/facets/radio.php:212
+#, fuzzy
 msgid "Term Order"
-msgstr ""
+msgstr "项目排序"
 
-#: includes/facets/checkboxes.php:339 includes/facets/fselect.php:291
+#: includes/facets/checkboxes.php:339 includes/facets/fselect.php:345
 msgid "Behavior"
 msgstr "Verhaltensweise"
 
-#: includes/facets/checkboxes.php:342 includes/facets/fselect.php:294
+#: includes/facets/checkboxes.php:342 includes/facets/fselect.php:348
 msgid "How should multiple selections affect the results?"
 msgstr "Wie soll eine Mehrfachauswahl die Resultate beeinflussen?"
 
-#: includes/facets/checkboxes.php:347 includes/facets/fselect.php:299
+#: includes/facets/checkboxes.php:347 includes/facets/fselect.php:353
 msgid "Narrow the result set"
 msgstr "Resulate eingrenzen"
 
-#: includes/facets/checkboxes.php:348 includes/facets/fselect.php:300
+#: includes/facets/checkboxes.php:348 includes/facets/fselect.php:354
 msgid "Widen the result set"
 msgstr "Resultate erweitern"
 
 #: includes/facets/checkboxes.php:354 includes/facets/dropdown.php:203
-#: includes/facets/fselect.php:276
+#: includes/facets/fselect.php:330
 msgid "Hierarchical"
 msgstr "Hierarchisch"
 
 #: includes/facets/checkboxes.php:357 includes/facets/dropdown.php:206
-#: includes/facets/fselect.php:279
+#: includes/facets/fselect.php:333
 msgid "Is this a hierarchical taxonomy?"
 msgstr "Ist dies eine hierarchische Taxonomie?"
 
@@ -371,32 +376,36 @@ msgstr "Genişletilmiş"
 #: includes/facets/checkboxes.php:372
 #, fuzzy
 msgid "Should child terms be visible by default?"
-msgstr "Untergeordnete Ausdrücke standardmäßig angezeigt werden soll?"
+msgstr "Untergeordnete Ausdrücke standardmäßig anzeigen?"
 
-#: includes/facets/checkboxes.php:384 includes/facets/radio.php:218
+#: includes/facets/checkboxes.php:384 includes/facets/fselect.php:360
+#: includes/facets/radio.php:218
 msgid "Show ghosts"
 msgstr "Geister anzeigen"
 
-#: includes/facets/checkboxes.php:387 includes/facets/radio.php:221
+#: includes/facets/checkboxes.php:387 includes/facets/fselect.php:363
+#: includes/facets/radio.php:221
 msgid "Show choices that would return zero results?"
 msgstr "Optionen anzeigen, die keine Resultate liefern würden?"
 
-#: includes/facets/checkboxes.php:399 includes/facets/radio.php:233
+#: includes/facets/checkboxes.php:399 includes/facets/fselect.php:375
+#: includes/facets/radio.php:233
 msgid "Preserve ghost order"
 msgstr "Reihenfolge der Geister beibehalten"
 
-#: includes/facets/checkboxes.php:402 includes/facets/radio.php:236
+#: includes/facets/checkboxes.php:402 includes/facets/fselect.php:378
+#: includes/facets/radio.php:236
 msgid "Keep ghost choices in the same order?"
 msgstr "Soll die Reihenfolge der Geister-Optionen beibehalten werden?"
 
 #: includes/facets/checkboxes.php:414 includes/facets/dropdown.php:218
-#: includes/facets/fselect.php:306 includes/facets/hierarchy.php:224
+#: includes/facets/fselect.php:390 includes/facets/hierarchy.php:224
 #: includes/facets/radio.php:248
 msgid "Count"
 msgstr "Anzahl"
 
 #: includes/facets/checkboxes.php:417 includes/facets/dropdown.php:221
-#: includes/facets/fselect.php:309 includes/facets/hierarchy.php:227
+#: includes/facets/fselect.php:393 includes/facets/hierarchy.php:227
 #: includes/facets/radio.php:251
 msgid "The maximum number of facet choices to show"
 msgstr "Die maximale Anzahl Facetten, die angezeigt werden soll"
@@ -480,12 +489,12 @@ msgid "Dropdown"
 msgstr "Auswahlmenü"
 
 #: includes/facets/dropdown.php:78 includes/facets/dropdown.php:172
-#: includes/facets/fselect.php:87 includes/facets/fselect.php:160
-#: includes/facets/fselect.php:245 includes/facets/hierarchy.php:67
+#: includes/facets/fselect.php:136 includes/facets/fselect.php:210
+#: includes/facets/fselect.php:299 includes/facets/hierarchy.php:67
 msgid "Any"
 msgstr "Alle"
 
-#: includes/facets/dropdown.php:163 includes/facets/fselect.php:243
+#: includes/facets/dropdown.php:163 includes/facets/fselect.php:297
 msgid "Default label"
 msgstr "Standard-Text"
 
@@ -493,15 +502,15 @@ msgstr "Standard-Text"
 msgid "fSelect"
 msgstr "fSelect"
 
-#: includes/facets/fselect.php:165
+#: includes/facets/fselect.php:215
 msgid "{n} selected"
 msgstr "{n} ausgewählt"
 
-#: includes/facets/fselect.php:166 includes/facets/search.php:7
+#: includes/facets/fselect.php:216 includes/facets/search.php:7
 msgid "Search"
 msgstr "Suche"
 
-#: includes/facets/fselect.php:233
+#: includes/facets/fselect.php:287
 msgid "Multi-select?"
 msgstr "Mehrfachauswahl?"
 
@@ -542,11 +551,12 @@ msgstr "Ort eingeben"
 #, fuzzy
 #| msgid "Enter location"
 msgid "Clear location"
-msgstr "Ort eingeben"
+msgstr "Standort löschen"
 
 #: includes/facets/proximity.php:239
+#, fuzzy
 msgid "Longitude"
-msgstr ""
+msgstr "Breitengrad"
 
 #: includes/facets/proximity.php:242
 msgid "(Optional) use a separate longitude field"
@@ -609,8 +619,9 @@ msgid "WP Default"
 msgstr "WP Default"
 
 #: includes/facets/search.php:109
+#, fuzzy
 msgid "Auto refresh"
-msgstr ""
+msgstr "Automatisch aktualisieren"
 
 #: includes/facets/search.php:112
 msgid "Automatically refresh the results while typing?"
@@ -685,7 +696,7 @@ msgstr "Zu verkaufen"
 #, fuzzy
 #| msgid "Post Type"
 msgid "Product Type"
-msgstr "Beitragsart"
+msgstr "Produkttyp"
 
 #: includes/integrations/woocommerce/woocommerce.php:409
 msgid "In Stock"
@@ -701,8 +712,8 @@ msgid ""
 "FacetWP requires PHP %s or above. Please contact your host and request a PHP "
 "upgrade."
 msgstr ""
-"FacetWP benötigt PHP %s oder höher. Bitte wenden Sie sich an Ihren Gastgeber "
-"und fordern Sie eine PHP-Upgrade an."
+"FacetWP benötigt PHP %s oder höher. Bitte wenden Sie sich an Ihren Web-Host "
+"und fragen Sie nach einem PHP-Upgrade."
 
 #: templates/page-settings.php:5
 msgid "All post types"
@@ -748,7 +759,7 @@ msgstr "Diese Facette hat keine zusätzlichen Einstellungen."
 #, fuzzy
 #| msgid "Basic"
 msgid "Basics"
-msgstr "Grundlage"
+msgstr "Basis"
 
 #: templates/page-settings.php:64
 msgid "Support"
@@ -806,7 +817,7 @@ msgstr "Abfrage-Editor"
 #, fuzzy
 #| msgid "Which posts would you like to use for the content listing?"
 msgid "Which posts would you like to use for the listing?"
-msgstr "Welche Beiträge möchten Sie die Inhalte Auflistung verwenden?"
+msgstr "Welche Beiträge sollen für die Liste genutzt werden?"
 
 #: templates/page-settings.php:248
 msgid "Send to editor"

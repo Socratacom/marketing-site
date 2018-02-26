@@ -117,6 +117,7 @@ class FacetWP_Renderer
             $this->query_args = apply_filters( 'facetwp_query_args', $query_args, $this );
 
             $this->query_args['paged'] = $page;
+            $this->query_args['post__in'] = array();
 
             // Narrow the posts based on the selected facets
             $post_ids = $this->get_filtered_post_ids();
@@ -177,9 +178,8 @@ class FacetWP_Renderer
             }
         }
 
-        // Static facet - the active facet's operator is "or"
-        $static_facet = $params['static_facet'];
-        $used_facets = $params['used_facets'];
+        // Don't render these facets
+        $frozen_facets = $params['frozen_facets'];
 
         // Calculate pager args
         $pager_args = array(
@@ -238,13 +238,8 @@ class FacetWP_Renderer
             // Load all facets on back / forward button press (first_load = true)
             if ( ! $first_load ) {
 
-                // Skip static facets
-                if ( $static_facet == $facet_name ) {
-                    continue;
-                }
-
-                // Skip used facets
-                if ( isset( $used_facets[ $facet_name ] ) ) {
+                // Skip frozen facets
+                if ( isset( $frozen_facets[ $facet_name ] ) ) {
                     continue;
                 }
             }
@@ -295,6 +290,13 @@ class FacetWP_Renderer
             // Return any JS settings
             if ( method_exists( $this->facet_types[ $facet_type ], 'settings_js' ) ) {
                 $output['settings'][ $facet_name ] = $this->facet_types[ $facet_type ]->settings_js( $args );
+            }
+
+            // Grab num_choices for slider facets
+            if ( 'slider' == $the_facet['type'] ) {
+                $min = $output['settings'][ $facet_name ]['range']['min'];
+                $max = $output['settings'][ $facet_name ]['range']['max'];
+                $output['settings']['num_choices'][ $facet_name ] = ( $min == $max ) ? 0 : 1;
             }
         }
 
@@ -372,13 +374,8 @@ class FacetWP_Renderer
         // Allow hooks to modify the default post IDs
         $post_ids = apply_filters( 'facetwp_pre_filtered_post_ids', $post_ids, $this );
 
-        // Determine whether we need to store unfiltered post IDs
-        $store_ids = apply_filters( 'facetwp_store_unfiltered_post_ids', false );
-
-        // Store post IDs on pageload (since we don't know yet which facets to use)
-        if ( $store_ids || $this->is_preload ) {
-            FWP()->unfiltered_post_ids = $post_ids;
-        }
+        // Store the unfiltered post IDs
+        FWP()->unfiltered_post_ids = $post_ids;
 
         foreach ( $this->facets as $facet_name => $the_facet ) {
             $facet_type = $the_facet['type'];
@@ -421,9 +418,7 @@ class FacetWP_Renderer
 
             // Store post IDs per facet
             // Required for dropdowns and checkboxes in "or" mode
-            if ( $store_ids || $this->is_preload ) {
-                FWP()->or_values[ $facet_name ] = $matches;
-            }
+            FWP()->or_values[ $facet_name ] = $matches;
 
             // Preserve post ID order for search facets
             if ( 'search' == $facet_type ) {

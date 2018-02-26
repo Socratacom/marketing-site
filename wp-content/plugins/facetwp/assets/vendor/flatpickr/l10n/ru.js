@@ -1,4 +1,4 @@
-/* flatpickr v4.1.4, @license MIT */
+/* flatpickr v4.3.2, @license MIT */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -62,7 +62,7 @@ fp.l10ns.ru = Russian;
 var ru = fp.l10ns;
 
 exports.Russian = Russian;
-exports['default'] = ru;
+exports.default = ru;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

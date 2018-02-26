@@ -1,48 +1,49 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FacetWP\n"
-"POT-Creation-Date: 2018-01-03 15:24-0500\n"
-"PO-Revision-Date: 2018-01-03 15:24-0500\n"
+"POT-Creation-Date: 2018-02-09 08:41-0500\n"
+"PO-Revision-Date: 2018-02-09 08:41-0500\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: Ciprian <ciprian@brainie.ro>\n"
 "Language: ro_RO\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
 "2:1));\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: includes/class-ajax.php:218
+#: includes/class-ajax.php:217
 #, fuzzy
 msgid "FacetWP was unable to auto-detect the post listing"
 msgstr "FacetWP a fost în imposibilitatea de a auto-detecteze cota de post"
 
-#: includes/class-ajax.php:248
+#: includes/class-ajax.php:246
 msgid "Settings saved"
 msgstr "Setările au fost salvate"
 
-#: includes/class-ajax.php:255
+#: includes/class-ajax.php:253
 msgid "Error: invalid JSON"
 msgstr "Eroare: JSON nevalid"
 
-#: includes/class-ajax.php:378
+#: includes/class-ajax.php:373
 msgid "Nothing to import"
 msgstr "Nimic de importat"
 
-#: includes/class-ajax.php:414
+#: includes/class-ajax.php:409
 msgid "Imported"
 msgstr "Importat"
 
-#: includes/class-ajax.php:417
+#: includes/class-ajax.php:412
 msgid "Skipped"
 msgstr "Ignorat"
 
-#: includes/class-ajax.php:448
+#: includes/class-ajax.php:443
 msgid "Error"
 msgstr "Eroare"
 
@@ -52,35 +53,35 @@ msgstr "Eroare"
 msgid "No results found"
 msgstr "Niciun rezultat găsit"
 
-#: includes/class-helper.php:421
+#: includes/class-helper.php:434
 msgid "Posts"
 msgstr "Articole"
 
-#: includes/class-helper.php:423
+#: includes/class-helper.php:436
 msgid "Post Type"
 msgstr "Tip articol"
 
-#: includes/class-helper.php:424
+#: includes/class-helper.php:437
 msgid "Post Date"
 msgstr "Data articol"
 
-#: includes/class-helper.php:425
+#: includes/class-helper.php:438
 msgid "Post Modified"
 msgstr "Ultima modificare"
 
-#: includes/class-helper.php:426
+#: includes/class-helper.php:439
 msgid "Post Title"
 msgstr "Titlu articol"
 
-#: includes/class-helper.php:427
+#: includes/class-helper.php:440
 msgid "Post Author"
 msgstr "Autor articol"
 
-#: includes/class-helper.php:432
+#: includes/class-helper.php:445
 msgid "Taxonomies"
 msgstr "Taxonomie"
 
-#: includes/class-helper.php:437
+#: includes/class-helper.php:450
 msgid "Custom Fields"
 msgstr "Câmpuri personalizate"
 
@@ -99,37 +100,37 @@ msgid "To use FacetWP with %s, please install the %s, then re-index."
 msgstr ""
 "Pentru a utiliza FacetWP cu %s, vă rugăm să instalaţi %s, apoi re-indexa."
 
-#: includes/class-renderer.php:500 includes/class-renderer.php:617
+#: includes/class-renderer.php:494 includes/class-renderer.php:611
 msgid "of"
 msgstr "din"
 
-#: includes/class-renderer.php:534 includes/facets/checkboxes.php:327
-#: includes/facets/dropdown.php:191 includes/facets/fselect.php:264
+#: includes/class-renderer.php:528 includes/facets/checkboxes.php:327
+#: includes/facets/dropdown.php:191 includes/facets/fselect.php:318
 #: includes/facets/hierarchy.php:212 includes/facets/radio.php:206
 msgid "Sort by"
 msgstr "Sortează după"
 
-#: includes/class-renderer.php:538
+#: includes/class-renderer.php:532
 msgid "Title (A-Z)"
 msgstr "Titlu (A-Z)"
 
-#: includes/class-renderer.php:545
+#: includes/class-renderer.php:539
 msgid "Title (Z-A)"
 msgstr "Titlu (Z-A)"
 
-#: includes/class-renderer.php:552
+#: includes/class-renderer.php:546
 msgid "Date (Newest)"
 msgstr "Data (cel mai recent)"
 
-#: includes/class-renderer.php:559
+#: includes/class-renderer.php:553
 msgid "Date (Oldest)"
 msgstr "Data (cel mai vechi)"
 
-#: includes/class-renderer.php:616
+#: includes/class-renderer.php:610
 msgid "Page"
 msgstr "Pagina"
 
-#: includes/class-renderer.php:667
+#: includes/class-renderer.php:661
 msgid "Per page"
 msgstr "Per pagină"
 
@@ -145,7 +146,7 @@ msgstr "Cheie licență"
 #: includes/class-settings-admin.php:21
 #, fuzzy
 msgid "Google Maps API Key"
-msgstr "Google Maps API KEY"
+msgstr "Cheie API Google Map"
 
 #: includes/class-settings-admin.php:25
 msgid "Separators"
@@ -164,7 +165,7 @@ msgstr "Învârte"
 #: includes/class-settings-admin.php:31
 #, fuzzy
 msgid "Fade"
-msgstr "Fade"
+msgstr "Decolorare"
 
 #: includes/class-settings-admin.php:31 includes/facets/date_range.php:181
 #: includes/facets/number_range.php:116 includes/facets/proximity.php:247
@@ -186,7 +187,7 @@ msgstr "Modul de Depanare "
 #: includes/class-settings-admin.php:43
 #, fuzzy
 msgid "Off"
-msgstr "Off"
+msgstr "Închis"
 
 #: includes/class-settings-admin.php:43
 #, fuzzy
@@ -210,8 +211,9 @@ msgstr ""
 #: includes/class-settings-admin.php:55 includes/class-settings-admin.php:62
 #: includes/facets/checkboxes.php:362 includes/facets/checkboxes.php:377
 #: includes/facets/checkboxes.php:392 includes/facets/checkboxes.php:407
-#: includes/facets/dropdown.php:211 includes/facets/fselect.php:237
-#: includes/facets/fselect.php:284 includes/facets/radio.php:226
+#: includes/facets/dropdown.php:211 includes/facets/fselect.php:291
+#: includes/facets/fselect.php:338 includes/facets/fselect.php:368
+#: includes/facets/fselect.php:383 includes/facets/radio.php:226
 #: includes/facets/radio.php:241 includes/facets/search.php:117
 #: includes/integrations/acf/acf.php:247
 msgid "No"
@@ -220,8 +222,9 @@ msgstr "Nu"
 #: includes/class-settings-admin.php:55 includes/class-settings-admin.php:62
 #: includes/facets/checkboxes.php:363 includes/facets/checkboxes.php:378
 #: includes/facets/checkboxes.php:393 includes/facets/checkboxes.php:408
-#: includes/facets/dropdown.php:212 includes/facets/fselect.php:238
-#: includes/facets/fselect.php:285 includes/facets/radio.php:227
+#: includes/facets/dropdown.php:212 includes/facets/fselect.php:292
+#: includes/facets/fselect.php:339 includes/facets/fselect.php:369
+#: includes/facets/fselect.php:384 includes/facets/radio.php:227
 #: includes/facets/radio.php:242 includes/facets/search.php:118
 #: includes/integrations/acf/acf.php:247
 msgid "Yes"
@@ -295,7 +298,7 @@ msgstr "Actualizează"
 msgid "No results"
 msgstr "Niciun rezultat gasit"
 
-#: includes/facets/autocomplete.php:160 includes/facets/search.php:104
+#: includes/facets/autocomplete.php:159 includes/facets/search.php:104
 msgid "Placeholder text"
 msgstr "Text placeholder"
 
@@ -312,57 +315,57 @@ msgid "See less"
 msgstr "Vezi mai puțin"
 
 #: includes/facets/checkboxes.php:313 includes/facets/dropdown.php:177
-#: includes/facets/fselect.php:250 includes/facets/radio.php:192
+#: includes/facets/fselect.php:304 includes/facets/radio.php:192
 msgid "Parent term"
 msgstr "Termen părinte"
 
 #: includes/facets/checkboxes.php:330 includes/facets/dropdown.php:194
-#: includes/facets/fselect.php:267 includes/facets/hierarchy.php:215
+#: includes/facets/fselect.php:321 includes/facets/hierarchy.php:215
 #: includes/facets/radio.php:209
 msgid "Highest Count"
 msgstr "Cel mai mare"
 
 #: includes/facets/checkboxes.php:331 includes/facets/dropdown.php:195
-#: includes/facets/fselect.php:268 includes/facets/hierarchy.php:216
+#: includes/facets/fselect.php:322 includes/facets/hierarchy.php:216
 #: includes/facets/radio.php:210
 msgid "Display Value"
 msgstr "Valoarea afișată"
 
 #: includes/facets/checkboxes.php:332 includes/facets/dropdown.php:196
-#: includes/facets/fselect.php:269 includes/facets/hierarchy.php:217
+#: includes/facets/fselect.php:323 includes/facets/hierarchy.php:217
 #: includes/facets/radio.php:211
 msgid "Raw Value"
 msgstr "Valoarea brută"
 
 #: includes/facets/checkboxes.php:333 includes/facets/dropdown.php:197
-#: includes/facets/fselect.php:270 includes/facets/hierarchy.php:218
+#: includes/facets/fselect.php:324 includes/facets/hierarchy.php:218
 #: includes/facets/radio.php:212
 msgid "Term Order"
 msgstr ""
 
-#: includes/facets/checkboxes.php:339 includes/facets/fselect.php:291
+#: includes/facets/checkboxes.php:339 includes/facets/fselect.php:345
 msgid "Behavior"
 msgstr "Comportament"
 
-#: includes/facets/checkboxes.php:342 includes/facets/fselect.php:294
+#: includes/facets/checkboxes.php:342 includes/facets/fselect.php:348
 msgid "How should multiple selections affect the results?"
 msgstr "Cum ar trebui să fie afectate rezultatele de o selecție multiplă?"
 
-#: includes/facets/checkboxes.php:347 includes/facets/fselect.php:299
+#: includes/facets/checkboxes.php:347 includes/facets/fselect.php:353
 msgid "Narrow the result set"
 msgstr "Restrânge setul de rezultate"
 
-#: includes/facets/checkboxes.php:348 includes/facets/fselect.php:300
+#: includes/facets/checkboxes.php:348 includes/facets/fselect.php:354
 msgid "Widen the result set"
 msgstr "Extinde setul de rezultate"
 
 #: includes/facets/checkboxes.php:354 includes/facets/dropdown.php:203
-#: includes/facets/fselect.php:276
+#: includes/facets/fselect.php:330
 msgid "Hierarchical"
 msgstr "Ierarhice"
 
 #: includes/facets/checkboxes.php:357 includes/facets/dropdown.php:206
-#: includes/facets/fselect.php:279
+#: includes/facets/fselect.php:333
 msgid "Is this a hierarchical taxonomy?"
 msgstr "Este aceasta o taxonomie ierarhică?"
 
@@ -376,30 +379,34 @@ msgstr "Arată extins"
 msgid "Should child terms be visible by default?"
 msgstr "Termeni de copil trebuie să fie vizibile în mod implicit?"
 
-#: includes/facets/checkboxes.php:384 includes/facets/radio.php:218
+#: includes/facets/checkboxes.php:384 includes/facets/fselect.php:360
+#: includes/facets/radio.php:218
 msgid "Show ghosts"
 msgstr "Arată fantome"
 
-#: includes/facets/checkboxes.php:387 includes/facets/radio.php:221
+#: includes/facets/checkboxes.php:387 includes/facets/fselect.php:363
+#: includes/facets/radio.php:221
 msgid "Show choices that would return zero results?"
 msgstr "Arată opţiuni care ar returna zero rezultate?"
 
-#: includes/facets/checkboxes.php:399 includes/facets/radio.php:233
+#: includes/facets/checkboxes.php:399 includes/facets/fselect.php:375
+#: includes/facets/radio.php:233
 msgid "Preserve ghost order"
 msgstr "Păstrează ordinea fantomelor"
 
-#: includes/facets/checkboxes.php:402 includes/facets/radio.php:236
+#: includes/facets/checkboxes.php:402 includes/facets/fselect.php:378
+#: includes/facets/radio.php:236
 msgid "Keep ghost choices in the same order?"
 msgstr "Păstrează variantele fantomelor în aceeași ordine?"
 
 #: includes/facets/checkboxes.php:414 includes/facets/dropdown.php:218
-#: includes/facets/fselect.php:306 includes/facets/hierarchy.php:224
+#: includes/facets/fselect.php:390 includes/facets/hierarchy.php:224
 #: includes/facets/radio.php:248
 msgid "Count"
 msgstr "Contor"
 
 #: includes/facets/checkboxes.php:417 includes/facets/dropdown.php:221
-#: includes/facets/fselect.php:309 includes/facets/hierarchy.php:227
+#: includes/facets/fselect.php:393 includes/facets/hierarchy.php:227
 #: includes/facets/radio.php:251
 msgid "The maximum number of facet choices to show"
 msgstr "Numărul maxim de opțiuni facet de arătat"
@@ -483,12 +490,12 @@ msgid "Dropdown"
 msgstr "Dropdown"
 
 #: includes/facets/dropdown.php:78 includes/facets/dropdown.php:172
-#: includes/facets/fselect.php:87 includes/facets/fselect.php:160
-#: includes/facets/fselect.php:245 includes/facets/hierarchy.php:67
+#: includes/facets/fselect.php:136 includes/facets/fselect.php:210
+#: includes/facets/fselect.php:299 includes/facets/hierarchy.php:67
 msgid "Any"
 msgstr "Toate"
 
-#: includes/facets/dropdown.php:163 includes/facets/fselect.php:243
+#: includes/facets/dropdown.php:163 includes/facets/fselect.php:297
 msgid "Default label"
 msgstr "Eticheta implicită"
 
@@ -496,15 +503,15 @@ msgstr "Eticheta implicită"
 msgid "fSelect"
 msgstr "fSelect"
 
-#: includes/facets/fselect.php:165
+#: includes/facets/fselect.php:215
 msgid "{n} selected"
 msgstr "{n} selectate"
 
-#: includes/facets/fselect.php:166 includes/facets/search.php:7
+#: includes/facets/fselect.php:216 includes/facets/search.php:7
 msgid "Search"
 msgstr "Căutare"
 
-#: includes/facets/fselect.php:233
+#: includes/facets/fselect.php:287
 msgid "Multi-select?"
 msgstr "Selectare multiplă?"
 
@@ -548,8 +555,9 @@ msgid "Clear location"
 msgstr "Șterge locația"
 
 #: includes/facets/proximity.php:239
+#, fuzzy
 msgid "Longitude"
-msgstr ""
+msgstr "Longitudine"
 
 #: includes/facets/proximity.php:242
 msgid "(Optional) use a separate longitude field"

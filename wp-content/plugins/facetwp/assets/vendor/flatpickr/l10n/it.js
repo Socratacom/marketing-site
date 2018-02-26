@@ -1,4 +1,4 @@
-/* flatpickr v4.1.4, @license MIT */
+/* flatpickr v4.3.2, @license MIT */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -55,6 +55,7 @@ var Italian = {
     },
     firstDayOfWeek: 1,
     ordinal: function () { return "°"; },
+    rangeSeparator: " al ",
     weekAbbreviation: "Se",
     scrollTitle: "Scrolla per aumentare",
     toggleTitle: "Clicca per cambiare",
@@ -63,7 +64,7 @@ fp.l10ns.it = Italian;
 var it = fp.l10ns;
 
 exports.Italian = Italian;
-exports['default'] = it;
+exports.default = it;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

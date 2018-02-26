@@ -1,4 +1,4 @@
-/* flatpickr v4.1.4, @license MIT */
+/* flatpickr v4.3.2, @license MIT */
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 	typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -53,6 +53,7 @@ var Polish = {
             "Grudzień",
         ],
     },
+    firstDayOfWeek: 1,
     ordinal: function () {
         return ".";
     },
@@ -61,7 +62,7 @@ fp.l10ns.pl = Polish;
 var pl = fp.l10ns;
 
 exports.Polish = Polish;
-exports['default'] = pl;
+exports.default = pl;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

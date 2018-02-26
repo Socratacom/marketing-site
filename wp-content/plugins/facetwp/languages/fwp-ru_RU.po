@@ -1,48 +1,49 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: FacetWP\n"
-"POT-Creation-Date: 2018-01-03 15:24-0500\n"
-"PO-Revision-Date: 2018-01-03 15:24-0500\n"
+"POT-Creation-Date: 2018-02-09 08:40-0500\n"
+"PO-Revision-Date: 2018-02-09 08:40-0500\n"
 "Last-Translator: Matt Gibbs <hello@facetwp.com>\n"
 "Language-Team: VBurlak <vburlak.ru@gmail.com>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
 
-#: includes/class-ajax.php:218
+#: includes/class-ajax.php:217
 #, fuzzy
 msgid "FacetWP was unable to auto-detect the post listing"
 msgstr "FacetWP не удалось автоматически обнаружить список пост"
 
-#: includes/class-ajax.php:248
+#: includes/class-ajax.php:246
 msgid "Settings saved"
 msgstr "Настройки сохранены"
 
-#: includes/class-ajax.php:255
+#: includes/class-ajax.php:253
 msgid "Error: invalid JSON"
 msgstr "Ошибка: недопустимый JSON"
 
-#: includes/class-ajax.php:378
+#: includes/class-ajax.php:373
 msgid "Nothing to import"
 msgstr "Нечего импортировать"
 
-#: includes/class-ajax.php:414
+#: includes/class-ajax.php:409
 msgid "Imported"
 msgstr "Импортировано"
 
-#: includes/class-ajax.php:417
+#: includes/class-ajax.php:412
 msgid "Skipped"
 msgstr "Пропущено"
 
-#: includes/class-ajax.php:448
+#: includes/class-ajax.php:443
 msgid "Error"
 msgstr "Ошибка"
 
@@ -50,35 +51,35 @@ msgstr "Ошибка"
 msgid "No results found"
 msgstr "Ничего не найдено!"
 
-#: includes/class-helper.php:421
+#: includes/class-helper.php:434
 msgid "Posts"
 msgstr "Записи"
 
-#: includes/class-helper.php:423
+#: includes/class-helper.php:436
 msgid "Post Type"
 msgstr "Тип Записи"
 
-#: includes/class-helper.php:424
+#: includes/class-helper.php:437
 msgid "Post Date"
 msgstr "Дата Записи"
 
-#: includes/class-helper.php:425
+#: includes/class-helper.php:438
 msgid "Post Modified"
 msgstr "Запись Изменена"
 
-#: includes/class-helper.php:426
+#: includes/class-helper.php:439
 msgid "Post Title"
 msgstr "Название записи"
 
-#: includes/class-helper.php:427
+#: includes/class-helper.php:440
 msgid "Post Author"
 msgstr "Автор Записи"
 
-#: includes/class-helper.php:432
+#: includes/class-helper.php:445
 msgid "Taxonomies"
 msgstr "Таксономии"
 
-#: includes/class-helper.php:437
+#: includes/class-helper.php:450
 msgid "Custom Fields"
 msgstr "Произвольные поля"
 
@@ -97,37 +98,37 @@ msgstr ""
 "Чтобы использовать FacetWP с %s, пожалуйста установки %s, а затем повторное "
 "индексирование."
 
-#: includes/class-renderer.php:500 includes/class-renderer.php:617
+#: includes/class-renderer.php:494 includes/class-renderer.php:611
 msgid "of"
 msgstr "из"
 
-#: includes/class-renderer.php:534 includes/facets/checkboxes.php:327
-#: includes/facets/dropdown.php:191 includes/facets/fselect.php:264
+#: includes/class-renderer.php:528 includes/facets/checkboxes.php:327
+#: includes/facets/dropdown.php:191 includes/facets/fselect.php:318
 #: includes/facets/hierarchy.php:212 includes/facets/radio.php:206
 msgid "Sort by"
 msgstr "Сортировать по"
 
-#: includes/class-renderer.php:538
+#: includes/class-renderer.php:532
 msgid "Title (A-Z)"
 msgstr "Заголовок (А-Я)"
 
-#: includes/class-renderer.php:545
+#: includes/class-renderer.php:539
 msgid "Title (Z-A)"
 msgstr "Заголовок (Я-А)"
 
-#: includes/class-renderer.php:552
+#: includes/class-renderer.php:546
 msgid "Date (Newest)"
 msgstr "Дата (Сначала Новые)"
 
-#: includes/class-renderer.php:559
+#: includes/class-renderer.php:553
 msgid "Date (Oldest)"
 msgstr "Дата (Сначала Старые)"
 
-#: includes/class-renderer.php:616
+#: includes/class-renderer.php:610
 msgid "Page"
 msgstr "Страница"
 
-#: includes/class-renderer.php:667
+#: includes/class-renderer.php:661
 msgid "Per page"
 msgstr "На страницу"
 
@@ -200,8 +201,9 @@ msgstr ""
 #: includes/class-settings-admin.php:55 includes/class-settings-admin.php:62
 #: includes/facets/checkboxes.php:362 includes/facets/checkboxes.php:377
 #: includes/facets/checkboxes.php:392 includes/facets/checkboxes.php:407
-#: includes/facets/dropdown.php:211 includes/facets/fselect.php:237
-#: includes/facets/fselect.php:284 includes/facets/radio.php:226
+#: includes/facets/dropdown.php:211 includes/facets/fselect.php:291
+#: includes/facets/fselect.php:338 includes/facets/fselect.php:368
+#: includes/facets/fselect.php:383 includes/facets/radio.php:226
 #: includes/facets/radio.php:241 includes/facets/search.php:117
 #: includes/integrations/acf/acf.php:247
 msgid "No"
@@ -210,8 +212,9 @@ msgstr "Нет"
 #: includes/class-settings-admin.php:55 includes/class-settings-admin.php:62
 #: includes/facets/checkboxes.php:363 includes/facets/checkboxes.php:378
 #: includes/facets/checkboxes.php:393 includes/facets/checkboxes.php:408
-#: includes/facets/dropdown.php:212 includes/facets/fselect.php:238
-#: includes/facets/fselect.php:285 includes/facets/radio.php:227
+#: includes/facets/dropdown.php:212 includes/facets/fselect.php:292
+#: includes/facets/fselect.php:339 includes/facets/fselect.php:369
+#: includes/facets/fselect.php:384 includes/facets/radio.php:227
 #: includes/facets/radio.php:242 includes/facets/search.php:118
 #: includes/integrations/acf/acf.php:247
 msgid "Yes"
@@ -283,7 +286,7 @@ msgstr "Обновить"
 msgid "No results"
 msgstr "Ничего не найдено"
 
-#: includes/facets/autocomplete.php:160 includes/facets/search.php:104
+#: includes/facets/autocomplete.php:159 includes/facets/search.php:104
 msgid "Placeholder text"
 msgstr "Рыба"
 
@@ -300,57 +303,57 @@ msgid "See less"
 msgstr "показать меньше"
 
 #: includes/facets/checkboxes.php:313 includes/facets/dropdown.php:177
-#: includes/facets/fselect.php:250 includes/facets/radio.php:192
+#: includes/facets/fselect.php:304 includes/facets/radio.php:192
 msgid "Parent term"
 msgstr "Родительский элемент"
 
 #: includes/facets/checkboxes.php:330 includes/facets/dropdown.php:194
-#: includes/facets/fselect.php:267 includes/facets/hierarchy.php:215
+#: includes/facets/fselect.php:321 includes/facets/hierarchy.php:215
 #: includes/facets/radio.php:209
 msgid "Highest Count"
 msgstr "Высокий игр"
 
 #: includes/facets/checkboxes.php:331 includes/facets/dropdown.php:195
-#: includes/facets/fselect.php:268 includes/facets/hierarchy.php:216
+#: includes/facets/fselect.php:322 includes/facets/hierarchy.php:216
 #: includes/facets/radio.php:210
 msgid "Display Value"
 msgstr "Отображаемое Значение"
 
 #: includes/facets/checkboxes.php:332 includes/facets/dropdown.php:196
-#: includes/facets/fselect.php:269 includes/facets/hierarchy.php:217
+#: includes/facets/fselect.php:323 includes/facets/hierarchy.php:217
 #: includes/facets/radio.php:211
 msgid "Raw Value"
 msgstr "Необработанное Значение"
 
 #: includes/facets/checkboxes.php:333 includes/facets/dropdown.php:197
-#: includes/facets/fselect.php:270 includes/facets/hierarchy.php:218
+#: includes/facets/fselect.php:324 includes/facets/hierarchy.php:218
 #: includes/facets/radio.php:212
 msgid "Term Order"
 msgstr "Срок заказа"
 
-#: includes/facets/checkboxes.php:339 includes/facets/fselect.php:291
+#: includes/facets/checkboxes.php:339 includes/facets/fselect.php:345
 msgid "Behavior"
 msgstr "Поведение"
 
-#: includes/facets/checkboxes.php:342 includes/facets/fselect.php:294
+#: includes/facets/checkboxes.php:342 includes/facets/fselect.php:348
 msgid "How should multiple selections affect the results?"
 msgstr "Как множественный выбор должен влиять на результаты?"
 
-#: includes/facets/checkboxes.php:347 includes/facets/fselect.php:299
+#: includes/facets/checkboxes.php:347 includes/facets/fselect.php:353
 msgid "Narrow the result set"
 msgstr "Ограниченный набор результатов"
 
-#: includes/facets/checkboxes.php:348 includes/facets/fselect.php:300
+#: includes/facets/checkboxes.php:348 includes/facets/fselect.php:354
 msgid "Widen the result set"
 msgstr "Расширенный набор результатов"
 
 #: includes/facets/checkboxes.php:354 includes/facets/dropdown.php:203
-#: includes/facets/fselect.php:276
+#: includes/facets/fselect.php:330
 msgid "Hierarchical"
 msgstr "По иерархии"
 
 #: includes/facets/checkboxes.php:357 includes/facets/dropdown.php:206
-#: includes/facets/fselect.php:279
+#: includes/facets/fselect.php:333
 msgid "Is this a hierarchical taxonomy?"
 msgstr "Это иерархической таксономии?"
 
@@ -363,30 +366,34 @@ msgstr "Показать расширенные"
 msgid "Should child terms be visible by default?"
 msgstr "Следует ли видимым по умолчанию дочерних терминов?"
 
-#: includes/facets/checkboxes.php:384 includes/facets/radio.php:218
+#: includes/facets/checkboxes.php:384 includes/facets/fselect.php:360
+#: includes/facets/radio.php:218
 msgid "Show ghosts"
 msgstr "Показать призраков"
 
-#: includes/facets/checkboxes.php:387 includes/facets/radio.php:221
+#: includes/facets/checkboxes.php:387 includes/facets/fselect.php:363
+#: includes/facets/radio.php:221
 msgid "Show choices that would return zero results?"
 msgstr "Показать варианты, которые будут возвращать нулевой результат?"
 
-#: includes/facets/checkboxes.php:399 includes/facets/radio.php:233
+#: includes/facets/checkboxes.php:399 includes/facets/fselect.php:375
+#: includes/facets/radio.php:233
 msgid "Preserve ghost order"
 msgstr "Сохранять порядок призрак"
 
-#: includes/facets/checkboxes.php:402 includes/facets/radio.php:236
+#: includes/facets/checkboxes.php:402 includes/facets/fselect.php:378
+#: includes/facets/radio.php:236
 msgid "Keep ghost choices in the same order?"
 msgstr "Держать в том же порядке призрак выбор?"
 
 #: includes/facets/checkboxes.php:414 includes/facets/dropdown.php:218
-#: includes/facets/fselect.php:306 includes/facets/hierarchy.php:224
+#: includes/facets/fselect.php:390 includes/facets/hierarchy.php:224
 #: includes/facets/radio.php:248
 msgid "Count"
 msgstr "Сколько выводить"
 
 #: includes/facets/checkboxes.php:417 includes/facets/dropdown.php:221
-#: includes/facets/fselect.php:309 includes/facets/hierarchy.php:227
+#: includes/facets/fselect.php:393 includes/facets/hierarchy.php:227
 #: includes/facets/radio.php:251
 msgid "The maximum number of facet choices to show"
 msgstr ""
@@ -470,12 +477,12 @@ msgid "Dropdown"
 msgstr "Выпадающий список"
 
 #: includes/facets/dropdown.php:78 includes/facets/dropdown.php:172
-#: includes/facets/fselect.php:87 includes/facets/fselect.php:160
-#: includes/facets/fselect.php:245 includes/facets/hierarchy.php:67
+#: includes/facets/fselect.php:136 includes/facets/fselect.php:210
+#: includes/facets/fselect.php:299 includes/facets/hierarchy.php:67
 msgid "Any"
 msgstr "Любой"
 
-#: includes/facets/dropdown.php:163 includes/facets/fselect.php:243
+#: includes/facets/dropdown.php:163 includes/facets/fselect.php:297
 msgid "Default label"
 msgstr "По умолчанию метка"
 
@@ -483,15 +490,15 @@ msgstr "По умолчанию метка"
 msgid "fSelect"
 msgstr "fSelect"
 
-#: includes/facets/fselect.php:165
+#: includes/facets/fselect.php:215
 msgid "{n} selected"
 msgstr "{n} выбран"
 
-#: includes/facets/fselect.php:166 includes/facets/search.php:7
+#: includes/facets/fselect.php:216 includes/facets/search.php:7
 msgid "Search"
 msgstr "Поиск"
 
-#: includes/facets/fselect.php:233
+#: includes/facets/fselect.php:287
 msgid "Multi-select?"
 msgstr "Множественный выбор?"
 
@@ -532,8 +539,9 @@ msgid "Clear location"
 msgstr "Очистить местоположение"
 
 #: includes/facets/proximity.php:239
+#, fuzzy
 msgid "Longitude"
-msgstr ""
+msgstr "Долгота (Longitude)"
 
 #: includes/facets/proximity.php:242
 msgid "(Optional) use a separate longitude field"
@@ -573,7 +581,7 @@ msgstr "Слайдер"
 #, fuzzy
 #| msgid "Default label"
 msgid "Default radius"
-msgstr "По умолчанию метка"
+msgstr "По умолчанию"
 
 #: includes/facets/proximity.php:368
 msgid "Distance"
@@ -596,8 +604,9 @@ msgid "WP Default"
 msgstr "WP по умолчанию"
 
 #: includes/facets/search.php:109
+#, fuzzy
 msgid "Auto refresh"
-msgstr ""
+msgstr "Автообновление"
 
 #: includes/facets/search.php:112
 msgid "Automatically refresh the results while typing?"
