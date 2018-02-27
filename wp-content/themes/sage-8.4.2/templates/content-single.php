@@ -138,7 +138,7 @@
 
       <?php }
       }
-      echo '<li><a href="/case-studies">View All Case Studies <i class="fa fa-arrow-circle-o-right"></i></a></li>';
+      echo '<li><a href="/webinars">View All Webinars <i class="fa fa-arrow-circle-o-right"></i></a></li>';
       echo '</ul>';
       } else {
       // no posts found
