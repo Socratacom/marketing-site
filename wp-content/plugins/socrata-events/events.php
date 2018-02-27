@@ -327,6 +327,12 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 						'name' => 'Title',
 						'id'   => "{$prefix}speaker_title",
 						'type' => 'text',
+					),					
+					array(
+						'name' => 'Organization',
+						'id'   => "{$prefix}speaker_organization",
+						'type' => 'text',
+						'placeholder' => 'Ex: City of Seattle',
 					),
 					array(
 						'name' => 'Headshot',
@@ -362,7 +368,23 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 				'clone'  => true,
 				'sort_clone' => true,
 				// Sub-fields
-				'fields' => array(					
+				'fields' => array(
+					// SELECT
+					array(
+						'type' => 'select',
+						'name' => 'Day',
+						'id'   => "{$prefix}agenda_day",
+						'placeholder' => 'Select a Day',
+						'options' => array(
+							'Monday' 		=> 'Monday',							
+							'Tuesday' 	=> 'Tuesday',
+							'Wednesday' => 'Wednesday',
+							'Thursday' 	=> 'Thursday',
+							'Friday' 		=> 'Friday',
+							'Saturday' 	=> 'Saturday',
+							'Sunday' 		=> 'Sunday',
+						),
+					),
 					array(
 						'name'       => 'Time',
 						'id'         => "{$prefix}agenda_time",
@@ -385,12 +407,16 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 						'clone' => true,
 					),
 					array(
-						'name' => 'Description',
-						'id'   => "{$prefix}agenda_description",
-						'type' => 'textarea',
-						'cols' => 20,
-						'rows' => 5,
-					),					
+						'name'    => 'Description',
+						'id'      => "{$prefix}agenda_description",
+						'type'    => 'wysiwyg',
+						'raw'     => false,
+						'options' => array(
+							'textarea_rows' => 4,
+							'teeny'         => true,
+							'media_buttons' => false,
+						),
+					),
 				),
 				'tab'  => 'agenda',
 			),

@@ -87,6 +87,7 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
   	<div class="container">
   		<div class="row">
   			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+  				<h3 class="margin-bottom-60">Overview</h3>
   				<?php echo $content;?>
   				<!-- Begin Speakers -->
   				<?php if ( ! empty( $speakers ) ) { ?>
@@ -96,6 +97,7 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
 								$id = uniqid();
 								$name = isset( $speaker_value['socrata_events_speaker_name'] ) ? $speaker_value['socrata_events_speaker_name'] : '';
 								$title = isset( $speaker_value['socrata_events_speaker_title'] ) ? $speaker_value['socrata_events_speaker_title'] : '';
+								$organization = isset( $speaker_value['socrata_events_speaker_organization'] ) ? $speaker_value['socrata_events_speaker_organization'] : '';
 								$bio = isset( $speaker_value['socrata_events_speaker_bio'] ) ? $speaker_value['socrata_events_speaker_bio'] : '';
 								$images = isset( $speaker_value['socrata_events_speaker_headshot'] ) ? $speaker_value['socrata_events_speaker_headshot'] : array();
 								foreach ( $images as $image ) { $image = RWMB_Image_Field::file_info( $image, array( 'size' => 'thumbnail' ) ); } 
@@ -107,7 +109,8 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
 												<?php if (! empty( $images )) echo "<img src='$image[url]' class='img-responsive img-circle'>"; else echo "<img src='/wp-content/uploads/no-picture-100x100.png' class='img-responsive img-circle'>";?>
 											</div>
 											<h5 class="text-center"><?php echo $name;?></h5>
-											<div class="text-center" style="line-height:1em;"><small><i><?php echo $title;?></i></small></div>
+											<?php if (! empty( $title ) ) echo "<div class='text-center' style='line-height:1em;'><small><i>$title</i></small></div>";?>
+											<?php if (! empty( $organization ) ) echo "<div class='text-center' style='line-height:1em;'><small><i>$organization</i></small></div>";?>
 										</div>
 										<a href="#" data-toggle="modal" data-target="#<?php echo $id;?>"></a>
 									</div>
@@ -121,7 +124,7 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
 													<div class="text-center margin-bottom-30">
 														<p class="text-center"><?php if (! empty( $images )) echo "<img src='$image[url]' class='img-circle' >"; else echo "<img src='/wp-content/uploads/no-picture-100x100.png' class='img-circle'>";?></p>
 														<h5 class="margin-bottom-5"><?php echo $name; ?></h5>
-														<div class="margin-bottom-5"><?php echo $title; ?></div>
+														<div class="margin-bottom-5"><?php if (! empty( $title ) ) echo $title;?><?php if (! empty( $organization ) ) echo ", $organization";?></div>
 													</div>
 													<?php echo $bio; ?>
 												</div>
@@ -140,18 +143,19 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
 						<h3 class="margin-bottom-60 margin-top-60">Agenda</h3>
 						<?php foreach ( $agenda as $agenda_value ) {
 						$time = isset( $agenda_value['socrata_events_agenda_time'] ) ? $agenda_value['socrata_events_agenda_time'] : '';
+						$day = isset( $agenda_value['socrata_events_agenda_day'] ) ? $agenda_value['socrata_events_agenda_day'] : '';
 						$title = isset( $agenda_value['socrata_events_agenda_title'] ) ? $agenda_value['socrata_events_agenda_title'] : '';
 						$speakers = isset( $agenda_value['socrata_events_agenda_speakers'] ) ? $agenda_value['socrata_events_agenda_speakers'] : '';
 						$description = isset( $agenda_value['socrata_events_agenda_description'] ) ? $agenda_value['socrata_events_agenda_description'] : '';
 						?> 
 							<div class="row" style="border-top:#d6d6d6 solid 1px; padding:30px 0;">
 								<div class="col-sm-3">
-									<h3 class="margin-bottom-15 mdc-text-orange-500"><?php echo date('g:i a', strtotime($time));?></h3>
+									<h3 class="margin-bottom-15 margin-top-0 mdc-text-orange-500"><?php if (! empty ($day)) echo"<small class='text-uppercase mdc-text-orange-500' style='display:block; font-size:14px;'>$day</small>";?><?php echo date('g:i a', strtotime($time));?></h3>
 								</div>
 								<div class="col-sm-9">
-									<h4 style="margin-top:10px;"><?php echo $title;?></h4>
+									<h4 class="margin-top-0"><?php echo $title;?></h4>
 									<p><?php echo $description;?></p>
-									<?php if ( ! empty( $speakers ) ) { ?><h5 class="margin-bottom-5">Speakers</h5><ul style="margin:0"><?php foreach ( $speakers as $speaker ) echo "<li>$speaker</li>"; ?></ul><?php } ?>
+									<?php if ( ! empty( $speakers ) ) { ?><h5 class="margin-bottom-5">Speakers</h5><ul class="no-bullets" style="margin:0"><?php foreach ( $speakers as $speaker ) echo "<li style='margin-bottom:5px;'>$speaker</li>"; ?></ul><?php } ?>
 								</div>
 							</div>
 						<?php } ?>					

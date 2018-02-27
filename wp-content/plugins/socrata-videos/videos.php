@@ -39,53 +39,6 @@ function create_socrata_videos() {
   );
 }
 
-// TAXONOMIES
-add_action( 'init', 'socrata_videos_segment', 0 );
-function socrata_videos_segment() {
-  register_taxonomy(
-    'socrata_videos_segment',
-    'socrata_videos',
-    array(
-      'labels' => array(
-        'name' => 'Videos Segment',
-        'menu_name' => 'Videos Segment',
-        'add_new_item' => 'Add New Segment',
-        'new_item_name' => "New Segment"
-      ),
-      'show_ui' => true,
-      'show_tagcloud' => false,
-      'hierarchical' => true,
-      'sort' => true,      
-      'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'videos-segment'),
-    )
-  );
-}
-
-add_action( 'init', 'socrata_videos_product', 0 );
-function socrata_videos_product() {
-  register_taxonomy(
-    'socrata_videos_product',
-    'socrata_videos',
-    array(
-      'labels' => array(
-        'name' => 'Videos Product',
-        'menu_name' => 'Videos Product',
-        'add_new_item' => 'Add New Product',
-        'new_item_name' => "New Product"
-      ),
-      'show_ui' => true,
-      'show_tagcloud' => false,
-      'hierarchical' => true,
-      'sort' => true,      
-      'args' => array( 'orderby' => 'term_order' ),
-      'show_admin_column' => true,
-      'rewrite' => array('with_front' => false, 'slug' => 'videos-product'),
-    )
-  );
-}
-
 add_action( 'init', 'socrata_videos_categories', 0 );
 function socrata_videos_categories() {
   register_taxonomy(
@@ -227,42 +180,36 @@ function socrata_videos_register_meta_boxes( $meta_boxes )
 {
   $prefix = 'socrata_videos_';
   $meta_boxes[] = array(
-    'title'  => __( 'Webinar Meta', 'webinars_' ),
-    'post_types' => 'socrata_videos',
-    'context'    => 'normal',
-    'priority'   => 'high',
-    'validation' => array(
-      'rules'    => array(
-        "{$prefix}starttime" => array(
-            'required'  => true,
-        ),
-      ),
-    ),
+    'title'  			=> 'Video Details',
+    'post_types' 	=> 'socrata_videos',
+    'context'    	=> 'normal',
+    'priority'  	=> 'high',
     'fields' => array(
-        // HEADING
-        array(
-            'type' => 'heading',
-            'name' => __( 'Video Details', 'webinars_' ),
-            'id'   => 'fake_id', // Not used but needed for plugin
-        ),
-        // TEXT
-        array(
-            'name'  => __( 'YouTube ID', 'webinars_' ),
-            'id'    => "{$prefix}id",
-            'desc' => __( 'Exclude the "https://youtu.be/"', 'socrata_videos_' ),
-            'type'  => 'text',
-            'clone' => false,
-        ),
+        // CHECKBOX
+				array(
+					'name' => 'Is this video featured?',
+					'id'   => "{$prefix}featured",
+					'type' => 'checkbox',
+					// Value can be 0 or 1
+					'std'  => 0,
+				),
+        // URL
+				array(
+					'name' => 'YouTube Share URL',
+					'id'   => "{$prefix}id",
+					'desc' => 'Example: https://youtu.be/HoEQQfOp1WE',
+					'type' => 'url',
+				),
         // WYSIWYG/RICH TEXT EDITOR
         array(
-            'name'    => esc_html__( 'Video Description', 'socrata_videos_' ),
+            'name'    => 'Video Description',
             'id'      => "editorField",
             'type'    => 'wysiwyg',
             // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
             'raw'     => false,
             // Editor settings, see wp_editor() function: look4wp.com/wp_editor
             'options' => array(
-                'textarea_rows' => 4,
+                'textarea_rows' => 10,
                 'teeny'         => true,
                 'media_buttons' => false,
             ),
@@ -281,10 +228,51 @@ function video_posts($atts, $content = null) {
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <h1 class="margin-bottom-0 font-light">Videos</h1>
-          <h3 class="margin-bottom-60">Watch what people are saying about Socrata and more </h3>
+          <h1 class="font-light margin-bottom-60">Videos</h1>
         </div>
       </div>
+
+			<?php
+				$args = array(
+					'post_type' => 'socrata_videos',
+					'post_status' => 'publish',
+					'order' => 'desc',
+					'posts_per_page' => 1,
+					'meta_query' => array(
+						array(
+							'key' => 'socrata_videos_featured',
+							'value' => 1,
+							'compare' => '='
+						)
+					)
+				);
+
+				$myquery = new WP_Query( $args );
+
+				// The Loop
+				while ( $myquery->have_posts() ) { $myquery->the_post();
+				$video = rwmb_meta( 'socrata_videos_id' );
+				$video_url = $video;
+				$video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
+
+				?>
+
+				<div class="feature-event">
+				<div class="feature-event-image sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php echo $video_id; ?>/maxresdefault.jpg);"></div>
+				<div class="feature-event-meta">
+				<div class="meta">
+				<div class="category">Featured Video</div>
+				<h3 class="title"><?php the_title(); ?></h3>
+				</div>
+				</div>
+				<a href="<?php the_permalink() ?>" class="link"></a>
+				<?php echo do_shortcode('[image-attribution]'); ?>
+				</div>
+
+				<?php } 
+				wp_reset_postdata(); 
+			?>
+
       <div class="row hidden-lg">
         <div class="col-sm-12 margin-bottom-30">
           <div class="padding-15 background-light-grey-4">

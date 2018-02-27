@@ -1,9 +1,14 @@
+<?php
+	$video = rwmb_meta( 'socrata_videos_id' );
+	$video_url = $video;
+	$video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
+?>
 <section class="background-black">
   <div class="container">
     <div class="row">
       <div class="col-sm-12">
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe src="https://www.youtube.com/embed/<?php echo rwmb_meta( 'socrata_videos_id' ); ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/<?php echo $video_id; ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
         </div>        
       </div>
     </div>

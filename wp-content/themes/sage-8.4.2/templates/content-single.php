@@ -3,6 +3,7 @@
   $url = $thumb['0'];
   $img_id = get_post_thumbnail_id(get_the_ID());
   $alt_text = get_post_meta($img_id , '_wp_attachment_image_alt', true);
+  $cta = rwmb_meta( 'cta_content' );
 ?>
 <section class="section-padding">
   <div class="container">
@@ -39,6 +40,9 @@
             <div class="margin-bottom-30"><img src="<?php echo $url;?>" <?php if ( ! empty($alt_text) ) { ?> alt="<?php echo $alt_text;?>" <?php } ;?> class="img-responsive"><?php echo do_shortcode('[image-attribution]'); ?></div>
 
             <?php the_content(); ?>
+            <?php if (!empty($cta)) { ?>
+							<div class="alert alert-info"><?php echo $cta;?></div>
+            <?php };?>
 
             </article>
 

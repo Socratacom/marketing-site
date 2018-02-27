@@ -23,6 +23,19 @@
 				}
 			}
 		}
+		.alert {
+			border-radius:0;
+			p {
+				font-weight: $font-semi-bold;
+				color:$mdc-blue-grey-500;
+			}
+			a {
+				color:$mdc-light-blue-500;
+			}
+			a:hover {
+				color:$mdc-light-blue-600;
+			}
+		}
 	}
 
 	/* Pagination */
