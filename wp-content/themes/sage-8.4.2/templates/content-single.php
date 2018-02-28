@@ -41,7 +41,7 @@
 
             <?php the_content(); ?>
             <?php if (!empty($cta)) { ?>
-							<div class="alert alert-info"><?php echo $cta;?></div>
+							<div class="alert alert-info" style="margin-top:60px; margin-bottom:60px;"><?php echo $cta;?></div>
             <?php };?>
 
             </article>
