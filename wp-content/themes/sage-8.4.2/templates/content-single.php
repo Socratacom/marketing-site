@@ -41,7 +41,10 @@
 
             <?php the_content(); ?>
             <?php if (!empty($cta)) { ?>
-							<div class="alert alert-info" style="margin-top:60px; margin-bottom:60px;"><?php echo $cta;?></div>
+							<div class="alert alert-info" style="margin-top:60px; margin-bottom:60px; position: relative; padding-left:40px;">
+								<i class="fa fa-info-circle" style="font-size:18px; display: inline-block; position: absolute; left:15px; top:18px;"></i>
+								<?php echo $cta;?>
+							</div>
             <?php };?>
 
             </article>
