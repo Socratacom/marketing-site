@@ -316,6 +316,9 @@ function socrata_events_register_meta_boxes( $meta_boxes )
 				'type'   => 'group',
 				'clone'  => true,
 				'sort_clone' => true,
+				'collapsible' => true,
+				'group_title' => 'Entry {#}',
+				'save_state' => true,
 				// Sub-fields
 				'fields' => array(
 					array(

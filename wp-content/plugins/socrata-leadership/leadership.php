@@ -180,7 +180,9 @@ function leadership_profiles($atts, $content = null) {
   $id = get_the_ID();
   ?>
 
-  <div class="col-xs-6 col-sm-3 col-md-2">
+  <?php if (!empty($bio)) { ?> 
+
+   <div class="col-xs-6 col-sm-3 col-md-2">
   	<div class="profile text-center margin-bottom-30 match-height">
   		<div class="headshot margin-bottom-15" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);">
   			<a href="#" data-toggle="modal" data-target="#<?php echo $id;?>" class="link"></a>
@@ -209,14 +211,19 @@ function leadership_profiles($atts, $content = null) {
 	    </div>
 	  </div>
 	</div>
+  	
+  	<?php } else { ?> 
 
+  	<div class="col-xs-6 col-sm-3 col-md-2">
+	  	<div class="profile text-center margin-bottom-30 match-height">
+	  		<div class="headshot margin-bottom-15" style="background-image:url(<?php foreach ( $headshot as $image ) { echo $image['url']; } ?>);"></div>
+	       <h6 class="name margin-bottom-5"><?php the_title(); ?></h6>
+	       <div class="title"><?php echo $title; ?></div>
+	       <?php if ( ! empty( $linkedin ) ) { ?> <a href="<?php echo $linkedin; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-linkedin"></i></a> <?php }; ?><?php if ( ! empty( $twitter ) ) { ?> <a href="<?php echo $twitter; ?>" target="_blank" style="padding:0 5px; position:relative; height:auto; width:auto;"><i class="fa fa-twitter"></i></a> <?php }; ?>
+	  	</div>
+	  </div>
 
-
-
-
-
-
-
+  <?php } ?>
 
   <?php } wp_reset_postdata(); ?>
 
