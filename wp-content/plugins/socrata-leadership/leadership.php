@@ -164,7 +164,7 @@ function leadership_profiles($atts, $content = null) {
 			'post_type' => 'socrata_leadership',
 			'socrata_leadership_type' => $type,
 			'posts_per_page' => 100,
-			'orderby' => 'date',
+			'orderby' => 'title',
 			'order'   => 'asc',
   );
   
