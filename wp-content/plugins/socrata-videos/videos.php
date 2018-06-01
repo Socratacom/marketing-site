@@ -327,3 +327,59 @@ function video_posts($atts, $content = null) {
   return $content;
 }
 add_shortcode('videos', 'video_posts');
+
+
+// Video Query
+function video_query($atts, $content = null) {
+    extract( shortcode_atts( array(
+    'solution' => '',
+    'segment' => '',
+    'category' => '',
+    ), $atts ) );
+    ob_start();
+    $args = array(
+    'post_type' => 'socrata_videos',
+    'solution' => $solution,
+    'segment' => $segment,
+    'socrata_videos_category' => $category,
+    'posts_per_page' => 100,
+    'orderby' => 'date',
+    'order'   => 'desc',
+    );
+    $myquery = new \WP_Query($args);
+    // The Loop
+    while ( $myquery->have_posts() ) {
+        $myquery->the_post();
+				$video = rwmb_meta( 'socrata_videos_id' );
+				$video_url = $video;
+				$video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
+
+        if ( get_post_type() == 'socrata_videos' ) { ?>
+
+            <div class="col-sm-6 col-md-3">
+
+                <div class="card no-footer margin-bottom-30 match-height">
+                    <div class="card-header">
+                        <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php echo $video_id; ?>/mqdefault.jpg);">
+                            <label>Video</label>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 style="margin-bottom:0;"><?php the_title(); ?></h5>     
+                    </div>
+                    <a href="<?php the_permalink(); ?>" class="link"></a>
+                </div>
+
+            </div>
+
+        <?php }
+
+
+
+    }
+    wp_reset_postdata();
+    $content = ob_get_contents();
+    ob_end_clean();
+    return $content;
+}
+add_shortcode('video-query', __NAMESPACE__ . '\\video_query');

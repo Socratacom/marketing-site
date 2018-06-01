@@ -872,7 +872,9 @@ function content_query($atts, $content = null) {
         $customer = rwmb_meta( 'case_study_customer' );
         $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
         $url = $thumb['0'];
-        $youtube_id= rwmb_meta( 'socrata_videos_id' );
+        $video = rwmb_meta( 'socrata_videos_id' );
+				$video_url = $video;
+				$video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
 
         if ( get_post_type() == 'socrata_webinars' ) { ?>
 
@@ -934,7 +936,7 @@ function content_query($atts, $content = null) {
 
                 <div class="card no-footer margin-bottom-30 match-height">
                     <div class="card-header">
-                        <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php echo $youtube_id; ?>/mqdefault.jpg);">
+                        <div class="sixteen-nine img-background" style="background-image:url(https://img.youtube.com/vi/<?php echo $video_id; ?>/mqdefault.jpg);">
                             <label>Video</label>
                         </div>
                     </div>
