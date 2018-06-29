@@ -13,11 +13,11 @@
 			</div>
 			<div class="col-sm-9">
 				<div class="copyright-container">
-					<p class="margin-bottom-0">&copy; <?php echo date("Y");?> Socrata. All rights reserved.</p>
+					<p class="margin-bottom-0">&copy; <?php echo date("Y");?> Tyler Technologies, Inc.. All rights reserved.</p>
 					<div class="hidden-xs">
 						<?php wp_nav_menu( array( 'theme_location' => 'site_nav_company' ) ); ?>
 					</div>
-					<div class="footer-logo color-logo margin-top-30"></div>
+					<div class="tyler-logo margin-top-30" style="height:50px; width:130px;"></div>
 				</div>				
 			</div>
 		</div>

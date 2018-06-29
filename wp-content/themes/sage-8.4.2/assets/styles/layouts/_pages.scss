@@ -1,31 +1,64 @@
-.home-masthead {
-	.slide, .single-slide {
-		width:100%;
-		background-repeat:no-repeat;
-		background-position:center center;
-		position: relative;
-		background-size: cover;
-		.text {
-			position: absolute;
-			top:0;
-			left:0;
+@media only screen and (min-width : 320px) {
+	.home-masthead {
+		.slide, .single-slide {
 			width:100%;
-			height:100%;
-			z-index: 100;
-			.btn { 
-				border:none;
+			padding:30px 15px;
+			background-repeat:no-repeat;
+			background-position: center;
+			position: relative;
+			background-size: cover;
+			.text {
+				padding:30px;
+				background-color:rgba($mdc-blue-grey-900, .85);
+				ul.cta-list {
+					display:block;
+					list-style-type: none;
+					margin:1.63em 0 1.63em 0;
+					padding:0;
+					text-align: center;
+					li {
+						display:block;
+						margin:0;
+						padding:5px 0;
+						.btn {
+						width:100%;
+						}
+					}
+				}
 			}
 		}
 	}
-	.slide:after, .single-slide:after {
-		content: '';
-		height: 100%;
-		width: 100%;
-		top: 0;
-		left: 0;
-		position: absolute;
-		z-index: 3;
-		background: rgba($primary-dark, 0.3);
+}
+
+@media only screen and (min-width : 768px) {
+	.home-masthead {
+		.slide, .single-slide {
+			padding:50px 0;
+			.text {
+				padding:30px;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width : 992px) {
+	.home-masthead {
+		.slide, .single-slide {
+			padding:100px 0;
+			.text {
+				padding:50px;
+				ul.cta-list {
+					display:inline-block;
+					li {
+						display:inline-block;
+						padding:0 5px;
+					.btn {
+						width:auto;
+						}
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -83,34 +116,6 @@
 		bottom:60px;
 	}
 }
-
-@media screen and ( min-height: 300px ){
-    .home-masthead, .home-masthead .slide, .home-masthead .single-slide {
-    	height:400px;
-    }
-    .masthead {
-		height:300px;
-	}
-}
-
-@media screen and ( min-height: 768px ){
-    .home-masthead, .home-masthead .slide, .home-masthead .single-slide {
-    	height:600px;
-    }
-    .masthead {
-		height:400px;
-	}
-}
-
-@media screen and ( min-height: 1080px ){
-    .home-masthead, .home-masthead .slide, .home-masthead .single-slide {
-    	height:720px;
-    }
-    .masthead {
-		height:500px;
-	}
-}
-
 
 .section-title {
 	margin-bottom:60px;
@@ -1221,21 +1226,6 @@
             right: auto;
         }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @media only screen and (min-width : 320px) {

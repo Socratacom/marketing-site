@@ -19,9 +19,11 @@
 }
 .outline-primary {
     border:2px solid $primary !important;
+    color:$primary;
 }
 .outline-primary:hover {
     background-color:rgba($primary, .3);
+    color:$primary;
 }
 .outline-warning {
     border:2px solid $warning !important;

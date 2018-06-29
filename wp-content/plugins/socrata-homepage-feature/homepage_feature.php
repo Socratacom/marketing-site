@@ -139,26 +139,24 @@ function homepage_features($atts, $content = null) {
 				$images = rwmb_meta( 'homepage_feature_image', 'size=full' );
 				$ctas = rwmb_meta( 'homepage_feature_ctas' );
 			?>
-			<div class="slide" style="background-image:url(<?php foreach ( $images as $image ) { echo $image['url']; } ?>);">
-				<div class="text">
-					<div class="vertical-center">
-						<div class="container">
-							<div class="row">
-								<div class="col-sm-8 col-md-6">
-									<h1 class="color-white margin-bottom-15"><?php the_title(); ?></h1>
-									<h4 class="color-white text-normal hidden-xs margin-bottom-0"><?php echo $subhead;?></h4>
-									<?php if ( ! empty( $ctas ) ) { ?>
-									<ul class="cta-list">
-										<?php foreach ( $ctas as $cta_value ) {
-											$btn_text = isset( $cta_value['homepage_feature_btn_text'] ) ? $cta_value['homepage_feature_btn_text'] : '';
-											$url = isset( $cta_value['homepage_feature_url'] ) ? $cta_value['homepage_feature_url'] : '';
-											$target = isset( $cta_value['homepage_feature_target'] ) ? $cta_value['homepage_feature_target'] : '';
-										?>
-										<li><a href="<?php echo $url;?>" <?php if ( !empty ( $target ) ) echo 'target="_blank"';?> class="btn btn-primary outline-white"><?php echo $btn_text;?> <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
-										<?php } ;?>
-									</ul>
+			<div class="slide match-height" style="background-image:url(<?php foreach ( $images as $image ) { echo $image['url']; } ?>);">
+				<div class="container">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="text">
+								<h1 class="color-white margin-bottom-15"><?php the_title(); ?></h1>
+								<h4 class="color-white text-normal margin-bottom-0"><?php echo $subhead;?></h4>
+								<?php if ( ! empty( $ctas ) ) { ?>
+								<ul class="cta-list">
+									<?php foreach ( $ctas as $cta_value ) {
+										$btn_text = isset( $cta_value['homepage_feature_btn_text'] ) ? $cta_value['homepage_feature_btn_text'] : '';
+										$url = isset( $cta_value['homepage_feature_url'] ) ? $cta_value['homepage_feature_url'] : '';
+										$target = isset( $cta_value['homepage_feature_target'] ) ? $cta_value['homepage_feature_target'] : '';
+									?>
+									<li><a href="<?php echo $url;?>" <?php if ( !empty ( $target ) ) echo 'target="_blank"';?> class="btn btn-primary outline-white"><?php echo $btn_text;?> <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></li>
 									<?php } ;?>
-								</div>
+								</ul>
+								<?php } ;?>
 							</div>
 						</div>
 					</div>

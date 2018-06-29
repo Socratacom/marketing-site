@@ -1,6 +1,21 @@
 <?php echo do_shortcode('[homepage-features]');?>
 <section class="section-padding">
 	<div class="container">
+		<div class="row">
+			<div class="text-center col-sm-12">
+				<div class="tyler-logo" style="width:250px; height:200px;"></div>
+				<h2 class="section-title" style="margin-bottom:30px;">Tyler Acquires Socrata</h2>
+				<p class="lead">Socrata is now the <span class="font-semi-bold">Data & Insights Division</span> of Tyler Technologies, the largest software company in the nation solely focused on providing technology to the public sector. Together, we are accelerating our shared vision: <i>putting data – the only resource government has in abundance – at the heart of every program</i>.</p>
+				<ul class="cta-list">
+					<li><a href="/tyler-acquires-socrata/" class="btn btn-primary" style="border:2px solid #288dc1;">Read More</a></li>
+					<li><a href="https://www.tylertech.com/" class="btn btn-primary outline-primary" target="_blank">Visit Tyler</a></li>
+				</ul>				
+			</div>
+		</div>
+	</div>
+</section>
+<section class="section-padding mdc-bg-blue-grey-50">
+	<div class="container">
 		<div class="row margin-bottom-30">
 			<div class="col-sm-12">
 				<h2 class="text-center section-title">Data-driven innovation of government programs</h2>
@@ -24,27 +39,8 @@
 		</div>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1">
-				<p class="text-center">Socrata customer sites are powered by: <a href="https://aws.amazon.com/" target="_blank"><img src="/wp-content/uploads/logo-aws-small.png"></a></p>
+				<p class="text-center">Data &amp; Insights customer sites are powered by: <a href="https://aws.amazon.com/" target="_blank"><img src="/wp-content/uploads/Amazon_Web_Services_Logo.png" style="height:32px; margin-left:15px;"></a></p>
 			</div>
 		</div>
 	</div>
 </section>
-<section class="background-video">
-	<div class="text">
-		<div class="vertical-center">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-10 col-sm-offset-1">
-						<h2 class="section-title color-white">Why Socrata</h2>
-						<p class="lead color-white">Socrata's cloud-based solutions allow government organizations to put their data online, make data-driven decisions, operate more efficiently, and share insights with citizens.</p>
-						<p><a href="https://www.youtube.com/watch?v=yH4RnuPijZA" role="button"><i class="fa fa-play-circle-o"></i></a></p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="myvideo" class="image" style="background-image:url(https://img.youtube.com/vi/yH4RnuPijZA/maxresdefault.jpg)"></div>
-	<div id="video" class="player" data-property="{videoURL:'yH4RnuPijZA',containment:'#myvideo', showControls:false, autoPlay:true, loop:true, mute:true, startAt:9, stopAt:19, opacity:1, addRaster:true, quality:'default'}"></div>
-	<script>jQuery(function(e){e("#video").YTPlayer()});</script>
-</section>
-<?php echo do_shortcode("[youtube-modal]"); ?>

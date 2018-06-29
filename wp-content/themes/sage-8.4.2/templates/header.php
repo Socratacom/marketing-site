@@ -10,36 +10,9 @@
             <i class="ui-menu__line ui-menu__line_3"></i>
           </span>
         </button>
-        <a href="<?php echo home_url('/'); ?>" class="navbar-brand"></a>
+        <a href="<?php echo home_url('/'); ?>" class="socrata-logo" style="height:30px; width:140px; margin-top:15px; margin-right:15px;"></a>
       </div>
       <ul class="nav navbar-nav hidden-xs hidden-sm">
-
-<!--
-
-        <li class="dropdown">
-          <a data-toggle="dropdown" data-submenu>Solutions &amp; Products</a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-submenu">
-              <a>Solutions</a>
-              <?php wp_nav_menu( array( 
-                  'theme_location' => 'site_nav_solutions',
-                  'container'       => '',
-                  'menu_class' => 'dropdown-menu' 
-                ) ); ?>
-            </li>
-            <li class="dropdown-submenu">
-              <a>Products</a>
-              <?php wp_nav_menu( array( 
-                  'theme_location' => 'site_nav_products',
-                  'container'       => '',
-                  'menu_class' => 'dropdown-menu' 
-                ) ); ?>
-            </li>
-          </ul>
-        </li>
-
--->
-
         <li class="dropdown">
           <a data-toggle="dropdown">Solutions</a>
           <?php wp_nav_menu( array( 
