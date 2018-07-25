@@ -25,14 +25,14 @@
 						display:block !important;
 						padding:0 0 5px 0 !important;
 						position:relative !important;
-						color:$mdc-grey-900 !important;
+						color:$mdc-grey-500 !important;
 						.mktoAsterix {
 							float:none !important;
 							padding:0 !important;
 							position:absolute !important;
 							left:-15px !important;
 							top:2px !important;
-							color:$mdc-grey-900 !important;
+							color:$mdc-grey-500 !important;
 						}
 					}
 					.mktoGutter[style] {
@@ -55,6 +55,7 @@
 						height: auto !important;
 						border-radius: 0px !important; 
 						background: url("https://socrata.com/wp-content/uploads/icon-sort-down.png") 98% center no-repeat;
+						background-color:$white !important;
 						appearance: none !important; 
 						-webkit-appearance: none !important; 
 						-moz-appearance: none !important; 
@@ -66,7 +67,7 @@
 						display: none; 
 					} 
 					select.mktoField:disabled::-ms-expand { 
-						background: #f60; 
+						background: $white !important; 
 					}
 					.mktoError {
 						position:static !important;
