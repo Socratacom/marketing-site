@@ -114,11 +114,11 @@
 					border-radius:0 !important;
 					box-shadow:none !important;
 				}
-				button:before {
+				.mktoButton:before {
 					display:none !important;
 				}
-				button:hover {
-					background-color:#236d95;
+				.mktoButton:hover {
+					background-color:#236d95 !important;
 				}
 			}
 		}
