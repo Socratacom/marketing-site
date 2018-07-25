@@ -22,6 +22,9 @@
       },
       finalize: function() {
         // JavaScript to be fired after the init JS
+
+$('p:empty').remove();
+
         jQuery(function($) {
           $(function() {
             $.fn.matchHeight._throttle = 80;
