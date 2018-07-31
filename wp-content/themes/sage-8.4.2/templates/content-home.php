@@ -5,7 +5,7 @@
 			<div class="text-center col-sm-12">
 				<div class="tyler-logo" style="width:250px; height:200px;"></div>
 				<h2 class="section-title" style="margin-bottom:30px;">Tyler Acquires Socrata</h2>
-				<p class="lead">Socrata is now the <span class="font-semi-bold">Data & Insights Division</span> of Tyler Technologies, the largest software company in the nation solely focused on providing technology to the public sector. Together, we are accelerating our shared vision: <i>putting data – the only resource government has in abundance – at the heart of every program</i>.</p>
+				<p class="lead">Socrata is now the <span class="font-semi-bold">Data & Insights Division</span> of Tyler Technologies, the largest software company in the nation solely focused on providing technology to the public sector. Together, we are accelerating our shared vision: <i>putting data at the heart of every program</i>.</p>
 				<ul class="cta-list">
 					<li><a href="/tyler-acquires-socrata/" class="btn btn-primary" style="border:2px solid #288dc1;">Read More</a></li>
 					<li><a href="https://www.tylertech.com/" class="btn btn-primary outline-primary" target="_blank">Visit Tyler</a></li>
