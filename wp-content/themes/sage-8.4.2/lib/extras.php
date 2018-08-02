@@ -857,14 +857,24 @@ function content_query($atts, $content = null) {
     'segment' => '',
     ), $atts ) );
     ob_start();
+    
     $args = array(
     'post_type' => array('post','case_study','socrata_videos','socrata_webinars'),
     'solution' => $solution,
     'segment' => $segment,
     'posts_per_page' => 4,
+    'offset' => 1,
     'orderby' => 'date',
     'order'   => 'desc',
+		'meta_query' => array(		
+				array(
+					'key' => 'socrata_hidden_hide',
+					'value' => '1',
+					'compare' => '!=',
+				),
+	  	)
     );
+
     $myquery = new \WP_Query($args);
     // The Loop
     while ( $myquery->have_posts() ) {
@@ -877,8 +887,10 @@ function content_query($atts, $content = null) {
 				$video_url = $video;
 				$video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
 
-				if ( ! empty( $hidden ) ) { ?> <?php }
-        elseif ( get_post_type() == 'socrata_webinars' ) { ?>
+				
+			
+
+        if ( get_post_type() == 'socrata_webinars' ) { ?>
 
             <div class="col-sm-6 col-md-3">
 

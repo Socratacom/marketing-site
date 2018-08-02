@@ -17,7 +17,7 @@ function socrata_hidden_meta_boxes( $meta_boxes )
   
   $meta_boxes[] = array(
     'title'  => __( 'Hide Post', 'socrata_hidden_' ),
-    'post_types' => array('socrata_downloads','case_study','socrata_events','socrata_videos','socrata_webinars'),
+    'post_types' => array('post','socrata_downloads','case_study','socrata_events','socrata_videos','socrata_webinars'),
     'context'    => 'side',
     'priority'   => 'high',
     'fields' => array(
