@@ -857,7 +857,8 @@ function content_query($atts, $content = null) {
     'segment' => '',
     ), $atts ) );
     ob_start();
-    
+
+
     $args = array(
     'post_type' => array('post','case_study','socrata_videos','socrata_webinars'),
     'solution' => $solution,
@@ -866,13 +867,6 @@ function content_query($atts, $content = null) {
     'offset' => 1,
     'orderby' => 'date',
     'order'   => 'desc',
-		'meta_query' => array(		
-				array(
-					'key' => 'socrata_hidden_hide',
-					'value' => '1',
-					'compare' => '!=',
-				),
-	  	)
     );
 
     $myquery = new \WP_Query($args);
