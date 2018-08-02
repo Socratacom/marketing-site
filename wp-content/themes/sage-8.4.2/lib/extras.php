@@ -869,6 +869,7 @@ function content_query($atts, $content = null) {
     // The Loop
     while ( $myquery->have_posts() ) {
         $myquery->the_post();
+        $hidden = rwmb_meta( 'socrata_hidden_hide' );
         $customer = rwmb_meta( 'case_study_customer' );
         $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'post-image-small' );
         $url = $thumb['0'];
@@ -876,7 +877,8 @@ function content_query($atts, $content = null) {
 				$video_url = $video;
 				$video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
 
-        if ( get_post_type() == 'socrata_webinars' ) { ?>
+				if ( ! empty( $hidden ) ) { ?> <?php }
+        elseif ( get_post_type() == 'socrata_webinars' ) { ?>
 
             <div class="col-sm-6 col-md-3">
 
