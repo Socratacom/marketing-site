@@ -2315,6 +2315,43 @@ dl.quote-author {
   }
 }
 
-
+.cf_widget {
+	display:block !important;
+	span {
+		display:inline-block !important;
+	}
+	.cf_socialicon_boundry {
+		display:block !important;
+	}
+	.cf_ratingcount_left {
+		display:none !important;
+	}
+	.cf_ratingcount_right {
+		float:none !important;
+		.cf_actionElem {
+			display:none !important;
+		}
+		.cf_socialicons {
+			.cf_socialicon {
+				width:42px !important;
+				height:42px !important;
+				margin-right:4px !important;
+				background-position:center !important;
+			}
+			.cf_socialicon:hover {
+				background-size:95% !important;
+			}
+			.cf_facebook {
+				background-image:url("/wp-content/uploads/icon-facebook-sharing.png") !important;
+			}
+			.cf_twitter {
+				background-image:url("/wp-content/uploads/icon-twitter-sharing.png") !important;
+			}
+			.cf_linkedin {
+				background-image:url("/wp-content/uploads/icon-linkedin-sharing.png") !important;
+			}
+		}
+	}
+}
 
 

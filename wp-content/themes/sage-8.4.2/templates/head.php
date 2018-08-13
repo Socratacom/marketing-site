@@ -11,4 +11,6 @@
 	<!-- End Google Tag Manager -->
 	<link rel="alternate" type="application/rss+xml" title="Socrata Blog" href="/feed/" />
 	<?php wp_head(); ?>
+	<!-- Mrk.to Widget Loader Script -->
+	<script type="text/javascript" src="//b2c-msm.marketo.com/jsloader/f17421e3-b9cb-41ad-af00-a17e050169fc/loader.php.js"></script>
 </head>
