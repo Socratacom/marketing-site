@@ -218,12 +218,25 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
         ),
       ),
     ),
+
+
+    'tabs' => array(
+			'meta' => 'Webinar Meta',
+			'content' => 'Content',
+			'speakers' => 'Speakers',
+		),
+
+
+		// Tab style: 'default', 'box' or 'left'. Optional
+		'tab_style' => 'box',
+		'geo' => true,
     'fields' => array(
       // HEADING
       array(
         'type' => 'heading',
         'name' => __( 'Webinar Date and Time', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
+        'tab'  => 'meta',
       ),
       // DATETIME
       array(
@@ -235,6 +248,7 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
           'numberOfMonths'  => 1,
           'showButtonPanel' => true,
         ),
+        'tab'  => 'meta',
       ),      
       // TEXT
       array(
@@ -243,19 +257,33 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
         'desc' => __( 'Example: Monday, January 1, 1:00 pm - 2:00 pm PT', 'webinars_' ),
         'type'  => 'text',
         'clone' => false,
+        'tab'  => 'meta',
       ),      
       // HEADING
       array(
         'type' => 'heading',
         'name' => __( 'Forms', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
+        'tab'  => 'meta',
       ),
+      // TEXTAREA
+			array(
+				'name' => 'Marketo Embed Code',
+				'id'   => "{$prefix}marketo",
+				'type' => 'textarea',
+				'cols' => 20,
+				'rows' => 3,
+				'tab'  => 'meta',
+			),
+
+/*
       // URL
       array(
         'name' => esc_html__( 'Registration Form', 'webinars_' ),
         'id'   => "{$prefix}form_registration",
         'desc' => esc_html__( 'http://go.socrata.com/l/303201/...', 'webinars_' ),
         'type' => 'url',
+        'tab'  => 'meta',
       ),
       // URL
       array(
@@ -263,12 +291,15 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
         'id'   => "{$prefix}form_on_demand",
         'desc' => esc_html__( 'http://go.socrata.com/l/303201/...', 'webinars_' ),
         'type' => 'url',
+        'tab'  => 'meta',
       ),
+*/
       // HEADING
       array(
         'type' => 'heading',
         'name' => __( 'Downloadable Assets', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
+        'tab'  => 'meta',
       ),
       // URL
       array(
@@ -276,12 +307,14 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
         'id'   => "{$prefix}asset_slide_deck",
         'desc' => esc_html__( 'Include http:// or https://', 'webinars_' ),
         'type' => 'url',
+        'tab'  => 'meta',
       ),      
       // HEADING
       array(
         'type' => 'heading',
         'name' => __( 'On Demand Webinar Video', 'webinars_' ),
         'id'   => 'fake_id', // Not used but needed for plugin
+        'tab'  => 'meta',
       ),
       // TEXT
       array(
@@ -290,17 +323,10 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
         'desc' => __( 'Example: am6nzoa6vv', 'webinars_' ),
         'type'  => 'text',
         'clone' => false,
-      ), 
-    )
-  );
-
-  $meta_boxes[] = array(
-    'title'         => 'Content',   
-    'post_types'    => 'socrata_webinars',
-    'context'       => 'normal',
-    'priority'      => 'high',
-      'fields' => array(
-        array(
+        'tab'  => 'meta',
+      ),
+      // WYSIWYG
+      array(
         'id'      => "{$prefix}wysiwyg",
         'type'    => 'wysiwyg',
         // Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
@@ -310,9 +336,45 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
           'textarea_rows' => 15,
           'teeny'         => false,
           'media_buttons' => true,
-        ),
+      	),
+      	'tab'  => 'content',
+    	),
+    	// HEADING
+      array(
+        'type' => 'heading',
+        'name' => __( 'Speaker Info', 'webinars_' ),
+        'id'   => 'fake_id', // Not used but needed for plugin
+        'tab'  => 'speakers',
       ),
-    ),
+      array(
+        'id'     => "{$prefix}speakers",
+        'type'   => 'group',
+        'clone'  => true,
+        'sort_clone' => true,
+        'tab'  => 'speakers',
+        // Sub-fields
+        'fields' => array(
+          array(
+            'name' => __( 'Name', 'webinars_' ),
+            'id'   => "{$prefix}speaker_name",
+            'type' => 'text',
+          ),
+          array(
+            'name' => __( 'Title', 'webinars_' ),
+            'id'   => "{$prefix}speaker_title",
+            'type' => 'text',
+          ),
+          // IMAGE ADVANCED (WP 3.5+)
+          array(
+            'name'             => __( 'Headshot', 'webinars_' ),
+            'id'               => "{$prefix}speaker_headshot",
+            'desc' => __( 'Minimum size 300x300 pixels.', 'webinars_' ),
+            'type'             => 'image_advanced',
+            'max_file_uploads' => 1,
+          ),
+      	),
+    	), 
+    )
   );
 
   $meta_boxes[] = array(
@@ -335,47 +397,6 @@ function socrata_webinars_register_meta_boxes( $meta_boxes )
     ),
   );
 
-  $meta_boxes[] = array(
-    'title'         => 'Speakers',   
-    'post_types'    => 'socrata_webinars',
-    'context'       => 'normal',
-    'priority'      => 'high',
-      'fields' => array(
-        // HEADING
-        array(
-          'type' => 'heading',
-          'name' => __( 'Speaker Info', 'webinars_' ),
-          'id'   => 'fake_id', // Not used but needed for plugin
-        ),
-        array(
-        'id'     => "{$prefix}speakers",
-        'type'   => 'group',
-        'clone'  => true,
-        'sort_clone' => true,
-        // Sub-fields
-        'fields' => array(
-          array(
-            'name' => __( 'Name', 'webinars_' ),
-            'id'   => "{$prefix}speaker_name",
-            'type' => 'text',
-          ),
-          array(
-            'name' => __( 'Title', 'webinars_' ),
-            'id'   => "{$prefix}speaker_title",
-            'type' => 'text',
-          ),
-          // IMAGE ADVANCED (WP 3.5+)
-          array(
-            'name'             => __( 'Headshot', 'webinars_' ),
-            'id'               => "{$prefix}speaker_headshot",
-            'desc' => __( 'Minimum size 300x300 pixels.', 'webinars_' ),
-            'type'             => 'image_advanced',
-            'max_file_uploads' => 1,
-          ),
-        ),
-      ), 
-    ),
-  );
   return $meta_boxes;
 }
 

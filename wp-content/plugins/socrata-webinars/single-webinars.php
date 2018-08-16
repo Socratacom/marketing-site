@@ -12,6 +12,7 @@ $img_id = get_post_thumbnail_id(get_the_ID());
 $alt_text = get_post_meta($img_id , '_wp_attachment_image_alt', true);
 $video = rwmb_meta( 'webinars_video' );
 $content = rwmb_meta( 'webinars_wysiwyg' );
+$marketo = rwmb_meta( 'webinars_marketo' );
 ?>
 
 
@@ -87,14 +88,15 @@ $content = rwmb_meta( 'webinars_wysiwyg' );
 				<h4 class="margin-bottom-15">Watch this webinar</h4>
 				<p> Please fill out this form to watch the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
-				<?php if ( ! empty( $form_on_demand ) ) { 
+				<?php if (!empty( $marketo )) echo $marketo;
+					elseif (!empty( $form_on_demand )) { 
 					$str = $form_on_demand;
 					$str = preg_replace('#^https?://go.socrata.com/l/303201/#', '', $str);
 					?> 
 					<iframe id="formIframe" style="width: 100%; border: 0;" src="https://go.pardot.com/l/303201/<?php echo $str;?>" scrolling="no"></iframe>
-					<?php } 
+					<?php }
 				?>
-
+				
 				</div>
 				<?php }
 				else { }
@@ -109,12 +111,13 @@ $content = rwmb_meta( 'webinars_wysiwyg' );
 				<h4 class="margin-bottom-15">Watch this webinar</h4>
 				<p> Please fill out this form to watch the <i>"<?php the_title(); ?>"</i> webinar.</p>
 
-				<?php if ( ! empty( $form_on_demand ) ) { 
+				<?php if (!empty( $marketo )) echo $marketo;
+					elseif (!empty( $form_on_demand )) { 
 					$str = $form_on_demand;
 					$str = preg_replace('#^https?://go.socrata.com/l/303201/#', '', $str);
 					?> 
 					<iframe id="formIframe" style="width: 100%; border: 0;" src="https://go.pardot.com/l/303201/<?php echo $str;?>" scrolling="no"></iframe>
-					<?php } 
+					<?php }
 				?>
 
 				</div>
