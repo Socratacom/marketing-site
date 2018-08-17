@@ -175,18 +175,6 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
 				'tab'  => 'content',
 			),
 
-			// CHECKBOX
-			array(
-				'name' => esc_html__( 'Is this content gated?', 'downloads_' ),
-				'id'   => "{$prefix}gated",
-				'type' => 'checkbox',
-
-        'desc' => __( 'Yes', 'downloads_' ),
-				// Value can be 0 or 1
-				'std'  => 0,
-				'tab'  => 'content',
-			),
-
       // WYSIWYG/RICH TEXT EDITOR
 			array(
 				'id'      => "{$prefix}wysiwyg",
@@ -208,6 +196,28 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
 				'name' => esc_html__( 'Asset Meta', 'downloads_' ),
 				'desc' => esc_html__( 'Add your asset cover image and link to download.', 'downloads_' ),				
         'tab'  => 'asset',
+			),
+
+			// CHECKBOX
+			array(
+				'name' => esc_html__( 'Is this content gated?', 'downloads_' ),
+				'id'   => "{$prefix}gated",
+				'type' => 'checkbox',
+
+        'desc' => __( 'Yes', 'downloads_' ),
+				// Value can be 0 or 1
+				'std'  => 0,
+				'tab'  => 'asset',
+			),
+
+		 // TEXTAREA
+			array(
+				'name' => 'Marketo Embed Code',
+				'id'   => "{$prefix}marketo",
+				'type' => 'textarea',
+				'cols' => 20,
+				'rows' => 3,
+				'tab'  => 'asset',
 			),
 
       // IMAGE ADVANCED (WP 3.5+)
@@ -236,8 +246,6 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
 				'desc' => esc_html__( 'Add additional resource content to the thank you page. This is optional.', 'downloads_' ),		
         'tab'  => 'redirect',
 			),
-
-
 
       // GROUP
       array(
@@ -282,18 +290,6 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
 
         ),
       ),
-
-
-
-
-
-
-
-
-
-
-
-
     )
   );
 
