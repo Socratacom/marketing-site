@@ -18,7 +18,7 @@
           <h5>Guide Chapters</h5>
           <?php wp_nav_menu( array( 'theme_location' => 'field_guide' ) ); ?>
         </div>
-        <div class="padding-15 background-clouds">
+        <div class="padding-30 background-clouds">
           <h4 class="margin-bottom-15">Request more information</h4>
           <p>Want to know more about what Socrata can do for Open Data &amp; Citizen Engagement? We’d love to show you what we can do. Fill out the form and a qualified Socrata representative will set up a no obligation meeting to assess your needs.</p>
 					<script src="//app-ab26.marketo.com/js/forms2/js/forms2.min.js"></script>
