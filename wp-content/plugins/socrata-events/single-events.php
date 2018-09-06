@@ -236,13 +236,13 @@ $region = rwmb_meta( 'socrata_events_region_taxonomy' );
   			</div>
   			<div class="col-sm-6">
   				<?php if ( !empty ( $region ) ) { ?>
-						<script src="//app-ab26.marketo.com/js/forms2/js/forms2.min.js"></script>
-						<form id="mktoForm_3360"></form>
-						<script>MktoForms2.loadForm("//app-ab26.marketo.com", "015-NUU-525", 3360);</script>
+					<script src="//app-ab26.marketo.com/js/forms2/js/forms2.min.js"></script>
+					<form id="mktoForm_3360"></form>
+					<script>MktoForms2.loadForm("//app-ab26.marketo.com", "015-NUU-525", 3360);</script>
   				<?php } else { ?>
-						<script src="//app-ab26.marketo.com/js/forms2/js/forms2.min.js"></script>
-						<form id="mktoForm_3360"></form>
-						<script>MktoForms2.loadForm("//app-ab26.marketo.com", "015-NUU-525", 3360);</script>
+					<script src="//app-ab26.marketo.com/js/forms2/js/forms2.min.js"></script>
+					<form id="mktoForm_3360"></form>
+					<script>MktoForms2.loadForm("//app-ab26.marketo.com", "015-NUU-525", 3360);</script>
   				<?php } ?>  				
   			</div>
   		</div>
