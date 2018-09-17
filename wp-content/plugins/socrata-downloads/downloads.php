@@ -148,14 +148,7 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
     'post_types' => 'socrata_downloads',
     'context'    => 'normal',
     'priority'   => 'high',
-    'validation' => array(
-      'rules'    => array(
-        "{$prefix}link" => array(
-            'required'  => true,
-        ),
-      ),
-    ),
-
+   
     'tabs' => array(
 			'content' => 'Landing Page Content',
 			'asset' => 'Asset Meta',
@@ -227,15 +220,6 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
         'type'             => 'image_advanced',
         'max_file_uploads' => 1,
         'desc' => __( 'Asset thumbnail image', 'downloads_' ),
-        'tab'  => 'asset',
-      ),
-
-      // URL
-      array(
-        'name' => esc_html__( 'Pardot Link', 'downloads_' ),
-        'id'   => "{$prefix}link",
-        'desc' => __( 'This is a Pardot URL. EX: http://go.socrata.com/l/303201/...', 'downloads_' ),
-        'type' => 'url',
         'tab'  => 'asset',
       ),
 
