@@ -229,6 +229,7 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
         'id'   => "{$prefix}_link",
         'desc' => __( 'Link to asset', 'downloads_' ),
         'type' => 'url',
+        'tab'  => 'asset',
       ),
 
     	// HEADING
