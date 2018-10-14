@@ -226,7 +226,7 @@ function socrata_downloads_register_meta_boxes( $meta_boxes )
       // URL
       array(
         'name' => esc_html__( 'Asset Link', 'downloads_' ),
-        'id'   => "{$prefix}_link",
+        'id'   => "{$prefix}link",
         'desc' => __( 'Link to asset', 'downloads_' ),
         'type' => 'url',
         'tab'  => 'asset',
