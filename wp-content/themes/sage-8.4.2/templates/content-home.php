@@ -1,21 +1,6 @@
 <?php echo do_shortcode('[homepage-features]');?>
 <section class="section-padding">
 	<div class="container">
-		<div class="row">
-			<div class="text-center col-sm-10 col-sm-offset-1">
-				<div class="tyler-logo" style="width:250px; height:200px;"></div>
-				<h2 class="section-title" style="margin-bottom:30px;">Tyler Acquires Socrata</h2>
-				<p class="lead">Socrata is now the <span class="font-semi-bold">Data & Insights Division</span> of Tyler Technologies, the largest software company in the nation solely focused on providing technology to the public sector. Together, we are accelerating our shared vision: <i>putting data at the heart of every program</i>.</p>
-				<ul class="cta-list">
-					<li><a href="/tyler-acquires-socrata/" class="btn btn-primary" style="border:2px solid #288dc1;">Read More</a></li>
-					<li><a href="https://www.tylertech.com/" class="btn btn-primary outline-primary" target="_blank">Visit Tyler</a></li>
-				</ul>				
-			</div>
-		</div>
-	</div>
-</section>
-<section class="section-padding mdc-bg-blue-grey-50">
-	<div class="container">
 		<div class="row margin-bottom-30">
 			<div class="col-sm-12">
 				<h2 class="text-center section-title">Data-driven innovation of government programs</h2>
